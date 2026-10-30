@@ -359,5 +359,6 @@
       "reuse_break_even_estimate": 925,
       "break_even_scope": "Estimate covers controller bootstrap and memory prewarm, excludes interpreter/import startup; assumes repeated public workload and this measured median saving."
     }
-  }
+  },
+  "snapshot_generated_at_utc": "2026-10-30T20:45:53.168819+00:00"
 }

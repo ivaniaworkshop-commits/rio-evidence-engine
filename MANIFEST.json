@@ -18,8 +18,8 @@
     },
     {
       "path": "DELTAS.json",
-      "bytes": 12416,
-      "sha256": "92a0bdf505d36d9e16f3381656f1be229faef64d644889657364cc67b45d2d56"
+      "bytes": 12483,
+      "sha256": "129348b51a994737e006b2fd230f73515699ab3e256f95b179b674c90b825a07"
     },
     {
       "path": "README.md",
@@ -73,8 +73,8 @@
     },
     {
       "path": "docs/data.json",
-      "bytes": 12416,
-      "sha256": "92a0bdf505d36d9e16f3381656f1be229faef64d644889657364cc67b45d2d56"
+      "bytes": 12483,
+      "sha256": "129348b51a994737e006b2fd230f73515699ab3e256f95b179b674c90b825a07"
     },
     {
       "path": "docs/index.html",
@@ -443,8 +443,8 @@
     },
     {
       "path": "scripts/refresh_snapshot.py",
-      "bytes": 5427,
-      "sha256": "57e6035f53139959d3887842a1067ffc2cb9c1e6cecfa605f563597558fd6a9a"
+      "bytes": 5658,
+      "sha256": "3dd1e2397986029d35402fc86544e9623315d275bebf937e2d05bb207bbdf1ee"
     },
     {
       "path": "scripts/search_weight_groups.py",

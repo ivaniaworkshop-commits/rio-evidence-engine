@@ -1,4 +1,6 @@
 """Bind dashboard metrics to an existing local unittest execution record."""
+from datetime import datetime,timezone
+from zoneinfo import ZoneInfo
 import hashlib
 import json
 import re
@@ -16,6 +18,8 @@ def main():
     if not match or not re.search(r'^OK$', log, re.M):
         raise ValueError('complete passing suite required; skips are not counted as passes')
     data = json.loads((ROOT/'DELTAS.json').read_text())
+    data['updated']=datetime.now(ZoneInfo('America/Mexico_City')).date().isoformat()
+    data['snapshot_generated_at_utc']=datetime.now(timezone.utc).isoformat()
     if 'source_commit' in data:
         data['benchmark_source_commit'] = data.pop('source_commit')
     data['tests'] = int(match.group(1))
