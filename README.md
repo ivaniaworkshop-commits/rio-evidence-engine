@@ -27,7 +27,7 @@ The core uses the standard library to reduce setup requirements. Graph schedulin
 
 ## Verification
 
-Thirty-four tests (including four optional Node-based dashboard checks) cover graph scheduling, paired metrics, numeric boundaries, budget reserve, schema limits, journal consistency and incomplete-line handling. Actual execution results are recorded in VALIDATION.json. Regression tests include malformed inputs, CLI subprocesses, and dependency invariants across 64 seeded synthetic graphs. The demo uses authored synthetic values; it is not a benchmark or evidence of real-world performance improvement.
+Forty tests (including four optional Node-based dashboard checks) cover graph scheduling, paired metrics, numeric boundaries, budget reserve, schema limits, journal consistency and incomplete-line handling. Actual execution results are recorded in VALIDATION.json. Regression tests include malformed inputs, CLI subprocesses, and dependency invariants across 64 seeded synthetic graphs. The demo uses authored synthetic values; it is not a benchmark or evidence of real-world performance improvement.
 
 ## Limits
 
@@ -111,3 +111,10 @@ They are preparation, not competition acceptance.
 Run `python scripts/verify_manifest.py` to verify byte identity and inventory.
 It rejects changed, missing, extra and escaping paths. This is not an
 authenticity or correctness certificate.
+
+## Grounded English tutor
+
+[128-case answer matrix](training/ANSWER_MATRIX.md) · [Model status and runner contract](training/MODEL_CARD.md).
+The deterministic tutor computes reference answers; an optional trusted local
+runner can generate explanations grounded in those answers. No LLM weights,
+training or actual LLM inference are included or claimed.

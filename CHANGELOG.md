@@ -34,3 +34,9 @@ Add explicit BOG/26 acceptance audit, prototype design and individual rehearsal.
 Add safe manifest inventory verification with four regressions. Execute the
 suite, demo and schedule CLI from a fresh temporary source copy. Official
 service, incident, video, hidden tests, debrief and submission remain unverified.
+
+## Computed curriculum and tutor adapter
+
+Preserve exact integer schedule totals; add a 128-case English answer matrix,
+exhaustive path-oracle checks, prompt exporter and explicit local-runner adapter.
+Adapter smoke test uses a stub, not a model. LLM runtime/weights remain absent.

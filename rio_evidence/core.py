@@ -82,7 +82,8 @@ def critical_path(tasks, durations):
         path.append(end)
         end = parent[end]
     try:
-        total = math.fsum(durations.values())
+        total = (sum(durations.values()) if all(type(v) is int for v in durations.values())
+                 else math.fsum(durations.values()))
     except OverflowError as error:
         raise ValueError('total duration overflow') from error
     if not math.isfinite(total):
