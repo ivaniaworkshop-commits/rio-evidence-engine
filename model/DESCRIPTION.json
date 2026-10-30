@@ -181,5 +181,18 @@
     "baseline": "evaluation/H07_GATE_R001.md",
     "live_ci_remeasurement": "PENDING_RUN_NOT_CLAIMED",
     "no_parameter_change": true
+  },
+  "h08_independent_capability_gate": {
+    "status": "BLOCKED_NO_EXTERNAL_HOLDOUT",
+    "independent_dataset_observed": false,
+    "source_authentication": "UNKNOWN",
+    "minimum_supported": 30,
+    "minimum_unsupported": 10,
+    "minimum_clusters": 5,
+    "paired_comparison": "SPECIFIED_NOT_EXECUTED_ON_INDEPENDENT_DATA",
+    "promotion": "BLOCKED",
+    "model_weights_changed": false,
+    "contract": "evaluation/H08_INDEPENDENT_GATE_R001.md",
+    "validator": "rio_evidence/independent_gate.py"
   }
 }
