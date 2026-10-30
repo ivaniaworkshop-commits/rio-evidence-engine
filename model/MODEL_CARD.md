@@ -1,0 +1,50 @@
+# Small trained byte language model
+
+Status: trained locally, checkpoint saved and reloaded, inference observed.
+Architecture: 256-byte vocabulary, 16-dimensional embedding, single GRU with
+32 hidden units, linear byte prediction head. 17,344 learned parameters.
+This is a SMALL neural language model, not a transformer or an LLM.
+
+## Run
+
+The Python evidence engine still has no required third-party dependencies.
+Neural commands additionally require the optional CPU runtime:
+
+```sh
+python -m pip install -r model/requirements-cpu.txt
+python -m rio_evidence.neural_lm generate --prompt 'Case: parallel' --max-bytes 120
+python -m rio_evidence.neural_lm train --steps 250
+```
+
+Training overwrites model/byte_gru.pt and model/TRAINING_RESULT.json. Only run
+it intentionally. Checkpoint loading uses weights_only=True; load only trusted
+project checkpoints. No private Río data was used. Corpus consists of the
+public 128 authored scenarios, divided into 102 practice and 26 evaluation cases.
+The split shares templates and is publicly available; loss is not evidence of
+independent generalization or numerical task accuracy. Greedy text generation
+is presently repetitive and unreliable. Do not use generated numbers as answers.
+
+## Observed results and evidence
+
+TRAINING_RESULT.json records seed, steps, initial/final loss and perplexity,
+byte counts, sample output, time and checkpoint/corpus hashes. The saved model
+was reloaded and produced exactly the same local evaluation loss. Greedy
+inference is tested for local repeatability. Cross-platform reproducibility,
+useful English explanation, unseen scheduling accuracy, production performance
+and human mastery are NOT established. Core scheduling remains deterministic.
+
+## Next highest-value model delta
+
+Establish acceptance on previously ungenerated task structures and evaluate
+correctness/faithfulness, not just next-byte loss. Keep a deterministic answer
+fallback until neural output passes those checks. Further training on repetitive
+templates alone is not evidence of higher utility. Scaling to an LLM is separate
+resource/data/model work; no future convergence or training success is promised.
+
+## Task probe
+
+TASK_EVALUATION.json records 26 greedy generations with no reference answer in
+the prompt. The fixed phrase extractor recovered zero durations and zero exact
+numeric matches. This is a failed format/task probe, not evidence of a useful
+neural solver or a complete semantic evaluation. Reproduce with
+`python scripts/evaluate_neural_tasks.py`.

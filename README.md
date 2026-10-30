@@ -27,7 +27,7 @@ The core uses the standard library to reduce setup requirements. Graph schedulin
 
 ## Verification
 
-Forty-four tests (including four optional Node-based dashboard checks) cover graph scheduling, paired metrics, numeric boundaries, budget reserve, schema limits, journal consistency and incomplete-line handling. Actual execution results are recorded in VALIDATION.json. Regression tests include malformed inputs, CLI subprocesses, and dependency invariants across 64 seeded synthetic graphs. The demo uses authored synthetic values; it is not a benchmark or evidence of real-world performance improvement.
+Forty-seven tests (including four optional Node-based dashboard checks) cover graph scheduling, paired metrics, numeric boundaries, budget reserve, schema limits, journal consistency and incomplete-line handling. Actual execution results are recorded in VALIDATION.json. Regression tests include malformed inputs, CLI subprocesses, and dependency invariants across 64 seeded synthetic graphs. The demo uses authored synthetic values; it is not a benchmark or evidence of real-world performance improvement.
 
 ## Limits
 
@@ -116,8 +116,8 @@ authenticity or correctness certificate.
 
 [128-case answer matrix](training/ANSWER_MATRIX.md) · [Model status and runner contract](training/MODEL_CARD.md).
 The deterministic tutor computes reference answers; an optional trusted local
-runner can generate explanations grounded in those answers. No LLM weights,
-training or actual LLM inference are included or claimed.
+runner can generate explanations grounded in those answers. A small byte GRU is now trained and included separately; it is not an LLM.
+The grounded adapter and deterministic references remain distinct from neural output.
 
 ## Research and decision evidence
 
@@ -126,3 +126,15 @@ Reproduce the ranking with `python scripts/prioritize_deltas.py`. Ranking
 frequencies are assumption sensitivity, not observed ROI or win probabilities.
 Local schedule/compare JSON inputs are capped at 1 MiB and reject duplicate
 keys and nonstandard numeric constants. This does not bound every input surface.
+
+## Trained small neural language model
+
+[Model card](model/MODEL_CARD.md) · [Observed training result](model/TRAINING_RESULT.json).
+17,344 parameters, 250 optimizer steps, checkpoint reload verified. Generated
+text is repetitive and not a reliable answer; next-byte loss is not task accuracy.
+Optional PyTorch CPU is required only for neural commands. See the model card
+for exact train/inference commands and evaluation limits.
+
+Observed neural task probe: 0/26 durations extractable in the specified format;
+0 exact numeric matches. See model/TASK_EVALUATION.json. Training-loss reduction
+did not translate into demonstrated scheduling-answer ability.

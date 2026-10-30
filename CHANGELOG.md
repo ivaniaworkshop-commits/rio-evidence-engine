@@ -47,3 +47,9 @@ Inspect six retrieved official documentation pages; record two unavailable
 sources. Integrate strict bounded CLI JSON with four tests. Add reproducible
 Monte Carlo candidate ranking, explicit judgment matrix and weight sensitivity.
 No LLM training or observed prediction accuracy is claimed.
+
+## Actual small neural model training
+
+Train a 17,344-parameter byte GRU on the public practice corpus, evaluate shared-template
+holdout, save/reload checkpoint and observe generation. Include optional runtime
+requirements and three additional tests. Output is unreliable; no LLM claim.

@@ -13,18 +13,18 @@
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 2549,
-      "sha256": "1ed634bf260cddafce48080bd0b9401ef47cc161963afe92937b904f16cb0705"
+      "bytes": 2837,
+      "sha256": "0a13e57bf42523d07deaea5da45cf33101ff6e7f73b39d650986ec6374394db2"
     },
     {
       "path": "DELTAS.json",
-      "bytes": 1930,
-      "sha256": "9e898284fb44bf8b5b89caaa2d422d3f03a41ef4313430a81a29cf2a30e61354"
+      "bytes": 2145,
+      "sha256": "50f4a439268dffdffd4d6704634f2d0a4a5113eba54e9bfa0b483af8f1a4f64b"
     },
     {
       "path": "README.md",
-      "bytes": 7614,
-      "sha256": "d8ad97339cc29b0be21d3b27aeb06dfee3979fb1c0aebf6b3441f886cb28009e"
+      "bytes": 8358,
+      "sha256": "b16f4a2c9d18627a47e539451875ca68456cfebae9f7a3d2091ff9232111362b"
     },
     {
       "path": "RECALCULATION.md",
@@ -33,8 +33,8 @@
     },
     {
       "path": "VALIDATION.json",
-      "bytes": 6831,
-      "sha256": "58313a73a2daa46cfcc7150889b6045c75a75eca72324666ebbcb787b2cbb876"
+      "bytes": 6429,
+      "sha256": "023a068edda1eee891c379c089bc1ac8c8e472ef6aa2ec4376d56984e0c8c747"
     },
     {
       "path": "VALIDATION_ACCOUNT.json",
@@ -63,8 +63,8 @@
     },
     {
       "path": "docs/app.js",
-      "bytes": 2398,
-      "sha256": "fb7b75a71f251d0c504275b3a95b7243cdf663c6faf65c9c3bd5bdf6b1f0dff5"
+      "bytes": 2824,
+      "sha256": "0ae404e0c06d25857f874a482fc43c46859bc64304baa1c94a047b5d5267f98b"
     },
     {
       "path": "docs/compare.js",
@@ -73,13 +73,13 @@
     },
     {
       "path": "docs/data.json",
-      "bytes": 1930,
-      "sha256": "9e898284fb44bf8b5b89caaa2d422d3f03a41ef4313430a81a29cf2a30e61354"
+      "bytes": 2145,
+      "sha256": "50f4a439268dffdffd4d6704634f2d0a4a5113eba54e9bfa0b483af8f1a4f64b"
     },
     {
       "path": "docs/index.html",
-      "bytes": 5654,
-      "sha256": "a7310053af22dd64903cde3d7b0d2456400a3eedcb62bb9960de61e0c45a9332"
+      "bytes": 5984,
+      "sha256": "af19a37dfa55310bc6040dcefedb50b5e0a8cb4aeb8fa37ec79eac285236fc78"
     },
     {
       "path": "docs/style.css",
@@ -95,6 +95,31 @@
       "path": "examples/schedule.json",
       "bytes": 213,
       "sha256": "ab1044a7cd5cf064cfbd25f2e080e89e137b9b0de78ae53c5cd736724ccf8afa"
+    },
+    {
+      "path": "model/MODEL_CARD.md",
+      "bytes": 2520,
+      "sha256": "27e55f9dd5988f4cd77f94dcee300885a8d7cf32c0658f51cd6a54e19471f3a5"
+    },
+    {
+      "path": "model/TASK_EVALUATION.json",
+      "bytes": 9076,
+      "sha256": "8153a2b719fe6b4c4decd9fc9ff39ca95369a069510c4b11b4a027d0d0096409"
+    },
+    {
+      "path": "model/TRAINING_RESULT.json",
+      "bytes": 1990,
+      "sha256": "0d90a7e0971bf5968c63dac01501f89349fc954b839f7bb1100eb1b1d37ed087"
+    },
+    {
+      "path": "model/byte_gru.pt",
+      "bytes": 72734,
+      "sha256": "a190c30ef90aa4bf21d92036d388c9c272fda73e7869f507648a6d053bb1ec29"
+    },
+    {
+      "path": "model/requirements-cpu.txt",
+      "bytes": 67,
+      "sha256": "23eb49e255df12bb49cbaf1cc844594349e62640696021ae1e6be0f9fd6daca9"
     },
     {
       "path": "research/DELTA_MONTE_CARLO.json",
@@ -132,6 +157,11 @@
       "sha256": "5221e5ffc6b716915b703807b441c6f34eb8891d54179e78e81cb988d3b56039"
     },
     {
+      "path": "rio_evidence/neural_lm.py",
+      "bytes": 5724,
+      "sha256": "016aa5f939d3515a2d3eaae547e6d1242f99931c74b1ee2886caf693f9cc2137"
+    },
+    {
       "path": "rio_evidence/tutor.py",
       "bytes": 3998,
       "sha256": "4b1b22aa9a040bdb504119473aaae1bbd6ffb5e1e4f8aca99b1cbfd9032d4fc0"
@@ -142,14 +172,19 @@
       "sha256": "12dcc16e6147b7091d525c0f2e9d5cd423d6bfd09431ec8959d2a76a20899c44"
     },
     {
+      "path": "scripts/evaluate_neural_tasks.py",
+      "bytes": 1684,
+      "sha256": "d20020d9ea132a1d7c3c413b48a662a8bbdb2777fb01b89f362f6460b1885505"
+    },
+    {
       "path": "scripts/prioritize_deltas.py",
       "bytes": 2812,
       "sha256": "87df5ec57970f7e5c83dfce20de5d69dcf5ca7f1ac611e68b796562727c52d6d"
     },
     {
       "path": "scripts/refresh_snapshot.py",
-      "bytes": 1374,
-      "sha256": "626859d5307abd3dc2d83387aa66e85a2b2605936c63c5776bc265568cdcc9a7"
+      "bytes": 1624,
+      "sha256": "25614e946a9290100947fa57fdc9f051fd3b682e5778c94c607198358523af24"
     },
     {
       "path": "scripts/verify_manifest.py",
@@ -177,6 +212,11 @@
       "sha256": "74ba35e2f4798d7bc6771ebf808cd71324acbccb87269433fb274c373b3f5584"
     },
     {
+      "path": "tests/test_neural_lm.py",
+      "bytes": 1014,
+      "sha256": "841a2081b01354c13c871bac1b92fea9b108dfd9331789022f288cf6a3c34174"
+    },
+    {
       "path": "tests/test_regressions.py",
       "bytes": 4944,
       "sha256": "4eab88ed817761affb6ed26ba827308c2d38e356c90deafc7aa339b2390bae1f"
@@ -193,8 +233,8 @@
     },
     {
       "path": "training/MODEL_CARD.md",
-      "bytes": 3019,
-      "sha256": "2da60be8b373c92daec81835dd95c7db9a8b2bf6d603854fca508d05c778789b"
+      "bytes": 3403,
+      "sha256": "57e3bfe6c0a896bd4f16376fac645d31dca4c30e87dccd0492a58ba19749d2e1"
     },
     {
       "path": "training/answer_matrix.jsonl",

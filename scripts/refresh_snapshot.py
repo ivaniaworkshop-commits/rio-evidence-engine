@@ -24,6 +24,10 @@ def main():
         'validation_sha256': hashlib.sha256((ROOT/'VALIDATION.json').read_bytes()).hexdigest(),
         'scope': 'LOCAL_EXECUTION_RECORD_BOUND_TO_SOURCE_BYTES_NOT_REMOTE_CI',
     }
+    model_path = ROOT/'model/TRAINING_RESULT.json'
+    if model_path.exists():
+        result=json.loads(model_path.read_text())
+        data['model']={k:result[k] for k in ['status','parameters','steps','initial_holdout_loss','final_holdout_loss']}
     encoded = json.dumps(data, indent=2)+'\n'
     for name in ['DELTAS.json','docs/data.json']:
         (ROOT/name).write_text(encoded)

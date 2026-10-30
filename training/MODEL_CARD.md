@@ -1,6 +1,8 @@
 # Grounded tutor: model and corpus status
 
-This project now has a computed answer corpus, reference-answer engine, prompt
+Historical adapter status before the neural-training round (superseded for runtime/weights by model/MODEL_CARD.md).
+
+This project initially had a computed answer corpus, reference-answer engine, prompt
 builder and an optional local model-runner adapter. It does NOT include trained
 LLM weights, tokenizer, transformer implementation, model server or observed LLM
 inference. Runtime availability in the building environment: torch, transformers,
@@ -56,3 +58,9 @@ an authorized runtime with actual weights; run the 26 evaluation cases; record
 model identity, configuration, per-case outputs, latency, failures and cost.
 Only after observing inference may the project claim a working LLM integration.
 Training a model from scratch is a separate, unevaluated scope.
+
+## Neural training update
+
+A small byte GRU has now actually been trained, saved, reloaded and sampled.
+See ../model/MODEL_CARD.md and ../model/TRAINING_RESULT.json for current evidence.
+It is not an LLM; the corpus and adapter limits above remain applicable.
