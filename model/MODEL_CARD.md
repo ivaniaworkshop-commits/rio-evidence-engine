@@ -202,3 +202,6 @@ semantic generalization or third-party validation. See model/H09_RESULT.json.
 
 ## H11 paired evaluation
 Registered candidates are executed against the H09 current baseline. Self-reported output/latency cannot count as observed, and exceptions never count as safe abstentions. No independent provenance, weight change or promotion. See evaluation/H11_INSTRUMENTED_PAIRS.md.
+
+## H12 statistical conditional screening
+Adds cluster-level sign guard against inflated significance from repeated same-cluster wins and exact binomial/seeded conditional simulation. These are calculations under assumptions, not independent test results or new weights. See evaluation/H12_POWER_DESIGN.md.

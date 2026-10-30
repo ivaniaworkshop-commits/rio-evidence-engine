@@ -331,3 +331,6 @@ Run `python scripts/evaluate_language_shift.py`; 40 positive and 12 negative cas
 
 ## H11 paired evaluation instrument
 python scripts/h11_run_paired.py --diagnostic --candidate h09 runs both registered systems locally on the same H10 public cases; --candidate legacy is an adverse control. Source independence and frozen-revision attestation remain unavailable. No weight change or autonomous deployment.
+
+## H12 conditional sample-size analysis
+Run python scripts/h12_power.py for exact binomial and seeded Monte Carlo estimates under explicit independent-win/no-loss assumptions. H11 screening now checks cluster-level wins too; neither proves source independence. See evaluation/H12_POWER_DESIGN.md.
