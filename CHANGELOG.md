@@ -74,3 +74,18 @@ Define exact English-to-graph extraction with abstention. Publish 28 authored
 cases, rule/model baselines, raw neural outputs and four contract tests. Current
 model demonstrates no extraction ability; silent 128-byte input truncation is a
 blocking interface limitation. No new model training.
+
+## Explicit neural context rejection
+
+Require nonempty UTF-8 prompt plus continuation to fit 128 bytes. Reject before
+runtime load; remove both prompt suffix and generation sliding-window slicing.
+CLI emits structured context error and exit 2; default generation is 64 bytes.
+Six new boundary/UTF-8/preflight/CLI tests pass. Current context reports preserve
+historical failed-generation reports. No checkpoint changes or retraining.
+
+## Synchronized model descriptions
+
+Generate model/DESCRIPTION.json and current-state blocks in README/model card
+from observed training, checkpoint identity, context gate and local test record.
+Retain historical measurements separately; scheduled updates must synchronize
+all current descriptions before manifest and publication.

@@ -36,6 +36,13 @@ def main():
     if semantic_path.exists():
         sem=json.loads(semantic_path.read_text())
         data['semantic_gate']={'summary':sem['summary'],'decision':sem['decision']}
+    context_path=ROOT/'model/SEMANTIC_CONTEXT_GATE.json'
+    if context_path.exists():
+        ctx=json.loads(context_path.read_text())
+        data['context_gate']={'rejections':ctx['summary']['neural']['context_rejections'],'capacity_bytes':128,'scope':'REJECTION_NOT_SEMANTIC_ABSTENTION'}
+    description_path=ROOT/'model/DESCRIPTION.json'
+    if description_path.exists():
+        data['model_description']=json.loads(description_path.read_text())
     encoded = json.dumps(data, indent=2)+'\n'
     for name in ['DELTAS.json','docs/data.json']:
         (ROOT/name).write_text(encoded)

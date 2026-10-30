@@ -64,3 +64,6 @@ Training a model from scratch is a separate, unevaluated scope.
 A small byte GRU has now actually been trained, saved, reloaded and sampled.
 See ../model/MODEL_CARD.md and ../model/TRAINING_RESULT.json for current evidence.
 It is not an LLM; the corpus and adapter limits above remain applicable.
+
+Current authoritative descriptions: ../model/DESCRIPTION.json and
+../model/MODEL_CARD.md; this corpus/adapter card retains historical provenance.

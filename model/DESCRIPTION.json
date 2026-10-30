@@ -1,0 +1,35 @@
+{
+  "schema": "OBSERVED_MODEL_DESCRIPTION_V1",
+  "name": "R\u00edo ByteGRU",
+  "kind": "SMALL_NEURAL_LANGUAGE_MODEL_NOT_LLM",
+  "architecture": "byte embedding16 -> GRU32 -> 256 logits",
+  "parameters": 17344,
+  "training_steps": 250,
+  "checkpoint_sha256": "a190c30ef90aa4bf21d92036d388c9c272fda73e7869f507648a6d053bb1ec29",
+  "checkpoint_status": "TRAINED_SAVED_RELOADED",
+  "free_generation_context_policy": "NONEMPTY_UTF8_PROMPT_PLUS_REQUESTED_OUTPUT_AT_MOST_128_BYTES",
+  "semantic_extraction_status": "BLOCKED_BY_CONTEXT_BUDGET",
+  "current_context_rejections": 28,
+  "context_rejections_are_semantic_abstentions": false,
+  "project_tests_passed": 61,
+  "hybrid_role": "OPTIONAL_RANKING_OF_DETERMINISTIC_EXPLANATIONS",
+  "observed_neural_value": "NO_OUTPUT_BENEFIT_IN_42_CASE_PAIRED_ABLATION",
+  "historical_task_probe": "0/26 extractable durations before context safety fix",
+  "historical_semantic_probe": "0/24 exact graphs before context safety fix",
+  "historical_loss": {
+    "initial": 5.595981802216249,
+    "final": 0.6929422469480627,
+    "scope": "PUBLIC_SHARED_TEMPLATE_EVALUATION_NOT_TASK_ACCURACY"
+  },
+  "sources": [
+    "model/TRAINING_RESULT.json",
+    "model/SEMANTIC_CONTEXT_GATE.json",
+    "model/MODE_ABLATION.json",
+    "VALIDATION.json"
+  ],
+  "limits": [
+    "No LLM, production reliability, human mastery or independent validation claimed.",
+    "Context acceptance preserves bytes, not demonstrated semantic retention.",
+    "Training metrics remain historical until actual retraining."
+  ]
+}

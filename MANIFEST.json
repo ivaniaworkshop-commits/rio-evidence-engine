@@ -13,28 +13,28 @@
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 3820,
-      "sha256": "a080b654fe7caa04669d8f62f5289ce6af696c290ff7182f6cc1ea59461e6112"
+      "bytes": 4586,
+      "sha256": "6eb0063d595a79a3bd0c6be013b1a216a0121620295bf62db01ba5aaa35dd55f"
     },
     {
       "path": "DELTAS.json",
-      "bytes": 3251,
-      "sha256": "3ffdf5a4fa136fcfb1b0d148b1548c0f5b1f1fbdd975a618d7be3415f85587a5"
+      "bytes": 4991,
+      "sha256": "7fb6141bc95004365f72be2d5ae15b89186db9a252ff978aafb1d6b70f48e15c"
     },
     {
       "path": "README.md",
-      "bytes": 9789,
-      "sha256": "86afa333df0761a7e88d84158cb01a9f6e6fef0dfef7257b171ea90730c1f18f"
+      "bytes": 11071,
+      "sha256": "720272b219f2d5509eacefec7aa7e71ff4a6c4ae86f516e817380456b4522e35"
     },
     {
       "path": "RECALCULATION.md",
-      "bytes": 1592,
-      "sha256": "443fde1f96440099e4b8c7da7e5c17add4f4e4159eaeade53e3b794d8408a809"
+      "bytes": 2046,
+      "sha256": "3684763fc06ac2f897101d657c59c545299d64e7ea03c63142a51e0922bc92ed"
     },
     {
       "path": "VALIDATION.json",
-      "bytes": 6998,
-      "sha256": "c8ad45fd154c65c49c278e2f4f004f8aec6d71b34734b76b74521cc25e7e5556"
+      "bytes": 7829,
+      "sha256": "fd1bfacc032002f8beb728eccea43a68987056ed6b054d9f539cac5b4c566307"
     },
     {
       "path": "VALIDATION_ACCOUNT.json",
@@ -63,8 +63,8 @@
     },
     {
       "path": "docs/app.js",
-      "bytes": 3930,
-      "sha256": "a8027f45f11307d047f5ead5b6d167b524c0f78defdc2673750f9d98e158dcfb"
+      "bytes": 4056,
+      "sha256": "83fe6d1ab5fd398c355a3809db8e45275c6b934e0491bfe56df517c3aa3a0da6"
     },
     {
       "path": "docs/compare.js",
@@ -73,8 +73,8 @@
     },
     {
       "path": "docs/data.json",
-      "bytes": 3251,
-      "sha256": "3ffdf5a4fa136fcfb1b0d148b1548c0f5b1f1fbdd975a618d7be3415f85587a5"
+      "bytes": 4991,
+      "sha256": "7fb6141bc95004365f72be2d5ae15b89186db9a252ff978aafb1d6b70f48e15c"
     },
     {
       "path": "docs/index.html",
@@ -88,8 +88,8 @@
     },
     {
       "path": "evaluation/CAPABILITY_GATE.md",
-      "bytes": 3275,
-      "sha256": "d839fdcc99fcac4f4c7b49e08fb5802877b03538b8b83892e067955cd09b0bbe"
+      "bytes": 3483,
+      "sha256": "3ac13e431a22fc4826d349cdc990a8ff04b5870505504b49fae2edecd416c1e1"
     },
     {
       "path": "evaluation/semantic_fixture.jsonl",
@@ -107,14 +107,19 @@
       "sha256": "ab1044a7cd5cf064cfbd25f2e080e89e137b9b0de78ae53c5cd736724ccf8afa"
     },
     {
+      "path": "model/DESCRIPTION.json",
+      "bytes": 1525,
+      "sha256": "5d28ad85909865f53ea4f507ee5ca3902f5419a5e6ec4d179f1a8284a78dd2a2"
+    },
+    {
       "path": "model/HYBRID_EVALUATION.json",
       "bytes": 43988,
       "sha256": "a3109b416195a9aaf8cdcdb3bf7517ff5d55fe9a807146dab5c87063d875b1bb"
     },
     {
       "path": "model/MODEL_CARD.md",
-      "bytes": 4025,
-      "sha256": "6a5545abbfa70afdb1033855d8ef131f0248edd1fc1eb18ddcf872a97410716c"
+      "bytes": 5448,
+      "sha256": "38232081b428620fb77a27bff02b98fac39606f5718dd21a6bb037e6673971b9"
     },
     {
       "path": "model/MODE_ABLATION.json",
@@ -127,9 +132,19 @@
       "sha256": "b44d3857b142840c39c485cebada5a9f1006b38b8a709d871fbfb629f4b388c0"
     },
     {
+      "path": "model/SEMANTIC_CONTEXT_GATE.json",
+      "bytes": 15793,
+      "sha256": "fb7fe4a6f4ed66310413328479477ea2286adfbcc997d535249ff4857adf653c"
+    },
+    {
       "path": "model/SEMANTIC_GATE_RESULT.json",
       "bytes": 26699,
       "sha256": "8782f8ecd4116a5328f947e3388528581d590d33978b670a839dee123576e774"
+    },
+    {
+      "path": "model/TASK_CONTEXT_EVALUATION.json",
+      "bytes": 9026,
+      "sha256": "d604f0de15d905baf1484287b12702e9e0f9b4dec2f2111123baa407d7a3c078"
     },
     {
       "path": "model/TASK_EVALUATION.json",
@@ -193,8 +208,8 @@
     },
     {
       "path": "rio_evidence/neural_lm.py",
-      "bytes": 5724,
-      "sha256": "016aa5f939d3515a2d3eaae547e6d1242f99931c74b1ee2886caf693f9cc2137"
+      "bytes": 6760,
+      "sha256": "6fc8c809822fb7b34db2805d2ffe13cfa09eaf90663dd6df9e53195ab504f70c"
     },
     {
       "path": "rio_evidence/semantic_gate.py",
@@ -228,13 +243,13 @@
     },
     {
       "path": "scripts/evaluate_neural_tasks.py",
-      "bytes": 1684,
-      "sha256": "d20020d9ea132a1d7c3c413b48a662a8bbdb2777fb01b89f362f6460b1885505"
+      "bytes": 1917,
+      "sha256": "6424dcabcece909bcb5ec8791713c0717b11b27bbe1a5b88fdd154568f59879a"
     },
     {
       "path": "scripts/evaluate_semantic_gate.py",
-      "bytes": 2754,
-      "sha256": "ae9fa90f0b5a6106dbc8e4a282aa5c378d1bc2041313c8af28383b84d81df96f"
+      "bytes": 2976,
+      "sha256": "c3739595e9a1eac18a764ca84e79e660fcabcbd804f094ef8c04fbdcabcd937f"
     },
     {
       "path": "scripts/prioritize_deltas.py",
@@ -243,13 +258,23 @@
     },
     {
       "path": "scripts/refresh_snapshot.py",
-      "bytes": 2069,
-      "sha256": "349c73088bcfed0bc957bf5639d23ec7f291568d35de0908e1724004079bd266"
+      "bytes": 2521,
+      "sha256": "ac9d4ed49e9f15cee24cff9795980adf026b0fe252efa1feac14f44674603ad5"
+    },
+    {
+      "path": "scripts/sync_model_description.py",
+      "bytes": 4405,
+      "sha256": "0372cc85f90090a67c7dbf254074571812f53ac6bd6092852be0eea517cd4cdb"
     },
     {
       "path": "scripts/verify_manifest.py",
       "bytes": 1671,
       "sha256": "cd9152632b4089c9aa71a474b2c4d229c76061c1a82b67f7df9d16ad5551ed1f"
+    },
+    {
+      "path": "tests/test_context_budget.py",
+      "bytes": 1565,
+      "sha256": "4c8cc877b5162507a5e5af2a2faa13518e64b62b20082cb6c76fe1647ca73117"
     },
     {
       "path": "tests/test_core.py",
@@ -303,8 +328,8 @@
     },
     {
       "path": "training/MODEL_CARD.md",
-      "bytes": 3403,
-      "sha256": "57e3bfe6c0a896bd4f16376fac645d31dca4c30e87dccd0492a58ba19749d2e1"
+      "bytes": 3550,
+      "sha256": "208ef53ef1938bd02ba17d1212b1afa9b095dae553a4790ff7bb00499463ec8f"
     },
     {
       "path": "training/answer_matrix.jsonl",

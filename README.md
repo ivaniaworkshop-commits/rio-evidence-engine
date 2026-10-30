@@ -27,7 +27,7 @@ The core uses the standard library to reduce setup requirements. Graph schedulin
 
 ## Verification
 
-Fifty-five tests (including four optional Node-based dashboard checks) cover graph scheduling, paired metrics, numeric boundaries, budget reserve, schema limits, journal consistency and incomplete-line handling. Actual execution results are recorded in VALIDATION.json. Regression tests include malformed inputs, CLI subprocesses, and dependency invariants across 64 seeded synthetic graphs. The demo uses authored synthetic values; it is not a benchmark or evidence of real-world performance improvement.
+Sixty-one tests (including four optional Node-based dashboard checks) cover graph scheduling, paired metrics, numeric boundaries, budget reserve, schema limits, journal consistency and incomplete-line handling. Actual execution results are recorded in VALIDATION.json. Regression tests include malformed inputs, CLI subprocesses, and dependency invariants across 64 seeded synthetic graphs. The demo uses authored synthetic values; it is not a benchmark or evidence of real-world performance improvement.
 
 ## Limits
 
@@ -168,3 +168,21 @@ Current model: 0/24 exact graphs and 0/4 correct abstentions. Narrow rule baseli
 8/24 exact graphs and 4/4 abstentions. The current 128-byte input window silently
 loses context; fix or explicitly reject that input loss before training more.
 No new weights were trained for this capability.
+
+## Explicit context budget
+
+Neural free generation now requires nonempty input and `UTF8(prompt) bytes +
+requested output bytes <= 128`. Oversized requests return CONTEXT_REJECTED
+before importing/loading the neural runtime; no silent slicing remains in this
+generation path. Default output is 64 bytes. Existing historical raw-generation
+reports are retained; current context rejection reports are separate files.
+See model/SEMANTIC_CONTEXT_GATE.json and model/TASK_CONTEXT_EVALUATION.json.
+Context refusal is not correct semantic abstention and does not pass extraction.
+
+<!-- MODEL_STATUS_START -->
+## Current model status (evidence synchronized)
+
+Río ByteGRU is a **small neural language model, not an LLM**: 17,344 parameters, 250 observed training steps. Checkpoint saved and reloaded. Project suite: 61 passing local tests.
+
+Current free generation rejects prompt-plus-output budgets above 128 UTF-8 bytes. The extraction fixture has 28 context rejections, not semantic abstentions. Neural extraction is not established. Hybrid arithmetic remains deterministic. Optional neural ranking showed no output benefit in the paired 42-case comparison. Earlier low loss and failed raw-generation probes are historical, not current capability certificates.
+<!-- MODEL_STATUS_END -->

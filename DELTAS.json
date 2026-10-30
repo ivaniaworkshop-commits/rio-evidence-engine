@@ -1,7 +1,7 @@
 {
   "schema": "rio-dashboard-v1",
   "updated": "2026-10-30",
-  "tests": 55,
+  "tests": 61,
   "synthetic_graphs": 64,
   "benchmark": {
     "nodes": 2000,
@@ -48,7 +48,7 @@
   "benchmark_source_commit": "7eb02c14e23453f109604ddefaeb5c944fad05fa",
   "provenance": {
     "core_sha256": "fb232e58f1ab1260d9b74b454a0a267cd73171e0aedaf0fc4867df552fd2caf5",
-    "validation_sha256": "c8ad45fd154c65c49c278e2f4f004f8aec6d71b34734b76b74521cc25e7e5556",
+    "validation_sha256": "fd1bfacc032002f8beb728eccea43a68987056ed6b054d9f539cac5b4c566307",
     "scope": "LOCAL_EXECUTION_RECORD_BOUND_TO_SOURCE_BYTES_NOT_REMOTE_CI"
   },
   "model": {
@@ -99,5 +99,45 @@
       }
     },
     "decision": "NO_DEMONSTRATED_NEURAL_EXTRACTION_CAPABILITY_DO_NOT_TRAIN_ON_THIS_EVALUATION_FIXTURE"
+  },
+  "context_gate": {
+    "rejections": 28,
+    "capacity_bytes": 128,
+    "scope": "REJECTION_NOT_SEMANTIC_ABSTENTION"
+  },
+  "model_description": {
+    "schema": "OBSERVED_MODEL_DESCRIPTION_V1",
+    "name": "R\u00edo ByteGRU",
+    "kind": "SMALL_NEURAL_LANGUAGE_MODEL_NOT_LLM",
+    "architecture": "byte embedding16 -> GRU32 -> 256 logits",
+    "parameters": 17344,
+    "training_steps": 250,
+    "checkpoint_sha256": "a190c30ef90aa4bf21d92036d388c9c272fda73e7869f507648a6d053bb1ec29",
+    "checkpoint_status": "TRAINED_SAVED_RELOADED",
+    "free_generation_context_policy": "NONEMPTY_UTF8_PROMPT_PLUS_REQUESTED_OUTPUT_AT_MOST_128_BYTES",
+    "semantic_extraction_status": "BLOCKED_BY_CONTEXT_BUDGET",
+    "current_context_rejections": 28,
+    "context_rejections_are_semantic_abstentions": false,
+    "project_tests_passed": 61,
+    "hybrid_role": "OPTIONAL_RANKING_OF_DETERMINISTIC_EXPLANATIONS",
+    "observed_neural_value": "NO_OUTPUT_BENEFIT_IN_42_CASE_PAIRED_ABLATION",
+    "historical_task_probe": "0/26 extractable durations before context safety fix",
+    "historical_semantic_probe": "0/24 exact graphs before context safety fix",
+    "historical_loss": {
+      "initial": 5.595981802216249,
+      "final": 0.6929422469480627,
+      "scope": "PUBLIC_SHARED_TEMPLATE_EVALUATION_NOT_TASK_ACCURACY"
+    },
+    "sources": [
+      "model/TRAINING_RESULT.json",
+      "model/SEMANTIC_CONTEXT_GATE.json",
+      "model/MODE_ABLATION.json",
+      "VALIDATION.json"
+    ],
+    "limits": [
+      "No LLM, production reliability, human mastery or independent validation claimed.",
+      "Context acceptance preserves bytes, not demonstrated semantic retention.",
+      "Training metrics remain historical until actual retraining."
+    ]
   }
 }

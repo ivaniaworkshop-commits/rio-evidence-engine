@@ -44,14 +44,16 @@ truncation. Gain in next-byte loss is not acceptance for this capability.
 
 ## Current result and next gate
 
-SEMANTIC_GATE_RESULT.json records actual model outputs and rule results. Current
-inference keeps only the last 128 prompt bytes, potentially dropping instructions
-and task definitions. That is a context/interface limitation, so failure cannot
+SEMANTIC_GATE_RESULT.json records actual model outputs and rule results. The pre-fix
+inference kept only the last 128 prompt bytes, dropping earlier content.
+The current implementation rejects budgets exceeding 128 UTF-8 bytes, including
+the requested continuation, before model loading. That is a context/interface limitation, so failure cannot
 be attributed solely to learned weights. No retraining is justified before a
 lossless input path and adequate context are implemented and tested.
 
-Next delta: remove silent prompt truncation or fail explicitly when the model
-cannot retain the required input. Re-evaluate the contract, then choose a model
+Context safety is now implemented. SEMANTIC_CONTEXT_GATE.json records
+28 explicit context rejections; these are not semantic abstentions.
+Next delta: define an architecture/context budget that covers the whole input. Re-evaluate the contract, then choose a model
 architecture/context budget and separate training/evaluation data if a learnable
 advantage remains. Do not inflate this small GRU into an LLM claim.
 

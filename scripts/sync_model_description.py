@@ -1,0 +1,59 @@
+"""Synchronize current model descriptions from observed, versioned evidence."""
+import hashlib,json,re
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1]
+
+
+def sync():
+    training=json.loads((ROOT/'model/TRAINING_RESULT.json').read_text())
+    validation=json.loads((ROOT/'VALIDATION.json').read_text())
+    context=json.loads((ROOT/'model/SEMANTIC_CONTEXT_GATE.json').read_text())
+    runs=[r for r in validation['checks'] if 'unittest' in r['command']]
+    if len(runs)!=1 or runs[0]['exit_code']!=0:raise ValueError('successful test evidence required')
+    match=re.search(r'Ran (\d+) tests?',runs[0]['stderr'])
+    if not match:raise ValueError('test count unavailable')
+    checkpoint_hash=hashlib.sha256((ROOT/'model/byte_gru.pt').read_bytes()).hexdigest()
+    if checkpoint_hash!=training['checkpoint_sha256']:raise ValueError('training description does not match checkpoint')
+    if context['checkpoint_sha256'] != checkpoint_hash:
+        raise ValueError('context evaluation describes a different checkpoint')
+    ablation=json.loads((ROOT/'model/MODE_ABLATION.json').read_text())
+    ablation_current=ablation['checkpoint_sha256']==checkpoint_hash
+    d={'schema':'OBSERVED_MODEL_DESCRIPTION_V1','name':'Río ByteGRU','kind':'SMALL_NEURAL_LANGUAGE_MODEL_NOT_LLM',
+       'architecture':training['architecture'],'parameters':training['parameters'],'training_steps':training['steps'],
+       'checkpoint_sha256':checkpoint_hash,'checkpoint_status':'TRAINED_SAVED_RELOADED',
+       'free_generation_context_policy':'NONEMPTY_UTF8_PROMPT_PLUS_REQUESTED_OUTPUT_AT_MOST_128_BYTES',
+       'semantic_extraction_status':'BLOCKED_BY_CONTEXT_BUDGET',
+       'current_context_rejections':context['summary']['neural']['context_rejections'],
+       'context_rejections_are_semantic_abstentions':False,'project_tests_passed':int(match.group(1)),
+       'hybrid_role':'OPTIONAL_RANKING_OF_DETERMINISTIC_EXPLANATIONS',
+       'observed_neural_value':('NO_OUTPUT_BENEFIT_IN_42_CASE_PAIRED_ABLATION' if ablation_current else 'NOT_EVALUATED_FOR_CURRENT_CHECKPOINT'),
+       'historical_task_probe':'0/26 extractable durations before context safety fix',
+       'historical_semantic_probe':'0/24 exact graphs before context safety fix',
+       'historical_loss':{'initial':training['initial_holdout_loss'],'final':training['final_holdout_loss'],
+                          'scope':'PUBLIC_SHARED_TEMPLATE_EVALUATION_NOT_TASK_ACCURACY'},
+       'sources':['model/TRAINING_RESULT.json','model/SEMANTIC_CONTEXT_GATE.json','model/MODE_ABLATION.json','VALIDATION.json'],
+       'limits':['No LLM, production reliability, human mastery or independent validation claimed.',
+                 'Context acceptance preserves bytes, not demonstrated semantic retention.',
+                 'Training metrics remain historical until actual retraining.']}
+    (ROOT/'model/DESCRIPTION.json').write_text(json.dumps(d,indent=2)+'\n')
+    value_statement=('Optional neural ranking showed no output benefit in the paired 42-case comparison.' if ablation_current else 'The current checkpoint has no matching paired utility evaluation.')
+    block=('<!-- MODEL_STATUS_START -->\n## Current model status (evidence synchronized)\n\n'
+       f"Río ByteGRU is a **small neural language model, not an LLM**: {d['parameters']:,} parameters, "
+       f"{d['training_steps']} observed training steps. Checkpoint saved and reloaded. "
+       f"Project suite: {d['project_tests_passed']} passing local tests.\n\n"
+       'Current free generation rejects prompt-plus-output budgets above 128 UTF-8 bytes. '
+       f"The extraction fixture has {d['current_context_rejections']} context rejections, not semantic abstentions. "
+       'Neural extraction is not established. Hybrid arithmetic remains deterministic. '
+       +value_statement+' '
+       'Earlier low loss and failed raw-generation probes are historical, not current capability certificates.\n'
+       '<!-- MODEL_STATUS_END -->')
+    for name in ['README.md','model/MODEL_CARD.md']:
+        path=ROOT/name;text=path.read_text()
+        if '<!-- MODEL_STATUS_START -->' in text:
+            text=re.sub(r'<!-- MODEL_STATUS_START -->.*?<!-- MODEL_STATUS_END -->',block,text,flags=re.S)
+        else:text+='\n'+block+'\n'
+        path.write_text(text)
+    return d
+
+if __name__=='__main__':
+    print(json.dumps({'description_synchronized':True,'model':sync()['name']}))

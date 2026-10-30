@@ -12,7 +12,7 @@ Neural commands additionally require the optional CPU runtime:
 
 ```sh
 python -m pip install -r model/requirements-cpu.txt
-python -m rio_evidence.neural_lm generate --prompt 'Case: parallel' --max-bytes 120
+python -m rio_evidence.neural_lm generate --prompt 'Case: parallel' --max-bytes 64
 python -m rio_evidence.neural_lm train --steps 250
 ```
 
@@ -77,3 +77,23 @@ Current weights fail: 0/24 exact graphs, 0/4 correct abstentions; the narrow rul
 baseline obtains 8/24 and 4/4. Input truncation is an identified interface
 limitation; these failures cannot be attributed solely to learned weights.
 No training on this new fixture occurred. Fix context handling before retraining.
+
+## Context safety update
+
+Free generation now rejects prompt-plus-requested-continuation budgets above
+128 UTF-8 bytes. No prompt suffix slicing or sliding window is used on accepted
+requests. Default output is 64 bytes. This conservative contract preserves all
+input bytes; it does not prove the model retains them semantically. Rejection
+happens before runtime/model load and is reported by CLI with exit code 2.
+Current 28-case extraction evaluation is blocked at this boundary, not counted
+as semantic abstention or inference. Earlier failed generation is historical.
+The trained checkpoint is unchanged. Longer-context architecture/evaluation is
+a separate delta; no context extension or retraining occurred.
+
+<!-- MODEL_STATUS_START -->
+## Current model status (evidence synchronized)
+
+Río ByteGRU is a **small neural language model, not an LLM**: 17,344 parameters, 250 observed training steps. Checkpoint saved and reloaded. Project suite: 61 passing local tests.
+
+Current free generation rejects prompt-plus-output budgets above 128 UTF-8 bytes. The extraction fixture has 28 context rejections, not semantic abstentions. Neural extraction is not established. Hybrid arithmetic remains deterministic. Optional neural ranking showed no output benefit in the paired 42-case comparison. Earlier low loss and failed raw-generation probes are historical, not current capability certificates.
+<!-- MODEL_STATUS_END -->

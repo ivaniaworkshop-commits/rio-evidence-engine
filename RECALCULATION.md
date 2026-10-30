@@ -26,3 +26,10 @@ Frontend source: docs/ (copied to the Site dist/ directory).
 Dashboard updates require the Sites workflow, current source rebase, unchanged
 public audience and a verified deployment. A GitHub commit alone does not update
 the hosted Site. Do not publish the private Río corpus or credentials.
+
+Every model-related update must synchronize model/DESCRIPTION.json, the current
+status blocks in README.md and model/MODEL_CARD.md, and public dashboard data.
+Run scripts/sync_model_description.py after validation and before manifest
+generation. Preserve historical training/evaluation files; never silently turn
+old results into current capability claims. If checkpoint identity conflicts
+with training evidence, stop and reconcile before publication.

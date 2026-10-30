@@ -8,6 +8,27 @@ import random
 import time
 
 
+CONTEXT_BYTES = 128
+
+
+class ContextBudgetError(ValueError):
+    """Requested prompt plus continuation cannot fit the declared context."""
+
+
+def context_budget(prompt, max_bytes):
+    if not isinstance(prompt, str) or not prompt:
+        raise ValueError('prompt must be nonempty text')
+    if type(max_bytes) is not int or not 1 <= max_bytes <= 512:
+        raise ValueError('max_bytes must be an integer in 1..512')
+    encoded = prompt.encode('utf-8')
+    if len(encoded) + max_bytes > CONTEXT_BYTES:
+        raise ContextBudgetError(
+            f'CONTEXT_BUDGET_EXCEEDED: prompt={len(encoded)} bytes, '
+            f'requested_output={max_bytes} bytes, capacity={CONTEXT_BYTES} bytes; '
+            'no truncation or inference performed')
+    return encoded
+
+
 def runtime():
     import torch
     torch.set_num_threads(2)
@@ -73,7 +94,7 @@ def train(root,steps=250):
     restored=make_model(torch);restored.load_state_dict(torch.load(checkpoint,weights_only=True)['state_dict']);restored.eval()
     repeat=evaluate(torch,restored,data['holdout'])
     if after!=repeat:raise ValueError('checkpoint readback changed evaluation')
-    sample=generate(root,'Case: parallel',120)
+    sample=generate(root,'Case: parallel',64)
     report={'status':'SMALL_NEURAL_LM_TRAINED_AND_RELOADED_NOT_LLM','torch_version':torch.__version__,
       'architecture':'byte embedding16 -> GRU32 -> 256 logits','parameters':sum(p.numel() for p in model.parameters()),
       'seed':731,'steps':steps,'training_bytes':len(data['practice']),'evaluation_bytes':len(data['holdout']),
@@ -91,22 +112,26 @@ def train(root,steps=250):
     return report
 
 
-def generate(root,prompt,max_bytes=120):
-    if not isinstance(max_bytes,int) or not 1<=max_bytes<=512:raise ValueError('max_bytes must be 1..512')
+def generate(root,prompt,max_bytes=64):
+    encoded=context_budget(prompt,max_bytes)
     torch=runtime();model=make_model(torch)
     state=torch.load(root/'model/byte_gru.pt',weights_only=True)
     model.load_state_dict(state['state_dict']);model.eval()
-    values=list(prompt.encode('utf-8'))[-128:] or [10];out=[]
+    values=list(encoded);out=[]
     with torch.no_grad():
         for _ in range(max_bytes):
-            logits=model(torch.tensor([values[-128:]],dtype=torch.long))
+            logits=model(torch.tensor([values],dtype=torch.long))
             token=int(logits[0,-1].argmax());values.append(token);out.append(token)
     return bytes(out).decode('utf-8',errors='replace')
 
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('mode',choices=['train','generate']);p.add_argument('--prompt',default='Case: parallel');p.add_argument('--steps',type=int,default=250);p.add_argument('--max-bytes',type=int,default=120)
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('mode',choices=['train','generate']);p.add_argument('--prompt',default='Case: parallel');p.add_argument('--steps',type=int,default=250);p.add_argument('--max-bytes',type=int,default=64)
     a=p.parse_args();root=Path(__file__).resolve().parents[1]
-    print(json.dumps(train(root,a.steps) if a.mode=='train' else {'generated_untrusted_text':generate(root,a.prompt,a.max_bytes)},indent=2))
+    try:
+        result=train(root,a.steps) if a.mode=='train' else {'generated_untrusted_text':generate(root,a.prompt,a.max_bytes), 'context_capacity_bytes':CONTEXT_BYTES, 'context_policy':'FULL_PROMPT_AND_REQUESTED_CONTINUATION_MUST_FIT'}
+        print(json.dumps(result,indent=2));return 0
+    except (ValueError,OSError,RuntimeError) as error:
+        print(json.dumps({'error':str(error),'status':'CONTEXT_REJECTED' if isinstance(error,ContextBudgetError) else 'EXECUTION_FAILED'}));return 2
 
-if __name__=='__main__':main()
+if __name__=='__main__':raise SystemExit(main())
