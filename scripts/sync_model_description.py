@@ -45,6 +45,11 @@ def sync():
         d['experimental_streaming']['max_output_bytes']=512
         d['semantic_extraction_status']='NOT_DEMONSTRATED_WITH_FULL_RECURRENT_PREFILL'
         d['sources'].append('model/STREAMING_GATE_RESULT.json')
+    data_path=ROOT/'training/EXTRACTION_DATA_AUDIT.json'
+    if data_path.exists():
+        audit=json.loads(data_path.read_text())
+        d['extraction_training_data']={'status':'PREPARED_NOT_TRAINED','rows':audit['rows'],'counts':audit['counts'],'overlap':audit['overlap']}
+        d['sources'].append('training/EXTRACTION_DATA_AUDIT.json')
     (ROOT/'model/DESCRIPTION.json').write_text(json.dumps(d,indent=2)+'\n')
     value_statement=('Optional neural ranking showed no output benefit in the paired 42-case comparison.' if ablation_current else 'The current checkpoint has no matching paired utility evaluation.')
     block=('<!-- MODEL_STATUS_START -->\n## Current model status (evidence synchronized)\n\n'
@@ -57,6 +62,7 @@ def sync():
        +value_statement+' '
        'Earlier low loss and failed raw-generation probes are historical, not current capability certificates.\n'
        +('Experimental recurrent prefill processes up to 4096 prompt bytes; observed full processing in 28/28 cases, but 0/24 exact graphs and 0/4 correct abstentions. No weights changed.\n' if 'experimental_streaming' in d else '')
+       +('Extraction training/dev corpus prepared: 424 synthetic rows, structurally separated from evaluation. Not used to update weights.\n' if 'extraction_training_data' in d else '')
        +'<!-- MODEL_STATUS_END -->')
     for name in ['README.md','model/MODEL_CARD.md']:
         path=ROOT/name;text=path.read_text()

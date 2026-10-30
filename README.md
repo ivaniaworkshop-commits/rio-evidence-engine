@@ -27,7 +27,7 @@ The core uses the standard library to reduce setup requirements. Graph schedulin
 
 ## Verification
 
-Sixty-five tests (including four optional Node-based dashboard checks) cover graph scheduling, paired metrics, numeric boundaries, budget reserve, schema limits, journal consistency and incomplete-line handling. Actual execution results are recorded in VALIDATION.json. Regression tests include malformed inputs, CLI subprocesses, and dependency invariants across 64 seeded synthetic graphs. The demo uses authored synthetic values; it is not a benchmark or evidence of real-world performance improvement.
+Sixty-nine tests (including four optional Node-based dashboard checks) cover graph scheduling, paired metrics, numeric boundaries, budget reserve, schema limits, journal consistency and incomplete-line handling. Actual execution results are recorded in VALIDATION.json. Regression tests include malformed inputs, CLI subprocesses, and dependency invariants across 64 seeded synthetic graphs. The demo uses authored synthetic values; it is not a benchmark or evidence of real-world performance improvement.
 
 ## Limits
 
@@ -182,10 +182,11 @@ Context refusal is not correct semantic abstention and does not pass extraction.
 <!-- MODEL_STATUS_START -->
 ## Current model status (evidence synchronized)
 
-Río ByteGRU is a **small neural language model, not an LLM**: 17,344 parameters, 250 observed training steps. Checkpoint saved and reloaded. Project suite: 65 passing local tests.
+Río ByteGRU is a **small neural language model, not an LLM**: 17,344 parameters, 250 observed training steps. Checkpoint saved and reloaded. Project suite: 69 passing local tests.
 
 Current free generation rejects prompt-plus-output budgets above 128 UTF-8 bytes. The extraction fixture has 28 context rejections, not semantic abstentions. Neural extraction is not established. Hybrid arithmetic remains deterministic. Optional neural ranking showed no output benefit in the paired 42-case comparison. Earlier low loss and failed raw-generation probes are historical, not current capability certificates.
 Experimental recurrent prefill processes up to 4096 prompt bytes; observed full processing in 28/28 cases, but 0/24 exact graphs and 0/4 correct abstentions. No weights changed.
+Extraction training/dev corpus prepared: 424 synthetic rows, structurally separated from evaluation. Not used to update weights.
 <!-- MODEL_STATUS_END -->
 
 ## Experimental full recurrent prefill
@@ -203,3 +204,10 @@ not guarantee semantic retention in that fixed-size state. The default strict
 [Observed evaluation](model/STREAMING_GATE_RESULT.json): 28/28 prompts processed
 fully, 0/24 exact graphs and 0/4 correct abstentions. No new training occurred.
 Removing the interface truncation did not demonstrate extraction capability.
+
+## Dedicated extraction data (not trained)
+
+[Dataset card](training/EXTRACTION_DATA_CARD.md) · [Separation audit](training/EXTRACTION_DATA_AUDIT.json).
+424 synthetic examples: 330 train, 94 dev. Text duplicates and positive-graph
+isomorphism overlap with each other and the public evaluation were checked.
+The existing evaluation fixture is unchanged. Model weights were not updated.

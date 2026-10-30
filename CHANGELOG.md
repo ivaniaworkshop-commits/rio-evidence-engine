@@ -96,3 +96,10 @@ Add experimental 4096-byte prompt / 512-byte output path with cached GRU state.
 Test byte accounting, early rejection, UTF-8 boundaries and greedy equivalence
 to full-prefix inference. Process all 28 fixture prompts but observe no exact
 graphs or correct abstentions. No retraining; strict default unchanged.
+
+## Structurally separated extraction data
+
+Prepare 424 authored examples for graph JSON/ABSTAIN, partitioned by topology
+signature with evaluation topology exclusion. Check normalized text duplicates
+and isomorphism overlap; freeze evaluation bytes. Add four data tests and data
+card. No weight updates or model-quality improvement claimed.

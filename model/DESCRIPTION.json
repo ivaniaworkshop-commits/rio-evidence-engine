@@ -11,7 +11,7 @@
   "semantic_extraction_status": "NOT_DEMONSTRATED_WITH_FULL_RECURRENT_PREFILL",
   "current_context_rejections": 28,
   "context_rejections_are_semantic_abstentions": false,
-  "project_tests_passed": 65,
+  "project_tests_passed": 69,
   "hybrid_role": "OPTIONAL_RANKING_OF_DETERMINISTIC_EXPLANATIONS",
   "observed_neural_value": "NO_OUTPUT_BENEFIT_IN_42_CASE_PAIRED_ABLATION",
   "historical_task_probe": "0/26 extractable durations before context safety fix",
@@ -26,7 +26,8 @@
     "model/SEMANTIC_CONTEXT_GATE.json",
     "model/MODE_ABLATION.json",
     "VALIDATION.json",
-    "model/STREAMING_GATE_RESULT.json"
+    "model/STREAMING_GATE_RESULT.json",
+    "training/EXTRACTION_DATA_AUDIT.json"
   ],
   "limits": [
     "No LLM, production reliability, human mastery or independent validation claimed.",
@@ -42,5 +43,26 @@
     "negative_cases": 4,
     "max_prompt_bytes": 4096,
     "max_output_bytes": 512
+  },
+  "extraction_training_data": {
+    "status": "PREPARED_NOT_TRAINED",
+    "rows": 424,
+    "counts": {
+      "train": {
+        "supported": 282,
+        "unsupported": 48
+      },
+      "dev": {
+        "supported": 78,
+        "unsupported": 16
+      }
+    },
+    "overlap": {
+      "normalized_text_train_dev": 0,
+      "normalized_text_with_evaluation": 0,
+      "isomorphic_graph_train_dev": 0,
+      "isomorphic_graph_with_evaluation": 0,
+      "duplicate_texts_within_generated_data": 0
+    }
   }
 }

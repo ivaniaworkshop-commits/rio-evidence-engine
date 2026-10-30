@@ -47,6 +47,10 @@ def main():
     if stream_path.exists():
         stream=json.loads(stream_path.read_text())
         data['streaming_gate']={k:stream[k] for k in ['cases','full_prompt_bytes_processed','supported_exact_graph_matches','correct_abstentions']}
+    extraction_path=ROOT/'training/EXTRACTION_DATA_AUDIT.json'
+    if extraction_path.exists():
+        audit=json.loads(extraction_path.read_text())
+        data['extraction_data']={'status':'PREPARED_NOT_TRAINED','rows':audit['rows'],'counts':audit['counts']}
     encoded = json.dumps(data, indent=2)+'\n'
     for name in ['DELTAS.json','docs/data.json']:
         (ROOT/name).write_text(encoded)

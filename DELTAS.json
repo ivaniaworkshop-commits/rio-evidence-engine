@@ -1,7 +1,7 @@
 {
   "schema": "rio-dashboard-v1",
   "updated": "2026-10-30",
-  "tests": 65,
+  "tests": 69,
   "synthetic_graphs": 64,
   "benchmark": {
     "nodes": 2000,
@@ -48,7 +48,7 @@
   "benchmark_source_commit": "7eb02c14e23453f109604ddefaeb5c944fad05fa",
   "provenance": {
     "core_sha256": "fb232e58f1ab1260d9b74b454a0a267cd73171e0aedaf0fc4867df552fd2caf5",
-    "validation_sha256": "14f709e9710bb9511d76909df17331258d93a8a6fec7e0c0d33862d27c070ecb",
+    "validation_sha256": "d8de481f1d761b8b8082637413a2dbaadb0537e13ebe3dd3a423b23950fa8d6d",
     "scope": "LOCAL_EXECUTION_RECORD_BOUND_TO_SOURCE_BYTES_NOT_REMOTE_CI"
   },
   "model": {
@@ -118,7 +118,7 @@
     "semantic_extraction_status": "NOT_DEMONSTRATED_WITH_FULL_RECURRENT_PREFILL",
     "current_context_rejections": 28,
     "context_rejections_are_semantic_abstentions": false,
-    "project_tests_passed": 65,
+    "project_tests_passed": 69,
     "hybrid_role": "OPTIONAL_RANKING_OF_DETERMINISTIC_EXPLANATIONS",
     "observed_neural_value": "NO_OUTPUT_BENEFIT_IN_42_CASE_PAIRED_ABLATION",
     "historical_task_probe": "0/26 extractable durations before context safety fix",
@@ -133,7 +133,8 @@
       "model/SEMANTIC_CONTEXT_GATE.json",
       "model/MODE_ABLATION.json",
       "VALIDATION.json",
-      "model/STREAMING_GATE_RESULT.json"
+      "model/STREAMING_GATE_RESULT.json",
+      "training/EXTRACTION_DATA_AUDIT.json"
     ],
     "limits": [
       "No LLM, production reliability, human mastery or independent validation claimed.",
@@ -149,6 +150,27 @@
       "negative_cases": 4,
       "max_prompt_bytes": 4096,
       "max_output_bytes": 512
+    },
+    "extraction_training_data": {
+      "status": "PREPARED_NOT_TRAINED",
+      "rows": 424,
+      "counts": {
+        "train": {
+          "supported": 282,
+          "unsupported": 48
+        },
+        "dev": {
+          "supported": 78,
+          "unsupported": 16
+        }
+      },
+      "overlap": {
+        "normalized_text_train_dev": 0,
+        "normalized_text_with_evaluation": 0,
+        "isomorphic_graph_train_dev": 0,
+        "isomorphic_graph_with_evaluation": 0,
+        "duplicate_texts_within_generated_data": 0
+      }
     }
   },
   "streaming_gate": {
@@ -156,5 +178,19 @@
     "full_prompt_bytes_processed": 28,
     "supported_exact_graph_matches": 0,
     "correct_abstentions": 0
+  },
+  "extraction_data": {
+    "status": "PREPARED_NOT_TRAINED",
+    "rows": 424,
+    "counts": {
+      "train": {
+        "supported": 282,
+        "unsupported": 48
+      },
+      "dev": {
+        "supported": 78,
+        "unsupported": 16
+      }
+    }
   }
 }
