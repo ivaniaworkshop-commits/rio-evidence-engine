@@ -44,6 +44,19 @@ jobs:
           assert not b['candidate_promoted'] and not c['source_class_verified']
           print('H11_OBSERVED', {k:b[k] for k in ['cases','supported','unsupported','candidate_wins','candidate_losses','baseline_observed_median_ms','candidate_observed_median_ms','candidate_promoted']})
           PY
+      - name: H12 exact power and seeded Monte Carlo assumptions
+        run: |
+          python3 scripts/h12_power.py > /tmp/h12.json
+          python3 - <<'PY'
+          import json
+          x=json.load(open('/tmp/h12.json'))
+          a=next(v for v in x['rows'] if v['assumed_single_case_win_probability']==0.1)
+          assert a['n_for_at_least_80pct_under_assumptions']==66
+          assert abs(a['exact_probability_of_at_least_five_wins_in_30']-0.17549487903389513)<1e-12
+          assert x['design_effect_example']['effective_n_heuristic']<14
+          assert x['candidate_promoted'] is False
+          print('H12_MATH',{'p10_n80':a['n_for_at_least_80pct_under_assumptions'],'p10_power30':a['exact_probability_of_at_least_five_wins_in_30'],'simulated_probability':a['monte_carlo_30_cases_20000_draws']})
+          PY
       - name: H08 independence gate must fail closed without external data
         run: |
           python3 -m rio_evidence.independent_gate > /tmp/h08.json
@@ -67,7 +80,7 @@ jobs:
           suite = unittest.defaultTestLoader.discover('tests')
           result = unittest.TextTestRunner(verbosity=2).run(suite)
           print('STRICT_SUITE', {'total': result.testsRun, 'failures': len(result.failures), 'errors': len(result.errors), 'skipped': len(result.skipped)})
-          if result.testsRun != 149 or result.failures or result.errors or result.skipped:
+          if result.testsRun != 155 or result.failures or result.errors or result.skipped:
               raise SystemExit(2)
           PY
       - name: H07 remeasure paired accuracy abstention and latency

@@ -232,5 +232,15 @@
     "promotion": "BLOCKED",
     "neural_weights_changed": false,
     "protocol": "evaluation/H11_INSTRUMENTED_PAIRS.md"
+  },
+  "h12_power_design": {
+    "status": "PENDING_CI",
+    "assumptions": "INDEPENDENT_BERNOULLI_ZERO_LOSSES_NOT_OBSERVED",
+    "cluster_sign_guard": "CODE_ADDED",
+    "monte_carlo_draws": 20000,
+    "external_data": "NOT_AVAILABLE",
+    "weights_changed": false,
+    "promotion": "BLOCKED",
+    "reference": "evaluation/H12_POWER_DESIGN.md"
   }
 }

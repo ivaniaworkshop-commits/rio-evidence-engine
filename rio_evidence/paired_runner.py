@@ -68,11 +68,21 @@ def evaluate_paired(cases,candidate,*,baseline=extract_extended_graph,root=ROOT,
             "cluster":row["cluster"],"baseline_correct":correct_a,"candidate_correct":correct_b,
             "baseline_status":a[0][0],"candidate_status":b[0][0],
             "baseline_ms":statistics.median(la),"candidate_ms":statistics.median(lb)})
+    cluster_deltas={}
+    for o in observations:
+        cluster=o["cluster"]
+        cluster_deltas[cluster]=cluster_deltas.get(cluster,0)+int(o["candidate_correct"])-int(o["baseline_correct"])
+    cluster_wins=sum(d>0 for d in cluster_deltas.values())
+    cluster_losses=sum(d<0 for d in cluster_deltas.values())
+    cluster_ties=sum(d==0 for d in cluster_deltas.values())
+    cluster_p=_one_sided_exact_p(cluster_wins,cluster_losses)
     p= _one_sided_exact_p(wins,losses)
     npos=sum(r["expected"] is not None for r in cases);nneg=len(cases)-npos
     meda=statistics.median(ta);medb=statistics.median(tb)
     engineering=(npos>=30 and nneg>=10 and len({r["cluster"] for r in cases})>=5
-        and pos_b-pos_a>=5 and wins>losses and p<=0.05 and neg_b>=neg_a
+        and pos_b-pos_a>=5 and wins>losses and p<=0.05
+        and cluster_wins>=5 and cluster_wins>cluster_losses and cluster_p<=0.05
+        and neg_b>=neg_a
         and err_b==0 and medb<=max(3*meda,meda+5))
     return {"status":"OBSERVED_IN_PROCESS_NOT_INDEPENDENT_ATTESTATION",
         "candidate_promoted":False,"source_class_declared":source_class,
@@ -84,12 +94,15 @@ def evaluate_paired(cases,candidate,*,baseline=extract_extended_graph,root=ROOT,
         "baseline_supported_exact":pos_a,"candidate_supported_exact":pos_b,
         "baseline_correct_abstentions":neg_a,"candidate_correct_abstentions":neg_b,
         "candidate_wins":wins,"candidate_losses":losses,
-        "conditional_one_sided_p_descriptive":p,"baseline_invalid_or_error":err_a,
+        "conditional_one_sided_p_descriptive":p,
+        "cluster_wins":cluster_wins,"cluster_losses":cluster_losses,"cluster_ties":cluster_ties,
+        "cluster_one_sided_p_descriptive":cluster_p,"baseline_invalid_or_error":err_a,
         "candidate_invalid_or_error":err_b,"baseline_observed_median_ms":meda,
         "candidate_observed_median_ms":medb,"repetitions":repetitions,
         "preliminary_engineering_screen":engineering,"financial_cost":"UNKNOWN",
         "observations":observations,
         "limits":["Local trusted functions executed; revisions and human source authenticity not attested.",
           "Self-reported labels and clustered samples are not independently validated.",
+          "Cluster-level sign screen is conservative but cluster IDs are still submitter-declared.",
           "Wall clock is not financial cost; conditional p is not a generalization guarantee.",
           "No output here can automatically promote a model."]}
