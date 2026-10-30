@@ -3,8 +3,8 @@
   "files": [
     {
       "path": ".github/workflows/h00-integrity.yml",
-      "bytes": 3863,
-      "sha256": "ea4ae143e3de042ef3e884ba86bf69817b1031e743b447bc6656248acb9a47f2"
+      "bytes": 4690,
+      "sha256": "d05b8cc5e3c02102c4172b4135c28258f75aff62591b762a1f326e5dfece48df"
     },
     {
       "path": ".gitignore",
@@ -107,6 +107,11 @@
       "sha256": "d889ad8016e0fd7d63bb7a47eafbe1450078c6a51b50a97843bc5619eed078f8"
     },
     {
+      "path": "evaluation/H12_POWER_DESIGN.md",
+      "bytes": 1964,
+      "sha256": "11aedc23033668b0daff80f478ff1505f1aea24eee260fed3c663694b914ed72"
+    },
+    {
       "path": "evaluation/language_shift_probe.py",
       "bytes": 2697,
       "sha256": "f52f9796ef89be8d87771357c33cef1b93f4f410dad2fc6b3f53e67b9bd7e1d1"
@@ -143,8 +148,8 @@
     },
     {
       "path": "model/DESCRIPTION.json",
-      "bytes": 8469,
-      "sha256": "8aad8314c29d538640f9bb035c4f00d4c345c932c2880014014c5a20e84b3319"
+      "bytes": 8813,
+      "sha256": "7a605491c8a823ef12d4a44fd5ec8a47c6685a71ed2d05a310ea6f680cb25705"
     },
     {
       "path": "model/DURATION_COPY_CARD.md",
@@ -203,8 +208,8 @@
     },
     {
       "path": "model/MODEL_CARD.md",
-      "bytes": 12022,
-      "sha256": "a7ecd7c5bfe7f45253232d8926a77741e97cc320a3ec6348fb9801836a01faad"
+      "bytes": 12329,
+      "sha256": "1f2b0d711c0b3a7dc01931ad1fa1f21d4730b3b2090d01810c9a952f06cf513b"
     },
     {
       "path": "model/NETWORK_VALUE_CARD.md",
@@ -268,8 +273,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 19973,
-      "sha256": "cee0e1ab30e27e07fa85d684466929d6367b4f115b5a4b837f5243e9e375edb7"
+      "bytes": 20271,
+      "sha256": "5e958123a20d82cd5485195a8973ce598bf4d945a94f52c177e02c59de1e9b49"
     },
     {
       "path": "RECALCULATION.md",
@@ -363,8 +368,13 @@
     },
     {
       "path": "rio_evidence/paired_runner.py",
-      "bytes": 5960,
-      "sha256": "b1dbc68070585109dd9998362959a1d846ad378d193591080131b805d9303c6f"
+      "bytes": 6736,
+      "sha256": "f788cf1761f7ce1da9e95b8642c38c24556416d68ad1552bdcc20428bdc7c23a"
+    },
+    {
+      "path": "rio_evidence/power_bounds.py",
+      "bytes": 1438,
+      "sha256": "6e88a6d8daacfb89764a92d501e365bdadae19272f27da3a881094602850e46c"
     },
     {
       "path": "rio_evidence/semantic_gate.py",
@@ -502,6 +512,11 @@
       "sha256": "85c2896f2a75cdd7b5d0e07ed066e6d52c398c5130f28163c18b5d7de52bc82d"
     },
     {
+      "path": "scripts/h12_power.py",
+      "bytes": 1501,
+      "sha256": "aeb669c92f34f33d448ca978550ac8bcfaf44993aef8a7109d68d51bd00d3e2c"
+    },
+    {
       "path": "scripts/prioritize_deltas.py",
       "bytes": 2812,
       "sha256": "87df5ec57970f7e5c83dfce20de5d69dcf5ca7f1ac611e68b796562727c52d6d"
@@ -620,6 +635,11 @@
       "path": "tests/test_paired_runner.py",
       "bytes": 4139,
       "sha256": "7b79bcc0c6eb4f76cd2da090d9f398e00b0d6dc7da4674ec720e795a36d59cdb"
+    },
+    {
+      "path": "tests/test_power_bounds.py",
+      "bytes": 2908,
+      "sha256": "c7e80b98b2f0784cabf0c9597a4bc54a6ad5100d860a153ea2e51df4b8f92527"
     },
     {
       "path": "tests/test_regressions.py",
