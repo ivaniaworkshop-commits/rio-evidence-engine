@@ -194,5 +194,16 @@
     "model_weights_changed": false,
     "contract": "evaluation/H08_INDEPENDENT_GATE_R001.md",
     "validator": "rio_evidence/independent_gate.py"
+  },
+  "h09_deterministic_extension": {
+    "status": "PROPOSED_AWAITING_CI",
+    "code_only": true,
+    "baseline": "rio_evidence/graph_copy.py",
+    "candidate": "rio_evidence/extended_graph.py",
+    "expected_enumeration_cases": 4096,
+    "expected_legacy_preservation_cases": 94,
+    "external_independence": "NOT_ESTABLISHED",
+    "new_weights": false,
+    "description": "A-E five-task forward DAG exhaustive enumeration over four authored explicit grammars; 1-8 task parser."
   }
 }
