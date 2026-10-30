@@ -254,7 +254,7 @@
     "ci_run": "https://github.com/ivaniaworkshop-commits/rio-evidence-engine/actions/runs/41139621169"
   },
   "h14_structured_candidate": {
-    "status": "CI_FAILED_EXPECTATION_REPAIRED_AWAITING_RERUN",
+    "status": "CLI_IMPORT_FIX_PENDING_COMPLETE_CI",
     "candidate_file": "rio_evidence/candidate_v1.py",
     "candidate_type": "BOUNDED_DETERMINISTIC_CSV_JSON_READER_NOT_NEURAL",
     "supported_ids": "A..H_1_TO_8",

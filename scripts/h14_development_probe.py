@@ -1,5 +1,9 @@
 """H14: authored standard-serialization evaluation, NOT independent data."""
 import json
+import sys
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT))
 from evaluation.language_shift_probe import rows
 from rio_evidence.candidate_v1 import extract_candidate_v1
 from rio_evidence.extended_graph import extract_extended_graph

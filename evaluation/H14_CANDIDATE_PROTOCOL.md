@@ -36,3 +36,9 @@ positive test records the terminal-omission limit explicitly. An independent
 evaluator should request a declared task count or capture intended task
 inventory as additional authenticated metadata if detecting omitted terminal
 tasks matters. No H14 capability claim includes intent recovery.
+
+**H14 CI execution correction.** The development probe is invoked as a file
+from scripts/, so repository root is explicitly added to its module search
+path before importing evaluation.*. Unit tests alone did not exercise that
+entrypoint; CI caught the missing import. This is packaging correctness,
+not evidence of new extraction accuracy.
