@@ -3,8 +3,8 @@
   "files": [
     {
       "path": ".github/workflows/h00-integrity.yml",
-      "bytes": 6255,
-      "sha256": "343920645ca0e091d195cbe7dcbfb9cad33c9b19658848f81a7489a06e65353d"
+      "bytes": 6792,
+      "sha256": "34273a752264e9e4de1734cc1baa51c038e834c5868992fcc951550830e97ef3"
     },
     {
       "path": ".gitignore",
@@ -118,8 +118,13 @@
     },
     {
       "path": "evaluation/H14_CANDIDATE_PROTOCOL.md",
-      "bytes": 2818,
-      "sha256": "b0c83a1a1cf70b1e3cb360c5fec8cde45e82449d4c749bfaefffa050cad8791b"
+      "bytes": 3620,
+      "sha256": "56d424c27db9163453bc41abc40509259be959ea2b2c07a382c8716402e18c47"
+    },
+    {
+      "path": "evaluation/H14_SOURCE_FREEZE_R001.json",
+      "bytes": 2052,
+      "sha256": "42c24370647612702089db8e8e3150cc1d31cd01aeea743772b2052fcaaf48b2"
     },
     {
       "path": "evaluation/language_shift_probe.py",
@@ -158,8 +163,8 @@
     },
     {
       "path": "model/DESCRIPTION.json",
-      "bytes": 10060,
-      "sha256": "ebc14604126cd879d0af5e708fb8f2e561cd08e93477c6326b7218582e88c133"
+      "bytes": 10322,
+      "sha256": "625fe60b281bcb674684c5b1273961fd4222ae5173371b6920af0f7e10136afd"
     },
     {
       "path": "model/DURATION_COPY_CARD.md",
@@ -223,8 +228,8 @@
     },
     {
       "path": "model/MODEL_CARD.md",
-      "bytes": 13413,
-      "sha256": "dc8113e357a0d5accd5c905b0f1dbc98d9d70377dd3b5a16e738dd8ba1d18969"
+      "bytes": 13796,
+      "sha256": "07a3b6b5a9503cc09b74af6e3913106ff321bd0b1f77754954b8ccef694f800f"
     },
     {
       "path": "model/NETWORK_VALUE_CARD.md",
@@ -288,8 +293,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 20965,
-      "sha256": "13a5f184514bf89fd74379ee354955e92d2f43783fe62a8e98caa393e65b42fb"
+      "bytes": 21351,
+      "sha256": "59a9d02c3f6dbd00648e7de03c8bb25dc009fca0d241c1800d994c711c3e953c"
     },
     {
       "path": "RECALCULATION.md",
@@ -360,6 +365,11 @@
       "path": "rio_evidence/extraction_model.py",
       "bytes": 3859,
       "sha256": "d88d59e7c3fd45d2a164a9a73d58df5e6fb50ceadf42e96fb8b5b246fec1cc96"
+    },
+    {
+      "path": "rio_evidence/freeze_guard.py",
+      "bytes": 1921,
+      "sha256": "79c26efec81c5f75687e9220974a90511abd828ea6788b8e818e98aa2046b488"
     },
     {
       "path": "rio_evidence/graph_copy.py",
@@ -528,8 +538,8 @@
     },
     {
       "path": "scripts/h11_run_paired.py",
-      "bytes": 1472,
-      "sha256": "85c2896f2a75cdd7b5d0e07ed066e6d52c398c5130f28163c18b5d7de52bc82d"
+      "bytes": 1596,
+      "sha256": "233cf2aabd03c8b356b577a536e2082ebb0eb80e187364003318a7513845e2bc"
     },
     {
       "path": "scripts/h12_power.py",
@@ -540,6 +550,11 @@
       "path": "scripts/h14_development_probe.py",
       "bytes": 1962,
       "sha256": "b3a80dc3cf75111ea60e271342791831b7c249b3bbc6ef9a71526868c8503a91"
+    },
+    {
+      "path": "scripts/h14_verify_freeze.py",
+      "bytes": 315,
+      "sha256": "9570a5005e3d75f10b64baa331491eed42941e2bd791351206aa4ce470f23c37"
     },
     {
       "path": "scripts/prioritize_deltas.py",
@@ -630,6 +645,11 @@
       "path": "tests/test_extraction_training.py",
       "bytes": 1633,
       "sha256": "838aabf9c68a02c9e9d474e099f41aedfc774349cc183babdc715b230f6fbcd2"
+    },
+    {
+      "path": "tests/test_freeze_guard.py",
+      "bytes": 1996,
+      "sha256": "3c74c471460c8416ed263ffcfcd33fedb573a13982c20018eb5e6f13ab7fde23"
     },
     {
       "path": "tests/test_graph_copy.py",

@@ -42,3 +42,6 @@ from scripts/, so repository root is explicitly added to its module search
 path before importing evaluation.*. Unit tests alone did not exercise that
 entrypoint; CI caught the missing import. This is packaging correctness,
 not evidence of new extraction accuracy.
+
+## H14 source freeze (before external test input)
+The verified H14 candidate source commit is 178783ac678b898d369caceaefb1b22dbd76a6ce and H09 baseline source commit is 3d047f369059877ce0dec30bd297e6cf1a17ed99. The receipt evaluation/H14_SOURCE_FREEZE_R001.json records both bytes+SHA256 digests. The scripts/h14_verify_freeze.py guard checks that the current checkout contains the declared bytes, and H11 CLI calls it before running the structured_v1 candidate. This does NOT authenticate the provenance of future datasets or prove that a separate runner actually checked out both historical commits. A third-party assessor must verify commit identity and execute the frozen versions in an authorized isolation environment. The public H10 diagnostic cannot be re-used as the external hidden dataset.

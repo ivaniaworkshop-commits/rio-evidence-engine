@@ -1,0 +1,44 @@
+{
+  "schema": "RIO_H14_SOURCE_FREEZE_R001",
+  "status": "SOURCE_REVISION_PINNED_NO_EXTERNAL_VALIDATION",
+  "freeze_date_utc": "2026-10-30",
+  "candidate": {
+    "name": "STRUCTURED_V1",
+    "source_commit": "178783ac678b898d369caceaefb1b22dbd76a6ce",
+    "path": "rio_evidence/candidate_v1.py",
+    "bytes": 5531,
+    "sha256": "d6a2d051fe8b78972236d69ac76ef1466d243726ed6eafd4f7903dd5777d2eda",
+    "kind": "CODE_ONLY_STRICT_CSV_JSON"
+  },
+  "baseline": {
+    "name": "H09_EXTENDED_GRAPH",
+    "source_commit": "3d047f369059877ce0dec30bd297e6cf1a17ed99",
+    "path": "rio_evidence/extended_graph.py",
+    "bytes": 4629,
+    "sha256": "7d3c59473e5dda3a4b83abc0b54af6c02fb646fcbf2ad0c2acd6962bb5265171"
+  },
+  "entrypoint": "scripts/h11_run_paired.py --bundle <PRIVATE_INPUT> --candidate structured_v1",
+  "frozen_evaluation_protocol": "EVALUATE_IDENTICAL_EXTERNALLY_LABELED_CASES_WITH_H11_H12_SCREEN",
+  "source_ci_url": "https://github.com/ivaniaworkshop-commits/rio-evidence-engine/actions/runs/41141286932",
+  "source_ci_strict_suite": 172,
+  "public_development_benchmark": {
+    "positive": 40,
+    "negative": 12,
+    "h09_correct_positive": 0,
+    "candidate_correct_positive": 5,
+    "candidate_correct_abstentions": 12,
+    "positive_clusters_won": 1,
+    "independent_data": false
+  },
+  "independent_holdout_available_at_freeze": false,
+  "external_evaluator_authenticated": false,
+  "neural_weights_changed": false,
+  "candidate_promoted": false,
+  "caveats": [
+    "SHA256 and source commit identify specified bytes, not evaluator identity, label correctness or generalization.",
+    "Validator compares local working-tree code bytes to digest; does not execute an independently checked historical checkout.",
+    "Changing both guard and receipt could bypass local check, so signed external custody is still necessary.",
+    "H10 is public project-authored development evidence; MUST NOT be used as hidden external holdout.",
+    "CSV task count absent: omitted terminal row can be indistinguishable from a smaller valid task set."
+  ]
+}
