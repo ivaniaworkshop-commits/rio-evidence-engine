@@ -3,11 +3,12 @@ import hashlib,json,re,statistics,time
 from pathlib import Path
 from .extended_graph import extract_extended_graph
 from .graph_copy import extract_graph
+from .candidate_v1 import extract_candidate_v1
 from .independent_gate import _known_text,_one_sided_exact_p
 from .semantic_gate import canonical,grade
 
 ROOT=Path(__file__).resolve().parents[1]
-REGISTRY={"h09":extract_extended_graph,"legacy":extract_graph}
+REGISTRY={"h09":extract_extended_graph,"legacy":extract_graph,"structured_v1":extract_candidate_v1}
 FIELDS={"case_id","cluster","text","expected"}
 
 def _run(fn,text):
