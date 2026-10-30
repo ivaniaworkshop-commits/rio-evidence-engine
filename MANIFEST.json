@@ -3,8 +3,8 @@
   "files": [
     {
       "path": ".github/workflows/h00-integrity.yml",
-      "bytes": 4836,
-      "sha256": "d88241d4a3b31c7ab03d8b1f3b5bf8a1025baa75ff2f1b13af421b6a38a0f427"
+      "bytes": 6255,
+      "sha256": "d20cf94e39d1d7f32af9b77934c073b4994b5b8cb25d627c0ae71990f935dac9"
     },
     {
       "path": ".gitignore",
@@ -117,6 +117,11 @@
       "sha256": "c6117adb71140396db807c91a6bdd8a09c3f90a161613a5ff532ed439143d525"
     },
     {
+      "path": "evaluation/H14_CANDIDATE_PROTOCOL.md",
+      "bytes": 1803,
+      "sha256": "9f7df15fd402dd9629098e676666d465432f49b2057846aa5e5e9438209f6d97"
+    },
+    {
       "path": "evaluation/language_shift_probe.py",
       "bytes": 2697,
       "sha256": "f52f9796ef89be8d87771357c33cef1b93f4f410dad2fc6b3f53e67b9bd7e1d1"
@@ -153,8 +158,8 @@
     },
     {
       "path": "model/DESCRIPTION.json",
-      "bytes": 9464,
-      "sha256": "406a2ec4ccb27b0d85307bdd389a813650d997f016876de76973816c56f4330a"
+      "bytes": 9984,
+      "sha256": "a01045ed023fd8e729eea3e8183060b0cb3f1aeda68809f9be77149a832f38c2"
     },
     {
       "path": "model/DURATION_COPY_CARD.md",
@@ -218,8 +223,8 @@
     },
     {
       "path": "model/MODEL_CARD.md",
-      "bytes": 12759,
-      "sha256": "f1a979a768d213eedd937ff57cf674856e03f79b0c88a3eb4cb2769f272093a9"
+      "bytes": 13122,
+      "sha256": "936bb6960e12b44601fb2ea0303f4d7d99a302bfcf4ae7f51591ceddeda2a3d2"
     },
     {
       "path": "model/NETWORK_VALUE_CARD.md",
@@ -283,8 +288,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 20537,
-      "sha256": "4bad891ed9d3734c0c148d888d7228e6b8507dd56ff724e3e3edad08da419f4f"
+      "bytes": 20965,
+      "sha256": "13a5f184514bf89fd74379ee354955e92d2f43783fe62a8e98caa393e65b42fb"
     },
     {
       "path": "RECALCULATION.md",
@@ -325,6 +330,11 @@
       "path": "rio_evidence/autoround.py",
       "bytes": 7479,
       "sha256": "3e1f7b57903ec5069566e33c625cc0871616866e429aa27402d131f7ade00c02"
+    },
+    {
+      "path": "rio_evidence/candidate_v1.py",
+      "bytes": 5531,
+      "sha256": "d6a2d051fe8b78972236d69ac76ef1466d243726ed6eafd4f7903dd5777d2eda"
     },
     {
       "path": "rio_evidence/constrained_extraction.py",
@@ -378,8 +388,8 @@
     },
     {
       "path": "rio_evidence/paired_runner.py",
-      "bytes": 6736,
-      "sha256": "f788cf1761f7ce1da9e95b8642c38c24556416d68ad1552bdcc20428bdc7c23a"
+      "bytes": 6820,
+      "sha256": "7e2e64d3ef827795ba05d643aecf307d70cce498d77788fe73f81e50f2ac38e0"
     },
     {
       "path": "rio_evidence/power_bounds.py",
@@ -527,6 +537,11 @@
       "sha256": "aeb669c92f34f33d448ca978550ac8bcfaf44993aef8a7109d68d51bd00d3e2c"
     },
     {
+      "path": "scripts/h14_development_probe.py",
+      "bytes": 1856,
+      "sha256": "30e5dd6ad2f1bd0edac83c90dc36fc34c32c1b61a92efdc6f37c5d587a09c02f"
+    },
+    {
       "path": "scripts/prioritize_deltas.py",
       "bytes": 2812,
       "sha256": "87df5ec57970f7e5c83dfce20de5d69dcf5ca7f1ac611e68b796562727c52d6d"
@@ -565,6 +580,11 @@
       "path": "tests/test_atomic_runtime.py",
       "bytes": 4636,
       "sha256": "02259e3c3a8116dac2c9e4d328685da479d7b47c42c78465de5ed546153d7fce"
+    },
+    {
+      "path": "tests/test_candidate_v1.py",
+      "bytes": 5155,
+      "sha256": "607af5d9e076e098a102d465a500bfc851908547b080cf541aa49e55fc870791"
     },
     {
       "path": "tests/test_constrained_extraction.py",
