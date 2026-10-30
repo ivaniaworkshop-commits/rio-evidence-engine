@@ -67,3 +67,10 @@ Measure 42 paired cases, five warm repetitions and three fresh-process starts
 per mode. Identical outputs; neural latency/memory overhead observed. Preserve
 deterministic default and label neural ranking experimental. Publish raw data,
 method and limits; no additional training performed.
+
+## New-capability acceptance gate
+
+Define exact English-to-graph extraction with abstention. Publish 28 authored
+cases, rule/model baselines, raw neural outputs and four contract tests. Current
+model demonstrates no extraction ability; silent 128-byte input truncation is a
+blocking interface limitation. No new model training.

@@ -69,3 +69,11 @@ MODE_ABLATION.md / MODE_ABLATION.json compare both modes on matching cases.
 No output benefit was observed: all 42 explanations and schedules matched.
 Neural ranking adds local latency and whole-process memory. Keep it opt-in;
 additional training requires a new, explicit utility criterion.
+
+## Proposed new capability
+
+The bounded English-to-graph extraction gate is in evaluation/CAPABILITY_GATE.md.
+Current weights fail: 0/24 exact graphs, 0/4 correct abstentions; the narrow rule
+baseline obtains 8/24 and 4/4. Input truncation is an identified interface
+limitation; these failures cannot be attributed solely to learned weights.
+No training on this new fixture occurred. Fix context handling before retraining.

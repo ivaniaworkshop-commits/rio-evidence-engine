@@ -1,7 +1,7 @@
 {
   "schema": "rio-dashboard-v1",
   "updated": "2026-10-30",
-  "tests": 51,
+  "tests": 55,
   "synthetic_graphs": 64,
   "benchmark": {
     "nodes": 2000,
@@ -48,7 +48,7 @@
   "benchmark_source_commit": "7eb02c14e23453f109604ddefaeb5c944fad05fa",
   "provenance": {
     "core_sha256": "fb232e58f1ab1260d9b74b454a0a267cd73171e0aedaf0fc4867df552fd2caf5",
-    "validation_sha256": "48bc743b0f8ee53848d0568eec63aee1b924f23eebe21c45f15344626653d28a",
+    "validation_sha256": "c8ad45fd154c65c49c278e2f4f004f8aec6d71b34734b76b74521cc25e7e5556",
     "scope": "LOCAL_EXECUTION_RECORD_BOUND_TO_SOURCE_BYTES_NOT_REMOTE_CI"
   },
   "model": {
@@ -80,5 +80,24 @@
       }
     },
     "decision": "KEEP_DETERMINISTIC_DEFAULT_NEURAL_EXPERIMENTAL_OPT_IN"
+  },
+  "semantic_gate": {
+    "summary": {
+      "neural": {
+        "exact_graph_matches": 0,
+        "supported_cases": 24,
+        "correct_abstentions": 0,
+        "negative_cases": 4,
+        "invalid_outputs": 28
+      },
+      "rule": {
+        "exact_graph_matches": 8,
+        "supported_cases": 24,
+        "correct_abstentions": 4,
+        "negative_cases": 4,
+        "invalid_outputs": 0
+      }
+    },
+    "decision": "NO_DEMONSTRATED_NEURAL_EXTRACTION_CAPABILITY_DO_NOT_TRAIN_ON_THIS_EVALUATION_FIXTURE"
   }
 }

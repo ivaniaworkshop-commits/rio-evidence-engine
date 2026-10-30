@@ -27,7 +27,7 @@ The core uses the standard library to reduce setup requirements. Graph schedulin
 
 ## Verification
 
-Fifty-one tests (including four optional Node-based dashboard checks) cover graph scheduling, paired metrics, numeric boundaries, budget reserve, schema limits, journal consistency and incomplete-line handling. Actual execution results are recorded in VALIDATION.json. Regression tests include malformed inputs, CLI subprocesses, and dependency invariants across 64 seeded synthetic graphs. The demo uses authored synthetic values; it is not a benchmark or evidence of real-world performance improvement.
+Fifty-five tests (including four optional Node-based dashboard checks) cover graph scheduling, paired metrics, numeric boundaries, budget reserve, schema limits, journal consistency and incomplete-line handling. Actual execution results are recorded in VALIDATION.json. Regression tests include malformed inputs, CLI subprocesses, and dependency invariants across 64 seeded synthetic graphs. The demo uses authored synthetic values; it is not a benchmark or evidence of real-world performance improvement.
 
 ## Limits
 
@@ -160,3 +160,11 @@ schedules and explanations in 42 authored cases. Neural ranking added local
 time and process memory without observed output benefit. Deterministic mode
 remains the default; `--neural` is experimental and optional. Financial cost and
 human prose preference were not measured.
+
+## Next neural capability gate
+
+[English-to-graph contract](evaluation/CAPABILITY_GATE.md) · [Observed pretraining comparison](model/SEMANTIC_GATE_RESULT.json).
+Current model: 0/24 exact graphs and 0/4 correct abstentions. Narrow rule baseline:
+8/24 exact graphs and 4/4 abstentions. The current 128-byte input window silently
+loses context; fix or explicitly reject that input loss before training more.
+No new weights were trained for this capability.

@@ -32,6 +32,10 @@ def main():
     if ablation_path.exists():
         ab=json.loads(ablation_path.read_text())
         data['ablation']={k:ab[k] for k in ['cases','comparison','warm_timings','decision']}
+    semantic_path=ROOT/'model/SEMANTIC_GATE_RESULT.json'
+    if semantic_path.exists():
+        sem=json.loads(semantic_path.read_text())
+        data['semantic_gate']={'summary':sem['summary'],'decision':sem['decision']}
     encoded = json.dumps(data, indent=2)+'\n'
     for name in ['DELTAS.json','docs/data.json']:
         (ROOT/name).write_text(encoded)
