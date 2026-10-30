@@ -7,8 +7,11 @@ from .semantic_gate import canonical
 
 
 class ConstrainedExtractor(Extractor):
-    def generate(self,text,max_bytes=512):
+    def generate(self,text,max_bytes=512,duration_values=None):
         if max_bytes!=512:raise ValueError('closed grammar uses a fixed 512-byte output budget')
+        if duration_values is not None:
+            if not isinstance(duration_values,dict) or set(duration_values)!=set('ABCD') or any(type(v) is not int or not 1<=v<=24 for v in duration_values.values()):
+                raise ValueError('copied durations must contain A-D integer values in 1..24')
         prompt=PROMPT_PREFIX+text+PROMPT_SUFFIX
         encoded=validate_request(prompt,max_bytes)
         if b'\0' in encoded:raise ValueError('NUL reserved for EOS')
@@ -42,7 +45,9 @@ class ConstrainedExtractor(Extractor):
             else:
                 emit('{"durations":{')
                 for i,key in enumerate('ABCD'):
-                    emit(json.dumps(key)+':');choose([str(n) for n in range(1,25)],'duration_'+key)
+                    emit(json.dumps(key)+':')
+                    if duration_values is None:choose([str(n) for n in range(1,25)],'duration_'+key)
+                    else:emit(str(duration_values[key]))
                     emit(',' if i<3 else '}')
                 emit(',"tasks":[')
                 for i,key in enumerate('ABCD'):
@@ -56,6 +61,7 @@ class ConstrainedExtractor(Extractor):
         return {'text':result,'grammar_completed':True,'generated_bytes':len(out),'prompt_bytes_processed':len(encoded),
                 'branch':branch,'slot_choices':trace,'schema_authority':'CODE_CONSTRUCTED_CLOSED_GRAMMAR',
                 'scope':'FOUR_TASKS_A_TO_D_DURATIONS_1_TO_24_FORWARD_EDGES_ONLY',
+                'duration_authority':'MODEL_SLOT_SELECTION' if duration_values is None else 'CALLER_SUPPLIED_VALUES_NOT_LEARNED',
                 'warning':'No inference of semantic correctness. Forced grammar is not learned syntax or successful extraction.'}
 
 

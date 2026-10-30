@@ -50,3 +50,10 @@ The same weights were evaluated with a code-defined closed grammar: invalid
 outputs fell from 94 to zero, but exact graphs remained 0/78 and correct
 abstentions 0/16. See CONSTRAINED_DECODING_CARD.md. This fixes diagnostic output
 structure, not free-generation or extraction ability; promotion remains blocked.
+
+## Duration recovery update
+
+Optional code recovery replaces generated duration slots with source-linked
+values: 312/312 fields and 16/16 dev conflict abstentions. Full graphs remain
+0/78 because neural dependencies remain wrong. See DURATION_COPY_CARD.md.
+This is code utility, not improved weights or learned extraction; no promotion.

@@ -60,6 +60,10 @@ def main():
     if constrained_path.exists():
         constrained=json.loads(constrained_path.read_text())
         data['constrained_candidate']={k:constrained[k] for k in ['cases','constrained_invalid_outputs','structurally_valid_graphs','supported_exact_matches','supported_cases','correct_abstentions','negative_cases','duration_fields_correct','duration_fields_total']}
+    copied_path=ROOT/'model/DURATION_COPY_RESULT.json'
+    if copied_path.exists():
+        copied=json.loads(copied_path.read_text())
+        data['duration_copy']={k:copied[k] for k in ['cases','duration_fields_correct','duration_fields_total','supported_exact_graph_matches','supported_cases','correct_code_abstentions','negative_cases']}
     encoded = json.dumps(data, indent=2)+'\n'
     for name in ['DELTAS.json','docs/data.json']:
         (ROOT/name).write_text(encoded)

@@ -118,3 +118,11 @@ Use bounded code-defined graph slots to prevent duplicate task IDs and runaway
 JSON. Same SFT weights/dev: 94 invalid -> 0 invalid, 0/78 exact graphs and 0/16
 correct abstentions. Report field-level correctness separately. Add three
 budget/grammar/identity tests. No model promotion or semantic-success claim.
+
+## Explicit duration recovery
+
+Recover recognized integer-minute values with Unicode source spans; abstain
+on missing/conflicting values and unsupported IDs. Allow validated caller
+duration values in closed candidate slots. Paired dev: 312/312 fields vs 12/312,
+16/16 code conflict abstentions, still 0/78 exact graphs. Add seven provenance,
+conflict, budget and inference-gating tests. No training or promotion.
