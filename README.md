@@ -90,3 +90,13 @@ avoid a spurious intermediate infinity. Unrepresentable schedule totals raise
 ValueError. Snapshot provenance records SHA-256 of the tested core and validation
 record; benchmark_source_commit identifies the older measured benchmark, not the
 current dashboard version. File hashes identify bytes, not correctness.
+
+## Observed assisted use
+
+[VALIDATION_ACCOUNT.json](VALIDATION_ACCOUNT.json) records a user-requested
+execution from the current ChatGPT session: actual repository manifest checking,
+30 local tests, and journal append/readback using the engine. It checked 22
+manifest-listed files from commit dc51bd7330d47cb2f4aaa30ba4c424521663e4a4.
+This is assisted operational use, not a study of simulated people. Session
+context is not cryptographic account attestation. It does not establish external
+adoption, manual execution by the owner, or independent validation.
