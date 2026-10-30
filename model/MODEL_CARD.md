@@ -196,3 +196,6 @@ cases vs 0/4096 for the old parser; 94/94 original dev decisions preserved.
 Machine-specific medians: original 0.032571 ms and extended 0.101229 ms.
 This demonstrates bounded code-interface coverage, not neural weights,
 semantic generalization or third-party validation. See model/H09_RESULT.json.
+
+## H10 public wording-shift diagnostic
+40 supported and 12 unsupported project-authored examples across English, Spanish, table and prose phrasings. H08 baseline rebased on H09. No weights changed; no independent evaluator observed. See evaluation/H10_LANGUAGE_SHIFT.md.

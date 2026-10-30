@@ -325,3 +325,6 @@ recorded 4096/4096 exact matches on new four-format, five-task authored
 enumeration vs 0/4096 for the old parser, preserving 94 existing cases.
 The new code was slower in that runner. No neural improvement is claimed.
 Evidence and limits: model/H09_RESULT.json.
+
+## H10 wording-shift diagnostic
+Run `python scripts/evaluate_language_shift.py`; 40 positive and 12 negative cases are authored by this project and are NOT an independent benchmark. H08 baseline is corrected to the current H09 parser. No external model success or promotion is claimed.

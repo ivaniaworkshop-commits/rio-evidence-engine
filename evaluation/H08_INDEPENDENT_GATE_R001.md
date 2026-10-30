@@ -47,3 +47,6 @@ gate unit tests as an engineering check, not as a passing independent evaluation
 
 Financial cost: UNKNOWN until independently measured. Additional parameters
 and a lower teacher-forced loss are not acceptance criteria.
+
+## H10 comparator correction
+H08 previously compared candidate outputs against obsolete `graph_copy`. It now recomputes the H09 `extended_graph` baseline in the current worktree; this is not attestation of a frozen baseline revision, candidate execution or timing. No promotion.
