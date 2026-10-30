@@ -318,3 +318,10 @@ task-description extraction. The legacy parser remains unchanged.
 A project-authored 4096-case forward-DAG exhaustive test proves only bounded
 new grammar coverage. This is not a neural improvement or hidden independent test.
 See evaluation/H09_CAPABILITY.md for the scope and negative cases.
+
+### H09 observed engineering result
+GitHub Actions on main commit bea424e7cf888d118249cf3b7e95ec204711e8c1
+recorded 4096/4096 exact matches on new four-format, five-task authored
+enumeration vs 0/4096 for the old parser, preserving 94 existing cases.
+The new code was slower in that runner. No neural improvement is claimed.
+Evidence and limits: model/H09_RESULT.json.

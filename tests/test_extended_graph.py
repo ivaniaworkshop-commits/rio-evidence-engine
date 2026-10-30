@@ -108,3 +108,18 @@ class ExtendedGraphTests(unittest.TestCase):
     def test_maximum_input_bound(self):
         with self.assertRaises(ValueError):
             extract_extended_graph("Z" * 4097)
+
+    def test_boundary_one_task_zero_duration(self):
+        text = "Tasks: 1\nStep A takes 0 minutes after none."
+        expected = {"tasks": [{"id": "A", "depends_on": []}], "durations": {"A": 0}}
+        result = extract_extended_graph(text)
+        self.assertEqual(result["status"], "EXPLICIT_GRAPH_RECOVERED")
+        self.assertTrue(grade(result["graph"], expected)["pass"])
+        self.assertEqual(result["schedule"]["minutes"], 0)
+
+    def test_boundary_eight_tasks_maximum_forward_edges(self):
+        text, expected = generate((1 << 28) - 1, 8, 2)
+        result = extract_extended_graph(text)
+        self.assertEqual(result["status"], "EXPLICIT_GRAPH_RECOVERED")
+        self.assertTrue(grade(result["graph"], expected)["pass"])
+        self.assertEqual(len(result["graph"]["tasks"]), 8)

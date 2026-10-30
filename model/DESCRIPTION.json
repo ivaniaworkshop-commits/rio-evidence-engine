@@ -196,14 +196,17 @@
     "validator": "rio_evidence/independent_gate.py"
   },
   "h09_deterministic_extension": {
-    "status": "PROPOSED_AWAITING_CI",
-    "code_only": true,
-    "baseline": "rio_evidence/graph_copy.py",
-    "candidate": "rio_evidence/extended_graph.py",
-    "expected_enumeration_cases": 4096,
-    "expected_legacy_preservation_cases": 94,
-    "external_independence": "NOT_ESTABLISHED",
-    "new_weights": false,
-    "description": "A-E five-task forward DAG exhaustive enumeration over four authored explicit grammars; 1-8 task parser."
+    "status": "BOUNDED_CAPABILITY_OBSERVED_ON_PROJECT_AUTHORED_ENUMERATION",
+    "source_commit": "bea424e7cf888d118249cf3b7e95ec204711e8c1",
+    "ci_run": "https://github.com/ivaniaworkshop-commits/rio-evidence-engine/actions/runs/41135727554",
+    "result_file": "model/H09_RESULT.json",
+    "matched_new_cases": 4096,
+    "total_new_cases": 4096,
+    "old_baseline_matched": 0,
+    "old_baseline_total": 4096,
+    "legacy_outcomes_preserved": 94,
+    "neural_parameter_changes": 0,
+    "source_independence": "NOT_ESTABLISHED",
+    "next_external_gate": "H08_ISSUE_8_OPEN"
   }
 }

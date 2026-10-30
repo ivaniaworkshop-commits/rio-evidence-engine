@@ -27,3 +27,10 @@ understanding, hidden test performance or independent source evidence.
 H08 remains BLOCKED_NO_EXTERNAL_HOLDOUT. Do not infer a statistical
 confidence interval for external accuracy from exhaustive authored cases.
 Reproduce with: python scripts/evaluate_extended_graph.py
+
+## Observed commit evidence
+Source run 41135727554 on main bea424e7cf888d118249cf3b7e95ec204711e8c1
+succeeded with 129/129 tests; 4096/4096 new-format matches vs 0/4096,
+94/94 legacy grades preserved. Details in model/H09_RESULT.json.
+One/eight task boundaries are added as subsequent CI-gated tests; do not
+extrapolate the exhaustive five-task graph enumeration to arbitrary input.
