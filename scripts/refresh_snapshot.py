@@ -43,6 +43,10 @@ def main():
     description_path=ROOT/'model/DESCRIPTION.json'
     if description_path.exists():
         data['model_description']=json.loads(description_path.read_text())
+    stream_path=ROOT/'model/STREAMING_GATE_RESULT.json'
+    if stream_path.exists():
+        stream=json.loads(stream_path.read_text())
+        data['streaming_gate']={k:stream[k] for k in ['cases','full_prompt_bytes_processed','supported_exact_graph_matches','correct_abstentions']}
     encoded = json.dumps(data, indent=2)+'\n'
     for name in ['DELTAS.json','docs/data.json']:
         (ROOT/name).write_text(encoded)

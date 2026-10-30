@@ -59,3 +59,12 @@ advantage remains. Do not inflate this small GRU into an LLM claim.
 
 Reproduce: `python scripts/build_semantic_fixture.py` and
 `python scripts/evaluate_semantic_gate.py` (optional torch required for the latter).
+
+## Full-prefill experiment
+
+STREAMING_GATE_RESULT.json evaluates the unchanged weights with a separate
+full recurrent prefill path: all 28 prompts processed, 0/24 exact graphs,
+0/4 correct abstentions. Lack of extraction ability remains after mechanical
+truncation is removed. The next training experiment must use a separate task-
+specific training corpus and preserve this evaluation fixture as evaluation
+only; architecture, output constraints and acceptance must be defined first.

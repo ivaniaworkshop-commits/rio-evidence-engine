@@ -93,7 +93,17 @@ a separate delta; no context extension or retraining occurred.
 <!-- MODEL_STATUS_START -->
 ## Current model status (evidence synchronized)
 
-Río ByteGRU is a **small neural language model, not an LLM**: 17,344 parameters, 250 observed training steps. Checkpoint saved and reloaded. Project suite: 61 passing local tests.
+Río ByteGRU is a **small neural language model, not an LLM**: 17,344 parameters, 250 observed training steps. Checkpoint saved and reloaded. Project suite: 65 passing local tests.
 
 Current free generation rejects prompt-plus-output budgets above 128 UTF-8 bytes. The extraction fixture has 28 context rejections, not semantic abstentions. Neural extraction is not established. Hybrid arithmetic remains deterministic. Optional neural ranking showed no output benefit in the paired 42-case comparison. Earlier low loss and failed raw-generation probes are historical, not current capability certificates.
+Experimental recurrent prefill processes up to 4096 prompt bytes; observed full processing in 28/28 cases, but 0/24 exact graphs and 0/4 correct abstentions. No weights changed.
 <!-- MODEL_STATUS_END -->
+
+## Experimental streaming update
+
+A separate opt-in path carries GRU hidden state across all input blocks and
+generation steps. Input is capped at 4096 UTF-8 bytes, output at 512. It uses
+the unchanged checkpoint and performs no suffix truncation. Full prompt byte
+accounting passed in 28/28 authored requests, but extraction remained 0/24 and
+correct abstention 0/4. This removes a mechanical input-loss cause, not semantic
+compression or lack of task training. Strict default remains unchanged.

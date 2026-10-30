@@ -89,3 +89,10 @@ Generate model/DESCRIPTION.json and current-state blocks in README/model card
 from observed training, checkpoint identity, context gate and local test record.
 Retain historical measurements separately; scheduled updates must synchronize
 all current descriptions before manifest and publication.
+
+## Bounded full recurrent prefill
+
+Add experimental 4096-byte prompt / 512-byte output path with cached GRU state.
+Test byte accounting, early rejection, UTF-8 boundaries and greedy equivalence
+to full-prefix inference. Process all 28 fixture prompts but observe no exact
+graphs or correct abstentions. No retraining; strict default unchanged.

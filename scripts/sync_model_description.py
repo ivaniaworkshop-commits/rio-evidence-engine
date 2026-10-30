@@ -35,6 +35,16 @@ def sync():
        'limits':['No LLM, production reliability, human mastery or independent validation claimed.',
                  'Context acceptance preserves bytes, not demonstrated semantic retention.',
                  'Training metrics remain historical until actual retraining.']}
+    stream_path=ROOT/'model/STREAMING_GATE_RESULT.json'
+    if stream_path.exists():
+        stream=json.loads(stream_path.read_text())
+        if stream['checkpoint_sha256'] != checkpoint_hash:
+            raise ValueError('streaming evaluation describes a different checkpoint')
+        d['experimental_streaming']={k:stream[k] for k in ['cases','full_prompt_bytes_processed','supported_exact_graph_matches','supported_cases','correct_abstentions','negative_cases']}
+        d['experimental_streaming']['max_prompt_bytes']=4096
+        d['experimental_streaming']['max_output_bytes']=512
+        d['semantic_extraction_status']='NOT_DEMONSTRATED_WITH_FULL_RECURRENT_PREFILL'
+        d['sources'].append('model/STREAMING_GATE_RESULT.json')
     (ROOT/'model/DESCRIPTION.json').write_text(json.dumps(d,indent=2)+'\n')
     value_statement=('Optional neural ranking showed no output benefit in the paired 42-case comparison.' if ablation_current else 'The current checkpoint has no matching paired utility evaluation.')
     block=('<!-- MODEL_STATUS_START -->\n## Current model status (evidence synchronized)\n\n'
@@ -46,7 +56,8 @@ def sync():
        'Neural extraction is not established. Hybrid arithmetic remains deterministic. '
        +value_statement+' '
        'Earlier low loss and failed raw-generation probes are historical, not current capability certificates.\n'
-       '<!-- MODEL_STATUS_END -->')
+       +('Experimental recurrent prefill processes up to 4096 prompt bytes; observed full processing in 28/28 cases, but 0/24 exact graphs and 0/4 correct abstentions. No weights changed.\n' if 'experimental_streaming' in d else '')
+       +'<!-- MODEL_STATUS_END -->')
     for name in ['README.md','model/MODEL_CARD.md']:
         path=ROOT/name;text=path.read_text()
         if '<!-- MODEL_STATUS_START -->' in text:

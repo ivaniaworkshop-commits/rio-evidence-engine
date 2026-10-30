@@ -1,1 +1,0 @@
-{"tasks":[{"id":"design"},{"id":"build","depends_on":["design"]},{"id":"tests","depends_on":["design"]},{"id":"deliver","depends_on":["build","tests"]}],"durations":{"design":5,"build":20,"tests":10,"deliver":5}}
