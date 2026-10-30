@@ -50,3 +50,6 @@ and a lower teacher-forced loss are not acceptance criteria.
 
 ## H10 comparator correction
 H08 previously compared candidate outputs against obsolete `graph_copy`. It now recomputes the H09 `extended_graph` baseline in the current worktree; this is not attestation of a frozen baseline revision, candidate execution or timing. No promotion.
+
+## H12-H13 statistical and observability addenda
+Current H11 paired screening now requires >=5 net-positive DECLARED independent clusters and cluster sign p<=0.05; this reduces, but cannot eliminate, within-cluster correlation deception. H12 model shows 30 positives can be insufficient for modest true effect (10% win chance and zero losses gives 17.55% power; 66 gives >=80% conditional power). H13 indexes main CI receipts. Neither source nor cluster identity is independently authenticated. H08 remains blocked.

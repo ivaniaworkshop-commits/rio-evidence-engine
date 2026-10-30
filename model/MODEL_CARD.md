@@ -205,3 +205,6 @@ Registered candidates are executed against the H09 current baseline. Self-report
 
 ## H12 statistical conditional screening
 Adds cluster-level sign guard against inflated significance from repeated same-cluster wins and exact binomial/seeded conditional simulation. These are calculations under assumptions, not independent test results or new weights. See evaluation/H12_POWER_DESIGN.md.
+
+## H13 audited observations for H10-H12
+Historical GitHub Actions results: H10 0/40 novel-language exact and 12/12 negative abstentions; H11 H09 identity 0 wins/losses on actual in-process paired execution; H12 conditional p10/30 detection probability 0.175494879 and 66 independent/no-loss cases for 80% power. All internal/conditional, not external evaluation, no weight promotion. See model/EVALUATION_OBSERVATIONS_R001.json.

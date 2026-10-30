@@ -57,6 +57,8 @@ jobs:
           assert x['candidate_promoted'] is False
           print('H12_MATH',{'p10_n80':a['n_for_at_least_80pct_under_assumptions'],'p10_power30':a['exact_probability_of_at_least_five_wins_in_30'],'simulated_probability':a['monte_carlo_30_cases_20000_draws']})
           PY
+      - name: H13 receipt consistency and no false promotion
+        run: python3 -m unittest discover -s tests -p test_evaluation_receipts.py -v
       - name: H08 independence gate must fail closed without external data
         run: |
           python3 -m rio_evidence.independent_gate > /tmp/h08.json
@@ -80,7 +82,7 @@ jobs:
           suite = unittest.defaultTestLoader.discover('tests')
           result = unittest.TextTestRunner(verbosity=2).run(suite)
           print('STRICT_SUITE', {'total': result.testsRun, 'failures': len(result.failures), 'errors': len(result.errors), 'skipped': len(result.skipped)})
-          if result.testsRun != 155 or result.failures or result.errors or result.skipped:
+          if result.testsRun != 157 or result.failures or result.errors or result.skipped:
               raise SystemExit(2)
           PY
       - name: H07 remeasure paired accuracy abstention and latency

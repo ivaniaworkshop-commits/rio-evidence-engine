@@ -334,3 +334,6 @@ python scripts/h11_run_paired.py --diagnostic --candidate h09 runs both register
 
 ## H12 conditional sample-size analysis
 Run python scripts/h12_power.py for exact binomial and seeded Monte Carlo estimates under explicit independent-win/no-loss assumptions. H11 screening now checks cluster-level wins too; neither proves source independence. See evaluation/H12_POWER_DESIGN.md.
+
+## H13 historical evidence receipts
+Read model/EVALUATION_OBSERVATIONS_R001.json for GitHub Actions source commits/runs and observed H10-H12 states. Its new tests check only receipt consistency; they cannot authenticate original external source. H08 still blocked.
