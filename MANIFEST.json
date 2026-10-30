@@ -1,6 +1,9 @@
 {
-  "scope": "PUBLICATION_CANDIDATE_NOT_PUBLISHED",
-  "proposed_repository_name": "rio-evidence-engine",
+  "scope": "SOURCE_BYTE_MANIFEST_NOT_TRUTH_OR_PUBLICATION_RECEIPT",
+  "excludes": [
+    "MANIFEST.json",
+    "__pycache__/"
+  ],
   "files": [
     {
       "path": ".gitignore",
@@ -8,14 +11,24 @@
       "sha256": "d70f7828a8d79a3f519edada327cbf38e22a1af9b12d50023c50f37b3c69c96e"
     },
     {
+      "path": "BENCHMARK.json",
+      "bytes": 450,
+      "sha256": "617966f2d14571880a590af3da39e43f2eeebf1ce50337cd0358ca215b783a46"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 1025,
+      "sha256": "527a8634dbecc5ad84b0d385c48bbe189113e66e6e953334d5de307f5f8f095a"
+    },
+    {
       "path": "README.md",
-      "bytes": 2605,
-      "sha256": "eeb63c19d09f19e03894f504cc954f55ad2651caed71e1e76fb5b65d9ad38f59"
+      "bytes": 4494,
+      "sha256": "52b22694ef3a6ec79b61ca6d523ed9955c988ffd264517598effa3561a998dbd"
     },
     {
       "path": "VALIDATION.json",
-      "bytes": 2506,
-      "sha256": "089496211b33b6763dc486f276ed09aa1f0452af63be1949c1b4e34fee5e5503"
+      "bytes": 4569,
+      "sha256": "828b403c04162074586107e0f7f4410345fee277dba1d84db4bc02702e7d76cc"
     },
     {
       "path": "demo.py",
@@ -23,19 +36,39 @@
       "sha256": "11bcb9c96b1d31dca9d4914327280dc9c1f428ef4f82bb1cf01b3a066907808a"
     },
     {
+      "path": "examples/compare.json",
+      "bytes": 144,
+      "sha256": "863e29150ab7931fa25d538a35e1bb650ef4b8e1a068c79e8a81add410a76e5a"
+    },
+    {
+      "path": "examples/schedule.json",
+      "bytes": 213,
+      "sha256": "ab1044a7cd5cf064cfbd25f2e080e89e137b9b0de78ae53c5cd736724ccf8afa"
+    },
+    {
       "path": "rio_evidence/__init__.py",
       "bytes": 69,
       "sha256": "80898ca36799f58bef35a23abd86120947f023aba810b6f340c4755736c1daf4"
     },
     {
+      "path": "rio_evidence/__main__.py",
+      "bytes": 1422,
+      "sha256": "b0415dab139c6d5d987a167c4a3726438f218eca684e351e214c666a01adb365"
+    },
+    {
       "path": "rio_evidence/core.py",
-      "bytes": 9606,
-      "sha256": "13f296fe918e1790df97230202da7bcad2e574b661655a6fc8ad6ff774824911"
+      "bytes": 11861,
+      "sha256": "9d08cc76d487099152dec9f47cfd0d7dddfe77754dc1fa0123ee6efddba56004"
     },
     {
       "path": "tests/test_core.py",
       "bytes": 4987,
       "sha256": "5a91760578d3d1d03aaaabd4505b1f4ccf3e7bee6cf55dec386231dc90a14fdf"
+    },
+    {
+      "path": "tests/test_regressions.py",
+      "bytes": 3694,
+      "sha256": "b07a8cc15e0d1e5deb60f2098575223ebb1180c2623f8f0367446059d30e6e2e"
     }
   ]
 }

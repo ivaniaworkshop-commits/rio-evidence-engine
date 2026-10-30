@@ -1,0 +1,17 @@
+# Changes
+
+## Input validation and usable command line
+
+- Reject ambiguous dependency containers, duplicate edges, and malformed task objects.
+- Replace repeated graph scans with deterministic heap-based Kahn traversal.
+- Reject fractional and boolean Wilson counts, invalid confidence values, and fractional telemetry counts.
+- Reject non-object results and blank case ids; detect critical-path overflow.
+- Reject duplicate JSON keys and incomplete final lines when reading journals.
+- Add JSON CLI commands for schedules, paired comparisons, and journal verification.
+- Add runnable examples and regression coverage, including 64 seeded DAGs.
+- Refresh local validation and manifest; record a bounded synthetic benchmark.
+
+Compatibility: unrelated graph nodes may have a different deterministic ordering.
+Previously accepted malformed inputs now raise ValueError. CLI syntax errors use
+argparse formatting; data errors use JSON. No user adoption or production claim
+is introduced. Existing hash serialization is preserved.

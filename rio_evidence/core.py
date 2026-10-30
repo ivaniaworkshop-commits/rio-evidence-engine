@@ -8,32 +8,58 @@ from dataclasses import dataclass
 from pathlib import Path
 
 
+def _tasks(tasks):
+    if not isinstance(tasks, (list, tuple)):
+        raise ValueError('tasks must be a list or tuple')
+    for task in tasks:
+        if not isinstance(task, dict):
+            raise ValueError('task must be an object')
+        if not isinstance(task.get('id'), str) or not task['id'].strip():
+            raise ValueError('nonempty text task id required')
+        deps = task.get('depends_on', [])
+        if not isinstance(deps, (list, tuple)) or any(
+                not isinstance(d, str) or not d.strip() for d in deps):
+            raise ValueError('dependencies must be a list of nonempty ids')
+        if len(set(deps)) != len(deps):
+            raise ValueError('duplicate dependency')
+    return tasks
+
+
 def topological_order(tasks):
-    if any(not isinstance(t.get('id'), str) or not t['id'].strip() for t in tasks):
-        raise ValueError('nonempty text task id required')
+    """Deterministic Kahn traversal, O((V + E) log V) time."""
+    import heapq
+    tasks = _tasks(tasks)
     by_id = {t['id']: t for t in tasks}
     if len(by_id) != len(tasks):
         raise ValueError('duplicate task id')
-    remaining = {k: set(t.get('depends_on', [])) for k, t in by_id.items()}
-    for deps in remaining.values():
-        if deps - by_id.keys():
-            raise ValueError('missing dependency')
+    indegree = {key: 0 for key in by_id}
+    children = {key: [] for key in by_id}
+    for key, task in by_id.items():
+        for dependency in task.get('depends_on', []):
+            if dependency not in by_id:
+                raise ValueError('missing dependency')
+            children[dependency].append(key)
+            indegree[key] += 1
+    ready = [key for key, degree in indegree.items() if degree == 0]
+    heapq.heapify(ready)
     result = []
-    while remaining:
-        ready = sorted(k for k, deps in remaining.items() if not deps)
-        if not ready:
-            raise ValueError('dependency cycle')
-        for key in ready:
-            result.append(key)
-            del remaining[key]
-        for deps in remaining.values():
-            deps.difference_update(ready)
+    while ready:
+        key = heapq.heappop(ready)
+        result.append(key)
+        for child in children[key]:
+            indegree[child] -= 1
+            if indegree[child] == 0:
+                heapq.heappush(ready, child)
+    if len(result) != len(by_id):
+        raise ValueError('dependency cycle')
     return result
 
 
 def critical_path(tasks, durations):
     """Unlimited-worker lower bound. A single worker also needs sum(durations)."""
     order = topological_order(tasks)
+    if not isinstance(durations, dict):
+        raise ValueError('durations must be an object')
     by_id = {t['id']: t for t in tasks}
     if set(durations) != set(by_id):
         raise ValueError('duration ids differ')
@@ -46,6 +72,8 @@ def critical_path(tasks, durations):
         predecessor = max(deps, key=lambda x: (finish[x], x)) if deps else None
         parent[key] = predecessor
         finish[key] = d + (finish[predecessor] if predecessor is not None else 0)
+        if not math.isfinite(finish[key]):
+            raise ValueError('schedule overflow')
     if not finish:
         return {'minutes': 0, 'path': [], 'single_worker_minutes': 0}
     end = max(finish, key=lambda x: (finish[x], x))
@@ -83,8 +111,11 @@ def triangular_ppf(u, low, mode, high):
 
 
 def wilson_interval(successes, n, z=1.959963984540054):
-    if not isinstance(n, int) or n <= 0 or not 0 <= successes <= n:
+    if (type(n) is not int or type(successes) is not int or n <= 0
+            or not 0 <= successes <= n):
         raise ValueError('invalid counts')
+    if isinstance(z, bool) or not isinstance(z, (int, float)) or not math.isfinite(z) or z <= 0 or z > 1e6:
+        raise ValueError('z must be finite and in (0, 1e6]')
     p = successes/n
     scale = 1+z*z/n
     center = (p+z*z/(2*n))/scale
@@ -95,11 +126,13 @@ def wilson_interval(successes, n, z=1.959963984540054):
 def compare_results(baseline, candidate):
     """Require paired case ids: never report a gain from a changed denominator."""
     def keyed(rows):
+        if not isinstance(rows, (list, tuple)) or any(not isinstance(r, dict) for r in rows):
+            raise ValueError('results must be a list of objects')
         if any(set(r) != {'case_id', 'correct', 'latency_ms'} for r in rows):
             raise ValueError('unexpected fields')
         if any(not isinstance(r['correct'], bool) for r in rows):
             raise ValueError('correct must be bool')
-        if any(not isinstance(r['case_id'], str) or not r['case_id'] for r in rows):
+        if any(not isinstance(r['case_id'], str) or not r['case_id'].strip() for r in rows):
             raise ValueError('case id missing')
         if any(isinstance(r['latency_ms'], bool) or not isinstance(r['latency_ms'], (int, float))
                or not math.isfinite(r['latency_ms']) or r['latency_ms'] < 0 for r in rows):
@@ -153,6 +186,8 @@ EVENT_FIELDS = {'event_id', 'task_id', 'phase', 'status', 'elapsed_ms', 'attempt
 
 def validate_event(event):
     """Closed metadata schema. No prompt, request body, URL, key, or raw response."""
+    if not isinstance(event, dict):
+        raise ValueError('event must be an object')
     if set(event)-EVENT_FIELDS:
         raise ValueError('unapproved telemetry fields')
     for key in ('event_id', 'task_id', 'phase', 'status', 'evidence_ref', 'version'):
@@ -171,6 +206,9 @@ def validate_event(event):
         if value is not None and (isinstance(value, bool) or not isinstance(value, (int, float))
                                   or not math.isfinite(value) or value < 0):
             raise ValueError('invalid numeric metadata')
+    for key in ('attempt', 'calls', 'tokens_in', 'tokens_out'):
+        if event.get(key) is not None and type(event[key]) is not int:
+            raise ValueError('counts must be integers')
     return event
 
 
@@ -196,8 +234,20 @@ def append_event(path, event):
 
 def read_events(path):
     rows, previous, ids = [], None, set()
-    for line in Path(path).read_text(encoding='utf-8').splitlines():
-        row = json.loads(line)
+    raw_bytes = Path(path).read_bytes()
+    if raw_bytes and not raw_bytes.endswith(b'\n'):
+        raise ValueError('journal missing terminal newline')
+    def unique_object(pairs):
+        result = {}
+        for key, value in pairs:
+            if key in result:
+                raise ValueError('duplicate JSON key')
+            result[key] = value
+        return result
+    for line in raw_bytes.decode('utf-8').splitlines():
+        row = json.loads(line, object_pairs_hook=unique_object)
+        if not isinstance(row, dict):
+            raise ValueError('journal row must be an object')
         if set(row) != {'previous_sha256', 'event', 'sha256'}:
             raise ValueError('invalid journal row')
         validate_event(row['event'])
