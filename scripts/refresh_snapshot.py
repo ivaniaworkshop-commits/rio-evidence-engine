@@ -28,6 +28,10 @@ def main():
     if model_path.exists():
         result=json.loads(model_path.read_text())
         data['model']={k:result[k] for k in ['status','parameters','steps','initial_holdout_loss','final_holdout_loss']}
+    ablation_path=ROOT/'model/MODE_ABLATION.json'
+    if ablation_path.exists():
+        ab=json.loads(ablation_path.read_text())
+        data['ablation']={k:ab[k] for k in ['cases','comparison','warm_timings','decision']}
     encoded = json.dumps(data, indent=2)+'\n'
     for name in ['DELTAS.json','docs/data.json']:
         (ROOT/name).write_text(encoded)

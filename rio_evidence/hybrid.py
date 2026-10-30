@@ -60,7 +60,7 @@ def solve(payload,ranker=None):
 
 
 def main(argv=None):
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('input');p.add_argument('--neural',action='store_true');args=p.parse_args(argv)
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('input');p.add_argument('--neural',action='store_true',help='Experimental ranking; no output benefit observed in paired local comparison');args=p.parse_args(argv)
     try:
         ranker=None;load_failure=False
         if args.neural:

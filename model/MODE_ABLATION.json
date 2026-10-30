@@ -1,0 +1,1129 @@
+{
+  "scope": "PAIRED_LOCAL_SYSTEM_ABLATION_NOT_NEURAL_LEARNING_OR_HUMAN_PREFERENCE",
+  "observed_at_utc": "2026-10-30T19:16:59.884703+00:00",
+  "python": "3.12.14",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.39",
+  "cases": 42,
+  "repetitions_per_case": 5,
+  "checkpoint_sha256": "a190c30ef90aa4bf21d92036d388c9c272fda73e7869f507648a6d053bb1ec29",
+  "comparison": {
+    "deterministic_passes": 42,
+    "neural_passes": 42,
+    "identical_schedules": 42,
+    "identical_explanations": 42,
+    "ranking_observed": 42
+  },
+  "warm_timings": {
+    "deterministic": {
+      "samples": 210,
+      "median_ms": 0.02917400024671224,
+      "p95_ms": 0.05044000004090776
+    },
+    "neural": {
+      "samples": 210,
+      "median_ms": 8.46336099994005,
+      "p95_ms": 9.99508259983486
+    }
+  },
+  "neural_to_deterministic_median_ratio": 290.09943540032117,
+  "in_process_model_import_and_load_ms": 1047.926754999935,
+  "cold_subprocess_runs": {
+    "deterministic": [
+      {
+        "import_load_and_one_answer_ms": 13.651547000335995,
+        "peak_process_rss_kib": 14080,
+        "selection_status": "NOT_REQUESTED_DETERMINISTIC_TEMPLATE"
+      },
+      {
+        "import_load_and_one_answer_ms": 13.443242999528593,
+        "peak_process_rss_kib": 14080,
+        "selection_status": "NOT_REQUESTED_DETERMINISTIC_TEMPLATE"
+      },
+      {
+        "import_load_and_one_answer_ms": 14.879924999149807,
+        "peak_process_rss_kib": 14080,
+        "selection_status": "NOT_REQUESTED_DETERMINISTIC_TEMPLATE"
+      }
+    ],
+    "neural": [
+      {
+        "import_load_and_one_answer_ms": 1146.7304460002197,
+        "peak_process_rss_kib": 270676,
+        "selection_status": "NEURAL_TEMPLATE_RANKING_OBSERVED"
+      },
+      {
+        "import_load_and_one_answer_ms": 1199.0993560002607,
+        "peak_process_rss_kib": 270796,
+        "selection_status": "NEURAL_TEMPLATE_RANKING_OBSERVED"
+      },
+      {
+        "import_load_and_one_answer_ms": 1093.5753970006772,
+        "peak_process_rss_kib": 270676,
+        "selection_status": "NEURAL_TEMPLATE_RANKING_OBSERVED"
+      }
+    ]
+  },
+  "checkpoint_bytes": 72734,
+  "financial_cost": "UNKNOWN_NO_ACCOUNT_METER",
+  "human_prose_preference": "NOT_MEASURED",
+  "rows": [
+    {
+      "case_id": "SCHED-001",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.03599399951781379,
+          0.03421200017328374,
+          0.017626000044401735,
+          0.02680000034160912,
+          0.017115999980887864
+        ],
+        "neural": [
+          8.71358499989583,
+          10.00160399962624,
+          8.959708000475075,
+          7.7944069998920895,
+          7.572874000288721
+        ]
+      }
+    },
+    {
+      "case_id": "SCHED-006",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.028733999897667672,
+          0.016725000023143366,
+          0.030316000447783154,
+          0.022033000277588144,
+          0.03385199943295447
+        ],
+        "neural": [
+          7.937694999782252,
+          9.481176000008418,
+          8.582048000789655,
+          8.346402000825037,
+          9.578613000485348
+        ]
+      }
+    },
+    {
+      "case_id": "SCHED-011",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.019969999812019523,
+          0.05556399992201477,
+          0.01965000046766363,
+          0.04793199968844419,
+          0.01871800031949533
+        ],
+        "neural": [
+          8.209194999835745,
+          9.257773999706842,
+          9.637543000280857,
+          9.61751200065919,
+          10.65280700004223
+        ]
+      }
+    },
+    {
+      "case_id": "SCHED-016",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.0477619996672729,
+          0.019089000488747843,
+          0.04744099987874506,
+          0.017747000129020307,
+          0.03587399987736717
+        ],
+        "neural": [
+          9.572164000019256,
+          9.56764700003987,
+          9.66435400005139,
+          9.62151800013089,
+          9.467405999203038
+        ]
+      }
+    },
+    {
+      "case_id": "SCHED-021",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.021442999241116922,
+          0.04088200057594804,
+          0.01795699972717557,
+          0.040330999581783544,
+          0.0174470005731564
+        ],
+        "neural": [
+          9.557311000207847,
+          9.626617000321858,
+          9.495807999883255,
+          9.59226499981014,
+          9.692045000520011
+        ]
+      }
+    },
+    {
+      "case_id": "SCHED-026",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.04410699966683751,
+          0.01868799972726265,
+          0.046800000745861325,
+          0.017375999959767796,
+          0.07613500019942876
+        ],
+        "neural": [
+          9.584121000443702,
+          9.546475999741233,
+          9.534087000247382,
+          9.229715999936161,
+          7.6964510008110665
+        ]
+      }
+    },
+    {
+      "case_id": "SCHED-031",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.020881000637018587,
+          0.03796700002567377,
+          0.13741699967795284,
+          0.03259899949625833,
+          0.017005999325192533
+        ],
+        "neural": [
+          7.419881000714668,
+          7.513784000366286,
+          8.62391100054083,
+          7.479582000087248,
+          7.647155000086059
+        ]
+      }
+    },
+    {
+      "case_id": "SCHED-036",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.03387099968676921,
+          0.017626000044401735,
+          0.038467999729618896,
+          0.016555000001972076,
+          0.038637999750790186
+        ],
+        "neural": [
+          8.460087999992538,
+          9.123687000283098,
+          10.180803000366723,
+          8.575357999689004,
+          9.718224999232916
+        ]
+      }
+    },
+    {
+      "case_id": "SCHED-041",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.019579000763769727,
+          0.04832299964618869,
+          0.019489999431243632,
+          0.03690499943331815,
+          0.016494999727001414
+        ],
+        "neural": [
+          10.814039000251796,
+          12.150360000305227,
+          8.259780000116734,
+          9.251460000086809,
+          8.715959999790357
+        ]
+      }
+    },
+    {
+      "case_id": "SCHED-046",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.03141800061712274,
+          0.016133999451994896,
+          0.03810799989878433,
+          0.016644999959680717,
+          0.0325700002576923
+        ],
+        "neural": [
+          8.26582999980019,
+          8.663442000397481,
+          8.891245000086201,
+          7.912637000117684,
+          9.036765000018931
+        ]
+      }
+    },
+    {
+      "case_id": "SCHED-051",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.019188999431207776,
+          0.03278900021541631,
+          0.016093999875010923,
+          0.038549000237253495,
+          0.016545000107726082
+        ],
+        "neural": [
+          8.350959000381408,
+          8.623491000435024,
+          11.321827000756457,
+          11.296560000118916,
+          8.137436000652087
+        ]
+      }
+    },
+    {
+      "case_id": "SCHED-056",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.036596000427380204,
+          0.016846000107761938,
+          0.03782700059673516,
+          0.016095000319182873,
+          0.02648999998200452
+        ],
+        "neural": [
+          8.986419000393653,
+          7.461524000063946,
+          9.078519000468077,
+          7.352880999860645,
+          7.827477999853727
+        ]
+      }
+    },
+    {
+      "case_id": "SCHED-061",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.01823799993871944,
+          0.036794999687117524,
+          0.018667999938770663,
+          0.03702600042743143,
+          0.01775599957909435
+        ],
+        "neural": [
+          10.621008999805781,
+          9.709384999950998,
+          9.905728999910934,
+          9.863002999736636,
+          9.968142999241536
+        ]
+      }
+    },
+    {
+      "case_id": "SCHED-066",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.039288999687414616,
+          0.017355999261781108,
+          0.03534299958118936,
+          0.017405999642505776,
+          0.03169800038449466
+        ],
+        "neural": [
+          9.90360400010104,
+          9.987112000089837,
+          9.828700999605644,
+          9.569876000568911,
+          7.773735000228044
+        ]
+      }
+    },
+    {
+      "case_id": "SCHED-071",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.020770999981323257,
+          0.033600000278966036,
+          0.01679599972703727,
+          0.02903400036302628,
+          0.015554000128759071
+        ],
+        "neural": [
+          8.171727999979339,
+          8.249505999629037,
+          7.475385999896389,
+          7.964043999891146,
+          7.678412000132084
+        ]
+      }
+    },
+    {
+      "case_id": "SCHED-076",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.02917400070145959,
+          0.01625500044610817,
+          0.02946499989775475,
+          0.016465000044263434,
+          0.030607000553573016
+        ],
+        "neural": [
+          8.088333000159764,
+          8.466633999887563,
+          7.41564500003733,
+          7.616069000505377,
+          8.308585000122548
+        ]
+      }
+    },
+    {
+      "case_id": "SCHED-081",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.01987999985431088,
+          0.03204900076525519,
+          0.017196000044350512,
+          0.032949999877018854,
+          0.01639499987504678
+        ],
+        "neural": [
+          7.701196999732929,
+          7.59250300052372,
+          8.014020000700839,
+          8.488405999742099,
+          7.714927999586507
+        ]
+      }
+    },
+    {
+      "case_id": "SCHED-086",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.03244900017307373,
+          0.015673999769205693,
+          0.04241400074533885,
+          0.016694999430910684,
+          0.034903000596386846
+        ],
+        "neural": [
+          7.32251399949746,
+          7.87434799985931,
+          12.985922999178001,
+          7.765734999338747,
+          8.087821000117401
+        ]
+      }
+    },
+    {
+      "case_id": "SCHED-091",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.01876800070022,
+          0.03217799985577585,
+          0.01605400029802695,
+          0.03154800015181536,
+          0.0163650001923088
+        ],
+        "neural": [
+          7.372318999841809,
+          7.505261000005703,
+          7.273641000210773,
+          7.21798700033105,
+          7.137524999961897
+        ]
+      }
+    },
+    {
+      "case_id": "SCHED-096",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.03892900076607475,
+          0.016295000023092143,
+          0.03429200023674639,
+          0.01603399960004026,
+          0.03695600025821477
+        ],
+        "neural": [
+          7.807908000359021,
+          8.467225000458711,
+          7.4126300005445955,
+          8.12699000016437,
+          8.390218000386085
+        ]
+      }
+    },
+    {
+      "case_id": "SCHED-101",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.02098200002365047,
+          0.036174000342725776,
+          0.016555000001972076,
+          0.03401100002520252,
+          0.015552999684587121
+        ],
+        "neural": [
+          7.626032000189298,
+          7.676229000026069,
+          7.502085999476549,
+          7.513292000112415,
+          6.6889180006910465
+        ]
+      }
+    },
+    {
+      "case_id": "SCHED-106",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.03802799983532168,
+          0.015853999684622977,
+          0.036233999708201736,
+          0.015482999515370466,
+          0.04187300055491505
+        ],
+        "neural": [
+          7.9858279996187775,
+          8.051826000155415,
+          7.151476000217372,
+          8.019828000215057,
+          8.357999000509153
+        ]
+      }
+    },
+    {
+      "case_id": "SCHED-111",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.019600000086938962,
+          0.038236999898799695,
+          0.01620399962121155,
+          0.04896400059806183,
+          0.01828699987527216
+        ],
+        "neural": [
+          7.0382250005422975,
+          7.019286999820906,
+          7.536867999988317,
+          9.600937999493908,
+          9.112339000239444
+        ]
+      }
+    },
+    {
+      "case_id": "SCHED-116",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.044147000153316185,
+          0.01769699974829564,
+          0.041713000427989755,
+          0.0177570000232663,
+          0.035634000596473925
+        ],
+        "neural": [
+          9.176134999506758,
+          9.191038000608387,
+          9.168593999675068,
+          9.0880029993059,
+          9.065107000424177
+        ]
+      }
+    },
+    {
+      "case_id": "SCHED-121",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.022634000742982607,
+          0.03388200002518715,
+          0.017876999663712922,
+          0.038408000364142936,
+          0.01750699993863236
+        ],
+        "neural": [
+          9.636670999498165,
+          9.536730999570864,
+          9.518322000076296,
+          8.927073999984714,
+          7.794766999722924
+        ]
+      }
+    },
+    {
+      "case_id": "SCHED-126",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.029564999749709386,
+          0.016694999430910684,
+          0.030085000616963953,
+          0.016555000001972076,
+          0.02917399979196489
+        ],
+        "neural": [
+          6.987699000092107,
+          6.622377999519813,
+          7.3047269997914555,
+          7.417617999635695,
+          7.215012999949977
+        ]
+      }
+    },
+    {
+      "case_id": "NEW-DAG-00",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.029654999707418028,
+          0.03670499972940888,
+          0.021302000277501065,
+          0.040101000195136294,
+          0.02061099985439796
+        ],
+        "neural": [
+          9.205049000229337,
+          7.641186000000744,
+          7.796309999321238,
+          7.78174900005979,
+          8.034219999899506
+        ]
+      }
+    },
+    {
+      "case_id": "NEW-DAG-01",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.040611000258650165,
+          0.021132000256329775,
+          0.04664999960368732,
+          0.020620999748643953,
+          0.04238399924361147
+        ],
+        "neural": [
+          8.233130000007804,
+          8.679995000420604,
+          10.317470999325451,
+          8.751213000323332,
+          8.246581999628688
+        ]
+      }
+    },
+    {
+      "case_id": "NEW-DAG-02",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.02340500032005366,
+          0.12525000056484714,
+          0.021562999791058246,
+          0.04626900044968352,
+          0.023845999749028124
+        ],
+        "neural": [
+          7.111316000191437,
+          7.941630000459554,
+          8.732029999919177,
+          9.867720000329427,
+          9.803042999919853
+        ]
+      }
+    },
+    {
+      "case_id": "NEW-DAG-03",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.06996600041020429,
+          0.023796000277798157,
+          0.044747999709215946,
+          0.02296499951626174,
+          0.040640999941388145
+        ],
+        "neural": [
+          9.795640999982425,
+          9.813939999730792,
+          9.79523100068036,
+          9.830324000176915,
+          9.788200999537366
+        ]
+      }
+    },
+    {
+      "case_id": "NEW-DAG-04",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.02436700015095994,
+          0.06014100017637247,
+          0.023134999537433032,
+          0.032468999961565714,
+          0.03960899994126521
+        ],
+        "neural": [
+          9.852637999756553,
+          9.820399000091129,
+          9.788676000425767,
+          6.891783999890322,
+          7.030254000710556
+        ]
+      }
+    },
+    {
+      "case_id": "NEW-DAG-05",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.03946000015275786,
+          0.020391000361996703,
+          0.03624500004661968,
+          0.02182299976993818,
+          0.035864999517798424
+        ],
+        "neural": [
+          7.06794899997476,
+          6.943692999811901,
+          8.114061000014772,
+          7.88648599973385,
+          7.625902999279788
+        ]
+      }
+    },
+    {
+      "case_id": "NEW-DAG-06",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.02279499949509045,
+          0.034282000342500396,
+          0.020460999621718656,
+          0.1819339995563496,
+          0.0597099997321493
+        ],
+        "neural": [
+          7.479982999939239,
+          7.209082999906968,
+          7.219549999717856,
+          8.288263999929768,
+          7.007187999988673
+        ]
+      }
+    },
+    {
+      "case_id": "NEW-DAG-07",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.03957900025852723,
+          0.020170000425423495,
+          0.0375259996872046,
+          0.020250000488886144,
+          0.03421099972911179
+        ],
+        "neural": [
+          7.651732000340417,
+          7.473292999748082,
+          7.885865999924135,
+          7.21832799990807,
+          7.036783000330615
+        ]
+      }
+    },
+    {
+      "case_id": "NEW-DAG-08",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.022033000277588144,
+          0.037446000533236656,
+          0.021111999558343086,
+          0.045478999709303025,
+          0.021762999494967517
+        ],
+        "neural": [
+          7.685012000365532,
+          8.017574999939825,
+          8.26365699958842,
+          8.994761000394647,
+          7.438440000441915
+        ]
+      }
+    },
+    {
+      "case_id": "NEW-DAG-09",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.03646499953902094,
+          0.020972000129404478,
+          0.03754599947569659,
+          0.020221000340825412,
+          0.03520300015225075
+        ],
+        "neural": [
+          7.482244999664545,
+          7.40829499954998,
+          7.797743000082846,
+          7.475736000742472,
+          7.257086000208801
+        ]
+      }
+    },
+    {
+      "case_id": "NEW-DAG-10",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.021521999769902322,
+          0.037847999919904396,
+          0.01999000051000621,
+          0.03938899953936925,
+          0.019799999790848233
+        ],
+        "neural": [
+          7.7730550001433585,
+          7.56844599982287,
+          7.451810000020487,
+          7.987520999449771,
+          7.601436000186368
+        ]
+      }
+    },
+    {
+      "case_id": "NEW-DAG-11",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.054602000091108494,
+          0.024126999960571993,
+          0.04843299939238932,
+          0.02304499957972439,
+          0.046830999963276554
+        ],
+        "neural": [
+          9.340194000287738,
+          9.854740999799105,
+          9.886369000014383,
+          9.784535000108008,
+          9.801601000617666
+        ]
+      }
+    },
+    {
+      "case_id": "NEW-DAG-12",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.024587000552855898,
+          0.04602000080922153,
+          0.023415000214299653,
+          0.04430700028024148,
+          0.023104999854695052
+        ],
+        "neural": [
+          9.90443599948776,
+          9.919178000018292,
+          9.77139599945076,
+          9.737723999933223,
+          9.918877999552933
+        ]
+      }
+    },
+    {
+      "case_id": "NEW-DAG-13",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.050396000006003305,
+          0.023075000171957072,
+          0.04713099951914046,
+          0.02323500029888237,
+          0.04608899962477153
+        ],
+        "neural": [
+          9.882022999590845,
+          9.782992000509694,
+          9.964546999981394,
+          9.76510500004224,
+          9.91745700048341
+        ]
+      }
+    },
+    {
+      "case_id": "NEW-DAG-14",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.026921000426227693,
+          0.04889399951935047,
+          0.02320500061614439,
+          0.04936400000588037,
+          0.02256399966427125
+        ],
+        "neural": [
+          9.904245000143419,
+          9.816714000407956,
+          9.847309000178939,
+          9.802122000110103,
+          9.903784999551135
+        ]
+      }
+    },
+    {
+      "case_id": "NEW-DAG-15",
+      "deterministic_pass": true,
+      "neural_pass": true,
+      "schedules_equal": true,
+      "explanations_equal": true,
+      "selected_candidate": 0,
+      "ranking_status": "NEURAL_TEMPLATE_RANKING_OBSERVED",
+      "timings_ms": {
+        "deterministic": [
+          0.050476000069465954,
+          0.023796000277798157,
+          0.047342000470962375,
+          0.02284400034113787,
+          0.07429299967043335
+        ],
+        "neural": [
+          9.863184000096226,
+          9.818025000640773,
+          10.304089999408461,
+          9.938782999597606,
+          7.487803999538301
+        ]
+      }
+    }
+  ],
+  "decision": "KEEP_DETERMINISTIC_DEFAULT_NEURAL_EXPERIMENTAL_OPT_IN",
+  "limits": [
+    "Local hardware/load-sensitive timings; no cross-platform latency claim.",
+    "RSS is the entire fresh Python process, not isolated tensor allocation; Linux KiB.",
+    "Cold elapsed times include imports, model load and one response, excluding interpreter launch.",
+    "Different template selection would not establish superior prose without separate evaluation.",
+    "This does not measure general neural-model usefulness beyond the tested task."
+  ]
+}

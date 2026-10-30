@@ -48,7 +48,7 @@
   "benchmark_source_commit": "7eb02c14e23453f109604ddefaeb5c944fad05fa",
   "provenance": {
     "core_sha256": "fb232e58f1ab1260d9b74b454a0a267cd73171e0aedaf0fc4867df552fd2caf5",
-    "validation_sha256": "3a56f96ec327655139acd65d10353ab9ddabfa32a67e9a8744df518ffd698069",
+    "validation_sha256": "48bc743b0f8ee53848d0568eec63aee1b924f23eebe21c45f15344626653d28a",
     "scope": "LOCAL_EXECUTION_RECORD_BOUND_TO_SOURCE_BYTES_NOT_REMOTE_CI"
   },
   "model": {
@@ -57,5 +57,28 @@
     "steps": 250,
     "initial_holdout_loss": 5.595981802216249,
     "final_holdout_loss": 0.6929422469480627
+  },
+  "ablation": {
+    "cases": 42,
+    "comparison": {
+      "deterministic_passes": 42,
+      "neural_passes": 42,
+      "identical_schedules": 42,
+      "identical_explanations": 42,
+      "ranking_observed": 42
+    },
+    "warm_timings": {
+      "deterministic": {
+        "samples": 210,
+        "median_ms": 0.02917400024671224,
+        "p95_ms": 0.05044000004090776
+      },
+      "neural": {
+        "samples": 210,
+        "median_ms": 8.46336099994005,
+        "p95_ms": 9.99508259983486
+      }
+    },
+    "decision": "KEEP_DETERMINISTIC_DEFAULT_NEURAL_EXPERIMENTAL_OPT_IN"
   }
 }

@@ -62,3 +62,10 @@ DAGs against an exhaustive path oracle. This is system evaluation, not improved
 neural arithmetic. Ranking preference has no independent quality validation;
 correctness would also be available without the neural component. The earlier
 0/26 free-generation probe remains unchanged.
+
+## Ablation decision
+
+MODE_ABLATION.md / MODE_ABLATION.json compare both modes on matching cases.
+No output benefit was observed: all 42 explanations and schedules matched.
+Neural ranking adds local latency and whole-process memory. Keep it opt-in;
+additional training requires a new, explicit utility criterion.

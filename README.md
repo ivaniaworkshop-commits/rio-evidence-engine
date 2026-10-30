@@ -152,3 +152,11 @@ The optional trained model ranks those candidates; failure falls back to a
 known template. [Hybrid evaluation](model/HYBRID_EVALUATION.json) separates that
 system behavior from the unchanged failed free-generation probe. It does not
 show that neural ranking improves accuracy or explanation quality over code alone.
+
+## Measured neural value
+
+[Paired comparison](model/MODE_ABLATION.md): both modes produced identical
+schedules and explanations in 42 authored cases. Neural ranking added local
+time and process memory without observed output benefit. Deterministic mode
+remains the default; `--neural` is experimental and optional. Financial cost and
+human prose preference were not measured.

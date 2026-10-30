@@ -60,3 +60,10 @@ Add exact schedule answering with optional learned ranking of three grounded
 English candidates. Preserve deterministic fallback and invalid-graph rejection.
 Add four tests and 42 authored graph evaluations against an exhaustive oracle.
 No new training or improvement in free neural arithmetic is claimed.
+
+## Paired neural ablation
+
+Measure 42 paired cases, five warm repetitions and three fresh-process starts
+per mode. Identical outputs; neural latency/memory overhead observed. Preserve
+deterministic default and label neural ranking experimental. Publish raw data,
+method and limits; no additional training performed.
