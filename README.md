@@ -284,3 +284,20 @@ After authorized source changes: validate; run `python scripts/build_public_prec
 if parser revisions changed; synchronize descriptions/snapshot; then run
 `python scripts/refresh_manifest.py`. The runtime never repairs a failed
 manifest automatically.
+
+## Reproducibility and official-criteria boundary (H00/H01/H07)
+
+CI on main (commit 79971e88bbb82ef68a0e529c35a7721b45d654df):
+105 unit tests passed, zero skipped, with optional PyTorch 2.15.0+cpu installed.
+Evidence: https://github.com/ivaniaworkshop-commits/rio-evidence-engine/actions/runs/41129448556
+
+Official FRONTIER challenge acceptance, hidden scoring and submission contract
+are NOT independently verified. The owner-supplied BOG/26 excerpts and
+historical project rubric are preparation, not organizer-certified rules.
+See competition/ACCEPTANCE_AUTHORITY_R001.json.
+
+H07: scripts/h07_audit.py checks the identity and paired outcomes of
+model/NETWORK_VALUE_RESULT.json; the torch CI workstream re-runs
+scripts/evaluate_network_value.py. Dev cases are authored and correlated.
+Cost in dollars and independent generalization remain UNKNOWN.
+No added parameters or neural promotion is implied.

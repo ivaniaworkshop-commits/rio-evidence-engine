@@ -1,0 +1,68 @@
+{
+  "schema": "RIO_H01_ACCEPTANCE_AUTHORITY_R001",
+  "as_of_utc_date": "2026-10-30",
+  "project": "ivaniaworkshop-commits/rio-evidence-engine",
+  "workstream": "FRONTIER_PREPARATION",
+  "separate_workstream": "RIO_MERCADO_ABIERTO_RFQ_PILOT",
+  "official_acceptance_status": "BLOCKED_NOT_INDEPENDENTLY_VERIFIED",
+  "official_source_retrieved_this_round": false,
+  "source_evidence": [
+    {
+      "id": "frontier_user_excerpt",
+      "type": "OWNER_SUPPLIED_EXCERPT_NOT_LIVE_VERIFIED",
+      "url": "https://frontier.lab10.ai/talento",
+      "text_scope": "FRONTIER TALENT BOG/26 directory and candidate-evaluation description",
+      "evidence_limit": "Does not establish the rulebook, specific submission contract, scoring thresholds or an accepted entry."
+    },
+    {
+      "id": "internal_historical_rubric",
+      "type": "PROJECT_RECONSTRUCTION_NOT_OFFICIAL",
+      "path": "competition/ACCEPTANCE.md",
+      "text_scope": "Provisional BOG/26 preparation matrix of 12 criteria",
+      "evidence_limit": "Original audit explicitly says website retrieval failed and challenge brief was unavailable."
+    }
+  ],
+  "provisional_evaluation_dimensions": [
+    "problem_understanding",
+    "architecture_and_tradeoffs",
+    "measurement_plan",
+    "hidden_evaluation_performance",
+    "incident_response",
+    "repository_quality",
+    "specification_if_challenge_2",
+    "resolution_strategy",
+    "demo_clarity",
+    "demo_evidence",
+    "individual_explanation",
+    "reading_results"
+  ],
+  "unverified_submission_artifacts": [
+    "eight_english_application_answers",
+    "public_tokenized_health_endpoint",
+    "public_video_max_two_minutes",
+    "challenge_2_experiment_log",
+    "incident_response",
+    "individual_debrief"
+  ],
+  "critical_unknowns": [
+    "official_organizer_rules_document_and_version",
+    "event_city_and_applicable_cohort",
+    "challenge_brief_and_starter",
+    "current_deadline_and_submit_target",
+    "scoring_weights_and_minimums",
+    "hidden_test_contract",
+    "service_api_authentication_requirements",
+    "video_required_and_duration_limit",
+    "official_receipt_or_judge_confirmation"
+  ],
+  "promotion_gate": {
+    "status": "DENY_OFFICIAL_ACCEPTANCE_CLAIM",
+    "requirements": [
+      "direct_official_organizer_source_or_original_authorized_brief",
+      "captured_provenance_url_timestamp_and_document_version",
+      "criterion_by_criterion_mapping_to_observable_evidence",
+      "actual_submission_receipt_and_external_decision_if_acceptance_is_claimed"
+    ]
+  },
+  "boundary": "Internal CI results and project-authored local tests are not organizer acceptance. H01 authority remains open, not silently closed."
+}

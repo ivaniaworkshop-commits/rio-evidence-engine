@@ -20,6 +20,8 @@ jobs:
           python3 -m rio_evidence schedule examples/schedule.json
           python3 -m rio_evidence compare examples/compare.json
           python3 demo.py
+      - name: Audit H07 historical paired source and metadata
+        run: python3 scripts/h07_audit.py
   strict-torch:
     runs-on: ubuntu-latest
     timeout-minutes: 25
@@ -42,3 +44,7 @@ jobs:
           if result.testsRun != 105 or result.failures or result.errors or result.skipped:
               raise SystemExit(2)
           PY
+      - name: H07 remeasure paired accuracy abstention and latency
+        run: |
+          .venv/bin/python scripts/evaluate_network_value.py
+          .venv/bin/python scripts/h07_audit.py
