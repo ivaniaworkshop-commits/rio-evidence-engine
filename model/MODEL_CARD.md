@@ -173,3 +173,12 @@ H07 audits a frozen 94-case authored-dev paired comparison and repeats it
 on a separate CPU-torch CI runner: see evaluation/H07_GATE_R001.md.
 Neural accuracy gain remains NOT_DEMONSTRATED. No weights or active
 model behavior have been changed by these documentation and audit gates.
+
+## H08 external benchmark promotion gate
+
+No independently sourced, authenticated holdout is observed. The H08 validator
+requires a frozen candidate before the external dataset receipt, exact paired
+graph/abstention measures and explicit cost. A self-reported external source is
+not attestation. CI demonstrates fail-closed behavior with synthetic tests only.
+Status: BLOCKED_NO_EXTERNAL_HOLDOUT; candidate_promoted=false. See
+evaluation/H08_INDEPENDENT_GATE_R001.md. Weights and parameter count unchanged.

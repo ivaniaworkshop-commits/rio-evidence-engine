@@ -301,3 +301,13 @@ model/NETWORK_VALUE_RESULT.json; the torch CI workstream re-runs
 scripts/evaluate_network_value.py. Dev cases are authored and correlated.
 Cost in dollars and independent generalization remain UNKNOWN.
 No added parameters or neural promotion is implied.
+
+## External evaluation gate (H08)
+
+`python -m rio_evidence.independent_gate` gives an explicit
+BLOCKED_NO_EXTERNAL_HOLDOUT result until external cases and evaluator evidence
+exist. Synthetic unit tests verify validation logic but are NOT independent
+neural-capability evidence. No automatic promotion is possible. Read
+evaluation/H08_INDEPENDENT_GATE_R001.md. The full CI suite now includes the
+H08 contract tests; historical 105-test counts remain attributable to the
+older commits, not silently rewritten.
