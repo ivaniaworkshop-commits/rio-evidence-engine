@@ -4,7 +4,7 @@
     {
       "path": ".github/workflows/h00-integrity.yml",
       "bytes": 2501,
-      "sha256": "582593f51c4bb0ac8d064531f4fc12fae5be30899739678e3abec11e0bec62b2"
+      "sha256": "2c3880966efb5ca1d4454412d4358ad411dd4cf3ab8978a6c63316004bebc226"
     },
     {
       "path": ".gitignore",
@@ -93,8 +93,8 @@
     },
     {
       "path": "evaluation/H09_CAPABILITY.md",
-      "bytes": 1756,
-      "sha256": "35c9a8837a0913c93234b5685c57838be11e6d2fc562343185592f7c8c6e02e5"
+      "bytes": 2140,
+      "sha256": "bf6afe0e668df0cdfcda87f9be80a9a08aadcaa943a53a2822ff6c722fe278a7"
     },
     {
       "path": "evaluation/semantic_fixture.jsonl",
@@ -128,8 +128,8 @@
     },
     {
       "path": "model/DESCRIPTION.json",
-      "bytes": 7631,
-      "sha256": "d4b653c1f5a7cd62bd55b9f72bab9259d7ecd57a15bb3ef2f991f66f42d7c9e9"
+      "bytes": 7764,
+      "sha256": "df25cf3d201fbf20fda3d5e4e6db28c47e0ff0cab50ceaf827d9321809d7d2ac"
     },
     {
       "path": "model/DURATION_COPY_CARD.md",
@@ -167,6 +167,11 @@
       "sha256": "04c7f9ce3e0471ba0944617620a52f66efc0b4dc08319e3bf5c1b295893fc11d"
     },
     {
+      "path": "model/H09_RESULT.json",
+      "bytes": 1495,
+      "sha256": "21e1e9031e1a275ae5cacb07649bfaa17004531ec4bc86b81df8540c3347ffb1"
+    },
+    {
       "path": "model/HYBRID_EVALUATION.json",
       "bytes": 43988,
       "sha256": "a3109b416195a9aaf8cdcdb3bf7517ff5d55fe9a807146dab5c87063d875b1bb"
@@ -183,8 +188,8 @@
     },
     {
       "path": "model/MODEL_CARD.md",
-      "bytes": 10886,
-      "sha256": "ee9998f9e6b3c89bb0cbb652f52996bfa86a39f0a29e10c51f1768be65ebf923"
+      "bytes": 11455,
+      "sha256": "e9ec1994a349d0d8cb45b5598f826dbbfc59561de3e8f9732f0d118d19e9a512"
     },
     {
       "path": "model/NETWORK_VALUE_CARD.md",
@@ -248,8 +253,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 18993,
-      "sha256": "be5aadbb8b996c76b427048d072fd27cf0b6a1c5fff1cf3d7f7bc0513bea2515"
+      "bytes": 19363,
+      "sha256": "e814c39afffe3e4c5f9ab4adfadd0d783501f0773632cdaea6a3d3694ec7a675"
     },
     {
       "path": "RECALCULATION.md",
@@ -533,8 +538,8 @@
     },
     {
       "path": "tests/test_extended_graph.py",
-      "bytes": 5125,
-      "sha256": "584008f720b08c5ab7fe746e5b953701084ad75f48677040b1ee1b20487d0f19"
+      "bytes": 5928,
+      "sha256": "3eaa5212a20662d5c31922e3509df691f5495e681bdbc9c1c4ae039d3373600c"
     },
     {
       "path": "tests/test_extraction_data.py",

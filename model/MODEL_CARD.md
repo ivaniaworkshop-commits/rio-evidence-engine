@@ -187,3 +187,12 @@ evaluation/H08_INDEPENDENT_GATE_R001.md. Weights and parameter count unchanged.
 Separate opt-in extended_graph adds four explicit surface formats and supports
 1..8 declared tasks; no new weights. Full enumerated paired capability tests
 are authored locally, not external confirmation. See evaluation/H09_CAPABILITY.md.
+
+## H09 observed bounded format coverage (evidence readback)
+On source main commit bea424e7cf888d118249cf3b7e95ec204711e8c1,
+GitHub Actions run 41135727554 completed SUCCESS: 129 tests with 0 skips.
+The deterministic extractor matched 4096/4096 new declared graph-format
+cases vs 0/4096 for the old parser; 94/94 original dev decisions preserved.
+Machine-specific medians: original 0.032571 ms and extended 0.101229 ms.
+This demonstrates bounded code-interface coverage, not neural weights,
+semantic generalization or third-party validation. See model/H09_RESULT.json.

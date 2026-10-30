@@ -1,0 +1,41 @@
+{
+  "schema": "RIO_H09_BOUNDED_COVERAGE_RUN_R001",
+  "source_commit": "bea424e7cf888d118249cf3b7e95ec204711e8c1",
+  "observed_at_utc_date": "2026-10-30",
+  "ci_url": "https://github.com/ivaniaworkshop-commits/rio-evidence-engine/actions/runs/41135727554",
+  "evidence_type": "GITHUB_ACTIONS_SUCCESS_WITH_LOG_READBACK_NOT_INDEPENDENT_EVAL",
+  "strict_suite": {
+    "total": 129,
+    "passed": 129,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "paired_enumeration": {
+    "ordered_ids": "A-E",
+    "forward_possible_edges": 10,
+    "all_edge_subsets": 1024,
+    "grammars": 4,
+    "cases": 4096,
+    "incumbent_exact": 0,
+    "extended_exact": 4096,
+    "net_new_exact": 4096
+  },
+  "legacy_replay": {
+    "cases": 94,
+    "unchanged_grade_outcomes": 94
+  },
+  "timing_on_ci_runner": {
+    "incumbent_median_ms": 0.032571,
+    "extended_median_ms": 0.101229,
+    "scope": "NON_FINANCIAL_MACHINE_SPECIFIC_PAIRED_WALL_TIMES"
+  },
+  "external_holdout": "NOT_AVAILABLE_NOT_EXECUTED",
+  "neural_parameter_changes": 0,
+  "limitations": [
+    "New accepted grammar formats are authored inside this project and are not a hidden external benchmark.",
+    "The 4096 cases cover all forward DAG edge subsets for five ordered nodes, not all wordings or arbitrary graph structures.",
+    "No external language generalization or neural improvement; extra runtime cost observed.",
+    "New one-task and eight-task boundary tests introduced after source run and require their own CI readback."
+  ]
+}
