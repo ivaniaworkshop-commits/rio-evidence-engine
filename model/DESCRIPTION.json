@@ -34,7 +34,8 @@
     "model/GRAPH_COPY_RESULT.json",
     "model/NETWORK_VALUE_RESULT.json",
     "model/WEIGHT_SEARCH_RESULT.json",
-    "runtime/AUTO_ROUND_RESULT.json"
+    "runtime/AUTO_ROUND_RESULT.json",
+    "model/EVALUATION_OBSERVATIONS_R001.json"
   ],
   "limits": [
     "No LLM, production reliability, human mastery or independent validation claimed.",
@@ -210,37 +211,46 @@
     "next_external_gate": "H08_ISSUE_8_OPEN"
   },
   "h10_new_wording_probe": {
-    "status": "NOT_YET_CI_OBSERVED",
-    "source": "evaluation/language_shift_probe.py",
-    "positive": 40,
-    "negative": 12,
-    "families": 12,
-    "independence": "NO",
-    "candidate_promoted": false,
-    "neural_weight_change": false,
-    "h08_baseline": "H09_CURRENT_WORKTREE"
+    "status": "OBSERVED_CI_NO_NEW_LANGUAGE_COVERAGE",
+    "source_commit": "f4c45c375140869cdecf488d5a987d3b26b7fe3a",
+    "ci_run": "https://github.com/ivaniaworkshop-commits/rio-evidence-engine/actions/runs/41137455826",
+    "supported_exact": 0,
+    "supported_cases": 40,
+    "appropriate_abstentions": 12,
+    "negative_cases": 12,
+    "independent_dataset": false,
+    "model_promoted": false,
+    "weights_changed": false
   },
   "h11_paired_runner": {
-    "status": "READY_FOR_CI_NOT_OBSERVED",
-    "candidate_registry": [
-      "h09",
-      "legacy"
-    ],
-    "case_source": "H10_INTERNAL_PUBLIC",
-    "real_execution": "IN_PROCESS_TIMED",
-    "independent_evaluator": "NOT_OBSERVED",
-    "promotion": "BLOCKED",
-    "neural_weights_changed": false,
-    "protocol": "evaluation/H11_INSTRUMENTED_PAIRS.md"
+    "status": "CI_OBSERVED_RUNNING_REGISTERED_EXECUTABLES",
+    "source_commit": "c725f60a5c7d7a604f1113ef0705939921bc02c3",
+    "ci_run": "https://github.com/ivaniaworkshop-commits/rio-evidence-engine/actions/runs/41139172694",
+    "strict_tests": 149,
+    "cases": 52,
+    "wins": 0,
+    "losses": 0,
+    "external_source_authenticated": false,
+    "model_promoted": false,
+    "weights_changed": false
   },
   "h12_power_design": {
-    "status": "PENDING_CI",
-    "assumptions": "INDEPENDENT_BERNOULLI_ZERO_LOSSES_NOT_OBSERVED",
-    "cluster_sign_guard": "CODE_ADDED",
-    "monte_carlo_draws": 20000,
-    "external_data": "NOT_AVAILABLE",
-    "weights_changed": false,
-    "promotion": "BLOCKED",
-    "reference": "evaluation/H12_POWER_DESIGN.md"
+    "status": "CI_VERIFIED_CONDITIONAL_MATH_NOT_MODEL_CAPABILITY",
+    "source_commit": "3f37b3423c47bc9a50cd8a4637079694718f7f1c",
+    "ci_run": "https://github.com/ivaniaworkshop-commits/rio-evidence-engine/actions/runs/41139621169",
+    "strict_tests": 155,
+    "conditional_n_80pct_for_p10_zero_loss": 66,
+    "correlated_cluster_guard": "TESTED",
+    "external_source_authenticated": false,
+    "model_promoted": false,
+    "weights_changed": false
+  },
+  "latest_strict_suite_observed": {
+    "tests": 155,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "commit": "3f37b3423c47bc9a50cd8a4637079694718f7f1c",
+    "ci_run": "https://github.com/ivaniaworkshop-commits/rio-evidence-engine/actions/runs/41139621169"
   }
 }

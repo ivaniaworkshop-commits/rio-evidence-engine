@@ -1,0 +1,71 @@
+{
+  "schema": "RIO_CI_OBSERVATION_READBACK_R001",
+  "source_type": "GITHUB_ACTIONS_REMOTE_CI_LOGS_NOT_EXTERNAL_INDEPENDENT_VALIDATION",
+  "observed_date_utc": "2026-10-30",
+  "scope": "H10_LANGUAGE_DIAGNOSTIC_H11_EXECUTED_PAIR_H12_CONDITIONAL_POWER",
+  "checks": {
+    "h10": {
+      "source_commit": "f4c45c375140869cdecf488d5a987d3b26b7fe3a",
+      "run_id": 41137455826,
+      "url": "https://github.com/ivaniaworkshop-commits/rio-evidence-engine/actions/runs/41137455826",
+      "strict_tests": 137,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "authored_supported": 40,
+      "baseline_exact": 0,
+      "h09_exact": 0,
+      "authored_unsupported": 12,
+      "baseline_correct_abstentions": 12,
+      "h09_correct_abstentions": 12,
+      "dataset_sha256": "3dd8ed95e1ff8084ae0cd44a5cac07f581cc89ce069004b2328d7179027c200d",
+      "independent_dataset": false
+    },
+    "h11": {
+      "source_commit": "c725f60a5c7d7a604f1113ef0705939921bc02c3",
+      "run_id": 41139172694,
+      "url": "https://github.com/ivaniaworkshop-commits/rio-evidence-engine/actions/runs/41139172694",
+      "strict_tests": 149,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "same_public_cases": 52,
+      "supported": 40,
+      "unsupported": 12,
+      "identity_candidate_wins": 0,
+      "identity_candidate_losses": 0,
+      "measured_baseline_median_ms": 0.0166105,
+      "measured_candidate_median_ms": 0.017022000000000002,
+      "independent_dataset": false
+    },
+    "h12": {
+      "source_commit": "3f37b3423c47bc9a50cd8a4637079694718f7f1c",
+      "run_id": 41139621169,
+      "url": "https://github.com/ivaniaworkshop-commits/rio-evidence-engine/actions/runs/41139621169",
+      "strict_tests": 155,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "assumed_per_case_win_probability": 0.1,
+      "assumed_candidate_losses": 0,
+      "threshold_wins": 5,
+      "exact_detection_probability_n30": 0.17549487903389516,
+      "minimum_n_for_conditional_power_ge_80pct": 66,
+      "seeded_monte_carlo_probability_n30": 0.1779,
+      "monte_carlo_draws": 20000,
+      "correlated_one_cluster_attack": "REJECTED_BY_CLUSTER_SIGN_GUARD",
+      "independent_dataset": false
+    }
+  },
+  "current_neural_weights_value": "NO_DEMONSTRATED_INCREMENTAL_OUTPUT_VALUE_ON_CURRENT_AUTHORED_DEV",
+  "candidate_promoted": false,
+  "external_evaluator_authenticated": false,
+  "external_hidden_set_evaluated": false,
+  "notes": [
+    "GitHub Actions log readback supports CI observations, not original author or label independence.",
+    "H10 data authored by project. H11 actual code execution observed, not external human-source authenticity.",
+    "H12 computations are conditional under independent Bernoulli and zero-loss assumptions, not empirical ability.",
+    "New receipt is a historical index; its own creation does not alter prior run status.",
+    "Issue #8 remains open."
+  ]
+}
