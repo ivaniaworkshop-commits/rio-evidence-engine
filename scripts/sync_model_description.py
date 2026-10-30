@@ -74,6 +74,13 @@ def sync():
             raise ValueError('duration-copy evaluation mismatches candidate')
         d['extraction_candidate']['duration_copy']={k:copied[k] for k in ['cases','duration_fields_correct','duration_fields_total','supported_exact_graph_matches','supported_cases','correct_code_abstentions','negative_cases','invalid_outputs']}
         d['sources'].append('model/DURATION_COPY_RESULT.json')
+    value_path=ROOT/'model/NETWORK_VALUE_RESULT.json'
+    if value_path.exists():
+        value=json.loads(value_path.read_text())
+        if value['checkpoint_sha256']!=d['extraction_candidate']['checkpoint_sha256']:
+            raise ValueError('network value evaluation mismatches candidate checkpoint')
+        d['current_accuracy_first_comparison']={k:value[k] for k in ['cases','code_correct_task_decisions','neural_pipeline_correct_task_decisions','code_median_ms','neural_pipeline_median_ms','network_earns_its_cost','fixed_seed_replay_equal']}
+        d['sources'].extend(['model/GRAPH_COPY_RESULT.json','model/NETWORK_VALUE_RESULT.json'])
     (ROOT/'model/DESCRIPTION.json').write_text(json.dumps(d,indent=2)+'\n')
     value_statement=('Optional neural ranking showed no output benefit in the paired 42-case comparison.' if ablation_current else 'The current checkpoint has no matching paired utility evaluation.')
     block=('<!-- MODEL_STATUS_START -->\n## Current model status (evidence synchronized)\n\n'
@@ -89,6 +96,7 @@ def sync():
        +(f"Separate extraction candidate: {d['extraction_candidate']['steps']} steps; {d['extraction_candidate']['dev_exact_graph_matches']}/{d['extraction_candidate']['dev_supported_cases']} exact graphs, {d['extraction_candidate']['dev_correct_abstentions']}/{d['extraction_candidate']['dev_negative_cases']} correct abstentions, {d['extraction_candidate']['invalid_outputs']} invalid outputs. Status: {d['extraction_candidate']['status']}. Original model unchanged.\n" if 'extraction_candidate' in d else ('Extraction corpus prepared but not trained.\n' if 'extraction_training_data' in d else ''))
        +('Separate closed-grammar decoding: 94/94 structurally valid outputs, but 0/78 exact graphs and 0/16 correct abstentions. Code-forced validity is not learned semantics.\n' if 'constrained_decoding' in d.get('extraction_candidate',{}) else '')
        +(f"Code-grounded durations: {d['extraction_candidate']['duration_copy']['duration_fields_correct']}/{d['extraction_candidate']['duration_copy']['duration_fields_total']} fields correct, but exact graphs {d['extraction_candidate']['duration_copy']['supported_exact_graph_matches']}/{d['extraction_candidate']['duration_copy']['supported_cases']}. Code abstentions are not learned neural ability.\n" if 'duration_copy' in d.get('extraction_candidate',{}) else '')
+       +(f"Current accuracy-first paired comparison: code {d['current_accuracy_first_comparison']['code_correct_task_decisions']}/{d['current_accuracy_first_comparison']['cases']} correct decisions vs neural pipeline {d['current_accuracy_first_comparison']['neural_pipeline_correct_task_decisions']}/{d['current_accuracy_first_comparison']['cases']}. Network value: {d['current_accuracy_first_comparison']['network_earns_its_cost']}. No new weights or promotion.\n" if 'current_accuracy_first_comparison' in d else '')
        +'<!-- MODEL_STATUS_END -->')
     for name in ['README.md','model/MODEL_CARD.md']:
         path=ROOT/name;text=path.read_text()

@@ -1,0 +1,2596 @@
+{
+  "scope": "PAIRED_AUTHORED_DEV_NOT_GENERAL_NEURAL_VALUE",
+  "cases": 94,
+  "repetitions_per_mode": 3,
+  "code_correct_task_decisions": 94,
+  "neural_pipeline_correct_task_decisions": 16,
+  "code_supported_exact_graphs": 78,
+  "neural_supported_exact_graphs": 0,
+  "supported_cases": 78,
+  "negative_cases": 16,
+  "code_median_ms": 0.06833799943706254,
+  "neural_pipeline_median_ms": 15.955322000081651,
+  "neural_import_and_load_ms": 1029.7286510012782,
+  "financial_cost": "UNKNOWN",
+  "rows": [
+    {
+      "case_id": "EXTRACT-0007",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.10781299897644203,
+      "neural_median_ms": 17.330745000435854,
+      "code_timings_ms": [
+        0.10781299897644203,
+        0.18957599968416616,
+        0.061393000578391366
+      ],
+      "neural_timings_ms": [
+        17.7924420004274,
+        17.330745000435854,
+        15.904881000096793
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0008",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.10830300016095862,
+      "neural_median_ms": 20.784672999070608,
+      "code_timings_ms": [
+        0.10830300016095862,
+        0.060320999182295054,
+        0.12082300054316875
+      ],
+      "neural_timings_ms": [
+        16.694853999069892,
+        21.457200000440935,
+        20.784672999070608
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0009",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.1070220005203737,
+      "neural_median_ms": 18.021238000073936,
+      "code_timings_ms": [
+        0.13544499961426482,
+        0.1070220005203737,
+        0.056896000387496315
+      ],
+      "neural_timings_ms": [
+        17.815096998674562,
+        18.636859000253025,
+        18.021238000073936
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0010",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.10061200009658933,
+      "neural_median_ms": 17.566260999956285,
+      "code_timings_ms": [
+        0.10061200009658933,
+        0.0566060007258784,
+        0.10390699935669545
+      ],
+      "neural_timings_ms": [
+        17.566260999956285,
+        18.725012001596042,
+        17.5035360007314
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0011",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.06842400034656748,
+      "neural_median_ms": 19.22212300087267,
+      "code_timings_ms": [
+        0.06842400034656748,
+        0.11383100172679406,
+        0.057797000408754684
+      ],
+      "neural_timings_ms": [
+        19.22212300087267,
+        19.43883999956597,
+        18.921909000710002
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0012",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.11009599984390661,
+      "neural_median_ms": 20.075672000530176,
+      "code_timings_ms": [
+        0.11009599984390661,
+        0.09594500079401769,
+        0.14551899948855862
+      ],
+      "neural_timings_ms": [
+        19.111215000521042,
+        20.652224000514252,
+        20.075672000530176
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0013",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.09913999929267447,
+      "neural_median_ms": 18.058814999676542,
+      "code_timings_ms": [
+        0.06132300040917471,
+        0.10421700062579475,
+        0.09913999929267447
+      ],
+      "neural_timings_ms": [
+        18.058814999676542,
+        17.507540998849436,
+        18.25658400048269
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0014",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.10008099889091682,
+      "neural_median_ms": 17.531038000015542,
+      "code_timings_ms": [
+        0.1479540005675517,
+        0.09019699973578099,
+        0.10008099889091682
+      ],
+      "neural_timings_ms": [
+        17.531038000015542,
+        17.315491999397636,
+        17.90061599967885
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0015",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.2485960012563737,
+      "neural_median_ms": 18.534294000346563,
+      "code_timings_ms": [
+        0.2861829998437315,
+        0.2485960012563737,
+        0.06270499943639152
+      ],
+      "neural_timings_ms": [
+        18.534294000346563,
+        16.518107000592863,
+        19.62680500037095
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0016",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.10799300071084872,
+      "neural_median_ms": 17.88959999976214,
+      "code_timings_ms": [
+        0.10799300071084872,
+        0.061362999986158684,
+        0.1115080012823455
+      ],
+      "neural_timings_ms": [
+        17.5492350008426,
+        18.620484001075965,
+        17.88959999976214
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0017",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.10900500092247967,
+      "neural_median_ms": 18.907858000602573,
+      "code_timings_ms": [
+        0.0664509989292128,
+        0.11355199967510998,
+        0.10900500092247967
+      ],
+      "neural_timings_ms": [
+        19.45744800104876,
+        18.907858000602573,
+        18.251195999255287
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0018",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.17434300025342964,
+      "neural_median_ms": 19.653854998978204,
+      "code_timings_ms": [
+        0.17434300025342964,
+        0.0655390012980206,
+        0.1990609998756554
+      ],
+      "neural_timings_ms": [
+        19.653854998978204,
+        19.688934000441805,
+        19.240489998992416
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0025",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.07017600000835955,
+      "neural_median_ms": 21.907430000283057,
+      "code_timings_ms": [
+        0.07017600000835955,
+        0.12389699986670166,
+        0.05951000093773473
+      ],
+      "neural_timings_ms": [
+        20.15085600032762,
+        21.907430000283057,
+        23.053621998769813
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0026",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.1103470003727125,
+      "neural_median_ms": 21.472894000908127,
+      "code_timings_ms": [
+        0.6342790002236143,
+        0.10603000009723473,
+        0.1103470003727125
+      ],
+      "neural_timings_ms": [
+        21.472894000908127,
+        21.667947999958415,
+        20.46585199968831
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0027",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.11186899973836262,
+      "neural_median_ms": 20.41627799917478,
+      "code_timings_ms": [
+        0.06019099964760244,
+        0.11186899973836262,
+        0.12037200031045359
+      ],
+      "neural_timings_ms": [
+        21.21626600091986,
+        18.56876600140822,
+        20.41627799917478
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0028",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.10814400047820527,
+      "neural_median_ms": 20.250535999366548,
+      "code_timings_ms": [
+        0.10814400047820527,
+        0.061393000578391366,
+        0.21613600074488204
+      ],
+      "neural_timings_ms": [
+        21.351130000766716,
+        20.250535999366548,
+        19.244226001319475
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0029",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.07279000055859797,
+      "neural_median_ms": 19.89930699892284,
+      "code_timings_ms": [
+        0.07279000055859797,
+        0.11084800098615233,
+        0.05906899968977086
+      ],
+      "neural_timings_ms": [
+        19.496656999763218,
+        20.337758000096073,
+        19.89930699892284
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0030",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.1315890003752429,
+      "neural_median_ms": 19.394212000406696,
+      "code_timings_ms": [
+        0.1315890003752429,
+        0.06325499998638406,
+        0.16973600031633396
+      ],
+      "neural_timings_ms": [
+        19.394212000406696,
+        19.459831000858685,
+        19.150574999002856
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0049",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.0653690003673546,
+      "neural_median_ms": 16.760112999691046,
+      "code_timings_ms": [
+        0.0653690003673546,
+        0.09943999975803308,
+        0.054042000556364655
+      ],
+      "neural_timings_ms": [
+        17.43272000021534,
+        15.241107999827364,
+        16.760112999691046
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0050",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.1022039996314561,
+      "neural_median_ms": 16.279155999654904,
+      "code_timings_ms": [
+        0.1022039996314561,
+        0.06030099939380307,
+        0.13210900033300277
+      ],
+      "neural_timings_ms": [
+        16.778592000264325,
+        15.865991999817197,
+        16.279155999654904
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0051",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.06121200021880213,
+      "neural_median_ms": 15.993263999916962,
+      "code_timings_ms": [
+        0.06121200021880213,
+        0.10904499868047424,
+        0.05529400004888885
+      ],
+      "neural_timings_ms": [
+        15.993263999916962,
+        16.220768999119173,
+        14.658348000011756
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0052",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.10355599988542963,
+      "neural_median_ms": 16.73408299939183,
+      "code_timings_ms": [
+        0.1077030010492308,
+        0.05834800140291918,
+        0.10355599988542963
+      ],
+      "neural_timings_ms": [
+        17.697037999823806,
+        15.440668999872287,
+        16.73408299939183
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0053",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.06413699884433299,
+      "neural_median_ms": 16.349872999853687,
+      "code_timings_ms": [
+        0.06413699884433299,
+        0.10028100041381549,
+        0.05841900019731838
+      ],
+      "neural_timings_ms": [
+        16.349872999853687,
+        16.48883300003945,
+        15.731568999399315
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0054",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.10433699935674667,
+      "neural_median_ms": 16.02598399949784,
+      "code_timings_ms": [
+        0.10501799988560379,
+        0.059440000768518075,
+        0.10433699935674667
+      ],
+      "neural_timings_ms": [
+        16.02598399949784,
+        15.666770999814617,
+        16.295990999424248
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0079",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.06187400140333921,
+      "neural_median_ms": 15.46397400124988,
+      "code_timings_ms": [
+        0.06187400140333921,
+        0.1059200003510341,
+        0.05634599983750377
+      ],
+      "neural_timings_ms": [
+        15.749545998914982,
+        15.46397400124988,
+        14.987063999797101
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0080",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.1060699996742187,
+      "neural_median_ms": 15.609544001563336,
+      "code_timings_ms": [
+        0.1060699996742187,
+        0.05875799979548901,
+        0.10949500028800685
+      ],
+      "neural_timings_ms": [
+        15.689345000282628,
+        15.609544001563336,
+        15.367908999905922
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0081",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.06208400009199977,
+      "neural_median_ms": 16.100967999591376,
+      "code_timings_ms": [
+        0.06208400009199977,
+        0.10984599975927267,
+        0.05776800026069395
+      ],
+      "neural_timings_ms": [
+        16.100967999591376,
+        15.750206999655347,
+        16.267648999928497
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0082",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.09958999908121768,
+      "neural_median_ms": 15.56153199999244,
+      "code_timings_ms": [
+        0.19563600108085666,
+        0.06826299977547023,
+        0.09958999908121768
+      ],
+      "neural_timings_ms": [
+        15.56153199999244,
+        15.999293000277248,
+        15.103509998880327
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0083",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.06555900108651258,
+      "neural_median_ms": 16.621754000880173,
+      "code_timings_ms": [
+        0.06555900108651258,
+        0.11668599836411886,
+        0.05939000038779341
+      ],
+      "neural_timings_ms": [
+        16.621754000880173,
+        16.39872700070555,
+        16.920396001296467
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0084",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.10856500011868775,
+      "neural_median_ms": 15.505437000683742,
+      "code_timings_ms": [
+        0.10856500011868775,
+        0.06395599848474376,
+        0.1347840006928891
+      ],
+      "neural_timings_ms": [
+        15.17230399986147,
+        15.505437000683742,
+        16.724629000236746
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0097",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.06766200021957047,
+      "neural_median_ms": 18.612522000694298,
+      "code_timings_ms": [
+        0.06766200021957047,
+        0.10009200013882946,
+        0.055794000218156725
+      ],
+      "neural_timings_ms": [
+        18.74836699971638,
+        17.720585001370637,
+        18.612522000694298
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0098",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.09673600106907543,
+      "neural_median_ms": 17.823939999288996,
+      "code_timings_ms": [
+        0.09689600119600073,
+        0.05705600051442161,
+        0.09673600106907543
+      ],
+      "neural_timings_ms": [
+        17.811581999922055,
+        17.823939999288996,
+        18.04734899997129
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0099",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.05953999971097801,
+      "neural_median_ms": 15.243121000821702,
+      "code_timings_ms": [
+        0.05953999971097801,
+        0.09967000005417503,
+        0.056304999816347845
+      ],
+      "neural_timings_ms": [
+        15.278674000001047,
+        15.243121000821702,
+        14.762425000299118
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0100",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.10406699948362075,
+      "neural_median_ms": 15.727533000244875,
+      "code_timings_ms": [
+        0.10790300075314008,
+        0.05960000089544337,
+        0.10406699948362075
+      ],
+      "neural_timings_ms": [
+        15.82385800065822,
+        15.385255001092446,
+        15.727533000244875
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0101",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.06347599992295727,
+      "neural_median_ms": 16.288880000502104,
+      "code_timings_ms": [
+        0.06347599992295727,
+        0.1060699996742187,
+        0.058768999224412255
+      ],
+      "neural_timings_ms": [
+        16.288880000502104,
+        16.79372400030843,
+        15.952603000187082
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0102",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.10125299922947306,
+      "neural_median_ms": 16.787714001111453,
+      "code_timings_ms": [
+        0.10406700130261015,
+        0.06000099892844446,
+        0.10125299922947306
+      ],
+      "neural_timings_ms": [
+        16.787714001111453,
+        17.192676999911782,
+        16.29052399948705
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0115",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.06291499994404148,
+      "neural_median_ms": 15.354077999290894,
+      "code_timings_ms": [
+        0.06291499994404148,
+        0.10295600077370182,
+        0.05936999878031202
+      ],
+      "neural_timings_ms": [
+        15.127865999602363,
+        15.964520998750231,
+        15.354077999290894
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0116",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.09499400039203465,
+      "neural_median_ms": 15.087806001247372,
+      "code_timings_ms": [
+        0.09499400039203465,
+        0.05801699990115594,
+        0.1003319994197227
+      ],
+      "neural_timings_ms": [
+        15.087806001247372,
+        15.512867999859736,
+        14.885059999869554
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0117",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.062303999584401026,
+      "neural_median_ms": 14.843767999991542,
+      "code_timings_ms": [
+        0.062303999584401026,
+        0.10593999832053669,
+        0.05694599894923158
+      ],
+      "neural_timings_ms": [
+        14.766670999961207,
+        15.942197000185843,
+        14.843767999991542
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0118",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.09596499876352027,
+      "neural_median_ms": 15.499869001359912,
+      "code_timings_ms": [
+        0.09596499876352027,
+        0.05923899880144745,
+        0.09664599929237738
+      ],
+      "neural_timings_ms": [
+        14.680631000373978,
+        15.499869001359912,
+        15.634182000212604
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0119",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.06564899922523182,
+      "neural_median_ms": 17.29104500009271,
+      "code_timings_ms": [
+        0.06564899922523182,
+        0.10511799882806372,
+        0.06053099968994502
+      ],
+      "neural_timings_ms": [
+        16.76794499871903,
+        17.53588499923353,
+        17.29104500009271
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0120",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.09910900007525925,
+      "neural_median_ms": 17.139556000984157,
+      "code_timings_ms": [
+        0.09910900007525925,
+        0.06309600030363072,
+        0.11257000005571172
+      ],
+      "neural_timings_ms": [
+        16.29993800088414,
+        17.139556000984157,
+        18.597229000079096
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0193",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.059699999837903306,
+      "neural_median_ms": 15.95804099997622,
+      "code_timings_ms": [
+        0.059699999837903306,
+        0.10000099973694887,
+        0.055202999647008255
+      ],
+      "neural_timings_ms": [
+        18.007348000537604,
+        15.95804099997622,
+        15.741212999273557
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0194",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.09791699994821101,
+      "neural_median_ms": 15.695074000177556,
+      "code_timings_ms": [
+        0.09791699994821101,
+        0.09305099956691265,
+        0.0981680004770169
+      ],
+      "neural_timings_ms": [
+        17.06000500053051,
+        15.695074000177556,
+        15.583295000396902
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0195",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.06070100062061101,
+      "neural_median_ms": 15.519918999416404,
+      "code_timings_ms": [
+        0.06070100062061101,
+        0.09782799861568492,
+        0.05663599949912168
+      ],
+      "neural_timings_ms": [
+        14.917619000698323,
+        15.890979999312549,
+        15.519918999416404
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0196",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.0943020004342543,
+      "neural_median_ms": 15.497165000851965,
+      "code_timings_ms": [
+        0.0943020004342543,
+        0.05798699930892326,
+        0.0981679986580275
+      ],
+      "neural_timings_ms": [
+        15.265455000189831,
+        15.629144001650275,
+        15.497165000851965
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0197",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.09743699956743512,
+      "neural_median_ms": 16.53312999951595,
+      "code_timings_ms": [
+        0.06561899863299914,
+        0.10124300024472177,
+        0.09743699956743512
+      ],
+      "neural_timings_ms": [
+        16.43594300003315,
+        16.53312999951595,
+        16.66519900027197
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0198",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.10761299927253276,
+      "neural_median_ms": 18.11815499968361,
+      "code_timings_ms": [
+        0.14501900113828015,
+        0.0778579997131601,
+        0.10761299927253276
+      ],
+      "neural_timings_ms": [
+        16.998533001242322,
+        18.11815499968361,
+        18.247320000227774
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0211",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.06341500011330936,
+      "neural_median_ms": 15.66409599945473,
+      "code_timings_ms": [
+        0.06341500011330936,
+        0.09699600013846066,
+        0.054833000831422396
+      ],
+      "neural_timings_ms": [
+        16.111212000396335,
+        15.66409599945473,
+        15.181296999799088
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0212",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.09987100020225625,
+      "neural_median_ms": 15.46475599934638,
+      "code_timings_ms": [
+        0.11805800022557378,
+        0.06266500167839695,
+        0.09987100020225625
+      ],
+      "neural_timings_ms": [
+        16.003490000002785,
+        15.46475599934638,
+        15.310664000935503
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0213",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.06845399911981076,
+      "neural_median_ms": 15.388050000183284,
+      "code_timings_ms": [
+        0.06845399911981076,
+        0.10064200068882201,
+        0.05733699981647078
+      ],
+      "neural_timings_ms": [
+        15.388050000183284,
+        14.701743000841816,
+        15.915616999336635
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0214",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.09326100007456262,
+      "neural_median_ms": 14.78833399960422,
+      "code_timings_ms": [
+        0.10104200009664055,
+        0.0639059999230085,
+        0.09326100007456262
+      ],
+      "neural_timings_ms": [
+        15.69654600098147,
+        14.497563999611884,
+        14.78833399960422
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0215",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.06539900095958728,
+      "neural_median_ms": 15.850297999350005,
+      "code_timings_ms": [
+        0.06539900095958728,
+        0.10030100020230748,
+        0.059669999245670624
+      ],
+      "neural_timings_ms": [
+        15.422462000060477,
+        15.850297999350005,
+        16.474911999466713
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0216",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.12300600064918399,
+      "neural_median_ms": 15.981967000698205,
+      "code_timings_ms": [
+        0.13247999959276058,
+        0.06419700002879836,
+        0.12300600064918399
+      ],
+      "neural_timings_ms": [
+        15.981967000698205,
+        16.14956099911069,
+        15.702484999565058
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0247",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.0631160000921227,
+      "neural_median_ms": 15.594943000905914,
+      "code_timings_ms": [
+        0.0631160000921227,
+        0.09472300007473677,
+        0.05798799975309521
+      ],
+      "neural_timings_ms": [
+        15.798180000274442,
+        15.17464700009441,
+        15.594943000905914
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0248",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.09222900007443968,
+      "neural_median_ms": 16.411746999438037,
+      "code_timings_ms": [
+        0.09222900007443968,
+        0.061371998526738025,
+        0.1050690007105004
+      ],
+      "neural_timings_ms": [
+        16.411746999438037,
+        16.02724500116892,
+        16.680081998856622
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0249",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.06318600026133936,
+      "neural_median_ms": 15.190862000963534,
+      "code_timings_ms": [
+        0.06318600026133936,
+        0.10386599933553953,
+        0.05934000000706874
+      ],
+      "neural_timings_ms": [
+        16.115809999973862,
+        15.039462999993702,
+        15.190862000963534
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0250",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.09575500007485971,
+      "neural_median_ms": 15.40783900054521,
+      "code_timings_ms": [
+        0.09575500007485971,
+        0.06208400009199977,
+        0.10567000026640017
+      ],
+      "neural_timings_ms": [
+        15.132534001168096,
+        15.40783900054521,
+        15.445077000549645
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0251",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.06842400034656748,
+      "neural_median_ms": 16.428602000814863,
+      "code_timings_ms": [
+        0.06842400034656748,
+        0.10695099990698509,
+        0.05957000030321069
+      ],
+      "neural_timings_ms": [
+        16.20469400040747,
+        16.428602000814863,
+        17.625399999815272
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0252",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.10721199942054227,
+      "neural_median_ms": 19.33230999929947,
+      "code_timings_ms": [
+        0.10721199942054227,
+        0.06368600043060724,
+        0.11326099956932012
+      ],
+      "neural_timings_ms": [
+        19.143703999361605,
+        19.33230999929947,
+        19.615677001638687
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0331",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.08696099939697888,
+      "neural_median_ms": 18.079065999700106,
+      "code_timings_ms": [
+        0.06560899964824785,
+        0.10629000098560937,
+        0.08696099939697888
+      ],
+      "neural_timings_ms": [
+        18.079065999700106,
+        18.072826000206987,
+        18.255552000482567
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0332",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.10639100037224125,
+      "neural_median_ms": 17.733112999849254,
+      "code_timings_ms": [
+        0.10639100037224125,
+        0.06377600038831588,
+        0.11542500033101533
+      ],
+      "neural_timings_ms": [
+        17.81861299969023,
+        17.733112999849254,
+        16.464686999825062
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0333",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.06654100070591085,
+      "neural_median_ms": 16.707423999832827,
+      "code_timings_ms": [
+        0.06654100070591085,
+        0.11009599984390661,
+        0.06193400076881517
+      ],
+      "neural_timings_ms": [
+        17.61687700127368,
+        16.707423999832827,
+        15.634762999980012
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0334",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.10977599959005602,
+      "neural_median_ms": 16.341329999704612,
+      "code_timings_ms": [
+        0.11169900062668603,
+        0.06740200115018524,
+        0.10977599959005602
+      ],
+      "neural_timings_ms": [
+        15.38557599997148,
+        17.40786200025468,
+        16.341329999704612
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0335",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.06995500007178634,
+      "neural_median_ms": 15.674071000830736,
+      "code_timings_ms": [
+        0.06995500007178634,
+        0.12400800005707424,
+        0.06410700007108971
+      ],
+      "neural_timings_ms": [
+        15.674071000830736,
+        15.498317001402029,
+        16.160016000867472
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0336",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.10933500016108155,
+      "neural_median_ms": 15.819512000234681,
+      "code_timings_ms": [
+        0.11054700007662177,
+        0.06680099977529608,
+        0.10933500016108155
+      ],
+      "neural_timings_ms": [
+        16.186826000193832,
+        15.8076740008255,
+        15.819512000234681
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0349",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.06951499926799443,
+      "neural_median_ms": 15.269350000380655,
+      "code_timings_ms": [
+        0.06951499926799443,
+        0.10273600128130056,
+        0.06070100062061101
+      ],
+      "neural_timings_ms": [
+        15.253556000971003,
+        15.77915099915117,
+        15.269350000380655
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0350",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.10219499927188735,
+      "neural_median_ms": 16.695456000888953,
+      "code_timings_ms": [
+        0.10219499927188735,
+        0.06423700142477173,
+        0.11240999992878642
+      ],
+      "neural_timings_ms": [
+        15.998812999896472,
+        16.695456000888953,
+        19.656589000078384
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0351",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.10188400119659491,
+      "neural_median_ms": 16.02284900036466,
+      "code_timings_ms": [
+        0.10235499939881265,
+        0.10188400119659491,
+        0.0621130002400605
+      ],
+      "neural_timings_ms": [
+        16.095328999654157,
+        15.209279999908176,
+        16.02284900036466
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0352",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.10475799899722915,
+      "neural_median_ms": 15.722735999588622,
+      "code_timings_ms": [
+        0.10475799899722915,
+        0.06252399907680228,
+        0.10582999857433606
+      ],
+      "neural_timings_ms": [
+        15.722735999588622,
+        14.798498999880394,
+        15.819330999875092
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0353",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.06789300095988438,
+      "neural_median_ms": 16.07464699918637,
+      "code_timings_ms": [
+        0.06789300095988438,
+        0.1098060001822887,
+        0.06167399988044053
+      ],
+      "neural_timings_ms": [
+        16.147587999512325,
+        16.07464699918637,
+        15.992193000784027
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0354",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.1084140003513312,
+      "neural_median_ms": 16.79705899914552,
+      "code_timings_ms": [
+        0.1474129985581385,
+        0.07035599992377684,
+        0.1084140003513312
+      ],
+      "neural_timings_ms": [
+        16.79705899914552,
+        16.975186999843572,
+        16.47122699978354
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0355",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.06666099943686277,
+      "neural_median_ms": 15.601056999003049,
+      "code_timings_ms": [
+        0.06666099943686277,
+        0.11556400022527669,
+        0.06135300100140739
+      ],
+      "neural_timings_ms": [
+        15.247727998939808,
+        16.240267001194297,
+        15.601056999003049
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0356",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.10360700071032625,
+      "neural_median_ms": 15.383452000605757,
+      "code_timings_ms": [
+        0.10547999954724219,
+        0.06596899947908241,
+        0.10360700071032625
+      ],
+      "neural_timings_ms": [
+        15.198783999949228,
+        15.383452000605757,
+        15.528342000834527
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0357",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.09017599950311705,
+      "neural_median_ms": 15.4633530000865,
+      "code_timings_ms": [
+        0.0659100005577784,
+        0.10705199929361697,
+        0.09017599950311705
+      ],
+      "neural_timings_ms": [
+        15.4633530000865,
+        15.749595999295707,
+        14.845150000837748
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0358",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.10201399891229812,
+      "neural_median_ms": 15.26931000080367,
+      "code_timings_ms": [
+        0.10396700054116081,
+        0.06602999928873032,
+        0.10201399891229812
+      ],
+      "neural_timings_ms": [
+        15.062058000694378,
+        15.26931000080367,
+        15.883768999628955
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0359",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.06841299909865484,
+      "neural_median_ms": 15.874705000896938,
+      "code_timings_ms": [
+        0.06841299909865484,
+        0.11463299961178564,
+        0.06442700032494031
+      ],
+      "neural_timings_ms": [
+        15.734312999484246,
+        16.21228499971039,
+        15.874705000896938
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0360",
+      "kind": "supported",
+      "code_pass": true,
+      "neural_pass": false,
+      "code_grade": "EXACT_GRAPH_MATCH",
+      "neural_grade": "WRONG_GRAPH",
+      "code_median_ms": 0.11253000047872774,
+      "neural_median_ms": 16.02409100087243,
+      "code_timings_ms": [
+        0.11253000047872774,
+        0.06666999979643151,
+        0.11473300037323497
+      ],
+      "neural_timings_ms": [
+        16.02409100087243,
+        15.768523999213357,
+        16.037291001339327
+      ],
+      "neural_calls_per_response": 1
+    },
+    {
+      "case_id": "EXTRACT-0409",
+      "kind": "unsupported",
+      "code_pass": true,
+      "neural_pass": true,
+      "code_grade": "CORRECT_ABSTENTION",
+      "neural_grade": "CORRECT_ABSTENTION",
+      "code_median_ms": 0.013550999938161112,
+      "neural_median_ms": 0.012828999388148077,
+      "code_timings_ms": [
+        0.02422699981252663,
+        0.013550999938161112,
+        0.012248001439729705
+      ],
+      "neural_timings_ms": [
+        0.0460600003862055,
+        0.012828999388148077,
+        0.008402999810641631
+      ],
+      "neural_calls_per_response": 0
+    },
+    {
+      "case_id": "EXTRACT-0410",
+      "kind": "unsupported",
+      "code_pass": true,
+      "neural_pass": true,
+      "code_grade": "CORRECT_ABSTENTION",
+      "neural_grade": "CORRECT_ABSTENTION",
+      "code_median_ms": 0.010687001122278161,
+      "neural_median_ms": 0.00794200059317518,
+      "code_timings_ms": [
+        0.011096999514847994,
+        0.010687001122278161,
+        0.010096000551129691
+      ],
+      "neural_timings_ms": [
+        0.008913999408832751,
+        0.00794200059317518,
+        0.007821998224244453
+      ],
+      "neural_calls_per_response": 0
+    },
+    {
+      "case_id": "EXTRACT-0411",
+      "kind": "unsupported",
+      "code_pass": true,
+      "neural_pass": true,
+      "code_grade": "CORRECT_ABSTENTION",
+      "neural_grade": "CORRECT_ABSTENTION",
+      "code_median_ms": 0.010354999176342972,
+      "neural_median_ms": 0.007872000423958525,
+      "code_timings_ms": [
+        0.011107000318588689,
+        0.010284999007126316,
+        0.010354999176342972
+      ],
+      "neural_timings_ms": [
+        0.007881999408709817,
+        0.007872000423958525,
+        0.007421000191243365
+      ],
+      "neural_calls_per_response": 0
+    },
+    {
+      "case_id": "EXTRACT-0412",
+      "kind": "unsupported",
+      "code_pass": true,
+      "neural_pass": true,
+      "code_grade": "CORRECT_ABSTENTION",
+      "neural_grade": "CORRECT_ABSTENTION",
+      "code_median_ms": 0.00967499909165781,
+      "neural_median_ms": 0.007450998964486644,
+      "code_timings_ms": [
+        0.00967499909165781,
+        0.009655001122155227,
+        0.009864001185633242
+      ],
+      "neural_timings_ms": [
+        0.0076619999163085595,
+        0.007450998964486644,
+        0.007310998626053333
+      ],
+      "neural_calls_per_response": 0
+    },
+    {
+      "case_id": "EXTRACT-0413",
+      "kind": "unsupported",
+      "code_pass": true,
+      "neural_pass": true,
+      "code_grade": "CORRECT_ABSTENTION",
+      "neural_grade": "CORRECT_ABSTENTION",
+      "code_median_ms": 0.009934999980032444,
+      "neural_median_ms": 0.007190999895101413,
+      "code_timings_ms": [
+        0.010126001143362373,
+        0.00961499972618185,
+        0.009934999980032444
+      ],
+      "neural_timings_ms": [
+        0.007050999556668103,
+        0.007190999895101413,
+        0.007290998837561347
+      ],
+      "neural_calls_per_response": 0
+    },
+    {
+      "case_id": "EXTRACT-0414",
+      "kind": "unsupported",
+      "code_pass": true,
+      "neural_pass": true,
+      "code_grade": "CORRECT_ABSTENTION",
+      "neural_grade": "CORRECT_ABSTENTION",
+      "code_median_ms": 0.009744999260874465,
+      "neural_median_ms": 0.007530999937443994,
+      "code_timings_ms": [
+        0.00949500099522993,
+        0.009744999260874465,
+        0.009875000614556484
+      ],
+      "neural_timings_ms": [
+        0.007530999937443994,
+        0.007321001248783432,
+        0.007571999958599918
+      ],
+      "neural_calls_per_response": 0
+    },
+    {
+      "case_id": "EXTRACT-0415",
+      "kind": "unsupported",
+      "code_pass": true,
+      "neural_pass": true,
+      "code_grade": "CORRECT_ABSTENTION",
+      "neural_grade": "CORRECT_ABSTENTION",
+      "code_median_ms": 0.009924999176291749,
+      "neural_median_ms": 0.00727099904906936,
+      "code_timings_ms": [
+        0.009924999176291749,
+        0.00947499938774854,
+        0.023476000933442265
+      ],
+      "neural_timings_ms": [
+        0.007261000064318068,
+        0.00727099904906936,
+        0.007710999852861278
+      ],
+      "neural_calls_per_response": 0
+    },
+    {
+      "case_id": "EXTRACT-0416",
+      "kind": "unsupported",
+      "code_pass": true,
+      "neural_pass": true,
+      "code_grade": "CORRECT_ABSTENTION",
+      "neural_grade": "CORRECT_ABSTENTION",
+      "code_median_ms": 0.0105460003396729,
+      "neural_median_ms": 0.007680999260628596,
+      "code_timings_ms": [
+        0.0105460003396729,
+        0.010555999324424192,
+        0.009804000001167879
+      ],
+      "neural_timings_ms": [
+        0.008472999979858287,
+        0.007631000698893331,
+        0.007680999260628596
+      ],
+      "neural_calls_per_response": 0
+    },
+    {
+      "case_id": "EXTRACT-0417",
+      "kind": "unsupported",
+      "code_pass": true,
+      "neural_pass": true,
+      "code_grade": "CORRECT_ABSTENTION",
+      "neural_grade": "CORRECT_ABSTENTION",
+      "code_median_ms": 0.009745001079863869,
+      "neural_median_ms": 0.00715100031811744,
+      "code_timings_ms": [
+        0.009985000360757113,
+        0.009674000466475263,
+        0.009745001079863869
+      ],
+      "neural_timings_ms": [
+        0.007020000339252874,
+        0.00715100031811744,
+        0.007421000191243365
+      ],
+      "neural_calls_per_response": 0
+    },
+    {
+      "case_id": "EXTRACT-0418",
+      "kind": "unsupported",
+      "code_pass": true,
+      "neural_pass": true,
+      "code_grade": "CORRECT_ABSTENTION",
+      "neural_grade": "CORRECT_ABSTENTION",
+      "code_median_ms": 0.009774999853107147,
+      "neural_median_ms": 0.0074809995567193255,
+      "code_timings_ms": [
+        0.009715000487631187,
+        0.009774999853107147,
+        0.009904999387799762
+      ],
+      "neural_timings_ms": [
+        0.007611999535583891,
+        0.007261000064318068,
+        0.0074809995567193255
+      ],
+      "neural_calls_per_response": 0
+    },
+    {
+      "case_id": "EXTRACT-0419",
+      "kind": "unsupported",
+      "code_pass": true,
+      "neural_pass": true,
+      "code_grade": "CORRECT_ABSTENTION",
+      "neural_grade": "CORRECT_ABSTENTION",
+      "code_median_ms": 0.009735000276123174,
+      "neural_median_ms": 0.007160000677686185,
+      "code_timings_ms": [
+        0.01018599868984893,
+        0.009393999789608642,
+        0.009735000276123174
+      ],
+      "neural_timings_ms": [
+        0.006939999366295524,
+        0.007160000677686185,
+        0.00729100065655075
+      ],
+      "neural_calls_per_response": 0
+    },
+    {
+      "case_id": "EXTRACT-0420",
+      "kind": "unsupported",
+      "code_pass": true,
+      "neural_pass": true,
+      "code_grade": "CORRECT_ABSTENTION",
+      "neural_grade": "CORRECT_ABSTENTION",
+      "code_median_ms": 0.009463999958825298,
+      "neural_median_ms": 0.007201000698842108,
+      "code_timings_ms": [
+        0.009604998922441155,
+        0.009444998795515858,
+        0.009463999958825298
+      ],
+      "neural_timings_ms": [
+        0.007962000381667167,
+        0.007201000698842108,
+        0.0069899997470201924
+      ],
+      "neural_calls_per_response": 0
+    },
+    {
+      "case_id": "EXTRACT-0421",
+      "kind": "unsupported",
+      "code_pass": true,
+      "neural_pass": true,
+      "code_grade": "CORRECT_ABSTENTION",
+      "neural_grade": "CORRECT_ABSTENTION",
+      "code_median_ms": 0.0096950006991392,
+      "neural_median_ms": 0.0071309987106360495,
+      "code_timings_ms": [
+        0.0096950006991392,
+        0.009655001122155227,
+        0.009705001502879895
+      ],
+      "neural_timings_ms": [
+        0.0071309987106360495,
+        0.0070810001489007846,
+        0.007390999599010684
+      ],
+      "neural_calls_per_response": 0
+    },
+    {
+      "case_id": "EXTRACT-0422",
+      "kind": "unsupported",
+      "code_pass": true,
+      "neural_pass": true,
+      "code_grade": "CORRECT_ABSTENTION",
+      "neural_grade": "CORRECT_ABSTENTION",
+      "code_median_ms": 0.009515000783721916,
+      "neural_median_ms": 0.007440999979735352,
+      "code_timings_ms": [
+        0.009444000170333311,
+        0.009515000783721916,
+        0.009884999599307775
+      ],
+      "neural_timings_ms": [
+        0.008402999810641631,
+        0.007300999641302042,
+        0.007440999979735352
+      ],
+      "neural_calls_per_response": 0
+    },
+    {
+      "case_id": "EXTRACT-0423",
+      "kind": "unsupported",
+      "code_pass": true,
+      "neural_pass": true,
+      "code_grade": "CORRECT_ABSTENTION",
+      "neural_grade": "CORRECT_ABSTENTION",
+      "code_median_ms": 0.009904999387799762,
+      "neural_median_ms": 0.007050999556668103,
+      "code_timings_ms": [
+        0.00975399962044321,
+        0.010034998922492377,
+        0.009904999387799762
+      ],
+      "neural_timings_ms": [
+        0.006980000762268901,
+        0.007050999556668103,
+        0.00735100002202671
+      ],
+      "neural_calls_per_response": 0
+    },
+    {
+      "case_id": "EXTRACT-0424",
+      "kind": "unsupported",
+      "code_pass": true,
+      "neural_pass": true,
+      "code_grade": "CORRECT_ABSTENTION",
+      "neural_grade": "CORRECT_ABSTENTION",
+      "code_median_ms": 0.00995499976852443,
+      "neural_median_ms": 0.00735100002202671,
+      "code_timings_ms": [
+        0.010016001397161745,
+        0.009564000720274635,
+        0.00995499976852443
+      ],
+      "neural_timings_ms": [
+        0.00735100002202671,
+        0.007402000846923329,
+        0.0073310002335347235
+      ],
+      "neural_calls_per_response": 0
+    }
+  ],
+  "matrix_columns": [
+    "code_pass",
+    "neural_pipeline_pass",
+    "code_median_ms",
+    "neural_median_ms"
+  ],
+  "paired_matrix": [
+    [
+      true,
+      false,
+      0.10781299897644203,
+      17.330745000435854
+    ],
+    [
+      true,
+      false,
+      0.10830300016095862,
+      20.784672999070608
+    ],
+    [
+      true,
+      false,
+      0.1070220005203737,
+      18.021238000073936
+    ],
+    [
+      true,
+      false,
+      0.10061200009658933,
+      17.566260999956285
+    ],
+    [
+      true,
+      false,
+      0.06842400034656748,
+      19.22212300087267
+    ],
+    [
+      true,
+      false,
+      0.11009599984390661,
+      20.075672000530176
+    ],
+    [
+      true,
+      false,
+      0.09913999929267447,
+      18.058814999676542
+    ],
+    [
+      true,
+      false,
+      0.10008099889091682,
+      17.531038000015542
+    ],
+    [
+      true,
+      false,
+      0.2485960012563737,
+      18.534294000346563
+    ],
+    [
+      true,
+      false,
+      0.10799300071084872,
+      17.88959999976214
+    ],
+    [
+      true,
+      false,
+      0.10900500092247967,
+      18.907858000602573
+    ],
+    [
+      true,
+      false,
+      0.17434300025342964,
+      19.653854998978204
+    ],
+    [
+      true,
+      false,
+      0.07017600000835955,
+      21.907430000283057
+    ],
+    [
+      true,
+      false,
+      0.1103470003727125,
+      21.472894000908127
+    ],
+    [
+      true,
+      false,
+      0.11186899973836262,
+      20.41627799917478
+    ],
+    [
+      true,
+      false,
+      0.10814400047820527,
+      20.250535999366548
+    ],
+    [
+      true,
+      false,
+      0.07279000055859797,
+      19.89930699892284
+    ],
+    [
+      true,
+      false,
+      0.1315890003752429,
+      19.394212000406696
+    ],
+    [
+      true,
+      false,
+      0.0653690003673546,
+      16.760112999691046
+    ],
+    [
+      true,
+      false,
+      0.1022039996314561,
+      16.279155999654904
+    ],
+    [
+      true,
+      false,
+      0.06121200021880213,
+      15.993263999916962
+    ],
+    [
+      true,
+      false,
+      0.10355599988542963,
+      16.73408299939183
+    ],
+    [
+      true,
+      false,
+      0.06413699884433299,
+      16.349872999853687
+    ],
+    [
+      true,
+      false,
+      0.10433699935674667,
+      16.02598399949784
+    ],
+    [
+      true,
+      false,
+      0.06187400140333921,
+      15.46397400124988
+    ],
+    [
+      true,
+      false,
+      0.1060699996742187,
+      15.609544001563336
+    ],
+    [
+      true,
+      false,
+      0.06208400009199977,
+      16.100967999591376
+    ],
+    [
+      true,
+      false,
+      0.09958999908121768,
+      15.56153199999244
+    ],
+    [
+      true,
+      false,
+      0.06555900108651258,
+      16.621754000880173
+    ],
+    [
+      true,
+      false,
+      0.10856500011868775,
+      15.505437000683742
+    ],
+    [
+      true,
+      false,
+      0.06766200021957047,
+      18.612522000694298
+    ],
+    [
+      true,
+      false,
+      0.09673600106907543,
+      17.823939999288996
+    ],
+    [
+      true,
+      false,
+      0.05953999971097801,
+      15.243121000821702
+    ],
+    [
+      true,
+      false,
+      0.10406699948362075,
+      15.727533000244875
+    ],
+    [
+      true,
+      false,
+      0.06347599992295727,
+      16.288880000502104
+    ],
+    [
+      true,
+      false,
+      0.10125299922947306,
+      16.787714001111453
+    ],
+    [
+      true,
+      false,
+      0.06291499994404148,
+      15.354077999290894
+    ],
+    [
+      true,
+      false,
+      0.09499400039203465,
+      15.087806001247372
+    ],
+    [
+      true,
+      false,
+      0.062303999584401026,
+      14.843767999991542
+    ],
+    [
+      true,
+      false,
+      0.09596499876352027,
+      15.499869001359912
+    ],
+    [
+      true,
+      false,
+      0.06564899922523182,
+      17.29104500009271
+    ],
+    [
+      true,
+      false,
+      0.09910900007525925,
+      17.139556000984157
+    ],
+    [
+      true,
+      false,
+      0.059699999837903306,
+      15.95804099997622
+    ],
+    [
+      true,
+      false,
+      0.09791699994821101,
+      15.695074000177556
+    ],
+    [
+      true,
+      false,
+      0.06070100062061101,
+      15.519918999416404
+    ],
+    [
+      true,
+      false,
+      0.0943020004342543,
+      15.497165000851965
+    ],
+    [
+      true,
+      false,
+      0.09743699956743512,
+      16.53312999951595
+    ],
+    [
+      true,
+      false,
+      0.10761299927253276,
+      18.11815499968361
+    ],
+    [
+      true,
+      false,
+      0.06341500011330936,
+      15.66409599945473
+    ],
+    [
+      true,
+      false,
+      0.09987100020225625,
+      15.46475599934638
+    ],
+    [
+      true,
+      false,
+      0.06845399911981076,
+      15.388050000183284
+    ],
+    [
+      true,
+      false,
+      0.09326100007456262,
+      14.78833399960422
+    ],
+    [
+      true,
+      false,
+      0.06539900095958728,
+      15.850297999350005
+    ],
+    [
+      true,
+      false,
+      0.12300600064918399,
+      15.981967000698205
+    ],
+    [
+      true,
+      false,
+      0.0631160000921227,
+      15.594943000905914
+    ],
+    [
+      true,
+      false,
+      0.09222900007443968,
+      16.411746999438037
+    ],
+    [
+      true,
+      false,
+      0.06318600026133936,
+      15.190862000963534
+    ],
+    [
+      true,
+      false,
+      0.09575500007485971,
+      15.40783900054521
+    ],
+    [
+      true,
+      false,
+      0.06842400034656748,
+      16.428602000814863
+    ],
+    [
+      true,
+      false,
+      0.10721199942054227,
+      19.33230999929947
+    ],
+    [
+      true,
+      false,
+      0.08696099939697888,
+      18.079065999700106
+    ],
+    [
+      true,
+      false,
+      0.10639100037224125,
+      17.733112999849254
+    ],
+    [
+      true,
+      false,
+      0.06654100070591085,
+      16.707423999832827
+    ],
+    [
+      true,
+      false,
+      0.10977599959005602,
+      16.341329999704612
+    ],
+    [
+      true,
+      false,
+      0.06995500007178634,
+      15.674071000830736
+    ],
+    [
+      true,
+      false,
+      0.10933500016108155,
+      15.819512000234681
+    ],
+    [
+      true,
+      false,
+      0.06951499926799443,
+      15.269350000380655
+    ],
+    [
+      true,
+      false,
+      0.10219499927188735,
+      16.695456000888953
+    ],
+    [
+      true,
+      false,
+      0.10188400119659491,
+      16.02284900036466
+    ],
+    [
+      true,
+      false,
+      0.10475799899722915,
+      15.722735999588622
+    ],
+    [
+      true,
+      false,
+      0.06789300095988438,
+      16.07464699918637
+    ],
+    [
+      true,
+      false,
+      0.1084140003513312,
+      16.79705899914552
+    ],
+    [
+      true,
+      false,
+      0.06666099943686277,
+      15.601056999003049
+    ],
+    [
+      true,
+      false,
+      0.10360700071032625,
+      15.383452000605757
+    ],
+    [
+      true,
+      false,
+      0.09017599950311705,
+      15.4633530000865
+    ],
+    [
+      true,
+      false,
+      0.10201399891229812,
+      15.26931000080367
+    ],
+    [
+      true,
+      false,
+      0.06841299909865484,
+      15.874705000896938
+    ],
+    [
+      true,
+      false,
+      0.11253000047872774,
+      16.02409100087243
+    ],
+    [
+      true,
+      true,
+      0.013550999938161112,
+      0.012828999388148077
+    ],
+    [
+      true,
+      true,
+      0.010687001122278161,
+      0.00794200059317518
+    ],
+    [
+      true,
+      true,
+      0.010354999176342972,
+      0.007872000423958525
+    ],
+    [
+      true,
+      true,
+      0.00967499909165781,
+      0.007450998964486644
+    ],
+    [
+      true,
+      true,
+      0.009934999980032444,
+      0.007190999895101413
+    ],
+    [
+      true,
+      true,
+      0.009744999260874465,
+      0.007530999937443994
+    ],
+    [
+      true,
+      true,
+      0.009924999176291749,
+      0.00727099904906936
+    ],
+    [
+      true,
+      true,
+      0.0105460003396729,
+      0.007680999260628596
+    ],
+    [
+      true,
+      true,
+      0.009745001079863869,
+      0.00715100031811744
+    ],
+    [
+      true,
+      true,
+      0.009774999853107147,
+      0.0074809995567193255
+    ],
+    [
+      true,
+      true,
+      0.009735000276123174,
+      0.007160000677686185
+    ],
+    [
+      true,
+      true,
+      0.009463999958825298,
+      0.007201000698842108
+    ],
+    [
+      true,
+      true,
+      0.0096950006991392,
+      0.0071309987106360495
+    ],
+    [
+      true,
+      true,
+      0.009515000783721916,
+      0.007440999979735352
+    ],
+    [
+      true,
+      true,
+      0.009904999387799762,
+      0.007050999556668103
+    ],
+    [
+      true,
+      true,
+      0.00995499976852443,
+      0.00735100002202671
+    ]
+  ],
+  "simulation": {
+    "seed": 20261030,
+    "draws": 10000,
+    "network_preferred_frequency": 0.0,
+    "mean_network_advantage_loss_units": -3.924727564692485,
+    "network_advantage_empirical_p025": -7.388924301283878,
+    "network_advantage_empirical_p975": -1.4592937382483102,
+    "scope": "CONDITIONAL_EMPIRICAL_CASE_RESAMPLING_AND_ASSUMED_LOSS_NOT_FUTURE_WIN_PROBABILITY",
+    "assumptions": {
+      "wrong_response_penalty": "triangular(1,10,mode=3) abstract units",
+      "latency_penalty_per_ms": "uniform(0,.01) abstract units",
+      "case_resampling": "paired replacement from these 94 authored cases"
+    },
+    "limits": [
+      "Correlated authored templates are not independent real-world samples.",
+      "No financial cost meter or external population model.",
+      "Intervals summarize simulation only, not generalization confidence.",
+      "Utility definition and cases can change the ranking."
+    ]
+  },
+  "fixed_seed_replay_equal": true,
+  "simulation_replay_sha256": "0b0d8104af0d1579ee1f9565d9bf433ab7cd86f6d6f17a1681b6a55df6a1084a",
+  "uncertainty_reduction_observed": "Supported exact errors fall from 78 to zero in this authored set; no calibrated probability asserted.",
+  "network_earns_its_cost": "NO_ON_THIS_SCOPE_WITH_CURRENT_WEIGHTS",
+  "what_would_make_yes": "Measured additional correct answers or appropriate abstentions on a separately defined task beyond the equivalent code baseline, with acceptable measured cost.",
+  "limits": [
+    "Code full-match coverage is narrow, not general natural-language understanding.",
+    "The neural pipeline retains code duration/conflict gates; its 16 correct negative decisions are not learned neural gains.",
+    "Monte Carlo cannot create an observed benefit absent from paired data."
+  ],
+  "checkpoint_sha256": "71515bb4638bfe9e6fce922c7242746092a5a35920d8673bf74719eb473ecbfa",
+  "dev_data_sha256": "5d71ad4b3292b1ce3c940e71df1416e879d7808dcab5de841c80b3a832a95b1f",
+  "identity_verification_note": "Checkpoint and dev bytes verified after paired run; neither changed during this round."
+}

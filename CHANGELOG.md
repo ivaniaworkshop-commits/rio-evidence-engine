@@ -126,3 +126,11 @@ on missing/conflicting values and unsupported IDs. Allow validated caller
 duration values in closed candidate slots. Paired dev: 312/312 fields vs 12/312,
 16/16 code conflict abstentions, still 0/78 exact graphs. Add seven provenance,
 conflict, budget and inference-gating tests. No training or promotion.
+
+## Accuracy-first comparison and full graph recovery
+
+Recover explicit predecessor constraints with full-line coverage/source spans
+and reject cycles, duplicate declarations and unknown text. Code gets 78/78
+exact graphs plus 16/16 abstentions. Add paired 94-case neural comparison and
+10,000-draw seeded/replayed loss sensitivity. Existing network does not earn
+its cost in this scope; no forced yes, retraining or promotion. Six new tests.

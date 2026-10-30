@@ -64,6 +64,11 @@ def main():
     if copied_path.exists():
         copied=json.loads(copied_path.read_text())
         data['duration_copy']={k:copied[k] for k in ['cases','duration_fields_correct','duration_fields_total','supported_exact_graph_matches','supported_cases','correct_code_abstentions','negative_cases']}
+    value_path=ROOT/'model/NETWORK_VALUE_RESULT.json'
+    if value_path.exists():
+        value=json.loads(value_path.read_text())
+        data['network_value']={k:value[k] for k in ['cases','code_correct_task_decisions','neural_pipeline_correct_task_decisions','code_median_ms','neural_pipeline_median_ms','network_earns_its_cost','fixed_seed_replay_equal']}
+        data['network_value']['simulation_network_preferred_frequency']=value['simulation']['network_preferred_frequency']
     encoded = json.dumps(data, indent=2)+'\n'
     for name in ['DELTAS.json','docs/data.json']:
         (ROOT/name).write_text(encoded)

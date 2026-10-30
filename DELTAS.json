@@ -1,7 +1,7 @@
 {
   "schema": "rio-dashboard-v1",
   "updated": "2026-10-30",
-  "tests": 83,
+  "tests": 89,
   "synthetic_graphs": 64,
   "benchmark": {
     "nodes": 2000,
@@ -48,7 +48,7 @@
   "benchmark_source_commit": "7eb02c14e23453f109604ddefaeb5c944fad05fa",
   "provenance": {
     "core_sha256": "fb232e58f1ab1260d9b74b454a0a267cd73171e0aedaf0fc4867df552fd2caf5",
-    "validation_sha256": "3f754d98f23d1ce210f47786ac4c4ef5dbca846801075e519a9aa104a0bd5a82",
+    "validation_sha256": "ffb89e10024d76b9404bdf0d777537dddb86b837322420514af9cfc5d935824b",
     "scope": "LOCAL_EXECUTION_RECORD_BOUND_TO_SOURCE_BYTES_NOT_REMOTE_CI"
   },
   "model": {
@@ -118,7 +118,7 @@
     "semantic_extraction_status": "NOT_DEMONSTRATED_WITH_FULL_RECURRENT_PREFILL",
     "current_context_rejections": 28,
     "context_rejections_are_semantic_abstentions": false,
-    "project_tests_passed": 83,
+    "project_tests_passed": 89,
     "hybrid_role": "OPTIONAL_RANKING_OF_DETERMINISTIC_EXPLANATIONS",
     "observed_neural_value": "NO_OUTPUT_BENEFIT_IN_42_CASE_PAIRED_ABLATION",
     "historical_task_probe": "0/26 extractable durations before context safety fix",
@@ -137,7 +137,9 @@
       "training/EXTRACTION_DATA_AUDIT.json",
       "model/EXTRACTION_TRAINING_RESULT.json",
       "model/CONSTRAINED_EXTRACTION_RESULT.json",
-      "model/DURATION_COPY_RESULT.json"
+      "model/DURATION_COPY_RESULT.json",
+      "model/GRAPH_COPY_RESULT.json",
+      "model/NETWORK_VALUE_RESULT.json"
     ],
     "limits": [
       "No LLM, production reliability, human mastery or independent validation claimed.",
@@ -210,6 +212,15 @@
         "negative_cases": 16,
         "invalid_outputs": 0
       }
+    },
+    "current_accuracy_first_comparison": {
+      "cases": 94,
+      "code_correct_task_decisions": 94,
+      "neural_pipeline_correct_task_decisions": 16,
+      "code_median_ms": 0.06833799943706254,
+      "neural_pipeline_median_ms": 15.955322000081651,
+      "network_earns_its_cost": "NO_ON_THIS_SCOPE_WITH_CURRENT_WEIGHTS",
+      "fixed_seed_replay_equal": true
     }
   },
   "streaming_gate": {
@@ -262,5 +273,15 @@
     "supported_cases": 78,
     "correct_code_abstentions": 16,
     "negative_cases": 16
+  },
+  "network_value": {
+    "cases": 94,
+    "code_correct_task_decisions": 94,
+    "neural_pipeline_correct_task_decisions": 16,
+    "code_median_ms": 0.06833799943706254,
+    "neural_pipeline_median_ms": 15.955322000081651,
+    "network_earns_its_cost": "NO_ON_THIS_SCOPE_WITH_CURRENT_WEIGHTS",
+    "fixed_seed_replay_equal": true,
+    "simulation_network_preferred_frequency": 0.0
   }
 }

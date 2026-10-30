@@ -57,3 +57,10 @@ Optional code recovery replaces generated duration slots with source-linked
 values: 312/312 fields and 16/16 dev conflict abstentions. Full graphs remain
 0/78 because neural dependencies remain wrong. See DURATION_COPY_CARD.md.
 This is code utility, not improved weights or learned extraction; no promotion.
+
+## Equivalent-baseline value update
+
+Complete code extraction now obtains 78/78 exact dev graphs and 16/16 conflict
+abstentions. This candidate has no demonstrated accuracy benefit over that
+baseline. NETWORK_VALUE_RESULT.json records paired outcomes, latency and
+assumption sensitivity. Candidate remains unpromoted; weights unchanged.
