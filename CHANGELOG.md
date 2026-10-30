@@ -27,3 +27,10 @@ policy. Five daily tasks are enabled; first execution has not yet been observed.
 Three new regressions reproduce and fix a spurious infinite latency mean, JSON
 CLI failure for finite data, and acceptance of an overflowing schedule total.
 Dashboard provenance now separates the benchmark source from tested core bytes.
+
+## Acceptance gaps and reproducibility
+
+Add explicit BOG/26 acceptance audit, prototype design and individual rehearsal.
+Add safe manifest inventory verification with four regressions. Execute the
+suite, demo and schedule CLI from a fresh temporary source copy. Official
+service, incident, video, hidden tests, debrief and submission remain unverified.

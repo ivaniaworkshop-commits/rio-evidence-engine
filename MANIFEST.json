@@ -13,18 +13,18 @@
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 1574,
-      "sha256": "457275ade60c01e7ad4fd523eb17e36226f3f6bcc2a3f61324df2cc08d2d52c2"
+      "bytes": 1928,
+      "sha256": "c77e5eba104078e4a873c40d0be486f7dc25f991fedf4fd28b07cd4098e65439"
     },
     {
       "path": "DELTAS.json",
       "bytes": 1930,
-      "sha256": "0b1875a21a97fdc61fdc7bae9e7ef9f54102892b7cd63d389887df37914d48a4"
+      "sha256": "567b854ec71b9434494b28fdcf97aa272736dfc813b5d5b157d69260145f2121"
     },
     {
       "path": "README.md",
-      "bytes": 6238,
-      "sha256": "ad6aebf1a0a38aee1e1abfb7a7f3ad098cabb51a3688e85e389e138a7433cf30"
+      "bytes": 6732,
+      "sha256": "b2961ebc2e9e8816f1c201c3a6a005f5604ba6503ebf43253252aa9903598541"
     },
     {
       "path": "RECALCULATION.md",
@@ -33,13 +33,28 @@
     },
     {
       "path": "VALIDATION.json",
-      "bytes": 4766,
-      "sha256": "46d2aa3b5d940727560dfef8791b1a16e5ea06bc728c300b8aee46c68190343e"
+      "bytes": 5596,
+      "sha256": "5432ef9d942a6061525a325a444f5339c9188093809a6a071e21f37a7ecf196c"
     },
     {
       "path": "VALIDATION_ACCOUNT.json",
       "bytes": 5801,
       "sha256": "89f7faed5739a59a17b56cb335484a50b4419471dfeb5b3eea92ffa6249a9dc1"
+    },
+    {
+      "path": "competition/ACCEPTANCE.md",
+      "bytes": 3594,
+      "sha256": "7b1f860f03d983853cdfdafcf91b4bd26f784e5fb99bfcce288412361b274664"
+    },
+    {
+      "path": "competition/DEBRIEF.md",
+      "bytes": 1000,
+      "sha256": "11c3c3877c4db407d5d3c5d771642f76ddcd84f91772ffd0aad49556b327f1df"
+    },
+    {
+      "path": "competition/DESIGN.md",
+      "bytes": 1878,
+      "sha256": "c7f53c74eb1c2c5f89d58cb09b6d11389b25d315c73ddccd53365d375adc7e50"
     },
     {
       "path": "demo.py",
@@ -59,7 +74,7 @@
     {
       "path": "docs/data.json",
       "bytes": 1930,
-      "sha256": "0b1875a21a97fdc61fdc7bae9e7ef9f54102892b7cd63d389887df37914d48a4"
+      "sha256": "567b854ec71b9434494b28fdcf97aa272736dfc813b5d5b157d69260145f2121"
     },
     {
       "path": "docs/index.html",
@@ -102,6 +117,11 @@
       "sha256": "626859d5307abd3dc2d83387aa66e85a2b2605936c63c5776bc265568cdcc9a7"
     },
     {
+      "path": "scripts/verify_manifest.py",
+      "bytes": 1671,
+      "sha256": "cd9152632b4089c9aa71a474b2c4d229c76061c1a82b67f7df9d16ad5551ed1f"
+    },
+    {
       "path": "tests/test_core.py",
       "bytes": 4987,
       "sha256": "5a91760578d3d1d03aaaabd4505b1f4ccf3e7bee6cf55dec386231dc90a14fdf"
@@ -110,6 +130,11 @@
       "path": "tests/test_dashboard.py",
       "bytes": 1906,
       "sha256": "2ca048967fa347925119c8e181b67056a368524e48ae79bcd78546ef2952169f"
+    },
+    {
+      "path": "tests/test_manifest.py",
+      "bytes": 1613,
+      "sha256": "74ba35e2f4798d7bc6771ebf808cd71324acbccb87269433fb274c373b3f5584"
     },
     {
       "path": "tests/test_regressions.py",

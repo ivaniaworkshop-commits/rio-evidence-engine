@@ -27,7 +27,7 @@ The core uses the standard library to reduce setup requirements. Graph schedulin
 
 ## Verification
 
-Thirty tests (including four optional Node-based dashboard checks) cover graph scheduling, paired metrics, numeric boundaries, budget reserve, schema limits, journal consistency and incomplete-line handling. Actual execution results are recorded in VALIDATION.json. Regression tests include malformed inputs, CLI subprocesses, and dependency invariants across 64 seeded synthetic graphs. The demo uses authored synthetic values; it is not a benchmark or evidence of real-world performance improvement.
+Thirty-four tests (including four optional Node-based dashboard checks) cover graph scheduling, paired metrics, numeric boundaries, budget reserve, schema limits, journal consistency and incomplete-line handling. Actual execution results are recorded in VALIDATION.json. Regression tests include malformed inputs, CLI subprocesses, and dependency invariants across 64 seeded synthetic graphs. The demo uses authored synthetic values; it is not a benchmark or evidence of real-world performance improvement.
 
 ## Limits
 
@@ -100,3 +100,14 @@ manifest-listed files from commit dc51bd7330d47cb2f4aaa30ba4c424521663e4a4.
 This is assisted operational use, not a study of simulated people. Session
 context is not cryptographic account attestation. It does not establish external
 adoption, manual execution by the owner, or independent validation.
+
+## Competition readiness
+
+[Acceptance audit](competition/ACCEPTANCE.md) separates prototype evidence from
+missing official obligations. [Design](competition/DESIGN.md) and
+[debrief rehearsal](competition/DEBRIEF.md) support technical explanation.
+They are preparation, not competition acceptance.
+
+Run `python scripts/verify_manifest.py` to verify byte identity and inventory.
+It rejects changed, missing, extra and escaping paths. This is not an
+authenticity or correctness certificate.
