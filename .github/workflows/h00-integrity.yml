@@ -59,6 +59,24 @@ jobs:
           PY
       - name: H13 receipt consistency and no false promotion
         run: python3 -m unittest discover -s tests -p test_evaluation_receipts.py -v
+      - name: H14 structured candidate authored development probe
+        run: |
+          python3 scripts/h14_development_probe.py > /tmp/h14.json
+          python3 scripts/h11_run_paired.py --diagnostic --candidate structured_v1 > /tmp/h14_h11.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open('/tmp/h14.json'))
+          r=json.load(open('/tmp/h14_h11.json'))
+          assert d['candidate_supported_exact']==5 and d['baseline_supported_exact']==0
+          assert d['candidate_correct_abstentions']==12
+          assert r['supported']==40 and r['unsupported']==12
+          assert r['candidate_supported_exact']==5 and r['baseline_supported_exact']==0
+          assert r['candidate_correct_abstentions']==r['baseline_correct_abstentions']==12
+          assert r['candidate_wins']==5 and r['candidate_losses']==0
+          assert r['cluster_wins']==1 and not r['preliminary_engineering_screen']
+          assert not r['candidate_promoted'] and not r['source_class_verified']
+          print('H14_OBSERVED_DEV',{'supported':r['supported'],'baseline_exact':r['baseline_supported_exact'],'candidate_exact':r['candidate_supported_exact'],'correct_abstentions':r['candidate_correct_abstentions'],'cluster_wins':r['cluster_wins'],'candidate_median_ms':r['candidate_observed_median_ms'],'baseline_median_ms':r['baseline_observed_median_ms'],'promotion':r['candidate_promoted']})
+          PY
       - name: H08 independence gate must fail closed without external data
         run: |
           python3 -m rio_evidence.independent_gate > /tmp/h08.json
@@ -82,7 +100,7 @@ jobs:
           suite = unittest.defaultTestLoader.discover('tests')
           result = unittest.TextTestRunner(verbosity=2).run(suite)
           print('STRICT_SUITE', {'total': result.testsRun, 'failures': len(result.failures), 'errors': len(result.errors), 'skipped': len(result.skipped)})
-          if result.testsRun != 157 or result.failures or result.errors or result.skipped:
+          if result.testsRun != 172 or result.failures or result.errors or result.skipped:
               raise SystemExit(2)
           PY
       - name: H07 remeasure paired accuracy abstention and latency

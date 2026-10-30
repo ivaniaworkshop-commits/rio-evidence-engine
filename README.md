@@ -337,3 +337,6 @@ Run python scripts/h12_power.py for exact binomial and seeded Monte Carlo estima
 
 ## H13 historical evidence receipts
 Read model/EVALUATION_OBSERVATIONS_R001.json for GitHub Actions source commits/runs and observed H10-H12 states. Its new tests check only receipt consistency; they cannot authenticate original external source. H08 still blocked.
+
+## H14 structured graph candidate
+Opt-in candidate rio_evidence/candidate_v1.py accepts strict complete CSV and JSON graphs, preserving H09 on previously supported inputs. Reproduce public development probe with python scripts/h14_development_probe.py; compare via python scripts/h11_run_paired.py --diagnostic --candidate structured_v1. No external hidden test or neural improvement. Freeze source before external evaluation.

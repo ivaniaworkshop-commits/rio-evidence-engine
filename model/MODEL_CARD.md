@@ -208,3 +208,9 @@ Adds cluster-level sign guard against inflated significance from repeated same-c
 
 ## H13 audited observations for H10-H12
 Historical GitHub Actions results: H10 0/40 novel-language exact and 12/12 negative abstentions; H11 H09 identity 0 wins/losses on actual in-process paired execution; H12 conditional p10/30 detection probability 0.175494879 and 66 independent/no-loss cases for 80% power. All internal/conditional, not external evaluation, no weight promotion. See model/EVALUATION_OBSERVATIONS_R001.json.
+
+## H14 new code-only candidate
+Strict JSON graph and CSV graph-reader optional candidate, with rejection of missing or conflicting input. No neural weight updates, no automatic promotion, no claim of independent evaluation; H10 is public training/development diagnostic. Freeze candidate SHA before external collection. See evaluation/H14_CANDIDATE_PROTOCOL.md.
+
+### H14 CSV observability limit
+A terminal CSV row omitted from an otherwise valid A..N sequence cannot be inferred without an independently supplied expected task count. H14 validates present rows only; no hidden intent reconstruction is claimed. See evaluation/H14_CANDIDATE_PROTOCOL.md.

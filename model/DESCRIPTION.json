@@ -252,5 +252,19 @@
     "skipped": 0,
     "commit": "3f37b3423c47bc9a50cd8a4637079694718f7f1c",
     "ci_run": "https://github.com/ivaniaworkshop-commits/rio-evidence-engine/actions/runs/41139621169"
+  },
+  "h14_structured_candidate": {
+    "status": "CLI_IMPORT_FIX_PENDING_COMPLETE_CI",
+    "candidate_file": "rio_evidence/candidate_v1.py",
+    "candidate_type": "BOUNDED_DETERMINISTIC_CSV_JSON_READER_NOT_NEURAL",
+    "supported_ids": "A..H_1_TO_8",
+    "baseline": "H09_EXTRACT_EXTENDED_GRAPH",
+    "known_h10_dev_csv_cases": 5,
+    "known_h10_dev_supported_cases": 40,
+    "external_holdout": "NOT_AVAILABLE",
+    "weights_changed": false,
+    "promotion": "BLOCKED",
+    "contract": "evaluation/H14_CANDIDATE_PROTOCOL.md",
+    "csv_terminal_omission": "UNOBSERVABLE_WITHOUT_DECLARED_COUNT"
   }
 }
