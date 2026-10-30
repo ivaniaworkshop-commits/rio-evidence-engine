@@ -11,7 +11,7 @@
   "semantic_extraction_status": "NOT_DEMONSTRATED_WITH_FULL_RECURRENT_PREFILL",
   "current_context_rejections": 28,
   "context_rejections_are_semantic_abstentions": false,
-  "project_tests_passed": 73,
+  "project_tests_passed": 76,
   "hybrid_role": "OPTIONAL_RANKING_OF_DETERMINISTIC_EXPLANATIONS",
   "observed_neural_value": "NO_OUTPUT_BENEFIT_IN_42_CASE_PAIRED_ABLATION",
   "historical_task_probe": "0/26 extractable durations before context safety fix",
@@ -28,7 +28,8 @@
     "VALIDATION.json",
     "model/STREAMING_GATE_RESULT.json",
     "training/EXTRACTION_DATA_AUDIT.json",
-    "model/EXTRACTION_TRAINING_RESULT.json"
+    "model/EXTRACTION_TRAINING_RESULT.json",
+    "model/CONSTRAINED_EXTRACTION_RESULT.json"
   ],
   "limits": [
     "No LLM, production reliability, human mastery or independent validation claimed.",
@@ -77,6 +78,19 @@
     "dev_correct_abstentions": 0,
     "dev_negative_cases": 16,
     "invalid_outputs": 94,
-    "checkpoint_sha256": "71515bb4638bfe9e6fce922c7242746092a5a35920d8673bf74719eb473ecbfa"
+    "checkpoint_sha256": "71515bb4638bfe9e6fce922c7242746092a5a35920d8673bf74719eb473ecbfa",
+    "constrained_decoding": {
+      "cases": 94,
+      "constrained_invalid_outputs": 0,
+      "structurally_valid_graphs": 94,
+      "supported_exact_matches": 0,
+      "supported_cases": 78,
+      "correct_abstentions": 0,
+      "negative_cases": 16,
+      "duration_fields_correct": 12,
+      "duration_fields_total": 312,
+      "dependency_sets_correct": 138,
+      "dependency_sets_total": 312
+    }
   }
 }

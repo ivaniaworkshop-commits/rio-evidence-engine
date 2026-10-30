@@ -60,6 +60,13 @@ def sync():
         d['extraction_candidate']['checkpoint_sha256']=actual
         d['extraction_training_data']['status']='USED_FOR_SEPARATE_CANDIDATE_NOT_PROMOTED'
         d['sources'].append('model/EXTRACTION_TRAINING_RESULT.json')
+    constrained_path=ROOT/'model/CONSTRAINED_EXTRACTION_RESULT.json'
+    if constrained_path.exists():
+        constrained=json.loads(constrained_path.read_text())
+        if constrained['checkpoint_sha256']!=d['extraction_candidate']['checkpoint_sha256']:
+            raise ValueError('constrained decoding evaluation mismatches candidate')
+        d['extraction_candidate']['constrained_decoding']={k:constrained[k] for k in ['cases','constrained_invalid_outputs','structurally_valid_graphs','supported_exact_matches','supported_cases','correct_abstentions','negative_cases','duration_fields_correct','duration_fields_total','dependency_sets_correct','dependency_sets_total']}
+        d['sources'].append('model/CONSTRAINED_EXTRACTION_RESULT.json')
     (ROOT/'model/DESCRIPTION.json').write_text(json.dumps(d,indent=2)+'\n')
     value_statement=('Optional neural ranking showed no output benefit in the paired 42-case comparison.' if ablation_current else 'The current checkpoint has no matching paired utility evaluation.')
     block=('<!-- MODEL_STATUS_START -->\n## Current model status (evidence synchronized)\n\n'
@@ -73,6 +80,7 @@ def sync():
        'Earlier low loss and failed raw-generation probes are historical, not current capability certificates.\n'
        +('Experimental recurrent prefill processes up to 4096 prompt bytes; observed full processing in 28/28 cases, but 0/24 exact graphs and 0/4 correct abstentions. No weights changed.\n' if 'experimental_streaming' in d else '')
        +(f"Separate extraction candidate: {d['extraction_candidate']['steps']} steps; {d['extraction_candidate']['dev_exact_graph_matches']}/{d['extraction_candidate']['dev_supported_cases']} exact graphs, {d['extraction_candidate']['dev_correct_abstentions']}/{d['extraction_candidate']['dev_negative_cases']} correct abstentions, {d['extraction_candidate']['invalid_outputs']} invalid outputs. Status: {d['extraction_candidate']['status']}. Original model unchanged.\n" if 'extraction_candidate' in d else ('Extraction corpus prepared but not trained.\n' if 'extraction_training_data' in d else ''))
+       +('Separate closed-grammar decoding: 94/94 structurally valid outputs, but 0/78 exact graphs and 0/16 correct abstentions. Code-forced validity is not learned semantics.\n' if 'constrained_decoding' in d.get('extraction_candidate',{}) else '')
        +'<!-- MODEL_STATUS_END -->')
     for name in ['README.md','model/MODEL_CARD.md']:
         path=ROOT/name;text=path.read_text()

@@ -111,3 +111,10 @@ prompt/padding loss masked and EOS target. Dev loss falls but 0/78 exact graphs,
 0/16 correct abstentions and 94 invalid rollouts prevent promotion. Preserve
 original model and evaluation fixture. Add four mask/budget/batch tests and
 artifact readback evidence. No successful extractor or LLM claim.
+
+## Closed-grammar candidate decoding
+
+Use bounded code-defined graph slots to prevent duplicate task IDs and runaway
+JSON. Same SFT weights/dev: 94 invalid -> 0 invalid, 0/78 exact graphs and 0/16
+correct abstentions. Report field-level correctness separately. Add three
+budget/grammar/identity tests. No model promotion or semantic-success claim.

@@ -93,11 +93,12 @@ a separate delta; no context extension or retraining occurred.
 <!-- MODEL_STATUS_START -->
 ## Current model status (evidence synchronized)
 
-Río ByteGRU is a **small neural language model, not an LLM**: 17,344 parameters, 250 observed training steps. Checkpoint saved and reloaded. Project suite: 73 passing local tests.
+Río ByteGRU is a **small neural language model, not an LLM**: 17,344 parameters, 250 observed training steps. Checkpoint saved and reloaded. Project suite: 76 passing local tests.
 
 Current free generation rejects prompt-plus-output budgets above 128 UTF-8 bytes. The extraction fixture has 28 context rejections, not semantic abstentions. Neural extraction is not established. Hybrid arithmetic remains deterministic. Optional neural ranking showed no output benefit in the paired 42-case comparison. Earlier low loss and failed raw-generation probes are historical, not current capability certificates.
 Experimental recurrent prefill processes up to 4096 prompt bytes; observed full processing in 28/28 cases, but 0/24 exact graphs and 0/4 correct abstentions. No weights changed.
 Separate extraction candidate: 500 steps; 0/78 exact graphs, 0/16 correct abstentions, 94 invalid outputs. Status: EXTRACTION_SFT_CANDIDATE_NOT_PROMOTED. Original model unchanged.
+Separate closed-grammar decoding: 94/94 structurally valid outputs, but 0/78 exact graphs and 0/16 correct abstentions. Code-forced validity is not learned semantics.
 <!-- MODEL_STATUS_END -->
 
 ## Experimental streaming update
@@ -122,3 +123,9 @@ Original-model weights and the earlier metrics remain historical and unchanged.
 EXTRACTION_MODEL_CARD.md describes the response-only SFT candidate: 500 steps,
 0/78 exact dev graphs, 0/16 correct abstentions, 94 invalid outputs. It is not
 promoted and does not replace this original model.
+
+## Candidate constrained-decoding update
+
+The separate SFT candidate has an optional closed-grammar decoder. It forces
+94/94 well-formed graphs but achieves 0/78 exact graphs and 0/16 correct
+abstentions. Original weights/defaults remain unchanged; no new training.

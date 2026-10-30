@@ -43,3 +43,10 @@ observed repeated-id/nontermination failure and separately evaluate exact graph
 semantics. Structural validity is not extraction accuracy. A grammar may prevent
 a repeated B loop without teaching the model the correct durations or edges;
 it must not be presented as learned semantic success.
+
+## Subsequent constrained-decoding probe
+
+The same weights were evaluated with a code-defined closed grammar: invalid
+outputs fell from 94 to zero, but exact graphs remained 0/78 and correct
+abstentions 0/16. See CONSTRAINED_DECODING_CARD.md. This fixes diagnostic output
+structure, not free-generation or extraction ability; promotion remains blocked.

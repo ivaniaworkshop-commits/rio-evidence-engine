@@ -56,6 +56,10 @@ def main():
         cand=json.loads(candidate_path.read_text())
         data['extraction_candidate']={k:cand[k] for k in ['status','steps','initial_dev_masked_loss','final_dev_masked_loss','dev_exact_graph_matches','dev_supported_cases','dev_correct_abstentions','dev_negative_cases','invalid_outputs']}
         data['extraction_data']['status']='USED_FOR_SEPARATE_CANDIDATE_NOT_PROMOTED'
+    constrained_path=ROOT/'model/CONSTRAINED_EXTRACTION_RESULT.json'
+    if constrained_path.exists():
+        constrained=json.loads(constrained_path.read_text())
+        data['constrained_candidate']={k:constrained[k] for k in ['cases','constrained_invalid_outputs','structurally_valid_graphs','supported_exact_matches','supported_cases','correct_abstentions','negative_cases','duration_fields_correct','duration_fields_total']}
     encoded = json.dumps(data, indent=2)+'\n'
     for name in ['DELTAS.json','docs/data.json']:
         (ROOT/name).write_text(encoded)
