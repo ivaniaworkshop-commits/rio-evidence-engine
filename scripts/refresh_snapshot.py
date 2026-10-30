@@ -69,6 +69,10 @@ def main():
         value=json.loads(value_path.read_text())
         data['network_value']={k:value[k] for k in ['cases','code_correct_task_decisions','neural_pipeline_correct_task_decisions','code_median_ms','neural_pipeline_median_ms','network_earns_its_cost','fixed_seed_replay_equal']}
         data['network_value']['simulation_network_preferred_frequency']=value['simulation']['network_preferred_frequency']
+    search_path=ROOT/'model/WEIGHT_SEARCH_RESULT.json'
+    if search_path.exists():
+        search=json.loads(search_path.read_text())
+        data['weight_search']={k:search[k] for k in ['trial_count','base_train_subset_loss','best_train_subset_loss','dev_exact_graph_matches','dev_supported_cases','dev_correct_abstentions','dev_negative_cases','candidate_promoted']}
     encoded = json.dumps(data, indent=2)+'\n'
     for name in ['DELTAS.json','docs/data.json']:
         (ROOT/name).write_text(encoded)

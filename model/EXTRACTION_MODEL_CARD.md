@@ -64,3 +64,10 @@ Complete code extraction now obtains 78/78 exact dev graphs and 16/16 conflict
 abstentions. This candidate has no demonstrated accuracy benefit over that
 baseline. NETWORK_VALUE_RESULT.json records paired outcomes, latency and
 assumption sensitivity. Candidate remains unpromoted; weights unchanged.
+
+## Weight sensitivity experiment
+
+Zero-group ablation and seeded multiplier trials produced another separate
+checkpoint. It lowers train-subset loss but still produces no exact dev graphs
+or correct abstentions. This original SFT candidate remains unchanged; neither
+candidate is promoted. See WEIGHT_SEARCH_CARD.md.

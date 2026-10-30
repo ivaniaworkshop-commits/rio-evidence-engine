@@ -1,7 +1,7 @@
 {
   "schema": "rio-dashboard-v1",
   "updated": "2026-10-30",
-  "tests": 89,
+  "tests": 93,
   "synthetic_graphs": 64,
   "benchmark": {
     "nodes": 2000,
@@ -48,7 +48,7 @@
   "benchmark_source_commit": "7eb02c14e23453f109604ddefaeb5c944fad05fa",
   "provenance": {
     "core_sha256": "fb232e58f1ab1260d9b74b454a0a267cd73171e0aedaf0fc4867df552fd2caf5",
-    "validation_sha256": "ffb89e10024d76b9404bdf0d777537dddb86b837322420514af9cfc5d935824b",
+    "validation_sha256": "ee92b0cf5fe36fe61c20d6be26f48402a39a1df26bbc103e3ee6ddae20255ebd",
     "scope": "LOCAL_EXECUTION_RECORD_BOUND_TO_SOURCE_BYTES_NOT_REMOTE_CI"
   },
   "model": {
@@ -118,7 +118,7 @@
     "semantic_extraction_status": "NOT_DEMONSTRATED_WITH_FULL_RECURRENT_PREFILL",
     "current_context_rejections": 28,
     "context_rejections_are_semantic_abstentions": false,
-    "project_tests_passed": 89,
+    "project_tests_passed": 93,
     "hybrid_role": "OPTIONAL_RANKING_OF_DETERMINISTIC_EXPLANATIONS",
     "observed_neural_value": "NO_OUTPUT_BENEFIT_IN_42_CASE_PAIRED_ABLATION",
     "historical_task_probe": "0/26 extractable durations before context safety fix",
@@ -139,7 +139,8 @@
       "model/CONSTRAINED_EXTRACTION_RESULT.json",
       "model/DURATION_COPY_RESULT.json",
       "model/GRAPH_COPY_RESULT.json",
-      "model/NETWORK_VALUE_RESULT.json"
+      "model/NETWORK_VALUE_RESULT.json",
+      "model/WEIGHT_SEARCH_RESULT.json"
     ],
     "limits": [
       "No LLM, production reliability, human mastery or independent validation claimed.",
@@ -221,6 +222,27 @@
       "neural_pipeline_median_ms": 15.955322000081651,
       "network_earns_its_cost": "NO_ON_THIS_SCOPE_WITH_CURRENT_WEIGHTS",
       "fixed_seed_replay_equal": true
+    },
+    "weight_search_candidate": {
+      "trial_count": 96,
+      "base_train_subset_loss": 0.15102979871961805,
+      "best_train_subset_loss": 0.14507005479600693,
+      "chosen_multipliers": {
+        "embedding.weight": 0.95,
+        "gru.weight_ih_l0": 1.1,
+        "gru.weight_hh_l0": 1.1,
+        "gru.bias_ih_l0": 0.95,
+        "gru.bias_hh_l0": 0.95,
+        "output.weight": 1.1,
+        "output.bias": 0.95
+      },
+      "dev_exact_graph_matches": 0,
+      "dev_supported_cases": 78,
+      "dev_correct_abstentions": 0,
+      "dev_negative_cases": 16,
+      "invalid_outputs": 94,
+      "candidate_promoted": false,
+      "checkpoint_sha256": "828555a6cc298d62f2549516721088a52eca2c38a51268d13c5f18cc7f24fb95"
     }
   },
   "streaming_gate": {
@@ -283,5 +305,15 @@
     "network_earns_its_cost": "NO_ON_THIS_SCOPE_WITH_CURRENT_WEIGHTS",
     "fixed_seed_replay_equal": true,
     "simulation_network_preferred_frequency": 0.0
+  },
+  "weight_search": {
+    "trial_count": 96,
+    "base_train_subset_loss": 0.15102979871961805,
+    "best_train_subset_loss": 0.14507005479600693,
+    "dev_exact_graph_matches": 0,
+    "dev_supported_cases": 78,
+    "dev_correct_abstentions": 0,
+    "dev_negative_cases": 16,
+    "candidate_promoted": false
   }
 }

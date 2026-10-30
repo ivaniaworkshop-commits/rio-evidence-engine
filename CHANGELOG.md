@@ -134,3 +134,10 @@ and reject cycles, duplicate declarations and unknown text. Code gets 78/78
 exact graphs plus 16/16 abstentions. Add paired 94-case neural comparison and
 10,000-draw seeded/replayed loss sensitivity. Existing network does not earn
 its cost in this scope; no forced yes, retraining or promotion. Six new tests.
+
+## Weight ablation and bounded scaling search
+
+Measure seven parameter-group zero ablations; sample 96 reproducible vectors
+from a five-face grid and select on train-only subset loss. Program/reload a
+separate candidate. Loss improves but dev remains 0/78 and 0/16, so no promotion
+or positive-ROI claim. Add four seed/validation/source-identity tests.

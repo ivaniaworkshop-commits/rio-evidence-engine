@@ -81,6 +81,17 @@ def sync():
             raise ValueError('network value evaluation mismatches candidate checkpoint')
         d['current_accuracy_first_comparison']={k:value[k] for k in ['cases','code_correct_task_decisions','neural_pipeline_correct_task_decisions','code_median_ms','neural_pipeline_median_ms','network_earns_its_cost','fixed_seed_replay_equal']}
         d['sources'].extend(['model/GRAPH_COPY_RESULT.json','model/NETWORK_VALUE_RESULT.json'])
+    search_path=ROOT/'model/WEIGHT_SEARCH_RESULT.json'
+    if search_path.exists():
+        search=json.loads(search_path.read_text())
+        if search['base_checkpoint_sha256']!=d['extraction_candidate']['checkpoint_sha256']:
+            raise ValueError('weight search base mismatches candidate')
+        actual=hashlib.sha256((ROOT/'model/weighted_extraction_gru.pt').read_bytes()).hexdigest()
+        if actual!=search['candidate_checkpoint_sha256']:
+            raise ValueError('programmed weight-search checkpoint mismatches report')
+        d['weight_search_candidate']={k:search[k] for k in ['trial_count','base_train_subset_loss','best_train_subset_loss','chosen_multipliers','dev_exact_graph_matches','dev_supported_cases','dev_correct_abstentions','dev_negative_cases','invalid_outputs','candidate_promoted']}
+        d['weight_search_candidate']['checkpoint_sha256']=actual
+        d['sources'].append('model/WEIGHT_SEARCH_RESULT.json')
     (ROOT/'model/DESCRIPTION.json').write_text(json.dumps(d,indent=2)+'\n')
     value_statement=('Optional neural ranking showed no output benefit in the paired 42-case comparison.' if ablation_current else 'The current checkpoint has no matching paired utility evaluation.')
     block=('<!-- MODEL_STATUS_START -->\n## Current model status (evidence synchronized)\n\n'
@@ -97,6 +108,7 @@ def sync():
        +('Separate closed-grammar decoding: 94/94 structurally valid outputs, but 0/78 exact graphs and 0/16 correct abstentions. Code-forced validity is not learned semantics.\n' if 'constrained_decoding' in d.get('extraction_candidate',{}) else '')
        +(f"Code-grounded durations: {d['extraction_candidate']['duration_copy']['duration_fields_correct']}/{d['extraction_candidate']['duration_copy']['duration_fields_total']} fields correct, but exact graphs {d['extraction_candidate']['duration_copy']['supported_exact_graph_matches']}/{d['extraction_candidate']['duration_copy']['supported_cases']}. Code abstentions are not learned neural ability.\n" if 'duration_copy' in d.get('extraction_candidate',{}) else '')
        +(f"Current accuracy-first paired comparison: code {d['current_accuracy_first_comparison']['code_correct_task_decisions']}/{d['current_accuracy_first_comparison']['cases']} correct decisions vs neural pipeline {d['current_accuracy_first_comparison']['neural_pipeline_correct_task_decisions']}/{d['current_accuracy_first_comparison']['cases']}. Network value: {d['current_accuracy_first_comparison']['network_earns_its_cost']}. No new weights or promotion.\n" if 'current_accuracy_first_comparison' in d else '')
+       +(f"A separate weight-scaling candidate was programmed from {d['weight_search_candidate']['trial_count']} seeded trials; loss improved but dev exact graphs remain {d['weight_search_candidate']['dev_exact_graph_matches']}/{d['weight_search_candidate']['dev_supported_cases']}. Not promoted; no demonstrated neural utility gain.\n" if 'weight_search_candidate' in d else '')
        +'<!-- MODEL_STATUS_END -->')
     for name in ['README.md','model/MODEL_CARD.md']:
         path=ROOT/name;text=path.read_text()

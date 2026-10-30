@@ -1,0 +1,2681 @@
+{
+  "scope": "WEIGHT_GROUP_SENSITIVITY_AND_TRAIN_LOSS_SEARCH_NOT_PROVEN_TASK_UTILITY",
+  "seed": 7301,
+  "groups": [
+    "embedding.weight",
+    "gru.weight_ih_l0",
+    "gru.weight_hh_l0",
+    "gru.bias_ih_l0",
+    "gru.bias_hh_l0",
+    "output.weight",
+    "output.bias"
+  ],
+  "faces": [
+    0.9,
+    0.95,
+    1.0,
+    1.05,
+    1.1
+  ],
+  "trials": [
+    {
+      "trial": 1,
+      "multipliers": {
+        "embedding.weight": 1.0,
+        "gru.weight_ih_l0": 1.1,
+        "gru.weight_hh_l0": 0.95,
+        "gru.bias_ih_l0": 1.05,
+        "gru.bias_hh_l0": 0.95,
+        "output.weight": 1.0,
+        "output.bias": 1.1
+      },
+      "train_subset_masked_loss": 0.2335814987403759
+    },
+    {
+      "trial": 2,
+      "multipliers": {
+        "embedding.weight": 0.95,
+        "gru.weight_ih_l0": 1.0,
+        "gru.weight_hh_l0": 0.95,
+        "gru.bias_ih_l0": 1.0,
+        "gru.bias_hh_l0": 0.95,
+        "output.weight": 1.05,
+        "output.bias": 1.0
+      },
+      "train_subset_masked_loss": 0.14933850569425575
+    },
+    {
+      "trial": 3,
+      "multipliers": {
+        "embedding.weight": 0.9,
+        "gru.weight_ih_l0": 1.05,
+        "gru.weight_hh_l0": 0.9,
+        "gru.bias_ih_l0": 0.9,
+        "gru.bias_hh_l0": 1.05,
+        "output.weight": 0.9,
+        "output.bias": 0.9
+      },
+      "train_subset_masked_loss": 0.18253890327785327
+    },
+    {
+      "trial": 4,
+      "multipliers": {
+        "embedding.weight": 0.9,
+        "gru.weight_ih_l0": 1.05,
+        "gru.weight_hh_l0": 1.0,
+        "gru.bias_ih_l0": 1.0,
+        "gru.bias_hh_l0": 1.0,
+        "output.weight": 0.9,
+        "output.bias": 0.9
+      },
+      "train_subset_masked_loss": 0.17010119157136927
+    },
+    {
+      "trial": 5,
+      "multipliers": {
+        "embedding.weight": 0.95,
+        "gru.weight_ih_l0": 0.9,
+        "gru.weight_hh_l0": 0.95,
+        "gru.bias_ih_l0": 0.9,
+        "gru.bias_hh_l0": 1.1,
+        "output.weight": 0.95,
+        "output.bias": 1.1
+      },
+      "train_subset_masked_loss": 0.22215795839466335
+    },
+    {
+      "trial": 6,
+      "multipliers": {
+        "embedding.weight": 1.05,
+        "gru.weight_ih_l0": 0.9,
+        "gru.weight_hh_l0": 0.95,
+        "gru.bias_ih_l0": 1.1,
+        "gru.bias_hh_l0": 1.05,
+        "output.weight": 0.95,
+        "output.bias": 0.95
+      },
+      "train_subset_masked_loss": 0.1623090808518267
+    },
+    {
+      "trial": 7,
+      "multipliers": {
+        "embedding.weight": 0.9,
+        "gru.weight_ih_l0": 0.9,
+        "gru.weight_hh_l0": 1.05,
+        "gru.bias_ih_l0": 1.0,
+        "gru.bias_hh_l0": 1.0,
+        "output.weight": 1.05,
+        "output.bias": 1.1
+      },
+      "train_subset_masked_loss": 0.6702944548233696
+    },
+    {
+      "trial": 8,
+      "multipliers": {
+        "embedding.weight": 1.0,
+        "gru.weight_ih_l0": 0.9,
+        "gru.weight_hh_l0": 0.9,
+        "gru.bias_ih_l0": 0.9,
+        "gru.bias_hh_l0": 1.05,
+        "output.weight": 1.0,
+        "output.bias": 0.9
+      },
+      "train_subset_masked_loss": 0.16178037486790459
+    },
+    {
+      "trial": 9,
+      "multipliers": {
+        "embedding.weight": 0.9,
+        "gru.weight_ih_l0": 1.1,
+        "gru.weight_hh_l0": 0.95,
+        "gru.bias_ih_l0": 1.1,
+        "gru.bias_hh_l0": 1.1,
+        "output.weight": 0.95,
+        "output.bias": 1.0
+      },
+      "train_subset_masked_loss": 0.16483236856506642
+    },
+    {
+      "trial": 10,
+      "multipliers": {
+        "embedding.weight": 1.1,
+        "gru.weight_ih_l0": 1.1,
+        "gru.weight_hh_l0": 0.9,
+        "gru.bias_ih_l0": 0.95,
+        "gru.bias_hh_l0": 0.95,
+        "output.weight": 1.0,
+        "output.bias": 0.95
+      },
+      "train_subset_masked_loss": 0.4331724305083786
+    },
+    {
+      "trial": 11,
+      "multipliers": {
+        "embedding.weight": 1.05,
+        "gru.weight_ih_l0": 0.9,
+        "gru.weight_hh_l0": 1.05,
+        "gru.bias_ih_l0": 1.1,
+        "gru.bias_hh_l0": 1.0,
+        "output.weight": 1.0,
+        "output.bias": 0.9
+      },
+      "train_subset_masked_loss": 0.17607522125981281
+    },
+    {
+      "trial": 12,
+      "multipliers": {
+        "embedding.weight": 1.0,
+        "gru.weight_ih_l0": 1.0,
+        "gru.weight_hh_l0": 0.9,
+        "gru.bias_ih_l0": 0.95,
+        "gru.bias_hh_l0": 0.95,
+        "output.weight": 1.1,
+        "output.bias": 0.95
+      },
+      "train_subset_masked_loss": 0.18857023819633154
+    },
+    {
+      "trial": 13,
+      "multipliers": {
+        "embedding.weight": 1.05,
+        "gru.weight_ih_l0": 1.0,
+        "gru.weight_hh_l0": 1.05,
+        "gru.bias_ih_l0": 1.1,
+        "gru.bias_hh_l0": 0.9,
+        "output.weight": 0.9,
+        "output.bias": 1.1
+      },
+      "train_subset_masked_loss": 0.16364380472524154
+    },
+    {
+      "trial": 14,
+      "multipliers": {
+        "embedding.weight": 1.1,
+        "gru.weight_ih_l0": 1.1,
+        "gru.weight_hh_l0": 1.0,
+        "gru.bias_ih_l0": 0.95,
+        "gru.bias_hh_l0": 1.0,
+        "output.weight": 0.95,
+        "output.bias": 1.05
+      },
+      "train_subset_masked_loss": 0.30023387964221016
+    },
+    {
+      "trial": 15,
+      "multipliers": {
+        "embedding.weight": 0.95,
+        "gru.weight_ih_l0": 0.95,
+        "gru.weight_hh_l0": 0.95,
+        "gru.bias_ih_l0": 1.1,
+        "gru.bias_hh_l0": 1.1,
+        "output.weight": 1.0,
+        "output.bias": 1.0
+      },
+      "train_subset_masked_loss": 0.1746830299856582
+    },
+    {
+      "trial": 16,
+      "multipliers": {
+        "embedding.weight": 1.1,
+        "gru.weight_ih_l0": 1.1,
+        "gru.weight_hh_l0": 0.9,
+        "gru.bias_ih_l0": 1.05,
+        "gru.bias_hh_l0": 1.05,
+        "output.weight": 0.95,
+        "output.bias": 1.1
+      },
+      "train_subset_masked_loss": 0.4100621320199275
+    },
+    {
+      "trial": 17,
+      "multipliers": {
+        "embedding.weight": 1.0,
+        "gru.weight_ih_l0": 0.95,
+        "gru.weight_hh_l0": 0.9,
+        "gru.bias_ih_l0": 1.1,
+        "gru.bias_hh_l0": 0.95,
+        "output.weight": 1.0,
+        "output.bias": 1.1
+      },
+      "train_subset_masked_loss": 0.17050695741810085
+    },
+    {
+      "trial": 18,
+      "multipliers": {
+        "embedding.weight": 1.1,
+        "gru.weight_ih_l0": 0.9,
+        "gru.weight_hh_l0": 0.95,
+        "gru.bias_ih_l0": 1.05,
+        "gru.bias_hh_l0": 0.95,
+        "output.weight": 0.95,
+        "output.bias": 1.05
+      },
+      "train_subset_masked_loss": 0.1668782257227506
+    },
+    {
+      "trial": 19,
+      "multipliers": {
+        "embedding.weight": 0.95,
+        "gru.weight_ih_l0": 1.05,
+        "gru.weight_hh_l0": 1.0,
+        "gru.bias_ih_l0": 1.1,
+        "gru.bias_hh_l0": 1.05,
+        "output.weight": 0.9,
+        "output.bias": 0.9
+      },
+      "train_subset_masked_loss": 0.16477488642153532
+    },
+    {
+      "trial": 20,
+      "multipliers": {
+        "embedding.weight": 1.05,
+        "gru.weight_ih_l0": 0.9,
+        "gru.weight_hh_l0": 1.1,
+        "gru.bias_ih_l0": 1.1,
+        "gru.bias_hh_l0": 1.0,
+        "output.weight": 1.05,
+        "output.bias": 1.1
+      },
+      "train_subset_masked_loss": 0.21364177022003322
+    },
+    {
+      "trial": 21,
+      "multipliers": {
+        "embedding.weight": 0.95,
+        "gru.weight_ih_l0": 1.1,
+        "gru.weight_hh_l0": 0.95,
+        "gru.bias_ih_l0": 0.95,
+        "gru.bias_hh_l0": 1.05,
+        "output.weight": 1.05,
+        "output.bias": 1.1
+      },
+      "train_subset_masked_loss": 0.17493188830389492
+    },
+    {
+      "trial": 22,
+      "multipliers": {
+        "embedding.weight": 1.1,
+        "gru.weight_ih_l0": 1.0,
+        "gru.weight_hh_l0": 0.95,
+        "gru.bias_ih_l0": 1.05,
+        "gru.bias_hh_l0": 0.9,
+        "output.weight": 1.1,
+        "output.bias": 1.0
+      },
+      "train_subset_masked_loss": 0.23448984634473127
+    },
+    {
+      "trial": 23,
+      "multipliers": {
+        "embedding.weight": 0.95,
+        "gru.weight_ih_l0": 1.05,
+        "gru.weight_hh_l0": 1.05,
+        "gru.bias_ih_l0": 0.95,
+        "gru.bias_hh_l0": 1.0,
+        "output.weight": 1.0,
+        "output.bias": 0.95
+      },
+      "train_subset_masked_loss": 0.15224211319633152
+    },
+    {
+      "trial": 24,
+      "multipliers": {
+        "embedding.weight": 1.1,
+        "gru.weight_ih_l0": 1.05,
+        "gru.weight_hh_l0": 0.95,
+        "gru.bias_ih_l0": 1.0,
+        "gru.bias_hh_l0": 1.1,
+        "output.weight": 1.0,
+        "output.bias": 1.05
+      },
+      "train_subset_masked_loss": 0.275810676611564
+    },
+    {
+      "trial": 25,
+      "multipliers": {
+        "embedding.weight": 1.0,
+        "gru.weight_ih_l0": 0.95,
+        "gru.weight_hh_l0": 0.9,
+        "gru.bias_ih_l0": 1.05,
+        "gru.bias_hh_l0": 1.1,
+        "output.weight": 0.9,
+        "output.bias": 0.9
+      },
+      "train_subset_masked_loss": 0.1847960246357941
+    },
+    {
+      "trial": 26,
+      "multipliers": {
+        "embedding.weight": 1.0,
+        "gru.weight_ih_l0": 1.1,
+        "gru.weight_hh_l0": 1.1,
+        "gru.bias_ih_l0": 0.9,
+        "gru.bias_hh_l0": 1.0,
+        "output.weight": 0.95,
+        "output.bias": 1.1
+      },
+      "train_subset_masked_loss": 0.15639722151456822
+    },
+    {
+      "trial": 27,
+      "multipliers": {
+        "embedding.weight": 1.0,
+        "gru.weight_ih_l0": 1.05,
+        "gru.weight_hh_l0": 1.0,
+        "gru.bias_ih_l0": 0.95,
+        "gru.bias_hh_l0": 1.05,
+        "output.weight": 1.05,
+        "output.bias": 1.1
+      },
+      "train_subset_masked_loss": 0.15302309782608695
+    },
+    {
+      "trial": 28,
+      "multipliers": {
+        "embedding.weight": 1.1,
+        "gru.weight_ih_l0": 0.95,
+        "gru.weight_hh_l0": 1.1,
+        "gru.bias_ih_l0": 1.1,
+        "gru.bias_hh_l0": 0.9,
+        "output.weight": 1.0,
+        "output.bias": 0.95
+      },
+      "train_subset_masked_loss": 0.15110886430970713
+    },
+    {
+      "trial": 29,
+      "multipliers": {
+        "embedding.weight": 1.1,
+        "gru.weight_ih_l0": 1.0,
+        "gru.weight_hh_l0": 1.0,
+        "gru.bias_ih_l0": 1.0,
+        "gru.bias_hh_l0": 1.1,
+        "output.weight": 1.0,
+        "output.bias": 1.05
+      },
+      "train_subset_masked_loss": 0.1748532207691727
+    },
+    {
+      "trial": 30,
+      "multipliers": {
+        "embedding.weight": 1.1,
+        "gru.weight_ih_l0": 1.1,
+        "gru.weight_hh_l0": 0.9,
+        "gru.bias_ih_l0": 0.95,
+        "gru.bias_hh_l0": 0.95,
+        "output.weight": 0.95,
+        "output.bias": 0.9
+      },
+      "train_subset_masked_loss": 0.43772161363979467
+    },
+    {
+      "trial": 31,
+      "multipliers": {
+        "embedding.weight": 1.05,
+        "gru.weight_ih_l0": 0.95,
+        "gru.weight_hh_l0": 0.95,
+        "gru.bias_ih_l0": 1.1,
+        "gru.bias_hh_l0": 1.05,
+        "output.weight": 1.0,
+        "output.bias": 0.9
+      },
+      "train_subset_masked_loss": 0.16042324195161534
+    },
+    {
+      "trial": 32,
+      "multipliers": {
+        "embedding.weight": 0.95,
+        "gru.weight_ih_l0": 1.1,
+        "gru.weight_hh_l0": 0.95,
+        "gru.bias_ih_l0": 0.9,
+        "gru.bias_hh_l0": 1.0,
+        "output.weight": 1.0,
+        "output.bias": 0.9
+      },
+      "train_subset_masked_loss": 0.18564961751302084
+    },
+    {
+      "trial": 33,
+      "multipliers": {
+        "embedding.weight": 0.9,
+        "gru.weight_ih_l0": 1.0,
+        "gru.weight_hh_l0": 1.0,
+        "gru.bias_ih_l0": 1.1,
+        "gru.bias_hh_l0": 1.05,
+        "output.weight": 1.0,
+        "output.bias": 1.05
+      },
+      "train_subset_masked_loss": 0.19756081991149607
+    },
+    {
+      "trial": 34,
+      "multipliers": {
+        "embedding.weight": 1.05,
+        "gru.weight_ih_l0": 1.0,
+        "gru.weight_hh_l0": 1.0,
+        "gru.bias_ih_l0": 1.0,
+        "gru.bias_hh_l0": 1.0,
+        "output.weight": 0.9,
+        "output.bias": 1.0
+      },
+      "train_subset_masked_loss": 0.17337024338579407
+    },
+    {
+      "trial": 35,
+      "multipliers": {
+        "embedding.weight": 0.9,
+        "gru.weight_ih_l0": 0.9,
+        "gru.weight_hh_l0": 1.1,
+        "gru.bias_ih_l0": 1.05,
+        "gru.bias_hh_l0": 0.9,
+        "output.weight": 0.9,
+        "output.bias": 1.05
+      },
+      "train_subset_masked_loss": 0.9357397107110508
+    },
+    {
+      "trial": 36,
+      "multipliers": {
+        "embedding.weight": 0.95,
+        "gru.weight_ih_l0": 0.95,
+        "gru.weight_hh_l0": 1.05,
+        "gru.bias_ih_l0": 1.1,
+        "gru.bias_hh_l0": 0.95,
+        "output.weight": 0.95,
+        "output.bias": 1.05
+      },
+      "train_subset_masked_loss": 0.2306738517134662
+    },
+    {
+      "trial": 37,
+      "multipliers": {
+        "embedding.weight": 1.1,
+        "gru.weight_ih_l0": 0.9,
+        "gru.weight_hh_l0": 0.9,
+        "gru.bias_ih_l0": 0.9,
+        "gru.bias_hh_l0": 1.05,
+        "output.weight": 0.95,
+        "output.bias": 1.0
+      },
+      "train_subset_masked_loss": 0.19207094349147041
+    },
+    {
+      "trial": 38,
+      "multipliers": {
+        "embedding.weight": 0.95,
+        "gru.weight_ih_l0": 1.05,
+        "gru.weight_hh_l0": 1.1,
+        "gru.bias_ih_l0": 1.05,
+        "gru.bias_hh_l0": 0.95,
+        "output.weight": 1.05,
+        "output.bias": 0.95
+      },
+      "train_subset_masked_loss": 0.1579690979298762
+    },
+    {
+      "trial": 39,
+      "multipliers": {
+        "embedding.weight": 1.0,
+        "gru.weight_ih_l0": 0.95,
+        "gru.weight_hh_l0": 0.95,
+        "gru.bias_ih_l0": 0.9,
+        "gru.bias_hh_l0": 1.05,
+        "output.weight": 0.95,
+        "output.bias": 1.1
+      },
+      "train_subset_masked_loss": 0.1601481856931235
+    },
+    {
+      "trial": 40,
+      "multipliers": {
+        "embedding.weight": 1.1,
+        "gru.weight_ih_l0": 1.05,
+        "gru.weight_hh_l0": 1.05,
+        "gru.bias_ih_l0": 0.95,
+        "gru.bias_hh_l0": 0.9,
+        "output.weight": 1.05,
+        "output.bias": 0.95
+      },
+      "train_subset_masked_loss": 0.19399630781533062
+    },
+    {
+      "trial": 41,
+      "multipliers": {
+        "embedding.weight": 0.9,
+        "gru.weight_ih_l0": 0.95,
+        "gru.weight_hh_l0": 0.9,
+        "gru.bias_ih_l0": 0.95,
+        "gru.bias_hh_l0": 1.05,
+        "output.weight": 0.95,
+        "output.bias": 1.05
+      },
+      "train_subset_masked_loss": 0.18771378521758
+    },
+    {
+      "trial": 42,
+      "multipliers": {
+        "embedding.weight": 1.0,
+        "gru.weight_ih_l0": 1.05,
+        "gru.weight_hh_l0": 1.0,
+        "gru.bias_ih_l0": 1.0,
+        "gru.bias_hh_l0": 1.05,
+        "output.weight": 1.1,
+        "output.bias": 1.1
+      },
+      "train_subset_masked_loss": 0.14926499813651117
+    },
+    {
+      "trial": 43,
+      "multipliers": {
+        "embedding.weight": 0.95,
+        "gru.weight_ih_l0": 1.1,
+        "gru.weight_hh_l0": 0.95,
+        "gru.bias_ih_l0": 1.1,
+        "gru.bias_hh_l0": 1.05,
+        "output.weight": 0.95,
+        "output.bias": 0.9
+      },
+      "train_subset_masked_loss": 0.1846543021824049
+    },
+    {
+      "trial": 44,
+      "multipliers": {
+        "embedding.weight": 1.05,
+        "gru.weight_ih_l0": 1.05,
+        "gru.weight_hh_l0": 1.1,
+        "gru.bias_ih_l0": 1.1,
+        "gru.bias_hh_l0": 1.05,
+        "output.weight": 0.9,
+        "output.bias": 1.05
+      },
+      "train_subset_masked_loss": 0.1620279800488753
+    },
+    {
+      "trial": 45,
+      "multipliers": {
+        "embedding.weight": 0.9,
+        "gru.weight_ih_l0": 1.05,
+        "gru.weight_hh_l0": 0.95,
+        "gru.bias_ih_l0": 1.05,
+        "gru.bias_hh_l0": 1.0,
+        "output.weight": 0.95,
+        "output.bias": 1.1
+      },
+      "train_subset_masked_loss": 0.16075098894644474
+    },
+    {
+      "trial": 46,
+      "multipliers": {
+        "embedding.weight": 1.0,
+        "gru.weight_ih_l0": 0.95,
+        "gru.weight_hh_l0": 0.9,
+        "gru.bias_ih_l0": 1.05,
+        "gru.bias_hh_l0": 1.05,
+        "output.weight": 1.05,
+        "output.bias": 1.05
+      },
+      "train_subset_masked_loss": 0.16363602053140097
+    },
+    {
+      "trial": 47,
+      "multipliers": {
+        "embedding.weight": 1.0,
+        "gru.weight_ih_l0": 0.9,
+        "gru.weight_hh_l0": 1.1,
+        "gru.bias_ih_l0": 1.0,
+        "gru.bias_hh_l0": 1.05,
+        "output.weight": 0.95,
+        "output.bias": 0.9
+      },
+      "train_subset_masked_loss": 0.31765060056234906
+    },
+    {
+      "trial": 48,
+      "multipliers": {
+        "embedding.weight": 0.9,
+        "gru.weight_ih_l0": 0.95,
+        "gru.weight_hh_l0": 1.05,
+        "gru.bias_ih_l0": 1.05,
+        "gru.bias_hh_l0": 1.0,
+        "output.weight": 0.9,
+        "output.bias": 1.05
+      },
+      "train_subset_masked_loss": 0.37433235795025666
+    },
+    {
+      "trial": 49,
+      "multipliers": {
+        "embedding.weight": 1.1,
+        "gru.weight_ih_l0": 0.95,
+        "gru.weight_hh_l0": 0.9,
+        "gru.bias_ih_l0": 0.9,
+        "gru.bias_hh_l0": 1.1,
+        "output.weight": 0.9,
+        "output.bias": 1.05
+      },
+      "train_subset_masked_loss": 0.24206821607506793
+    },
+    {
+      "trial": 50,
+      "multipliers": {
+        "embedding.weight": 1.1,
+        "gru.weight_ih_l0": 0.9,
+        "gru.weight_hh_l0": 0.95,
+        "gru.bias_ih_l0": 1.05,
+        "gru.bias_hh_l0": 1.0,
+        "output.weight": 0.9,
+        "output.bias": 1.05
+      },
+      "train_subset_masked_loss": 0.17407864925366093
+    },
+    {
+      "trial": 51,
+      "multipliers": {
+        "embedding.weight": 1.05,
+        "gru.weight_ih_l0": 1.05,
+        "gru.weight_hh_l0": 0.9,
+        "gru.bias_ih_l0": 0.95,
+        "gru.bias_hh_l0": 1.0,
+        "output.weight": 0.95,
+        "output.bias": 1.05
+      },
+      "train_subset_masked_loss": 0.3118654112884964
+    },
+    {
+      "trial": 52,
+      "multipliers": {
+        "embedding.weight": 0.9,
+        "gru.weight_ih_l0": 1.05,
+        "gru.weight_hh_l0": 1.05,
+        "gru.bias_ih_l0": 0.9,
+        "gru.bias_hh_l0": 0.95,
+        "output.weight": 1.05,
+        "output.bias": 1.1
+      },
+      "train_subset_masked_loss": 0.16378636751773853
+    },
+    {
+      "trial": 53,
+      "multipliers": {
+        "embedding.weight": 0.9,
+        "gru.weight_ih_l0": 1.0,
+        "gru.weight_hh_l0": 1.1,
+        "gru.bias_ih_l0": 1.05,
+        "gru.bias_hh_l0": 1.05,
+        "output.weight": 0.95,
+        "output.bias": 1.05
+      },
+      "train_subset_masked_loss": 0.3257246081955767
+    },
+    {
+      "trial": 54,
+      "multipliers": {
+        "embedding.weight": 1.0,
+        "gru.weight_ih_l0": 0.9,
+        "gru.weight_hh_l0": 1.1,
+        "gru.bias_ih_l0": 1.05,
+        "gru.bias_hh_l0": 0.9,
+        "output.weight": 1.0,
+        "output.bias": 0.95
+      },
+      "train_subset_masked_loss": 0.2828423983808877
+    },
+    {
+      "trial": 55,
+      "multipliers": {
+        "embedding.weight": 0.95,
+        "gru.weight_ih_l0": 1.05,
+        "gru.weight_hh_l0": 0.95,
+        "gru.bias_ih_l0": 1.0,
+        "gru.bias_hh_l0": 1.1,
+        "output.weight": 1.05,
+        "output.bias": 1.1
+      },
+      "train_subset_masked_loss": 0.15451163324181008
+    },
+    {
+      "trial": 56,
+      "multipliers": {
+        "embedding.weight": 0.9,
+        "gru.weight_ih_l0": 0.95,
+        "gru.weight_hh_l0": 1.1,
+        "gru.bias_ih_l0": 0.95,
+        "gru.bias_hh_l0": 1.1,
+        "output.weight": 1.1,
+        "output.bias": 1.0
+      },
+      "train_subset_masked_loss": 0.5702187358469203
+    },
+    {
+      "trial": 57,
+      "multipliers": {
+        "embedding.weight": 1.05,
+        "gru.weight_ih_l0": 1.05,
+        "gru.weight_hh_l0": 1.1,
+        "gru.bias_ih_l0": 1.05,
+        "gru.bias_hh_l0": 1.0,
+        "output.weight": 1.05,
+        "output.bias": 1.05
+      },
+      "train_subset_masked_loss": 0.14625043638662438
+    },
+    {
+      "trial": 58,
+      "multipliers": {
+        "embedding.weight": 1.1,
+        "gru.weight_ih_l0": 1.0,
+        "gru.weight_hh_l0": 1.1,
+        "gru.bias_ih_l0": 0.95,
+        "gru.bias_hh_l0": 1.0,
+        "output.weight": 0.95,
+        "output.bias": 1.1
+      },
+      "train_subset_masked_loss": 0.15595856450030193
+    },
+    {
+      "trial": 59,
+      "multipliers": {
+        "embedding.weight": 0.95,
+        "gru.weight_ih_l0": 1.0,
+        "gru.weight_hh_l0": 0.9,
+        "gru.bias_ih_l0": 1.05,
+        "gru.bias_hh_l0": 1.05,
+        "output.weight": 1.1,
+        "output.bias": 1.0
+      },
+      "train_subset_masked_loss": 0.15985585088315218
+    },
+    {
+      "trial": 60,
+      "multipliers": {
+        "embedding.weight": 0.9,
+        "gru.weight_ih_l0": 0.9,
+        "gru.weight_hh_l0": 0.95,
+        "gru.bias_ih_l0": 1.05,
+        "gru.bias_hh_l0": 0.95,
+        "output.weight": 0.9,
+        "output.bias": 1.1
+      },
+      "train_subset_masked_loss": 0.3121924948577144
+    },
+    {
+      "trial": 61,
+      "multipliers": {
+        "embedding.weight": 0.95,
+        "gru.weight_ih_l0": 1.1,
+        "gru.weight_hh_l0": 1.05,
+        "gru.bias_ih_l0": 1.0,
+        "gru.bias_hh_l0": 1.05,
+        "output.weight": 0.9,
+        "output.bias": 1.1
+      },
+      "train_subset_masked_loss": 0.16269944048158214
+    },
+    {
+      "trial": 62,
+      "multipliers": {
+        "embedding.weight": 0.95,
+        "gru.weight_ih_l0": 1.0,
+        "gru.weight_hh_l0": 1.0,
+        "gru.bias_ih_l0": 0.9,
+        "gru.bias_hh_l0": 1.05,
+        "output.weight": 1.05,
+        "output.bias": 1.1
+      },
+      "train_subset_masked_loss": 0.15054085404400663
+    },
+    {
+      "trial": 63,
+      "multipliers": {
+        "embedding.weight": 1.05,
+        "gru.weight_ih_l0": 1.1,
+        "gru.weight_hh_l0": 1.0,
+        "gru.bias_ih_l0": 0.9,
+        "gru.bias_hh_l0": 1.1,
+        "output.weight": 1.05,
+        "output.bias": 0.9
+      },
+      "train_subset_masked_loss": 0.21747078273607337
+    },
+    {
+      "trial": 64,
+      "multipliers": {
+        "embedding.weight": 1.0,
+        "gru.weight_ih_l0": 1.05,
+        "gru.weight_hh_l0": 1.05,
+        "gru.bias_ih_l0": 1.05,
+        "gru.bias_hh_l0": 1.0,
+        "output.weight": 1.05,
+        "output.bias": 0.95
+      },
+      "train_subset_masked_loss": 0.14603809596259812
+    },
+    {
+      "trial": 65,
+      "multipliers": {
+        "embedding.weight": 0.95,
+        "gru.weight_ih_l0": 1.1,
+        "gru.weight_hh_l0": 1.0,
+        "gru.bias_ih_l0": 1.05,
+        "gru.bias_hh_l0": 1.05,
+        "output.weight": 0.9,
+        "output.bias": 0.9
+      },
+      "train_subset_masked_loss": 0.16995348354468598
+    },
+    {
+      "trial": 66,
+      "multipliers": {
+        "embedding.weight": 1.0,
+        "gru.weight_ih_l0": 0.95,
+        "gru.weight_hh_l0": 0.9,
+        "gru.bias_ih_l0": 0.95,
+        "gru.bias_hh_l0": 1.05,
+        "output.weight": 0.95,
+        "output.bias": 0.9
+      },
+      "train_subset_masked_loss": 0.17476911314443688
+    },
+    {
+      "trial": 67,
+      "multipliers": {
+        "embedding.weight": 1.05,
+        "gru.weight_ih_l0": 0.95,
+        "gru.weight_hh_l0": 0.95,
+        "gru.bias_ih_l0": 1.0,
+        "gru.bias_hh_l0": 1.05,
+        "output.weight": 0.9,
+        "output.bias": 0.95
+      },
+      "train_subset_masked_loss": 0.1750969928243886
+    },
+    {
+      "trial": 68,
+      "multipliers": {
+        "embedding.weight": 1.1,
+        "gru.weight_ih_l0": 1.05,
+        "gru.weight_hh_l0": 1.0,
+        "gru.bias_ih_l0": 1.05,
+        "gru.bias_hh_l0": 1.0,
+        "output.weight": 0.9,
+        "output.bias": 1.0
+      },
+      "train_subset_masked_loss": 0.2407028861667799
+    },
+    {
+      "trial": 69,
+      "multipliers": {
+        "embedding.weight": 1.05,
+        "gru.weight_ih_l0": 0.95,
+        "gru.weight_hh_l0": 1.1,
+        "gru.bias_ih_l0": 1.0,
+        "gru.bias_hh_l0": 1.05,
+        "output.weight": 1.0,
+        "output.bias": 0.95
+      },
+      "train_subset_masked_loss": 0.1661381523390323
+    },
+    {
+      "trial": 70,
+      "multipliers": {
+        "embedding.weight": 1.05,
+        "gru.weight_ih_l0": 0.9,
+        "gru.weight_hh_l0": 1.0,
+        "gru.bias_ih_l0": 1.05,
+        "gru.bias_hh_l0": 1.05,
+        "output.weight": 1.1,
+        "output.bias": 1.0
+      },
+      "train_subset_masked_loss": 0.15022552047950635
+    },
+    {
+      "trial": 71,
+      "multipliers": {
+        "embedding.weight": 1.05,
+        "gru.weight_ih_l0": 0.9,
+        "gru.weight_hh_l0": 1.05,
+        "gru.bias_ih_l0": 1.0,
+        "gru.bias_hh_l0": 0.9,
+        "output.weight": 1.0,
+        "output.bias": 1.05
+      },
+      "train_subset_masked_loss": 0.16704722234016456
+    },
+    {
+      "trial": 72,
+      "multipliers": {
+        "embedding.weight": 1.1,
+        "gru.weight_ih_l0": 1.0,
+        "gru.weight_hh_l0": 1.05,
+        "gru.bias_ih_l0": 1.05,
+        "gru.bias_hh_l0": 0.9,
+        "output.weight": 1.05,
+        "output.bias": 1.0
+      },
+      "train_subset_masked_loss": 0.15723318201332276
+    },
+    {
+      "trial": 73,
+      "multipliers": {
+        "embedding.weight": 0.95,
+        "gru.weight_ih_l0": 1.05,
+        "gru.weight_hh_l0": 1.05,
+        "gru.bias_ih_l0": 0.95,
+        "gru.bias_hh_l0": 0.95,
+        "output.weight": 1.0,
+        "output.bias": 0.9
+      },
+      "train_subset_masked_loss": 0.1520777458154061
+    },
+    {
+      "trial": 74,
+      "multipliers": {
+        "embedding.weight": 1.0,
+        "gru.weight_ih_l0": 1.05,
+        "gru.weight_hh_l0": 1.1,
+        "gru.bias_ih_l0": 0.95,
+        "gru.bias_hh_l0": 1.05,
+        "output.weight": 1.05,
+        "output.bias": 1.0
+      },
+      "train_subset_masked_loss": 0.1475421702804197
+    },
+    {
+      "trial": 75,
+      "multipliers": {
+        "embedding.weight": 0.95,
+        "gru.weight_ih_l0": 1.05,
+        "gru.weight_hh_l0": 0.95,
+        "gru.bias_ih_l0": 1.1,
+        "gru.bias_hh_l0": 0.9,
+        "output.weight": 0.95,
+        "output.bias": 1.0
+      },
+      "train_subset_masked_loss": 0.17086980699916968
+    },
+    {
+      "trial": 76,
+      "multipliers": {
+        "embedding.weight": 1.05,
+        "gru.weight_ih_l0": 1.0,
+        "gru.weight_hh_l0": 1.0,
+        "gru.bias_ih_l0": 0.95,
+        "gru.bias_hh_l0": 1.0,
+        "output.weight": 1.05,
+        "output.bias": 0.9
+      },
+      "train_subset_masked_loss": 0.15502297221750452
+    },
+    {
+      "trial": 77,
+      "multipliers": {
+        "embedding.weight": 1.0,
+        "gru.weight_ih_l0": 1.1,
+        "gru.weight_hh_l0": 0.95,
+        "gru.bias_ih_l0": 0.9,
+        "gru.bias_hh_l0": 0.9,
+        "output.weight": 0.9,
+        "output.bias": 0.9
+      },
+      "train_subset_masked_loss": 0.2700399647588315
+    },
+    {
+      "trial": 78,
+      "multipliers": {
+        "embedding.weight": 0.95,
+        "gru.weight_ih_l0": 1.1,
+        "gru.weight_hh_l0": 0.9,
+        "gru.bias_ih_l0": 1.1,
+        "gru.bias_hh_l0": 1.05,
+        "output.weight": 1.05,
+        "output.bias": 0.9
+      },
+      "train_subset_masked_loss": 0.2183052394701087
+    },
+    {
+      "trial": 79,
+      "multipliers": {
+        "embedding.weight": 1.1,
+        "gru.weight_ih_l0": 0.95,
+        "gru.weight_hh_l0": 1.0,
+        "gru.bias_ih_l0": 0.95,
+        "gru.bias_hh_l0": 0.95,
+        "output.weight": 0.95,
+        "output.bias": 0.95
+      },
+      "train_subset_masked_loss": 0.16635929420950332
+    },
+    {
+      "trial": 80,
+      "multipliers": {
+        "embedding.weight": 1.1,
+        "gru.weight_ih_l0": 1.05,
+        "gru.weight_hh_l0": 0.95,
+        "gru.bias_ih_l0": 0.95,
+        "gru.bias_hh_l0": 0.9,
+        "output.weight": 0.9,
+        "output.bias": 0.95
+      },
+      "train_subset_masked_loss": 0.3297924686745169
+    },
+    {
+      "trial": 81,
+      "multipliers": {
+        "embedding.weight": 1.05,
+        "gru.weight_ih_l0": 0.95,
+        "gru.weight_hh_l0": 1.1,
+        "gru.bias_ih_l0": 1.1,
+        "gru.bias_hh_l0": 0.9,
+        "output.weight": 1.05,
+        "output.bias": 0.95
+      },
+      "train_subset_masked_loss": 0.15650018516945954
+    },
+    {
+      "trial": 82,
+      "multipliers": {
+        "embedding.weight": 0.9,
+        "gru.weight_ih_l0": 1.1,
+        "gru.weight_hh_l0": 1.1,
+        "gru.bias_ih_l0": 0.95,
+        "gru.bias_hh_l0": 1.0,
+        "output.weight": 1.1,
+        "output.bias": 1.05
+      },
+      "train_subset_masked_loss": 0.16010155424403683
+    },
+    {
+      "trial": 83,
+      "multipliers": {
+        "embedding.weight": 1.05,
+        "gru.weight_ih_l0": 0.9,
+        "gru.weight_hh_l0": 1.05,
+        "gru.bias_ih_l0": 1.0,
+        "gru.bias_hh_l0": 0.95,
+        "output.weight": 1.05,
+        "output.bias": 1.0
+      },
+      "train_subset_masked_loss": 0.16551295478562802
+    },
+    {
+      "trial": 84,
+      "multipliers": {
+        "embedding.weight": 1.0,
+        "gru.weight_ih_l0": 0.9,
+        "gru.weight_hh_l0": 1.1,
+        "gru.bias_ih_l0": 0.9,
+        "gru.bias_hh_l0": 0.9,
+        "output.weight": 0.9,
+        "output.bias": 1.05
+      },
+      "train_subset_masked_loss": 0.2793261836692331
+    },
+    {
+      "trial": 85,
+      "multipliers": {
+        "embedding.weight": 1.1,
+        "gru.weight_ih_l0": 1.0,
+        "gru.weight_hh_l0": 1.0,
+        "gru.bias_ih_l0": 1.1,
+        "gru.bias_hh_l0": 0.95,
+        "output.weight": 1.0,
+        "output.bias": 1.0
+      },
+      "train_subset_masked_loss": 0.18443989776758757
+    },
+    {
+      "trial": 86,
+      "multipliers": {
+        "embedding.weight": 1.0,
+        "gru.weight_ih_l0": 0.95,
+        "gru.weight_hh_l0": 1.0,
+        "gru.bias_ih_l0": 0.9,
+        "gru.bias_hh_l0": 1.0,
+        "output.weight": 1.1,
+        "output.bias": 0.9
+      },
+      "train_subset_masked_loss": 0.14642351675724638
+    },
+    {
+      "trial": 87,
+      "multipliers": {
+        "embedding.weight": 1.05,
+        "gru.weight_ih_l0": 1.1,
+        "gru.weight_hh_l0": 1.1,
+        "gru.bias_ih_l0": 1.1,
+        "gru.bias_hh_l0": 1.0,
+        "output.weight": 1.0,
+        "output.bias": 1.0
+      },
+      "train_subset_masked_loss": 0.15804676295478562
+    },
+    {
+      "trial": 88,
+      "multipliers": {
+        "embedding.weight": 1.0,
+        "gru.weight_ih_l0": 1.05,
+        "gru.weight_hh_l0": 0.95,
+        "gru.bias_ih_l0": 1.05,
+        "gru.bias_hh_l0": 1.1,
+        "output.weight": 1.1,
+        "output.bias": 0.9
+      },
+      "train_subset_masked_loss": 0.1698344502472071
+    },
+    {
+      "trial": 89,
+      "multipliers": {
+        "embedding.weight": 1.0,
+        "gru.weight_ih_l0": 1.0,
+        "gru.weight_hh_l0": 0.9,
+        "gru.bias_ih_l0": 1.05,
+        "gru.bias_hh_l0": 1.1,
+        "output.weight": 1.1,
+        "output.bias": 1.1
+      },
+      "train_subset_masked_loss": 0.17826996586748944
+    },
+    {
+      "trial": 90,
+      "multipliers": {
+        "embedding.weight": 1.0,
+        "gru.weight_ih_l0": 1.05,
+        "gru.weight_hh_l0": 1.05,
+        "gru.bias_ih_l0": 1.1,
+        "gru.bias_hh_l0": 0.9,
+        "output.weight": 1.0,
+        "output.bias": 1.05
+      },
+      "train_subset_masked_loss": 0.15051125051894626
+    },
+    {
+      "trial": 91,
+      "multipliers": {
+        "embedding.weight": 0.9,
+        "gru.weight_ih_l0": 1.0,
+        "gru.weight_hh_l0": 1.1,
+        "gru.bias_ih_l0": 1.1,
+        "gru.bias_hh_l0": 1.0,
+        "output.weight": 0.9,
+        "output.bias": 1.0
+      },
+      "train_subset_masked_loss": 0.32452887935914854
+    },
+    {
+      "trial": 92,
+      "multipliers": {
+        "embedding.weight": 1.0,
+        "gru.weight_ih_l0": 1.1,
+        "gru.weight_hh_l0": 0.9,
+        "gru.bias_ih_l0": 1.05,
+        "gru.bias_hh_l0": 1.0,
+        "output.weight": 0.95,
+        "output.bias": 1.1
+      },
+      "train_subset_masked_loss": 0.30082612705691425
+    },
+    {
+      "trial": 93,
+      "multipliers": {
+        "embedding.weight": 1.05,
+        "gru.weight_ih_l0": 0.95,
+        "gru.weight_hh_l0": 1.05,
+        "gru.bias_ih_l0": 1.0,
+        "gru.bias_hh_l0": 1.0,
+        "output.weight": 1.1,
+        "output.bias": 1.0
+      },
+      "train_subset_masked_loss": 0.1452087844627491
+    },
+    {
+      "trial": 94,
+      "multipliers": {
+        "embedding.weight": 0.95,
+        "gru.weight_ih_l0": 1.05,
+        "gru.weight_hh_l0": 1.05,
+        "gru.bias_ih_l0": 0.9,
+        "gru.bias_hh_l0": 1.1,
+        "output.weight": 0.95,
+        "output.bias": 1.05
+      },
+      "train_subset_masked_loss": 0.15864200315613677
+    },
+    {
+      "trial": 95,
+      "multipliers": {
+        "embedding.weight": 0.95,
+        "gru.weight_ih_l0": 1.1,
+        "gru.weight_hh_l0": 1.1,
+        "gru.bias_ih_l0": 0.95,
+        "gru.bias_hh_l0": 0.95,
+        "output.weight": 1.1,
+        "output.bias": 0.95
+      },
+      "train_subset_masked_loss": 0.14507005479600693
+    },
+    {
+      "trial": 96,
+      "multipliers": {
+        "embedding.weight": 0.9,
+        "gru.weight_ih_l0": 0.95,
+        "gru.weight_hh_l0": 0.95,
+        "gru.bias_ih_l0": 1.0,
+        "gru.bias_hh_l0": 1.05,
+        "output.weight": 0.9,
+        "output.bias": 0.9
+      },
+      "train_subset_masked_loss": 0.2296302684839221
+    }
+  ],
+  "trial_count": 96,
+  "train_selection_case_ids": [
+    "EXTRACT-0001",
+    "EXTRACT-0042",
+    "EXTRACT-0071",
+    "EXTRACT-0106",
+    "EXTRACT-0135",
+    "EXTRACT-0158",
+    "EXTRACT-0181",
+    "EXTRACT-0210",
+    "EXTRACT-0239",
+    "EXTRACT-0268",
+    "EXTRACT-0291",
+    "EXTRACT-0314",
+    "EXTRACT-0361",
+    "EXTRACT-0373",
+    "EXTRACT-0385",
+    "EXTRACT-0397"
+  ],
+  "selection_uses_dev": false,
+  "base_train_subset_loss": 0.15102979871961805,
+  "best_train_subset_loss": 0.14507005479600693,
+  "chosen_multipliers": {
+    "embedding.weight": 0.95,
+    "gru.weight_ih_l0": 1.1,
+    "gru.weight_hh_l0": 1.1,
+    "gru.bias_ih_l0": 0.95,
+    "gru.bias_hh_l0": 0.95,
+    "output.weight": 1.1,
+    "output.bias": 0.95
+  },
+  "ablation_ranking": [
+    {
+      "group": "embedding.weight",
+      "parameters": 4096,
+      "ablated_train_loss": 5.966887454710145,
+      "loss_increase": 5.815857655990527
+    },
+    {
+      "group": "gru.weight_ih_l0",
+      "parameters": 1536,
+      "ablated_train_loss": 5.966887454710145,
+      "loss_increase": 5.815857655990527
+    },
+    {
+      "group": "output.weight",
+      "parameters": 8192,
+      "ablated_train_loss": 5.117412062198068,
+      "loss_increase": 4.96638226347845
+    },
+    {
+      "group": "gru.weight_hh_l0",
+      "parameters": 3072,
+      "ablated_train_loss": 2.068438632246377,
+      "loss_increase": 1.917408833526759
+    },
+    {
+      "group": "gru.bias_hh_l0",
+      "parameters": 96,
+      "ablated_train_loss": 0.26544944284042876,
+      "loss_increase": 0.11441964412081071
+    },
+    {
+      "group": "gru.bias_ih_l0",
+      "parameters": 96,
+      "ablated_train_loss": 0.1767789241772343,
+      "loss_increase": 0.025749125457616234
+    },
+    {
+      "group": "output.bias",
+      "parameters": 256,
+      "ablated_train_loss": 0.1526532306763285,
+      "loss_increase": 0.0016234319567104416
+    }
+  ],
+  "candidate_checkpoint_sha256": "828555a6cc298d62f2549516721088a52eca2c38a51268d13c5f18cc7f24fb95",
+  "base_checkpoint_sha256": "71515bb4638bfe9e6fce922c7242746092a5a35920d8673bf74719eb473ecbfa",
+  "fixed_seed_vector_replay_equal": true,
+  "checkpoint_reload_loss_equal": true,
+  "dev_exact_graph_matches": 0,
+  "dev_supported_cases": 78,
+  "dev_correct_abstentions": 0,
+  "dev_negative_cases": 16,
+  "invalid_outputs": 94,
+  "dev_outputs": [
+    {
+      "case_id": "EXTRACT-0007",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 223
+      }
+    },
+    {
+      "case_id": "EXTRACT-0008",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 223
+      }
+    },
+    {
+      "case_id": "EXTRACT-0009",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 201
+      }
+    },
+    {
+      "case_id": "EXTRACT-0010",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 198
+      }
+    },
+    {
+      "case_id": "EXTRACT-0011",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 303
+      }
+    },
+    {
+      "case_id": "EXTRACT-0012",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 304
+      }
+    },
+    {
+      "case_id": "EXTRACT-0013",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 223
+      }
+    },
+    {
+      "case_id": "EXTRACT-0014",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 224
+      }
+    },
+    {
+      "case_id": "EXTRACT-0015",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 199
+      }
+    },
+    {
+      "case_id": "EXTRACT-0016",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 198
+      }
+    },
+    {
+      "case_id": "EXTRACT-0017",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 304
+      }
+    },
+    {
+      "case_id": "EXTRACT-0018",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 304
+      }
+    },
+    {
+      "case_id": "EXTRACT-0025",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 223
+      }
+    },
+    {
+      "case_id": "EXTRACT-0026",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 223
+      }
+    },
+    {
+      "case_id": "EXTRACT-0027",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 199
+      }
+    },
+    {
+      "case_id": "EXTRACT-0028",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 198
+      }
+    },
+    {
+      "case_id": "EXTRACT-0029",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 305
+      }
+    },
+    {
+      "case_id": "EXTRACT-0030",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 302
+      }
+    },
+    {
+      "case_id": "EXTRACT-0049",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 224
+      }
+    },
+    {
+      "case_id": "EXTRACT-0050",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 222
+      }
+    },
+    {
+      "case_id": "EXTRACT-0051",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 197
+      }
+    },
+    {
+      "case_id": "EXTRACT-0052",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 198
+      }
+    },
+    {
+      "case_id": "EXTRACT-0053",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 302
+      }
+    },
+    {
+      "case_id": "EXTRACT-0054",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 303
+      }
+    },
+    {
+      "case_id": "EXTRACT-0079",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 218
+      }
+    },
+    {
+      "case_id": "EXTRACT-0080",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 216
+      }
+    },
+    {
+      "case_id": "EXTRACT-0081",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 194
+      }
+    },
+    {
+      "case_id": "EXTRACT-0082",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 194
+      }
+    },
+    {
+      "case_id": "EXTRACT-0083",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 266
+      }
+    },
+    {
+      "case_id": "EXTRACT-0084",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 264
+      }
+    },
+    {
+      "case_id": "EXTRACT-0097",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 223
+      }
+    },
+    {
+      "case_id": "EXTRACT-0098",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 224
+      }
+    },
+    {
+      "case_id": "EXTRACT-0099",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 198
+      }
+    },
+    {
+      "case_id": "EXTRACT-0100",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 199
+      }
+    },
+    {
+      "case_id": "EXTRACT-0101",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 304
+      }
+    },
+    {
+      "case_id": "EXTRACT-0102",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 303
+      }
+    },
+    {
+      "case_id": "EXTRACT-0115",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 217
+      }
+    },
+    {
+      "case_id": "EXTRACT-0116",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 219
+      }
+    },
+    {
+      "case_id": "EXTRACT-0117",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 194
+      }
+    },
+    {
+      "case_id": "EXTRACT-0118",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 194
+      }
+    },
+    {
+      "case_id": "EXTRACT-0119",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 263
+      }
+    },
+    {
+      "case_id": "EXTRACT-0120",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 267
+      }
+    },
+    {
+      "case_id": "EXTRACT-0193",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 225
+      }
+    },
+    {
+      "case_id": "EXTRACT-0194",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 224
+      }
+    },
+    {
+      "case_id": "EXTRACT-0195",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 200
+      }
+    },
+    {
+      "case_id": "EXTRACT-0196",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 200
+      }
+    },
+    {
+      "case_id": "EXTRACT-0197",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 303
+      }
+    },
+    {
+      "case_id": "EXTRACT-0198",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 303
+      }
+    },
+    {
+      "case_id": "EXTRACT-0211",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 219
+      }
+    },
+    {
+      "case_id": "EXTRACT-0212",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 219
+      }
+    },
+    {
+      "case_id": "EXTRACT-0213",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 193
+      }
+    },
+    {
+      "case_id": "EXTRACT-0214",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 193
+      }
+    },
+    {
+      "case_id": "EXTRACT-0215",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 266
+      }
+    },
+    {
+      "case_id": "EXTRACT-0216",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 266
+      }
+    },
+    {
+      "case_id": "EXTRACT-0247",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 227
+      }
+    },
+    {
+      "case_id": "EXTRACT-0248",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 226
+      }
+    },
+    {
+      "case_id": "EXTRACT-0249",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 201
+      }
+    },
+    {
+      "case_id": "EXTRACT-0250",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 201
+      }
+    },
+    {
+      "case_id": "EXTRACT-0251",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 290
+      }
+    },
+    {
+      "case_id": "EXTRACT-0252",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 291
+      }
+    },
+    {
+      "case_id": "EXTRACT-0331",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 230
+      }
+    },
+    {
+      "case_id": "EXTRACT-0332",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 229
+      }
+    },
+    {
+      "case_id": "EXTRACT-0333",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 207
+      }
+    },
+    {
+      "case_id": "EXTRACT-0334",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 206
+      }
+    },
+    {
+      "case_id": "EXTRACT-0335",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 278
+      }
+    },
+    {
+      "case_id": "EXTRACT-0336",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 277
+      }
+    },
+    {
+      "case_id": "EXTRACT-0349",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 237
+      }
+    },
+    {
+      "case_id": "EXTRACT-0350",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 237
+      }
+    },
+    {
+      "case_id": "EXTRACT-0351",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 214
+      }
+    },
+    {
+      "case_id": "EXTRACT-0352",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 214
+      }
+    },
+    {
+      "case_id": "EXTRACT-0353",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 303
+      }
+    },
+    {
+      "case_id": "EXTRACT-0354",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 302
+      }
+    },
+    {
+      "case_id": "EXTRACT-0355",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 235
+      }
+    },
+    {
+      "case_id": "EXTRACT-0356",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 235
+      }
+    },
+    {
+      "case_id": "EXTRACT-0357",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 211
+      }
+    },
+    {
+      "case_id": "EXTRACT-0358",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 212
+      }
+    },
+    {
+      "case_id": "EXTRACT-0359",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 283
+      }
+    },
+    {
+      "case_id": "EXTRACT-0360",
+      "kind": "supported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 282
+      }
+    },
+    {
+      "case_id": "EXTRACT-0409",
+      "kind": "unsupported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 142
+      }
+    },
+    {
+      "case_id": "EXTRACT-0410",
+      "kind": "unsupported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 142
+      }
+    },
+    {
+      "case_id": "EXTRACT-0411",
+      "kind": "unsupported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 143
+      }
+    },
+    {
+      "case_id": "EXTRACT-0412",
+      "kind": "unsupported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 143
+      }
+    },
+    {
+      "case_id": "EXTRACT-0413",
+      "kind": "unsupported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 143
+      }
+    },
+    {
+      "case_id": "EXTRACT-0414",
+      "kind": "unsupported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 143
+      }
+    },
+    {
+      "case_id": "EXTRACT-0415",
+      "kind": "unsupported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 143
+      }
+    },
+    {
+      "case_id": "EXTRACT-0416",
+      "kind": "unsupported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 143
+      }
+    },
+    {
+      "case_id": "EXTRACT-0417",
+      "kind": "unsupported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 143
+      }
+    },
+    {
+      "case_id": "EXTRACT-0418",
+      "kind": "unsupported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 144
+      }
+    },
+    {
+      "case_id": "EXTRACT-0419",
+      "kind": "unsupported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 144
+      }
+    },
+    {
+      "case_id": "EXTRACT-0420",
+      "kind": "unsupported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 144
+      }
+    },
+    {
+      "case_id": "EXTRACT-0421",
+      "kind": "unsupported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 144
+      }
+    },
+    {
+      "case_id": "EXTRACT-0422",
+      "kind": "unsupported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 144
+      }
+    },
+    {
+      "case_id": "EXTRACT-0423",
+      "kind": "unsupported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 144
+      }
+    },
+    {
+      "case_id": "EXTRACT-0424",
+      "kind": "unsupported",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "generation": {
+        "text": "{\"durations\":{\"A\":10,\"B\":10,\"C\":1,\"D\":1},\"tasks\":[{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"depends_on\":[],\"id\":\"A\"},{\"d",
+        "eos_observed": false,
+        "generated_bytes": 512,
+        "prompt_bytes_processed": 144
+      }
+    }
+  ],
+  "elapsed_seconds": 5.045120073998987,
+  "candidate_promoted": false,
+  "limits": [
+    "Ablation measures sensitivity to zeroing whole groups, not per-neuron causal value or Shapley attribution.",
+    "Train-subset loss selection can overfit; dev task scoring is reported afterward.",
+    "Finite 96-trial search does not cover all weights or prove global optimality.",
+    "Lower loss does not imply better answers, calibrated uncertainty or positive ROI.",
+    "The code baseline already has 94/94 correct decisions in this scope; there is no accuracy headroom here."
+  ]
+}
