@@ -208,5 +208,16 @@
     "neural_parameter_changes": 0,
     "source_independence": "NOT_ESTABLISHED",
     "next_external_gate": "H08_ISSUE_8_OPEN"
+  },
+  "h10_new_wording_probe": {
+    "status": "NOT_YET_CI_OBSERVED",
+    "source": "evaluation/language_shift_probe.py",
+    "positive": 40,
+    "negative": 12,
+    "families": 12,
+    "independence": "NO",
+    "candidate_promoted": false,
+    "neural_weight_change": false,
+    "h08_baseline": "H09_CURRENT_WORKTREE"
   }
 }

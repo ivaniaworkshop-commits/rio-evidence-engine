@@ -11,7 +11,7 @@ from pathlib import Path
 import re
 import statistics
 
-from .graph_copy import extract_graph
+from .extended_graph import extract_extended_graph
 from .semantic_gate import canonical, grade
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -114,7 +114,7 @@ def evaluate(bundle, root=ROOT):
                 raise ValueError("INVALID_MEASURED_LATENCY")
             record.append(number)
         # Baseline output is recomputed, not accepted from the submitter.
-        baseline = extract_graph(text)["graph"]
+        baseline = extract_extended_graph(text)["graph"]
         left = grade(baseline, reference)
         right = grade(r["candidate_output"], reference)
         if reference is None:
@@ -148,6 +148,9 @@ def evaluate(bundle, root=ROOT):
         "discordant_candidate_losses": loss, "one_sided_p_descriptive": _one_sided_exact_p(win, loss),
         "baseline_median_ms_submitted": median_a, "candidate_median_ms_submitted": median_b,
         "financial_cost": "UNKNOWN", "candidate_promoted": False,
+        "baseline_engine": "CURRENT_H09_WORKTREE_UNPINNED",
+        "candidate_execution_attested": False,
+        "latency_attested": False,
         "limits": ["Same cases and deterministic reference grades; submitted candidate outputs and timings are not authenticated.",
                    "Exact text nonoverlap cannot rule out paraphrase or development contamination.",
                    "Source type and timestamps are self-reported, not independently authenticated.",

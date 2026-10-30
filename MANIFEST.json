@@ -3,8 +3,8 @@
   "files": [
     {
       "path": ".github/workflows/h00-integrity.yml",
-      "bytes": 2501,
-      "sha256": "2c3880966efb5ca1d4454412d4358ad411dd4cf3ab8978a6c63316004bebc226"
+      "bytes": 2626,
+      "sha256": "c11b30bd9d462f0de7a30a0378096cb01ccf553dc761e4e83658d2c50e9f678f"
     },
     {
       "path": ".gitignore",
@@ -88,13 +88,23 @@
     },
     {
       "path": "evaluation/H08_INDEPENDENT_GATE_R001.md",
-      "bytes": 3178,
-      "sha256": "f638a46d176809704c26132b96e66206deeaa1419dcb05eb49433f16b20be646"
+      "bytes": 3458,
+      "sha256": "219c80aa4d2f24c84c36e7e69e71ec56946c9a5aa62632ae9400fe84758961dc"
     },
     {
       "path": "evaluation/H09_CAPABILITY.md",
       "bytes": 2140,
       "sha256": "bf6afe0e668df0cdfcda87f9be80a9a08aadcaa943a53a2822ff6c722fe278a7"
+    },
+    {
+      "path": "evaluation/H10_LANGUAGE_SHIFT.md",
+      "bytes": 1463,
+      "sha256": "510693326327b558b7e5a5ceb434d18ae1eb6ffc0230586fad0191d8838a909c"
+    },
+    {
+      "path": "evaluation/language_shift_probe.py",
+      "bytes": 2697,
+      "sha256": "f52f9796ef89be8d87771357c33cef1b93f4f410dad2fc6b3f53e67b9bd7e1d1"
     },
     {
       "path": "evaluation/semantic_fixture.jsonl",
@@ -128,8 +138,8 @@
     },
     {
       "path": "model/DESCRIPTION.json",
-      "bytes": 7764,
-      "sha256": "df25cf3d201fbf20fda3d5e4e6db28c47e0ff0cab50ceaf827d9321809d7d2ac"
+      "bytes": 8084,
+      "sha256": "1167c15325e38e3b847d8b072ff93c8c07d55cc259781c86146be1d32ec5cf91"
     },
     {
       "path": "model/DURATION_COPY_CARD.md",
@@ -188,8 +198,8 @@
     },
     {
       "path": "model/MODEL_CARD.md",
-      "bytes": 11455,
-      "sha256": "e9ec1994a349d0d8cb45b5598f826dbbfc59561de3e8f9732f0d118d19e9a512"
+      "bytes": 11727,
+      "sha256": "b9432bf5ce2478f496d3fc460418f3f8272ee801e9186bb93eb5fc194c18d143"
     },
     {
       "path": "model/NETWORK_VALUE_CARD.md",
@@ -253,8 +263,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 19363,
-      "sha256": "e814c39afffe3e4c5f9ab4adfadd0d783501f0773632cdaea6a3d3694ec7a675"
+      "bytes": 19650,
+      "sha256": "39b6e8e37a0475d54f20da496bbf59af12cd9183622b43822f3610a264230656"
     },
     {
       "path": "RECALCULATION.md",
@@ -333,8 +343,8 @@
     },
     {
       "path": "rio_evidence/independent_gate.py",
-      "bytes": 8297,
-      "sha256": "b01174bd760d2c2a7abe10db8e8a3c7a08497a21618a42e326a2ac071a9cc888"
+      "bytes": 8461,
+      "sha256": "59be2028baaed5f002e92fda0e187a9d7fff1b57d87f618510177696ea28f96c"
     },
     {
       "path": "rio_evidence/json_io.py",
@@ -445,6 +455,11 @@
       "path": "scripts/evaluate_hybrid.py",
       "bytes": 2267,
       "sha256": "bc2bed81a29e06c157c7cc428a5a5956934c926617821d21ecc731e4a42bf1ed"
+    },
+    {
+      "path": "scripts/evaluate_language_shift.py",
+      "bytes": 2321,
+      "sha256": "8c1b75db5b291925604a0d1d9ff9df4896e63a4977e416a30eb37ce42f7a212a"
     },
     {
       "path": "scripts/evaluate_network_value.py",
@@ -563,13 +578,18 @@
     },
     {
       "path": "tests/test_independent_gate.py",
-      "bytes": 4530,
-      "sha256": "81b06c3d79296d0618826733beb74eab7de46681927372db79d139c3dcc63fd5"
+      "bytes": 5162,
+      "sha256": "b4c7c3b021769084c6f02d486af048d5d43d5474923c7a0e3c77272787961b2b"
     },
     {
       "path": "tests/test_json_io.py",
       "bytes": 811,
       "sha256": "70da76634f1064b5ced69785bda1ff94d0b6b2e1163a8fdcb087ddba028cb599"
+    },
+    {
+      "path": "tests/test_language_shift.py",
+      "bytes": 1136,
+      "sha256": "731620aae55dc0581322a4b3d2d0eb31c52e9c5c942dd02d08f7b1fd45288b5e"
     },
     {
       "path": "tests/test_manifest.py",

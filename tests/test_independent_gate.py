@@ -99,3 +99,16 @@ class ExternalGateTests(unittest.TestCase):
         data["independent_verified"] = True
         with self.assertRaisesRegex(ValueError, "INVALID_EVALUATION_ENVELOPE"):
             evaluate(data)
+
+    def test_uses_h09_baseline_not_obsolete_old_parser(self):
+        bundle=self.bundle()
+        bundle["cases"][0]["text"]="Tasks: 1\nStep A takes 3 minutes after none."
+        report=evaluate(bundle)
+        self.assertEqual(report["baseline_supported_exact"],1)
+        self.assertEqual(report["baseline_engine"],"CURRENT_H09_WORKTREE_UNPINNED")
+
+    def test_self_reported_outputs_do_not_attest_candidate(self):
+        report=evaluate(self.bundle())
+        self.assertFalse(report["candidate_execution_attested"])
+        self.assertFalse(report["latency_attested"])
+        self.assertFalse(report["candidate_promoted"])
