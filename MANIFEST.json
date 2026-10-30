@@ -118,8 +118,8 @@
     },
     {
       "path": "evaluation/H14_CANDIDATE_PROTOCOL.md",
-      "bytes": 2477,
-      "sha256": "70bb11174687eb255fd12e901c885803c072188d6fea5d3ea564a9b856a6e33c"
+      "bytes": 2818,
+      "sha256": "b0c83a1a1cf70b1e3cb360c5fec8cde45e82449d4c749bfaefffa050cad8791b"
     },
     {
       "path": "evaluation/language_shift_probe.py",
@@ -158,8 +158,8 @@
     },
     {
       "path": "model/DESCRIPTION.json",
-      "bytes": 10071,
-      "sha256": "6cebd4a066e28c2a91105e282b7e4db0b0a6a8842eee111c2cac9edf85bbfd56"
+      "bytes": 10060,
+      "sha256": "ebc14604126cd879d0af5e708fb8f2e561cd08e93477c6326b7218582e88c133"
     },
     {
       "path": "model/DURATION_COPY_CARD.md",
@@ -538,8 +538,8 @@
     },
     {
       "path": "scripts/h14_development_probe.py",
-      "bytes": 1856,
-      "sha256": "30e5dd6ad2f1bd0edac83c90dc36fc34c32c1b61a92efdc6f37c5d587a09c02f"
+      "bytes": 1962,
+      "sha256": "b3a80dc3cf75111ea60e271342791831b7c249b3bbc6ef9a71526868c8503a91"
     },
     {
       "path": "scripts/prioritize_deltas.py",
