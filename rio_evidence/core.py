@@ -81,8 +81,14 @@ def critical_path(tasks, durations):
     while end is not None:
         path.append(end)
         end = parent[end]
+    try:
+        total = math.fsum(durations.values())
+    except OverflowError as error:
+        raise ValueError('total duration overflow') from error
+    if not math.isfinite(total):
+        raise ValueError('total duration overflow')
     return {'minutes': max(finish.values()), 'path': list(reversed(path)),
-            'single_worker_minutes': sum(durations.values())}
+            'single_worker_minutes': total}
 
 
 def triangular_ppf(u, low, mode, high):
@@ -148,7 +154,7 @@ def compare_results(baseline, candidate):
     return {'n': n, 'baseline_correct': sum(r['correct'] for r in a.values()),
             'candidate_correct': sum(r['correct'] for r in b.values()),
             'correct_delta': sum(b[k]['correct']-a[k]['correct'] for k in a),
-            'mean_latency_delta_ms': sum(b[k]['latency_ms']-a[k]['latency_ms'] for k in a)/n,
+            'mean_latency_delta_ms': math.fsum((b[k]['latency_ms']-a[k]['latency_ms'])/n for k in a),
             'scope': 'PAIRED_LOCAL_CASES_ONLY_NOT_HIDDEN_TESTS'}
 
 

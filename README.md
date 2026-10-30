@@ -27,7 +27,7 @@ The core uses the standard library to reduce setup requirements. Graph schedulin
 
 ## Verification
 
-Twenty-seven tests (including four optional Node-based dashboard checks) cover graph scheduling, paired metrics, numeric boundaries, budget reserve, schema limits, journal consistency and incomplete-line handling. Actual execution results are recorded in VALIDATION.json. Regression tests include malformed inputs, CLI subprocesses, and dependency invariants across 64 seeded synthetic graphs. The demo uses authored synthetic values; it is not a benchmark or evidence of real-world performance improvement.
+Thirty tests (including four optional Node-based dashboard checks) cover graph scheduling, paired metrics, numeric boundaries, budget reserve, schema limits, journal consistency and incomplete-line handling. Actual execution results are recorded in VALIDATION.json. Regression tests include malformed inputs, CLI subprocesses, and dependency invariants across 64 seeded synthetic graphs. The demo uses authored synthetic values; it is not a benchmark or evidence of real-world performance improvement.
 
 ## Limits
 
@@ -84,3 +84,9 @@ automation. Browser examples stay local and make no model calls.
 Run the full suite with Python and Node available to include comparator parity
 checks. Without Node, four dashboard tests are explicitly skipped. See
 RECALCULATION.md for the bounded improvement policy and scheduled review roles.
+
+Numeric boundaries: latency averages scale each paired delta before summation to
+avoid a spurious intermediate infinity. Unrepresentable schedule totals raise
+ValueError. Snapshot provenance records SHA-256 of the tested core and validation
+record; benchmark_source_commit identifies the older measured benchmark, not the
+current dashboard version. File hashes identify bytes, not correctness.

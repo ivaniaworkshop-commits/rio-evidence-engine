@@ -76,3 +76,25 @@ class Regressions(unittest.TestCase):
             result=self.run_cli('verify-journal',str(p))
             self.assertEqual(result.returncode,0,result.stderr)
             self.assertEqual(json.loads(result.stdout),{'events':0,'head_sha256':None,'scope':'INTERNAL_CONSISTENCY_ONLY'})
+
+class NumericRegression(unittest.TestCase):
+    def test_large_finite_latencies_have_finite_mean(self):
+        from rio_evidence.core import compare_results
+        a=[dict(case_id=str(i),correct=False,latency_ms=0) for i in range(2)]
+        b=[dict(row,latency_ms=1e308) for row in a]
+        self.assertEqual(compare_results(a,b)['mean_latency_delta_ms'],1e308)
+
+    def test_unrepresentable_total_duration_is_rejected(self):
+        from rio_evidence.core import critical_path
+        with self.assertRaises(ValueError):
+            critical_path([{'id':'a'},{'id':'b'}],{'a':1e308,'b':1e308})
+
+    def test_large_latency_cli_emits_portable_json(self):
+        with tempfile.TemporaryDirectory() as d:
+            path=Path(d)/'input.json'
+            a=[dict(case_id=str(i),correct=False,latency_ms=0) for i in range(2)]
+            path.write_text(json.dumps({'baseline':a,'candidate':[dict(row,latency_ms=1e308) for row in a]}))
+            r=subprocess.run([sys.executable,'-m','rio_evidence','compare',str(path)],cwd=ROOT,text=True,capture_output=True)
+            self.assertEqual(r.returncode,0,r.stderr)
+            self.assertNotIn('Infinity',r.stdout)
+            self.assertEqual(json.loads(r.stdout)['mean_latency_delta_ms'],1e308)

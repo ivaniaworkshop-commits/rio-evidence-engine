@@ -21,3 +21,9 @@ is introduced. Existing hash serialization is preserved.
 Add a static dashboard with evidence receipts, synthetic comparator and filters;
 add four browser-comparator parity checks and an explicit bounded recalculation
 policy. Five daily tasks are enabled; first execution has not yet been observed.
+
+## Numeric boundaries and evidence provenance
+
+Three new regressions reproduce and fix a spurious infinite latency mean, JSON
+CLI failure for finite data, and acceptance of an overflowing schedule total.
+Dashboard provenance now separates the benchmark source from tested core bytes.
