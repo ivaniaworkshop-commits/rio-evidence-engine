@@ -13,18 +13,18 @@
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 2211,
-      "sha256": "82856ec9a2735bb0a8e85e2fc4eaac6062c539dd08a8834bf988f08d567373a2"
+      "bytes": 2549,
+      "sha256": "1ed634bf260cddafce48080bd0b9401ef47cc161963afe92937b904f16cb0705"
     },
     {
       "path": "DELTAS.json",
       "bytes": 1930,
-      "sha256": "3f17ede7ed00597f921e7802777595d9e59c57499cb094bc0e089ff06ac45d4c"
+      "sha256": "9e898284fb44bf8b5b89caaa2d422d3f03a41ef4313430a81a29cf2a30e61354"
     },
     {
       "path": "README.md",
-      "bytes": 7081,
-      "sha256": "170a705315157fc385cf943c90611cb25fbdf150a2669af20b6f0f9a9690421e"
+      "bytes": 7614,
+      "sha256": "d8ad97339cc29b0be21d3b27aeb06dfee3979fb1c0aebf6b3441f886cb28009e"
     },
     {
       "path": "RECALCULATION.md",
@@ -33,8 +33,8 @@
     },
     {
       "path": "VALIDATION.json",
-      "bytes": 5971,
-      "sha256": "3bad120b1ddcac8f0f7a2ed4268b77284be60f596a6914a611294227c82fa4f1"
+      "bytes": 6831,
+      "sha256": "58313a73a2daa46cfcc7150889b6045c75a75eca72324666ebbcb787b2cbb876"
     },
     {
       "path": "VALIDATION_ACCOUNT.json",
@@ -74,7 +74,7 @@
     {
       "path": "docs/data.json",
       "bytes": 1930,
-      "sha256": "3f17ede7ed00597f921e7802777595d9e59c57499cb094bc0e089ff06ac45d4c"
+      "sha256": "9e898284fb44bf8b5b89caaa2d422d3f03a41ef4313430a81a29cf2a30e61354"
     },
     {
       "path": "docs/index.html",
@@ -97,19 +97,39 @@
       "sha256": "ab1044a7cd5cf064cfbd25f2e080e89e137b9b0de78ae53c5cd736724ccf8afa"
     },
     {
+      "path": "research/DELTA_MONTE_CARLO.json",
+      "bytes": 2261,
+      "sha256": "cfbd2b875a8f88fc0fd7f855252046c8e990cd6a2b43d2c60cc2af02b2c6222d"
+    },
+    {
+      "path": "research/REQUIREMENTS_REVIEW.md",
+      "bytes": 5009,
+      "sha256": "7de9b84ee7f2a4b1f63cfefce637e140c933d83428959987a6223c0a8ceb13c5"
+    },
+    {
+      "path": "research/SOURCES.json",
+      "bytes": 2921,
+      "sha256": "956829b5c5dd473d7ed13a38558675f49002b8945b646eb91fecdb83151f65d8"
+    },
+    {
       "path": "rio_evidence/__init__.py",
       "bytes": 69,
       "sha256": "80898ca36799f58bef35a23abd86120947f023aba810b6f340c4755736c1daf4"
     },
     {
       "path": "rio_evidence/__main__.py",
-      "bytes": 1422,
-      "sha256": "b0415dab139c6d5d987a167c4a3726438f218eca684e351e214c666a01adb365"
+      "bytes": 1380,
+      "sha256": "7b2d8ffbea81ba1349b05c8c770844e9e8dfc5df26df75fe6a2b953bd5d5f89d"
     },
     {
       "path": "rio_evidence/core.py",
       "bytes": 12188,
       "sha256": "fb232e58f1ab1260d9b74b454a0a267cd73171e0aedaf0fc4867df552fd2caf5"
+    },
+    {
+      "path": "rio_evidence/json_io.py",
+      "bytes": 930,
+      "sha256": "5221e5ffc6b716915b703807b441c6f34eb8891d54179e78e81cb988d3b56039"
     },
     {
       "path": "rio_evidence/tutor.py",
@@ -120,6 +140,11 @@
       "path": "scripts/build_answer_matrix.py",
       "bytes": 2360,
       "sha256": "12dcc16e6147b7091d525c0f2e9d5cd423d6bfd09431ec8959d2a76a20899c44"
+    },
+    {
+      "path": "scripts/prioritize_deltas.py",
+      "bytes": 2812,
+      "sha256": "87df5ec57970f7e5c83dfce20de5d69dcf5ca7f1ac611e68b796562727c52d6d"
     },
     {
       "path": "scripts/refresh_snapshot.py",
@@ -140,6 +165,11 @@
       "path": "tests/test_dashboard.py",
       "bytes": 1906,
       "sha256": "2ca048967fa347925119c8e181b67056a368524e48ae79bcd78546ef2952169f"
+    },
+    {
+      "path": "tests/test_json_io.py",
+      "bytes": 811,
+      "sha256": "70da76634f1064b5ced69785bda1ff94d0b6b2e1163a8fdcb087ddba028cb599"
     },
     {
       "path": "tests/test_manifest.py",

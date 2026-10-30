@@ -40,3 +40,10 @@ service, incident, video, hidden tests, debrief and submission remain unverified
 Preserve exact integer schedule totals; add a 128-case English answer matrix,
 exhaustive path-oracle checks, prompt exporter and explicit local-runner adapter.
 Adapter smoke test uses a stub, not a model. LLM runtime/weights remain absent.
+
+## Scoped research and decision sensitivity
+
+Inspect six retrieved official documentation pages; record two unavailable
+sources. Integrate strict bounded CLI JSON with four tests. Add reproducible
+Monte Carlo candidate ranking, explicit judgment matrix and weight sensitivity.
+No LLM training or observed prediction accuracy is claimed.

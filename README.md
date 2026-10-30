@@ -27,7 +27,7 @@ The core uses the standard library to reduce setup requirements. Graph schedulin
 
 ## Verification
 
-Forty tests (including four optional Node-based dashboard checks) cover graph scheduling, paired metrics, numeric boundaries, budget reserve, schema limits, journal consistency and incomplete-line handling. Actual execution results are recorded in VALIDATION.json. Regression tests include malformed inputs, CLI subprocesses, and dependency invariants across 64 seeded synthetic graphs. The demo uses authored synthetic values; it is not a benchmark or evidence of real-world performance improvement.
+Forty-four tests (including four optional Node-based dashboard checks) cover graph scheduling, paired metrics, numeric boundaries, budget reserve, schema limits, journal consistency and incomplete-line handling. Actual execution results are recorded in VALIDATION.json. Regression tests include malformed inputs, CLI subprocesses, and dependency invariants across 64 seeded synthetic graphs. The demo uses authored synthetic values; it is not a benchmark or evidence of real-world performance improvement.
 
 ## Limits
 
@@ -118,3 +118,11 @@ authenticity or correctness certificate.
 The deterministic tutor computes reference answers; an optional trusted local
 runner can generate explanations grounded in those answers. No LLM weights,
 training or actual LLM inference are included or claimed.
+
+## Research and decision evidence
+
+[Requirements review](research/REQUIREMENTS_REVIEW.md) · [Source retrieval record](research/SOURCES.json) · [Monte Carlo assumptions and results](research/DELTA_MONTE_CARLO.json).
+Reproduce the ranking with `python scripts/prioritize_deltas.py`. Ranking
+frequencies are assumption sensitivity, not observed ROI or win probabilities.
+Local schedule/compare JSON inputs are capped at 1 MiB and reject duplicate
+keys and nonstandard numeric constants. This does not bound every input surface.

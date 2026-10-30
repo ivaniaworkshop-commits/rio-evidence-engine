@@ -3,6 +3,7 @@ import argparse
 import json
 import sys
 from .core import critical_path, compare_results, read_events
+from .json_io import load
 
 
 def main(argv=None):
@@ -16,8 +17,7 @@ def main(argv=None):
             result = {'events': len(rows), 'head_sha256': rows[-1]['sha256'] if rows else None,
                       'scope': 'INTERNAL_CONSISTENCY_ONLY'}
         else:
-            with open(args.input, encoding='utf-8') as stream:
-                data = json.load(stream)
+            data = load(args.input)
             if not isinstance(data, dict):
                 raise ValueError('input must be an object')
             if args.command == 'schedule':
