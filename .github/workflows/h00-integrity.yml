@@ -58,7 +58,7 @@ jobs:
           print('H12_MATH',{'p10_n80':a['n_for_at_least_80pct_under_assumptions'],'p10_power30':a['exact_probability_of_at_least_five_wins_in_30'],'simulated_probability':a['monte_carlo_30_cases_20000_draws']})
           PY
       - name: H13 receipt consistency and no false promotion
-        run: python3 -m unittest tests.test_evaluation_receipts -v
+        run: python3 -m unittest discover -s tests -p test_evaluation_receipts.py -v
       - name: H08 independence gate must fail closed without external data
         run: |
           python3 -m rio_evidence.independent_gate > /tmp/h08.json
