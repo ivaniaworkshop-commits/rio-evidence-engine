@@ -1,0 +1,38 @@
+{
+  "scope": "STRUCTURAL_AND_TEXT_SEPARATION_NOT_PROOF_OF_INDEPENDENCE",
+  "seed": 1947,
+  "evaluation_fixture_sha256": "ccacc929761d2cb841f0b187a939198cf8f05660374a668e4d9f7b18a29cd0d2",
+  "evaluation_fixture_bytes": 12787,
+  "rows": 424,
+  "counts": {
+    "train": {
+      "supported": 282,
+      "unsupported": 48
+    },
+    "dev": {
+      "supported": 78,
+      "unsupported": 16
+    }
+  },
+  "unique_graph_structures": {
+    "train": 21,
+    "dev": 6
+  },
+  "overlap": {
+    "normalized_text_train_dev": 0,
+    "normalized_text_with_evaluation": 0,
+    "isomorphic_graph_train_dev": 0,
+    "isomorphic_graph_with_evaluation": 0,
+    "duplicate_texts_within_generated_data": 0
+  },
+  "limits": [
+    "All data is synthetic and authored by this project, not real users.",
+    "Graph isomorphism ignores duration values and task names.",
+    "Lexical/template similarity can remain despite zero exact overlap.",
+    "Dev and public evaluation share project authorship and are not statistically independent.",
+    "No weights are trained or updated by this builder.",
+    "Existing neural training command still uses the earlier answer-text corpus."
+  ],
+  "train_sha256": "73f66636a300783aee948c0061cf3d7cf64452355d9c4efb776fa70a284c7994",
+  "dev_sha256": "5d71ad4b3292b1ce3c940e71df1416e879d7808dcab5de841c80b3a832a95b1f"
+}

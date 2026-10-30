@@ -1,0 +1,22 @@
+name: H00 integrity and reproducibility
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Verify complete source inventory and byte hashes
+        run: python3 scripts/verify_manifest.py
+      - name: Run test suite; report skips explicitly
+        run: python3 -m unittest discover -s tests -v
+      - name: Smoke CLI and deterministic demo
+        run: |
+          python3 -m rio_evidence schedule examples/schedule.json
+          python3 -m rio_evidence compare examples/compare.json
+          python3 demo.py
