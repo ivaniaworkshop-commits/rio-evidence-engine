@@ -211,3 +211,6 @@ Historical GitHub Actions results: H10 0/40 novel-language exact and 12/12 negat
 
 ## H14 new code-only candidate
 Strict JSON graph and CSV graph-reader optional candidate, with rejection of missing or conflicting input. No neural weight updates, no automatic promotion, no claim of independent evaluation; H10 is public training/development diagnostic. Freeze candidate SHA before external collection. See evaluation/H14_CANDIDATE_PROTOCOL.md.
+
+### H14 CSV observability limit
+A terminal CSV row omitted from an otherwise valid A..N sequence cannot be inferred without an independently supplied expected task count. H14 validates present rows only; no hidden intent reconstruction is claimed. See evaluation/H14_CANDIDATE_PROTOCOL.md.

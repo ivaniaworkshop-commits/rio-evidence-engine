@@ -26,3 +26,13 @@ cases against current H09, and tracks time; external authenticated provenance
 and financial/energy costs are still UNKNOWN. Source data must remain private,
 labels independently adjudicated, and the independent holdout must not be
 reused in model development. H08 issue #8 is open.
+
+**H14 correction from initial CI.** CSV rows have no separate declared task
+count. If a terminal task is omitted, a complete smaller A..N graph may remain,
+and the parser cannot infer the user's intended missing task. This is an
+UNOBSERVABLE external-intent ambiguity, not proof of an invalid graph. The
+negative fixture now removes an INTERIOR task ID, which must fail. A separate
+positive test records the terminal-omission limit explicitly. An independent
+evaluator should request a declared task count or capture intended task
+inventory as additional authenticated metadata if detecting omitted terminal
+tasks matters. No H14 capability claim includes intent recovery.

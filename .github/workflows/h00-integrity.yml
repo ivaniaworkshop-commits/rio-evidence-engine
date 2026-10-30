@@ -100,7 +100,7 @@ jobs:
           suite = unittest.defaultTestLoader.discover('tests')
           result = unittest.TextTestRunner(verbosity=2).run(suite)
           print('STRICT_SUITE', {'total': result.testsRun, 'failures': len(result.failures), 'errors': len(result.errors), 'skipped': len(result.skipped)})
-          if result.testsRun != 171 or result.failures or result.errors or result.skipped:
+          if result.testsRun != 172 or result.failures or result.errors or result.skipped:
               raise SystemExit(2)
           PY
       - name: H07 remeasure paired accuracy abstention and latency

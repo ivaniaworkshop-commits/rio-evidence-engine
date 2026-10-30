@@ -57,8 +57,17 @@ class CandidateV1Tests(unittest.TestCase):
     def test_reject_missing_and_duplicate_tasks(self):
         g=self.base()
         for text in (csv_input(g).replace("D,8,B|C","B,8,A"),
-                     csv_input(g).replace("\nD,8,B|C","")):
+                     csv_input(g).replace("\nB,4,A","")):
             self.assertEqual(extract_candidate_v1(text)["status"],"ABSTAIN")
+
+    def test_terminal_omission_cannot_be_inferred_without_declared_count(self):
+        graph=self.base()
+        trimmed=csv_input(graph).replace("\nD,8,B|C","")
+        smaller={"tasks":graph["tasks"][:-1],
+                 "durations":{k:v for k,v in graph["durations"].items() if k!="D"}}
+        result=extract_candidate_v1(trimmed)
+        self.assertEqual(result["status"],"EXPLICIT_GRAPH_RECOVERED")
+        self.assertTrue(grade(result["graph"],smaller)["pass"])
 
     def test_reject_extra_csv_cell_and_duplicate_predecessor(self):
         s=csv_input(self.base())
