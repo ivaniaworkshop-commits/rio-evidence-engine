@@ -4,7 +4,7 @@
     {
       "path": ".github/workflows/h00-integrity.yml",
       "bytes": 6255,
-      "sha256": "d20cf94e39d1d7f32af9b77934c073b4994b5b8cb25d627c0ae71990f935dac9"
+      "sha256": "343920645ca0e091d195cbe7dcbfb9cad33c9b19658848f81a7489a06e65353d"
     },
     {
       "path": ".gitignore",
@@ -118,8 +118,8 @@
     },
     {
       "path": "evaluation/H14_CANDIDATE_PROTOCOL.md",
-      "bytes": 1803,
-      "sha256": "9f7df15fd402dd9629098e676666d465432f49b2057846aa5e5e9438209f6d97"
+      "bytes": 2477,
+      "sha256": "70bb11174687eb255fd12e901c885803c072188d6fea5d3ea564a9b856a6e33c"
     },
     {
       "path": "evaluation/language_shift_probe.py",
@@ -158,8 +158,8 @@
     },
     {
       "path": "model/DESCRIPTION.json",
-      "bytes": 9984,
-      "sha256": "a01045ed023fd8e729eea3e8183060b0cb3f1aeda68809f9be77149a832f38c2"
+      "bytes": 10071,
+      "sha256": "6cebd4a066e28c2a91105e282b7e4db0b0a6a8842eee111c2cac9edf85bbfd56"
     },
     {
       "path": "model/DURATION_COPY_CARD.md",
@@ -223,8 +223,8 @@
     },
     {
       "path": "model/MODEL_CARD.md",
-      "bytes": 13122,
-      "sha256": "936bb6960e12b44601fb2ea0303f4d7d99a302bfcf4ae7f51591ceddeda2a3d2"
+      "bytes": 13413,
+      "sha256": "dc8113e357a0d5accd5c905b0f1dbc98d9d70377dd3b5a16e738dd8ba1d18969"
     },
     {
       "path": "model/NETWORK_VALUE_CARD.md",
@@ -583,8 +583,8 @@
     },
     {
       "path": "tests/test_candidate_v1.py",
-      "bytes": 5155,
-      "sha256": "607af5d9e076e098a102d465a500bfc851908547b080cf541aa49e55fc870791"
+      "bytes": 5626,
+      "sha256": "dc8010b9f169c91ea32cbf409d0aae6290c32ab8a1da9cfe78feb06021487ce9"
     },
     {
       "path": "tests/test_constrained_extraction.py",
