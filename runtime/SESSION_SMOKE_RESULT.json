@@ -1,0 +1,39 @@
+{
+  "scope": "BOUNDED_JSONL_SESSION_WITH_PUBLIC_AUTHORED_INPUT_NOT_EXTERNAL_USERS",
+  "source_case_id": "EXTRACT-0007",
+  "modes": [
+    {
+      "mode": "lazy_on_demand",
+      "requests": 10,
+      "all_results_equal": true,
+      "final_cache": {
+        "revision": "710445963021bc9ba3cec29b7ae6dde4c63e13812c62a9757762fec254ed0c9b",
+        "entries": 1,
+        "capacity": 128,
+        "hits": 9,
+        "misses": 1,
+        "evictions": 0,
+        "warm": false,
+        "scope": "PROCESS_LOCAL_NOT_CONTINUOUS_BACKGROUND_RUNTIME"
+      },
+      "exit_code": 0
+    },
+    {
+      "mode": "public_prewarm",
+      "requests": 10,
+      "all_results_equal": true,
+      "final_cache": {
+        "revision": "710445963021bc9ba3cec29b7ae6dde4c63e13812c62a9757762fec254ed0c9b",
+        "entries": 94,
+        "capacity": 128,
+        "hits": 10,
+        "misses": 0,
+        "evictions": 0,
+        "warm": true,
+        "scope": "PROCESS_LOCAL_NOT_CONTINUOUS_BACKGROUND_RUNTIME"
+      },
+      "exit_code": 0
+    }
+  ],
+  "no_user_input_persistence": "IMPLEMENTED_IN_SESSION_PATH_NO_FILE_WRITES_OTHER_THAN_READONLY_STARTUP_GUARD"
+}

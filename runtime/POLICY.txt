@@ -1,0 +1,45 @@
+Objetivo: reutilizar cálculo estable y ejecutar solo deltas derivados con evidencia.
+Precedente recuperado de Río: precalentar una vez y recalcular solo dependientes del delta.
+Procedencia: recuperación contextual autorizada; no exportación del canon ni de archivos privados.
+La recuperación contextual no demuestra vigencia del canon ni runtime antivirus activo.
+La fórmula histórica G(mu)=(D+U+R+E+C)/Coste queda como antecedente no ejecutable aquí.
+Las definiciones exactas de sus cinco símbolos no se recuperaron con autoridad suficiente.
+No se inventan equivalencias con las variables locales.
+La cadena conceptual que menciona pi, relaciones y telemetría no se trata como ecuación numérica.
+
+Fórmula local explícita: prioridad=(beneficio+reducción_incertidumbre+evidencia+reuso)*(1-riesgo)/esfuerzo.
+Sus entradas son juicios ordinales declarados en cada candidato.
+No equivale a ROI monetario, probabilidad de éxito ni autorización.
+Fórmula medida: ahorro_ms=mediana_directa_ms-mediana_cache_ms.
+Fórmula estimada: usos_equilibrio=ceil((bootstrap_ms+prewarm_ms)/ahorro_ms), solo si ahorro_ms>0.
+La estimación excluye arranque del intérprete/importaciones y supone reuso del mismo tipo de carga.
+A es una matriz dirigida de dependencias declaradas; A2 y A3 cuentan recorridos de longitud 2 y 3.
+Los recorridos no prueban causalidad ni geometría física.
+
+Acciones automáticas permitidas: precalcular casos públicos, precalentar memoria, medir caché.
+Se recalcula la cola antes y después de cada acción.
+Máximo tres acciones por ronda y cuatro rondas por invocación.
+Sin delta elegible: NO_MATERIAL_DELTA; no entrenamiento, commits ni versiones ceremoniales.
+Una revisión de fuente distinta exige reiniciar para no reutilizar código importado obsoleto.
+Una inconsistencia del manifiesto o del precálculo provoca HOLD.
+El controlador no regenera el manifiesto para encubrir una discrepancia.
+La actualización del manifiesto es una operación explícita de construcción después de cambios autorizados.
+
+La caché es LRU acotada y devuelve copias JSON sin estado mutable compartido.
+Entradas diferentes usan claves distintas; invalidación por átomo conserva caches no dependientes.
+El contenido arbitrario del usuario solo vive en memoria del proceso.
+El precálculo persistente distribuido contiene exclusivamente ejemplos sintéticos públicos.
+Los artefactos de ejecución se escriben solo bajo output/ y no se publican por este controlador.
+Los hashes comprueban identidad de bytes; no verdad, identidad del propietario ni autenticidad.
+Estas guardas son controles locales de evidencia y límites; no un antivirus real.
+Antivirus canónico: no activado ni modificado por este trabajo.
+No hay escaneo de dispositivos, procesos, credenciales ni red.
+Los motores bloqueados no se habilitan por similitud con una regla defensiva.
+
+La ejecución en Python ocurre solo por invocación explícita o por una tarea programada autorizada.
+La caché en memoria no sobrevive a un proceso nuevo ni implica un daemon continuo.
+El paquete público precalculado sí puede reutilizarse entre procesos si conserva revisiones válidas.
+Solo la tarea programada escritora puede realizar cambios autorizados de código y despliegue con pruebas/readback.
+Las otras cuatro tareas permanecen en lectura.
+La programación registrada no acredita una ejecución futura ni independencia entre modelos.
+No se afirma cobertura total de Río, de internet, de las fórmulas o de todos los errores.

@@ -73,6 +73,10 @@ def main():
     if search_path.exists():
         search=json.loads(search_path.read_text())
         data['weight_search']={k:search[k] for k in ['trial_count','base_train_subset_loss','best_train_subset_loss','dev_exact_graph_matches','dev_supported_cases','dev_correct_abstentions','dev_negative_cases','candidate_promoted']}
+    auto_path=ROOT/'runtime/AUTO_ROUND_RESULT.json'
+    if auto_path.exists():
+        auto=json.loads(auto_path.read_text())
+        data['automatic_runtime']={'round_statuses':[r['status'] for r in auto['rounds']], 'benchmark':auto['rounds'][0]['benchmark']}
     encoded = json.dumps(data, indent=2)+'\n'
     for name in ['DELTAS.json','docs/data.json']:
         (ROOT/name).write_text(encoded)

@@ -92,6 +92,11 @@ def sync():
         d['weight_search_candidate']={k:search[k] for k in ['trial_count','base_train_subset_loss','best_train_subset_loss','chosen_multipliers','dev_exact_graph_matches','dev_supported_cases','dev_correct_abstentions','dev_negative_cases','invalid_outputs','candidate_promoted']}
         d['weight_search_candidate']['checkpoint_sha256']=actual
         d['sources'].append('model/WEIGHT_SEARCH_RESULT.json')
+    auto_path=ROOT/'runtime/AUTO_ROUND_RESULT.json'
+    if auto_path.exists():
+        auto=json.loads(auto_path.read_text())
+        d['runtime_support']={'status':'BOUNDED_LOCAL_ROUNDS_OBSERVED','round_statuses':[r['status'] for r in auto['rounds']], 'benchmark':auto['rounds'][0]['benchmark'], 'weight_changes':False, 'antivirus_activation':False}
+        d['sources'].append('runtime/AUTO_ROUND_RESULT.json')
     (ROOT/'model/DESCRIPTION.json').write_text(json.dumps(d,indent=2)+'\n')
     value_statement=('Optional neural ranking showed no output benefit in the paired 42-case comparison.' if ablation_current else 'The current checkpoint has no matching paired utility evaluation.')
     block=('<!-- MODEL_STATUS_START -->\n## Current model status (evidence synchronized)\n\n'
@@ -109,6 +114,7 @@ def sync():
        +(f"Code-grounded durations: {d['extraction_candidate']['duration_copy']['duration_fields_correct']}/{d['extraction_candidate']['duration_copy']['duration_fields_total']} fields correct, but exact graphs {d['extraction_candidate']['duration_copy']['supported_exact_graph_matches']}/{d['extraction_candidate']['duration_copy']['supported_cases']}. Code abstentions are not learned neural ability.\n" if 'duration_copy' in d.get('extraction_candidate',{}) else '')
        +(f"Current accuracy-first paired comparison: code {d['current_accuracy_first_comparison']['code_correct_task_decisions']}/{d['current_accuracy_first_comparison']['cases']} correct decisions vs neural pipeline {d['current_accuracy_first_comparison']['neural_pipeline_correct_task_decisions']}/{d['current_accuracy_first_comparison']['cases']}. Network value: {d['current_accuracy_first_comparison']['network_earns_its_cost']}. No new weights or promotion.\n" if 'current_accuracy_first_comparison' in d else '')
        +(f"A separate weight-scaling candidate was programmed from {d['weight_search_candidate']['trial_count']} seeded trials; loss improved but dev exact graphs remain {d['weight_search_candidate']['dev_exact_graph_matches']}/{d['weight_search_candidate']['dev_supported_cases']}. Not promoted; no demonstrated neural utility gain.\n" if 'weight_search_candidate' in d else '')
+       +('Bounded warm-cache/atomic-round support is observed. It changes runtime reuse, not neural weights, semantic accuracy or antivirus activation.\n' if 'runtime_support' in d else '')
        +'<!-- MODEL_STATUS_END -->')
     for name in ['README.md','model/MODEL_CARD.md']:
         path=ROOT/name;text=path.read_text()

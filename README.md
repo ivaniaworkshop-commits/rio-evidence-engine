@@ -27,7 +27,7 @@ The core uses the standard library to reduce setup requirements. Graph schedulin
 
 ## Verification
 
-Ninety-three tests (including four optional Node-based dashboard checks) cover graph scheduling, paired metrics, numeric boundaries, budget reserve, schema limits, journal consistency and incomplete-line handling. Actual execution results are recorded in VALIDATION.json. Regression tests include malformed inputs, CLI subprocesses, and dependency invariants across 64 seeded synthetic graphs. The demo uses authored synthetic values; it is not a benchmark or evidence of real-world performance improvement.
+One hundred five tests (including four optional Node-based dashboard checks) cover graph scheduling, paired metrics, numeric boundaries, budget reserve, schema limits, journal consistency and incomplete-line handling. Actual execution results are recorded in VALIDATION.json. Regression tests include malformed inputs, CLI subprocesses, and dependency invariants across 64 seeded synthetic graphs. The demo uses authored synthetic values; it is not a benchmark or evidence of real-world performance improvement.
 
 ## Limits
 
@@ -182,7 +182,7 @@ Context refusal is not correct semantic abstention and does not pass extraction.
 <!-- MODEL_STATUS_START -->
 ## Current model status (evidence synchronized)
 
-Río ByteGRU is a **small neural language model, not an LLM**: 17,344 parameters, 250 observed training steps. Checkpoint saved and reloaded. Project suite: 93 passing local tests.
+Río ByteGRU is a **small neural language model, not an LLM**: 17,344 parameters, 250 observed training steps. Checkpoint saved and reloaded. Project suite: 105 passing local tests.
 
 Current free generation rejects prompt-plus-output budgets above 128 UTF-8 bytes. The extraction fixture has 28 context rejections, not semantic abstentions. Neural extraction is not established. Hybrid arithmetic remains deterministic. Optional neural ranking showed no output benefit in the paired 42-case comparison. Earlier low loss and failed raw-generation probes are historical, not current capability certificates.
 Experimental recurrent prefill processes up to 4096 prompt bytes; observed full processing in 28/28 cases, but 0/24 exact graphs and 0/4 correct abstentions. No weights changed.
@@ -191,6 +191,7 @@ Separate closed-grammar decoding: 94/94 structurally valid outputs, but 0/78 exa
 Code-grounded durations: 312/312 fields correct, but exact graphs 0/78. Code abstentions are not learned neural ability.
 Current accuracy-first paired comparison: code 94/94 correct decisions vs neural pipeline 16/94. Network value: NO_ON_THIS_SCOPE_WITH_CURRENT_WEIGHTS. No new weights or promotion.
 A separate weight-scaling candidate was programmed from 96 seeded trials; loss improved but dev exact graphs remain 0/78. Not promoted; no demonstrated neural utility gain.
+Bounded warm-cache/atomic-round support is observed. It changes runtime reuse, not neural weights, semantic accuracy or antivirus activation.
 <!-- MODEL_STATUS_END -->
 
 ## Experimental full recurrent prefill
@@ -256,3 +257,30 @@ Seven ablated groups and 96 seeded scaling vectors were evaluated; selected
 factors were saved to a separate checkpoint and reloaded. Train loss improved
 0.1510 -> 0.1451, but dev remains 0/78 exact graphs and 0/16 correct abstentions.
 No new default, task benefit, positive ROI or LLM success is claimed.
+
+## Warmup, public precomputation and bounded automatic rounds
+
+[Automation card](runtime/AUTOMATION_CARD.txt) · [Observed rounds](runtime/AUTO_ROUND_RESULT.json) · [Atomic Q6](runtime/ATOMIC_Q6.txt).
+
+```sh
+python -m rio_evidence.autoround --rounds 3 --max-actions 3
+python -m rio_evidence.warm_session --max-requests 1000
+```
+
+Automatic rounds recalculate the queue around every allowlisted derived action.
+The persistent JSONL session fills a bounded LRU on demand; optional
+`--prewarm-public` loads only the published synthetic precompute. Returned results
+are isolated copies. Invalidating duration-parser atoms preserves unrelated
+numeric-cache entries. No arbitrary commands, code/weight changes, publication
+or network calls are accepted from runtime input.
+
+Local cache median was 0.0163 ms vs 0.0417 ms direct; bootstrap/prewarm
+was 23.48 ms, with an estimated break-even of 925 reuses.
+This is repeated-input evidence, not an unconditional end-to-end speedup. Memory cache lasts per process; public
+precomputed artifacts can be reused across processes with matching revisions.
+Guards borrow the fail-closed evidence principle; no antivirus runtime is active.
+
+After authorized source changes: validate; run `python scripts/build_public_precompute.py`
+if parser revisions changed; synchronize descriptions/snapshot; then run
+`python scripts/refresh_manifest.py`. The runtime never repairs a failed
+manifest automatically.

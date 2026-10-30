@@ -93,7 +93,7 @@ a separate delta; no context extension or retraining occurred.
 <!-- MODEL_STATUS_START -->
 ## Current model status (evidence synchronized)
 
-Río ByteGRU is a **small neural language model, not an LLM**: 17,344 parameters, 250 observed training steps. Checkpoint saved and reloaded. Project suite: 93 passing local tests.
+Río ByteGRU is a **small neural language model, not an LLM**: 17,344 parameters, 250 observed training steps. Checkpoint saved and reloaded. Project suite: 105 passing local tests.
 
 Current free generation rejects prompt-plus-output budgets above 128 UTF-8 bytes. The extraction fixture has 28 context rejections, not semantic abstentions. Neural extraction is not established. Hybrid arithmetic remains deterministic. Optional neural ranking showed no output benefit in the paired 42-case comparison. Earlier low loss and failed raw-generation probes are historical, not current capability certificates.
 Experimental recurrent prefill processes up to 4096 prompt bytes; observed full processing in 28/28 cases, but 0/24 exact graphs and 0/4 correct abstentions. No weights changed.
@@ -102,6 +102,7 @@ Separate closed-grammar decoding: 94/94 structurally valid outputs, but 0/78 exa
 Code-grounded durations: 312/312 fields correct, but exact graphs 0/78. Code abstentions are not learned neural ability.
 Current accuracy-first paired comparison: code 94/94 correct decisions vs neural pipeline 16/94. Network value: NO_ON_THIS_SCOPE_WITH_CURRENT_WEIGHTS. No new weights or promotion.
 A separate weight-scaling candidate was programmed from 96 seeded trials; loss improved but dev exact graphs remain 0/78. Not promoted; no demonstrated neural utility gain.
+Bounded warm-cache/atomic-round support is observed. It changes runtime reuse, not neural weights, semantic accuracy or antivirus activation.
 <!-- MODEL_STATUS_END -->
 
 ## Experimental streaming update
@@ -152,3 +153,10 @@ See NETWORK_VALUE_CARD.md; earlier narrow baselines remain historical.
 A separate candidate scales seven groups after 96 seeded trials selected only
 by train-subset loss. It fails dev (0/78 exact graphs, 0/16 correct abstentions)
 and is not promoted. See WEIGHT_SEARCH_CARD.md. Earlier checkpoints unchanged.
+
+## Runtime support update
+
+Bounded code-only warmup/precompute/cache and automatic derived-work rounds are
+now available. They do not change weights, extraction capability, model value
+or antivirus activation. Prior failed neural gates and original checkpoints
+remain unchanged. See runtime/AUTOMATION_CARD.txt for measured costs and limits.

@@ -1,0 +1,1662 @@
+{
+  "rounds": [
+    {
+      "scope": "BOUNDED_LOCAL_DERIVED_WORK_NOT_AUTONOMOUS_SOURCE_OR_MODEL_EVOLUTION",
+      "status": "READY_NO_ELIGIBLE_ACTION",
+      "source_guard": {
+        "verified_files": 118,
+        "scope": "BYTE_IDENTITY_AND_INVENTORY_ONLY"
+      },
+      "revision": "710445963021bc9ba3cec29b7ae6dde4c63e13812c62a9757762fec254ed0c9b",
+      "new_actions": [
+        {
+          "action": "PREWARM_MEMORY",
+          "status": "OBSERVED_COMPLETED",
+          "result": {
+            "revision": "710445963021bc9ba3cec29b7ae6dde4c63e13812c62a9757762fec254ed0c9b",
+            "entries": 94,
+            "capacity": 128,
+            "hits": 0,
+            "misses": 0,
+            "evictions": 0,
+            "warm": true,
+            "scope": "PROCESS_LOCAL_NOT_CONTINUOUS_BACKGROUND_RUNTIME"
+          }
+        },
+        {
+          "action": "MEASURE_CACHE",
+          "status": "OBSERVED_COMPLETED",
+          "result": {
+            "cases": 94,
+            "repetitions": 5,
+            "paired_equal_results": 470,
+            "direct_median_ms": 0.04173300021648174,
+            "cached_median_ms": 0.01632999919820577,
+            "median_saving_ms": 0.025403001018275972,
+            "scope": "LOCAL_REPEATED_PUBLIC_INPUTS_NOT_UNIQUE_REQUEST_OR_NEURAL_SPEEDUP",
+            "memory_prewarm_ms": 3.4865580000769114,
+            "bootstrap_guard_and_package_ms": 19.992116000139504,
+            "reuse_break_even_estimate": 925,
+            "break_even_scope": "Estimate covers controller bootstrap and memory prewarm, excludes interpreter/import startup; assumes repeated public workload and this measured median saving."
+          }
+        }
+      ],
+      "rankings_recomputed": [
+        [
+          {
+            "action": "PREWARM_MEMORY",
+            "eligible": true,
+            "score": 10.78,
+            "features": [
+              3,
+              1,
+              3,
+              4,
+              1,
+              0.02
+            ],
+            "dependencies": [
+              "valid_precompute"
+            ],
+            "score_state": "LOCAL_ORDINAL_HEURISTIC_NOT_OBSERVED_ROI"
+          },
+          {
+            "action": "MEASURE_CACHE",
+            "eligible": false,
+            "score": 5.88,
+            "features": [
+              2,
+              4,
+              4,
+              2,
+              2,
+              0.02
+            ],
+            "dependencies": [
+              "warm_memory"
+            ],
+            "score_state": "LOCAL_ORDINAL_HEURISTIC_NOT_OBSERVED_ROI"
+          },
+          {
+            "action": "PRECOMPUTE_PUBLIC",
+            "eligible": false,
+            "score": 5.225,
+            "features": [
+              3,
+              2,
+              3,
+              3,
+              2,
+              0.05
+            ],
+            "dependencies": [
+              "verified_source",
+              "public_authored_data"
+            ],
+            "score_state": "LOCAL_ORDINAL_HEURISTIC_NOT_OBSERVED_ROI"
+          }
+        ],
+        [
+          {
+            "action": "MEASURE_CACHE",
+            "eligible": true,
+            "score": 5.88,
+            "features": [
+              2,
+              4,
+              4,
+              2,
+              2,
+              0.02
+            ],
+            "dependencies": [
+              "warm_memory"
+            ],
+            "score_state": "LOCAL_ORDINAL_HEURISTIC_NOT_OBSERVED_ROI"
+          },
+          {
+            "action": "PREWARM_MEMORY",
+            "eligible": false,
+            "score": 10.78,
+            "features": [
+              3,
+              1,
+              3,
+              4,
+              1,
+              0.02
+            ],
+            "dependencies": [
+              "valid_precompute"
+            ],
+            "score_state": "LOCAL_ORDINAL_HEURISTIC_NOT_OBSERVED_ROI"
+          },
+          {
+            "action": "PRECOMPUTE_PUBLIC",
+            "eligible": false,
+            "score": 5.225,
+            "features": [
+              3,
+              2,
+              3,
+              3,
+              2,
+              0.05
+            ],
+            "dependencies": [
+              "verified_source",
+              "public_authored_data"
+            ],
+            "score_state": "LOCAL_ORDINAL_HEURISTIC_NOT_OBSERVED_ROI"
+          }
+        ],
+        [
+          {
+            "action": "PREWARM_MEMORY",
+            "eligible": false,
+            "score": 10.78,
+            "features": [
+              3,
+              1,
+              3,
+              4,
+              1,
+              0.02
+            ],
+            "dependencies": [
+              "valid_precompute"
+            ],
+            "score_state": "LOCAL_ORDINAL_HEURISTIC_NOT_OBSERVED_ROI"
+          },
+          {
+            "action": "MEASURE_CACHE",
+            "eligible": false,
+            "score": 5.88,
+            "features": [
+              2,
+              4,
+              4,
+              2,
+              2,
+              0.02
+            ],
+            "dependencies": [
+              "warm_memory"
+            ],
+            "score_state": "LOCAL_ORDINAL_HEURISTIC_NOT_OBSERVED_ROI"
+          },
+          {
+            "action": "PRECOMPUTE_PUBLIC",
+            "eligible": false,
+            "score": 5.225,
+            "features": [
+              3,
+              2,
+              3,
+              3,
+              2,
+              0.05
+            ],
+            "dependencies": [
+              "verified_source",
+              "public_authored_data"
+            ],
+            "score_state": "LOCAL_ORDINAL_HEURISTIC_NOT_OBSERVED_ROI"
+          }
+        ],
+        [
+          {
+            "action": "PREWARM_MEMORY",
+            "eligible": false,
+            "score": 10.78,
+            "features": [
+              3,
+              1,
+              3,
+              4,
+              1,
+              0.02
+            ],
+            "dependencies": [
+              "valid_precompute"
+            ],
+            "score_state": "LOCAL_ORDINAL_HEURISTIC_NOT_OBSERVED_ROI"
+          },
+          {
+            "action": "MEASURE_CACHE",
+            "eligible": false,
+            "score": 5.88,
+            "features": [
+              2,
+              4,
+              4,
+              2,
+              2,
+              0.02
+            ],
+            "dependencies": [
+              "warm_memory"
+            ],
+            "score_state": "LOCAL_ORDINAL_HEURISTIC_NOT_OBSERVED_ROI"
+          },
+          {
+            "action": "PRECOMPUTE_PUBLIC",
+            "eligible": false,
+            "score": 5.225,
+            "features": [
+              3,
+              2,
+              3,
+              3,
+              2,
+              0.05
+            ],
+            "dependencies": [
+              "verified_source",
+              "public_authored_data"
+            ],
+            "score_state": "LOCAL_ORDINAL_HEURISTIC_NOT_OBSERVED_ROI"
+          }
+        ]
+      ],
+      "atomic_matrices": {
+        "atoms": [
+          "duration_parser",
+          "dependency_parser",
+          "graph_parser",
+          "numeric_engine",
+          "evidence_guard",
+          "public_precompute",
+          "graph_cache",
+          "schedule_cache",
+          "delta_planner"
+        ],
+        "edges": [
+          [
+            "duration_parser",
+            "graph_parser"
+          ],
+          [
+            "dependency_parser",
+            "graph_parser"
+          ],
+          [
+            "numeric_engine",
+            "graph_parser"
+          ],
+          [
+            "graph_parser",
+            "public_precompute"
+          ],
+          [
+            "evidence_guard",
+            "public_precompute"
+          ],
+          [
+            "public_precompute",
+            "graph_cache"
+          ],
+          [
+            "graph_parser",
+            "graph_cache"
+          ],
+          [
+            "numeric_engine",
+            "schedule_cache"
+          ]
+        ],
+        "A": [
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "A2": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "A3": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "scope": "DIRECTED_DEPENDENCY_PATH_COUNTS_NOT_CAUSAL_PROOF_OR_PHYSICAL_GEOMETRY"
+      },
+      "cache": {
+        "revision": "710445963021bc9ba3cec29b7ae6dde4c63e13812c62a9757762fec254ed0c9b",
+        "entries": 94,
+        "capacity": 128,
+        "hits": 470,
+        "misses": 0,
+        "evictions": 0,
+        "warm": true,
+        "scope": "PROCESS_LOCAL_NOT_CONTINUOUS_BACKGROUND_RUNTIME"
+      },
+      "benchmark": {
+        "cases": 94,
+        "repetitions": 5,
+        "paired_equal_results": 470,
+        "direct_median_ms": 0.04173300021648174,
+        "cached_median_ms": 0.01632999919820577,
+        "median_saving_ms": 0.025403001018275972,
+        "scope": "LOCAL_REPEATED_PUBLIC_INPUTS_NOT_UNIQUE_REQUEST_OR_NEURAL_SPEEDUP",
+        "memory_prewarm_ms": 3.4865580000769114,
+        "bootstrap_guard_and_package_ms": 19.992116000139504,
+        "reuse_break_even_estimate": 925,
+        "break_even_scope": "Estimate covers controller bootstrap and memory prewarm, excludes interpreter/import startup; assumes repeated public workload and this measured median saving."
+      },
+      "permission_boundary": {
+        "source_edits": false,
+        "weight_changes": false,
+        "network_calls": false,
+        "publishing": false,
+        "canonical_antivirus_activation": false
+      },
+      "unknowns": [
+        "Neural benefit not improved by this cache.",
+        "No proof of malware protection or general language coverage.",
+        "Cache lives per process. Shipped public precompute can be reused across processes; arbitrary user text is not persisted."
+      ]
+    },
+    {
+      "scope": "BOUNDED_LOCAL_DERIVED_WORK_NOT_AUTONOMOUS_SOURCE_OR_MODEL_EVOLUTION",
+      "status": "NO_MATERIAL_DELTA",
+      "source_guard": {
+        "verified_files": 118,
+        "scope": "BYTE_IDENTITY_AND_INVENTORY_ONLY"
+      },
+      "revision": "710445963021bc9ba3cec29b7ae6dde4c63e13812c62a9757762fec254ed0c9b",
+      "new_actions": [],
+      "rankings_recomputed": [
+        [
+          {
+            "action": "PREWARM_MEMORY",
+            "eligible": false,
+            "score": 10.78,
+            "features": [
+              3,
+              1,
+              3,
+              4,
+              1,
+              0.02
+            ],
+            "dependencies": [
+              "valid_precompute"
+            ],
+            "score_state": "LOCAL_ORDINAL_HEURISTIC_NOT_OBSERVED_ROI"
+          },
+          {
+            "action": "MEASURE_CACHE",
+            "eligible": false,
+            "score": 5.88,
+            "features": [
+              2,
+              4,
+              4,
+              2,
+              2,
+              0.02
+            ],
+            "dependencies": [
+              "warm_memory"
+            ],
+            "score_state": "LOCAL_ORDINAL_HEURISTIC_NOT_OBSERVED_ROI"
+          },
+          {
+            "action": "PRECOMPUTE_PUBLIC",
+            "eligible": false,
+            "score": 5.225,
+            "features": [
+              3,
+              2,
+              3,
+              3,
+              2,
+              0.05
+            ],
+            "dependencies": [
+              "verified_source",
+              "public_authored_data"
+            ],
+            "score_state": "LOCAL_ORDINAL_HEURISTIC_NOT_OBSERVED_ROI"
+          }
+        ],
+        [
+          {
+            "action": "PREWARM_MEMORY",
+            "eligible": false,
+            "score": 10.78,
+            "features": [
+              3,
+              1,
+              3,
+              4,
+              1,
+              0.02
+            ],
+            "dependencies": [
+              "valid_precompute"
+            ],
+            "score_state": "LOCAL_ORDINAL_HEURISTIC_NOT_OBSERVED_ROI"
+          },
+          {
+            "action": "MEASURE_CACHE",
+            "eligible": false,
+            "score": 5.88,
+            "features": [
+              2,
+              4,
+              4,
+              2,
+              2,
+              0.02
+            ],
+            "dependencies": [
+              "warm_memory"
+            ],
+            "score_state": "LOCAL_ORDINAL_HEURISTIC_NOT_OBSERVED_ROI"
+          },
+          {
+            "action": "PRECOMPUTE_PUBLIC",
+            "eligible": false,
+            "score": 5.225,
+            "features": [
+              3,
+              2,
+              3,
+              3,
+              2,
+              0.05
+            ],
+            "dependencies": [
+              "verified_source",
+              "public_authored_data"
+            ],
+            "score_state": "LOCAL_ORDINAL_HEURISTIC_NOT_OBSERVED_ROI"
+          }
+        ]
+      ],
+      "atomic_matrices": {
+        "atoms": [
+          "duration_parser",
+          "dependency_parser",
+          "graph_parser",
+          "numeric_engine",
+          "evidence_guard",
+          "public_precompute",
+          "graph_cache",
+          "schedule_cache",
+          "delta_planner"
+        ],
+        "edges": [
+          [
+            "duration_parser",
+            "graph_parser"
+          ],
+          [
+            "dependency_parser",
+            "graph_parser"
+          ],
+          [
+            "numeric_engine",
+            "graph_parser"
+          ],
+          [
+            "graph_parser",
+            "public_precompute"
+          ],
+          [
+            "evidence_guard",
+            "public_precompute"
+          ],
+          [
+            "public_precompute",
+            "graph_cache"
+          ],
+          [
+            "graph_parser",
+            "graph_cache"
+          ],
+          [
+            "numeric_engine",
+            "schedule_cache"
+          ]
+        ],
+        "A": [
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "A2": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "A3": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "scope": "DIRECTED_DEPENDENCY_PATH_COUNTS_NOT_CAUSAL_PROOF_OR_PHYSICAL_GEOMETRY"
+      },
+      "cache": {
+        "revision": "710445963021bc9ba3cec29b7ae6dde4c63e13812c62a9757762fec254ed0c9b",
+        "entries": 94,
+        "capacity": 128,
+        "hits": 470,
+        "misses": 0,
+        "evictions": 0,
+        "warm": true,
+        "scope": "PROCESS_LOCAL_NOT_CONTINUOUS_BACKGROUND_RUNTIME"
+      },
+      "benchmark": {
+        "cases": 94,
+        "repetitions": 5,
+        "paired_equal_results": 470,
+        "direct_median_ms": 0.04173300021648174,
+        "cached_median_ms": 0.01632999919820577,
+        "median_saving_ms": 0.025403001018275972,
+        "scope": "LOCAL_REPEATED_PUBLIC_INPUTS_NOT_UNIQUE_REQUEST_OR_NEURAL_SPEEDUP",
+        "memory_prewarm_ms": 3.4865580000769114,
+        "bootstrap_guard_and_package_ms": 19.992116000139504,
+        "reuse_break_even_estimate": 925,
+        "break_even_scope": "Estimate covers controller bootstrap and memory prewarm, excludes interpreter/import startup; assumes repeated public workload and this measured median saving."
+      },
+      "permission_boundary": {
+        "source_edits": false,
+        "weight_changes": false,
+        "network_calls": false,
+        "publishing": false,
+        "canonical_antivirus_activation": false
+      },
+      "unknowns": [
+        "Neural benefit not improved by this cache.",
+        "No proof of malware protection or general language coverage.",
+        "Cache lives per process. Shipped public precompute can be reused across processes; arbitrary user text is not persisted."
+      ]
+    },
+    {
+      "scope": "BOUNDED_LOCAL_DERIVED_WORK_NOT_AUTONOMOUS_SOURCE_OR_MODEL_EVOLUTION",
+      "status": "NO_MATERIAL_DELTA",
+      "source_guard": {
+        "verified_files": 118,
+        "scope": "BYTE_IDENTITY_AND_INVENTORY_ONLY"
+      },
+      "revision": "710445963021bc9ba3cec29b7ae6dde4c63e13812c62a9757762fec254ed0c9b",
+      "new_actions": [],
+      "rankings_recomputed": [
+        [
+          {
+            "action": "PREWARM_MEMORY",
+            "eligible": false,
+            "score": 10.78,
+            "features": [
+              3,
+              1,
+              3,
+              4,
+              1,
+              0.02
+            ],
+            "dependencies": [
+              "valid_precompute"
+            ],
+            "score_state": "LOCAL_ORDINAL_HEURISTIC_NOT_OBSERVED_ROI"
+          },
+          {
+            "action": "MEASURE_CACHE",
+            "eligible": false,
+            "score": 5.88,
+            "features": [
+              2,
+              4,
+              4,
+              2,
+              2,
+              0.02
+            ],
+            "dependencies": [
+              "warm_memory"
+            ],
+            "score_state": "LOCAL_ORDINAL_HEURISTIC_NOT_OBSERVED_ROI"
+          },
+          {
+            "action": "PRECOMPUTE_PUBLIC",
+            "eligible": false,
+            "score": 5.225,
+            "features": [
+              3,
+              2,
+              3,
+              3,
+              2,
+              0.05
+            ],
+            "dependencies": [
+              "verified_source",
+              "public_authored_data"
+            ],
+            "score_state": "LOCAL_ORDINAL_HEURISTIC_NOT_OBSERVED_ROI"
+          }
+        ],
+        [
+          {
+            "action": "PREWARM_MEMORY",
+            "eligible": false,
+            "score": 10.78,
+            "features": [
+              3,
+              1,
+              3,
+              4,
+              1,
+              0.02
+            ],
+            "dependencies": [
+              "valid_precompute"
+            ],
+            "score_state": "LOCAL_ORDINAL_HEURISTIC_NOT_OBSERVED_ROI"
+          },
+          {
+            "action": "MEASURE_CACHE",
+            "eligible": false,
+            "score": 5.88,
+            "features": [
+              2,
+              4,
+              4,
+              2,
+              2,
+              0.02
+            ],
+            "dependencies": [
+              "warm_memory"
+            ],
+            "score_state": "LOCAL_ORDINAL_HEURISTIC_NOT_OBSERVED_ROI"
+          },
+          {
+            "action": "PRECOMPUTE_PUBLIC",
+            "eligible": false,
+            "score": 5.225,
+            "features": [
+              3,
+              2,
+              3,
+              3,
+              2,
+              0.05
+            ],
+            "dependencies": [
+              "verified_source",
+              "public_authored_data"
+            ],
+            "score_state": "LOCAL_ORDINAL_HEURISTIC_NOT_OBSERVED_ROI"
+          }
+        ]
+      ],
+      "atomic_matrices": {
+        "atoms": [
+          "duration_parser",
+          "dependency_parser",
+          "graph_parser",
+          "numeric_engine",
+          "evidence_guard",
+          "public_precompute",
+          "graph_cache",
+          "schedule_cache",
+          "delta_planner"
+        ],
+        "edges": [
+          [
+            "duration_parser",
+            "graph_parser"
+          ],
+          [
+            "dependency_parser",
+            "graph_parser"
+          ],
+          [
+            "numeric_engine",
+            "graph_parser"
+          ],
+          [
+            "graph_parser",
+            "public_precompute"
+          ],
+          [
+            "evidence_guard",
+            "public_precompute"
+          ],
+          [
+            "public_precompute",
+            "graph_cache"
+          ],
+          [
+            "graph_parser",
+            "graph_cache"
+          ],
+          [
+            "numeric_engine",
+            "schedule_cache"
+          ]
+        ],
+        "A": [
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "A2": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "A3": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "scope": "DIRECTED_DEPENDENCY_PATH_COUNTS_NOT_CAUSAL_PROOF_OR_PHYSICAL_GEOMETRY"
+      },
+      "cache": {
+        "revision": "710445963021bc9ba3cec29b7ae6dde4c63e13812c62a9757762fec254ed0c9b",
+        "entries": 94,
+        "capacity": 128,
+        "hits": 470,
+        "misses": 0,
+        "evictions": 0,
+        "warm": true,
+        "scope": "PROCESS_LOCAL_NOT_CONTINUOUS_BACKGROUND_RUNTIME"
+      },
+      "benchmark": {
+        "cases": 94,
+        "repetitions": 5,
+        "paired_equal_results": 470,
+        "direct_median_ms": 0.04173300021648174,
+        "cached_median_ms": 0.01632999919820577,
+        "median_saving_ms": 0.025403001018275972,
+        "scope": "LOCAL_REPEATED_PUBLIC_INPUTS_NOT_UNIQUE_REQUEST_OR_NEURAL_SPEEDUP",
+        "memory_prewarm_ms": 3.4865580000769114,
+        "bootstrap_guard_and_package_ms": 19.992116000139504,
+        "reuse_break_even_estimate": 925,
+        "break_even_scope": "Estimate covers controller bootstrap and memory prewarm, excludes interpreter/import startup; assumes repeated public workload and this measured median saving."
+      },
+      "permission_boundary": {
+        "source_edits": false,
+        "weight_changes": false,
+        "network_calls": false,
+        "publishing": false,
+        "canonical_antivirus_activation": false
+      },
+      "unknowns": [
+        "Neural benefit not improved by this cache.",
+        "No proof of malware protection or general language coverage.",
+        "Cache lives per process. Shipped public precompute can be reused across processes; arbitrary user text is not persisted."
+      ]
+    }
+  ]
+}

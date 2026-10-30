@@ -141,3 +141,12 @@ Measure seven parameter-group zero ablations; sample 96 reproducible vectors
 from a five-face grid and select on train-only subset loss. Program/reload a
 separate candidate. Loss improves but dev remains 0/78 and 0/16, so no promotion
 or positive-ROI claim. Add four seed/validation/source-identity tests.
+
+## Bounded warm runtime and atomic delta controller
+
+Add isolated bounded LRU, public precompute revisions, selective atom invalidation,
+9-by-9 dependency matrices and Q6 inventory. Allowlisted derived-work rounds
+recalculate before/after actions and become idempotent without material delta.
+Add persistent JSONL session and twelve cache/guard/allowlist/snapshot tests. Observe 470
+matching results; cache-hit latency improves but setup needs repeated reuse.
+No neural/antivirus promotion or self-modifying arbitrary execution.

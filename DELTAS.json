@@ -1,7 +1,7 @@
 {
   "schema": "rio-dashboard-v1",
   "updated": "2026-10-30",
-  "tests": 93,
+  "tests": 105,
   "synthetic_graphs": 64,
   "benchmark": {
     "nodes": 2000,
@@ -48,7 +48,7 @@
   "benchmark_source_commit": "7eb02c14e23453f109604ddefaeb5c944fad05fa",
   "provenance": {
     "core_sha256": "fb232e58f1ab1260d9b74b454a0a267cd73171e0aedaf0fc4867df552fd2caf5",
-    "validation_sha256": "ee92b0cf5fe36fe61c20d6be26f48402a39a1df26bbc103e3ee6ddae20255ebd",
+    "validation_sha256": "f426b8259db966548f37941da870dad2f7130fe3a8731241b2f187a5a5857128",
     "scope": "LOCAL_EXECUTION_RECORD_BOUND_TO_SOURCE_BYTES_NOT_REMOTE_CI"
   },
   "model": {
@@ -118,7 +118,7 @@
     "semantic_extraction_status": "NOT_DEMONSTRATED_WITH_FULL_RECURRENT_PREFILL",
     "current_context_rejections": 28,
     "context_rejections_are_semantic_abstentions": false,
-    "project_tests_passed": 93,
+    "project_tests_passed": 105,
     "hybrid_role": "OPTIONAL_RANKING_OF_DETERMINISTIC_EXPLANATIONS",
     "observed_neural_value": "NO_OUTPUT_BENEFIT_IN_42_CASE_PAIRED_ABLATION",
     "historical_task_probe": "0/26 extractable durations before context safety fix",
@@ -140,7 +140,8 @@
       "model/DURATION_COPY_RESULT.json",
       "model/GRAPH_COPY_RESULT.json",
       "model/NETWORK_VALUE_RESULT.json",
-      "model/WEIGHT_SEARCH_RESULT.json"
+      "model/WEIGHT_SEARCH_RESULT.json",
+      "runtime/AUTO_ROUND_RESULT.json"
     ],
     "limits": [
       "No LLM, production reliability, human mastery or independent validation claimed.",
@@ -243,6 +244,29 @@
       "invalid_outputs": 94,
       "candidate_promoted": false,
       "checkpoint_sha256": "828555a6cc298d62f2549516721088a52eca2c38a51268d13c5f18cc7f24fb95"
+    },
+    "runtime_support": {
+      "status": "BOUNDED_LOCAL_ROUNDS_OBSERVED",
+      "round_statuses": [
+        "READY_NO_ELIGIBLE_ACTION",
+        "NO_MATERIAL_DELTA",
+        "NO_MATERIAL_DELTA"
+      ],
+      "benchmark": {
+        "cases": 94,
+        "repetitions": 5,
+        "paired_equal_results": 470,
+        "direct_median_ms": 0.04173300021648174,
+        "cached_median_ms": 0.01632999919820577,
+        "median_saving_ms": 0.025403001018275972,
+        "scope": "LOCAL_REPEATED_PUBLIC_INPUTS_NOT_UNIQUE_REQUEST_OR_NEURAL_SPEEDUP",
+        "memory_prewarm_ms": 3.4865580000769114,
+        "bootstrap_guard_and_package_ms": 19.992116000139504,
+        "reuse_break_even_estimate": 925,
+        "break_even_scope": "Estimate covers controller bootstrap and memory prewarm, excludes interpreter/import startup; assumes repeated public workload and this measured median saving."
+      },
+      "weight_changes": false,
+      "antivirus_activation": false
     }
   },
   "streaming_gate": {
@@ -315,5 +339,25 @@
     "dev_correct_abstentions": 0,
     "dev_negative_cases": 16,
     "candidate_promoted": false
+  },
+  "automatic_runtime": {
+    "round_statuses": [
+      "READY_NO_ELIGIBLE_ACTION",
+      "NO_MATERIAL_DELTA",
+      "NO_MATERIAL_DELTA"
+    ],
+    "benchmark": {
+      "cases": 94,
+      "repetitions": 5,
+      "paired_equal_results": 470,
+      "direct_median_ms": 0.04173300021648174,
+      "cached_median_ms": 0.01632999919820577,
+      "median_saving_ms": 0.025403001018275972,
+      "scope": "LOCAL_REPEATED_PUBLIC_INPUTS_NOT_UNIQUE_REQUEST_OR_NEURAL_SPEEDUP",
+      "memory_prewarm_ms": 3.4865580000769114,
+      "bootstrap_guard_and_package_ms": 19.992116000139504,
+      "reuse_break_even_estimate": 925,
+      "break_even_scope": "Estimate covers controller bootstrap and memory prewarm, excludes interpreter/import startup; assumes repeated public workload and this measured median saving."
+    }
   }
 }

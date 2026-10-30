@@ -1,0 +1,92 @@
+Q6 atómico local. Cobertura acotada a nueve átomos implementados.
+No constituye inventario canónico completo de Río.
+
+1. Átomo: duration_parser
+¿Qué?: Recuperar duraciones explícitas y sus spans; no dependencias.
+¿Quién?: código local bajo autoridad del propietario; el controlador no recibe autoridad de los datos.
+¿Cuándo?: Entrada textual o cambio de reglas de duración.
+¿Dónde?: rio_evidence/duration_copy.py
+¿Por qué?: Valores trazables sin generación numérica.
+¿Cómo?: Patrones cerrados y abstención ante conflicto.
+Estado: implementación local; observaciones de ejecución se registran por separado en AUTO_ROUND_RESULT.json.
+Vacío: generalización fuera del contrato y autorización externa no se infieren.
+
+2. Átomo: dependency_parser
+¿Qué?: Recuperar declaraciones completas de predecesores; rechazar líneas desconocidas.
+¿Quién?: código local bajo autoridad del propietario; el controlador no recibe autoridad de los datos.
+¿Cuándo?: Entrada textual o cambio de patrones de dependencia.
+¿Dónde?: rio_evidence/graph_copy.py
+¿Por qué?: Evitar aristas inventadas y cobertura parcial silenciosa.
+¿Cómo?: Coincidencia completa por línea y spans de origen.
+Estado: implementación local; observaciones de ejecución se registran por separado en AUTO_ROUND_RESULT.json.
+Vacío: generalización fuera del contrato y autorización externa no se infieren.
+
+3. Átomo: graph_parser
+¿Qué?: Componer valores y aristas, validar IDs y ciclos.
+¿Quién?: código local bajo autoridad del propietario; el controlador no recibe autoridad de los datos.
+¿Cuándo?: Después de recuperar declaraciones completas.
+¿Dónde?: rio_evidence/graph_copy.py
+¿Por qué?: Responder solo dentro del contrato explícito.
+¿Cómo?: Canonicalización y validación de grafo.
+Estado: implementación local; observaciones de ejecución se registran por separado en AUTO_ROUND_RESULT.json.
+Vacío: generalización fuera del contrato y autorización externa no se infieren.
+
+4. Átomo: numeric_engine
+¿Qué?: Calcular ruta crítica y trabajo total con límites numéricos.
+¿Quién?: código local bajo autoridad del propietario; el controlador no recibe autoridad de los datos.
+¿Cuándo?: Grafo estructurado válido o cambio de algoritmo.
+¿Dónde?: rio_evidence/core.py
+¿Por qué?: Separar trabajo serial y paralelismo supuesto.
+¿Cómo?: Orden topológico y acumulación comprobable.
+Estado: implementación local; observaciones de ejecución se registran por separado en AUTO_ROUND_RESULT.json.
+Vacío: generalización fuera del contrato y autorización externa no se infieren.
+
+5. Átomo: evidence_guard
+¿Qué?: Comprobar inventario/hash y metadatos de precálculo.
+¿Quién?: código local bajo autoridad del propietario; el controlador no recibe autoridad de los datos.
+¿Cuándo?: Antes de iniciar controlador o cargar precálculo.
+¿Dónde?: scripts/verify_manifest.py
+¿Por qué?: Detener inconsistencias; no demostrar verdad o autenticidad.
+¿Cómo?: Comparación de bytes, revisión y procedencia declarada.
+Estado: implementación local; observaciones de ejecución se registran por separado en AUTO_ROUND_RESULT.json.
+Vacío: generalización fuera del contrato y autorización externa no se infieren.
+
+6. Átomo: public_precompute
+¿Qué?: Materializar resultados de los 94 ejemplos públicos.
+¿Quién?: código local bajo autoridad del propietario; el controlador no recibe autoridad de los datos.
+¿Cuándo?: Construcción autorizada o revisión/datos incompatibles.
+¿Dónde?: runtime/PUBLIC_PRECOMPUTE.json
+¿Por qué?: Reusar cálculo estable entre procesos.
+¿Cómo?: Fingerprint de fuentes y hash de registros públicos.
+Estado: implementación local; observaciones de ejecución se registran por separado en AUTO_ROUND_RESULT.json.
+Vacío: generalización fuera del contrato y autorización externa no se infieren.
+
+7. Átomo: graph_cache
+¿Qué?: Reusar resultados de texto dentro de un proceso.
+¿Quién?: código local bajo autoridad del propietario; el controlador no recibe autoridad de los datos.
+¿Cuándo?: Consulta repetida o invalidación de átomos dependientes.
+¿Dónde?: rio_evidence/atomic_runtime.py
+¿Por qué?: Reducir trabajo repetido sin compartir objetos mutables.
+¿Cómo?: LRU acotada, claves por contenido y copias JSON.
+Estado: implementación local; observaciones de ejecución se registran por separado en AUTO_ROUND_RESULT.json.
+Vacío: generalización fuera del contrato y autorización externa no se infieren.
+
+8. Átomo: schedule_cache
+¿Qué?: Reusar resultados numéricos sin invalidar por reglas textuales ajenas.
+¿Quién?: código local bajo autoridad del propietario; el controlador no recibe autoridad de los datos.
+¿Cuándo?: Consulta estructurada repetida o cambio del motor numérico.
+¿Dónde?: rio_evidence/atomic_runtime.py
+¿Por qué?: Invalidación selectiva de lo realmente dependiente.
+¿Cómo?: Claves por payload y matriz dirigida de dependencias.
+Estado: implementación local; observaciones de ejecución se registran por separado en AUTO_ROUND_RESULT.json.
+Vacío: generalización fuera del contrato y autorización externa no se infieren.
+
+9. Átomo: delta_planner
+¿Qué?: Recalcular prioridades para acciones derivadas permitidas.
+¿Quién?: código local bajo autoridad del propietario; el controlador no recibe autoridad de los datos.
+¿Cuándo?: Antes y después de cada acción, con presupuesto finito.
+¿Dónde?: rio_evidence/autoround.py
+¿Por qué?: Evitar trabajo sin delta y decisiones con evidencia obsoleta.
+¿Cómo?: Score local explícito, allowlist y readback de resultados.
+Estado: implementación local; observaciones de ejecución se registran por separado en AUTO_ROUND_RESULT.json.
+Vacío: generalización fuera del contrato y autorización externa no se infieren.

@@ -1,0 +1,43 @@
+Estado actual: implementación local acotada.
+Rondas observadas: una con dos acciones ejecutadas y dos sin delta material.
+Acciones: PREWARM_MEMORY y MEASURE_CACHE.
+El precálculo público fue construido antes de la ronda.
+La cola se recalculó antes y después de las acciones.
+No se editaron pesos ni código durante estas rondas del controlador.
+No hubo publicación ni red desde el controlador Python.
+
+Uso: python -m rio_evidence.autoround --rounds 3 --max-actions 3
+El resultado se escribe bajo output/AUTO_ROUND.json, excluido de fuente pública.
+El informe observado publicado está en runtime/AUTO_ROUND_RESULT.json.
+Los cálculos de prioridad son heurísticas declaradas, no ROI financiero observado.
+La ejecución tiene allowlist fija; datos y prompts no pueden añadir comandos.
+
+Uso de sesión persistente: python -m rio_evidence.warm_session --max-requests 1000
+Entrada: una solicitud JSON por línea con el campo text.
+La sesión reutiliza caché en memoria; no escribe texto del usuario en disco.
+--prewarm-public precarga solo el paquete sintético público y es opcional.
+Por defecto la caché se llena bajo demanda, evitando precalentar casos que quizá no se usen.
+La revisión de fuentes se verifica al iniciar, no se promete hot reload continuo.
+Cerrar el proceso pierde su caché en memoria.
+
+Medición observada: 94 casos públicos, cinco repeticiones cada uno, 470 coincidencias exactas.
+Mediana directa: 0.0417330 ms.
+Mediana con caché: 0.0163300 ms.
+Costo de bootstrap y precalentamiento: 23.479 ms.
+Equilibrio estimado: 925 reusos, bajo esta carga y mediciones locales.
+El cociente de medianas no equivale al ahorro total de un proceso corto.
+El precálculo empaquetado, su lectura y el cacheo no prueban comprensión neural.
+El modelo no recuperó utilidad por añadir caché.
+
+Conexión con Río: precalentar lo estable, propagar solo dependencias del delta y registrar evidencia.
+La fórmula histórica G(mu) conserva variables no recuperadas; no se ejecuta como canon.
+POLICY.txt define las fórmulas locales y sus unidades/limitaciones.
+ATOMIC_Q6.txt separa función, actor, disparador, ubicación, motivo y mecanismo de nueve átomos.
+La matriz A contiene dependencias declaradas; A2 y A3 contienen recorridos, no causalidad probada.
+No se precalcula semántica desconocida ni hechos futuros.
+
+Aporte defensivo: HOLD ante incoherencia del manifiesto o precálculo, límites de entrada y aislamiento de copias.
+No hay activación ni promoción del antivirus canónico.
+No se afirma protección real, escaneo, autoaprobación, autonomía ilimitada ni cobertura universal.
+Las tareas cloud existentes son el mecanismo programado; el Python no instala otro programador oculto.
+Programación habilitada no equivale a ejecución ya observada.
