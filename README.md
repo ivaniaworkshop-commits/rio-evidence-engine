@@ -311,3 +311,10 @@ neural-capability evidence. No automatic promotion is possible. Read
 evaluation/H08_INDEPENDENT_GATE_R001.md. The full CI suite now includes the
 H08 contract tests; historical 105-test counts remain attributable to the
 older commits, not silently rewritten.
+
+## H09 deterministic capability extension
+Use python -m rio_evidence.extended_graph input.json for strict explicit
+task-description extraction. The legacy parser remains unchanged.
+A project-authored 4096-case forward-DAG exhaustive test proves only bounded
+new grammar coverage. This is not a neural improvement or hidden independent test.
+See evaluation/H09_CAPABILITY.md for the scope and negative cases.

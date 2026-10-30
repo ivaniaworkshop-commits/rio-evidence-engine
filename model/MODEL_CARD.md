@@ -182,3 +182,8 @@ graph/abstention measures and explicit cost. A self-reported external source is
 not attestation. CI demonstrates fail-closed behavior with synthetic tests only.
 Status: BLOCKED_NO_EXTERNAL_HOLDOUT; candidate_promoted=false. See
 evaluation/H08_INDEPENDENT_GATE_R001.md. Weights and parameter count unchanged.
+
+## H09 deterministic parser capability candidate
+Separate opt-in extended_graph adds four explicit surface formats and supports
+1..8 declared tasks; no new weights. Full enumerated paired capability tests
+are authored locally, not external confirmation. See evaluation/H09_CAPABILITY.md.

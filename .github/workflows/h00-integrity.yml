@@ -22,6 +22,8 @@ jobs:
           python3 demo.py
       - name: Audit H07 historical paired source and metadata
         run: python3 scripts/h07_audit.py
+      - name: H09 enumerate exact extension gain against incumbent
+        run: python3 scripts/evaluate_extended_graph.py
       - name: H08 independence gate must fail closed without external data
         run: |
           python3 -m rio_evidence.independent_gate > /tmp/h08.json
@@ -45,7 +47,7 @@ jobs:
           suite = unittest.defaultTestLoader.discover('tests')
           result = unittest.TextTestRunner(verbosity=2).run(suite)
           print('STRICT_SUITE', {'total': result.testsRun, 'failures': len(result.failures), 'errors': len(result.errors), 'skipped': len(result.skipped)})
-          if result.testsRun != 117 or result.failures or result.errors or result.skipped:
+          if result.testsRun != 129 or result.failures or result.errors or result.skipped:
               raise SystemExit(2)
           PY
       - name: H07 remeasure paired accuracy abstention and latency
