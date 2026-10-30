@@ -328,3 +328,6 @@ Evidence and limits: model/H09_RESULT.json.
 
 ## H10 wording-shift diagnostic
 Run `python scripts/evaluate_language_shift.py`; 40 positive and 12 negative cases are authored by this project and are NOT an independent benchmark. H08 baseline is corrected to the current H09 parser. No external model success or promotion is claimed.
+
+## H11 paired evaluation instrument
+python scripts/h11_run_paired.py --diagnostic --candidate h09 runs both registered systems locally on the same H10 public cases; --candidate legacy is an adverse control. Source independence and frozen-revision attestation remain unavailable. No weight change or autonomous deployment.

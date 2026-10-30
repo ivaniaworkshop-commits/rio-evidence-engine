@@ -219,5 +219,18 @@
     "candidate_promoted": false,
     "neural_weight_change": false,
     "h08_baseline": "H09_CURRENT_WORKTREE"
+  },
+  "h11_paired_runner": {
+    "status": "READY_FOR_CI_NOT_OBSERVED",
+    "candidate_registry": [
+      "h09",
+      "legacy"
+    ],
+    "case_source": "H10_INTERNAL_PUBLIC",
+    "real_execution": "IN_PROCESS_TIMED",
+    "independent_evaluator": "NOT_OBSERVED",
+    "promotion": "BLOCKED",
+    "neural_weights_changed": false,
+    "protocol": "evaluation/H11_INSTRUMENTED_PAIRS.md"
   }
 }

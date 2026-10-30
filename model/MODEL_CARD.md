@@ -199,3 +199,6 @@ semantic generalization or third-party validation. See model/H09_RESULT.json.
 
 ## H10 public wording-shift diagnostic
 40 supported and 12 unsupported project-authored examples across English, Spanish, table and prose phrasings. H08 baseline rebased on H09. No weights changed; no independent evaluator observed. See evaluation/H10_LANGUAGE_SHIFT.md.
+
+## H11 paired evaluation
+Registered candidates are executed against the H09 current baseline. Self-reported output/latency cannot count as observed, and exceptions never count as safe abstentions. No independent provenance, weight change or promotion. See evaluation/H11_INSTRUMENTED_PAIRS.md.

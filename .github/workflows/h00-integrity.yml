@@ -26,6 +26,24 @@ jobs:
         run: python3 scripts/evaluate_extended_graph.py
       - name: H10 language shift paired probe (authored, not hidden)
         run: python3 scripts/evaluate_language_shift.py
+      - name: H11 execute registered systems on same authored diagnostic
+        run: |
+          python3 scripts/h11_run_paired.py > /tmp/h11_blocked.json
+          python3 scripts/h11_run_paired.py --diagnostic --candidate h09 > /tmp/h11_h09.json
+          python3 scripts/h11_run_paired.py --diagnostic --candidate legacy > /tmp/h11_legacy.json
+          python3 - <<'PY'
+          import json
+          a=json.load(open('/tmp/h11_blocked.json'))
+          b=json.load(open('/tmp/h11_h09.json'))
+          c=json.load(open('/tmp/h11_legacy.json'))
+          assert a['status']=='BLOCKED_NO_EVALUATION_INPUT'
+          assert b['supported']==40 and b['unsupported']==12
+          assert b['baseline_supported_exact']==b['candidate_supported_exact']==0
+          assert b['baseline_correct_abstentions']==b['candidate_correct_abstentions']==12
+          assert c['candidate_supported_exact']==0 and c['candidate_correct_abstentions']==12
+          assert not b['candidate_promoted'] and not c['source_class_verified']
+          print('H11_OBSERVED', {k:b[k] for k in ['cases','supported','unsupported','candidate_wins','candidate_losses','baseline_observed_median_ms','candidate_observed_median_ms','candidate_promoted']})
+          PY
       - name: H08 independence gate must fail closed without external data
         run: |
           python3 -m rio_evidence.independent_gate > /tmp/h08.json
@@ -49,7 +67,7 @@ jobs:
           suite = unittest.defaultTestLoader.discover('tests')
           result = unittest.TextTestRunner(verbosity=2).run(suite)
           print('STRICT_SUITE', {'total': result.testsRun, 'failures': len(result.failures), 'errors': len(result.errors), 'skipped': len(result.skipped)})
-          if result.testsRun != 137 or result.failures or result.errors or result.skipped:
+          if result.testsRun != 149 or result.failures or result.errors or result.skipped:
               raise SystemExit(2)
           PY
       - name: H07 remeasure paired accuracy abstention and latency
