@@ -13,6 +13,9 @@ def main(argv=None):
         print(json.dumps({"status":"BLOCKED_NO_EVALUATION_INPUT","candidate_promoted":False}))
         return 0
     if bool(args.bundle)==args.diagnostic:raise SystemExit("EXACTLY_ONE_INPUT_REQUIRED")
+    if args.candidate=="structured_v1":
+        from rio_evidence.freeze_guard import verify_freeze
+        verify_freeze()
     if args.diagnostic:
         from evaluation.language_shift_probe import rows
         cases=[{"case_id":r["case_id"],"cluster":r["family"],"text":r["text"],"expected":r["expected"]} for r in rows()]

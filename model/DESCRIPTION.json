@@ -254,17 +254,20 @@
     "ci_run": "https://github.com/ivaniaworkshop-commits/rio-evidence-engine/actions/runs/41139621169"
   },
   "h14_structured_candidate": {
-    "status": "CLI_IMPORT_FIX_PENDING_COMPLETE_CI",
+    "status": "FROZEN_SOURCE_COMMIT_AND_BYTES_CI_PENDING",
     "candidate_file": "rio_evidence/candidate_v1.py",
-    "candidate_type": "BOUNDED_DETERMINISTIC_CSV_JSON_READER_NOT_NEURAL",
-    "supported_ids": "A..H_1_TO_8",
-    "baseline": "H09_EXTRACT_EXTENDED_GRAPH",
-    "known_h10_dev_csv_cases": 5,
-    "known_h10_dev_supported_cases": 40,
+    "frozen_commit": "178783ac678b898d369caceaefb1b22dbd76a6ce",
+    "frozen_sha256": "d6a2d051fe8b78972236d69ac76ef1466d243726ed6eafd4f7903dd5777d2eda",
+    "baseline_commit": "3d047f369059877ce0dec30bd297e6cf1a17ed99",
+    "baseline_sha256": "7d3c59473e5dda3a4b83abc0b54af6c02fb646fcbf2ad0c2acd6962bb5265171",
+    "public_dev_supported_gain": 5,
+    "public_dev_supported_cases": 40,
+    "public_dev_negative_abstentions": 12,
+    "public_dev_cluster_wins": 1,
     "external_holdout": "NOT_AVAILABLE",
-    "weights_changed": false,
-    "promotion": "BLOCKED",
-    "contract": "evaluation/H14_CANDIDATE_PROTOCOL.md",
+    "neural_weights_changed": false,
+    "model_promoted": false,
+    "source_freeze_receipt": "evaluation/H14_SOURCE_FREEZE_R001.json",
     "csv_terminal_omission": "UNOBSERVABLE_WITHOUT_DECLARED_COUNT"
   }
 }

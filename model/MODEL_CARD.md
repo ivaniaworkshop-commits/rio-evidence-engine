@@ -214,3 +214,6 @@ Strict JSON graph and CSV graph-reader optional candidate, with rejection of mis
 
 ### H14 CSV observability limit
 A terminal CSV row omitted from an otherwise valid A..N sequence cannot be inferred without an independently supplied expected task count. H14 validates present rows only; no hidden intent reconstruction is claimed. See evaluation/H14_CANDIDATE_PROTOCOL.md.
+
+### H14 freeze source receipt
+Candidate source commit 178783ac678b898d369caceaefb1b22dbd76a6ce, SHA256 d6a2d051fe8b78972236d69ac76ef1466d243726ed6eafd4f7903dd5777d2eda; baseline H09 at commit 3d047f369059877ce0dec30bd297e6cf1a17ed99, SHA256 7d3c59473e5dda3a4b83abc0b54af6c02fb646fcbf2ad0c2acd6962bb5265171. Bytes verified locally by guard; no independent source or model promotion.

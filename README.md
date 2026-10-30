@@ -340,3 +340,6 @@ Read model/EVALUATION_OBSERVATIONS_R001.json for GitHub Actions source commits/r
 
 ## H14 structured graph candidate
 Opt-in candidate rio_evidence/candidate_v1.py accepts strict complete CSV and JSON graphs, preserving H09 on previously supported inputs. Reproduce public development probe with python scripts/h14_development_probe.py; compare via python scripts/h11_run_paired.py --diagnostic --candidate structured_v1. No external hidden test or neural improvement. Freeze source before external evaluation.
+
+### H14 frozen candidate source
+See evaluation/H14_SOURCE_FREEZE_R001.json for separate immutable Git source commit IDs and byte hashes of the candidate and H09 baseline. `python scripts/h14_verify_freeze.py` fails on byte drift. H11 structured_v1 execution invokes the guard. This is not a digital signature or a verified third-party dataset. H08 external data issue #8 remains open.

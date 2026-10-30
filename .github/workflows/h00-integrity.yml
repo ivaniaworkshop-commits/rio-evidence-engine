@@ -77,6 +77,16 @@ jobs:
           assert not r['candidate_promoted'] and not r['source_class_verified']
           print('H14_OBSERVED_DEV',{'supported':r['supported'],'baseline_exact':r['baseline_supported_exact'],'candidate_exact':r['candidate_supported_exact'],'correct_abstentions':r['candidate_correct_abstentions'],'cluster_wins':r['cluster_wins'],'candidate_median_ms':r['candidate_observed_median_ms'],'baseline_median_ms':r['baseline_observed_median_ms'],'promotion':r['candidate_promoted']})
           PY
+      - name: H14 verify frozen baseline and candidate byte identity
+        run: |
+          python3 scripts/h14_verify_freeze.py > /tmp/h14_freeze.json
+          python3 - <<'PY'
+          import json
+          r=json.load(open('/tmp/h14_freeze.json'))
+          assert r['status']=='FROZEN_SOURCE_BYTES_MATCH_LOCAL_RECEIPT'
+          assert not r['candidate_promoted'] and not r['external_evaluator_authenticated']
+          print('H14_FREEZE_READBACK', {k:r[k] for k in ['status','candidate_sha256','baseline_sha256']})
+          PY
       - name: H08 independence gate must fail closed without external data
         run: |
           python3 -m rio_evidence.independent_gate > /tmp/h08.json
@@ -100,7 +110,7 @@ jobs:
           suite = unittest.defaultTestLoader.discover('tests')
           result = unittest.TextTestRunner(verbosity=2).run(suite)
           print('STRICT_SUITE', {'total': result.testsRun, 'failures': len(result.failures), 'errors': len(result.errors), 'skipped': len(result.skipped)})
-          if result.testsRun != 172 or result.failures or result.errors or result.skipped:
+          if result.testsRun != 176 or result.failures or result.errors or result.skipped:
               raise SystemExit(2)
           PY
       - name: H07 remeasure paired accuracy abstention and latency
