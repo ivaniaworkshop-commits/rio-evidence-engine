@@ -1,9 +1,5 @@
 {
-  "scope": "SOURCE_BYTE_MANIFEST_NOT_TRUTH_OR_PUBLICATION_RECEIPT",
-  "excludes": [
-    "MANIFEST.json",
-    "__pycache__/"
-  ],
+  "scope": "SOURCE_BYTES_NOT_TRUTH",
   "files": [
     {
       "path": ".gitignore",
@@ -17,23 +13,58 @@
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 1025,
-      "sha256": "527a8634dbecc5ad84b0d385c48bbe189113e66e6e953334d5de307f5f8f095a"
+      "bytes": 1289,
+      "sha256": "7d07fbf98b05d967f122167fc4839df28c098a00a49372b2ad31889fd0d497d9"
+    },
+    {
+      "path": "DELTAS.json",
+      "bytes": 1643,
+      "sha256": "ac981b5aeb8fa9bdfbbae26bcbd1340e3fe174e10818c81d6549542c31d0659d"
     },
     {
       "path": "README.md",
-      "bytes": 4494,
-      "sha256": "52b22694ef3a6ec79b61ca6d523ed9955c988ffd264517598effa3561a998dbd"
+      "bytes": 5289,
+      "sha256": "48ad62b812410a037280360a19629ac36063fd99dfee144c9b35c8317572c92b"
+    },
+    {
+      "path": "RECALCULATION.md",
+      "bytes": 1592,
+      "sha256": "443fde1f96440099e4b8c7da7e5c17add4f4e4159eaeade53e3b794d8408a809"
     },
     {
       "path": "VALIDATION.json",
-      "bytes": 4569,
-      "sha256": "828b403c04162074586107e0f7f4410345fee277dba1d84db4bc02702e7d76cc"
+      "bytes": 4368,
+      "sha256": "03f36bfe15db788e66b2f7999b243a7b517d569d760291b463ebf1386526355f"
     },
     {
       "path": "demo.py",
       "bytes": 1102,
       "sha256": "11bcb9c96b1d31dca9d4914327280dc9c1f428ef4f82bb1cf01b3a066907808a"
+    },
+    {
+      "path": "docs/app.js",
+      "bytes": 2381,
+      "sha256": "f8ff43815ec43140520e8dfcc2136e1ffda4e67d9505b803336bd384fea860e2"
+    },
+    {
+      "path": "docs/compare.js",
+      "bytes": 1467,
+      "sha256": "4d91dbe819fd79133726ff64b39c8cfda93beb4633a96db75c5fbcbe0cb325b4"
+    },
+    {
+      "path": "docs/data.json",
+      "bytes": 1643,
+      "sha256": "ac981b5aeb8fa9bdfbbae26bcbd1340e3fe174e10818c81d6549542c31d0659d"
+    },
+    {
+      "path": "docs/index.html",
+      "bytes": 5654,
+      "sha256": "a7310053af22dd64903cde3d7b0d2456400a3eedcb62bb9960de61e0c45a9332"
+    },
+    {
+      "path": "docs/style.css",
+      "bytes": 7063,
+      "sha256": "528e7585a2297e5c298f81d099b011365307e6a57de77283cc34c706ac960521"
     },
     {
       "path": "examples/compare.json",
@@ -64,6 +95,11 @@
       "path": "tests/test_core.py",
       "bytes": 4987,
       "sha256": "5a91760578d3d1d03aaaabd4505b1f4ccf3e7bee6cf55dec386231dc90a14fdf"
+    },
+    {
+      "path": "tests/test_dashboard.py",
+      "bytes": 1906,
+      "sha256": "2ca048967fa347925119c8e181b67056a368524e48ae79bcd78546ef2952169f"
     },
     {
       "path": "tests/test_regressions.py",

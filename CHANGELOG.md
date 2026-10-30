@@ -15,3 +15,9 @@ Compatibility: unrelated graph nodes may have a different deterministic ordering
 Previously accepted malformed inputs now raise ValueError. CLI syntax errors use
 argparse formatting; data errors use JSON. No user adoption or production claim
 is introduced. Existing hash serialization is preserved.
+
+## Public interface
+
+Add a static dashboard with evidence receipts, synthetic comparator and filters;
+add four browser-comparator parity checks and an explicit bounded recalculation
+policy. Five daily tasks are enabled; first execution has not yet been observed.

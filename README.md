@@ -1,5 +1,7 @@
 # Río Evidence Engine
 
+[Open the public dashboard](https://rio-evidence-engine.ivaniaworkshop.chatgpt.site) · [Inspect the delta ledger](DELTAS.json)
+
 A small, offline Python prototype for reproducible task dependencies, paired evaluation and evidence journals. Extracted from AI-assisted preparation work in the Río project. This repository exposes a bounded engineering component; it does not expose the private Río knowledge corpus.
 
 ## Run
@@ -25,7 +27,7 @@ The core uses the standard library to reduce setup requirements. Graph schedulin
 
 ## Verification
 
-Twenty-three functional tests cover graph scheduling, paired metrics, numeric boundaries, budget reserve, schema limits, journal consistency and incomplete-line handling. Actual execution results are recorded in VALIDATION.json. Regression tests include malformed inputs, CLI subprocesses, and dependency invariants across 64 seeded synthetic graphs. The demo uses authored synthetic values; it is not a benchmark or evidence of real-world performance improvement.
+Twenty-seven tests (including four optional Node-based dashboard checks) cover graph scheduling, paired metrics, numeric boundaries, budget reserve, schema limits, journal consistency and incomplete-line handling. Actual execution results are recorded in VALIDATION.json. Regression tests include malformed inputs, CLI subprocesses, and dependency invariants across 64 seeded synthetic graphs. The demo uses authored synthetic values; it is not a benchmark or evidence of real-world performance improvement.
 
 ## Limits
 
@@ -70,3 +72,15 @@ change. See CHANGELOG.md for fixes and compatibility notes. The journal remains
 single-writer, reads the full history on append, and has no locking or durable
 transaction guarantee. CLI commands read local files only; no model API or
 service is started.
+
+## Public dashboard
+
+The main visual interface is in `docs/`: a static evidence dashboard with linked
+receipts, a synthetic browser-local comparator, delta filters and explicit
+snapshot dates. It reads bundled `data.json`, not live Python execution.
+Reload refreshes the deployed snapshot; it does not run tests or trigger an
+automation. Browser examples stay local and make no model calls.
+
+Run the full suite with Python and Node available to include comparator parity
+checks. Without Node, four dashboard tests are explicitly skipped. See
+RECALCULATION.md for the bounded improvement policy and scheduled review roles.

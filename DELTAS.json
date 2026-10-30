@@ -1,0 +1,49 @@
+{
+  "schema": "rio-dashboard-v1",
+  "updated": "2026-10-30",
+  "source_commit": "7eb02c14e23453f109604ddefaeb5c944fad05fa",
+  "tests": 27,
+  "synthetic_graphs": 64,
+  "benchmark": {
+    "nodes": 2000,
+    "baseline_ms": 214.15827500004525,
+    "candidate_ms": 2.222654000206603
+  },
+  "scope": "LOCAL_EXECUTION_NOT_PRODUCTION",
+  "automation": {
+    "status": "SCHEDULED_NOT_YET_OBSERVED",
+    "detail": "Five daily tasks enabled, starting 2026-10-31: improvement ~08:00; correctness ~10:00; security ~12:00; performance ~14:00; dashboard ~16:00, Mexico City time. Only improvement may publish. No completed run is claimed."
+  },
+  "deltas": [
+    {
+      "title": "Strict input contracts",
+      "state": "VERIFIED",
+      "value": "Reject ambiguous dependencies and fractional counts.",
+      "evidence": "tests/test_regressions.py"
+    },
+    {
+      "title": "Inspectable JSON CLI",
+      "state": "VERIFIED",
+      "value": "Run schedules, paired evaluations and journal checks from local JSON.",
+      "evidence": "rio_evidence/__main__.py"
+    },
+    {
+      "title": "Graph traversal",
+      "state": "MEASURED",
+      "value": "Replace repeated scans with a heap-based topological traversal.",
+      "evidence": "BENCHMARK.json"
+    },
+    {
+      "title": "Journal consistency",
+      "state": "VERIFIED",
+      "value": "Reject duplicate JSON keys and incomplete final lines.",
+      "evidence": "tests/test_regressions.py"
+    },
+    {
+      "title": "Public evidence dashboard",
+      "state": "VERIFIED",
+      "value": "Expose evidence and a browser-local synthetic comparison.",
+      "evidence": "docs/index.html"
+    }
+  ]
+}
