@@ -20,3 +20,25 @@ jobs:
           python3 -m rio_evidence schedule examples/schedule.json
           python3 -m rio_evidence compare examples/compare.json
           python3 demo.py
+  strict-torch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Verify source before installing dependencies
+        run: python3 scripts/verify_manifest.py
+      - name: Install declared optional CPU runtime
+        run: |
+          python3 -m venv .venv
+          .venv/bin/python -m pip install -r model/requirements-cpu.txt
+          .venv/bin/python -c 'import torch; print("torch", torch.__version__)'
+      - name: Run complete suite; reject every skip
+        run: |
+          .venv/bin/python - <<'PY'
+          import unittest
+          suite = unittest.defaultTestLoader.discover('tests')
+          result = unittest.TextTestRunner(verbosity=2).run(suite)
+          print('STRICT_SUITE', {'total': result.testsRun, 'failures': len(result.failures), 'errors': len(result.errors), 'skipped': len(result.skipped)})
+          if result.testsRun != 105 or result.failures or result.errors or result.skipped:
+              raise SystemExit(2)
+          PY
