@@ -1,6 +1,6 @@
 {
   "schema": "OBSERVED_MODEL_DESCRIPTION_V1",
-  "name": "R\u00edo ByteGRU",
+  "name": "Río ByteGRU",
   "kind": "SMALL_NEURAL_LANGUAGE_MODEL_NOT_LLM",
   "architecture": "byte embedding16 -> GRU32 -> 256 logits",
   "parameters": 17344,
@@ -160,5 +160,26 @@
     },
     "weight_changes": false,
     "antivirus_activation": false
+  },
+  "verification_h00_strict_2026_10_30": {
+    "test_total": 105,
+    "passed": 105,
+    "failed": 0,
+    "skipped": 0,
+    "torch_version": "2.15.0+cpu",
+    "main_commit": "79971e88bbb82ef68a0e529c35a7721b45d654df",
+    "github_run": "https://github.com/ivaniaworkshop-commits/rio-evidence-engine/actions/runs/41129448556",
+    "meaning": "UNIT_TESTS_ONLY_NOT_HIDDEN_COMPETITION_OR_GENERALIZATION"
+  },
+  "h01_authority": {
+    "status": "OFFICIAL_ACCEPTANCE_UNVERIFIED",
+    "evidence": "competition/ACCEPTANCE_AUTHORITY_R001.json"
+  },
+  "h07_value_gate": {
+    "status": "NEURAL_GAIN_NOT_DEMONSTRATED_ON_AUTHORED_DEV",
+    "audit_script": "scripts/h07_audit.py",
+    "baseline": "evaluation/H07_GATE_R001.md",
+    "live_ci_remeasurement": "PENDING_RUN_NOT_CLAIMED",
+    "no_parameter_change": true
   }
 }

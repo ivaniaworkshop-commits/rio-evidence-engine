@@ -160,3 +160,16 @@ Bounded code-only warmup/precompute/cache and automatic derived-work rounds are
 now available. They do not change weights, extraction capability, model value
 or antivirus activation. Prior failed neural gates and original checkpoints
 remain unchanged. See runtime/AUTOMATION_CARD.txt for measured costs and limits.
+
+## H00 strict-suite and H01/H07 evidence status (2026-10-30)
+
+GitHub Actions on main commit 79971e88bbb82ef68a0e529c35a7721b45d654df
+executed the full declared PyTorch 2.15.0+cpu suite: 105 tests, zero
+failures, zero errors and zero skips. This is in-repository functional
+coverage, not organizer hidden testing or external validity. H01's
+official acceptance rules are explicitly UNVERIFIED:
+see competition/ACCEPTANCE_AUTHORITY_R001.json.
+H07 audits a frozen 94-case authored-dev paired comparison and repeats it
+on a separate CPU-torch CI runner: see evaluation/H07_GATE_R001.md.
+Neural accuracy gain remains NOT_DEMONSTRATED. No weights or active
+model behavior have been changed by these documentation and audit gates.

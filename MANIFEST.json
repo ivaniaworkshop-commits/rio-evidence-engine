@@ -3,8 +3,8 @@
   "files": [
     {
       "path": ".github/workflows/h00-integrity.yml",
-      "bytes": 1767,
-      "sha256": "fe1b05b3f43e31d144f85440c397848a68471f1a4cebb27b2ade4aaa05132ac4"
+      "bytes": 2062,
+      "sha256": "7262852ccb4114add1d5319c8df7fc9526a8aa87def9892bb491b89bd636dcba"
     },
     {
       "path": ".gitignore",
@@ -20,6 +20,11 @@
       "path": "CHANGELOG.md",
       "bytes": 7784,
       "sha256": "acdeda50ae2dbaffd3ef785ba8eeda512ab0d37ae4f566e77014c1ea9837ecf5"
+    },
+    {
+      "path": "competition/ACCEPTANCE_AUTHORITY_R001.json",
+      "bytes": 2666,
+      "sha256": "154e55e37cf4431c3aa1a4719c00c9d3b7238e5ac4ef538743529aefe162aade"
     },
     {
       "path": "competition/ACCEPTANCE.md",
@@ -77,6 +82,11 @@
       "sha256": "4332e8f123aa286757fc50a07666ff6880a25482aa7390338692a090399292da"
     },
     {
+      "path": "evaluation/H07_GATE_R001.md",
+      "bytes": 1946,
+      "sha256": "0548f82fa86cede2170f4fd620a2dec12868176a24199990c41cfd5020b9aa76"
+    },
+    {
       "path": "evaluation/semantic_fixture.jsonl",
       "bytes": 12787,
       "sha256": "ccacc929761d2cb841f0b187a939198cf8f05660374a668e4d9f7b18a29cd0d2"
@@ -108,8 +118,8 @@
     },
     {
       "path": "model/DESCRIPTION.json",
-      "bytes": 5840,
-      "sha256": "031b1ac7c45797514fdf037671d6a0ccdcf20d6f16aafe696a703058e8bce317"
+      "bytes": 6643,
+      "sha256": "6feaedd5abc769ec9d9a64f4af5a12daf4fa2814ef7c9e40a28949d1b85d278a"
     },
     {
       "path": "model/DURATION_COPY_CARD.md",
@@ -163,8 +173,8 @@
     },
     {
       "path": "model/MODEL_CARD.md",
-      "bytes": 9364,
-      "sha256": "35a6d6789f40dc8f581e32a51db9136ced7a03eb324125fa53fd24b7c0fbc19e"
+      "bytes": 10089,
+      "sha256": "d4266f61b337213f8c6f2c5b83943ee56a1d40c4d0cbc2c28e077bc59a6df476"
     },
     {
       "path": "model/NETWORK_VALUE_CARD.md",
@@ -228,8 +238,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 17172,
-      "sha256": "b5615d7566640cde2d511bd1cfe643a67deb4a0314ddd7b74afb147412227f08"
+      "bytes": 18075,
+      "sha256": "18a14c8d1e731de775ae329b651f0d705c9d36c460d535a9be2507b0ba06362e"
     },
     {
       "path": "RECALCULATION.md",
@@ -425,6 +435,11 @@
       "path": "scripts/evaluate_streaming_gate.py",
       "bytes": 2169,
       "sha256": "e955ea49da33dc2e57727bc907b60a1b9742d0571199b1ea25a5caaebc666dd5"
+    },
+    {
+      "path": "scripts/h07_audit.py",
+      "bytes": 6040,
+      "sha256": "a0221c3a7f39a57777ea5f92f8c5bad4023d518c0ccff691ec8ba085d93577ae"
     },
     {
       "path": "scripts/prioritize_deltas.py",
