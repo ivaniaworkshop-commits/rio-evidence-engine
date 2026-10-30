@@ -53,3 +53,10 @@ No LLM training or observed prediction accuracy is claimed.
 Train a 17,344-parameter byte GRU on the public practice corpus, evaluate shared-template
 holdout, save/reload checkpoint and observe generation. Include optional runtime
 requirements and three additional tests. Output is unreliable; no LLM claim.
+
+## Grounded hybrid inference
+
+Add exact schedule answering with optional learned ranking of three grounded
+English candidates. Preserve deterministic fallback and invalid-graph rejection.
+Add four tests and 42 authored graph evaluations against an exhaustive oracle.
+No new training or improvement in free neural arithmetic is claimed.

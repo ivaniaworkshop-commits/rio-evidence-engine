@@ -27,7 +27,7 @@ The core uses the standard library to reduce setup requirements. Graph schedulin
 
 ## Verification
 
-Forty-seven tests (including four optional Node-based dashboard checks) cover graph scheduling, paired metrics, numeric boundaries, budget reserve, schema limits, journal consistency and incomplete-line handling. Actual execution results are recorded in VALIDATION.json. Regression tests include malformed inputs, CLI subprocesses, and dependency invariants across 64 seeded synthetic graphs. The demo uses authored synthetic values; it is not a benchmark or evidence of real-world performance improvement.
+Fifty-one tests (including four optional Node-based dashboard checks) cover graph scheduling, paired metrics, numeric boundaries, budget reserve, schema limits, journal consistency and incomplete-line handling. Actual execution results are recorded in VALIDATION.json. Regression tests include malformed inputs, CLI subprocesses, and dependency invariants across 64 seeded synthetic graphs. The demo uses authored synthetic values; it is not a benchmark or evidence of real-world performance improvement.
 
 ## Limits
 
@@ -138,3 +138,17 @@ for exact train/inference commands and evaluation limits.
 Observed neural task probe: 0/26 durations extractable in the specified format;
 0 exact numeric matches. See model/TASK_EVALUATION.json. Training-loss reduction
 did not translate into demonstrated scheduling-answer ability.
+
+## Functional bounded hybrid interface
+
+```sh
+python -m rio_evidence.hybrid examples/schedule.json
+python -m rio_evidence.hybrid examples/schedule.json --neural
+python scripts/evaluate_hybrid.py
+```
+
+Deterministic code calculates numbers and constructs three grounded explanations.
+The optional trained model ranks those candidates; failure falls back to a
+known template. [Hybrid evaluation](model/HYBRID_EVALUATION.json) separates that
+system behavior from the unchanged failed free-generation probe. It does not
+show that neural ranking improves accuracy or explanation quality over code alone.

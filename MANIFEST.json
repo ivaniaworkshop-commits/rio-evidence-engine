@@ -13,18 +13,18 @@
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 2837,
-      "sha256": "0a13e57bf42523d07deaea5da45cf33101ff6e7f73b39d650986ec6374394db2"
+      "bytes": 3174,
+      "sha256": "4a891cf4f72687c7965f7ec212c17897130d55486e0aff0b703fc8b604513fdf"
     },
     {
       "path": "DELTAS.json",
       "bytes": 2145,
-      "sha256": "50f4a439268dffdffd4d6704634f2d0a4a5113eba54e9bfa0b483af8f1a4f64b"
+      "sha256": "a2f6ff78500eac1d9532da3d9117be2de938c2e3b60a0896e870242647be75c5"
     },
     {
       "path": "README.md",
-      "bytes": 8358,
-      "sha256": "b16f4a2c9d18627a47e539451875ca68456cfebae9f7a3d2091ff9232111362b"
+      "bytes": 8955,
+      "sha256": "a0a32dd04cbcbb7325b7b02252b20a8b0dd3cabbdb36f80513a58fd23947890c"
     },
     {
       "path": "RECALCULATION.md",
@@ -33,8 +33,8 @@
     },
     {
       "path": "VALIDATION.json",
-      "bytes": 6429,
-      "sha256": "023a068edda1eee891c379c089bc1ac8c8e472ef6aa2ec4376d56984e0c8c747"
+      "bytes": 7357,
+      "sha256": "3a56f96ec327655139acd65d10353ab9ddabfa32a67e9a8744df518ffd698069"
     },
     {
       "path": "VALIDATION_ACCOUNT.json",
@@ -63,8 +63,8 @@
     },
     {
       "path": "docs/app.js",
-      "bytes": 2824,
-      "sha256": "0ae404e0c06d25857f874a482fc43c46859bc64304baa1c94a047b5d5267f98b"
+      "bytes": 2951,
+      "sha256": "f868dbee0273cab74bf462f7471ecf46c9c8df99c4efa1adc28564a4323ac3e1"
     },
     {
       "path": "docs/compare.js",
@@ -74,7 +74,7 @@
     {
       "path": "docs/data.json",
       "bytes": 2145,
-      "sha256": "50f4a439268dffdffd4d6704634f2d0a4a5113eba54e9bfa0b483af8f1a4f64b"
+      "sha256": "a2f6ff78500eac1d9532da3d9117be2de938c2e3b60a0896e870242647be75c5"
     },
     {
       "path": "docs/index.html",
@@ -97,9 +97,14 @@
       "sha256": "ab1044a7cd5cf064cfbd25f2e080e89e137b9b0de78ae53c5cd736724ccf8afa"
     },
     {
+      "path": "model/HYBRID_EVALUATION.json",
+      "bytes": 43988,
+      "sha256": "a3109b416195a9aaf8cdcdb3bf7517ff5d55fe9a807146dab5c87063d875b1bb"
+    },
+    {
       "path": "model/MODEL_CARD.md",
-      "bytes": 2520,
-      "sha256": "27e55f9dd5988f4cd77f94dcee300885a8d7cf32c0658f51cd6a54e19471f3a5"
+      "bytes": 3286,
+      "sha256": "f2ae6a1bba22f8d10f05762e33a74f84f516816c22ff2a6c6171c2886589cc61"
     },
     {
       "path": "model/TASK_EVALUATION.json",
@@ -152,6 +157,11 @@
       "sha256": "fb232e58f1ab1260d9b74b454a0a267cd73171e0aedaf0fc4867df552fd2caf5"
     },
     {
+      "path": "rio_evidence/hybrid.py",
+      "bytes": 3922,
+      "sha256": "755a92c934a88f91c06d7e9da3a61450b62ba130ce1ec10f7c5085532b7d668f"
+    },
+    {
       "path": "rio_evidence/json_io.py",
       "bytes": 930,
       "sha256": "5221e5ffc6b716915b703807b441c6f34eb8891d54179e78e81cb988d3b56039"
@@ -170,6 +180,11 @@
       "path": "scripts/build_answer_matrix.py",
       "bytes": 2360,
       "sha256": "12dcc16e6147b7091d525c0f2e9d5cd423d6bfd09431ec8959d2a76a20899c44"
+    },
+    {
+      "path": "scripts/evaluate_hybrid.py",
+      "bytes": 2267,
+      "sha256": "bc2bed81a29e06c157c7cc428a5a5956934c926617821d21ecc731e4a42bf1ed"
     },
     {
       "path": "scripts/evaluate_neural_tasks.py",
@@ -200,6 +215,11 @@
       "path": "tests/test_dashboard.py",
       "bytes": 1906,
       "sha256": "2ca048967fa347925119c8e181b67056a368524e48ae79bcd78546ef2952169f"
+    },
+    {
+      "path": "tests/test_hybrid.py",
+      "bytes": 1140,
+      "sha256": "3bd44e14d2969694d978c78f8f0bfc8ef3e3276e32b072c4397bb763be528ef4"
     },
     {
       "path": "tests/test_json_io.py",

@@ -1,7 +1,7 @@
 {
   "schema": "rio-dashboard-v1",
   "updated": "2026-10-30",
-  "tests": 47,
+  "tests": 51,
   "synthetic_graphs": 64,
   "benchmark": {
     "nodes": 2000,
@@ -48,7 +48,7 @@
   "benchmark_source_commit": "7eb02c14e23453f109604ddefaeb5c944fad05fa",
   "provenance": {
     "core_sha256": "fb232e58f1ab1260d9b74b454a0a267cd73171e0aedaf0fc4867df552fd2caf5",
-    "validation_sha256": "023a068edda1eee891c379c089bc1ac8c8e472ef6aa2ec4376d56984e0c8c747",
+    "validation_sha256": "3a56f96ec327655139acd65d10353ab9ddabfa32a67e9a8744df518ffd698069",
     "scope": "LOCAL_EXECUTION_RECORD_BOUND_TO_SOURCE_BYTES_NOT_REMOTE_CI"
   },
   "model": {
