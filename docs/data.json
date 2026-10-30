@@ -1,7 +1,7 @@
 {
   "schema": "rio-dashboard-v1",
   "updated": "2026-10-30",
-  "tests": 69,
+  "tests": 73,
   "synthetic_graphs": 64,
   "benchmark": {
     "nodes": 2000,
@@ -48,7 +48,7 @@
   "benchmark_source_commit": "7eb02c14e23453f109604ddefaeb5c944fad05fa",
   "provenance": {
     "core_sha256": "fb232e58f1ab1260d9b74b454a0a267cd73171e0aedaf0fc4867df552fd2caf5",
-    "validation_sha256": "d8de481f1d761b8b8082637413a2dbaadb0537e13ebe3dd3a423b23950fa8d6d",
+    "validation_sha256": "dfae946bff69717c624049dc7847b9ee985268fc23b27ca8b583a568873a6075",
     "scope": "LOCAL_EXECUTION_RECORD_BOUND_TO_SOURCE_BYTES_NOT_REMOTE_CI"
   },
   "model": {
@@ -118,7 +118,7 @@
     "semantic_extraction_status": "NOT_DEMONSTRATED_WITH_FULL_RECURRENT_PREFILL",
     "current_context_rejections": 28,
     "context_rejections_are_semantic_abstentions": false,
-    "project_tests_passed": 69,
+    "project_tests_passed": 73,
     "hybrid_role": "OPTIONAL_RANKING_OF_DETERMINISTIC_EXPLANATIONS",
     "observed_neural_value": "NO_OUTPUT_BENEFIT_IN_42_CASE_PAIRED_ABLATION",
     "historical_task_probe": "0/26 extractable durations before context safety fix",
@@ -134,7 +134,8 @@
       "model/MODE_ABLATION.json",
       "VALIDATION.json",
       "model/STREAMING_GATE_RESULT.json",
-      "training/EXTRACTION_DATA_AUDIT.json"
+      "training/EXTRACTION_DATA_AUDIT.json",
+      "model/EXTRACTION_TRAINING_RESULT.json"
     ],
     "limits": [
       "No LLM, production reliability, human mastery or independent validation claimed.",
@@ -152,7 +153,7 @@
       "max_output_bytes": 512
     },
     "extraction_training_data": {
-      "status": "PREPARED_NOT_TRAINED",
+      "status": "USED_FOR_SEPARATE_CANDIDATE_NOT_PROMOTED",
       "rows": 424,
       "counts": {
         "train": {
@@ -171,6 +172,19 @@
         "isomorphic_graph_with_evaluation": 0,
         "duplicate_texts_within_generated_data": 0
       }
+    },
+    "extraction_candidate": {
+      "status": "EXTRACTION_SFT_CANDIDATE_NOT_PROMOTED",
+      "steps": 500,
+      "parameters": 17344,
+      "initial_dev_masked_loss": 4.970211015281264,
+      "final_dev_masked_loss": 0.1632176822703668,
+      "dev_exact_graph_matches": 0,
+      "dev_supported_cases": 78,
+      "dev_correct_abstentions": 0,
+      "dev_negative_cases": 16,
+      "invalid_outputs": 94,
+      "checkpoint_sha256": "71515bb4638bfe9e6fce922c7242746092a5a35920d8673bf74719eb473ecbfa"
     }
   },
   "streaming_gate": {
@@ -180,7 +194,7 @@
     "correct_abstentions": 0
   },
   "extraction_data": {
-    "status": "PREPARED_NOT_TRAINED",
+    "status": "USED_FOR_SEPARATE_CANDIDATE_NOT_PROMOTED",
     "rows": 424,
     "counts": {
       "train": {
@@ -192,5 +206,16 @@
         "unsupported": 16
       }
     }
+  },
+  "extraction_candidate": {
+    "status": "EXTRACTION_SFT_CANDIDATE_NOT_PROMOTED",
+    "steps": 500,
+    "initial_dev_masked_loss": 4.970211015281264,
+    "final_dev_masked_loss": 0.1632176822703668,
+    "dev_exact_graph_matches": 0,
+    "dev_supported_cases": 78,
+    "dev_correct_abstentions": 0,
+    "dev_negative_cases": 16,
+    "invalid_outputs": 94
   }
 }

@@ -103,3 +103,11 @@ Prepare 424 authored examples for graph JSON/ABSTAIN, partitioned by topology
 signature with evaluation topology exclusion. Check normalized text duplicates
 and isomorphism overlap; freeze evaluation bytes. Add four data tests and data
 card. No weight updates or model-quality improvement claimed.
+
+## Response-only extraction SFT experiment
+
+Initialize a separate candidate from original weights; train 500 steps with
+prompt/padding loss masked and EOS target. Dev loss falls but 0/78 exact graphs,
+0/16 correct abstentions and 94 invalid rollouts prevent promotion. Preserve
+original model and evaluation fixture. Add four mask/budget/batch tests and
+artifact readback evidence. No successful extractor or LLM claim.

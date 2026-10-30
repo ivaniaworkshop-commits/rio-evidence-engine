@@ -1,7 +1,8 @@
 # Extraction training/dev data
 
-Status: generated and audited, NOT used for weight updates. Existing model and
-its observed failures remain unchanged. The old neural train command still
+Status: generated and audited; subsequently used for a separate 500-step SFT
+candidate that failed the capability gate. The original model remains unchanged.
+See ../model/EXTRACTION_MODEL_CARD.md. The old neural train command still
 trains on answer_matrix.jsonl; it must not be mistaken for extraction training.
 
 424 authored synthetic examples: train 330 (282 supported, 48 unsupported), dev

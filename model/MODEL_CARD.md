@@ -93,11 +93,11 @@ a separate delta; no context extension or retraining occurred.
 <!-- MODEL_STATUS_START -->
 ## Current model status (evidence synchronized)
 
-Río ByteGRU is a **small neural language model, not an LLM**: 17,344 parameters, 250 observed training steps. Checkpoint saved and reloaded. Project suite: 69 passing local tests.
+Río ByteGRU is a **small neural language model, not an LLM**: 17,344 parameters, 250 observed training steps. Checkpoint saved and reloaded. Project suite: 73 passing local tests.
 
 Current free generation rejects prompt-plus-output budgets above 128 UTF-8 bytes. The extraction fixture has 28 context rejections, not semantic abstentions. Neural extraction is not established. Hybrid arithmetic remains deterministic. Optional neural ranking showed no output benefit in the paired 42-case comparison. Earlier low loss and failed raw-generation probes are historical, not current capability certificates.
 Experimental recurrent prefill processes up to 4096 prompt bytes; observed full processing in 28/28 cases, but 0/24 exact graphs and 0/4 correct abstentions. No weights changed.
-Extraction training/dev corpus prepared: 424 synthetic rows, structurally separated from evaluation. Not used to update weights.
+Separate extraction candidate: 500 steps; 0/78 exact graphs, 0/16 correct abstentions, 94 invalid outputs. Status: EXTRACTION_SFT_CANDIDATE_NOT_PROMOTED. Original model unchanged.
 <!-- MODEL_STATUS_END -->
 
 ## Experimental streaming update
@@ -113,5 +113,12 @@ compression or lack of task training. Strict default remains unchanged.
 
 A separate synthetic extraction corpus is now prepared and audited: 330 train
 examples and 94 dev examples. Neither uses the positive evaluation topologies
-up to relabeling. Evaluation fixture bytes are unchanged. No training consumed
-this corpus; all model capability metrics above remain unchanged.
+up to relabeling. Evaluation fixture bytes are unchanged. At preparation time no training had consumed this corpus. A later, separate
+candidate was fine-tuned and failed its dev capability gate; see EXTRACTION_MODEL_CARD.md.
+Original-model weights and the earlier metrics remain historical and unchanged.
+
+## Separate extraction candidate
+
+EXTRACTION_MODEL_CARD.md describes the response-only SFT candidate: 500 steps,
+0/78 exact dev graphs, 0/16 correct abstentions, 94 invalid outputs. It is not
+promoted and does not replace this original model.

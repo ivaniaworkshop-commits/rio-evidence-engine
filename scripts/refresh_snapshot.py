@@ -51,6 +51,11 @@ def main():
     if extraction_path.exists():
         audit=json.loads(extraction_path.read_text())
         data['extraction_data']={'status':'PREPARED_NOT_TRAINED','rows':audit['rows'],'counts':audit['counts']}
+    candidate_path=ROOT/'model/EXTRACTION_TRAINING_RESULT.json'
+    if candidate_path.exists():
+        cand=json.loads(candidate_path.read_text())
+        data['extraction_candidate']={k:cand[k] for k in ['status','steps','initial_dev_masked_loss','final_dev_masked_loss','dev_exact_graph_matches','dev_supported_cases','dev_correct_abstentions','dev_negative_cases','invalid_outputs']}
+        data['extraction_data']['status']='USED_FOR_SEPARATE_CANDIDATE_NOT_PROMOTED'
     encoded = json.dumps(data, indent=2)+'\n'
     for name in ['DELTAS.json','docs/data.json']:
         (ROOT/name).write_text(encoded)
