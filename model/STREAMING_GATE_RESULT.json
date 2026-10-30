@@ -1,0 +1,924 @@
+{
+  "scope": "FULL_PREFILL_INTERFACE_EVALUATION_NOT_NEW_TRAINING",
+  "cases": 28,
+  "full_prompt_bytes_processed": 28,
+  "supported_exact_graph_matches": 0,
+  "supported_cases": 24,
+  "correct_abstentions": 0,
+  "negative_cases": 4,
+  "invalid_outputs": 28,
+  "checkpoint_sha256": "a190c30ef90aa4bf21d92036d388c9c272fda73e7869f507648a6d053bb1ec29",
+  "elapsed_seconds": 1.9045540130000518,
+  "rows": [
+    {
+      "case_id": "TEXT-001",
+      "family": "plain",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "inference": {
+        "generated_untrusted_text": " 20, \"Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tig",
+        "generated_bytes_hex": "2032302c202244656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c20746967",
+        "prompt_bytes": 326,
+        "processed_prompt_bytes": 326,
+        "prompt_sha256": "d90bd980c6bc62d2168f11244fbf2f6d2d2bbffbdf84cd998efd8ba7b77080ff",
+        "prefill_blocks": [
+          {
+            "offset": 0,
+            "bytes": 128
+          },
+          {
+            "offset": 128,
+            "bytes": 128
+          },
+          {
+            "offset": 256,
+            "bytes": 70
+          }
+        ],
+        "requested_output_bytes": 512,
+        "policy": "EXPERIMENTAL_FULL_PREFILL_WITH_CACHED_RECURRENT_STATE",
+        "limits": "All bytes are processed; fixed-size hidden state does not guarantee semantic retention or correct answers."
+      }
+    },
+    {
+      "case_id": "TEXT-002",
+      "family": "plain",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "inference": {
+        "generated_untrusted_text": " 20, \"Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tig",
+        "generated_bytes_hex": "2032302c202244656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c20746967",
+        "prompt_bytes": 326,
+        "processed_prompt_bytes": 326,
+        "prompt_sha256": "8f1ec81e04bfacf87ed0fc9ec7e29b41f9a7e1f25c1fdd1082401ea2469ef11b",
+        "prefill_blocks": [
+          {
+            "offset": 0,
+            "bytes": 128
+          },
+          {
+            "offset": 128,
+            "bytes": 128
+          },
+          {
+            "offset": 256,
+            "bytes": 70
+          }
+        ],
+        "requested_output_bytes": 512,
+        "policy": "EXPERIMENTAL_FULL_PREFILL_WITH_CACHED_RECURRENT_STATE",
+        "limits": "All bytes are processed; fixed-size hidden state does not guarantee semantic retention or correct answers."
+      }
+    },
+    {
+      "case_id": "TEXT-003",
+      "family": "plain",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "inference": {
+        "generated_untrusted_text": " 20, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, ",
+        "generated_bytes_hex": "2032302c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c20",
+        "prompt_bytes": 320,
+        "processed_prompt_bytes": 320,
+        "prompt_sha256": "9dc6fd824a24626bb776d8da2f5d5020c115d25f6b579268c4521c615108b62d",
+        "prefill_blocks": [
+          {
+            "offset": 0,
+            "bytes": 128
+          },
+          {
+            "offset": 128,
+            "bytes": 128
+          },
+          {
+            "offset": 256,
+            "bytes": 64
+          }
+        ],
+        "requested_output_bytes": 512,
+        "policy": "EXPERIMENTAL_FULL_PREFILL_WITH_CACHED_RECURRENT_STATE",
+        "limits": "All bytes are processed; fixed-size hidden state does not guarantee semantic retention or correct answers."
+      }
+    },
+    {
+      "case_id": "TEXT-004",
+      "family": "plain",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "inference": {
+        "generated_untrusted_text": " 20, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, ",
+        "generated_bytes_hex": "2032302c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c20",
+        "prompt_bytes": 320,
+        "processed_prompt_bytes": 320,
+        "prompt_sha256": "4c6c45f2d2c9944e136376ccf8d34cc5d0a5de7d781c8778f2c4a54c10b7db30",
+        "prefill_blocks": [
+          {
+            "offset": 0,
+            "bytes": 128
+          },
+          {
+            "offset": 128,
+            "bytes": 128
+          },
+          {
+            "offset": 256,
+            "bytes": 64
+          }
+        ],
+        "requested_output_bytes": 512,
+        "policy": "EXPERIMENTAL_FULL_PREFILL_WITH_CACHED_RECURRENT_STATE",
+        "limits": "All bytes are processed; fixed-size hidden state does not guarantee semantic retention or correct answers."
+      }
+    },
+    {
+      "case_id": "TEXT-005",
+      "family": "plain",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "inference": {
+        "generated_untrusted_text": " 20, \"Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tig",
+        "generated_bytes_hex": "2032302c202244656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c20746967",
+        "prompt_bytes": 338,
+        "processed_prompt_bytes": 338,
+        "prompt_sha256": "6e090485cdc8c330ad301a6743f751a398bb82d5fe2d19b668aa88b2cac217e6",
+        "prefill_blocks": [
+          {
+            "offset": 0,
+            "bytes": 128
+          },
+          {
+            "offset": 128,
+            "bytes": 128
+          },
+          {
+            "offset": 256,
+            "bytes": 82
+          }
+        ],
+        "requested_output_bytes": 512,
+        "policy": "EXPERIMENTAL_FULL_PREFILL_WITH_CACHED_RECURRENT_STATE",
+        "limits": "All bytes are processed; fixed-size hidden state does not guarantee semantic retention or correct answers."
+      }
+    },
+    {
+      "case_id": "TEXT-006",
+      "family": "plain",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "inference": {
+        "generated_untrusted_text": " 20, \"Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tig",
+        "generated_bytes_hex": "2032302c202244656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c20746967",
+        "prompt_bytes": 338,
+        "processed_prompt_bytes": 338,
+        "prompt_sha256": "74fb4adcb120a9962b41cfac0126ce65c2e3e48a3d91e7c8f062fbc1b3f384bc",
+        "prefill_blocks": [
+          {
+            "offset": 0,
+            "bytes": 128
+          },
+          {
+            "offset": 128,
+            "bytes": 128
+          },
+          {
+            "offset": 256,
+            "bytes": 82
+          }
+        ],
+        "requested_output_bytes": 512,
+        "policy": "EXPERIMENTAL_FULL_PREFILL_WITH_CACHED_RECURRENT_STATE",
+        "limits": "All bytes are processed; fixed-size hidden state does not guarantee semantic retention or correct answers."
+      }
+    },
+    {
+      "case_id": "TEXT-007",
+      "family": "plain",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "inference": {
+        "generated_untrusted_text": " 20, \"Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tig",
+        "generated_bytes_hex": "2032302c202244656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c20746967",
+        "prompt_bytes": 332,
+        "processed_prompt_bytes": 332,
+        "prompt_sha256": "24f0c6ee7356d7909e61a84197d473d692ee690db1ec238b11776909fe7a7727",
+        "prefill_blocks": [
+          {
+            "offset": 0,
+            "bytes": 128
+          },
+          {
+            "offset": 128,
+            "bytes": 128
+          },
+          {
+            "offset": 256,
+            "bytes": 76
+          }
+        ],
+        "requested_output_bytes": 512,
+        "policy": "EXPERIMENTAL_FULL_PREFILL_WITH_CACHED_RECURRENT_STATE",
+        "limits": "All bytes are processed; fixed-size hidden state does not guarantee semantic retention or correct answers."
+      }
+    },
+    {
+      "case_id": "TEXT-008",
+      "family": "plain",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "inference": {
+        "generated_untrusted_text": " 20, \"Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tig",
+        "generated_bytes_hex": "2032302c202244656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c20746967",
+        "prompt_bytes": 332,
+        "processed_prompt_bytes": 332,
+        "prompt_sha256": "0f046b7df387a036773df86da80f05142bfbf21f5e36f878adb6ddc0ac76e3bc",
+        "prefill_blocks": [
+          {
+            "offset": 0,
+            "bytes": 128
+          },
+          {
+            "offset": 128,
+            "bytes": 128
+          },
+          {
+            "offset": 256,
+            "bytes": 76
+          }
+        ],
+        "requested_output_bytes": 512,
+        "policy": "EXPERIMENTAL_FULL_PREFILL_WITH_CACHED_RECURRENT_STATE",
+        "limits": "All bytes are processed; fixed-size hidden state does not guarantee semantic retention or correct answers."
+      }
+    },
+    {
+      "case_id": "TEXT-009",
+      "family": "compact",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "inference": {
+        "generated_untrusted_text": " 20, \"Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tig",
+        "generated_bytes_hex": "2032302c202244656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c20746967",
+        "prompt_bytes": 287,
+        "processed_prompt_bytes": 287,
+        "prompt_sha256": "a7290dd2ad0f3bbab9985fef13c7ea90a667dd4d5562358dc9efa9cf93885d5b",
+        "prefill_blocks": [
+          {
+            "offset": 0,
+            "bytes": 128
+          },
+          {
+            "offset": 128,
+            "bytes": 128
+          },
+          {
+            "offset": 256,
+            "bytes": 31
+          }
+        ],
+        "requested_output_bytes": 512,
+        "policy": "EXPERIMENTAL_FULL_PREFILL_WITH_CACHED_RECURRENT_STATE",
+        "limits": "All bytes are processed; fixed-size hidden state does not guarantee semantic retention or correct answers."
+      }
+    },
+    {
+      "case_id": "TEXT-010",
+      "family": "compact",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "inference": {
+        "generated_untrusted_text": " 20, \"Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tig",
+        "generated_bytes_hex": "2032302c202244656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c20746967",
+        "prompt_bytes": 287,
+        "processed_prompt_bytes": 287,
+        "prompt_sha256": "cd409e227b7f42c985ffabbbe375fcca14d50872f45c4095f7c44e579ac1c0ee",
+        "prefill_blocks": [
+          {
+            "offset": 0,
+            "bytes": 128
+          },
+          {
+            "offset": 128,
+            "bytes": 128
+          },
+          {
+            "offset": 256,
+            "bytes": 31
+          }
+        ],
+        "requested_output_bytes": 512,
+        "policy": "EXPERIMENTAL_FULL_PREFILL_WITH_CACHED_RECURRENT_STATE",
+        "limits": "All bytes are processed; fixed-size hidden state does not guarantee semantic retention or correct answers."
+      }
+    },
+    {
+      "case_id": "TEXT-011",
+      "family": "compact",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "inference": {
+        "generated_untrusted_text": " 20, \"Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tig",
+        "generated_bytes_hex": "2032302c202244656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c20746967",
+        "prompt_bytes": 284,
+        "processed_prompt_bytes": 284,
+        "prompt_sha256": "107c038f13dad638725391db498f0a35c226f58d8b1cc6842f4b51293531a03c",
+        "prefill_blocks": [
+          {
+            "offset": 0,
+            "bytes": 128
+          },
+          {
+            "offset": 128,
+            "bytes": 128
+          },
+          {
+            "offset": 256,
+            "bytes": 28
+          }
+        ],
+        "requested_output_bytes": 512,
+        "policy": "EXPERIMENTAL_FULL_PREFILL_WITH_CACHED_RECURRENT_STATE",
+        "limits": "All bytes are processed; fixed-size hidden state does not guarantee semantic retention or correct answers."
+      }
+    },
+    {
+      "case_id": "TEXT-012",
+      "family": "compact",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "inference": {
+        "generated_untrusted_text": " 20, \"Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tig",
+        "generated_bytes_hex": "2032302c202244656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c20746967",
+        "prompt_bytes": 284,
+        "processed_prompt_bytes": 284,
+        "prompt_sha256": "dbc9754462a0c68652a09d4693185ba7374698a4916820b19200759bcf002ff2",
+        "prefill_blocks": [
+          {
+            "offset": 0,
+            "bytes": 128
+          },
+          {
+            "offset": 128,
+            "bytes": 128
+          },
+          {
+            "offset": 256,
+            "bytes": 28
+          }
+        ],
+        "requested_output_bytes": 512,
+        "policy": "EXPERIMENTAL_FULL_PREFILL_WITH_CACHED_RECURRENT_STATE",
+        "limits": "All bytes are processed; fixed-size hidden state does not guarantee semantic retention or correct answers."
+      }
+    },
+    {
+      "case_id": "TEXT-013",
+      "family": "compact",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "inference": {
+        "generated_untrusted_text": " 20, \"Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tig",
+        "generated_bytes_hex": "2032302c202244656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c20746967",
+        "prompt_bytes": 296,
+        "processed_prompt_bytes": 296,
+        "prompt_sha256": "6e1ba98abddbff1b5b21abd26d73b1c6676fa2f82bd12a5d503397c73d5adefb",
+        "prefill_blocks": [
+          {
+            "offset": 0,
+            "bytes": 128
+          },
+          {
+            "offset": 128,
+            "bytes": 128
+          },
+          {
+            "offset": 256,
+            "bytes": 40
+          }
+        ],
+        "requested_output_bytes": 512,
+        "policy": "EXPERIMENTAL_FULL_PREFILL_WITH_CACHED_RECURRENT_STATE",
+        "limits": "All bytes are processed; fixed-size hidden state does not guarantee semantic retention or correct answers."
+      }
+    },
+    {
+      "case_id": "TEXT-014",
+      "family": "compact",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "inference": {
+        "generated_untrusted_text": " 20, \"Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tig",
+        "generated_bytes_hex": "2032302c202244656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c20746967",
+        "prompt_bytes": 296,
+        "processed_prompt_bytes": 296,
+        "prompt_sha256": "ea0b99308d9aa30d731dba6f31e739eb34d309f9d38540106bdd9195d2f77316",
+        "prefill_blocks": [
+          {
+            "offset": 0,
+            "bytes": 128
+          },
+          {
+            "offset": 128,
+            "bytes": 128
+          },
+          {
+            "offset": 256,
+            "bytes": 40
+          }
+        ],
+        "requested_output_bytes": 512,
+        "policy": "EXPERIMENTAL_FULL_PREFILL_WITH_CACHED_RECURRENT_STATE",
+        "limits": "All bytes are processed; fixed-size hidden state does not guarantee semantic retention or correct answers."
+      }
+    },
+    {
+      "case_id": "TEXT-015",
+      "family": "compact",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "inference": {
+        "generated_untrusted_text": " 20, \"Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tig",
+        "generated_bytes_hex": "2032302c202244656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c20746967",
+        "prompt_bytes": 290,
+        "processed_prompt_bytes": 290,
+        "prompt_sha256": "15824a38e7be5e02095c2cd89946c6c18f513dbccc2b7ce75976c1bb42be5c75",
+        "prefill_blocks": [
+          {
+            "offset": 0,
+            "bytes": 128
+          },
+          {
+            "offset": 128,
+            "bytes": 128
+          },
+          {
+            "offset": 256,
+            "bytes": 34
+          }
+        ],
+        "requested_output_bytes": 512,
+        "policy": "EXPERIMENTAL_FULL_PREFILL_WITH_CACHED_RECURRENT_STATE",
+        "limits": "All bytes are processed; fixed-size hidden state does not guarantee semantic retention or correct answers."
+      }
+    },
+    {
+      "case_id": "TEXT-016",
+      "family": "compact",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "inference": {
+        "generated_untrusted_text": " 20, \"Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tig",
+        "generated_bytes_hex": "2032302c202244656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c20746967",
+        "prompt_bytes": 290,
+        "processed_prompt_bytes": 290,
+        "prompt_sha256": "29acaea31f6832d862e34b26b60b52982c42b49047d69d2f13045f09b5a7b649",
+        "prefill_blocks": [
+          {
+            "offset": 0,
+            "bytes": 128
+          },
+          {
+            "offset": 128,
+            "bytes": 128
+          },
+          {
+            "offset": 256,
+            "bytes": 34
+          }
+        ],
+        "requested_output_bytes": 512,
+        "policy": "EXPERIMENTAL_FULL_PREFILL_WITH_CACHED_RECURRENT_STATE",
+        "limits": "All bytes are processed; fixed-size hidden state does not guarantee semantic retention or correct answers."
+      }
+    },
+    {
+      "case_id": "TEXT-017",
+      "family": "paraphrase",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "inference": {
+        "generated_untrusted_text": ", 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, ",
+        "generated_bytes_hex": "2c20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c20",
+        "prompt_bytes": 392,
+        "processed_prompt_bytes": 392,
+        "prompt_sha256": "0606b71520a84b0f508f26ac83cfcb0dde5a37aad39f9961b4e05d374c74bf4e",
+        "prefill_blocks": [
+          {
+            "offset": 0,
+            "bytes": 128
+          },
+          {
+            "offset": 128,
+            "bytes": 128
+          },
+          {
+            "offset": 256,
+            "bytes": 128
+          },
+          {
+            "offset": 384,
+            "bytes": 8
+          }
+        ],
+        "requested_output_bytes": 512,
+        "policy": "EXPERIMENTAL_FULL_PREFILL_WITH_CACHED_RECURRENT_STATE",
+        "limits": "All bytes are processed; fixed-size hidden state does not guarantee semantic retention or correct answers."
+      }
+    },
+    {
+      "case_id": "TEXT-018",
+      "family": "paraphrase",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "inference": {
+        "generated_untrusted_text": ", 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, ",
+        "generated_bytes_hex": "2c20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c20",
+        "prompt_bytes": 392,
+        "processed_prompt_bytes": 392,
+        "prompt_sha256": "f41fd0086c54c44df44132eff07277e37a79e41e96c434ec28f97ee83596d80c",
+        "prefill_blocks": [
+          {
+            "offset": 0,
+            "bytes": 128
+          },
+          {
+            "offset": 128,
+            "bytes": 128
+          },
+          {
+            "offset": 256,
+            "bytes": 128
+          },
+          {
+            "offset": 384,
+            "bytes": 8
+          }
+        ],
+        "requested_output_bytes": 512,
+        "policy": "EXPERIMENTAL_FULL_PREFILL_WITH_CACHED_RECURRENT_STATE",
+        "limits": "All bytes are processed; fixed-size hidden state does not guarantee semantic retention or correct answers."
+      }
+    },
+    {
+      "case_id": "TEXT-019",
+      "family": "paraphrase",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "inference": {
+        "generated_untrusted_text": ", 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, ",
+        "generated_bytes_hex": "2c20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c20",
+        "prompt_bytes": 386,
+        "processed_prompt_bytes": 386,
+        "prompt_sha256": "b1d672504c3df7fd55d267f3cda388ca0ae18ce3b929c008c3d3f0a83828a3dd",
+        "prefill_blocks": [
+          {
+            "offset": 0,
+            "bytes": 128
+          },
+          {
+            "offset": 128,
+            "bytes": 128
+          },
+          {
+            "offset": 256,
+            "bytes": 128
+          },
+          {
+            "offset": 384,
+            "bytes": 2
+          }
+        ],
+        "requested_output_bytes": 512,
+        "policy": "EXPERIMENTAL_FULL_PREFILL_WITH_CACHED_RECURRENT_STATE",
+        "limits": "All bytes are processed; fixed-size hidden state does not guarantee semantic retention or correct answers."
+      }
+    },
+    {
+      "case_id": "TEXT-020",
+      "family": "paraphrase",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "inference": {
+        "generated_untrusted_text": ", 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, ",
+        "generated_bytes_hex": "2c20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c20",
+        "prompt_bytes": 386,
+        "processed_prompt_bytes": 386,
+        "prompt_sha256": "bf380713fcda45fe585efc50b1a686d47439b830da13da74d763fa060e17726f",
+        "prefill_blocks": [
+          {
+            "offset": 0,
+            "bytes": 128
+          },
+          {
+            "offset": 128,
+            "bytes": 128
+          },
+          {
+            "offset": 256,
+            "bytes": 128
+          },
+          {
+            "offset": 384,
+            "bytes": 2
+          }
+        ],
+        "requested_output_bytes": 512,
+        "policy": "EXPERIMENTAL_FULL_PREFILL_WITH_CACHED_RECURRENT_STATE",
+        "limits": "All bytes are processed; fixed-size hidden state does not guarantee semantic retention or correct answers."
+      }
+    },
+    {
+      "case_id": "TEXT-021",
+      "family": "paraphrase",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "inference": {
+        "generated_untrusted_text": ", 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, ",
+        "generated_bytes_hex": "2c20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c20",
+        "prompt_bytes": 384,
+        "processed_prompt_bytes": 384,
+        "prompt_sha256": "461a28e34d384a5f018fabeebb6a00c1efa3b1a5921f48fa16c8ed4941575238",
+        "prefill_blocks": [
+          {
+            "offset": 0,
+            "bytes": 128
+          },
+          {
+            "offset": 128,
+            "bytes": 128
+          },
+          {
+            "offset": 256,
+            "bytes": 128
+          }
+        ],
+        "requested_output_bytes": 512,
+        "policy": "EXPERIMENTAL_FULL_PREFILL_WITH_CACHED_RECURRENT_STATE",
+        "limits": "All bytes are processed; fixed-size hidden state does not guarantee semantic retention or correct answers."
+      }
+    },
+    {
+      "case_id": "TEXT-022",
+      "family": "paraphrase",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "inference": {
+        "generated_untrusted_text": ", 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, ",
+        "generated_bytes_hex": "2c20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c20",
+        "prompt_bytes": 384,
+        "processed_prompt_bytes": 384,
+        "prompt_sha256": "a071bdacfa4dfaf4b21d3945eec4abed7e9ac6e6c7ee4b4b6803f78842f2efcb",
+        "prefill_blocks": [
+          {
+            "offset": 0,
+            "bytes": 128
+          },
+          {
+            "offset": 128,
+            "bytes": 128
+          },
+          {
+            "offset": 256,
+            "bytes": 128
+          }
+        ],
+        "requested_output_bytes": 512,
+        "policy": "EXPERIMENTAL_FULL_PREFILL_WITH_CACHED_RECURRENT_STATE",
+        "limits": "All bytes are processed; fixed-size hidden state does not guarantee semantic retention or correct answers."
+      }
+    },
+    {
+      "case_id": "TEXT-023",
+      "family": "paraphrase",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "inference": {
+        "generated_untrusted_text": ", 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, ",
+        "generated_bytes_hex": "2c20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c20",
+        "prompt_bytes": 398,
+        "processed_prompt_bytes": 398,
+        "prompt_sha256": "ccee99d811933b0233dacf8edc952778ae343b74d0a628ae3b3b69a5c764a09a",
+        "prefill_blocks": [
+          {
+            "offset": 0,
+            "bytes": 128
+          },
+          {
+            "offset": 128,
+            "bytes": 128
+          },
+          {
+            "offset": 256,
+            "bytes": 128
+          },
+          {
+            "offset": 384,
+            "bytes": 14
+          }
+        ],
+        "requested_output_bytes": 512,
+        "policy": "EXPERIMENTAL_FULL_PREFILL_WITH_CACHED_RECURRENT_STATE",
+        "limits": "All bytes are processed; fixed-size hidden state does not guarantee semantic retention or correct answers."
+      }
+    },
+    {
+      "case_id": "TEXT-024",
+      "family": "paraphrase",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "inference": {
+        "generated_untrusted_text": ", 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, ",
+        "generated_bytes_hex": "2c20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c20",
+        "prompt_bytes": 398,
+        "processed_prompt_bytes": 398,
+        "prompt_sha256": "18007cf94b353e2e3657d0082773335bf14ebaaf417cdfceea27098bd7d841bd",
+        "prefill_blocks": [
+          {
+            "offset": 0,
+            "bytes": 128
+          },
+          {
+            "offset": 128,
+            "bytes": 128
+          },
+          {
+            "offset": 256,
+            "bytes": 128
+          },
+          {
+            "offset": 384,
+            "bytes": 14
+          }
+        ],
+        "requested_output_bytes": 512,
+        "policy": "EXPERIMENTAL_FULL_PREFILL_WITH_CACHED_RECURRENT_STATE",
+        "limits": "All bytes are processed; fixed-size hidden state does not guarantee semantic retention or correct answers."
+      }
+    },
+    {
+      "case_id": "TEXT-025",
+      "family": "unsupported_or_invalid",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "inference": {
+        "generated_untrusted_text": " 20, \"Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tig",
+        "generated_bytes_hex": "2032302c202244656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c20746967",
+        "prompt_bytes": 199,
+        "processed_prompt_bytes": 199,
+        "prompt_sha256": "88aecc5a445f62c31d84fec1a6ebd340c96cc178da7c573b9e35c42f21c87594",
+        "prefill_blocks": [
+          {
+            "offset": 0,
+            "bytes": 128
+          },
+          {
+            "offset": 128,
+            "bytes": 71
+          }
+        ],
+        "requested_output_bytes": 512,
+        "policy": "EXPERIMENTAL_FULL_PREFILL_WITH_CACHED_RECURRENT_STATE",
+        "limits": "All bytes are processed; fixed-size hidden state does not guarantee semantic retention or correct answers."
+      }
+    },
+    {
+      "case_id": "TEXT-026",
+      "family": "unsupported_or_invalid",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "inference": {
+        "generated_untrusted_text": ", 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, ",
+        "generated_bytes_hex": "2c20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c20",
+        "prompt_bytes": 242,
+        "processed_prompt_bytes": 242,
+        "prompt_sha256": "0ce613bfab7c5503e26785bdf6994ae549e3910fd553616e533f105bd6a7ce17",
+        "prefill_blocks": [
+          {
+            "offset": 0,
+            "bytes": 128
+          },
+          {
+            "offset": 128,
+            "bytes": 114
+          }
+        ],
+        "requested_output_bytes": 512,
+        "policy": "EXPERIMENTAL_FULL_PREFILL_WITH_CACHED_RECURRENT_STATE",
+        "limits": "All bytes are processed; fixed-size hidden state does not guarantee semantic retention or correct answers."
+      }
+    },
+    {
+      "case_id": "TEXT-027",
+      "family": "unsupported_or_invalid",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "inference": {
+        "generated_untrusted_text": ", 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, \"Design\": 2, ",
+        "generated_bytes_hex": "2c20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c202244657369676e223a20322c20",
+        "prompt_bytes": 244,
+        "processed_prompt_bytes": 244,
+        "prompt_sha256": "8b407029201b625d366699e70d1cd436e54c4f69374d5f2078840fde62bf6daa",
+        "prefill_blocks": [
+          {
+            "offset": 0,
+            "bytes": 128
+          },
+          {
+            "offset": 128,
+            "bytes": 116
+          }
+        ],
+        "requested_output_bytes": 512,
+        "policy": "EXPERIMENTAL_FULL_PREFILL_WITH_CACHED_RECURRENT_STATE",
+        "limits": "All bytes are processed; fixed-size hidden state does not guarantee semantic retention or correct answers."
+      }
+    },
+    {
+      "case_id": "TEXT-028",
+      "family": "unsupported_or_invalid",
+      "grade": {
+        "status": "INVALID_GRAPH_OUTPUT",
+        "pass": false
+      },
+      "inference": {
+        "generated_untrusted_text": " 20, \"Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tign -> Tests -> Deliver, tig",
+        "generated_bytes_hex": "2032302c202244656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c207469676e202d3e205465737473202d3e2044656c697665722c20746967",
+        "prompt_bytes": 242,
+        "processed_prompt_bytes": 242,
+        "prompt_sha256": "6101a4b212384462ed4fc1edff53e5277e20ddd3f51c34fe42c3acc54a6878d4",
+        "prefill_blocks": [
+          {
+            "offset": 0,
+            "bytes": 128
+          },
+          {
+            "offset": 128,
+            "bytes": 114
+          }
+        ],
+        "requested_output_bytes": 512,
+        "policy": "EXPERIMENTAL_FULL_PREFILL_WITH_CACHED_RECURRENT_STATE",
+        "limits": "All bytes are processed; fixed-size hidden state does not guarantee semantic retention or correct answers."
+      }
+    }
+  ],
+  "limits": [
+    "No weights changed.",
+    "Prefill processes all prompt bytes; hidden-state compression can still lose meaning.",
+    "Public authored fixture, not organizer evaluation.",
+    "Strict 128-byte generation remains the default separate interface."
+  ]
+}

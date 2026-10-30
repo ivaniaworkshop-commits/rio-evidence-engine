@@ -1,0 +1,488 @@
+{
+  "scope": "PUBLIC_AUTHORED_PRETRAINING_TASK_GATE_NOT_HIDDEN_EVALUATION",
+  "summary": {
+    "neural": {
+      "exact_graph_matches": 0,
+      "supported_cases": 24,
+      "correct_abstentions": 0,
+      "negative_cases": 4,
+      "invalid_outputs": 0,
+      "context_rejections": 28
+    },
+    "rule": {
+      "exact_graph_matches": 8,
+      "supported_cases": 24,
+      "correct_abstentions": 4,
+      "negative_cases": 4,
+      "invalid_outputs": 0,
+      "context_rejections": 0
+    }
+  },
+  "rows": [
+    {
+      "case_id": "TEXT-001",
+      "family": "plain",
+      "neural": {
+        "status": "CONTEXT_REJECTED",
+        "pass": false
+      },
+      "context_rejection": "CONTEXT_BUDGET_EXCEEDED: prompt=326 bytes, requested_output=512 bytes, capacity=128 bytes; no truncation or inference performed",
+      "rule": {
+        "status": "EXACT_GRAPH_MATCH",
+        "pass": true
+      },
+      "raw_neural_output": null,
+      "full_prompt_bytes": 326,
+      "effective_prompt_limit_bytes": 128
+    },
+    {
+      "case_id": "TEXT-002",
+      "family": "plain",
+      "neural": {
+        "status": "CONTEXT_REJECTED",
+        "pass": false
+      },
+      "context_rejection": "CONTEXT_BUDGET_EXCEEDED: prompt=326 bytes, requested_output=512 bytes, capacity=128 bytes; no truncation or inference performed",
+      "rule": {
+        "status": "EXACT_GRAPH_MATCH",
+        "pass": true
+      },
+      "raw_neural_output": null,
+      "full_prompt_bytes": 326,
+      "effective_prompt_limit_bytes": 128
+    },
+    {
+      "case_id": "TEXT-003",
+      "family": "plain",
+      "neural": {
+        "status": "CONTEXT_REJECTED",
+        "pass": false
+      },
+      "context_rejection": "CONTEXT_BUDGET_EXCEEDED: prompt=320 bytes, requested_output=512 bytes, capacity=128 bytes; no truncation or inference performed",
+      "rule": {
+        "status": "EXACT_GRAPH_MATCH",
+        "pass": true
+      },
+      "raw_neural_output": null,
+      "full_prompt_bytes": 320,
+      "effective_prompt_limit_bytes": 128
+    },
+    {
+      "case_id": "TEXT-004",
+      "family": "plain",
+      "neural": {
+        "status": "CONTEXT_REJECTED",
+        "pass": false
+      },
+      "context_rejection": "CONTEXT_BUDGET_EXCEEDED: prompt=320 bytes, requested_output=512 bytes, capacity=128 bytes; no truncation or inference performed",
+      "rule": {
+        "status": "EXACT_GRAPH_MATCH",
+        "pass": true
+      },
+      "raw_neural_output": null,
+      "full_prompt_bytes": 320,
+      "effective_prompt_limit_bytes": 128
+    },
+    {
+      "case_id": "TEXT-005",
+      "family": "plain",
+      "neural": {
+        "status": "CONTEXT_REJECTED",
+        "pass": false
+      },
+      "context_rejection": "CONTEXT_BUDGET_EXCEEDED: prompt=338 bytes, requested_output=512 bytes, capacity=128 bytes; no truncation or inference performed",
+      "rule": {
+        "status": "EXACT_GRAPH_MATCH",
+        "pass": true
+      },
+      "raw_neural_output": null,
+      "full_prompt_bytes": 338,
+      "effective_prompt_limit_bytes": 128
+    },
+    {
+      "case_id": "TEXT-006",
+      "family": "plain",
+      "neural": {
+        "status": "CONTEXT_REJECTED",
+        "pass": false
+      },
+      "context_rejection": "CONTEXT_BUDGET_EXCEEDED: prompt=338 bytes, requested_output=512 bytes, capacity=128 bytes; no truncation or inference performed",
+      "rule": {
+        "status": "EXACT_GRAPH_MATCH",
+        "pass": true
+      },
+      "raw_neural_output": null,
+      "full_prompt_bytes": 338,
+      "effective_prompt_limit_bytes": 128
+    },
+    {
+      "case_id": "TEXT-007",
+      "family": "plain",
+      "neural": {
+        "status": "CONTEXT_REJECTED",
+        "pass": false
+      },
+      "context_rejection": "CONTEXT_BUDGET_EXCEEDED: prompt=332 bytes, requested_output=512 bytes, capacity=128 bytes; no truncation or inference performed",
+      "rule": {
+        "status": "EXACT_GRAPH_MATCH",
+        "pass": true
+      },
+      "raw_neural_output": null,
+      "full_prompt_bytes": 332,
+      "effective_prompt_limit_bytes": 128
+    },
+    {
+      "case_id": "TEXT-008",
+      "family": "plain",
+      "neural": {
+        "status": "CONTEXT_REJECTED",
+        "pass": false
+      },
+      "context_rejection": "CONTEXT_BUDGET_EXCEEDED: prompt=332 bytes, requested_output=512 bytes, capacity=128 bytes; no truncation or inference performed",
+      "rule": {
+        "status": "EXACT_GRAPH_MATCH",
+        "pass": true
+      },
+      "raw_neural_output": null,
+      "full_prompt_bytes": 332,
+      "effective_prompt_limit_bytes": 128
+    },
+    {
+      "case_id": "TEXT-009",
+      "family": "compact",
+      "neural": {
+        "status": "CONTEXT_REJECTED",
+        "pass": false
+      },
+      "context_rejection": "CONTEXT_BUDGET_EXCEEDED: prompt=287 bytes, requested_output=512 bytes, capacity=128 bytes; no truncation or inference performed",
+      "rule": {
+        "status": "ABSTAINED_ON_SUPPORTED_INPUT",
+        "pass": false
+      },
+      "raw_neural_output": null,
+      "full_prompt_bytes": 287,
+      "effective_prompt_limit_bytes": 128
+    },
+    {
+      "case_id": "TEXT-010",
+      "family": "compact",
+      "neural": {
+        "status": "CONTEXT_REJECTED",
+        "pass": false
+      },
+      "context_rejection": "CONTEXT_BUDGET_EXCEEDED: prompt=287 bytes, requested_output=512 bytes, capacity=128 bytes; no truncation or inference performed",
+      "rule": {
+        "status": "ABSTAINED_ON_SUPPORTED_INPUT",
+        "pass": false
+      },
+      "raw_neural_output": null,
+      "full_prompt_bytes": 287,
+      "effective_prompt_limit_bytes": 128
+    },
+    {
+      "case_id": "TEXT-011",
+      "family": "compact",
+      "neural": {
+        "status": "CONTEXT_REJECTED",
+        "pass": false
+      },
+      "context_rejection": "CONTEXT_BUDGET_EXCEEDED: prompt=284 bytes, requested_output=512 bytes, capacity=128 bytes; no truncation or inference performed",
+      "rule": {
+        "status": "ABSTAINED_ON_SUPPORTED_INPUT",
+        "pass": false
+      },
+      "raw_neural_output": null,
+      "full_prompt_bytes": 284,
+      "effective_prompt_limit_bytes": 128
+    },
+    {
+      "case_id": "TEXT-012",
+      "family": "compact",
+      "neural": {
+        "status": "CONTEXT_REJECTED",
+        "pass": false
+      },
+      "context_rejection": "CONTEXT_BUDGET_EXCEEDED: prompt=284 bytes, requested_output=512 bytes, capacity=128 bytes; no truncation or inference performed",
+      "rule": {
+        "status": "ABSTAINED_ON_SUPPORTED_INPUT",
+        "pass": false
+      },
+      "raw_neural_output": null,
+      "full_prompt_bytes": 284,
+      "effective_prompt_limit_bytes": 128
+    },
+    {
+      "case_id": "TEXT-013",
+      "family": "compact",
+      "neural": {
+        "status": "CONTEXT_REJECTED",
+        "pass": false
+      },
+      "context_rejection": "CONTEXT_BUDGET_EXCEEDED: prompt=296 bytes, requested_output=512 bytes, capacity=128 bytes; no truncation or inference performed",
+      "rule": {
+        "status": "ABSTAINED_ON_SUPPORTED_INPUT",
+        "pass": false
+      },
+      "raw_neural_output": null,
+      "full_prompt_bytes": 296,
+      "effective_prompt_limit_bytes": 128
+    },
+    {
+      "case_id": "TEXT-014",
+      "family": "compact",
+      "neural": {
+        "status": "CONTEXT_REJECTED",
+        "pass": false
+      },
+      "context_rejection": "CONTEXT_BUDGET_EXCEEDED: prompt=296 bytes, requested_output=512 bytes, capacity=128 bytes; no truncation or inference performed",
+      "rule": {
+        "status": "ABSTAINED_ON_SUPPORTED_INPUT",
+        "pass": false
+      },
+      "raw_neural_output": null,
+      "full_prompt_bytes": 296,
+      "effective_prompt_limit_bytes": 128
+    },
+    {
+      "case_id": "TEXT-015",
+      "family": "compact",
+      "neural": {
+        "status": "CONTEXT_REJECTED",
+        "pass": false
+      },
+      "context_rejection": "CONTEXT_BUDGET_EXCEEDED: prompt=290 bytes, requested_output=512 bytes, capacity=128 bytes; no truncation or inference performed",
+      "rule": {
+        "status": "ABSTAINED_ON_SUPPORTED_INPUT",
+        "pass": false
+      },
+      "raw_neural_output": null,
+      "full_prompt_bytes": 290,
+      "effective_prompt_limit_bytes": 128
+    },
+    {
+      "case_id": "TEXT-016",
+      "family": "compact",
+      "neural": {
+        "status": "CONTEXT_REJECTED",
+        "pass": false
+      },
+      "context_rejection": "CONTEXT_BUDGET_EXCEEDED: prompt=290 bytes, requested_output=512 bytes, capacity=128 bytes; no truncation or inference performed",
+      "rule": {
+        "status": "ABSTAINED_ON_SUPPORTED_INPUT",
+        "pass": false
+      },
+      "raw_neural_output": null,
+      "full_prompt_bytes": 290,
+      "effective_prompt_limit_bytes": 128
+    },
+    {
+      "case_id": "TEXT-017",
+      "family": "paraphrase",
+      "neural": {
+        "status": "CONTEXT_REJECTED",
+        "pass": false
+      },
+      "context_rejection": "CONTEXT_BUDGET_EXCEEDED: prompt=392 bytes, requested_output=512 bytes, capacity=128 bytes; no truncation or inference performed",
+      "rule": {
+        "status": "ABSTAINED_ON_SUPPORTED_INPUT",
+        "pass": false
+      },
+      "raw_neural_output": null,
+      "full_prompt_bytes": 392,
+      "effective_prompt_limit_bytes": 128
+    },
+    {
+      "case_id": "TEXT-018",
+      "family": "paraphrase",
+      "neural": {
+        "status": "CONTEXT_REJECTED",
+        "pass": false
+      },
+      "context_rejection": "CONTEXT_BUDGET_EXCEEDED: prompt=392 bytes, requested_output=512 bytes, capacity=128 bytes; no truncation or inference performed",
+      "rule": {
+        "status": "ABSTAINED_ON_SUPPORTED_INPUT",
+        "pass": false
+      },
+      "raw_neural_output": null,
+      "full_prompt_bytes": 392,
+      "effective_prompt_limit_bytes": 128
+    },
+    {
+      "case_id": "TEXT-019",
+      "family": "paraphrase",
+      "neural": {
+        "status": "CONTEXT_REJECTED",
+        "pass": false
+      },
+      "context_rejection": "CONTEXT_BUDGET_EXCEEDED: prompt=386 bytes, requested_output=512 bytes, capacity=128 bytes; no truncation or inference performed",
+      "rule": {
+        "status": "ABSTAINED_ON_SUPPORTED_INPUT",
+        "pass": false
+      },
+      "raw_neural_output": null,
+      "full_prompt_bytes": 386,
+      "effective_prompt_limit_bytes": 128
+    },
+    {
+      "case_id": "TEXT-020",
+      "family": "paraphrase",
+      "neural": {
+        "status": "CONTEXT_REJECTED",
+        "pass": false
+      },
+      "context_rejection": "CONTEXT_BUDGET_EXCEEDED: prompt=386 bytes, requested_output=512 bytes, capacity=128 bytes; no truncation or inference performed",
+      "rule": {
+        "status": "ABSTAINED_ON_SUPPORTED_INPUT",
+        "pass": false
+      },
+      "raw_neural_output": null,
+      "full_prompt_bytes": 386,
+      "effective_prompt_limit_bytes": 128
+    },
+    {
+      "case_id": "TEXT-021",
+      "family": "paraphrase",
+      "neural": {
+        "status": "CONTEXT_REJECTED",
+        "pass": false
+      },
+      "context_rejection": "CONTEXT_BUDGET_EXCEEDED: prompt=384 bytes, requested_output=512 bytes, capacity=128 bytes; no truncation or inference performed",
+      "rule": {
+        "status": "ABSTAINED_ON_SUPPORTED_INPUT",
+        "pass": false
+      },
+      "raw_neural_output": null,
+      "full_prompt_bytes": 384,
+      "effective_prompt_limit_bytes": 128
+    },
+    {
+      "case_id": "TEXT-022",
+      "family": "paraphrase",
+      "neural": {
+        "status": "CONTEXT_REJECTED",
+        "pass": false
+      },
+      "context_rejection": "CONTEXT_BUDGET_EXCEEDED: prompt=384 bytes, requested_output=512 bytes, capacity=128 bytes; no truncation or inference performed",
+      "rule": {
+        "status": "ABSTAINED_ON_SUPPORTED_INPUT",
+        "pass": false
+      },
+      "raw_neural_output": null,
+      "full_prompt_bytes": 384,
+      "effective_prompt_limit_bytes": 128
+    },
+    {
+      "case_id": "TEXT-023",
+      "family": "paraphrase",
+      "neural": {
+        "status": "CONTEXT_REJECTED",
+        "pass": false
+      },
+      "context_rejection": "CONTEXT_BUDGET_EXCEEDED: prompt=398 bytes, requested_output=512 bytes, capacity=128 bytes; no truncation or inference performed",
+      "rule": {
+        "status": "ABSTAINED_ON_SUPPORTED_INPUT",
+        "pass": false
+      },
+      "raw_neural_output": null,
+      "full_prompt_bytes": 398,
+      "effective_prompt_limit_bytes": 128
+    },
+    {
+      "case_id": "TEXT-024",
+      "family": "paraphrase",
+      "neural": {
+        "status": "CONTEXT_REJECTED",
+        "pass": false
+      },
+      "context_rejection": "CONTEXT_BUDGET_EXCEEDED: prompt=398 bytes, requested_output=512 bytes, capacity=128 bytes; no truncation or inference performed",
+      "rule": {
+        "status": "ABSTAINED_ON_SUPPORTED_INPUT",
+        "pass": false
+      },
+      "raw_neural_output": null,
+      "full_prompt_bytes": 398,
+      "effective_prompt_limit_bytes": 128
+    },
+    {
+      "case_id": "TEXT-025",
+      "family": "unsupported_or_invalid",
+      "neural": {
+        "status": "CONTEXT_REJECTED",
+        "pass": false
+      },
+      "context_rejection": "CONTEXT_BUDGET_EXCEEDED: prompt=199 bytes, requested_output=512 bytes, capacity=128 bytes; no truncation or inference performed",
+      "rule": {
+        "status": "CORRECT_ABSTENTION",
+        "pass": true
+      },
+      "raw_neural_output": null,
+      "full_prompt_bytes": 199,
+      "effective_prompt_limit_bytes": 128
+    },
+    {
+      "case_id": "TEXT-026",
+      "family": "unsupported_or_invalid",
+      "neural": {
+        "status": "CONTEXT_REJECTED",
+        "pass": false
+      },
+      "context_rejection": "CONTEXT_BUDGET_EXCEEDED: prompt=242 bytes, requested_output=512 bytes, capacity=128 bytes; no truncation or inference performed",
+      "rule": {
+        "status": "CORRECT_ABSTENTION",
+        "pass": true
+      },
+      "raw_neural_output": null,
+      "full_prompt_bytes": 242,
+      "effective_prompt_limit_bytes": 128
+    },
+    {
+      "case_id": "TEXT-027",
+      "family": "unsupported_or_invalid",
+      "neural": {
+        "status": "CONTEXT_REJECTED",
+        "pass": false
+      },
+      "context_rejection": "CONTEXT_BUDGET_EXCEEDED: prompt=244 bytes, requested_output=512 bytes, capacity=128 bytes; no truncation or inference performed",
+      "rule": {
+        "status": "CORRECT_ABSTENTION",
+        "pass": true
+      },
+      "raw_neural_output": null,
+      "full_prompt_bytes": 244,
+      "effective_prompt_limit_bytes": 128
+    },
+    {
+      "case_id": "TEXT-028",
+      "family": "unsupported_or_invalid",
+      "neural": {
+        "status": "CONTEXT_REJECTED",
+        "pass": false
+      },
+      "context_rejection": "CONTEXT_BUDGET_EXCEEDED: prompt=242 bytes, requested_output=512 bytes, capacity=128 bytes; no truncation or inference performed",
+      "rule": {
+        "status": "CORRECT_ABSTENTION",
+        "pass": true
+      },
+      "raw_neural_output": null,
+      "full_prompt_bytes": 242,
+      "effective_prompt_limit_bytes": 128
+    }
+  ],
+  "elapsed_seconds": 0.0010878439998123213,
+  "checkpoint_sha256": "a190c30ef90aa4bf21d92036d388c9c272fda73e7869f507648a6d053bb1ec29",
+  "fixture_sha256": "ccacc929761d2cb841f0b187a939198cf8f05660374a668e4d9f7b18a29cd0d2",
+  "acceptance_target_not_observed": {
+    "exact_graph_matches_minimum": 23,
+    "supported_cases": 24,
+    "required_correct_abstentions": 4,
+    "required_gain_over_rule_matches": 4
+  },
+  "decision": "CONTEXT_SAFETY_FIXED_TASK_CAPABILITY_BLOCKED",
+  "limits": [
+    "Thresholds are design targets, not statistical proof.",
+    "Public synthetic fixture is not independent of this project.",
+    "Oversized requests are explicitly rejected before inference. Context rejection is not semantic abstention.",
+    "Expected graphs are never supplied to inference.",
+    "No model training is performed by this evaluator."
+  ]
+}

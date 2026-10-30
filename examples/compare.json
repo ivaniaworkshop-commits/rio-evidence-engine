@@ -1,0 +1,1 @@
+{"baseline":[{"case_id":"synthetic-1","correct":false,"latency_ms":10}],"candidate":[{"case_id":"synthetic-1","correct":true,"latency_ms":12}]}
