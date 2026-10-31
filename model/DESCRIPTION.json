@@ -11,7 +11,7 @@
   "semantic_extraction_status": "NOT_DEMONSTRATED_WITH_FULL_RECURRENT_PREFILL",
   "current_context_rejections": 28,
   "context_rejections_are_semantic_abstentions": false,
-  "project_tests_passed": 195,
+  "project_tests_passed": 203,
   "hybrid_role": "OPTIONAL_RANKING_OF_DETERMINISTIC_EXPLANATIONS",
   "observed_neural_value": "NO_OUTPUT_BENEFIT_IN_42_CASE_PAIRED_ABLATION",
   "historical_task_probe": "0/26 extractable durations before context safety fix",
@@ -41,7 +41,10 @@
     "runtime/H16_SPANISH_RESULT.json",
     "runtime/H16_VALIDATION.json",
     "runtime/STRICT_TEST_REPAIR_RESULT.json",
-    "runtime/WEIGHT_REGISTRY_RESULT.json"
+    "runtime/WEIGHT_REGISTRY_RESULT.json",
+    "runtime/H17_REJECTION_LATENCY.json",
+    "runtime/H17_RECONCILED_PROGRAM.json",
+    "runtime/H17_VALIDATION.json"
   ],
   "limits": [
     "No LLM, production reliability, human mastery or independent validation claimed.",
@@ -307,11 +310,11 @@
     "validation": "runtime/H16_VALIDATION.json"
   },
   "current_strict_verification": {
-    "tests": 195,
-    "passed": 195,
+    "tests": 203,
+    "passed": 203,
     "skipped": 0,
     "scope": "LOCAL_NOT_REMOTE_CI",
-    "evidence": "runtime/STRICT_TEST_REPAIR_RESULT.json"
+    "evidence": "runtime/H17_VALIDATION.json"
   },
   "weight_registry": {
     "models_loaded": 3,
@@ -353,5 +356,37 @@
     "default_checkpoint": "base",
     "weights_modified": false,
     "candidate_promoted": false
+  },
+  "h17_reconciled_program": {
+    "status": "UNIFIED_API_CLI_OBSERVED_ALL_THREE_CHECKPOINTS",
+    "entrypoint": "python -m rio_evidence.program",
+    "default_route": "incumbent",
+    "spanish_route": "OPT_IN",
+    "loaded_checkpoint_count": 3,
+    "same_process_models_reused": true,
+    "api_cli_outputs_equal": true,
+    "correct_rejections": 27,
+    "rejection_mutations": 27,
+    "positive_controls": 72,
+    "paired_latency": {
+      "incumbent": {
+        "samples": 572,
+        "median_ms": 0.011322,
+        "p95_ms": 0.041963
+      },
+      "spanish": {
+        "samples": 572,
+        "median_ms": 0.014121499999999999,
+        "p95_ms": 0.044478
+      }
+    },
+    "neural_text_authoritative": false,
+    "weights_merged": false,
+    "candidate_promoted": false,
+    "sources": [
+      "runtime/H17_REJECTION_LATENCY.json",
+      "runtime/H17_RECONCILED_PROGRAM.json",
+      "runtime/H17_VALIDATION.json"
+    ]
   }
 }

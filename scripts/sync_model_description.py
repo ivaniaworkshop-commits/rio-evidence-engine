@@ -117,6 +117,14 @@ def sync():
     if registry_path.exists():
         d['weight_registry']=json.loads(registry_path.read_text())
         d['sources'].append('runtime/WEIGHT_REGISTRY_RESULT.json')
+    h17_path=ROOT/'runtime/H17_RECONCILED_PROGRAM.json'
+    if h17_path.exists():
+        previous=json.loads((ROOT/'model/DESCRIPTION.json').read_text())
+        d['h17_reconciled_program']=previous['h17_reconciled_program']
+        current=json.loads((ROOT/'runtime/H17_VALIDATION.json').read_text())['current_suite']
+        d['current_strict_verification']={**current,'scope':'LOCAL_NOT_REMOTE_CI','evidence':'runtime/H17_VALIDATION.json'}
+        d['project_tests_passed']=current['tests_run']-current['skipped']-current['failed']-current['errors']
+        d['sources'].extend(['runtime/H17_RECONCILED_PROGRAM.json','runtime/H17_REJECTION_LATENCY.json','runtime/H17_VALIDATION.json'])
     (ROOT/'model/DESCRIPTION.json').write_text(json.dumps(d,indent=2)+'\n')
     value_statement=('Optional neural ranking showed no output benefit in the paired 42-case comparison.' if ablation_current else 'The current checkpoint has no matching paired utility evaluation.')
     block=('<!-- MODEL_STATUS_START -->\n## Current model status (evidence synchronized)\n\n'

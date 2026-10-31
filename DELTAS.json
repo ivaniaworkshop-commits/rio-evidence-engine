@@ -1,7 +1,7 @@
 {
   "schema": "rio-dashboard-v1",
   "updated": "2026-10-30",
-  "tests": 195,
+  "tests": 203,
   "synthetic_graphs": 64,
   "benchmark": {
     "nodes": 2000,
@@ -50,8 +50,8 @@
     "core_sha256": "fb232e58f1ab1260d9b74b454a0a267cd73171e0aedaf0fc4867df552fd2caf5",
     "validation_sha256": "f426b8259db966548f37941da870dad2f7130fe3a8731241b2f187a5a5857128",
     "scope": "LOCAL_EXECUTION_RECORD_BOUND_TO_SOURCE_BYTES_NOT_REMOTE_CI",
-    "current_test_evidence": "runtime/STRICT_TEST_REPAIR_RESULT.json",
-    "current_test_evidence_sha256": "65169132e251dc551ab2c1e197508f9bfa43c4fb531be392af550a6ca5d24fd1"
+    "current_test_evidence": "runtime/H17_VALIDATION.json",
+    "current_test_evidence_sha256": "0e4672fa7d1519a5b6f0bd81acc377efddbb7b904b98e0b51d9fd20c1501b671"
   },
   "model": {
     "status": "SMALL_NEURAL_LM_TRAINED_AND_RELOADED_NOT_LLM",
@@ -120,7 +120,7 @@
     "semantic_extraction_status": "NOT_DEMONSTRATED_WITH_FULL_RECURRENT_PREFILL",
     "current_context_rejections": 28,
     "context_rejections_are_semantic_abstentions": false,
-    "project_tests_passed": 195,
+    "project_tests_passed": 203,
     "hybrid_role": "OPTIONAL_RANKING_OF_DETERMINISTIC_EXPLANATIONS",
     "observed_neural_value": "NO_OUTPUT_BENEFIT_IN_42_CASE_PAIRED_ABLATION",
     "historical_task_probe": "0/26 extractable durations before context safety fix",
@@ -150,7 +150,10 @@
       "runtime/H16_SPANISH_RESULT.json",
       "runtime/H16_VALIDATION.json",
       "runtime/STRICT_TEST_REPAIR_RESULT.json",
-      "runtime/WEIGHT_REGISTRY_RESULT.json"
+      "runtime/WEIGHT_REGISTRY_RESULT.json",
+      "runtime/H17_REJECTION_LATENCY.json",
+      "runtime/H17_RECONCILED_PROGRAM.json",
+      "runtime/H17_VALIDATION.json"
     ],
     "limits": [
       "No LLM, production reliability, human mastery or independent validation claimed.",
@@ -416,11 +419,11 @@
       "validation": "runtime/H16_VALIDATION.json"
     },
     "current_strict_verification": {
-      "tests": 195,
-      "passed": 195,
+      "tests": 203,
+      "passed": 203,
       "skipped": 0,
       "scope": "LOCAL_NOT_REMOTE_CI",
-      "evidence": "runtime/STRICT_TEST_REPAIR_RESULT.json"
+      "evidence": "runtime/H17_VALIDATION.json"
     },
     "weight_registry": {
       "models_loaded": 3,
@@ -462,6 +465,38 @@
       "default_checkpoint": "base",
       "weights_modified": false,
       "candidate_promoted": false
+    },
+    "h17_reconciled_program": {
+      "status": "UNIFIED_API_CLI_OBSERVED_ALL_THREE_CHECKPOINTS",
+      "entrypoint": "python -m rio_evidence.program",
+      "default_route": "incumbent",
+      "spanish_route": "OPT_IN",
+      "loaded_checkpoint_count": 3,
+      "same_process_models_reused": true,
+      "api_cli_outputs_equal": true,
+      "correct_rejections": 27,
+      "rejection_mutations": 27,
+      "positive_controls": 72,
+      "paired_latency": {
+        "incumbent": {
+          "samples": 572,
+          "median_ms": 0.011322,
+          "p95_ms": 0.041963
+        },
+        "spanish": {
+          "samples": 572,
+          "median_ms": 0.014121499999999999,
+          "p95_ms": 0.044478
+        }
+      },
+      "neural_text_authoritative": false,
+      "weights_merged": false,
+      "candidate_promoted": false,
+      "sources": [
+        "runtime/H17_REJECTION_LATENCY.json",
+        "runtime/H17_RECONCILED_PROGRAM.json",
+        "runtime/H17_VALIDATION.json"
+      ]
     }
   },
   "streaming_gate": {
@@ -587,11 +622,11 @@
     "validation": "runtime/H16_VALIDATION.json"
   },
   "current_strict_verification": {
-    "tests": 195,
-    "passed": 195,
+    "tests": 203,
+    "passed": 203,
     "skipped": 0,
     "scope": "LOCAL_NOT_REMOTE_CI",
-    "evidence": "runtime/STRICT_TEST_REPAIR_RESULT.json"
+    "evidence": "runtime/H17_VALIDATION.json"
   },
   "weight_registry": {
     "models_loaded": 3,
@@ -633,5 +668,37 @@
     "default_checkpoint": "base",
     "weights_modified": false,
     "candidate_promoted": false
+  },
+  "h17_reconciled_program": {
+    "status": "UNIFIED_API_CLI_OBSERVED_ALL_THREE_CHECKPOINTS",
+    "entrypoint": "python -m rio_evidence.program",
+    "default_route": "incumbent",
+    "spanish_route": "OPT_IN",
+    "loaded_checkpoint_count": 3,
+    "same_process_models_reused": true,
+    "api_cli_outputs_equal": true,
+    "correct_rejections": 27,
+    "rejection_mutations": 27,
+    "positive_controls": 72,
+    "paired_latency": {
+      "incumbent": {
+        "samples": 572,
+        "median_ms": 0.011322,
+        "p95_ms": 0.041963
+      },
+      "spanish": {
+        "samples": 572,
+        "median_ms": 0.014121499999999999,
+        "p95_ms": 0.044478
+      }
+    },
+    "neural_text_authoritative": false,
+    "weights_merged": false,
+    "candidate_promoted": false,
+    "sources": [
+      "runtime/H17_REJECTION_LATENCY.json",
+      "runtime/H17_RECONCILED_PROGRAM.json",
+      "runtime/H17_VALIDATION.json"
+    ]
   }
 }

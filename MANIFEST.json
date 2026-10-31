@@ -3,8 +3,8 @@
   "files": [
     {
       "path": ".github/workflows/h00-integrity.yml",
-      "bytes": 6349,
-      "sha256": "cb93e48e1c1935adfcdbf97f156d7048855b226a14d51a04c5c2defdfcf6b454"
+      "bytes": 6578,
+      "sha256": "baa30a37e0e2df998321a3dc008e423dfd33eec0d932ce1035c95b723a4c6438"
     },
     {
       "path": ".gitignore",
@@ -23,13 +23,13 @@
     },
     {
       "path": "DELTAS.json",
-      "bytes": 23030,
-      "sha256": "4cedc4baec0253c8d2c96cd34779ee9e5939959eb626c3152ed2546ab8bb4618"
+      "bytes": 25045,
+      "sha256": "ecdc56d8830b496a490ac4f0640b7e468b672c504b83c381c203ed63c9f4d58a"
     },
     {
       "path": "README.md",
-      "bytes": 24995,
-      "sha256": "3c2fbca381e4a77597731547c083025ca39c2d3e79de8396357e880cd827ef4d"
+      "bytes": 26721,
+      "sha256": "3820d6613db086b2774119a382c9e78c5954a1681a210e3546fe2ccb68b96125"
     },
     {
       "path": "RECALCULATION.md",
@@ -83,8 +83,8 @@
     },
     {
       "path": "docs/data.json",
-      "bytes": 23030,
-      "sha256": "4cedc4baec0253c8d2c96cd34779ee9e5939959eb626c3152ed2546ab8bb4618"
+      "bytes": 25045,
+      "sha256": "ecdc56d8830b496a490ac4f0640b7e468b672c504b83c381c203ed63c9f4d58a"
     },
     {
       "path": "docs/index.html",
@@ -162,6 +162,11 @@
       "sha256": "863e29150ab7931fa25d538a35e1bb650ef4b8e1a068c79e8a81add410a76e5a"
     },
     {
+      "path": "examples/reconciled_spanish.json",
+      "bytes": 176,
+      "sha256": "3669cb3bb8adb338d93bc6253eb2d11fabc62ec544f300b33679dddb0ed06336"
+    },
+    {
       "path": "examples/schedule.json",
       "bytes": 213,
       "sha256": "ab1044a7cd5cf064cfbd25f2e080e89e137b9b0de78ae53c5cd736724ccf8afa"
@@ -178,8 +183,8 @@
     },
     {
       "path": "model/DESCRIPTION.json",
-      "bytes": 13197,
-      "sha256": "75cb56f0dddca5d185fe2ceb60e9590c0f97ce8d7e1be18c243dca5e9471d9d0"
+      "bytes": 14235,
+      "sha256": "13080f44ff76de7337eb8138fcba104812b82fe0e981025e5a18dc01c131c592"
     },
     {
       "path": "model/DURATION_COPY_CARD.md",
@@ -228,8 +233,8 @@
     },
     {
       "path": "model/MODEL_CARD.md",
-      "bytes": 17440,
-      "sha256": "30ae6df3cebdc56bdf48fbb26403508962607c35eb6ea07e09c67f102652e2e9"
+      "bytes": 19166,
+      "sha256": "466d2f164b89f301a28b7715fe86d2e46365da29c26b991f2570bc8d9fcc3f5b"
     },
     {
       "path": "model/MODE_ABLATION.json",
@@ -422,6 +427,11 @@
       "sha256": "6e88a6d8daacfb89764a92d501e365bdadae19272f27da3a881094602850e46c"
     },
     {
+      "path": "rio_evidence/program.py",
+      "bytes": 4817,
+      "sha256": "89698ae6798ea48ab445c9a08bc915fde6aefdd0103662ea959f10dd7ca3fc17"
+    },
+    {
       "path": "rio_evidence/semantic_gate.py",
       "bytes": 1949,
       "sha256": "337abccea974d13c55830f03cb6d0ac8ef42a92a055c0ace8cac4a072b52aba9"
@@ -485,6 +495,21 @@
       "path": "runtime/H16_VALIDATION.json",
       "bytes": 284,
       "sha256": "ed1a4386c44c835ece96aef488d1fe0c61d06d7e8cbc095090f05754e1650adf"
+    },
+    {
+      "path": "runtime/H17_RECONCILED_PROGRAM.json",
+      "bytes": 5485,
+      "sha256": "c5d2d356e219c3a9bf5464494010c8aae48cbaed5be30992409f66a2e1736d22"
+    },
+    {
+      "path": "runtime/H17_REJECTION_LATENCY.json",
+      "bytes": 7338,
+      "sha256": "2cb8edb52e569fa8bc10a0479208a84564e6f70df056398fc12a0d3014ac3765"
+    },
+    {
+      "path": "runtime/H17_VALIDATION.json",
+      "bytes": 26914,
+      "sha256": "0e4672fa7d1519a5b6f0bd81acc377efddbb7b904b98e0b51d9fd20c1501b671"
     },
     {
       "path": "runtime/POLICY.txt",
@@ -622,6 +647,16 @@
       "sha256": "b4051d04e0af985b85b6c860e432cc2a0dfe6620582ad220fedfcc7c5f04eaf6"
     },
     {
+      "path": "scripts/h17_program_probe.py",
+      "bytes": 2605,
+      "sha256": "c0b08f9d9de9dbd0aa6a2d75fae779a69798c5b7206dd96a3ee3823c724616dd"
+    },
+    {
+      "path": "scripts/h17_rejection_latency.py",
+      "bytes": 4272,
+      "sha256": "cd90e7c68ee828ce031467f36431971db720dec2af3dd9c081c1d4285036d20f"
+    },
+    {
       "path": "scripts/prioritize_deltas.py",
       "bytes": 2812,
       "sha256": "87df5ec57970f7e5c83dfce20de5d69dcf5ca7f1ac611e68b796562727c52d6d"
@@ -648,8 +683,8 @@
     },
     {
       "path": "scripts/sync_model_description.py",
-      "bytes": 13909,
-      "sha256": "ca43280b850eeabd682b0995cbfeaf378ab7cd4c334892829d30c3023bd64af4"
+      "bytes": 14599,
+      "sha256": "3abbcd04b2d337e4349be23e025ba6a7abadc3a7500bfb0a69fefd29f97dfc6c"
     },
     {
       "path": "scripts/train_extraction.py",
@@ -770,6 +805,11 @@
       "path": "tests/test_power_bounds.py",
       "bytes": 2908,
       "sha256": "c7e80b98b2f0784cabf0c9597a4bc54a6ad5100d860a153ea2e51df4b8f92527"
+    },
+    {
+      "path": "tests/test_program.py",
+      "bytes": 2813,
+      "sha256": "40bc948bd81a82a0d9619eb2c6eb174a664c57bfbb16f35c0665e0926f5b927e"
     },
     {
       "path": "tests/test_regressions.py",

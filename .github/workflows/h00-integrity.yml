@@ -87,6 +87,8 @@ jobs:
           assert not r['candidate_promoted'] and not r['external_evaluator_authenticated']
           print('H14_FREEZE_READBACK', {k:r[k] for k in ['status','candidate_sha256','baseline_sha256']})
           PY
+      - name: H17 bounded rejection and paired latency probe
+        run: python3 scripts/h17_rejection_latency.py
       - name: H08 independence gate must fail closed without external data
         run: |
           python3 -m rio_evidence.independent_gate > /tmp/h08.json
@@ -105,6 +107,8 @@ jobs:
           .venv/bin/python -c 'import torch; print("torch", torch.__version__)'
       - name: Run complete suite; reject every skip
         run: .venv/bin/python scripts/run_strict_tests.py
+      - name: H17 unified checkpoint API and CLI smoke
+        run: .venv/bin/python scripts/h17_program_probe.py
       - name: H07 remeasure paired accuracy abstention and latency
         run: |
           .venv/bin/python scripts/evaluate_network_value.py

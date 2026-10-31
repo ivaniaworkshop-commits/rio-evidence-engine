@@ -1,0 +1,353 @@
+{
+  "schema": "RIO_H17_REJECTION_LATENCY",
+  "source_commit_before_change": "133f8abb85845650e72e42deafcb281c839eafd1",
+  "scope": "PUBLIC_AUTHORED_LOCAL_DEVELOPMENT_NOT_HIDDEN_OR_PRODUCTION",
+  "paired_cases": 52,
+  "repetitions": 11,
+  "timings": {
+    "incumbent": {
+      "samples": 572,
+      "median_ms": 0.011322,
+      "p95_ms": 0.041963
+    },
+    "spanish": {
+      "samples": 572,
+      "median_ms": 0.014121499999999999,
+      "p95_ms": 0.044478
+    }
+  },
+  "per_family_timings": {
+    "management": {
+      "spanish": {
+        "samples": 55,
+        "median_ms": 0.011908
+      },
+      "incumbent": {
+        "samples": 55,
+        "median_ms": 0.010667
+      }
+    },
+    "contradictory": {
+      "incumbent": {
+        "samples": 33,
+        "median_ms": 0.009304
+      },
+      "spanish": {
+        "samples": 33,
+        "median_ms": 0.010767
+      }
+    },
+    "reverse_order": {
+      "incumbent": {
+        "samples": 55,
+        "median_ms": 0.011017
+      },
+      "spanish": {
+        "samples": 55,
+        "median_ms": 0.011928
+      }
+    },
+    "english_prose": {
+      "spanish": {
+        "samples": 55,
+        "median_ms": 0.011808
+      },
+      "incumbent": {
+        "samples": 55,
+        "median_ms": 0.010436
+      }
+    },
+    "yaml_like": {
+      "spanish": {
+        "samples": 55,
+        "median_ms": 0.017487
+      },
+      "incumbent": {
+        "samples": 55,
+        "median_ms": 0.016445
+      }
+    },
+    "off_task": {
+      "spanish": {
+        "samples": 33,
+        "median_ms": 0.010896
+      },
+      "incumbent": {
+        "samples": 33,
+        "median_ms": 0.009705
+      }
+    },
+    "spanish_prose": {
+      "incumbent": {
+        "samples": 55,
+        "median_ms": 0.011507
+      },
+      "spanish": {
+        "samples": 55,
+        "median_ms": 0.039249
+      }
+    },
+    "csv": {
+      "incumbent": {
+        "samples": 55,
+        "median_ms": 0.041963
+      },
+      "spanish": {
+        "samples": 55,
+        "median_ms": 0.041853
+      }
+    },
+    "missing_duration": {
+      "incumbent": {
+        "samples": 33,
+        "median_ms": 0.010136
+      },
+      "spanish": {
+        "samples": 33,
+        "median_ms": 0.011447
+      }
+    },
+    "bullets": {
+      "spanish": {
+        "samples": 55,
+        "median_ms": 0.016895
+      },
+      "incumbent": {
+        "samples": 55,
+        "median_ms": 0.015263
+      }
+    },
+    "ambiguous": {
+      "spanish": {
+        "samples": 33,
+        "median_ms": 0.010656
+      },
+      "incumbent": {
+        "samples": 33,
+        "median_ms": 0.009414
+      }
+    },
+    "slash_notation": {
+      "incumbent": {
+        "samples": 55,
+        "median_ms": 0.01329
+      },
+      "spanish": {
+        "samples": 55,
+        "median_ms": 0.014682
+      }
+    }
+  },
+  "rejection_mutations": 27,
+  "correct_rejections": 27,
+  "rejection_records": [
+    {
+      "kind": "number",
+      "status": "ABSTAIN",
+      "issues": [
+        "REQUIRES_EXACTLY_FOUR_TASKS_A_TO_D",
+        "UNRECOGNIZED_SOURCE_TEXT"
+      ]
+    },
+    {
+      "kind": "number",
+      "status": "ABSTAIN",
+      "issues": [
+        "REQUIRES_EXACTLY_FOUR_TASKS_A_TO_D",
+        "UNRECOGNIZED_SOURCE_TEXT"
+      ]
+    },
+    {
+      "kind": "number",
+      "status": "ABSTAIN",
+      "issues": [
+        "REQUIRES_EXACTLY_FOUR_TASKS_A_TO_D",
+        "UNRECOGNIZED_SOURCE_TEXT"
+      ]
+    },
+    {
+      "kind": "number",
+      "status": "ABSTAIN",
+      "issues": [
+        "REQUIRES_EXACTLY_FOUR_TASKS_A_TO_D",
+        "UNRECOGNIZED_SOURCE_TEXT"
+      ]
+    },
+    {
+      "kind": "number",
+      "status": "ABSTAIN",
+      "issues": [
+        "REQUIRES_EXACTLY_FOUR_TASKS_A_TO_D",
+        "UNRECOGNIZED_SOURCE_TEXT"
+      ]
+    },
+    {
+      "kind": "number",
+      "status": "ABSTAIN",
+      "issues": [
+        "DURATION_OUT_OF_RANGE"
+      ]
+    },
+    {
+      "kind": "number",
+      "status": "ABSTAIN",
+      "issues": [
+        "REQUIRES_EXACTLY_FOUR_TASKS_A_TO_D",
+        "UNRECOGNIZED_SOURCE_TEXT"
+      ]
+    },
+    {
+      "kind": "number",
+      "status": "ABSTAIN",
+      "issues": [
+        "REQUIRES_EXACTLY_FOUR_TASKS_A_TO_D",
+        "UNRECOGNIZED_SOURCE_TEXT"
+      ]
+    },
+    {
+      "kind": "number",
+      "status": "ABSTAIN",
+      "issues": [
+        "REQUIRES_EXACTLY_FOUR_TASKS_A_TO_D",
+        "UNRECOGNIZED_SOURCE_TEXT"
+      ]
+    },
+    {
+      "kind": "omission",
+      "status": "ABSTAIN",
+      "issues": [
+        "REQUIRES_EXACTLY_FOUR_TASKS_A_TO_D"
+      ]
+    },
+    {
+      "kind": "duplicate",
+      "status": "ABSTAIN",
+      "issues": [
+        "DUPLICATE_TASK_DECLARATION"
+      ]
+    },
+    {
+      "kind": "omission",
+      "status": "ABSTAIN",
+      "issues": [
+        "REQUIRES_EXACTLY_FOUR_TASKS_A_TO_D"
+      ]
+    },
+    {
+      "kind": "duplicate",
+      "status": "ABSTAIN",
+      "issues": [
+        "DUPLICATE_TASK_DECLARATION"
+      ]
+    },
+    {
+      "kind": "omission",
+      "status": "ABSTAIN",
+      "issues": [
+        "REQUIRES_EXACTLY_FOUR_TASKS_A_TO_D"
+      ]
+    },
+    {
+      "kind": "duplicate",
+      "status": "ABSTAIN",
+      "issues": [
+        "DUPLICATE_TASK_DECLARATION"
+      ]
+    },
+    {
+      "kind": "omission",
+      "status": "ABSTAIN",
+      "issues": [
+        "REQUIRES_EXACTLY_FOUR_TASKS_A_TO_D"
+      ]
+    },
+    {
+      "kind": "duplicate",
+      "status": "ABSTAIN",
+      "issues": [
+        "DUPLICATE_TASK_DECLARATION"
+      ]
+    },
+    {
+      "kind": "extra_text",
+      "status": "ABSTAIN",
+      "issues": [
+        "UNRECOGNIZED_SOURCE_TEXT"
+      ]
+    },
+    {
+      "kind": "extra_text",
+      "status": "ABSTAIN",
+      "issues": [
+        "UNRECOGNIZED_SOURCE_TEXT"
+      ]
+    },
+    {
+      "kind": "extra_text",
+      "status": "ABSTAIN",
+      "issues": [
+        "UNRECOGNIZED_SOURCE_TEXT"
+      ]
+    },
+    {
+      "kind": "extra_text",
+      "status": "ABSTAIN",
+      "issues": [
+        "UNRECOGNIZED_SOURCE_TEXT"
+      ]
+    },
+    {
+      "kind": "extra_text",
+      "status": "ABSTAIN",
+      "issues": [
+        "UNRECOGNIZED_SOURCE_TEXT"
+      ]
+    },
+    {
+      "kind": "extra_text",
+      "status": "ABSTAIN",
+      "issues": [
+        "DUPLICATE_TASK_DECLARATION"
+      ]
+    },
+    {
+      "kind": "cycle",
+      "status": "ABSTAIN",
+      "issues": [
+        "INVALID_DEPENDENCY_GRAPH"
+      ]
+    },
+    {
+      "kind": "duplicate_edge",
+      "status": "ABSTAIN",
+      "issues": [
+        "DUPLICATE_DEPENDENCY"
+      ]
+    },
+    {
+      "kind": "unknown_id",
+      "status": "ABSTAIN",
+      "issues": [
+        "REQUIRES_EXACTLY_FOUR_TASKS_A_TO_D",
+        "UNRECOGNIZED_SOURCE_TEXT"
+      ]
+    },
+    {
+      "kind": "ambiguous",
+      "status": "ABSTAIN",
+      "issues": [
+        "REQUIRES_EXACTLY_FOUR_TASKS_A_TO_D",
+        "UNRECOGNIZED_SOURCE_TEXT"
+      ]
+    }
+  ],
+  "positive_order_whitespace_controls": 72,
+  "default_changed": false,
+  "decision": "KEEP_INCUMBENT_DEFAULT_SPANISH_OPT_IN_PENDING_INDEPENDENT_DATA",
+  "limits": [
+    "Timing depends on machine and load; model startup and inference are excluded.",
+    "All 52 cases are public project-authored development inputs.",
+    "Mutation families are deliberately authored for this grammar; zero failures is not universal safety.",
+    "No independent generalization, calibrated confidence or neural improvement is established."
+  ]
+}

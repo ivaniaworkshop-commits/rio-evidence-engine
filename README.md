@@ -182,7 +182,7 @@ Context refusal is not correct semantic abstention and does not pass extraction.
 <!-- MODEL_STATUS_START -->
 ## Current model status (evidence synchronized)
 
-Río ByteGRU is a **small neural language model, not an LLM**: 17,344 parameters, 250 observed training steps. Checkpoint saved and reloaded. Current strict suite: 195 passing local tests, zero skipped.
+Río ByteGRU is a **small neural language model, not an LLM**: 17,344 parameters, 250 observed training steps. Checkpoint saved and reloaded. Current strict suite: 203 passing local tests, zero skipped.
 
 Current free generation rejects prompt-plus-output budgets above 128 UTF-8 bytes. The extraction fixture has 28 context rejections, not semantic abstentions. Neural extraction is not established. Hybrid arithmetic remains deterministic. Optional neural ranking showed no output benefit in the paired 42-case comparison. Earlier low loss and failed raw-generation probes are historical, not current capability certificates.
 Experimental recurrent prefill processes up to 4096 prompt bytes; observed full processing in 28/28 cases, but 0/24 exact graphs and 0/4 correct abstentions. No weights changed.
@@ -368,3 +368,12 @@ Install the declared CPU runtime into the interpreter used for tests: `python -m
 Observed with PyTorch 2.15.0+cpu: all seven previously omitted runtime tests executed successfully. Current suite including registry checks: 195 passed, zero skipped. Local evidence is runtime/STRICT_TEST_REPAIR_RESULT.json; remote CI is separate.
 
 All three existing checkpoints are registered with receipt hashes, complete key/shape/dtype and finite-tensor validation. Each loads all 7 groups and 17,344 parameter values. Run `python -m rio_evidence.weight_registry --prewarm-all --allow-experimental` to load all three in memory, or select `--checkpoint extraction --allow-experimental` / `--checkpoint weighted_extraction --allow-experimental`. API: `load_checkpoint(...)` returns a model and metadata; `prewarm_all(allow_experimental=True)` returns all models and records. The base remains the default. The versions are separate; no tensor merging, parameter growth, promotion, retraining or new semantic accuracy is claimed. The extraction/scaling candidates retain their failed task evaluations. See runtime/WEIGHT_REGISTRY_RESULT.json.
+
+
+## H17 reconciled single program and rejection/latency gate
+
+One entrypoint owns parser routing, declared count checks, checkpoint selection, verified loading, in-memory model reuse and typed outputs. Run `python -m rio_evidence.program examples/reconciled_spanish.json --route spanish` for deterministic output; add `--all-checkpoints --allow-experimental --max-bytes 8` to observe all three checkpoints in that same program. Python API: `ReconciledProgram(allow_experimental=True)` with `prewarm(names)` and `run(...)`. The instance retains the three models; it is a bounded single-process interface, not a daemon or a merged neural model. Default remains the incumbent parser with no neural calls. Experimental generated text never overrides or repairs the deterministic graph. Complete neural prompt budgets are validated before loading.
+
+Latency is measured on 52 public authored cases with 11 alternating-order repetitions per mode, plus per-family medians. See runtime/H17_REJECTION_LATENCY.json for current milliseconds and machine/load caveats. All 27 authored malformed Spanish mutations abstained and all 72 positive order/whitespace controls passed. These are correlated development tests, not unseen coverage or universal safety. The decision is to keep Spanish opt-in pending independent evidence.
+
+Observed API and CLI outputs matched with all three checkpoints, and repeated calls reused the same model objects and produced the same neural byte outputs in that process. No weight merge, training, promotion or new neural semantic capability is claimed. See runtime/H17_RECONCILED_PROGRAM.json. Current strict suite: 203 passed, zero skipped; runtime/H17_VALIDATION.json. H14 source freeze remains unchanged.

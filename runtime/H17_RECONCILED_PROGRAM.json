@@ -1,0 +1,189 @@
+{
+  "schema": "RIO_H17_RECONCILED_PROGRAM_OBSERVATION",
+  "checkpoints": [
+    {
+      "name": "base",
+      "sha256": "a190c30ef90aa4bf21d92036d388c9c272fda73e7869f507648a6d053bb1ec29",
+      "experimental": false,
+      "source_report": "model/TRAINING_RESULT.json",
+      "groups_loaded": 7,
+      "parameters_loaded": 17344,
+      "mode": "SELECTABLE_CHECKPOINT_NOT_MERGED_OR_PROMOTED"
+    },
+    {
+      "name": "extraction",
+      "sha256": "71515bb4638bfe9e6fce922c7242746092a5a35920d8673bf74719eb473ecbfa",
+      "experimental": true,
+      "source_report": "model/EXTRACTION_TRAINING_RESULT.json",
+      "groups_loaded": 7,
+      "parameters_loaded": 17344,
+      "mode": "SELECTABLE_CHECKPOINT_NOT_MERGED_OR_PROMOTED"
+    },
+    {
+      "name": "weighted_extraction",
+      "sha256": "828555a6cc298d62f2549516721088a52eca2c38a51268d13c5f18cc7f24fb95",
+      "experimental": true,
+      "source_report": "model/WEIGHT_SEARCH_RESULT.json",
+      "groups_loaded": 7,
+      "parameters_loaded": 17344,
+      "mode": "SELECTABLE_CHECKPOINT_NOT_MERGED_OR_PROMOTED"
+    }
+  ],
+  "prewarm_with_torch_import_ms": 804.315712,
+  "warm_all_three_generation_8_bytes": {
+    "repetitions": 5,
+    "median_ms": 8.690506,
+    "samples_ms": [
+      9.470509,
+      8.690506,
+      8.253214,
+      8.146212,
+      11.167068
+    ]
+  },
+  "api_cli_outputs_equal": true,
+  "same_process_models_reused": true,
+  "same_process_neural_generation_repeat_equal": true,
+  "decision": {
+    "status": "EXPLICIT_GRAPH_RECOVERED",
+    "graph": {
+      "tasks": [
+        {
+          "id": "A",
+          "depends_on": []
+        },
+        {
+          "id": "B",
+          "depends_on": [
+            "A"
+          ]
+        },
+        {
+          "id": "C",
+          "depends_on": [
+            "A"
+          ]
+        },
+        {
+          "id": "D",
+          "depends_on": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "durations": {
+        "A": 2,
+        "B": 4,
+        "C": 6,
+        "D": 8
+      }
+    },
+    "schedule": {
+      "minutes": 16,
+      "path": [
+        "A",
+        "C",
+        "D"
+      ],
+      "single_worker_minutes": 20
+    },
+    "issues": [],
+    "evidence": [
+      {
+        "task_id": "A",
+        "source_start": 0,
+        "source_end": 32,
+        "source_text": "A dura 2 minutos sin requisitos.",
+        "duration_start": 7,
+        "duration_end": 8,
+        "dependency_start": 17,
+        "dependency_end": 31,
+        "offset_units": "PYTHON_UNICODE_CHARACTER_INDEX"
+      },
+      {
+        "task_id": "B",
+        "source_start": 33,
+        "source_end": 63,
+        "source_text": "B dura 4 minutos despu\u00e9s de A.",
+        "duration_start": 40,
+        "duration_end": 41,
+        "dependency_start": 61,
+        "dependency_end": 62,
+        "offset_units": "PYTHON_UNICODE_CHARACTER_INDEX"
+      },
+      {
+        "task_id": "C",
+        "source_start": 64,
+        "source_end": 94,
+        "source_text": "C dura 6 minutos despu\u00e9s de A.",
+        "duration_start": 71,
+        "duration_end": 72,
+        "dependency_start": 92,
+        "dependency_end": 93,
+        "offset_units": "PYTHON_UNICODE_CHARACTER_INDEX"
+      },
+      {
+        "task_id": "D",
+        "source_start": 95,
+        "source_end": 129,
+        "source_text": "D dura 8 minutos y espera a B y C.",
+        "duration_start": 102,
+        "duration_end": 103,
+        "dependency_start": 123,
+        "dependency_end": 128,
+        "offset_units": "PYTHON_UNICODE_CHARACTER_INDEX"
+      }
+    ],
+    "neural_calls": 0,
+    "authority": "DETERMINISTIC_CLOSED_SPANISH_GRAMMAR_NOT_NEURAL_COMPREHENSION",
+    "scope": "FOUR_TASKS_A_TO_D_EXPLICIT_INTEGER_MINUTES_0_TO_1M_FULL_TEXT_COVERAGE",
+    "language_route": "SPANISH_EXPLICIT_V1",
+    "declared_expected_count": 4,
+    "count_authority": "UNAUTHENTICATED_CALLER_DECLARATION"
+  },
+  "neural_observations": [
+    {
+      "checkpoint": "base",
+      "checkpoint_sha256": "a190c30ef90aa4bf21d92036d388c9c272fda73e7869f507648a6d053bb1ec29",
+      "generation": {
+        "text": "The crit",
+        "eos_observed": false,
+        "generated_bytes": 8,
+        "prompt_bytes_processed": 176
+      },
+      "authority": "EXPERIMENTAL_TEXT_NOT_ACCEPTED_AS_GRAPH_OR_ACTION"
+    },
+    {
+      "checkpoint": "extraction",
+      "checkpoint_sha256": "71515bb4638bfe9e6fce922c7242746092a5a35920d8673bf74719eb473ecbfa",
+      "generation": {
+        "text": "{\"durati",
+        "eos_observed": false,
+        "generated_bytes": 8,
+        "prompt_bytes_processed": 176
+      },
+      "authority": "EXPERIMENTAL_TEXT_NOT_ACCEPTED_AS_GRAPH_OR_ACTION"
+    },
+    {
+      "checkpoint": "weighted_extraction",
+      "checkpoint_sha256": "828555a6cc298d62f2549516721088a52eca2c38a51268d13c5f18cc7f24fb95",
+      "generation": {
+        "text": "{\"durati",
+        "eos_observed": false,
+        "generated_bytes": 8,
+        "prompt_bytes_processed": 176
+      },
+      "authority": "EXPERIMENTAL_TEXT_NOT_ACCEPTED_AS_GRAPH_OR_ACTION"
+    }
+  ],
+  "weights_merged": false,
+  "candidate_promoted": false,
+  "default_changed": false,
+  "limits": [
+    "One process-local load per checkpoint; not a background service.",
+    "Neural text is recorded separately and never accepted as the authoritative graph.",
+    "Prewarm includes this process torch import and checkpoint validation, not full interpreter startup.",
+    "No throughput, monetary cost or semantic accuracy improvement is established."
+  ]
+}

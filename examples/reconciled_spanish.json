@@ -1,0 +1,4 @@
+{
+  "text": "A dura 2 minutos sin requisitos. B dura 4 minutos después de A. C dura 6 minutos después de A. D dura 8 minutos y espera a B y C.",
+  "expected_task_count": 4
+}
