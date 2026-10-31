@@ -77,6 +77,16 @@ class Regressions(unittest.TestCase):
             self.assertEqual(result.returncode,0,result.stderr)
             self.assertEqual(json.loads(result.stdout),{'events':0,'head_sha256':None,'scope':'INTERNAL_CONSISTENCY_ONLY'})
 
+    def test_cli_rejects_excessive_journal_nesting_without_traceback(self):
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d)/'journal'
+            p.write_text('['*10000+'0'+']'*10000+'\n',encoding='utf-8')
+            result=self.run_cli('verify-journal',str(p))
+            self.assertEqual(result.returncode,2)
+            self.assertEqual(result.stdout,'')
+            self.assertEqual(json.loads(result.stderr),{'error':'journal JSON nesting too deep'})
+            self.assertNotIn('Traceback',result.stderr)
+
 class NumericRegression(unittest.TestCase):
     def test_large_finite_latencies_have_finite_mean(self):
         from rio_evidence.core import compare_results
