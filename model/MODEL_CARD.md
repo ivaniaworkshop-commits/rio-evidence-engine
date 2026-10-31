@@ -217,3 +217,10 @@ A terminal CSV row omitted from an otherwise valid A..N sequence cannot be infer
 
 ### H14 freeze source receipt
 Candidate source commit 178783ac678b898d369caceaefb1b22dbd76a6ce, SHA256 d6a2d051fe8b78972236d69ac76ef1466d243726ed6eafd4f7903dd5777d2eda; baseline H09 at commit 3d047f369059877ce0dec30bd297e6cf1a17ed99, SHA256 7d3c59473e5dda3a4b83abc0b54af6c02fb646fcbf2ad0c2acd6962bb5265171. Bytes verified locally by guard; no independent source or model promotion.
+
+
+## H15 objective-based declared inventory guard
+
+Optional `rio_evidence.counted_graph.extract_counted_graph(text, expected_task_count)` checks accepted graphs against an explicit integer count (1..8). Development probe preserved 8/8 complete CSV graphs and rejected 7/7 terminal omissions when the original count was supplied. H14 frozen bytes and H11 registration remain unchanged. No neural weights, promotion, independent validation or authenticated intent. A matching count does not detect substitution or an incorrect caller declaration.
+
+Reproduce: `python scripts/h15_objective_recalculation.py`. See runtime/H15_OBJECTIVE_RECALCULATION.json and runtime/H15_VALIDATION.json. This local suite ran 182 tests: 175 passed and 7 skipped. Monte Carlo priorities are declared-assumption sensitivity, not measured ROI. External independent evaluation remains the highest unavailable dependency; after this delta, broader-language development is the next executable candidate.

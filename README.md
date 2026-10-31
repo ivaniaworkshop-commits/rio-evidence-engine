@@ -343,3 +343,10 @@ Opt-in candidate rio_evidence/candidate_v1.py accepts strict complete CSV and JS
 
 ### H14 frozen candidate source
 See evaluation/H14_SOURCE_FREEZE_R001.json for separate immutable Git source commit IDs and byte hashes of the candidate and H09 baseline. `python scripts/h14_verify_freeze.py` fails on byte drift. H11 structured_v1 execution invokes the guard. This is not a digital signature or a verified third-party dataset. H08 external data issue #8 remains open.
+
+
+## H15 objective-based declared inventory guard
+
+Optional `rio_evidence.counted_graph.extract_counted_graph(text, expected_task_count)` checks accepted graphs against an explicit integer count (1..8). Development probe preserved 8/8 complete CSV graphs and rejected 7/7 terminal omissions when the original count was supplied. H14 frozen bytes and H11 registration remain unchanged. No neural weights, promotion, independent validation or authenticated intent. A matching count does not detect substitution or an incorrect caller declaration.
+
+Reproduce: `python scripts/h15_objective_recalculation.py`. See runtime/H15_OBJECTIVE_RECALCULATION.json and runtime/H15_VALIDATION.json. This local suite ran 182 tests: 175 passed and 7 skipped. Monte Carlo priorities are declared-assumption sensitivity, not measured ROI. External independent evaluation remains the highest unavailable dependency; after this delta, broader-language development is the next executable candidate.

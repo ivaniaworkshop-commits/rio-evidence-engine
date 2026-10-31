@@ -1,0 +1,113 @@
+{
+  "schema": "RIO_OBJECTIVE_RECALCULATION_H15",
+  "rebase_commit": "656a5cd11888597887b83ec051a4d7701f7495dc",
+  "objectives": [
+    "correct_answers",
+    "uncertainty_reduction",
+    "evidence",
+    "justified_cost"
+  ],
+  "columns": [
+    "candidate",
+    "accuracy_ordinal",
+    "uncertainty_ordinal",
+    "evidence_ordinal",
+    "relative_effort",
+    "assumed_risk",
+    "eligible",
+    "reason"
+  ],
+  "matrix": [
+    [
+      "independent_external_evaluation",
+      5,
+      5,
+      5,
+      4,
+      0.1,
+      false,
+      "External authenticated input not available"
+    ],
+    [
+      "declared_count_guard",
+      4,
+      4,
+      4,
+      2,
+      0.05,
+      true,
+      "Documented terminal-omission ambiguity"
+    ],
+    [
+      "new_wording_extension",
+      4,
+      3,
+      4,
+      6,
+      0.2,
+      true,
+      "Public development only"
+    ],
+    [
+      "more_neural_training",
+      2,
+      3,
+      4,
+      12,
+      0.6,
+      true,
+      "No demonstrated task gain"
+    ],
+    [
+      "more_cache_tuning",
+      1,
+      1,
+      1,
+      3,
+      0.1,
+      true,
+      "Repeated-input savings already measured"
+    ]
+  ],
+  "formula": "weighted(accuracy,uncertainty,evidence)*(1-risk)/effort",
+  "simulation": {
+    "seed": 20261030,
+    "samples": 10000,
+    "completed_excluded": [],
+    "top_frequency": {
+      "declared_count_guard": 1.0,
+      "new_wording_extension": 0.0,
+      "more_neural_training": 0.0,
+      "more_cache_tuning": 0.0
+    }
+  },
+  "fixed_seed_replay_equal": true,
+  "executed_delta": "declared_count_guard",
+  "after_execution": {
+    "seed": 20261030,
+    "samples": 10000,
+    "completed_excluded": [
+      "declared_count_guard"
+    ],
+    "top_frequency": {
+      "new_wording_extension": 0.9447,
+      "more_neural_training": 0.0,
+      "more_cache_tuning": 0.0553
+    }
+  },
+  "observed_public_development": {
+    "complete_csv_graphs_preserved": 8,
+    "declared_terminal_omissions_rejected": 7
+  },
+  "frozen_h14_sha256": "d6a2d051fe8b78972236d69ac76ef1466d243726ed6eafd4f7903dd5777d2eda",
+  "next_executable_delta": "new_wording_extension_with_separate_development_contract",
+  "highest_external_dependency": "authenticated_independent_evaluation_not_available",
+  "weights_changed": false,
+  "model_promoted": false,
+  "limits": [
+    "Judgment-driven Monte Carlo is sensitivity, not measured ROI or success probability.",
+    "Authored development cases are not independent generalization evidence.",
+    "Correct count cannot detect substitution, wrong durations or an incorrect caller declaration.",
+    "Optional wrapper does not change H14 frozen source or registered H11 candidate."
+  ]
+}

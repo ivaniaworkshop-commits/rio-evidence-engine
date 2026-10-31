@@ -107,7 +107,7 @@
   },
   "model_description": {
     "schema": "OBSERVED_MODEL_DESCRIPTION_V1",
-    "name": "R\u00edo ByteGRU",
+    "name": "Río ByteGRU",
     "kind": "SMALL_NEURAL_LANGUAGE_MODEL_NOT_LLM",
     "architecture": "byte embedding16 -> GRU32 -> 256 logits",
     "parameters": 17344,
@@ -360,5 +360,19 @@
       "break_even_scope": "Estimate covers controller bootstrap and memory prewarm, excludes interpreter/import startup; assumes repeated public workload and this measured median saving."
     }
   },
-  "snapshot_generated_at_utc": "2026-10-30T20:45:53.168819+00:00"
+  "snapshot_generated_at_utc": "2026-10-30T20:45:53.168819+00:00",
+  "h15_declared_inventory": {
+    "status": "OPTIONAL_DECLARED_COUNT_GUARD_OBSERVED_ON_AUTHORED_CASES",
+    "result": "runtime/H15_OBJECTIVE_RECALCULATION.json",
+    "complete_graphs_preserved": 8,
+    "declared_terminal_omissions_rejected": 7,
+    "caller_count_authenticated": false,
+    "weights_changed": false,
+    "model_promoted": false,
+    "local_suite": {
+      "run": 182,
+      "passed": 175,
+      "skipped": 7
+    }
+  }
 }

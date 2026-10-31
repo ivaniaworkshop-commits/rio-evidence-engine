@@ -1,0 +1,18 @@
+{
+  "scope": "CURRENT_REBASE_LOCAL_SUITE_NOT_REMOTE_CI",
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-q"
+  ],
+  "exit_code": 0,
+  "stderr": "----------------------------------------------------------------------\nRan 182 tests in 1.221s\n\nOK (skipped=7)\n",
+  "tests_run": 182,
+  "passed": 175,
+  "skipped": 7,
+  "neural_weights_changed": false
+}

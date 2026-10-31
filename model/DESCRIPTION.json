@@ -35,7 +35,9 @@
     "model/NETWORK_VALUE_RESULT.json",
     "model/WEIGHT_SEARCH_RESULT.json",
     "runtime/AUTO_ROUND_RESULT.json",
-    "model/EVALUATION_OBSERVATIONS_R001.json"
+    "model/EVALUATION_OBSERVATIONS_R001.json",
+    "runtime/H15_OBJECTIVE_RECALCULATION.json",
+    "runtime/H15_VALIDATION.json"
   ],
   "limits": [
     "No LLM, production reliability, human mastery or independent validation claimed.",
@@ -269,5 +271,19 @@
     "model_promoted": false,
     "source_freeze_receipt": "evaluation/H14_SOURCE_FREEZE_R001.json",
     "csv_terminal_omission": "UNOBSERVABLE_WITHOUT_DECLARED_COUNT"
+  },
+  "h15_declared_inventory": {
+    "status": "OPTIONAL_DECLARED_COUNT_GUARD_OBSERVED_ON_AUTHORED_CASES",
+    "result": "runtime/H15_OBJECTIVE_RECALCULATION.json",
+    "complete_graphs_preserved": 8,
+    "declared_terminal_omissions_rejected": 7,
+    "caller_count_authenticated": false,
+    "weights_changed": false,
+    "model_promoted": false,
+    "local_suite": {
+      "run": 182,
+      "passed": 175,
+      "skipped": 7
+    }
   }
 }

@@ -97,6 +97,11 @@ def sync():
         auto=json.loads(auto_path.read_text())
         d['runtime_support']={'status':'BOUNDED_LOCAL_ROUNDS_OBSERVED','round_statuses':[r['status'] for r in auto['rounds']], 'benchmark':auto['rounds'][0]['benchmark'], 'weight_changes':False, 'antivirus_activation':False}
         d['sources'].append('runtime/AUTO_ROUND_RESULT.json')
+    h15_path=ROOT/'runtime/H15_OBJECTIVE_RECALCULATION.json'
+    if h15_path.exists():
+        prior=json.loads((ROOT/'model/DESCRIPTION.json').read_text())
+        d['h15_declared_inventory']=prior['h15_declared_inventory']
+        d['sources'].extend(['runtime/H15_OBJECTIVE_RECALCULATION.json','runtime/H15_VALIDATION.json'])
     (ROOT/'model/DESCRIPTION.json').write_text(json.dumps(d,indent=2)+'\n')
     value_statement=('Optional neural ranking showed no output benefit in the paired 42-case comparison.' if ablation_current else 'The current checkpoint has no matching paired utility evaluation.')
     block=('<!-- MODEL_STATUS_START -->\n## Current model status (evidence synchronized)\n\n'
