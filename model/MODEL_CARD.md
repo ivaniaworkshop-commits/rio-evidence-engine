@@ -224,3 +224,12 @@ Candidate source commit 178783ac678b898d369caceaefb1b22dbd76a6ce, SHA256 d6a2d05
 Optional `rio_evidence.counted_graph.extract_counted_graph(text, expected_task_count)` checks accepted graphs against an explicit integer count (1..8). Development probe preserved 8/8 complete CSV graphs and rejected 7/7 terminal omissions when the original count was supplied. H14 frozen bytes and H11 registration remain unchanged. No neural weights, promotion, independent validation or authenticated intent. A matching count does not detect substitution or an incorrect caller declaration.
 
 Reproduce: `python scripts/h15_objective_recalculation.py`. See runtime/H15_OBJECTIVE_RECALCULATION.json and runtime/H15_VALIDATION.json. This local suite ran 182 tests: 175 passed and 7 skipped. Monte Carlo priorities are declared-assumption sensitivity, not measured ROI. External independent evaluation remains the highest unavailable dependency; after this delta, broader-language development is the next executable candidate.
+
+
+## H16 opt-in explicit Spanish grammar
+
+`python -m rio_evidence.spanish_graph input.json` accepts a JSON object containing exactly `text`. The additive deterministic reader recognizes exactly four tasks A-D using explicit Spanish integer minutes and dependencies, returns source spans, and rejects incomplete, contradictory, cyclic or unrecognized Spanish content. Existing supported H14 inputs are preserved. No frozen H14/H11 change or automatic default switch.
+
+Public H10 development comparison: 10/40 positive graphs exact versus 5/40 for H14; 12/12 appropriate negative abstentions; 5 paired wins, 0 losses. These public examples informed implementation. A seeded 64-graph probe checked 1536 correlated order/CRLF variants. This is code-level coverage, not independent validation or learned Spanish comprehension. No weights or promotion. Local suite: 190 run, 183 passed, 7 skipped.
+
+Reproduce: `python scripts/h16_spanish_probe.py`. Evidence: runtime/H16_SPANISH_RESULT.json and runtime/H16_VALIDATION.json. Next: measure latency and broaden rejection audits before considering a default change. External independent evaluation remains unavailable.

@@ -37,7 +37,9 @@
     "runtime/AUTO_ROUND_RESULT.json",
     "model/EVALUATION_OBSERVATIONS_R001.json",
     "runtime/H15_OBJECTIVE_RECALCULATION.json",
-    "runtime/H15_VALIDATION.json"
+    "runtime/H15_VALIDATION.json",
+    "runtime/H16_SPANISH_RESULT.json",
+    "runtime/H16_VALIDATION.json"
   ],
   "limits": [
     "No LLM, production reliability, human mastery or independent validation claimed.",
@@ -285,5 +287,21 @@
       "passed": 175,
       "skipped": 7
     }
+  },
+  "h16_spanish_development": {
+    "status": "OPT_IN_CLOSED_SPANISH_GRAMMAR_DEVELOPMENT_GAIN",
+    "supported_cases": 40,
+    "baseline_exact": 5,
+    "candidate_exact": 10,
+    "correct_abstentions": 12,
+    "negative_cases": 12,
+    "paired_wins": 5,
+    "paired_losses": 0,
+    "synthetic_order_variants": 1536,
+    "independent_data": false,
+    "weights_changed": false,
+    "candidate_promoted": false,
+    "result": "runtime/H16_SPANISH_RESULT.json",
+    "validation": "runtime/H16_VALIDATION.json"
   }
 }

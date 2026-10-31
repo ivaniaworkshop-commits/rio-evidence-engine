@@ -102,6 +102,11 @@ def sync():
         prior=json.loads((ROOT/'model/DESCRIPTION.json').read_text())
         d['h15_declared_inventory']=prior['h15_declared_inventory']
         d['sources'].extend(['runtime/H15_OBJECTIVE_RECALCULATION.json','runtime/H15_VALIDATION.json'])
+    h16_path=ROOT/'runtime/H16_SPANISH_RESULT.json'
+    if h16_path.exists():
+        h16=json.loads(h16_path.read_text())
+        d['h16_spanish_development']={k:h16[k] for k in ['supported_cases','baseline_exact','candidate_exact','candidate_correct_abstentions','paired_wins','paired_losses','weights_changed','candidate_promoted','independent_data']}
+        d['sources'].extend(['runtime/H16_SPANISH_RESULT.json','runtime/H16_VALIDATION.json'])
     (ROOT/'model/DESCRIPTION.json').write_text(json.dumps(d,indent=2)+'\n')
     value_statement=('Optional neural ranking showed no output benefit in the paired 42-case comparison.' if ablation_current else 'The current checkpoint has no matching paired utility evaluation.')
     block=('<!-- MODEL_STATUS_START -->\n## Current model status (evidence synchronized)\n\n'

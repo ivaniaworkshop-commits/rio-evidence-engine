@@ -1,0 +1,9 @@
+{
+  "scope": "LOCAL_CURRENT_SOURCE_NOT_REMOTE_CI",
+  "tests_run": 190,
+  "passed": 183,
+  "skipped": 7,
+  "exit_code": 0,
+  "stderr": "----------------------------------------------------------------------\nRan 190 tests in 1.180s\n\nOK (skipped=7)\n",
+  "probe_repeat_equal": true
+}

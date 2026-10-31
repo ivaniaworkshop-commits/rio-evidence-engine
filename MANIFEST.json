@@ -23,13 +23,13 @@
     },
     {
       "path": "DELTAS.json",
-      "bytes": 12914,
-      "sha256": "7d04c00f7115ed257e1cfb7c06f5dfc881c84061e51fa35f44fd197fbc9c6a68"
+      "bytes": 13425,
+      "sha256": "11909ef3980592b4b1127f5813e17d0de41a651cf94fafa649ce8a7217124457"
     },
     {
       "path": "README.md",
-      "bytes": 22328,
-      "sha256": "6211cee9a4cd425901407df018e323ecfe8ffbe762b7551816852436f66d90d3"
+      "bytes": 23487,
+      "sha256": "56d333afb89f1494fd622348ab7f59f7c2717e3f75fe32f5855962789701fa09"
     },
     {
       "path": "RECALCULATION.md",
@@ -83,8 +83,8 @@
     },
     {
       "path": "docs/data.json",
-      "bytes": 12914,
-      "sha256": "7d04c00f7115ed257e1cfb7c06f5dfc881c84061e51fa35f44fd197fbc9c6a68"
+      "bytes": 13425,
+      "sha256": "11909ef3980592b4b1127f5813e17d0de41a651cf94fafa649ce8a7217124457"
     },
     {
       "path": "docs/index.html",
@@ -178,8 +178,8 @@
     },
     {
       "path": "model/DESCRIPTION.json",
-      "bytes": 10840,
-      "sha256": "e5a16873dc652f2e78d87c8be58522ff24246807dc85718877c21ff0abc98d03"
+      "bytes": 11425,
+      "sha256": "019cf0a7609531c181e5b4b3e366d9b74bff5c0012f7d5ad8812ef3d7b328521"
     },
     {
       "path": "model/DURATION_COPY_CARD.md",
@@ -228,8 +228,8 @@
     },
     {
       "path": "model/MODEL_CARD.md",
-      "bytes": 14773,
-      "sha256": "64e213dfeb3e5d7d4813d96c8ad2d151bb5a8c4303e122f22c4034e3699e0449"
+      "bytes": 15932,
+      "sha256": "f2a6f00a8d40fb00b5cffcb035921bb287783094f3fd8d2b8ade4bf1cc18fafb"
     },
     {
       "path": "model/MODE_ABLATION.json",
@@ -427,6 +427,11 @@
       "sha256": "337abccea974d13c55830f03cb6d0ac8ef42a92a055c0ace8cac4a072b52aba9"
     },
     {
+      "path": "rio_evidence/spanish_graph.py",
+      "bytes": 3254,
+      "sha256": "366010773d13a732489c39a5b2cdca93204db82f6802016a6168ac1f77b0ae61"
+    },
+    {
       "path": "rio_evidence/streaming.py",
       "bytes": 3101,
       "sha256": "fc13dd4a1d2ec2dbd95637676381ae1bc53b53a7e0c5a5f19b9ce197e116d79c"
@@ -465,6 +470,16 @@
       "path": "runtime/H15_VALIDATION.json",
       "bytes": 469,
       "sha256": "83fcb33ee933f0f230fe98db78997792e49a3ea4af5d05b58f0410dab2068535"
+    },
+    {
+      "path": "runtime/H16_SPANISH_RESULT.json",
+      "bytes": 8130,
+      "sha256": "529a555291a90c615268bd929d8aec2e3b5e9fb1ab694414123b974a293f9786"
+    },
+    {
+      "path": "runtime/H16_VALIDATION.json",
+      "bytes": 284,
+      "sha256": "ed1a4386c44c835ece96aef488d1fe0c61d06d7e8cbc095090f05754e1650adf"
     },
     {
       "path": "runtime/POLICY.txt",
@@ -587,6 +602,11 @@
       "sha256": "d304bdf5e627f7c272a407ffadda6d0e688e98c5c769cfcd810dbd01fa6ea667"
     },
     {
+      "path": "scripts/h16_spanish_probe.py",
+      "bytes": 3316,
+      "sha256": "b4051d04e0af985b85b6c860e432cc2a0dfe6620582ad220fedfcc7c5f04eaf6"
+    },
+    {
       "path": "scripts/prioritize_deltas.py",
       "bytes": 2812,
       "sha256": "87df5ec57970f7e5c83dfce20de5d69dcf5ca7f1ac611e68b796562727c52d6d"
@@ -608,8 +628,8 @@
     },
     {
       "path": "scripts/sync_model_description.py",
-      "bytes": 12758,
-      "sha256": "4f825d3919235b821131f12065f435cb2ac9208a9926573d4324f55ffef77069"
+      "bytes": 13208,
+      "sha256": "ba99d4f6d1dadc4a8c4aaf5a116f190b3966d53796e82666212db6f0d887a700"
     },
     {
       "path": "scripts/train_extraction.py",
@@ -740,6 +760,11 @@
       "path": "tests/test_semantic_gate.py",
       "bytes": 1515,
       "sha256": "513a9d765a529adf334fd26d6aeaaf69e162513278c9292fc15656482ab100de"
+    },
+    {
+      "path": "tests/test_spanish_graph.py",
+      "bytes": 2622,
+      "sha256": "8556d8716a3f707d696ab32a04c40ba01592c7cf3c3d1c396e1ccc35409aeba7"
     },
     {
       "path": "tests/test_streaming.py",

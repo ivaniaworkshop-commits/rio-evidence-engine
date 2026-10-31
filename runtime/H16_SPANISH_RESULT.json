@@ -1,0 +1,341 @@
+{
+  "schema": "RIO_H16_SPANISH_DEVELOPMENT",
+  "rebase_commit": "65a692008ac4abe295e6bc327044992b6a794b89",
+  "scope": "PROJECT_AUTHORED_PUBLIC_DEVELOPMENT_NOT_INDEPENDENT_EVALUATION",
+  "supported_cases": 40,
+  "baseline_exact": 5,
+  "candidate_exact": 10,
+  "negative_cases": 12,
+  "candidate_correct_abstentions": 12,
+  "paired_wins": 5,
+  "paired_losses": 0,
+  "new_language_family": "CLOSED_SPANISH_EXPLICIT",
+  "seed": 20261030,
+  "synthetic_graphs": 64,
+  "order_crlf_variants_checked": 1536,
+  "records": [
+    {
+      "case_id": "P-001",
+      "family": "english_prose",
+      "baseline_correct": false,
+      "candidate_correct": false
+    },
+    {
+      "case_id": "P-002",
+      "family": "english_prose",
+      "baseline_correct": false,
+      "candidate_correct": false
+    },
+    {
+      "case_id": "P-003",
+      "family": "english_prose",
+      "baseline_correct": false,
+      "candidate_correct": false
+    },
+    {
+      "case_id": "P-004",
+      "family": "english_prose",
+      "baseline_correct": false,
+      "candidate_correct": false
+    },
+    {
+      "case_id": "P-005",
+      "family": "english_prose",
+      "baseline_correct": false,
+      "candidate_correct": false
+    },
+    {
+      "case_id": "P-006",
+      "family": "spanish_prose",
+      "baseline_correct": false,
+      "candidate_correct": true
+    },
+    {
+      "case_id": "P-007",
+      "family": "spanish_prose",
+      "baseline_correct": false,
+      "candidate_correct": true
+    },
+    {
+      "case_id": "P-008",
+      "family": "spanish_prose",
+      "baseline_correct": false,
+      "candidate_correct": true
+    },
+    {
+      "case_id": "P-009",
+      "family": "spanish_prose",
+      "baseline_correct": false,
+      "candidate_correct": true
+    },
+    {
+      "case_id": "P-010",
+      "family": "spanish_prose",
+      "baseline_correct": false,
+      "candidate_correct": true
+    },
+    {
+      "case_id": "P-011",
+      "family": "bullets",
+      "baseline_correct": false,
+      "candidate_correct": false
+    },
+    {
+      "case_id": "P-012",
+      "family": "bullets",
+      "baseline_correct": false,
+      "candidate_correct": false
+    },
+    {
+      "case_id": "P-013",
+      "family": "bullets",
+      "baseline_correct": false,
+      "candidate_correct": false
+    },
+    {
+      "case_id": "P-014",
+      "family": "bullets",
+      "baseline_correct": false,
+      "candidate_correct": false
+    },
+    {
+      "case_id": "P-015",
+      "family": "bullets",
+      "baseline_correct": false,
+      "candidate_correct": false
+    },
+    {
+      "case_id": "P-016",
+      "family": "csv",
+      "baseline_correct": true,
+      "candidate_correct": true
+    },
+    {
+      "case_id": "P-017",
+      "family": "csv",
+      "baseline_correct": true,
+      "candidate_correct": true
+    },
+    {
+      "case_id": "P-018",
+      "family": "csv",
+      "baseline_correct": true,
+      "candidate_correct": true
+    },
+    {
+      "case_id": "P-019",
+      "family": "csv",
+      "baseline_correct": true,
+      "candidate_correct": true
+    },
+    {
+      "case_id": "P-020",
+      "family": "csv",
+      "baseline_correct": true,
+      "candidate_correct": true
+    },
+    {
+      "case_id": "P-021",
+      "family": "yaml_like",
+      "baseline_correct": false,
+      "candidate_correct": false
+    },
+    {
+      "case_id": "P-022",
+      "family": "yaml_like",
+      "baseline_correct": false,
+      "candidate_correct": false
+    },
+    {
+      "case_id": "P-023",
+      "family": "yaml_like",
+      "baseline_correct": false,
+      "candidate_correct": false
+    },
+    {
+      "case_id": "P-024",
+      "family": "yaml_like",
+      "baseline_correct": false,
+      "candidate_correct": false
+    },
+    {
+      "case_id": "P-025",
+      "family": "yaml_like",
+      "baseline_correct": false,
+      "candidate_correct": false
+    },
+    {
+      "case_id": "P-026",
+      "family": "reverse_order",
+      "baseline_correct": false,
+      "candidate_correct": false
+    },
+    {
+      "case_id": "P-027",
+      "family": "reverse_order",
+      "baseline_correct": false,
+      "candidate_correct": false
+    },
+    {
+      "case_id": "P-028",
+      "family": "reverse_order",
+      "baseline_correct": false,
+      "candidate_correct": false
+    },
+    {
+      "case_id": "P-029",
+      "family": "reverse_order",
+      "baseline_correct": false,
+      "candidate_correct": false
+    },
+    {
+      "case_id": "P-030",
+      "family": "reverse_order",
+      "baseline_correct": false,
+      "candidate_correct": false
+    },
+    {
+      "case_id": "P-031",
+      "family": "management",
+      "baseline_correct": false,
+      "candidate_correct": false
+    },
+    {
+      "case_id": "P-032",
+      "family": "management",
+      "baseline_correct": false,
+      "candidate_correct": false
+    },
+    {
+      "case_id": "P-033",
+      "family": "management",
+      "baseline_correct": false,
+      "candidate_correct": false
+    },
+    {
+      "case_id": "P-034",
+      "family": "management",
+      "baseline_correct": false,
+      "candidate_correct": false
+    },
+    {
+      "case_id": "P-035",
+      "family": "management",
+      "baseline_correct": false,
+      "candidate_correct": false
+    },
+    {
+      "case_id": "P-036",
+      "family": "slash_notation",
+      "baseline_correct": false,
+      "candidate_correct": false
+    },
+    {
+      "case_id": "P-037",
+      "family": "slash_notation",
+      "baseline_correct": false,
+      "candidate_correct": false
+    },
+    {
+      "case_id": "P-038",
+      "family": "slash_notation",
+      "baseline_correct": false,
+      "candidate_correct": false
+    },
+    {
+      "case_id": "P-039",
+      "family": "slash_notation",
+      "baseline_correct": false,
+      "candidate_correct": false
+    },
+    {
+      "case_id": "P-040",
+      "family": "slash_notation",
+      "baseline_correct": false,
+      "candidate_correct": false
+    },
+    {
+      "case_id": "N-001",
+      "family": "missing_duration",
+      "baseline_correct": true,
+      "candidate_correct": true
+    },
+    {
+      "case_id": "N-002",
+      "family": "missing_duration",
+      "baseline_correct": true,
+      "candidate_correct": true
+    },
+    {
+      "case_id": "N-003",
+      "family": "missing_duration",
+      "baseline_correct": true,
+      "candidate_correct": true
+    },
+    {
+      "case_id": "N-004",
+      "family": "contradictory",
+      "baseline_correct": true,
+      "candidate_correct": true
+    },
+    {
+      "case_id": "N-005",
+      "family": "contradictory",
+      "baseline_correct": true,
+      "candidate_correct": true
+    },
+    {
+      "case_id": "N-006",
+      "family": "contradictory",
+      "baseline_correct": true,
+      "candidate_correct": true
+    },
+    {
+      "case_id": "N-007",
+      "family": "ambiguous",
+      "baseline_correct": true,
+      "candidate_correct": true
+    },
+    {
+      "case_id": "N-008",
+      "family": "ambiguous",
+      "baseline_correct": true,
+      "candidate_correct": true
+    },
+    {
+      "case_id": "N-009",
+      "family": "ambiguous",
+      "baseline_correct": true,
+      "candidate_correct": true
+    },
+    {
+      "case_id": "N-010",
+      "family": "off_task",
+      "baseline_correct": true,
+      "candidate_correct": true
+    },
+    {
+      "case_id": "N-011",
+      "family": "off_task",
+      "baseline_correct": true,
+      "candidate_correct": true
+    },
+    {
+      "case_id": "N-012",
+      "family": "off_task",
+      "baseline_correct": true,
+      "candidate_correct": true
+    }
+  ],
+  "frozen_h14_sha256": "d6a2d051fe8b78972236d69ac76ef1466d243726ed6eafd4f7903dd5777d2eda",
+  "weights_changed": false,
+  "candidate_promoted": false,
+  "independent_data": false,
+  "next_delta": "latency_and_rejection_coverage_audit_before_any_default_change",
+  "limits": [
+    "Five public Spanish examples informed grammar design; gains are development results.",
+    "Fixed A-D four-task grammar is not general Spanish understanding.",
+    "Synthetic permutations are correlated and are not 1536 independent samples.",
+    "Incumbent/H11 frozen registration is unchanged; opt-in route only."
+  ]
+}
