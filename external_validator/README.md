@@ -49,10 +49,14 @@ Input envelope (illustrative schema, not an external test dataset):
 
 ## Interpretation and custody
 
-Technical screen: >=30 supported, >=10 unsupported, >=5 declared clusters; >=5 extra exact graphs; one-sided descriptive paired p<=0.05; >=5 winning clusters with cluster sign p<=0.05; no abstention regression or candidate interface/runtime/invalid-graph errors; candidate median call latency <=max(3*baseline, baseline+5ms). Cluster independence and random sampling are not verified. The screen is neither a generalization certificate nor a promotion decision. Single-pass worker timings exclude process startup and are hardware/load sensitive.
+Technical screen: >=30 supported, >=10 unsupported, >=5 declared clusters; >=5 extra exact graphs; one-sided descriptive paired p<=0.05; >=5 winning clusters with cluster sign p<=0.05; no abstention regression or baseline/candidate interface/runtime/invalid-graph errors; candidate median call latency <=max(3*baseline, baseline+5ms). Cluster independence and random sampling are not verified. The screen is neither a generalization certificate nor a promotion decision. Single-pass worker timings exclude process startup and are hardware/load sensitive.
 
 Reports omit source texts, labels, raw predictions and case identifiers. They include aggregate metrics, commit IDs and hashes of input bytes. Output must be outside both frozen checkouts and must not exist; permissions are 0600. Treat aggregates and hashes as potentially sensitive and keep reports private until reviewed. Existing reports are never overwritten. No report is uploaded automatically.
 
 No bundle: BLOCKED_NO_EXTERNAL_DATA, exit 2. Rejected input/checkout/worker: REJECTED, exit 2. A successfully recorded technical comparison exits 0 even if its technical screen fails; consumers must inspect the flags, and independence always remains unverified by this instrument.
 
 Authored tests cover end-to-end CLI execution with temporary Git fixture repositories, commit mismatch, dirty/ignored files, strict JSON, label validation, exact overlap, time ordering, error-vs-abstention, no-data blocking, private report creation and overwrite rejection. These validate the instrument, not external model accuracy.
+
+## Adversarial screening correction
+
+A baseline crash is an invalid reference execution and cannot establish a capability gain. Raw wins/losses remain in the report for audit, but any baseline error now blocks the technical screen, as do candidate errors. See runtime/PROOF_DELTA_RESULT.json for the reproducible old-pass/new-reject counterexample and surviving valid positive control. New regression tests also exercise concentration by cluster, latency budget, source changes during execution and worker timeouts.

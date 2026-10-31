@@ -135,8 +135,11 @@ def compare(cases,baseline,candidate):
         clusters[row['cluster']]=clusters.get(row['cluster'],0)+int(cb)-int(ca)
     cw=sum(v>0 for v in clusters.values());cl=sum(v<0 for v in clusters.values())
     ma=statistics.median(r['latency_ms'] for r in baseline);mb=statistics.median(r['latency_ms'] for r in candidate)
-    technical=(counts['supported']>=30 and counts['unsupported']>=10 and len(clusters)>=5 and counts['candidate_exact']-counts['baseline_exact']>=5 and pvalue(counts['wins'],counts['losses'])<=.05 and cw>=5 and pvalue(cw,cl)<=.05 and counts['candidate_abstentions']>=counts['baseline_abstentions'] and counts['candidate_errors']==0 and mb<=max(3*ma,ma+5))
-    return {**counts,'cluster_count':len(clusters),'cluster_wins':cw,'cluster_losses':cl,'conditional_p_descriptive':pvalue(counts['wins'],counts['losses']),'cluster_p_descriptive':pvalue(cw,cl),'baseline_median_ms':ma,'candidate_median_ms':mb,'technical_screen_pass':technical}
+    technical=(counts['supported']>=30 and counts['unsupported']>=10 and len(clusters)>=5 and counts['candidate_exact']-counts['baseline_exact']>=5 and pvalue(counts['wins'],counts['losses'])<=.05 and cw>=5 and pvalue(cw,cl)<=.05 and counts['candidate_abstentions']>=counts['baseline_abstentions'] and counts['baseline_errors']==0 and counts['candidate_errors']==0 and mb<=max(3*ma,ma+5))
+    blockers=[]
+    if counts['baseline_errors']:blockers.append('BASELINE_EXECUTION_OR_INTERFACE_ERROR')
+    if counts['candidate_errors']:blockers.append('CANDIDATE_EXECUTION_OR_INTERFACE_ERROR')
+    return {**counts,'screen_blockers':blockers,'cluster_count':len(clusters),'cluster_wins':cw,'cluster_losses':cl,'conditional_p_descriptive':pvalue(counts['wins'],counts['losses']),'cluster_p_descriptive':pvalue(cw,cl),'baseline_median_ms':ma,'candidate_median_ms':mb,'technical_screen_pass':technical}
 
 def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--bundle');p.add_argument('--known-texts');p.add_argument('--baseline-checkout');p.add_argument('--candidate-checkout');p.add_argument('--baseline-commit');p.add_argument('--candidate-commit');p.add_argument('--candidate',choices=['structured_v1','spanish'],default='structured_v1');p.add_argument('--output');args=p.parse_args(argv)

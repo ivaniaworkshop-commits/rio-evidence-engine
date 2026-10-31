@@ -1,7 +1,7 @@
 {
   "schema": "rio-dashboard-v1",
   "updated": "2026-10-30",
-  "tests": 214,
+  "tests": 225,
   "synthetic_graphs": 64,
   "benchmark": {
     "nodes": 2000,
@@ -50,8 +50,8 @@
     "core_sha256": "fb232e58f1ab1260d9b74b454a0a267cd73171e0aedaf0fc4867df552fd2caf5",
     "validation_sha256": "f426b8259db966548f37941da870dad2f7130fe3a8731241b2f187a5a5857128",
     "scope": "LOCAL_EXECUTION_RECORD_BOUND_TO_SOURCE_BYTES_NOT_REMOTE_CI",
-    "current_test_evidence": "runtime/EXTERNAL_VALIDATOR_VALIDATION.json",
-    "current_test_evidence_sha256": "21a696bac1a00316ecb60cddf03a3887ceec37d645f6480523c76236608a46e1"
+    "current_test_evidence": "runtime/PROOF_DELTA_VALIDATION.json",
+    "current_test_evidence_sha256": "a72f367c12e3bcc23843f5deac8e5f7500c615fab71b9a5a15c5a7f646413d6d"
   },
   "model": {
     "status": "SMALL_NEURAL_LM_TRAINED_AND_RELOADED_NOT_LLM",
@@ -120,7 +120,7 @@
     "semantic_extraction_status": "NOT_DEMONSTRATED_WITH_FULL_RECURRENT_PREFILL",
     "current_context_rejections": 28,
     "context_rejections_are_semantic_abstentions": false,
-    "project_tests_passed": 214,
+    "project_tests_passed": 225,
     "hybrid_role": "OPTIONAL_RANKING_OF_DETERMINISTIC_EXPLANATIONS",
     "observed_neural_value": "NO_OUTPUT_BENEFIT_IN_42_CASE_PAIRED_ABLATION",
     "historical_task_probe": "0/26 extractable durations before context safety fix",
@@ -154,7 +154,9 @@
       "runtime/H17_REJECTION_LATENCY.json",
       "runtime/H17_RECONCILED_PROGRAM.json",
       "runtime/H17_VALIDATION.json",
-      "runtime/EXTERNAL_VALIDATOR_VALIDATION.json"
+      "runtime/EXTERNAL_VALIDATOR_VALIDATION.json",
+      "runtime/PROOF_DELTA_RESULT.json",
+      "runtime/PROOF_DELTA_VALIDATION.json"
     ],
     "limits": [
       "No LLM, production reliability, human mastery or independent validation claimed.",
@@ -420,11 +422,11 @@
       "validation": "runtime/H16_VALIDATION.json"
     },
     "current_strict_verification": {
-      "tests": 214,
-      "passed": 214,
+      "tests": 225,
+      "passed": 225,
       "skipped": 0,
       "scope": "LOCAL_NOT_REMOTE_CI",
-      "evidence": "runtime/EXTERNAL_VALIDATOR_VALIDATION.json"
+      "evidence": "runtime/PROOF_DELTA_VALIDATION.json"
     },
     "weight_registry": {
       "models_loaded": 3,
@@ -509,6 +511,17 @@
       "independence_verified": false,
       "candidate_promoted": false,
       "validation": "runtime/EXTERNAL_VALIDATOR_VALIDATION.json"
+    },
+    "proof_delta": {
+      "status": "BASELINE_ERROR_FALSE_TECHNICAL_PASS_PATCHED",
+      "before_technical_screen": true,
+      "after_technical_screen": false,
+      "positive_control_still_passes": true,
+      "new_adversarial_tests": 11,
+      "evidence": "runtime/PROOF_DELTA_RESULT.json",
+      "validation": "runtime/PROOF_DELTA_VALIDATION.json",
+      "external_model_validation": false,
+      "weights_changed": false
     }
   },
   "streaming_gate": {
@@ -634,11 +647,11 @@
     "validation": "runtime/H16_VALIDATION.json"
   },
   "current_strict_verification": {
-    "tests": 214,
-    "passed": 214,
+    "tests": 225,
+    "passed": 225,
     "skipped": 0,
     "scope": "LOCAL_NOT_REMOTE_CI",
-    "evidence": "runtime/EXTERNAL_VALIDATOR_VALIDATION.json"
+    "evidence": "runtime/PROOF_DELTA_VALIDATION.json"
   },
   "weight_registry": {
     "models_loaded": 3,
@@ -723,5 +736,16 @@
     "independence_verified": false,
     "candidate_promoted": false,
     "validation": "runtime/EXTERNAL_VALIDATOR_VALIDATION.json"
+  },
+  "proof_delta": {
+    "status": "BASELINE_ERROR_FALSE_TECHNICAL_PASS_PATCHED",
+    "before_technical_screen": true,
+    "after_technical_screen": false,
+    "positive_control_still_passes": true,
+    "new_adversarial_tests": 11,
+    "evidence": "runtime/PROOF_DELTA_RESULT.json",
+    "validation": "runtime/PROOF_DELTA_VALIDATION.json",
+    "external_model_validation": false,
+    "weights_changed": false
   }
 }

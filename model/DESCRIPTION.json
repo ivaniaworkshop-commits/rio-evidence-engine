@@ -11,7 +11,7 @@
   "semantic_extraction_status": "NOT_DEMONSTRATED_WITH_FULL_RECURRENT_PREFILL",
   "current_context_rejections": 28,
   "context_rejections_are_semantic_abstentions": false,
-  "project_tests_passed": 214,
+  "project_tests_passed": 225,
   "hybrid_role": "OPTIONAL_RANKING_OF_DETERMINISTIC_EXPLANATIONS",
   "observed_neural_value": "NO_OUTPUT_BENEFIT_IN_42_CASE_PAIRED_ABLATION",
   "historical_task_probe": "0/26 extractable durations before context safety fix",
@@ -45,7 +45,9 @@
     "runtime/H17_REJECTION_LATENCY.json",
     "runtime/H17_RECONCILED_PROGRAM.json",
     "runtime/H17_VALIDATION.json",
-    "runtime/EXTERNAL_VALIDATOR_VALIDATION.json"
+    "runtime/EXTERNAL_VALIDATOR_VALIDATION.json",
+    "runtime/PROOF_DELTA_RESULT.json",
+    "runtime/PROOF_DELTA_VALIDATION.json"
   ],
   "limits": [
     "No LLM, production reliability, human mastery or independent validation claimed.",
@@ -311,11 +313,11 @@
     "validation": "runtime/H16_VALIDATION.json"
   },
   "current_strict_verification": {
-    "tests": 214,
-    "passed": 214,
+    "tests": 225,
+    "passed": 225,
     "skipped": 0,
     "scope": "LOCAL_NOT_REMOTE_CI",
-    "evidence": "runtime/EXTERNAL_VALIDATOR_VALIDATION.json"
+    "evidence": "runtime/PROOF_DELTA_VALIDATION.json"
   },
   "weight_registry": {
     "models_loaded": 3,
@@ -400,5 +402,16 @@
     "independence_verified": false,
     "candidate_promoted": false,
     "validation": "runtime/EXTERNAL_VALIDATOR_VALIDATION.json"
+  },
+  "proof_delta": {
+    "status": "BASELINE_ERROR_FALSE_TECHNICAL_PASS_PATCHED",
+    "before_technical_screen": true,
+    "after_technical_screen": false,
+    "positive_control_still_passes": true,
+    "new_adversarial_tests": 11,
+    "evidence": "runtime/PROOF_DELTA_RESULT.json",
+    "validation": "runtime/PROOF_DELTA_VALIDATION.json",
+    "external_model_validation": false,
+    "weights_changed": false
   }
 }

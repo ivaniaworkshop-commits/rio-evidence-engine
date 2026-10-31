@@ -93,7 +93,7 @@ a separate delta; no context extension or retraining occurred.
 <!-- MODEL_STATUS_START -->
 ## Current model status (evidence synchronized)
 
-Río ByteGRU is a **small neural language model, not an LLM**: 17,344 parameters, 250 observed training steps. Checkpoint saved and reloaded. Current strict suite: 214 passing local tests, zero skipped.
+Río ByteGRU is a **small neural language model, not an LLM**: 17,344 parameters, 250 observed training steps. Checkpoint saved and reloaded. Current strict suite: 225 passing local tests, zero skipped.
 
 Current free generation rejects prompt-plus-output budgets above 128 UTF-8 bytes. The extraction fixture has 28 context rejections, not semantic abstentions. Neural extraction is not established. Hybrid arithmetic remains deterministic. Optional neural ranking showed no output benefit in the paired 42-case comparison. Earlier low loss and failed raw-generation probes are historical, not current capability certificates.
 Experimental recurrent prefill processes up to 4096 prompt bytes; observed full processing in 28/28 cases, but 0/24 exact graphs and 0/4 correct abstentions. No weights changed.
@@ -258,3 +258,10 @@ Observed API and CLI outputs matched with all three checkpoints, and repeated ca
 See external_validator/README.md and external_validator/validate.py. The stdlib-only tool is designed to run on an independent evaluator's machine. It verifies clean exact-commit Git checkouts, executes registered graph readers in separate Python isolated-mode processes without transmitting labels, and scores with a parent comparator that imports no project grading modules. It rejects submitted outputs/times and exact known-text overlap. Private aggregate reports use exclusive creation and permissions 0600. It does not fetch code, send data, promote a model or authenticate external provenance.
 
 Instrument tests use authored temporary Git fixtures; current strict suite: 214 passed, zero skipped. All report paths preserve independence_verified=false. Without an external bundle, execution is BLOCKED_NO_EXTERNAL_DATA. This is a ready validation instrument, not completed independent model validation, and it currently evaluates graph-reader targets rather than neural checkpoints. Evidence: runtime/EXTERNAL_VALIDATOR_VALIDATION.json.
+
+
+## Adversarial proof delta: invalid baseline cannot pass the technical screen
+
+A reproducible authored counterexample made the prior standalone validator pass its technical screen with five baseline runtime errors across five clusters. The errors produced five apparent paired wins even though the reference execution was invalid. The patch preserves those raw observations but blocks the technical screen whenever either side has runtime/interface/invalid-graph errors. Wrong semantic answers and legitimate abstentions remain comparable; this guard targets invalid execution, not disagreement. The report includes screen_blockers for these error conditions.
+
+Eleven new controls cover legitimate positive acceptance, baseline crashes, malformed baseline graphs, candidate crashes, concentration of wins in one cluster, four-win threshold, abstention regression, excessive latency, malformed abstention, source mutation during a worker call, and timeout. Against the original source commit, the counterexample passed; patched code rejects it while a legitimate positive control still passes. Current strict suite: 225 passed, zero skipped. Evidence: runtime/PROOF_DELTA_RESULT.json and runtime/PROOF_DELTA_VALIDATION.json. These are instrument/regression proofs, not external model accuracy or new learned capacity; no weights changed.
