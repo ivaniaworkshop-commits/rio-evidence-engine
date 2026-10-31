@@ -11,7 +11,7 @@
   "semantic_extraction_status": "NOT_DEMONSTRATED_WITH_FULL_RECURRENT_PREFILL",
   "current_context_rejections": 28,
   "context_rejections_are_semantic_abstentions": false,
-  "project_tests_passed": 105,
+  "project_tests_passed": 195,
   "hybrid_role": "OPTIONAL_RANKING_OF_DETERMINISTIC_EXPLANATIONS",
   "observed_neural_value": "NO_OUTPUT_BENEFIT_IN_42_CASE_PAIRED_ABLATION",
   "historical_task_probe": "0/26 extractable durations before context safety fix",
@@ -39,7 +39,9 @@
     "runtime/H15_OBJECTIVE_RECALCULATION.json",
     "runtime/H15_VALIDATION.json",
     "runtime/H16_SPANISH_RESULT.json",
-    "runtime/H16_VALIDATION.json"
+    "runtime/H16_VALIDATION.json",
+    "runtime/STRICT_TEST_REPAIR_RESULT.json",
+    "runtime/WEIGHT_REGISTRY_RESULT.json"
   ],
   "limits": [
     "No LLM, production reliability, human mastery or independent validation claimed.",
@@ -303,5 +305,53 @@
     "candidate_promoted": false,
     "result": "runtime/H16_SPANISH_RESULT.json",
     "validation": "runtime/H16_VALIDATION.json"
+  },
+  "current_strict_verification": {
+    "tests": 195,
+    "passed": 195,
+    "skipped": 0,
+    "scope": "LOCAL_NOT_REMOTE_CI",
+    "evidence": "runtime/STRICT_TEST_REPAIR_RESULT.json"
+  },
+  "weight_registry": {
+    "models_loaded": 3,
+    "checkpoints": [
+      {
+        "name": "base",
+        "sha256": "a190c30ef90aa4bf21d92036d388c9c272fda73e7869f507648a6d053bb1ec29",
+        "experimental": false,
+        "source_report": "model/TRAINING_RESULT.json",
+        "groups_loaded": 7,
+        "parameters_loaded": 17344,
+        "mode": "SELECTABLE_CHECKPOINT_NOT_MERGED_OR_PROMOTED",
+        "finite_forward_pass": true,
+        "same_process_forward_repeat_equal": true
+      },
+      {
+        "name": "extraction",
+        "sha256": "71515bb4638bfe9e6fce922c7242746092a5a35920d8673bf74719eb473ecbfa",
+        "experimental": true,
+        "source_report": "model/EXTRACTION_TRAINING_RESULT.json",
+        "groups_loaded": 7,
+        "parameters_loaded": 17344,
+        "mode": "SELECTABLE_CHECKPOINT_NOT_MERGED_OR_PROMOTED",
+        "finite_forward_pass": true,
+        "same_process_forward_repeat_equal": true
+      },
+      {
+        "name": "weighted_extraction",
+        "sha256": "828555a6cc298d62f2549516721088a52eca2c38a51268d13c5f18cc7f24fb95",
+        "experimental": true,
+        "source_report": "model/WEIGHT_SEARCH_RESULT.json",
+        "groups_loaded": 7,
+        "parameters_loaded": 17344,
+        "mode": "SELECTABLE_CHECKPOINT_NOT_MERGED_OR_PROMOTED",
+        "finite_forward_pass": true,
+        "same_process_forward_repeat_equal": true
+      }
+    ],
+    "default_checkpoint": "base",
+    "weights_modified": false,
+    "candidate_promoted": false
   }
 }

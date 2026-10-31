@@ -1,0 +1,50 @@
+{
+  "schema": "RIO_WEIGHT_REGISTRY_V1",
+  "torch_version": "2.15.0+cpu",
+  "checkpoints": [
+    {
+      "name": "base",
+      "sha256": "a190c30ef90aa4bf21d92036d388c9c272fda73e7869f507648a6d053bb1ec29",
+      "experimental": false,
+      "source_report": "model/TRAINING_RESULT.json",
+      "groups_loaded": 7,
+      "parameters_loaded": 17344,
+      "mode": "SELECTABLE_CHECKPOINT_NOT_MERGED_OR_PROMOTED",
+      "finite_forward_pass": true,
+      "same_process_forward_repeat_equal": true
+    },
+    {
+      "name": "extraction",
+      "sha256": "71515bb4638bfe9e6fce922c7242746092a5a35920d8673bf74719eb473ecbfa",
+      "experimental": true,
+      "source_report": "model/EXTRACTION_TRAINING_RESULT.json",
+      "groups_loaded": 7,
+      "parameters_loaded": 17344,
+      "mode": "SELECTABLE_CHECKPOINT_NOT_MERGED_OR_PROMOTED",
+      "finite_forward_pass": true,
+      "same_process_forward_repeat_equal": true
+    },
+    {
+      "name": "weighted_extraction",
+      "sha256": "828555a6cc298d62f2549516721088a52eca2c38a51268d13c5f18cc7f24fb95",
+      "experimental": true,
+      "source_report": "model/WEIGHT_SEARCH_RESULT.json",
+      "groups_loaded": 7,
+      "parameters_loaded": 17344,
+      "mode": "SELECTABLE_CHECKPOINT_NOT_MERGED_OR_PROMOTED",
+      "finite_forward_pass": true,
+      "same_process_forward_repeat_equal": true
+    }
+  ],
+  "models_loaded": 3,
+  "parameter_values_loaded_across_versions": 52032,
+  "default_checkpoint": "base",
+  "weights_modified": false,
+  "candidate_promoted": false,
+  "limits": [
+    "Separate checkpoints are not one larger model or an ensemble.",
+    "Finite repeatable inference does not establish semantic correctness.",
+    "Experimental candidates retain their failed capability evaluations.",
+    "This registry covers three repository checkpoints; unavailable weights are not invented."
+  ]
+}

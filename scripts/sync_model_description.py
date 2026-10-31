@@ -107,6 +107,16 @@ def sync():
         h16=json.loads(h16_path.read_text())
         d['h16_spanish_development']={k:h16[k] for k in ['supported_cases','baseline_exact','candidate_exact','candidate_correct_abstentions','paired_wins','paired_losses','weights_changed','candidate_promoted','independent_data']}
         d['sources'].extend(['runtime/H16_SPANISH_RESULT.json','runtime/H16_VALIDATION.json'])
+    strict_path=ROOT/'runtime/STRICT_TEST_REPAIR_RESULT.json'
+    registry_path=ROOT/'runtime/WEIGHT_REGISTRY_RESULT.json'
+    if strict_path.exists():
+        current=json.loads(strict_path.read_text())['current_suite']
+        d['current_strict_verification']={**current,'scope':'LOCAL_NOT_REMOTE_CI','evidence':'runtime/STRICT_TEST_REPAIR_RESULT.json'}
+        d['project_tests_passed']=current['tests_run']-current['skipped']-current['failed']-current['errors']
+        d['sources'].append('runtime/STRICT_TEST_REPAIR_RESULT.json')
+    if registry_path.exists():
+        d['weight_registry']=json.loads(registry_path.read_text())
+        d['sources'].append('runtime/WEIGHT_REGISTRY_RESULT.json')
     (ROOT/'model/DESCRIPTION.json').write_text(json.dumps(d,indent=2)+'\n')
     value_statement=('Optional neural ranking showed no output benefit in the paired 42-case comparison.' if ablation_current else 'The current checkpoint has no matching paired utility evaluation.')
     block=('<!-- MODEL_STATUS_START -->\n## Current model status (evidence synchronized)\n\n'

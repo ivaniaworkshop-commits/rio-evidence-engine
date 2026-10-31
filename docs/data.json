@@ -1,7 +1,7 @@
 {
   "schema": "rio-dashboard-v1",
   "updated": "2026-10-30",
-  "tests": 105,
+  "tests": 195,
   "synthetic_graphs": 64,
   "benchmark": {
     "nodes": 2000,
@@ -49,7 +49,9 @@
   "provenance": {
     "core_sha256": "fb232e58f1ab1260d9b74b454a0a267cd73171e0aedaf0fc4867df552fd2caf5",
     "validation_sha256": "f426b8259db966548f37941da870dad2f7130fe3a8731241b2f187a5a5857128",
-    "scope": "LOCAL_EXECUTION_RECORD_BOUND_TO_SOURCE_BYTES_NOT_REMOTE_CI"
+    "scope": "LOCAL_EXECUTION_RECORD_BOUND_TO_SOURCE_BYTES_NOT_REMOTE_CI",
+    "current_test_evidence": "runtime/STRICT_TEST_REPAIR_RESULT.json",
+    "current_test_evidence_sha256": "65169132e251dc551ab2c1e197508f9bfa43c4fb531be392af550a6ca5d24fd1"
   },
   "model": {
     "status": "SMALL_NEURAL_LM_TRAINED_AND_RELOADED_NOT_LLM",
@@ -118,7 +120,7 @@
     "semantic_extraction_status": "NOT_DEMONSTRATED_WITH_FULL_RECURRENT_PREFILL",
     "current_context_rejections": 28,
     "context_rejections_are_semantic_abstentions": false,
-    "project_tests_passed": 105,
+    "project_tests_passed": 195,
     "hybrid_role": "OPTIONAL_RANKING_OF_DETERMINISTIC_EXPLANATIONS",
     "observed_neural_value": "NO_OUTPUT_BENEFIT_IN_42_CASE_PAIRED_ABLATION",
     "historical_task_probe": "0/26 extractable durations before context safety fix",
@@ -141,7 +143,14 @@
       "model/GRAPH_COPY_RESULT.json",
       "model/NETWORK_VALUE_RESULT.json",
       "model/WEIGHT_SEARCH_RESULT.json",
-      "runtime/AUTO_ROUND_RESULT.json"
+      "runtime/AUTO_ROUND_RESULT.json",
+      "model/EVALUATION_OBSERVATIONS_R001.json",
+      "runtime/H15_OBJECTIVE_RECALCULATION.json",
+      "runtime/H15_VALIDATION.json",
+      "runtime/H16_SPANISH_RESULT.json",
+      "runtime/H16_VALIDATION.json",
+      "runtime/STRICT_TEST_REPAIR_RESULT.json",
+      "runtime/WEIGHT_REGISTRY_RESULT.json"
     ],
     "limits": [
       "No LLM, production reliability, human mastery or independent validation claimed.",
@@ -267,6 +276,192 @@
       },
       "weight_changes": false,
       "antivirus_activation": false
+    },
+    "verification_h00_strict_2026_10_30": {
+      "test_total": 105,
+      "passed": 105,
+      "failed": 0,
+      "skipped": 0,
+      "torch_version": "2.15.0+cpu",
+      "main_commit": "79971e88bbb82ef68a0e529c35a7721b45d654df",
+      "github_run": "https://github.com/ivaniaworkshop-commits/rio-evidence-engine/actions/runs/41129448556",
+      "meaning": "UNIT_TESTS_ONLY_NOT_HIDDEN_COMPETITION_OR_GENERALIZATION"
+    },
+    "h01_authority": {
+      "status": "OFFICIAL_ACCEPTANCE_UNVERIFIED",
+      "evidence": "competition/ACCEPTANCE_AUTHORITY_R001.json"
+    },
+    "h07_value_gate": {
+      "status": "NEURAL_GAIN_NOT_DEMONSTRATED_ON_AUTHORED_DEV",
+      "audit_script": "scripts/h07_audit.py",
+      "baseline": "evaluation/H07_GATE_R001.md",
+      "live_ci_remeasurement": "PENDING_RUN_NOT_CLAIMED",
+      "no_parameter_change": true
+    },
+    "h08_independent_capability_gate": {
+      "status": "BLOCKED_NO_EXTERNAL_HOLDOUT",
+      "independent_dataset_observed": false,
+      "source_authentication": "UNKNOWN",
+      "minimum_supported": 30,
+      "minimum_unsupported": 10,
+      "minimum_clusters": 5,
+      "paired_comparison": "SPECIFIED_NOT_EXECUTED_ON_INDEPENDENT_DATA",
+      "promotion": "BLOCKED",
+      "model_weights_changed": false,
+      "contract": "evaluation/H08_INDEPENDENT_GATE_R001.md",
+      "validator": "rio_evidence/independent_gate.py"
+    },
+    "h09_deterministic_extension": {
+      "status": "BOUNDED_CAPABILITY_OBSERVED_ON_PROJECT_AUTHORED_ENUMERATION",
+      "source_commit": "bea424e7cf888d118249cf3b7e95ec204711e8c1",
+      "ci_run": "https://github.com/ivaniaworkshop-commits/rio-evidence-engine/actions/runs/41135727554",
+      "result_file": "model/H09_RESULT.json",
+      "matched_new_cases": 4096,
+      "total_new_cases": 4096,
+      "old_baseline_matched": 0,
+      "old_baseline_total": 4096,
+      "legacy_outcomes_preserved": 94,
+      "neural_parameter_changes": 0,
+      "source_independence": "NOT_ESTABLISHED",
+      "next_external_gate": "H08_ISSUE_8_OPEN"
+    },
+    "h10_new_wording_probe": {
+      "status": "OBSERVED_CI_NO_NEW_LANGUAGE_COVERAGE",
+      "source_commit": "f4c45c375140869cdecf488d5a987d3b26b7fe3a",
+      "ci_run": "https://github.com/ivaniaworkshop-commits/rio-evidence-engine/actions/runs/41137455826",
+      "supported_exact": 0,
+      "supported_cases": 40,
+      "appropriate_abstentions": 12,
+      "negative_cases": 12,
+      "independent_dataset": false,
+      "model_promoted": false,
+      "weights_changed": false
+    },
+    "h11_paired_runner": {
+      "status": "CI_OBSERVED_RUNNING_REGISTERED_EXECUTABLES",
+      "source_commit": "c725f60a5c7d7a604f1113ef0705939921bc02c3",
+      "ci_run": "https://github.com/ivaniaworkshop-commits/rio-evidence-engine/actions/runs/41139172694",
+      "strict_tests": 149,
+      "cases": 52,
+      "wins": 0,
+      "losses": 0,
+      "external_source_authenticated": false,
+      "model_promoted": false,
+      "weights_changed": false
+    },
+    "h12_power_design": {
+      "status": "CI_VERIFIED_CONDITIONAL_MATH_NOT_MODEL_CAPABILITY",
+      "source_commit": "3f37b3423c47bc9a50cd8a4637079694718f7f1c",
+      "ci_run": "https://github.com/ivaniaworkshop-commits/rio-evidence-engine/actions/runs/41139621169",
+      "strict_tests": 155,
+      "conditional_n_80pct_for_p10_zero_loss": 66,
+      "correlated_cluster_guard": "TESTED",
+      "external_source_authenticated": false,
+      "model_promoted": false,
+      "weights_changed": false
+    },
+    "latest_strict_suite_observed": {
+      "tests": 155,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "commit": "3f37b3423c47bc9a50cd8a4637079694718f7f1c",
+      "ci_run": "https://github.com/ivaniaworkshop-commits/rio-evidence-engine/actions/runs/41139621169"
+    },
+    "h14_structured_candidate": {
+      "status": "FROZEN_SOURCE_COMMIT_AND_BYTES_CI_PENDING",
+      "candidate_file": "rio_evidence/candidate_v1.py",
+      "frozen_commit": "178783ac678b898d369caceaefb1b22dbd76a6ce",
+      "frozen_sha256": "d6a2d051fe8b78972236d69ac76ef1466d243726ed6eafd4f7903dd5777d2eda",
+      "baseline_commit": "3d047f369059877ce0dec30bd297e6cf1a17ed99",
+      "baseline_sha256": "7d3c59473e5dda3a4b83abc0b54af6c02fb646fcbf2ad0c2acd6962bb5265171",
+      "public_dev_supported_gain": 5,
+      "public_dev_supported_cases": 40,
+      "public_dev_negative_abstentions": 12,
+      "public_dev_cluster_wins": 1,
+      "external_holdout": "NOT_AVAILABLE",
+      "neural_weights_changed": false,
+      "model_promoted": false,
+      "source_freeze_receipt": "evaluation/H14_SOURCE_FREEZE_R001.json",
+      "csv_terminal_omission": "UNOBSERVABLE_WITHOUT_DECLARED_COUNT"
+    },
+    "h15_declared_inventory": {
+      "status": "OPTIONAL_DECLARED_COUNT_GUARD_OBSERVED_ON_AUTHORED_CASES",
+      "result": "runtime/H15_OBJECTIVE_RECALCULATION.json",
+      "complete_graphs_preserved": 8,
+      "declared_terminal_omissions_rejected": 7,
+      "caller_count_authenticated": false,
+      "weights_changed": false,
+      "model_promoted": false,
+      "local_suite": {
+        "run": 182,
+        "passed": 175,
+        "skipped": 7
+      }
+    },
+    "h16_spanish_development": {
+      "status": "OPT_IN_CLOSED_SPANISH_GRAMMAR_DEVELOPMENT_GAIN",
+      "supported_cases": 40,
+      "baseline_exact": 5,
+      "candidate_exact": 10,
+      "correct_abstentions": 12,
+      "negative_cases": 12,
+      "paired_wins": 5,
+      "paired_losses": 0,
+      "synthetic_order_variants": 1536,
+      "independent_data": false,
+      "weights_changed": false,
+      "candidate_promoted": false,
+      "result": "runtime/H16_SPANISH_RESULT.json",
+      "validation": "runtime/H16_VALIDATION.json"
+    },
+    "current_strict_verification": {
+      "tests": 195,
+      "passed": 195,
+      "skipped": 0,
+      "scope": "LOCAL_NOT_REMOTE_CI",
+      "evidence": "runtime/STRICT_TEST_REPAIR_RESULT.json"
+    },
+    "weight_registry": {
+      "models_loaded": 3,
+      "checkpoints": [
+        {
+          "name": "base",
+          "sha256": "a190c30ef90aa4bf21d92036d388c9c272fda73e7869f507648a6d053bb1ec29",
+          "experimental": false,
+          "source_report": "model/TRAINING_RESULT.json",
+          "groups_loaded": 7,
+          "parameters_loaded": 17344,
+          "mode": "SELECTABLE_CHECKPOINT_NOT_MERGED_OR_PROMOTED",
+          "finite_forward_pass": true,
+          "same_process_forward_repeat_equal": true
+        },
+        {
+          "name": "extraction",
+          "sha256": "71515bb4638bfe9e6fce922c7242746092a5a35920d8673bf74719eb473ecbfa",
+          "experimental": true,
+          "source_report": "model/EXTRACTION_TRAINING_RESULT.json",
+          "groups_loaded": 7,
+          "parameters_loaded": 17344,
+          "mode": "SELECTABLE_CHECKPOINT_NOT_MERGED_OR_PROMOTED",
+          "finite_forward_pass": true,
+          "same_process_forward_repeat_equal": true
+        },
+        {
+          "name": "weighted_extraction",
+          "sha256": "828555a6cc298d62f2549516721088a52eca2c38a51268d13c5f18cc7f24fb95",
+          "experimental": true,
+          "source_report": "model/WEIGHT_SEARCH_RESULT.json",
+          "groups_loaded": 7,
+          "parameters_loaded": 17344,
+          "mode": "SELECTABLE_CHECKPOINT_NOT_MERGED_OR_PROMOTED",
+          "finite_forward_pass": true,
+          "same_process_forward_repeat_equal": true
+        }
+      ],
+      "default_checkpoint": "base",
+      "weights_modified": false,
+      "candidate_promoted": false
     }
   },
   "streaming_gate": {
@@ -390,5 +585,53 @@
     "candidate_promoted": false,
     "result": "runtime/H16_SPANISH_RESULT.json",
     "validation": "runtime/H16_VALIDATION.json"
+  },
+  "current_strict_verification": {
+    "tests": 195,
+    "passed": 195,
+    "skipped": 0,
+    "scope": "LOCAL_NOT_REMOTE_CI",
+    "evidence": "runtime/STRICT_TEST_REPAIR_RESULT.json"
+  },
+  "weight_registry": {
+    "models_loaded": 3,
+    "checkpoints": [
+      {
+        "name": "base",
+        "sha256": "a190c30ef90aa4bf21d92036d388c9c272fda73e7869f507648a6d053bb1ec29",
+        "experimental": false,
+        "source_report": "model/TRAINING_RESULT.json",
+        "groups_loaded": 7,
+        "parameters_loaded": 17344,
+        "mode": "SELECTABLE_CHECKPOINT_NOT_MERGED_OR_PROMOTED",
+        "finite_forward_pass": true,
+        "same_process_forward_repeat_equal": true
+      },
+      {
+        "name": "extraction",
+        "sha256": "71515bb4638bfe9e6fce922c7242746092a5a35920d8673bf74719eb473ecbfa",
+        "experimental": true,
+        "source_report": "model/EXTRACTION_TRAINING_RESULT.json",
+        "groups_loaded": 7,
+        "parameters_loaded": 17344,
+        "mode": "SELECTABLE_CHECKPOINT_NOT_MERGED_OR_PROMOTED",
+        "finite_forward_pass": true,
+        "same_process_forward_repeat_equal": true
+      },
+      {
+        "name": "weighted_extraction",
+        "sha256": "828555a6cc298d62f2549516721088a52eca2c38a51268d13c5f18cc7f24fb95",
+        "experimental": true,
+        "source_report": "model/WEIGHT_SEARCH_RESULT.json",
+        "groups_loaded": 7,
+        "parameters_loaded": 17344,
+        "mode": "SELECTABLE_CHECKPOINT_NOT_MERGED_OR_PROMOTED",
+        "finite_forward_pass": true,
+        "same_process_forward_repeat_equal": true
+      }
+    ],
+    "default_checkpoint": "base",
+    "weights_modified": false,
+    "candidate_promoted": false
   }
 }

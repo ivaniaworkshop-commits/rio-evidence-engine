@@ -104,15 +104,7 @@ jobs:
           .venv/bin/python -m pip install -r model/requirements-cpu.txt
           .venv/bin/python -c 'import torch; print("torch", torch.__version__)'
       - name: Run complete suite; reject every skip
-        run: |
-          .venv/bin/python - <<'PY'
-          import unittest
-          suite = unittest.defaultTestLoader.discover('tests')
-          result = unittest.TextTestRunner(verbosity=2).run(suite)
-          print('STRICT_SUITE', {'total': result.testsRun, 'failures': len(result.failures), 'errors': len(result.errors), 'skipped': len(result.skipped)})
-          if result.testsRun != 176 or result.failures or result.errors or result.skipped:
-              raise SystemExit(2)
-          PY
+        run: .venv/bin/python scripts/run_strict_tests.py
       - name: H07 remeasure paired accuracy abstention and latency
         run: |
           .venv/bin/python scripts/evaluate_network_value.py

@@ -3,8 +3,8 @@
   "files": [
     {
       "path": ".github/workflows/h00-integrity.yml",
-      "bytes": 6792,
-      "sha256": "34273a752264e9e4de1734cc1baa51c038e834c5868992fcc951550830e97ef3"
+      "bytes": 6349,
+      "sha256": "cb93e48e1c1935adfcdbf97f156d7048855b226a14d51a04c5c2defdfcf6b454"
     },
     {
       "path": ".gitignore",
@@ -23,13 +23,13 @@
     },
     {
       "path": "DELTAS.json",
-      "bytes": 13425,
-      "sha256": "11909ef3980592b4b1127f5813e17d0de41a651cf94fafa649ce8a7217124457"
+      "bytes": 23030,
+      "sha256": "4cedc4baec0253c8d2c96cd34779ee9e5939959eb626c3152ed2546ab8bb4618"
     },
     {
       "path": "README.md",
-      "bytes": 23487,
-      "sha256": "56d333afb89f1494fd622348ab7f59f7c2717e3f75fe32f5855962789701fa09"
+      "bytes": 24995,
+      "sha256": "3c2fbca381e4a77597731547c083025ca39c2d3e79de8396357e880cd827ef4d"
     },
     {
       "path": "RECALCULATION.md",
@@ -83,8 +83,8 @@
     },
     {
       "path": "docs/data.json",
-      "bytes": 13425,
-      "sha256": "11909ef3980592b4b1127f5813e17d0de41a651cf94fafa649ce8a7217124457"
+      "bytes": 23030,
+      "sha256": "4cedc4baec0253c8d2c96cd34779ee9e5939959eb626c3152ed2546ab8bb4618"
     },
     {
       "path": "docs/index.html",
@@ -178,8 +178,8 @@
     },
     {
       "path": "model/DESCRIPTION.json",
-      "bytes": 11425,
-      "sha256": "019cf0a7609531c181e5b4b3e366d9b74bff5c0012f7d5ad8812ef3d7b328521"
+      "bytes": 13197,
+      "sha256": "75cb56f0dddca5d185fe2ceb60e9590c0f97ce8d7e1be18c243dca5e9471d9d0"
     },
     {
       "path": "model/DURATION_COPY_CARD.md",
@@ -228,8 +228,8 @@
     },
     {
       "path": "model/MODEL_CARD.md",
-      "bytes": 15932,
-      "sha256": "f2a6f00a8d40fb00b5cffcb035921bb287783094f3fd8d2b8ade4bf1cc18fafb"
+      "bytes": 17440,
+      "sha256": "30ae6df3cebdc56bdf48fbb26403508962607c35eb6ea07e09c67f102652e2e9"
     },
     {
       "path": "model/MODE_ABLATION.json",
@@ -447,6 +447,11 @@
       "sha256": "657a9125021a5d71720c2bad0922f7f1f443389f49ce33b80ba50ba612f51dac"
     },
     {
+      "path": "rio_evidence/weight_registry.py",
+      "bytes": 4342,
+      "sha256": "f638436a5efb546843c8568e667d0c4d6c940da91491dbd9a5f148826ad7f57d"
+    },
+    {
       "path": "runtime/ATOMIC_Q6.txt",
       "bytes": 5786,
       "sha256": "c91a2d5245e72bf7bc1a1a5b3845b37ccd7fc0c07ebaa46e4c458f544a16c9ba"
@@ -495,6 +500,16 @@
       "path": "runtime/SESSION_SMOKE_RESULT.json",
       "bytes": 1134,
       "sha256": "0708d2f54b5fb35ca198c57d210af349efd2e03b4c575add7906722b7c464611"
+    },
+    {
+      "path": "runtime/STRICT_TEST_REPAIR_RESULT.json",
+      "bytes": 25907,
+      "sha256": "65169132e251dc551ab2c1e197508f9bfa43c4fb531be392af550a6ca5d24fd1"
+    },
+    {
+      "path": "runtime/WEIGHT_REGISTRY_RESULT.json",
+      "bytes": 1850,
+      "sha256": "dce447f88fb78512226d8fbb93c762aff3fef49629df63657a05c767edde11db"
     },
     {
       "path": "scripts/build_answer_matrix.py",
@@ -622,14 +637,19 @@
       "sha256": "3dd1e2397986029d35402fc86544e9623315d275bebf937e2d05bb207bbdf1ee"
     },
     {
+      "path": "scripts/run_strict_tests.py",
+      "bytes": 1282,
+      "sha256": "cf7e387810b25ac5b7bd3b2a3ae8a8cde4b613eb6f553dee7d781c9e836987b0"
+    },
+    {
       "path": "scripts/search_weight_groups.py",
       "bytes": 5935,
       "sha256": "07c1edce2894306d2776dfc39d373ab4372f32d5e694133fa5bb44b7e38c3c9a"
     },
     {
       "path": "scripts/sync_model_description.py",
-      "bytes": 13208,
-      "sha256": "ba99d4f6d1dadc4a8c4aaf5a116f190b3966d53796e82666212db6f0d887a700"
+      "bytes": 13909,
+      "sha256": "ca43280b850eeabd682b0995cbfeaf378ab7cd4c334892829d30c3023bd64af4"
     },
     {
       "path": "scripts/train_extraction.py",
@@ -775,6 +795,11 @@
       "path": "tests/test_tutor.py",
       "bytes": 2460,
       "sha256": "407c109f8dc1cfec43a77411ac63168c9ad813041612f2940d885ac4a9eca877"
+    },
+    {
+      "path": "tests/test_weight_registry.py",
+      "bytes": 2286,
+      "sha256": "692a12fd3009adcdf67458b9b8b97427ad0470ffe3593426c58cf59f370ea8b8"
     },
     {
       "path": "tests/test_weight_search.py",

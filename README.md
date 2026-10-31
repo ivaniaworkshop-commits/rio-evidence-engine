@@ -182,7 +182,7 @@ Context refusal is not correct semantic abstention and does not pass extraction.
 <!-- MODEL_STATUS_START -->
 ## Current model status (evidence synchronized)
 
-Río ByteGRU is a **small neural language model, not an LLM**: 17,344 parameters, 250 observed training steps. Checkpoint saved and reloaded. Project suite: 105 passing local tests.
+Río ByteGRU is a **small neural language model, not an LLM**: 17,344 parameters, 250 observed training steps. Checkpoint saved and reloaded. Current strict suite: 195 passing local tests, zero skipped.
 
 Current free generation rejects prompt-plus-output budgets above 128 UTF-8 bytes. The extraction fixture has 28 context rejections, not semantic abstentions. Neural extraction is not established. Hybrid arithmetic remains deterministic. Optional neural ranking showed no output benefit in the paired 42-case comparison. Earlier low loss and failed raw-generation probes are historical, not current capability certificates.
 Experimental recurrent prefill processes up to 4096 prompt bytes; observed full processing in 28/28 cases, but 0/24 exact graphs and 0/4 correct abstentions. No weights changed.
@@ -359,3 +359,12 @@ Reproduce: `python scripts/h15_objective_recalculation.py`. See runtime/H15_OBJE
 Public H10 development comparison: 10/40 positive graphs exact versus 5/40 for H14; 12/12 appropriate negative abstentions; 5 paired wins, 0 losses. These public examples informed implementation. A seeded 64-graph probe checked 1536 correlated order/CRLF variants. This is code-level coverage, not independent validation or learned Spanish comprehension. No weights or promotion. Local suite: 190 run, 183 passed, 7 skipped.
 
 Reproduce: `python scripts/h16_spanish_probe.py`. Evidence: runtime/H16_SPANISH_RESULT.json and runtime/H16_VALIDATION.json. Next: measure latency and broaden rejection audits before considering a default change. External independent evaluation remains unavailable.
+
+
+## Complete runtime verification and selectable weights
+
+Install the declared CPU runtime into the interpreter used for tests: `python -m pip install -r model/requirements-cpu.txt`. Then run `python scripts/run_strict_tests.py` with Node available. This gate fails on missing dependencies, missing checkpoints, zero discovered tests, any failure/error, or any skipped test; it does not use a stale fixed suite count. CI uses the same gate.
+
+Observed with PyTorch 2.15.0+cpu: all seven previously omitted runtime tests executed successfully. Current suite including registry checks: 195 passed, zero skipped. Local evidence is runtime/STRICT_TEST_REPAIR_RESULT.json; remote CI is separate.
+
+All three existing checkpoints are registered with receipt hashes, complete key/shape/dtype and finite-tensor validation. Each loads all 7 groups and 17,344 parameter values. Run `python -m rio_evidence.weight_registry --prewarm-all --allow-experimental` to load all three in memory, or select `--checkpoint extraction --allow-experimental` / `--checkpoint weighted_extraction --allow-experimental`. API: `load_checkpoint(...)` returns a model and metadata; `prewarm_all(allow_experimental=True)` returns all models and records. The base remains the default. The versions are separate; no tensor merging, parameter growth, promotion, retraining or new semantic accuracy is claimed. The extraction/scaling candidates retain their failed task evaluations. See runtime/WEIGHT_REGISTRY_RESULT.json.
