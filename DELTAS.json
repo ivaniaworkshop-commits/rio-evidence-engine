@@ -1,7 +1,7 @@
 {
   "schema": "rio-dashboard-v1",
   "updated": "2026-10-30",
-  "tests": 203,
+  "tests": 214,
   "synthetic_graphs": 64,
   "benchmark": {
     "nodes": 2000,
@@ -50,8 +50,8 @@
     "core_sha256": "fb232e58f1ab1260d9b74b454a0a267cd73171e0aedaf0fc4867df552fd2caf5",
     "validation_sha256": "f426b8259db966548f37941da870dad2f7130fe3a8731241b2f187a5a5857128",
     "scope": "LOCAL_EXECUTION_RECORD_BOUND_TO_SOURCE_BYTES_NOT_REMOTE_CI",
-    "current_test_evidence": "runtime/H17_VALIDATION.json",
-    "current_test_evidence_sha256": "0e4672fa7d1519a5b6f0bd81acc377efddbb7b904b98e0b51d9fd20c1501b671"
+    "current_test_evidence": "runtime/EXTERNAL_VALIDATOR_VALIDATION.json",
+    "current_test_evidence_sha256": "21a696bac1a00316ecb60cddf03a3887ceec37d645f6480523c76236608a46e1"
   },
   "model": {
     "status": "SMALL_NEURAL_LM_TRAINED_AND_RELOADED_NOT_LLM",
@@ -120,7 +120,7 @@
     "semantic_extraction_status": "NOT_DEMONSTRATED_WITH_FULL_RECURRENT_PREFILL",
     "current_context_rejections": 28,
     "context_rejections_are_semantic_abstentions": false,
-    "project_tests_passed": 203,
+    "project_tests_passed": 214,
     "hybrid_role": "OPTIONAL_RANKING_OF_DETERMINISTIC_EXPLANATIONS",
     "observed_neural_value": "NO_OUTPUT_BENEFIT_IN_42_CASE_PAIRED_ABLATION",
     "historical_task_probe": "0/26 extractable durations before context safety fix",
@@ -153,7 +153,8 @@
       "runtime/WEIGHT_REGISTRY_RESULT.json",
       "runtime/H17_REJECTION_LATENCY.json",
       "runtime/H17_RECONCILED_PROGRAM.json",
-      "runtime/H17_VALIDATION.json"
+      "runtime/H17_VALIDATION.json",
+      "runtime/EXTERNAL_VALIDATOR_VALIDATION.json"
     ],
     "limits": [
       "No LLM, production reliability, human mastery or independent validation claimed.",
@@ -419,11 +420,11 @@
       "validation": "runtime/H16_VALIDATION.json"
     },
     "current_strict_verification": {
-      "tests": 203,
-      "passed": 203,
+      "tests": 214,
+      "passed": 214,
       "skipped": 0,
       "scope": "LOCAL_NOT_REMOTE_CI",
-      "evidence": "runtime/H17_VALIDATION.json"
+      "evidence": "runtime/EXTERNAL_VALIDATOR_VALIDATION.json"
     },
     "weight_registry": {
       "models_loaded": 3,
@@ -497,6 +498,17 @@
         "runtime/H17_RECONCILED_PROGRAM.json",
         "runtime/H17_VALIDATION.json"
       ]
+    },
+    "external_validator": {
+      "status": "STANDALONE_INSTRUMENT_READY_EXTERNAL_DATA_NOT_AVAILABLE",
+      "entrypoint": "external_validator/validate.py",
+      "documentation": "external_validator/README.md",
+      "separate_frozen_git_processes": true,
+      "parent_grader_uses_project_modules": false,
+      "worker_messages_include_labels": false,
+      "independence_verified": false,
+      "candidate_promoted": false,
+      "validation": "runtime/EXTERNAL_VALIDATOR_VALIDATION.json"
     }
   },
   "streaming_gate": {
@@ -622,11 +634,11 @@
     "validation": "runtime/H16_VALIDATION.json"
   },
   "current_strict_verification": {
-    "tests": 203,
-    "passed": 203,
+    "tests": 214,
+    "passed": 214,
     "skipped": 0,
     "scope": "LOCAL_NOT_REMOTE_CI",
-    "evidence": "runtime/H17_VALIDATION.json"
+    "evidence": "runtime/EXTERNAL_VALIDATOR_VALIDATION.json"
   },
   "weight_registry": {
     "models_loaded": 3,
@@ -700,5 +712,16 @@
       "runtime/H17_RECONCILED_PROGRAM.json",
       "runtime/H17_VALIDATION.json"
     ]
+  },
+  "external_validator": {
+    "status": "STANDALONE_INSTRUMENT_READY_EXTERNAL_DATA_NOT_AVAILABLE",
+    "entrypoint": "external_validator/validate.py",
+    "documentation": "external_validator/README.md",
+    "separate_frozen_git_processes": true,
+    "parent_grader_uses_project_modules": false,
+    "worker_messages_include_labels": false,
+    "independence_verified": false,
+    "candidate_promoted": false,
+    "validation": "runtime/EXTERNAL_VALIDATOR_VALIDATION.json"
   }
 }

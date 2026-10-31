@@ -11,7 +11,7 @@
   "semantic_extraction_status": "NOT_DEMONSTRATED_WITH_FULL_RECURRENT_PREFILL",
   "current_context_rejections": 28,
   "context_rejections_are_semantic_abstentions": false,
-  "project_tests_passed": 203,
+  "project_tests_passed": 214,
   "hybrid_role": "OPTIONAL_RANKING_OF_DETERMINISTIC_EXPLANATIONS",
   "observed_neural_value": "NO_OUTPUT_BENEFIT_IN_42_CASE_PAIRED_ABLATION",
   "historical_task_probe": "0/26 extractable durations before context safety fix",
@@ -44,7 +44,8 @@
     "runtime/WEIGHT_REGISTRY_RESULT.json",
     "runtime/H17_REJECTION_LATENCY.json",
     "runtime/H17_RECONCILED_PROGRAM.json",
-    "runtime/H17_VALIDATION.json"
+    "runtime/H17_VALIDATION.json",
+    "runtime/EXTERNAL_VALIDATOR_VALIDATION.json"
   ],
   "limits": [
     "No LLM, production reliability, human mastery or independent validation claimed.",
@@ -310,11 +311,11 @@
     "validation": "runtime/H16_VALIDATION.json"
   },
   "current_strict_verification": {
-    "tests": 203,
-    "passed": 203,
+    "tests": 214,
+    "passed": 214,
     "skipped": 0,
     "scope": "LOCAL_NOT_REMOTE_CI",
-    "evidence": "runtime/H17_VALIDATION.json"
+    "evidence": "runtime/EXTERNAL_VALIDATOR_VALIDATION.json"
   },
   "weight_registry": {
     "models_loaded": 3,
@@ -388,5 +389,16 @@
       "runtime/H17_RECONCILED_PROGRAM.json",
       "runtime/H17_VALIDATION.json"
     ]
+  },
+  "external_validator": {
+    "status": "STANDALONE_INSTRUMENT_READY_EXTERNAL_DATA_NOT_AVAILABLE",
+    "entrypoint": "external_validator/validate.py",
+    "documentation": "external_validator/README.md",
+    "separate_frozen_git_processes": true,
+    "parent_grader_uses_project_modules": false,
+    "worker_messages_include_labels": false,
+    "independence_verified": false,
+    "candidate_promoted": false,
+    "validation": "runtime/EXTERNAL_VALIDATOR_VALIDATION.json"
   }
 }

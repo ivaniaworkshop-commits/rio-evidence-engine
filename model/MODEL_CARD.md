@@ -93,7 +93,7 @@ a separate delta; no context extension or retraining occurred.
 <!-- MODEL_STATUS_START -->
 ## Current model status (evidence synchronized)
 
-Río ByteGRU is a **small neural language model, not an LLM**: 17,344 parameters, 250 observed training steps. Checkpoint saved and reloaded. Current strict suite: 203 passing local tests, zero skipped.
+Río ByteGRU is a **small neural language model, not an LLM**: 17,344 parameters, 250 observed training steps. Checkpoint saved and reloaded. Current strict suite: 214 passing local tests, zero skipped.
 
 Current free generation rejects prompt-plus-output budgets above 128 UTF-8 bytes. The extraction fixture has 28 context rejections, not semantic abstentions. Neural extraction is not established. Hybrid arithmetic remains deterministic. Optional neural ranking showed no output benefit in the paired 42-case comparison. Earlier low loss and failed raw-generation probes are historical, not current capability certificates.
 Experimental recurrent prefill processes up to 4096 prompt bytes; observed full processing in 28/28 cases, but 0/24 exact graphs and 0/4 correct abstentions. No weights changed.
@@ -251,3 +251,10 @@ One entrypoint owns parser routing, declared count checks, checkpoint selection,
 Latency is measured on 52 public authored cases with 11 alternating-order repetitions per mode, plus per-family medians. See runtime/H17_REJECTION_LATENCY.json for current milliseconds and machine/load caveats. All 27 authored malformed Spanish mutations abstained and all 72 positive order/whitespace controls passed. These are correlated development tests, not unseen coverage or universal safety. The decision is to keep Spanish opt-in pending independent evidence.
 
 Observed API and CLI outputs matched with all three checkpoints, and repeated calls reused the same model objects and produced the same neural byte outputs in that process. No weight merge, training, promotion or new neural semantic capability is claimed. See runtime/H17_RECONCILED_PROGRAM.json. Current strict suite: 203 passed, zero skipped; runtime/H17_VALIDATION.json. H14 source freeze remains unchanged.
+
+
+## Standalone external evaluation instrument
+
+See external_validator/README.md and external_validator/validate.py. The stdlib-only tool is designed to run on an independent evaluator's machine. It verifies clean exact-commit Git checkouts, executes registered graph readers in separate Python isolated-mode processes without transmitting labels, and scores with a parent comparator that imports no project grading modules. It rejects submitted outputs/times and exact known-text overlap. Private aggregate reports use exclusive creation and permissions 0600. It does not fetch code, send data, promote a model or authenticate external provenance.
+
+Instrument tests use authored temporary Git fixtures; current strict suite: 214 passed, zero skipped. All report paths preserve independence_verified=false. Without an external bundle, execution is BLOCKED_NO_EXTERNAL_DATA. This is a ready validation instrument, not completed independent model validation, and it currently evaluates graph-reader targets rather than neural checkpoints. Evidence: runtime/EXTERNAL_VALIDATOR_VALIDATION.json.
