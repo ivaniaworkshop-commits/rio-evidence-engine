@@ -252,7 +252,10 @@ def read_events(path):
             result[key] = value
         return result
     for line in raw_bytes.decode('utf-8').splitlines():
-        row = json.loads(line, object_pairs_hook=unique_object)
+        try:
+            row = json.loads(line, object_pairs_hook=unique_object)
+        except RecursionError as error:
+            raise ValueError('journal JSON nesting too deep') from error
         if not isinstance(row, dict):
             raise ValueError('journal row must be an object')
         if set(row) != {'previous_sha256', 'event', 'sha256'}:
