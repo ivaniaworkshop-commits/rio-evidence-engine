@@ -3,8 +3,8 @@
   "files": [
     {
       "path": ".github/workflows/h00-integrity.yml",
-      "bytes": 6578,
-      "sha256": "baa30a37e0e2df998321a3dc008e423dfd33eec0d932ce1035c95b723a4c6438"
+      "bytes": 6612,
+      "sha256": "ea2acf1490331bc81ca46dbe65ca544b57e0c9c8c8b1b94706aef01d9a88bfe7"
     },
     {
       "path": ".gitignore",

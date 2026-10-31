@@ -7,10 +7,10 @@ permissions:
   contents: read
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6 (Node.js 24)
       - name: Verify complete source inventory and byte hashes
         run: python3 scripts/verify_manifest.py
       - name: Run test suite; report skips explicitly
@@ -94,10 +94,10 @@ jobs:
           python3 -m rio_evidence.independent_gate > /tmp/h08.json
           python3 -c 'import json; x=json.load(open("/tmp/h08.json")); assert x["status"]=="BLOCKED_NO_EXTERNAL_HOLDOUT" and x["candidate_promoted"] is False'
   strict-torch:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 25
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6 (Node.js 24)
       - name: Verify source before installing dependencies
         run: python3 scripts/verify_manifest.py
       - name: Install declared optional CPU runtime
