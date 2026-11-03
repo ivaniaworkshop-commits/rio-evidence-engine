@@ -1,5 +1,9 @@
 # Changes
 
+## P3 numeric parity gate for paired comparisons
+
+Detect and reject raw JSON integer literals outside JavaScript's safe range before browser rounding, including in nested objects; reject nonfinite numeric tokens. The Python paired comparator rejects unsafe integer latency values while its generic JSON loader and scheduling path retain exact large-integer capability. Browser latency averages now use Neumaier compensated summation to recover small contributions under large positive/negative cancellation. Add Node/Python differential regressions for safe integer limits, float rounding, subnormal and large finite values, overflow, unsafe integer rejection, and CLI exit code 2. The tested contract uses exact metric counts and relative tolerance 1e-12 for latency means (abs_tol=0), not universal bitwise parity; standalone raw JS object callers bypass text decoding.
+
 ## P2 dashboard/CLI duplicate JSON-key contract
 
 Use a bounded browser-side strict JSON decoder for playground inputs and bundled snapshot data. After syntax validation, inspect object-member tokens before accepting a decoded object; reject duplicate keys at any depth, including equivalent Unicode escape spellings. Preserve the existing comparison algorithm, and test the input wiring. This closes the duplicate-key rejection gap but does not establish full JS/Python numeric parity or validate the live deployment.
