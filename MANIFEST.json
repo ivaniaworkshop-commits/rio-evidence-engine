@@ -3,8 +3,8 @@
   "files": [
     {
       "path": ".github/workflows/h00-integrity.yml",
-      "bytes": 6865,
-      "sha256": "095179f65f096de194876492d7aaa6adada68b14e94972b29fff04ddb80cfcb6"
+      "bytes": 7108,
+      "sha256": "1f8641cef07db9532a32cc3b87f1453a8ad2202c3c59114dc8ba0598b60309cc"
     },
     {
       "path": ".gitignore",
@@ -18,8 +18,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 9935,
-      "sha256": "67d39f4de345a0c798670719f568092ad6fd5647c702843f27d2897341b29b53"
+      "bytes": 10834,
+      "sha256": "0f7e91ab20f75b18c8235b0a7079bd2b9362b514f5bcb3e22b3641e7e19ea42d"
     },
     {
       "path": "DELTAS.json",
@@ -28,8 +28,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 32157,
-      "sha256": "2ed671de34b571658eca7392d0432df8d1e5df99504f000f33154972eb1aca11"
+      "bytes": 33989,
+      "sha256": "7b43d2853a67ef0bee1400666cedc3b74d164764bfdcb592149e438ad5c0030f"
     },
     {
       "path": "RECALCULATION.md",
@@ -78,8 +78,8 @@
     },
     {
       "path": "docs/compare.js",
-      "bytes": 3783,
-      "sha256": "699a9eb0f56f745355dea51adc10dce8e8e27d93dac9fa8d3288063885cae830"
+      "bytes": 4864,
+      "sha256": "da4ef83aa8b49b3ad16cd2ab774bf54f72970594697fd6b8f7577de57b53b101"
     },
     {
       "path": "docs/data.json",
@@ -373,8 +373,8 @@
     },
     {
       "path": "rio_evidence/core.py",
-      "bytes": 12608,
-      "sha256": "ccd72ae9939490f32a73e1ec7465dbcdf72c96fa64bc86ec643d89b2e145b0b4"
+      "bytes": 14176,
+      "sha256": "14d30226f7050c2e08272d9ab2207bc949f3d1663d0dc3b101dd7be602ba797b"
     },
     {
       "path": "rio_evidence/counted_graph.py",
@@ -687,6 +687,11 @@
       "sha256": "527a21eea467626d9d2b82bcaa8877b273a9d5bb687a063d84b844511869dd54"
     },
     {
+      "path": "scripts/metamorphic_exact_sum.py",
+      "bytes": 10161,
+      "sha256": "3737a01c2ae3dc3354aa07eb13ffcc6afa51550f84061a277d71339f79343025"
+    },
+    {
       "path": "scripts/prioritize_deltas.py",
       "bytes": 2812,
       "sha256": "87df5ec57970f7e5c83dfce20de5d69dcf5ca7f1ac611e68b796562727c52d6d"
@@ -840,6 +845,11 @@
       "path": "tests/test_manifest.py",
       "bytes": 1613,
       "sha256": "74ba35e2f4798d7bc6771ebf808cd71324acbccb87269433fb274c373b3f5584"
+    },
+    {
+      "path": "tests/test_metamorphic_sum.py",
+      "bytes": 2516,
+      "sha256": "c637ef42945644fc00a19d05c592ba2841410ddcb9a9b5384c7e0ec3c0fe038b"
     },
     {
       "path": "tests/test_neural_lm.py",
