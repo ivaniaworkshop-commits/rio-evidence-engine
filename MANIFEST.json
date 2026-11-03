@@ -722,6 +722,11 @@
       "sha256": "cb9a873fa3b50039bac6e6176b1fe2229d0c59e2b166d62000e99e9b8e3e5e6e"
     },
     {
+      "path": "scripts/verify_h00_connector.js",
+      "bytes": 2563,
+      "sha256": "52f4fef4e1745965b98bbdab1b5965babc12555c3da61685252bd05a39b18daa"
+    },
+    {
       "path": "scripts/verify_manifest.py",
       "bytes": 1671,
       "sha256": "cd9152632b4089c9aa71a474b2c4d229c76061c1a82b67f7df9d16ad5551ed1f"
