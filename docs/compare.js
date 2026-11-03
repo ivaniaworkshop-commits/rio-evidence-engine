@@ -50,6 +50,40 @@ function parseStrict(text){
  return value;
 }
 
+const bitBuffer=new ArrayBuffer(8), bitView=new DataView(bitBuffer);
+function binary64Units(value){
+ // All finite binary64 values are integer multiples of the smallest subnormal.
+ bitView.setFloat64(0,value,false);
+ const bits=bitView.getBigUint64(0,false);
+ const exponent=Number((bits>>52n)&2047n);
+ const mantissa=bits&((1n<<52n)-1n);
+ const units=exponent===0?mantissa:((1n<<52n)|mantissa)<<BigInt(exponent-1);
+ return (bits>>63n)?-units:units;
+}
+function roundBinary64Mean(total,count){
+ if(total===0n)return 0;
+ const negative=total<0n;
+ const numerator=negative?-total:total;
+ const denominator=BigInt(count);
+ let shift=Math.max(0,numerator.toString(2).length-denominator.toString(2).length-52);
+ while(shift>0&&numerator<(denominator<<BigInt(52+shift)))shift--;
+ while(numerator>=(denominator<<BigInt(53+shift)))shift++;
+ const divisor=denominator<<BigInt(shift);
+ let q=numerator/divisor;
+ const rem=numerator%divisor;
+ if(2n*rem>divisor||(2n*rem===divisor&&(q&1n)===1n))q++;
+ if(q>=(1n<<53n)){q>>=1n;shift++;}
+ let bits;
+ if(q>=(1n<<52n)){
+  const exp=BigInt(shift+1);
+  if(exp>=2047n)throw Error('Mean latency cannot be represented in binary64');
+  bits=(exp<<52n)|(q-(1n<<52n));
+ }else bits=q;
+ if(negative)bits|=1n<<63n;
+ bitView.setBigUint64(0,bits,false);
+ return bitView.getFloat64(0,false);
+}
+
 function compare(baseline,candidate){
  function keyed(rows){
   if(!Array.isArray(rows)||!rows.length)throw Error('Expected a nonempty array of cases');
@@ -63,18 +97,13 @@ function compare(baseline,candidate){
  }
  const a=keyed(baseline),b=keyed(candidate);
  if(a.size!==b.size||[...a.keys()].some(k=>!b.has(k)))throw Error('Unpaired case ids');
- let ac=0,bc=0,sum=0,compensation=0;
+ let ac=0,bc=0,totalUnits=0n;
  for(const [k,row] of a){
   ac+=Number(row.correct);bc+=Number(b.get(k).correct);
-  const term=(b.get(k).latency_ms-row.latency_ms)/a.size;
-  const next=sum+term;
-  if(!Number.isFinite(next))throw Error('Latency arithmetic overflow');
-  // Neumaier compensated summation: recover small paired differences cancelled by large ones.
-  compensation+=(Math.abs(sum)>=Math.abs(term)?(sum-next)+term:(term-next)+sum);
-  sum=next;
+  totalUnits+=binary64Units(b.get(k).latency_ms)-binary64Units(row.latency_ms);
  }
- const latency=sum+compensation;
- if(!Number.isFinite(latency))throw Error('Latency arithmetic overflow');
+ // Exact BigInt accumulation; one final ties-to-even rounding, independent of row order.
+ const latency=roundBinary64Mean(totalUnits,a.size);
  return {n:a.size,baseline_correct:ac,candidate_correct:bc,correct_delta:bc-ac,mean_latency_delta_ms:latency,scope:'SYNTHETIC_BROWSER_DEMO_NOT_USERS'};
 }
 compare.parseStrict=parseStrict;
