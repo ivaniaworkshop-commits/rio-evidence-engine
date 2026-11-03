@@ -3,8 +3,8 @@
   "files": [
     {
       "path": ".github/workflows/h00-integrity.yml",
-      "bytes": 7108,
-      "sha256": "1f8641cef07db9532a32cc3b87f1453a8ad2202c3c59114dc8ba0598b60309cc"
+      "bytes": 7368,
+      "sha256": "f2d99bccae6608bdccc1ce7b2f8af608b515d8a3a745326b323715f56dbb545b"
     },
     {
       "path": ".gitignore",
@@ -18,8 +18,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 10834,
-      "sha256": "0f7e91ab20f75b18c8235b0a7079bd2b9362b514f5bcb3e22b3641e7e19ea42d"
+      "bytes": 11607,
+      "sha256": "7c8b6272049c8263c7c23ff0e61f41cc02a85bfe7c7572bcb4599ffdc86320e8"
     },
     {
       "path": "DELTAS.json",
@@ -28,8 +28,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 33989,
-      "sha256": "7b43d2853a67ef0bee1400666cedc3b74d164764bfdcb592149e438ad5c0030f"
+      "bytes": 36551,
+      "sha256": "95110e8d1083cb4ad1178d3cb3bbb18f41d3a71d62e61776422a4f2ae1ecf706"
     },
     {
       "path": "RECALCULATION.md",
@@ -90,6 +90,11 @@
       "path": "docs/index.html",
       "bytes": 8913,
       "sha256": "1accf5084893a27e5e80bdcb44fbeadf2a52065a9d4b01dc0c6ae987464f162e"
+    },
+    {
+      "path": "docs/mobile-benchmark.html",
+      "bytes": 6765,
+      "sha256": "4a0ffe270c01c649bea33d6ec919b728fab34e5c96e872bc0ddf10ae9946b1e0"
     },
     {
       "path": "docs/style.css",
@@ -562,6 +567,11 @@
       "sha256": "dce447f88fb78512226d8fbb93c762aff3fef49629df63657a05c767edde11db"
     },
     {
+      "path": "scripts/benchmark_exact_sum.py",
+      "bytes": 10063,
+      "sha256": "a0fed64aa896857b9d5e493fcf924133a092ff0299230d7d388b98a697017d88"
+    },
+    {
       "path": "scripts/build_answer_matrix.py",
       "bytes": 2360,
       "sha256": "12dcc16e6147b7091d525c0f2e9d5cd423d6bfd09431ec8959d2a76a20899c44"
@@ -732,14 +742,29 @@
       "sha256": "cd9152632b4089c9aa71a474b2c4d229c76061c1a82b67f7df9d16ad5551ed1f"
     },
     {
+      "path": "tests/fixtures/p4_compare_baseline.js",
+      "bytes": 3882,
+      "sha256": "3d8a68c8b3f4aca382aaad297052836598f22566d36120a136d16260544d4e3f"
+    },
+    {
       "path": "tests/ieee754_probe.js",
       "bytes": 1253,
       "sha256": "68393b53dcc52f5232ac38c0ce5335d625af46eae708a68fc3796ee78b81acdf"
     },
     {
+      "path": "tests/perf_compare_node.js",
+      "bytes": 3967,
+      "sha256": "e8f140137d1d3597fbde9cb40a0bd4e28e5fc0053bea25d9344897e455454da2"
+    },
+    {
       "path": "tests/test_atomic_runtime.py",
       "bytes": 4636,
       "sha256": "02259e3c3a8116dac2c9e4d328685da479d7b47c42c78465de5ed546153d7fce"
+    },
+    {
+      "path": "tests/test_benchmark_exact_sum.py",
+      "bytes": 2733,
+      "sha256": "c7688832070637902ccb454abb74c9a413f9f3c6cbf6a4181e9669a3ca165f40"
     },
     {
       "path": "tests/test_candidate_v1.py",
