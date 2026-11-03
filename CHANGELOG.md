@@ -1,5 +1,9 @@
 # Changes
 
+## P6 resource and near-1MiB performance differential
+
+Introduce reproducible synthetic arrays near the strict 1 MiB **per-input** decoder limit, compare P4 vs P5 on matching Node workloads with separate parse/compute timing, and measure P5 Python stages, process RSS and traced allocations. Accept only bit-exact output against the rational P5 oracle and matching count metrics; require bounds on measured host CPU and memory plus conservative relative slowdown guard in CI. Record input SHA256, environment, median/p95 and measured data; no claim of Android performance from GitHub runners. Provide an opt-in Android/browser local test page that produces a user-owned JSON report and does not transmit content. Physical Android and mobile memory peak remain unverified.
+
 ## P5 independent rational oracle and metamorphic sum invariance
 
 Replace Python per-term divided `math.fsum` and JavaScript per-term divided compensated summation with exact binary64 integer-unit accumulation followed by single round-to-nearest-even. An independent `fractions.Fraction.from_float` oracle checks mathematical means without sharing the implementation. A deterministic seeded Python/Node differential batch tests reversals, magnitude orderings, random permutations, grouped/interleaved blocks, twofold/threefold repetition, and exact rational regrouping. Require bitwise equality with the oracle (0 ULP), preserved paired denominators/numerators, and fail-closed CI on any unexpected rejection. Preserve legacy P4 rounding coverage. Explicitly guard against the shared two-subnormals-in-three error. No evidence of browser deployment or latency efficiency; both need separate gates.

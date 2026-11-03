@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>RÍO P6 — banco de prueba local</title>
+<style>
+:root{color-scheme:light dark;font-family:system-ui,Arial,sans-serif}
+body{margin:0 auto;padding:1.25rem;max-width:680px;line-height:1.5}
+h1{font-size:1.5rem}p{max-width:65ch}
+label{display:block;font-weight:600;margin-bottom:.4rem}
+select,button,textarea{font:inherit;border-radius:.5rem;padding:.7rem}
+select,button{min-height:48px}
+button{cursor:pointer;margin-left:.5rem}
+button:disabled{opacity:.6;cursor:wait}
+textarea{display:block;width:100%;min-height:240px;box-sizing:border-box;margin-top:.7rem}
+.controls{display:flex;flex-wrap:wrap;gap:.5rem;align-items:end}
+small{display:block;margin:1rem 0}
+</style>
+</head>
+<body>
+<main>
+<h1>RÍO P6 · Rendimiento de precisión exacta</h1>
+<p>Prueba local con datos sintéticos. No solicita credenciales, no almacena resultados y no envía datos. Solo carga <code>compare.js</code> desde el mismo origen.</p>
+<p><strong>Estado de dispositivo:</strong> la medición es del navegador que abra esta página. No constituye validación independiente de Android ni medición exacta de RAM.</p>
+<div class="controls">
+<div><label for="size">Tamaño por cada entrada JSON</label>
+<select id="size"><option value="32">Pequeño · 32 casos</option><option value="2048">Mediano · 2048 casos</option><option value="near">Grande · cercano a 1 MiB</option></select></div>
+<button type="button" id="run">Ejecutar prueba</button>
+</div>
+<p id="status" role="status" aria-live="polite">Sin ejecutar.</p>
+<label for="report">Evidencia local JSON (copiar manualmente)</label>
+<textarea readonly id="report" spellcheck="false" aria-label="Resultado JSON"></textarea>
+<small>Ensayo de 5 repeticiones con 1 calentamiento. Presupuesto orientativo móvil: mediana total &le; 1500 ms y cálculo &le; 500 ms. La memoria es aproximada cuando el navegador proporciona <code>performance.memory</code>; si no, aparece <code>UNKNOWN</code>. No se puede concluir que una prueba sin cierre del navegador demuestre estabilidad.</small>
+</main>
+<script src="compare.js"></script>
+<script>
+"use strict";
+(function(){
+const $=id=>document.getElementById(id);
+const TARGET=1020000,MIN_LARGE=950000,MAX=1048576;
+const SEED=20261102;
+const patterns=[
+[0,Number.MIN_VALUE],[0,Number.MIN_VALUE],[0,0],[0,1e308],
+[1e308,0],[0.1,0.2],[1e15,0],[0,1e15],[0,1],[1,1],
+[0,2.2250738585072014e-308],[2.2250738585072014e-308,0],
+[0,9007199254740991],[9007199254740991,0]
+];
+function fixture(mode){
+ const left=[],right=[];let bytesA=2,bytesB=2;
+ for(let i=0;i<30000;i++){
+  const [a,b]=patterns[(i+SEED)%patterns.length];
+  const id="synthetic-"+String(i).padStart(6,"0");
+  const aa=JSON.stringify({case_id:id,correct:i%3===0,latency_ms:a});
+  const bb=JSON.stringify({case_id:id,correct:i%5===0,latency_ms:b});
+  const aaLen=aa.length+(left.length?1:0);
+  const bbLen=bb.length+(right.length?1:0);
+  if(mode==="near"&&(bytesA+aaLen>TARGET||bytesB+bbLen>TARGET))break;
+  left.push(aa);right.push(bb);bytesA+=aaLen;bytesB+=bbLen;
+  if(mode!=="near"&&left.length>=Number(mode))break;
+ }
+ if(mode==="near"&&Math.min(bytesA,bytesB)<MIN_LARGE)throw Error("No se generó la carga grande");
+ if(Math.max(bytesA,bytesB)>MAX)throw Error("JSON supera 1 MiB");
+ return {baseline:"["+left.join(",")+"]",candidate:"["+right.join(",")+"]",
+         count:left.length,bytes_per_input:[bytesA,bytesB]};
+}
+function median(values){const a=[...values].sort((x,y)=>x-y);return a[Math.floor(a.length/2)];}
+function p95(values){const a=[...values].sort((x,y)=>x-y);return a[Math.ceil(.95*a.length)-1];}
+function heap(){const v=performance.memory;return v&&Number.isFinite(v.usedJSHeapSize)?v.usedJSHeapSize:null;}
+function sentinel(){
+ const a=[{case_id:"x",correct:false,latency_ms:0},
+          {case_id:"y",correct:false,latency_ms:0},
+          {case_id:"z",correct:false,latency_ms:0}];
+ const b=[{case_id:"x",correct:true,latency_ms:Number.MIN_VALUE},
+          {case_id:"y",correct:true,latency_ms:Number.MIN_VALUE},
+          {case_id:"z",correct:true,latency_ms:0}];
+ return rioCompare(a,b).mean_latency_delta_ms===Number.MIN_VALUE;
+}
+async function run(){
+ const button=$("run"),status=$("status");
+ button.disabled=true;status.textContent="Generando carga sintética local…";$("report").value="";
+ try{
+  if(!sentinel())throw Error("No pasó el centinela de precisión subnormal");
+  const mode=$("size").value, data=fixture(mode), samples=[],mem0=heap();
+  for(let k=0;k<6;k++){
+   status.textContent="Ejecutando "+(k+1)+"/6…";
+   await new Promise(resolve=>setTimeout(resolve,25));
+   const t0=performance.now();
+   const a=rioCompare.parseStrict(data.baseline);
+   const b=rioCompare.parseStrict(data.candidate);
+   const t1=performance.now();
+   const output=rioCompare(a,b);
+   const t2=performance.now();
+   if(output.n!==data.count||!Number.isFinite(output.mean_latency_delta_ms))
+    throw Error("Resultado inválido");
+   if(k>0)samples.push({parse_ms:t1-t0,compare_ms:t2-t1,total_ms:t2-t0});
+  }
+  const mem1=heap();
+  const collect=key=>samples.map(x=>x[key]);
+  const summary={
+   schema:"RIO_P6_BROWSER_USER_RUN_V1",
+   evidence_status:"USER_EXECUTED_BROWSER_UNVERIFIED",
+   transmitted:false,stashed:false,
+   platform:"CURRENT_BROWSER_NOT_ASSERTED_ANDROID",
+   seed:SEED,mode,count:data.count,bytes_per_input:data.bytes_per_input,
+   samples:5,
+   parse_median_ms:median(collect("parse_ms")),compare_median_ms:median(collect("compare_ms")),
+   total_median_ms:median(collect("total_ms")),total_p95_ms:p95(collect("total_ms")),
+   heap_start_bytes:mem0===null?"UNKNOWN":mem0,
+   heap_end_bytes:mem1===null?"UNKNOWN":mem1,
+   heap_change_bytes:mem0===null||mem1===null?"UNKNOWN":mem1-mem0,
+   heap_peak_bytes:"UNKNOWN_NOT_OBSERVED",
+   exact_subnormal_sentinel:"PASS",
+   advisory_mobile_latency:
+    median(collect("total_ms"))<=1500&&median(collect("compare_ms"))<=500?"PASS_ADVISORY":"OVER_BUDGET",
+   device_memory_validated:false
+  };
+  $("report").value=JSON.stringify(summary,null,2);
+  status.textContent="Completado localmente: "+summary.advisory_mobile_latency+
+    ". Copie el JSON para revisión y contraste con CI.";
+ }catch(error){
+  status.textContent="Prueba no concluida: "+error.message;
+  $("report").value=JSON.stringify({schema:"RIO_P6_BROWSER_USER_RUN_V1",status:"ERROR",
+   message:String(error.message),evidence_status:"USER_EXECUTED_BROWSER_UNVERIFIED"},null,2);
+ }finally{button.disabled=false;}
+}
+$("run").addEventListener("click",run);
+})();
+</script>
+</body>
+</html>
