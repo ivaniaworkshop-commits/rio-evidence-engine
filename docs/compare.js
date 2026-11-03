@@ -1,5 +1,36 @@
 /* Browser-local demonstration; Python core remains authoritative. */
 (function(root){
+function parseStrict(text){
+ if(typeof text!=='string')throw Error('JSON input must be text');
+ if(new TextEncoder().encode(text).length>1048576)throw Error('JSON input exceeds 1 MiB limit');
+ // JSON.parse validates grammar; scan member names before accepting its collapsed result.
+ const value=JSON.parse(text);
+ const stack=[];
+ for(let i=0;i<text.length;){
+  const c=text[i];
+  if(c==='"'){
+   const start=i++;
+   while(i<text.length){if(text[i]==='\\'){i+=2;continue;}if(text[i++]==='"')break;}
+   const frame=stack[stack.length-1];
+   if(frame&&frame.object&&frame.expectKey){
+    const key=JSON.parse(text.slice(start,i));
+    if(frame.keys.has(key))throw Error('duplicate JSON key: '+key);
+    frame.keys.add(key);frame.expectKey=false;
+   }
+   continue;
+  }
+  if(c==='{')stack.push({object:true,expectKey:true,keys:new Set()});
+  else if(c==='[')stack.push({object:false});
+  else if(c==='}'||c===']')stack.pop();
+  else if(c===','){
+   const frame=stack[stack.length-1];
+   if(frame&&frame.object)frame.expectKey=true;
+  }
+  i++;
+ }
+ return value;
+}
+
 function compare(baseline,candidate){
  function keyed(rows){
   if(!Array.isArray(rows)||!rows.length)throw Error('Expected a nonempty array of cases');
@@ -17,5 +48,6 @@ function compare(baseline,candidate){
  if(!Number.isFinite(latency))throw Error('Latency arithmetic overflow');
  return {n:a.size,baseline_correct:ac,candidate_correct:bc,correct_delta:bc-ac,mean_latency_delta_ms:latency,scope:'SYNTHETIC_BROWSER_DEMO_NOT_USERS'};
 }
+compare.parseStrict=parseStrict;
 root.rioCompare=compare;if(typeof module!=='undefined')module.exports=compare;
 })(typeof globalThis!=='undefined'?globalThis:this);
