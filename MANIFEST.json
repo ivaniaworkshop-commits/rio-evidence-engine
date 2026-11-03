@@ -18,8 +18,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 7784,
-      "sha256": "acdeda50ae2dbaffd3ef785ba8eeda512ab0d37ae4f566e77014c1ea9837ecf5"
+      "bytes": 8303,
+      "sha256": "daba09cfb1ff7fc4d57ca3c9cea1af5e84dc11d5f123315140a8309a173f3392"
     },
     {
       "path": "DELTAS.json",
@@ -28,8 +28,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 29151,
-      "sha256": "dddd5d79e80cf41060c12640344249063153734f9f04a7b0065a48c0c2e7aa67"
+      "bytes": 29429,
+      "sha256": "c2464debafab8369a1f77cc47ce16a183256fac5f392e8ab22ee7faeef7e44ef"
     },
     {
       "path": "RECALCULATION.md",
@@ -73,13 +73,13 @@
     },
     {
       "path": "docs/app.js",
-      "bytes": 7273,
-      "sha256": "350e0ea7dc3ac9b574e202ab638483966aa9dd5c79b8e89310f893cd73cbe36d"
+      "bytes": 7321,
+      "sha256": "87ab3c0d3a6e00b5374b8e4a2c2a10e99d1a4dcc1860c6f3f4893a4e6d179cff"
     },
     {
       "path": "docs/compare.js",
-      "bytes": 1467,
-      "sha256": "4d91dbe819fd79133726ff64b39c8cfda93beb4633a96db75c5fbcbe0cb325b4"
+      "bytes": 2561,
+      "sha256": "4e57ee17cf27afc15ca85fd4071082e553f005f8b8ae1f1555c7476c52bb3205"
     },
     {
       "path": "docs/data.json",
@@ -373,8 +373,8 @@
     },
     {
       "path": "rio_evidence/core.py",
-      "bytes": 12188,
-      "sha256": "fb232e58f1ab1260d9b74b454a0a267cd73171e0aedaf0fc4867df552fd2caf5"
+      "bytes": 12318,
+      "sha256": "fdb76c81ce8de3fda1f6ae14eaf37300f5ac8cd21910a9ce8876570a5f783705"
     },
     {
       "path": "rio_evidence/counted_graph.py",
@@ -717,6 +717,16 @@
       "sha256": "d88004749b5abfa50eeeb867e7251fdcf3a27827289e0a12dcd4b0e08ed8ebd1"
     },
     {
+      "path": "scripts/verify_h00.py",
+      "bytes": 2860,
+      "sha256": "cb9a873fa3b50039bac6e6176b1fe2229d0c59e2b166d62000e99e9b8e3e5e6e"
+    },
+    {
+      "path": "scripts/verify_h00_connector.js",
+      "bytes": 2714,
+      "sha256": "a3cbc9db11e07cdbb33be7a3aaeb2d9eca4a1a22590640ba7c6266a50cd34fa4"
+    },
+    {
       "path": "scripts/verify_manifest.py",
       "bytes": 1671,
       "sha256": "cd9152632b4089c9aa71a474b2c4d229c76061c1a82b67f7df9d16ad5551ed1f"
@@ -753,8 +763,8 @@
     },
     {
       "path": "tests/test_dashboard.py",
-      "bytes": 1906,
-      "sha256": "2ca048967fa347925119c8e181b67056a368524e48ae79bcd78546ef2952169f"
+      "bytes": 3498,
+      "sha256": "3b1363de30b699d266245e98aa5378c91e62aa917e2636a9b600ee575b92888e"
     },
     {
       "path": "tests/test_duration_copy.py",
@@ -848,8 +858,8 @@
     },
     {
       "path": "tests/test_regressions.py",
-      "bytes": 4944,
-      "sha256": "4eab88ed817761affb6ed26ba827308c2d38e356c90deafc7aa339b2390bae1f"
+      "bytes": 5482,
+      "sha256": "a15245d06ae8000f348cc9febac4b34e7c26e7b25c789599c60a07a75e1635ff"
     },
     {
       "path": "tests/test_semantic_gate.py",

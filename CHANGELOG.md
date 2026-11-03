@@ -1,5 +1,9 @@
 # Changes
 
+## P2 dashboard/CLI duplicate JSON-key contract
+
+Use a bounded browser-side strict JSON decoder for playground inputs and bundled snapshot data. After syntax validation, inspect object-member tokens before accepting a decoded object; reject duplicate keys at any depth, including equivalent Unicode escape spellings. Preserve the existing comparison algorithm, and test the input wiring. This closes the duplicate-key rejection gap but does not establish full JS/Python numeric parity or validate the live deployment.
+
 ## Input validation and usable command line
 
 - Reject ambiguous dependency containers, duplicate edges, and malformed task objects.
