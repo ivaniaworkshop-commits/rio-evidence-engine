@@ -568,8 +568,8 @@
     },
     {
       "path": "scripts/benchmark_exact_sum.py",
-      "bytes": 10063,
-      "sha256": "a0fed64aa896857b9d5e493fcf924133a092ff0299230d7d388b98a697017d88"
+      "bytes": 10068,
+      "sha256": "f0a577e13f5de076d6f9c021c4bdb3aa8a5262d7ef83da77e8ee95ae12b837f4"
     },
     {
       "path": "scripts/build_answer_matrix.py",
@@ -763,8 +763,8 @@
     },
     {
       "path": "tests/test_benchmark_exact_sum.py",
-      "bytes": 2733,
-      "sha256": "c7688832070637902ccb454abb74c9a413f9f3c6cbf6a4181e9669a3ca165f40"
+      "bytes": 3197,
+      "sha256": "3defc1af2f36e4af3a3dd31f46e36918e7159ddded6ecd6798dd2c1bc83245cc"
     },
     {
       "path": "tests/test_candidate_v1.py",
