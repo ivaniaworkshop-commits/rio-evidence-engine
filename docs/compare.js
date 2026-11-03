@@ -6,6 +6,7 @@ function parseStrict(text){
  // JSON.parse validates grammar; scan member names before accepting its collapsed result.
  const value=JSON.parse(text);
  const stack=[];
+ const numberToken=/-?(?:0|[1-9]\d*)(?:\.\d+)?(?:[eE][+-]?\d+)?/y;
  for(let i=0;i<text.length;){
   const c=text[i];
   if(c==='"'){
@@ -17,6 +18,19 @@ function parseStrict(text){
     if(frame.keys.has(key))throw Error('duplicate JSON key: '+key);
     frame.keys.add(key);frame.expectKey=false;
    }
+   continue;
+  }
+  if(c==='-'||(c>='0'&&c<='9')){
+   // The JS parser has already validated JSON grammar, but may round integer literals.
+   numberToken.lastIndex=i;
+   const token=numberToken.exec(text)[0];
+   if(!/[.eE]/.test(token)){
+    const digits=token[0]==='-'?token.slice(1):token;
+    if(digits.length>16||(digits.length===16&&digits>'9007199254740991'))
+     throw Error('unsafe JSON integer outside +/- (2^53 - 1)');
+   }
+   if(!Number.isFinite(Number(token)))throw Error('JSON number outside finite binary64 range');
+   i+=token.length;
    continue;
   }
   if(c==='{')stack.push({object:true,expectKey:true,keys:new Set()});
@@ -44,7 +58,17 @@ function compare(baseline,candidate){
  }
  const a=keyed(baseline),b=keyed(candidate);
  if(a.size!==b.size||[...a.keys()].some(k=>!b.has(k)))throw Error('Unpaired case ids');
- let ac=0,bc=0,latency=0;for(const [k,row] of a){ac+=Number(row.correct);bc+=Number(b.get(k).correct);latency+=(b.get(k).latency_ms-row.latency_ms)/a.size;}
+ let ac=0,bc=0,sum=0,compensation=0;
+ for(const [k,row] of a){
+  ac+=Number(row.correct);bc+=Number(b.get(k).correct);
+  const term=(b.get(k).latency_ms-row.latency_ms)/a.size;
+  const next=sum+term;
+  if(!Number.isFinite(next))throw Error('Latency arithmetic overflow');
+  // Neumaier compensated summation: recover small paired differences cancelled by large ones.
+  compensation+=(Math.abs(sum)>=Math.abs(term)?(sum-next)+term:(term-next)+sum);
+  sum=next;
+ }
+ const latency=sum+compensation;
  if(!Number.isFinite(latency))throw Error('Latency arithmetic overflow');
  return {n:a.size,baseline_correct:ac,candidate_correct:bc,correct_delta:bc-ac,mean_latency_delta_ms:latency,scope:'SYNTHETIC_BROWSER_DEMO_NOT_USERS'};
 }

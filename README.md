@@ -79,7 +79,11 @@ The main visual interface is in `docs/`: a static evidence dashboard with linked
 receipts, a synthetic browser-local comparator, delta filters and explicit
 snapshot dates. It reads bundled `data.json`, not live Python execution.
 Reload refreshes the deployed snapshot; it does not run tests or trigger an
-automation. Browser examples stay local and make no model calls. The dashboard now rejects duplicate JSON object keys (including escaped aliases) and inputs above 1 MiB in the playground and bundled snapshot reader. This aligns those rejection rules with the CLI, not their entire numerical behavior: JavaScript has limited integer precision.
+automation. Browser examples stay local and make no model calls. The dashboard now rejects duplicate JSON object keys (including escaped aliases) and inputs above 1 MiB in the playground and bundled snapshot reader. This aligns duplicate-key rejection with the CLI; it is not a claim of full JSON or numeric equivalence.
+
+### P3 numeric parity boundary
+
+For the **paired comparator only**, integer JSON latency literals are limited to JavaScript's exact-safe range (0 through 2^53−1). The browser's strict parser rejects integer literals outside ±(2^53−1) before accepting a rounded Number, including in snapshot data. Python's generic JSON decoder retains arbitrary-precision integers for other uses: in particular, the schedule engine continues to handle large integral durations exactly; only the paired comparator rejects unsafe integer latencies. Floating-point literals with decimals or exponents remain binary64 values when finite, including large values such as 1e308; nonfinite results such as 1e309 are rejected in the browser and by the CLI comparator. The browser uses compensated accumulation of paired latency deltas to reduce cancellation error. Node/Python differential tests compare counts exactly and floating-point means with relative tolerance 1e-12 (zero absolute tolerance). This is a bounded observed numerical contract, not bit-for-bit parity for all floats or operations; raw JavaScript objects passed directly to `rioCompare` bypass the browser text-decoding guard.
 
 Run the full suite with Python and Node available to include comparator parity
 checks. Without Node, four dashboard tests are explicitly skipped. See

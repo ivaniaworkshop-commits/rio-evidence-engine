@@ -18,8 +18,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 8303,
-      "sha256": "daba09cfb1ff7fc4d57ca3c9cea1af5e84dc11d5f123315140a8309a173f3392"
+      "bytes": 9176,
+      "sha256": "1d946e1d59ca4d53864fbe2b608b888eb9170230fb4c52c761bdd2acce1d107d"
     },
     {
       "path": "DELTAS.json",
@@ -28,8 +28,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 29429,
-      "sha256": "c2464debafab8369a1f77cc47ce16a183256fac5f392e8ab22ee7faeef7e44ef"
+      "bytes": 30583,
+      "sha256": "a3b9ad6cae20139584d6e0f081c9ac56fc26677c321f89a2952f634aee357f87"
     },
     {
       "path": "RECALCULATION.md",
@@ -78,8 +78,8 @@
     },
     {
       "path": "docs/compare.js",
-      "bytes": 2561,
-      "sha256": "4e57ee17cf27afc15ca85fd4071082e553f005f8b8ae1f1555c7476c52bb3205"
+      "bytes": 3517,
+      "sha256": "7020a3e314878070cf8603b11c161c766ddbdcfa559feeb55108239bbae95bf5"
     },
     {
       "path": "docs/data.json",
@@ -373,8 +373,8 @@
     },
     {
       "path": "rio_evidence/core.py",
-      "bytes": 12318,
-      "sha256": "fdb76c81ce8de3fda1f6ae14eaf37300f5ac8cd21910a9ce8876570a5f783705"
+      "bytes": 12608,
+      "sha256": "ccd72ae9939490f32a73e1ec7465dbcdf72c96fa64bc86ec643d89b2e145b0b4"
     },
     {
       "path": "rio_evidence/counted_graph.py",
@@ -763,8 +763,8 @@
     },
     {
       "path": "tests/test_dashboard.py",
-      "bytes": 3498,
-      "sha256": "3b1363de30b699d266245e98aa5378c91e62aa917e2636a9b600ee575b92888e"
+      "bytes": 7071,
+      "sha256": "56026ad9a16582b5d979a25315745ef0d37fa140590e5c44dd8920f0005a8de5"
     },
     {
       "path": "tests/test_duration_copy.py",
@@ -823,8 +823,8 @@
     },
     {
       "path": "tests/test_json_io.py",
-      "bytes": 811,
-      "sha256": "70da76634f1064b5ced69785bda1ff94d0b6b2e1163a8fdcb087ddba028cb599"
+      "bytes": 1644,
+      "sha256": "b90a2c601554e15cb90452bd1f17be772382a633cd7b9a5d3e8510aa43d2ad4a"
     },
     {
       "path": "tests/test_language_shift.py",
@@ -858,8 +858,8 @@
     },
     {
       "path": "tests/test_regressions.py",
-      "bytes": 5482,
-      "sha256": "a15245d06ae8000f348cc9febac4b34e7c26e7b25c789599c60a07a75e1635ff"
+      "bytes": 6149,
+      "sha256": "adf03cc70644fb3787e5b6e5b09955344a6ef3e82f939c7597e5a51ca0788b10"
     },
     {
       "path": "tests/test_semantic_gate.py",

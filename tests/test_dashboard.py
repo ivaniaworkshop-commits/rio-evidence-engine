@@ -64,5 +64,70 @@ class DashboardParity(unittest.TestCase):
         self.assertIn("rioCompare.parseStrict($('candidate').value)",app)
         self.assertIn('rioCompare.parseStrict(await r.text())',app)
 
+    def browser_raw_compare(self, raw):
+        program=("const compare=require('./docs/compare.js');let s='';"
+                 "process.stdin.on('data',x=>s+=x);"
+                 "process.stdin.on('end',()=>{try{const [a,b]=compare.parseStrict(s);"
+                 "console.log(JSON.stringify(compare(a,b)))}"
+                 "catch(e){console.log(JSON.stringify({error:e.message}))}});")
+        result=subprocess.run(['node','-e',program],cwd=ROOT,input=raw,
+                              text=True,capture_output=True,check=True)
+        return json.loads(result.stdout)
+
+    def python_raw_compare(self, raw):
+        from rio_evidence.json_io import loads
+        try:
+            baseline,candidate=loads(raw)
+            return compare_results(baseline,candidate)
+        except (ValueError, TypeError, KeyError, OverflowError) as error:
+            return {'error':str(error)}
+
+    def test_numeric_paired_parity_for_safe_integers_rounding_and_limits(self):
+        import math
+        scenarios={
+            'max-safe-int':[(0,9007199254740991)],
+            'decimal-rounding':[(0.1,0.2),(0.2,0.3),(0.3,0.4)],
+            'cancellation':[(0,1e15),(0,1),(1e15,0)],
+            'subnormal':[(0,5e-324)],
+            'high-finite':[(0,1e308),(0,1e308)],
+            'high-cancellation':[(1e308,0),(0,1e308)],
+            'negative-zero':[(0.0,-0.0)],
+            'tiny-differences':[(0,1e-15),(0,2e-15),(0,3e-15)],
+        }
+        for name,pairs in scenarios.items():
+            baseline=[dict(case_id=str(i),correct=i%2==0,latency_ms=a)
+                      for i,(a,b) in enumerate(pairs)]
+            candidate=[dict(case_id=str(i),correct=i%3==0,latency_ms=b)
+                       for i,(a,b) in enumerate(pairs)]
+            raw=json.dumps([baseline,candidate],allow_nan=False)
+            with self.subTest(name=name):
+                python=self.python_raw_compare(raw)
+                browser=self.browser_raw_compare(raw)
+                self.assertNotIn('error',python)
+                self.assertNotIn('error',browser)
+                for field in ('n','baseline_correct','candidate_correct','correct_delta'):
+                    self.assertEqual(python[field],browser[field],(name,field))
+                self.assertTrue(math.isclose(
+                    python['mean_latency_delta_ms'],browser['mean_latency_delta_ms'],
+                    rel_tol=1e-12,abs_tol=0), (name,python,browser))
+                if name=='cancellation':
+                    self.assertAlmostEqual(browser['mean_latency_delta_ms'],1/3,places=12)
+
+    def test_numeric_rejection_parity_for_unsafe_integer_and_overflow(self):
+        for token in ('9007199254740992','9007199254740993',
+                      '-9007199254740992','1e309','-1e309'):
+            raw=('[[{"case_id":"x","correct":true,"latency_ms":0}],'
+                 '[{"case_id":"x","correct":true,"latency_ms":'+token+'}]]')
+            with self.subTest(token=token):
+                self.assertIn('error',self.python_raw_compare(raw))
+                self.assertIn('error',self.browser_raw_compare(raw))
+
+    def test_number_lexing_does_not_misinterpret_quoted_digits(self):
+        self.assertEqual(self.browser_parse('{"payload":"9007199254740993"}'),'ACCEPTED')
+        self.assertEqual(self.browser_parse('{"n":9007199254740991}'),'ACCEPTED')
+        self.assertIn('unsafe JSON integer',self.browser_parse('{"n":9007199254740992}'))
+        self.assertEqual(self.browser_parse('{"n":9007199254740992.0}'),'ACCEPTED')
+        self.assertIn('finite binary64',self.browser_parse('{"n":1e309}'))
+
     def test_snapshot_and_delta_ledger_are_identical(self):
         self.assertEqual(json.loads((ROOT/'DELTAS.json').read_text()),json.loads((ROOT/'docs/data.json').read_text()))

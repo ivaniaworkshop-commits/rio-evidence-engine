@@ -144,6 +144,10 @@ def compare_results(baseline, candidate):
         if any(isinstance(r['latency_ms'], bool) or not isinstance(r['latency_ms'], (int, float))
                or not math.isfinite(r['latency_ms']) or r['latency_ms'] < 0 for r in rows):
             raise ValueError('invalid latency')
+        # The browser exposes IEEE-754 Numbers; reject int literals it cannot represent safely.
+        if any(type(r['latency_ms']) is int and r['latency_ms'] > (2**53 - 1)
+               for r in rows):
+            raise ValueError('unsafe integer latency outside JavaScript safe range')
         d = {r['case_id']: r for r in rows}
         if not rows or len(d) != len(rows):
             raise ValueError('empty or duplicate cases')
