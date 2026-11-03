@@ -1,5 +1,9 @@
 # Changes
 
+## P5 independent rational oracle and metamorphic sum invariance
+
+Replace Python per-term divided `math.fsum` and JavaScript per-term divided compensated summation with exact binary64 integer-unit accumulation followed by single round-to-nearest-even. An independent `fractions.Fraction.from_float` oracle checks mathematical means without sharing the implementation. A deterministic seeded Python/Node differential batch tests reversals, magnitude orderings, random permutations, grouped/interleaved blocks, twofold/threefold repetition, and exact rational regrouping. Require bitwise equality with the oracle (0 ULP), preserved paired denominators/numerators, and fail-closed CI on any unexpected rejection. Preserve legacy P4 rounding coverage. Explicitly guard against the shared two-subnormals-in-three error. No evidence of browser deployment or latency efficiency; both need separate gates.
+
 ## P4 adversarial IEEE-754 oracle and fail-closed input boundaries
 
 Add deterministic Python/Node cross-runtime differential execution around binary64 ULP neighbors, decimal ties-to-even, zero/subnormal/normal boundaries, safe integers, finite overflow thresholds and seeded near-neighbor values. Enforce matching raw binary64 input bits, exact discrete metrics, joint acceptance/rejection, and a maximum of one ULP of output mean disagreement; failure exits 2. Reject nonzero decimal float tokens that underflow to zero and the literal integer -0 in both text decoders. Run this gate as a dedicated CI step and unit regression; manifest remains an integrity check on source bytes only. No browser deployment or production numerical equivalence is asserted.
