@@ -38,6 +38,18 @@ class BenchmarkFixtures(unittest.TestCase):
                 self.assertEqual(answer["baseline_correct"], record["baseline_correct"])
                 self.assertEqual(answer["candidate_correct"], record["candidate_correct"])
 
+
+    def test_mobile_page_is_manual_and_does_not_send_data(self):
+        from pathlib import Path
+        page = (Path(__file__).resolve().parents[1] / "docs" / "mobile-benchmark.html").read_text()
+        self.assertIn('id="run"', page)
+        self.assertIn('compare.js', page)
+        self.assertIn("USER_EXECUTED_BROWSER_UNVERIFIED", page)
+        self.assertIn("UNKNOWN_NOT_OBSERVED", page)
+        self.assertNotIn("fetch(", page)
+        self.assertNotIn("localStorage", page)
+        self.assertNotIn("navigator.sendBeacon", page)
+
     @unittest.skipUnless(shutil.which("node"), "Node required for P4/P5 measured comparison")
     def test_node_real_comparators_on_small_fixture(self):
         r = measure_node(self.samples[32], 3)
