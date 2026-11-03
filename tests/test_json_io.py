@@ -27,5 +27,17 @@ class StrictJsonTests(unittest.TestCase):
         self.assertEqual(result['minutes'],9007199254740993)
         self.assertEqual(result['single_worker_minutes'],9007199254740993)
 
+    def test_nonzero_binary64_underflow_is_rejected(self):
+        for literal in ('1e-324', '-1e-400', '0.000001e-9999'):
+            with self.subTest(literal=literal), self.assertRaisesRegex(ValueError,'underflows binary64'):
+                loads('{"latency_ms":'+literal+'}')
+        self.assertEqual(loads('{"v":0e-9999}')['v'],0.0)
+
+    def test_negative_zero_integer_is_not_portable(self):
+        with self.assertRaisesRegex(ValueError,'negative zero integer'):
+            loads('{"value":-0}')
+        import math
+        self.assertLess(math.copysign(1,loads('{"value":-0.0}')['value']),0)
+
     def test_regular_json_preserves_large_integer(self):
         self.assertEqual(loads('{"n":9007199254740993}'),{'n':9007199254740993})

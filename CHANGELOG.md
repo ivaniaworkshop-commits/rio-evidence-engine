@@ -1,5 +1,9 @@
 # Changes
 
+## P4 adversarial IEEE-754 oracle and fail-closed input boundaries
+
+Add deterministic Python/Node cross-runtime differential execution around binary64 ULP neighbors, decimal ties-to-even, zero/subnormal/normal boundaries, safe integers, finite overflow thresholds and seeded near-neighbor values. Enforce matching raw binary64 input bits, exact discrete metrics, joint acceptance/rejection, and a maximum of one ULP of output mean disagreement; failure exits 2. Reject nonzero decimal float tokens that underflow to zero and the literal integer -0 in both text decoders. Run this gate as a dedicated CI step and unit regression; manifest remains an integrity check on source bytes only. No browser deployment or production numerical equivalence is asserted.
+
 ## P3 numeric parity gate for paired comparisons
 
 Detect and reject raw JSON integer literals outside JavaScript's safe range before browser rounding, including in nested objects; reject nonfinite numeric tokens. The Python paired comparator rejects unsafe integer latency values while its generic JSON loader and scheduling path retain exact large-integer capability. Browser latency averages now use Neumaier compensated summation to recover small contributions under large positive/negative cancellation. Add Node/Python differential regressions for safe integer limits, float rounding, subnormal and large finite values, overflow, unsafe integer rejection, and CLI exit code 2. The tested contract uses exact metric counts and relative tolerance 1e-12 for latency means (abs_tol=0), not universal bitwise parity; standalone raw JS object callers bypass text decoding.

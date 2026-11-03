@@ -24,12 +24,17 @@ function parseStrict(text){
    // The JS parser has already validated JSON grammar, but may round integer literals.
    numberToken.lastIndex=i;
    const token=numberToken.exec(text)[0];
+   if(token==='-0')throw Error('negative zero integer token is not cross-runtime portable');
    if(!/[.eE]/.test(token)){
     const digits=token[0]==='-'?token.slice(1):token;
     if(digits.length>16||(digits.length===16&&digits>'9007199254740991'))
      throw Error('unsafe JSON integer outside +/- (2^53 - 1)');
    }
-   if(!Number.isFinite(Number(token)))throw Error('JSON number outside finite binary64 range');
+   const numeric=Number(token);
+   if(!Number.isFinite(numeric))throw Error('JSON number outside finite binary64 range');
+   const mantissa=token.split(/[eE]/,1)[0];
+   if(numeric===0&&/[1-9]/.test(mantissa))
+    throw Error('nonzero JSON number underflows binary64');
    i+=token.length;
    continue;
   }
