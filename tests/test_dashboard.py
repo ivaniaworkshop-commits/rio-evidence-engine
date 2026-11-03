@@ -31,5 +31,38 @@ class DashboardParity(unittest.TestCase):
         for b in [a+a,[dict(a[0],secret='not-accepted')]]:
             with self.subTest(b=b):self.assertIn('error',self.browser(a,b))
 
+    def browser_parse(self, raw):
+        program=("const p=require('./docs/compare.js').parseStrict;let s='';"
+                 "process.stdin.on('data',x=>s+=x);"
+                 "process.stdin.on('end',()=>{try{p(s);console.log('ACCEPTED')}"
+                 "catch(e){console.log(e.message)}});")
+        result=subprocess.run(['node','-e',program],cwd=ROOT,input=raw,
+                              text=True,capture_output=True,check=True)
+        return result.stdout.strip()
+
+    def test_frontend_rejects_duplicate_json_members_at_any_depth(self):
+        examples=[
+            '{"a":1,"a":2}',
+            '{"outer":{"a":1,"\\u0061":2}}',
+            '[{"case_id":"x","case_id":"y"}]',
+            '{"outer":[{"a":1,"a":2}]}',
+        ]
+        for raw in examples:
+            with self.subTest(raw=raw):
+                self.assertIn('duplicate JSON key',self.browser_parse(raw))
+
+    def test_frontend_allows_same_key_in_separate_objects(self):
+        self.assertEqual(self.browser_parse('[{"a":1},{"a":2}]'),'ACCEPTED')
+
+    def test_frontend_rejects_malformed_and_oversize_json(self):
+        self.assertNotEqual(self.browser_parse('{"a":1,}'),'ACCEPTED')
+        self.assertIn('1 MiB',self.browser_parse(' '*(1048576+1)))
+
+    def test_frontend_integrates_strict_parser_for_all_json_inputs(self):
+        app=(ROOT/'docs/app.js').read_text(encoding='utf-8')
+        self.assertIn("rioCompare.parseStrict($('baseline').value)",app)
+        self.assertIn("rioCompare.parseStrict($('candidate').value)",app)
+        self.assertIn('rioCompare.parseStrict(await r.text())',app)
+
     def test_snapshot_and_delta_ledger_are_identical(self):
         self.assertEqual(json.loads((ROOT/'DELTAS.json').read_text()),json.loads((ROOT/'docs/data.json').read_text()))
