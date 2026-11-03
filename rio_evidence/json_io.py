@@ -16,6 +16,10 @@ def loads(text):
         return obj
     def constant(value):
         raise ValueError('nonstandard JSON number: '+value)
+    def strict_int(token):
+        if token == '-0':
+            raise ValueError('negative zero integer token is not cross-runtime portable')
+        return int(token)
     def binary64_float(token):
         number=float(token)
         if not math.isfinite(number):
@@ -26,7 +30,7 @@ def loads(text):
         return number
     try:
         return json.loads(text,object_pairs_hook=pairs,parse_constant=constant,
-                          parse_float=binary64_float)
+                          parse_float=binary64_float,parse_int=strict_int)
     except RecursionError as error:
         raise ValueError('JSON nesting exceeds decoder capacity') from error
 
