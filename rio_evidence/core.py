@@ -4,6 +4,7 @@ from __future__ import annotations
 import hashlib
 import json
 import math
+import struct
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -130,6 +131,43 @@ def wilson_interval(successes, n, z=1.959963984540054):
     return max(0, center-half), min(1, center+half)
 
 
+def _binary64_units(value):
+    """Exact integer units of 2**-1074 for a validated finite binary64 input."""
+    bits = struct.unpack('>Q', struct.pack('>d', float(value)))[0]
+    exponent = (bits >> 52) & 0x7ff
+    mantissa = bits & ((1 << 52) - 1)
+    units = mantissa if not exponent else ((1 << 52) | mantissa) << (exponent - 1)
+    return -units if bits >> 63 else units
+
+
+def _round_binary64_mean(total_units, count):
+    """Correct round-to-nearest-even of exact (sum / count) in 2**-1074 units."""
+    if total_units == 0:
+        return 0.0
+    negative = total_units < 0
+    numerator = abs(total_units)
+    shift = max(0, numerator.bit_length() - count.bit_length() - 52)
+    while shift and numerator < (count << (52 + shift)):
+        shift -= 1
+    while numerator >= (count << (53 + shift)):
+        shift += 1
+    denominator = count << shift
+    significand, remainder = divmod(numerator, denominator)
+    if 2 * remainder > denominator or (2 * remainder == denominator and significand & 1):
+        significand += 1
+    if significand >= (1 << 53):
+        significand >>= 1
+        shift += 1
+    if significand >= (1 << 52):
+        exponent = shift + 1
+        if exponent >= 2047:
+            raise ValueError('mean latency cannot be represented in binary64')
+        bits = (exponent << 52) | (significand - (1 << 52))
+    else:
+        bits = significand
+    return struct.unpack('>d', ((int(negative) << 63) | bits).to_bytes(8, 'big'))[0]
+
+
 def compare_results(baseline, candidate):
     """Require paired case ids: never report a gain from a changed denominator."""
     def keyed(rows):
@@ -159,7 +197,9 @@ def compare_results(baseline, candidate):
     return {'n': n, 'baseline_correct': sum(r['correct'] for r in a.values()),
             'candidate_correct': sum(r['correct'] for r in b.values()),
             'correct_delta': sum(b[k]['correct']-a[k]['correct'] for k in a),
-            'mean_latency_delta_ms': math.fsum((b[k]['latency_ms']-a[k]['latency_ms'])/n for k in a),
+            'mean_latency_delta_ms': _round_binary64_mean(
+                sum(_binary64_units(b[k]['latency_ms']) - _binary64_units(a[k]['latency_ms'])
+                    for k in a), n),
             'scope': 'PAIRED_LOCAL_CASES_ONLY_NOT_HIDDEN_TESTS'}
 
 

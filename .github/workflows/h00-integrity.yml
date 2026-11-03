@@ -17,6 +17,8 @@ jobs:
         run: python3 -m unittest discover -s tests -v
       - name: P4 adversarial IEEE-754 differential gate (Python / Node)
         run: python3 scripts/ieee754_differential.py
+      - name: P5 metamorphic exact-rational oracle and grouping gate
+        run: python3 scripts/metamorphic_exact_sum.py
       - name: Smoke CLI and deterministic demo
         run: |
           python3 -m rio_evidence schedule examples/schedule.json
@@ -111,6 +113,8 @@ jobs:
         run: .venv/bin/python scripts/run_strict_tests.py
       - name: P4 reject rounding divergence in strict environment
         run: .venv/bin/python scripts/ieee754_differential.py
+      - name: P5 strict exact-rational oracle (no skips)
+        run: .venv/bin/python scripts/metamorphic_exact_sum.py
       - name: H17 unified checkpoint API and CLI smoke
         run: .venv/bin/python scripts/h17_program_probe.py
       - name: H07 remeasure paired accuracy abstention and latency
