@@ -77,6 +77,18 @@ class Regressions(unittest.TestCase):
             self.assertEqual(result.returncode,0,result.stderr)
             self.assertEqual(json.loads(result.stdout),{'events':0,'head_sha256':None,'scope':'INTERNAL_CONSISTENCY_ONLY'})
 
+    def test_cli_compare_rejects_unsafe_integer_latency(self):
+        with tempfile.TemporaryDirectory() as d:
+            path=Path(d)/'compare.json'
+            path.write_text('{"baseline":[{"case_id":"a","correct":true,"latency_ms":0}],'
+                            '"candidate":[{"case_id":"a","correct":true,'
+                            '"latency_ms":9007199254740993}]}',encoding='utf-8')
+            r=self.run_cli('compare',str(path))
+            self.assertEqual(r.returncode,2)
+            self.assertEqual(r.stdout,'')
+            self.assertIn('unsafe integer latency',json.loads(r.stderr)['error'])
+            self.assertNotIn('Traceback',r.stderr)
+
     def test_cli_rejects_excessive_journal_nesting_without_traceback(self):
         with tempfile.TemporaryDirectory() as d:
             p=Path(d)/'journal'
