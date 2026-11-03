@@ -737,6 +737,16 @@
       "sha256": "d88004749b5abfa50eeeb867e7251fdcf3a27827289e0a12dcd4b0e08ed8ebd1"
     },
     {
+      "path": "scripts/verify_h00.py",
+      "bytes": 2860,
+      "sha256": "cb9a873fa3b50039bac6e6176b1fe2229d0c59e2b166d62000e99e9b8e3e5e6e"
+    },
+    {
+      "path": "scripts/verify_h00_connector.js",
+      "bytes": 2714,
+      "sha256": "a3cbc9db11e07cdbb33be7a3aaeb2d9eca4a1a22590640ba7c6266a50cd34fa4"
+    },
+    {
       "path": "scripts/verify_manifest.py",
       "bytes": 1671,
       "sha256": "cd9152632b4089c9aa71a474b2c4d229c76061c1a82b67f7df9d16ad5551ed1f"
