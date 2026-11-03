@@ -24,6 +24,7 @@ function parseStrict(text){
    // The JS parser has already validated JSON grammar, but may round integer literals.
    numberToken.lastIndex=i;
    const token=numberToken.exec(text)[0];
+   if(token==='-0')throw Error('negative zero integer token is not cross-runtime portable');
    if(!/[.eE]/.test(token)){
     const digits=token[0]==='-'?token.slice(1):token;
     if(digits.length>16||(digits.length===16&&digits>'9007199254740991'))
