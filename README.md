@@ -79,7 +79,7 @@ The main visual interface is in `docs/`: a static evidence dashboard with linked
 receipts, a synthetic browser-local comparator, delta filters and explicit
 snapshot dates. It reads bundled `data.json`, not live Python execution.
 Reload refreshes the deployed snapshot; it does not run tests or trigger an
-automation. Browser examples stay local and make no model calls.
+automation. Browser examples stay local and make no model calls. The dashboard now rejects duplicate JSON object keys (including escaped aliases) and inputs above 1 MiB in the playground and bundled snapshot reader. This aligns those rejection rules with the CLI, not their entire numerical behavior: JavaScript has limited integer precision.
 
 Run the full suite with Python and Node available to include comparator parity
 checks. Without Node, four dashboard tests are explicitly skipped. See
