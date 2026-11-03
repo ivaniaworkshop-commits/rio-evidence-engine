@@ -38,6 +38,16 @@ def exact_mean(pairs):
     return float(sum(terms, Fraction(0)) / len(pairs))
 
 
+def exact_grouped_mean(pairs, chunk_size):
+    """Partition before exact addition; grouping must not change the rational mean."""
+    partials = []
+    for start in range(0, len(pairs), chunk_size):
+        chunk = pairs[start:start + chunk_size]
+        partials.append(sum((Fraction.from_float(float(b)) -
+                             Fraction.from_float(float(a)) for a, b in chunk), Fraction(0)))
+    return float(sum(partials, Fraction(0)) / len(pairs))
+
+
 def source_pairs():
     """Authored adversarial families plus stable pseudo-random exponent mixtures."""
     tiny = math.nextafter(0.0, math.inf)
@@ -163,11 +173,15 @@ def run_gate():
         accepted += 1
         reference = exact_mean(spec["pairs"])
         ref_bits = binary64_hex(reference)
+        from scripts.ieee754_differential import _ulp_distance
         for label, actual in (("Python", python["metrics"]["mean_latency_delta_ms"]),
                               ("JavaScript", js["metrics"]["mean_latency_delta_ms"])):
+            distance = _ulp_distance(actual, reference)
+            observed_max = max(observed_max, distance)
             if binary64_hex(actual) != ref_bits:
                 failure(spec, label + " differs from independently rounded rational oracle: " +
-                        repr(actual) + " vs " + repr(reference))
+                        repr(actual) + " vs " + repr(reference) +
+                        " (" + str(distance) + " ULP)")
         for label, metrics in (("Python", python["metrics"]), ("JavaScript", js["metrics"])):
             if metrics["n"] != spec["n"]:
                 failure(spec, label + " denominator changed")
@@ -181,6 +195,9 @@ def run_gate():
         for spec in variations(name, pairs):
             if binary64_hex(exact_mean(spec["pairs"])) != base_bits:
                 failure(spec, "metamorphic mutation changed exact reference mean")
+            for chunk_size in (1, 2, 3, 4):
+                if binary64_hex(exact_grouped_mean(spec["pairs"], chunk_size)) != base_bits:
+                    failure(spec, "exact group partition changed oracle: size " + str(chunk_size))
 
     # Guard the test itself: the former per-term division method fails this fixture.
     old_bug = [(0.0, math.nextafter(0.0, math.inf)),
