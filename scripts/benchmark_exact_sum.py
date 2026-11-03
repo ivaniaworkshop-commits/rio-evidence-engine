@@ -198,7 +198,7 @@ def bench(iterations=5, enforce=True):
         for name, fixture in fixtures().items():
             python = measure_python(fixture, iterations)
             node = measure_node(fixture, iterations)
-            report["cases"][name] = {
+            report["cases"][str(name)] = {
                 "count": fixture["count"],
                 "bytes_per_input": fixture["bytes_per_input"],
                 "sha256_per_input": fixture["input_sha256"],
