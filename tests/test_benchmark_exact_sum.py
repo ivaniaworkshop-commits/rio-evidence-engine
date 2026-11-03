@@ -50,6 +50,14 @@ class BenchmarkFixtures(unittest.TestCase):
         self.assertNotIn("localStorage", page)
         self.assertNotIn("navigator.sendBeacon", page)
 
+    @unittest.skipUnless(shutil.which("node"), "Node required for a full measured report")
+    def test_complete_benchmark_report_has_serializable_string_case_ids(self):
+        from scripts.benchmark_exact_sum import bench
+        report = bench(iterations=3)
+        self.assertEqual(set(report["cases"]), {"32", "2048", "near-1MiB"})
+        self.assertEqual(json.loads(json.dumps(report, sort_keys=True))["status"],
+                         report["status"])
+
     @unittest.skipUnless(shutil.which("node"), "Node required for P4/P5 measured comparison")
     def test_node_real_comparators_on_small_fixture(self):
         r = measure_node(self.samples[32], 3)
