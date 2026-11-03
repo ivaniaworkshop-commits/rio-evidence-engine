@@ -723,8 +723,8 @@
     },
     {
       "path": "scripts/verify_h00_connector.js",
-      "bytes": 2563,
-      "sha256": "52f4fef4e1745965b98bbdab1b5965babc12555c3da61685252bd05a39b18daa"
+      "bytes": 2714,
+      "sha256": "a3cbc9db11e07cdbb33be7a3aaeb2d9eca4a1a22590640ba7c6266a50cd34fa4"
     },
     {
       "path": "scripts/verify_manifest.py",

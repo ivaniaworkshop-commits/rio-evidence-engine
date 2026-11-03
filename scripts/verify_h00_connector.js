@@ -1,5 +1,5 @@
 // Run in Codex functions.exec with the GitHub connector available.
-async function verifyH00(repo_full_name, pr_number, run_id) {
+async function verifyH00(repo_full_name, pr_number, run_id, runHeadSha) {
   const result = {ci: "UNKNOWN", authorization: "UNKNOWN", rules: "UNKNOWN"};
   const read = async (tool, args) => {
     const response = await tool({repo_full_name, ...args});
@@ -11,7 +11,7 @@ async function verifyH00(repo_full_name, pr_number, run_id) {
   try {
     const before = await pr();
     if (before.state !== "open" || !before.merge_commit_sha) return result;
-    const {workflow_runs} = await read(tools.mcp__codex_apps__github_fetch_commit_workflow_runs, {commit_sha: before.head_sha});
+    const {workflow_runs} = await read(tools.mcp__codex_apps__github_fetch_commit_workflow_runs, {commit_sha: runHeadSha ?? before.head_sha});
     if (!workflow_runs.some(run => run.id === run_id && run.name === "H00 integrity and reproducibility" && run.status === "completed")) return result;
     const {jobs} = await read(tools.mcp__codex_apps__github_fetch_workflow_run_jobs, {run_id});
     const checks = await Promise.all(["verify", "strict-torch"].map(async name => {
@@ -38,4 +38,5 @@ async function verifyH00(repo_full_name, pr_number, run_id) {
 }
 
 // Set the repository, PR and run for each invocation.
-text(await verifyH00("ivaniaworkshop-commits/rio-evidence-engine", 23, 41583451797));
+// For historical runs, pass the run's original head SHA as the fourth argument.
+text(await verifyH00("ivaniaworkshop-commits/rio-evidence-engine", 23, 41583451797, "af4b8fbc0d63fad90be74b620d87a888ef34864f"));
