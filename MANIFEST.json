@@ -152,6 +152,11 @@
       "sha256": "42c24370647612702089db8e8e3150cc1d31cd01aeea743772b2052fcaaf48b2"
     },
     {
+      "path": "evaluation/SPHERE_CONSUMER_R002.md",
+      "bytes": 2191,
+      "sha256": "e296f5ce84f0538778bba63ea9862e283137a3c641a8fb575551b0386315b0fc"
+    },
+    {
       "path": "evaluation/language_shift_probe.py",
       "bytes": 2697,
       "sha256": "f52f9796ef89be8d87771357c33cef1b93f4f410dad2fc6b3f53e67b9bd7e1d1"
@@ -455,6 +460,11 @@
       "path": "rio_evidence/spanish_graph.py",
       "bytes": 3254,
       "sha256": "366010773d13a732489c39a5b2cdca93204db82f6802016a6168ac1f77b0ae61"
+    },
+    {
+      "path": "rio_evidence/sphere_consumer.py",
+      "bytes": 5073,
+      "sha256": "93b75a422b9de71870d28db4bace5af71945fee19d0cde441686b5a2a559bd7e"
     },
     {
       "path": "rio_evidence/streaming.py",
@@ -920,6 +930,11 @@
       "path": "tests/test_spanish_graph.py",
       "bytes": 2622,
       "sha256": "8556d8716a3f707d696ab32a04c40ba01592c7cf3c3d1c396e1ccc35409aeba7"
+    },
+    {
+      "path": "tests/test_sphere_consumer.py",
+      "bytes": 5067,
+      "sha256": "bdf321a029f00e825326568b76906f910b1a5c6c8447081640f1d2c5f20a07c4"
     },
     {
       "path": "tests/test_streaming.py",
