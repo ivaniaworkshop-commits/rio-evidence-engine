@@ -3,7 +3,7 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 import json
 root=Path(__file__).resolve().parents[1]
-s=(root/'RIO_PRIMER_COBRO_R012_OFFLINE.html').read_text('utf8')
+s=(root/'RIO_PRIMER_COBRO_R013_OFFLINE.html').read_text('utf8')
 prefix='''<script>window.__mockSave=window.__mockSave||{};Object.defineProperty(window,'localStorage',{configurable:true,value:{getItem:k=>window.__mockSave[k]||null,setItem:(k,v)=>window.__mockSave[k]=v,removeItem:k=>delete window.__mockSave[k]}});</script>'''
 s=s.replace('<head>','<head>'+prefix,1)
 with sync_playwright() as pw:
