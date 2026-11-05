@@ -75,19 +75,19 @@
     },
     "reports/R013_user_report_mobile.json": {
       "bytes": 10721,
-      "sha256": "86b2fd0e882fde541b301a0a3d1b343599bb613bd30fea45928e3b0965648aed"
+      "sha256": "96bde17e245c8277d4d6d5ff77f6b37bc994d0510898cd373046fecf3925a811"
     },
     "reports/R013_user_report_desktop.json": {
       "bytes": 10721,
-      "sha256": "eeb637bec42e0dd4546f1c2f42f5190a6542aaf94fa0b8b6e698a2de7f67a38e"
+      "sha256": "868349f65abcfe1fecba0a35cdd6eb18141124726065ac7424eec43852f2ed8b"
     },
     "tests/test_cart_r012.py": {
       "bytes": 6136,
-      "sha256": "d15a625bf5b89e238dfe0a23d9e86a64cf9f9d07fe4bba837d1be251c7199287"
+      "sha256": "16f8e145272d4a18c91126d2cfcf27eda6a45580c0ff41bf9561589f354c9631"
     },
     "tests/test_cart_storage_mock_r012.py": {
       "bytes": 1293,
-      "sha256": "a623b91b9749ce374e0360435310c8ac7043e2bf20598fd0811ac6135c5bf657"
+      "sha256": "437453c4cbbabd0fd97bfbde3d46778ee037e97c8b199837cdab246d648caf4f"
     }
   },
   "privacy": "NO_PRIVATE_USER_HISTORY_OR_CREDENTIALS",
