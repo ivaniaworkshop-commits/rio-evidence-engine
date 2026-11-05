@@ -1,0 +1,71 @@
+import json, pathlib, sys, io
+from playwright.sync_api import sync_playwright
+from PIL import Image
+import numpy as np, cv2
+root=pathlib.Path(__file__).resolve().parents[1]
+html=(root/'RIO_PRIMER_COBRO_R013_OFFLINE.html').read_text()
+checks=[]
+def check(name,cond):
+ checks.append({'name':name,'pass':bool(cond)})
+ if not cond: raise AssertionError(name)
+with sync_playwright() as p:
+ browser=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox','--disable-dev-shm-usage'])
+ for width,height,label in [(390,844,'mobile'),(1280,900,'desktop')]:
+  context=browser.new_context(viewport={'width':width,'height':height},accept_downloads=True)
+  page=context.new_page();errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
+  mode='memory';page.set_content(html,wait_until='load')
+  check(label+' loaded standalone', page.locator('#add').count()==1)
+  check(label+' body viewport',page.evaluate('document.documentElement.scrollWidth<=window.innerWidth+1'))
+  check(label+' method label',page.locator('input[name="method"][value="qr"]').count()==1)
+  check(label+' qr not shown before sale',page.locator('#qr-code').count()==0)
+  page.locator('#add').click()
+  check(label+' blank form explains issue',page.locator('#line-feedback').inner_text().startswith('Escribe'))
+  page.locator('#example-product').click();page.locator('#add').click()
+  check(label+' cart product', 'Manzana' in page.locator('#lines').inner_text())
+  check(label+' exact total', '$25.00' in page.locator('#total').inner_text())
+  page.locator('input[name="method"][value="qr"]').check();page.locator('#start-sale').click()
+  check(label+' qr button visible',page.locator('#generate-qr').is_visible())
+  page.locator('#generate-qr').click()
+  check(label+' svg visible', page.locator('#qr-code svg').count()==1)
+  check(label+' payload no-pay', 'NO-PAGABLE' in page.locator('#qr-payload').inner_text())
+  state=page.evaluate('window.RioApp.readState()')
+  check(label+' method canonical QR',state['sale']['method']=='qr')
+  check(label+' QR payload includes exact folio',state['sale']['saleId'] in state['qrPayload'])
+  check(label+' QR payload includes cents','MXN-CENTAVOS=2500' in state['qrPayload'])
+  # Export SVG, render bytes with cairosvg then independent OpenCV decode.
+  import cairosvg
+  svg=page.locator('#qr-code svg').evaluate('(e)=>e.outerHTML')
+  image=cairosvg.svg2png(bytestring=svg.encode('utf-8'),output_width=450,output_height=450)
+  pix=np.asarray(Image.open(io.BytesIO(image)).convert('RGB'))
+  decoded,_,_=cv2.QRCodeDetector().detectAndDecode(pix)
+  check(label+' independent QR scanned', decoded==state['qrPayload'])
+  (root/'reports'/f'R013_qr_{label}.png').write_bytes(image)
+  with page.expect_download() as dl:page.locator('#download-qr').click()
+  download=dl.value
+  check(label+' QR svg downloadable',download.suggested_filename.endswith('.svg'))
+  page.locator('#ticket-card').screenshot(path=str(root/'reports'/f'R013_ticket_{label}.png'))
+  check(label+' ticket QR method', 'QR de práctica' in page.locator('#ticket-preview').inner_text())
+  check(label+' sharing links ready', page.locator('#ticket-email').get_attribute('href').startswith('mailto:') and page.locator('#ticket-whatsapp').get_attribute('href').startswith('https://wa.me/'))
+  page.locator('#tab-informe').click()
+  with page.expect_download() as dl:page.locator('#generate').click()
+  report=json.loads(pathlib.Path(dl.value.path()).read_text())
+  check(label+' click reruns tests',report['tests']['executed_on_click'] is True)
+  check(label+' QR included in report',report['qr']['generated'] is True and report['sale']['method']=='qr')
+  check(label+' report marks no real payment',report['real_payment']=='NO')
+  check(label+' report tests pass',report['tests']['failed']==0)
+  (root/'reports'/f'R013_user_report_{label}.json').write_text(json.dumps(report,indent=2,ensure_ascii=False))
+  page.locator('#tab-vender').click();page.screenshot(path=str(root/'reports'/f'R013_full_{label}.png'),full_page=True)
+  page.locator('#new-sale').click();check(label+' new sale clears QR',page.locator('#qr-code').count()==0)
+  check(label+' no page errors',not errors)
+  print(label,'loaded',mode,'report',report['tests']['passed'],'/',report['tests']['total'],'errors',errors)
+  context.close()
+ # cash flow independent
+ context=browser.new_context(viewport={'width':390,'height':844});page=context.new_page();page.set_content(html,wait_until='load')
+ page.locator('#example-product').click();page.locator('#add').click();page.locator('#start-sale').click()
+ check('cash amount field',page.locator('#cash-received').is_visible())
+ page.locator('#cash-received').fill('30.00');check('cash change', '$5.00' in page.locator('#cash-change').inner_text())
+ page.locator('#register-cash').click();check('cash ticket receipt', 'Efectivo' in page.locator('#ticket-preview').inner_text())
+ check('cash QR absent',page.locator('#generate-qr').count()==0)
+ context.close();browser.close()
+(root/'reports'/'R013_E2E.json').write_text(json.dumps({'checks':len(checks),'passed':sum(c['pass'] for c in checks),'failed':sum(not c['pass'] for c in checks),'cases':checks},ensure_ascii=False,indent=2))
+print('ALL',len(checks),'PASS')
