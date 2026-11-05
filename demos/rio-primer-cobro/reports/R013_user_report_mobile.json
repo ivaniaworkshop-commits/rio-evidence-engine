@@ -1,0 +1,447 @@
+{
+  "schema": "RIO_PRIMER_COBRO_REPORTE_R013",
+  "generated_at": "2026-11-05T12:35:02.792Z",
+  "origin": "BROWSER_USER_CLICK",
+  "mode": "SIMULACION_LOCAL",
+  "payment_provider": "NONE",
+  "real_payment": "NO",
+  "llm_live_verified": "NO_IN_THIS_REPORT",
+  "device_physical": "NOT_INDEPENDENTLY_VERIFIED",
+  "source_reuse": "R012_SOURCE_PATCHED_WITH_QR_AND_MOBILE_SKIN_R013",
+  "qr": {
+    "generated": true,
+    "payload": "RIO-QR-DEMO|NO-PAGABLE|DEMO-1793882102180-001|MXN-CENTAVOS=2500",
+    "real_payment": false,
+    "standard": "QR_VERSION_5_L_LOCAL_DEMO_TEXT"
+  },
+  "cart": {
+    "items": 1,
+    "totalCents": 2500,
+    "localStorageAvailable": false
+  },
+  "sale": {
+    "folio": "DEMO-1793882102180-001",
+    "method": "qr",
+    "totalCents": 2500,
+    "state": "DIGITAL_DEMO_PENDING",
+    "realPaymentConfirmed": false,
+    "eventCount": 0,
+    "cashReceivedCents": null,
+    "changeCents": null,
+    "ticketStatus": "QR DE PRÁCTICA PENDIENTE — NO PAGADO"
+  },
+  "consent_category_collection": false,
+  "categories": {},
+  "feedback": {
+    "helped": 0,
+    "unresolved": 0
+  },
+  "tests": {
+    "executed_on_click": true,
+    "core": {
+      "schema": "RIO_R010_IN_APP_TEST_REPORT",
+      "engine": "BROWSER_OR_NODE",
+      "tests": 67,
+      "passed": 67,
+      "failed": 0,
+      "results": [
+        {
+          "name": "Precio con punto",
+          "pass": true
+        },
+        {
+          "name": "Precio con coma",
+          "pass": true
+        },
+        {
+          "name": "Cero válido",
+          "pass": true
+        },
+        {
+          "name": "Sin flotante en centavos",
+          "pass": true
+        },
+        {
+          "name": "Rechaza importe <vacío>",
+          "pass": true
+        },
+        {
+          "name": "Rechaza importe 1.234",
+          "pass": true
+        },
+        {
+          "name": "Rechaza importe 1,234",
+          "pass": true
+        },
+        {
+          "name": "Rechaza importe -1",
+          "pass": true
+        },
+        {
+          "name": "Rechaza importe 1e3",
+          "pass": true
+        },
+        {
+          "name": "Rechaza importe Infinity",
+          "pass": true
+        },
+        {
+          "name": "Rechaza importe NaN",
+          "pass": true
+        },
+        {
+          "name": "Rechaza importe 2 000",
+          "pass": true
+        },
+        {
+          "name": "Rechaza importe 1_000",
+          "pass": true
+        },
+        {
+          "name": "Rechaza importe 0x12",
+          "pass": true
+        },
+        {
+          "name": "Rechaza importe 12.345",
+          "pass": true
+        },
+        {
+          "name": "Rechaza importe 99999999",
+          "pass": true
+        },
+        {
+          "name": "Cantidad piezas exacta",
+          "pass": true
+        },
+        {
+          "name": "Peso 250g a $12.50/kg",
+          "pass": true
+        },
+        {
+          "name": "Redondeo medio hacia arriba",
+          "pass": true
+        },
+        {
+          "name": "Peso menor al centavo",
+          "pass": true
+        },
+        {
+          "name": "Rechaza producto vacío",
+          "pass": true
+        },
+        {
+          "name": "Rechaza gramos negativos",
+          "pass": true
+        },
+        {
+          "name": "Rechaza cantidad cero",
+          "pass": true
+        },
+        {
+          "name": "Rechaza overflow",
+          "pass": true
+        },
+        {
+          "name": "Total exacto",
+          "pass": true
+        },
+        {
+          "name": "Rechaza lista vacía",
+          "pass": true
+        },
+        {
+          "name": "Rechaza lista extensa",
+          "pass": true
+        },
+        {
+          "name": "El modo es siempre demo",
+          "pass": true
+        },
+        {
+          "name": "No existe confirmación real",
+          "pass": true
+        },
+        {
+          "name": "QR pendiente nunca confirma",
+          "pass": true
+        },
+        {
+          "name": "No confirma: importe incorrecto",
+          "pass": true
+        },
+        {
+          "name": "No confirma: folio incorrecto",
+          "pass": true
+        },
+        {
+          "name": "No confirma: origen externo",
+          "pass": true
+        },
+        {
+          "name": "No confirma: marcador ausente",
+          "pass": true
+        },
+        {
+          "name": "No confirma: evento textual",
+          "pass": true
+        },
+        {
+          "name": "Confirmación de demo es explícita",
+          "pass": true
+        },
+        {
+          "name": "Confirmación no es bancaria",
+          "pass": true
+        },
+        {
+          "name": "Idempotencia: confirmación duplicada",
+          "pass": true
+        },
+        {
+          "name": "Evento no muta original",
+          "pass": true
+        },
+        {
+          "name": "Desconexión lleva a desconocido",
+          "pass": true
+        },
+        {
+          "name": "Reconexión no confirma",
+          "pass": true
+        },
+        {
+          "name": "Efectivo explícitamente declarado",
+          "pass": true
+        },
+        {
+          "name": "No mezcla evento de efectivo y digital",
+          "pass": true
+        },
+        {
+          "name": "Sin consentimiento no registra categorías",
+          "pass": true
+        },
+        {
+          "name": "Con consentimiento registra categoría",
+          "pass": true
+        },
+        {
+          "name": "No admite categoría arbitraria",
+          "pass": true
+        },
+        {
+          "name": "No admite etapa arbitraria",
+          "pass": true
+        },
+        {
+          "name": "Generador determinista",
+          "pass": true
+        },
+        {
+          "name": "Moneda de 29 centavos",
+          "pass": true
+        },
+        {
+          "name": "Propiedad: suma independiente de orden, 2000 casos",
+          "pass": true
+        },
+        {
+          "name": "Propiedad: peso coincide con BigInt de referencia, 2000 casos",
+          "pass": true
+        },
+        {
+          "name": "Monte Carlo seguridad: ningún evento adversarial da pago real, 20000 casos",
+          "pass": true
+        },
+        {
+          "name": "Método QR nuevo es canónico",
+          "pass": true
+        },
+        {
+          "name": "Digital legado se migra a QR",
+          "pass": true
+        },
+        {
+          "name": "QR contiene folio e importe exactos",
+          "pass": true
+        },
+        {
+          "name": "QR no es pagable",
+          "pass": true
+        },
+        {
+          "name": "QR rechaza efectivo",
+          "pass": true
+        },
+        {
+          "name": "QR no contiene URL bancaria",
+          "pass": true
+        },
+        {
+          "name": "No acepta efectivo declarado sin monto",
+          "pass": true
+        },
+        {
+          "name": "No acepta efectivo insuficiente",
+          "pass": true
+        },
+        {
+          "name": "Calcula el cambio entero exacto",
+          "pass": true
+        },
+        {
+          "name": "El ticket pendiente no acredita pago",
+          "pass": true
+        },
+        {
+          "name": "Ticket cash registra total y cambio",
+          "pass": true
+        },
+        {
+          "name": "Ticket simulado no acredita dinero real",
+          "pass": true
+        },
+        {
+          "name": "Ticket neutraliza saltos en nombre del negocio",
+          "pass": true
+        },
+        {
+          "name": "Enlaces de compartir sin envío automático",
+          "pass": true
+        },
+        {
+          "name": "Ticket no existe sin venta",
+          "pass": true
+        }
+      ],
+      "independentVerification": false,
+      "externalBrowserSuiteRunByReportButton": false
+    },
+    "additional": [
+      {
+        "name": "Clasificación y límites del chat local",
+        "pass": true
+      },
+      {
+        "name": "Pestañas exclusivas",
+        "pass": true
+      },
+      {
+        "name": "Tres secciones etiquetadas",
+        "pass": true
+      },
+      {
+        "name": "Advertencia de simulación visible",
+        "pass": true
+      },
+      {
+        "name": "Control de consentimiento explícito",
+        "pass": true
+      },
+      {
+        "name": "Sin confirmación bancaria de app",
+        "pass": true
+      },
+      {
+        "name": "Contenedor de asistencia accesible",
+        "pass": true
+      },
+      {
+        "name": "Salida monetaria presente",
+        "pass": true
+      },
+      {
+        "name": "Campos de productos etiquetados",
+        "pass": true
+      },
+      {
+        "name": "Motor local disponible",
+        "pass": true
+      },
+      {
+        "name": "Función de exportación disponible",
+        "pass": true
+      },
+      {
+        "name": "Motor QR local disponible",
+        "pass": true
+      },
+      {
+        "name": "Método visible QR",
+        "pass": true
+      },
+      {
+        "name": "QR requiere venta de QR",
+        "pass": true
+      },
+      {
+        "name": "QR real no declarado",
+        "pass": true
+      },
+      {
+        "name": "QR corresponde a folio e importe",
+        "pass": true
+      },
+      {
+        "name": "Botones de ticket presentes",
+        "pass": true
+      },
+      {
+        "name": "Ticket oculto sin venta",
+        "pass": true
+      },
+      {
+        "name": "Enlaces de compartir tipados",
+        "pass": true
+      },
+      {
+        "name": "Carrito y suma reflejados",
+        "pass": true
+      },
+      {
+        "name": "Agregar vacío muestra error",
+        "pass": true
+      },
+      {
+        "name": "Control para vaciar carrito",
+        "pass": true
+      },
+      {
+        "name": "Carrito no muta venta activa",
+        "pass": true
+      },
+      {
+        "name": "Carrito tiene contador",
+        "pass": true
+      },
+      {
+        "name": "Importe por producto deriva del precio y cantidad",
+        "pass": true
+      },
+      {
+        "name": "Total no supera el máximo",
+        "pass": true
+      },
+      {
+        "name": "Eliminar no cambia venta ya creada",
+        "pass": true
+      }
+    ],
+    "passed": 94,
+    "failed": 0,
+    "total": 94,
+    "external_browser_tests_rerun_on_click": false,
+    "android_physical_tests_rerun_on_click": false
+  },
+  "evidence_classification": {
+    "payments": "SIMULATED_ONLY",
+    "impact": "UNMEASURED",
+    "user_study": "NOT_DONE",
+    "in_app_tests": "PASS"
+  },
+  "limitations": [
+    "La generación ejecuta todas las pruebas internas del navegador; no puede lanzar suites de Node, Playwright o Android físico.",
+    "Los estados financieros reales no pueden inferirse del QR ni de respuestas IA.",
+    "Los conteos de preguntas son locales y voluntarios; no representan un modelo entrenado."
+  ]
+}
