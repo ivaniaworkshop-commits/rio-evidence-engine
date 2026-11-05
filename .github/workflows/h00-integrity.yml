@@ -99,6 +99,28 @@ jobs:
         run: |
           python3 -m rio_evidence.independent_gate > /tmp/h08.json
           python3 -c 'import json; x=json.load(open("/tmp/h08.json")); assert x["status"]=="BLOCKED_NO_EXTERNAL_HOLDOUT" and x["candidate_promoted"] is False'
+      - name: H00 record verify evidence (fail-closed, no promotion)
+        if: always()
+        env:
+          H00_JOB_STATUS: ${{ job.status }}
+        run: python3 scripts/h00_ci_receipt.py --job verify --ci-status "$H00_JOB_STATUS" --output output/h00/verify-receipt.json
+      - name: Upload H00 verify evidence from this runner
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: h00-verify-${{ github.run_attempt }}
+          retention-days: 30
+          if-no-files-found: warn
+          path: |
+            output/h00/verify-receipt.json
+            /tmp/h08.json
+            /tmp/h11_blocked.json
+            /tmp/h11_h09.json
+            /tmp/h11_legacy.json
+            /tmp/h12.json
+            /tmp/h14.json
+            /tmp/h14_h11.json
+            /tmp/h14_freeze.json
   strict-torch:
     runs-on: ubuntu-24.04
     timeout-minutes: 25
@@ -112,7 +134,9 @@ jobs:
           .venv/bin/python -m pip install -r model/requirements-cpu.txt
           .venv/bin/python -c 'import torch; print("torch", torch.__version__)'
       - name: Run complete suite; reject every skip
-        run: .venv/bin/python scripts/run_strict_tests.py
+        run: |
+          set -o pipefail
+          .venv/bin/python scripts/run_strict_tests.py 2>&1 | tee /tmp/h00_strict_tests.log
       - name: P4 reject rounding divergence in strict environment
         run: .venv/bin/python scripts/ieee754_differential.py
       - name: P5 strict exact-rational oracle (no skips)
@@ -125,3 +149,20 @@ jobs:
         run: |
           .venv/bin/python scripts/evaluate_network_value.py
           .venv/bin/python scripts/h07_audit.py
+      - name: H00 record strict-torch evidence (fail-closed, no promotion)
+        if: always()
+        env:
+          H00_JOB_STATUS: ${{ job.status }}
+        run: |
+          if [ -x .venv/bin/python ]; then PY=.venv/bin/python; else PY=python3; fi
+          "$PY" scripts/h00_ci_receipt.py --job strict-torch --ci-status "$H00_JOB_STATUS" --output output/h00/strict-receipt.json
+      - name: Upload H00 strict-torch evidence from this runner
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: h00-strict-torch-${{ github.run_attempt }}
+          retention-days: 30
+          if-no-files-found: warn
+          path: |
+            output/h00/strict-receipt.json
+            /tmp/h00_strict_tests.log
