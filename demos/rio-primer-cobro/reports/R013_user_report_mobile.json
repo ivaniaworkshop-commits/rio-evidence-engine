@@ -1,6 +1,6 @@
 {
   "schema": "RIO_PRIMER_COBRO_REPORTE_R013",
-  "generated_at": "2026-11-05T12:35:02.792Z",
+  "generated_at": "2026-11-05T12:40:30.412Z",
   "origin": "BROWSER_USER_CLICK",
   "mode": "SIMULACION_LOCAL",
   "payment_provider": "NONE",
@@ -10,7 +10,7 @@
   "source_reuse": "R012_SOURCE_PATCHED_WITH_QR_AND_MOBILE_SKIN_R013",
   "qr": {
     "generated": true,
-    "payload": "RIO-QR-DEMO|NO-PAGABLE|DEMO-1793882102180-001|MXN-CENTAVOS=2500",
+    "payload": "RIO-QR-DEMO|NO-PAGABLE|DEMO-1793882429818-001|MXN-CENTAVOS=2500",
     "real_payment": false,
     "standard": "QR_VERSION_5_L_LOCAL_DEMO_TEXT"
   },
@@ -20,7 +20,7 @@
     "localStorageAvailable": false
   },
   "sale": {
-    "folio": "DEMO-1793882102180-001",
+    "folio": "DEMO-1793882429818-001",
     "method": "qr",
     "totalCents": 2500,
     "state": "DIGITAL_DEMO_PENDING",
