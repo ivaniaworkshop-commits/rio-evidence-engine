@@ -1,0 +1,207 @@
+{
+  "checks": 50,
+  "passed": 50,
+  "failed": 0,
+  "cases": [
+    {
+      "name": "mobile loaded standalone",
+      "pass": true
+    },
+    {
+      "name": "mobile body viewport",
+      "pass": true
+    },
+    {
+      "name": "mobile method label",
+      "pass": true
+    },
+    {
+      "name": "mobile qr not shown before sale",
+      "pass": true
+    },
+    {
+      "name": "mobile blank form explains issue",
+      "pass": true
+    },
+    {
+      "name": "mobile cart product",
+      "pass": true
+    },
+    {
+      "name": "mobile exact total",
+      "pass": true
+    },
+    {
+      "name": "mobile qr button visible",
+      "pass": true
+    },
+    {
+      "name": "mobile svg visible",
+      "pass": true
+    },
+    {
+      "name": "mobile payload no-pay",
+      "pass": true
+    },
+    {
+      "name": "mobile method canonical QR",
+      "pass": true
+    },
+    {
+      "name": "mobile QR payload includes exact folio",
+      "pass": true
+    },
+    {
+      "name": "mobile QR payload includes cents",
+      "pass": true
+    },
+    {
+      "name": "mobile independent QR scanned",
+      "pass": true
+    },
+    {
+      "name": "mobile QR svg downloadable",
+      "pass": true
+    },
+    {
+      "name": "mobile ticket QR method",
+      "pass": true
+    },
+    {
+      "name": "mobile sharing links ready",
+      "pass": true
+    },
+    {
+      "name": "mobile click reruns tests",
+      "pass": true
+    },
+    {
+      "name": "mobile QR included in report",
+      "pass": true
+    },
+    {
+      "name": "mobile report marks no real payment",
+      "pass": true
+    },
+    {
+      "name": "mobile report tests pass",
+      "pass": true
+    },
+    {
+      "name": "mobile new sale clears QR",
+      "pass": true
+    },
+    {
+      "name": "mobile no page errors",
+      "pass": true
+    },
+    {
+      "name": "desktop loaded standalone",
+      "pass": true
+    },
+    {
+      "name": "desktop body viewport",
+      "pass": true
+    },
+    {
+      "name": "desktop method label",
+      "pass": true
+    },
+    {
+      "name": "desktop qr not shown before sale",
+      "pass": true
+    },
+    {
+      "name": "desktop blank form explains issue",
+      "pass": true
+    },
+    {
+      "name": "desktop cart product",
+      "pass": true
+    },
+    {
+      "name": "desktop exact total",
+      "pass": true
+    },
+    {
+      "name": "desktop qr button visible",
+      "pass": true
+    },
+    {
+      "name": "desktop svg visible",
+      "pass": true
+    },
+    {
+      "name": "desktop payload no-pay",
+      "pass": true
+    },
+    {
+      "name": "desktop method canonical QR",
+      "pass": true
+    },
+    {
+      "name": "desktop QR payload includes exact folio",
+      "pass": true
+    },
+    {
+      "name": "desktop QR payload includes cents",
+      "pass": true
+    },
+    {
+      "name": "desktop independent QR scanned",
+      "pass": true
+    },
+    {
+      "name": "desktop QR svg downloadable",
+      "pass": true
+    },
+    {
+      "name": "desktop ticket QR method",
+      "pass": true
+    },
+    {
+      "name": "desktop sharing links ready",
+      "pass": true
+    },
+    {
+      "name": "desktop click reruns tests",
+      "pass": true
+    },
+    {
+      "name": "desktop QR included in report",
+      "pass": true
+    },
+    {
+      "name": "desktop report marks no real payment",
+      "pass": true
+    },
+    {
+      "name": "desktop report tests pass",
+      "pass": true
+    },
+    {
+      "name": "desktop new sale clears QR",
+      "pass": true
+    },
+    {
+      "name": "desktop no page errors",
+      "pass": true
+    },
+    {
+      "name": "cash amount field",
+      "pass": true
+    },
+    {
+      "name": "cash change",
+      "pass": true
+    },
+    {
+      "name": "cash ticket receipt",
+      "pass": true
+    },
+    {
+      "name": "cash QR absent",
+      "pass": true
+    }
+  ]
+}
