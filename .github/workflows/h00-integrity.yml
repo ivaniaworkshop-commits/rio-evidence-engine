@@ -166,3 +166,164 @@ jobs:
           path: |
             output/h00/strict-receipt.json
             /tmp/h00_strict_tests.log
+
+  attest-receipts:
+    name: Attest H00 CI receipts (GitHub OIDC + Sigstore)
+    needs: [verify, strict-torch]
+    if: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read
+      id-token: write
+      attestations: write
+    steps:
+      - name: Download verify evidence from same run
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: h00-verify-${{ github.run_attempt }}
+          path: attest-input/verify
+      - name: Download strict evidence from same run
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: h00-strict-torch-${{ github.run_attempt }}
+          path: attest-input/strict
+      - name: Reject conflicting context, bytes and unearned promotion
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,os,shutil
+          from pathlib import Path
+          base=Path("attest-input")
+          def one(folder,name):
+              matches=list((base/folder).rglob(name))
+              if len(matches)!=1 or not matches[0].is_file() or matches[0].is_symlink():
+                  raise RuntimeError("MISSING_DUPLICATED_OR_LINKED: "+folder+"/"+name)
+              path=matches[0]
+              if path.stat().st_size>4_000_000:raise RuntimeError("OVERSIZE_EVIDENCE")
+              return path
+          def pairs(items):
+              d={}
+              for k,v in items:
+                  if k in d:raise ValueError("DUPLICATE_JSON_KEY: "+k)
+                  d[k]=v
+              return d
+          def reject_constant(value):raise ValueError("NONFINITE_JSON: "+value)
+          def read(path):
+              return json.loads(path.read_bytes(),object_pairs_hook=pairs,parse_constant=reject_constant)
+          def must(ok,reason):
+              if not ok:raise RuntimeError(reason)
+          verify=read(one("verify","verify-receipt.json"))
+          strict=read(one("strict","strict-receipt.json"))
+          for stage,r in (("verify",verify),("strict-torch",strict)):
+              must(r["schema"]=="RIO_H00_CI_RECEIPT/1.0" and r["stage"]==stage,"BAD_RECEIPT_SCHEMA")
+              must(r["status"]=="COMPLETE_LOCAL_CI_RECEIPT" and r["ci_job_status_reported"]=="success","NOT_GREEN")
+              for key,expected in (("repository",os.environ["GITHUB_REPOSITORY"]),
+                                   ("sha",os.environ["GITHUB_SHA"]),("id",os.environ["GITHUB_RUN_ID"]),
+                                   ("attempt",os.environ["GITHUB_RUN_ATTEMPT"]),
+                                   ("event",os.environ["GITHUB_EVENT_NAME"]),("ref",os.environ["GITHUB_REF"])):
+                  must(r["run"][key]==expected,"RUN_CONTEXT_MISMATCH_"+key)
+              must(r["candidate_promoted"] is False and r["production_ready"] is False,"FALSE_PROMOTION")
+              must(r["external_holdout_authenticated"] is False and
+                   r["source_class_verified_externally"] is False,"FALSE_EXTERNAL_VERIFICATION")
+              must(bool(r["checks"]) and all(x is True for x in r["checks"].values()),"FAILED_CHECKS")
+          expected={"h08_independent_gate":"h08.json","h11_blocked":"h11_blocked.json",
+                    "h11_h09":"h11_h09.json","h11_legacy":"h11_legacy.json",
+                    "h12_power":"h12.json","h14_development":"h14.json",
+                    "h14_paired":"h14_h11.json","h14_freeze":"h14_freeze.json"}
+          must(set(verify["input_records"])==set(expected),"MISSING_VERIFY_EVIDENCE")
+          for key,name in expected.items():
+              content=one("verify",name).read_bytes()
+              record=verify["input_records"][key]
+              must(record["bytes"]==len(content) and record["sha256"]==hashlib.sha256(content).hexdigest(),
+                   "HASH_MISMATCH_"+name)
+          h08=read(one("verify","h08.json"))
+          must(h08["status"]=="BLOCKED_NO_EXTERNAL_HOLDOUT" and h08["candidate_promoted"] is False,"H08_PROMOTED")
+          h14=read(one("verify","h14_h11.json"))
+          must(h14["candidate_promoted"] is False and h14["source_class_verified"] is False,"H14_PROMOTED")
+          content=one("strict","h00_strict_tests.log").read_bytes()
+          rec=strict["input_records"]["strict_suite_log"]
+          must(rec["bytes"]==len(content) and rec["sha256"]==hashlib.sha256(content).hexdigest(),
+               "STRICT_LOG_HASH_MISMATCH")
+          t=strict["strict_suite"]
+          must(t["status"]=="PASS_NO_SKIPS" and type(t["tests_run"]) is int and t["tests_run"]>0
+               and all(type(t[k]) is int and t[k]==0 for k in ("failed","errors","skipped")),"STRICT_FAIL")
+          target=base/"subjects"
+          target.mkdir(exist_ok=True)
+          shutil.copyfile(one("verify","verify-receipt.json"),target/"verify-receipt.json")
+          shutil.copyfile(one("strict","strict-receipt.json"),target/"strict-receipt.json")
+          print("H00_AUTH_PRECHECK_OK; two subjects; no model promotion")
+          PY
+      - name: Issue GitHub OIDC / Sigstore provenance for both receipts
+        id: attest
+        uses: actions/attest-build-provenance@977bb373ede98d70efdf65b84cb5f73e068dcc2a # v3
+        with:
+          subject-path: |
+            attest-input/subjects/verify-receipt.json
+            attest-input/subjects/strict-receipt.json
+      - name: Preserve exact signed bundle
+        env:
+          BUNDLE_PATH: ${{ steps.attest.outputs.bundle-path }}
+        run: |
+          test -s "$BUNDLE_PATH"
+          cp -- "$BUNDLE_PATH" attest-input/subjects/bundle.json
+      - name: Publish signed receipts and provenance
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: h00-attested-${{ github.run_attempt }}
+          retention-days: 30
+          if-no-files-found: error
+          path: attest-input/subjects/
+
+  verify-attestation:
+    name: Verify Sigstore signature with read-only CI principal
+    needs: [attest-receipts]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - name: Download signed receipts from same run
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: h00-attested-${{ github.run_attempt }}
+          path: signed
+      - name: Authenticate byte digest, source SHA and signer workflow
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          for subject in verify-receipt strict-receipt; do
+            gh attestation verify "signed/$subject.json" --bundle signed/bundle.json --repo "$GITHUB_REPOSITORY" --signer-workflow "$GITHUB_REPOSITORY/.github/workflows/h00-integrity.yml" --source-digest "$GITHUB_SHA" --format json > "signed/$subject-verification.json"
+            test -s "signed/$subject-verification.json"
+          done
+          python3 - <<'PY'
+          import hashlib,json,os
+          from pathlib import Path
+          for n in ("verify-receipt","strict-receipt"):
+              result=json.loads(Path("signed/"+n+"-verification.json").read_text())
+              if not result:raise SystemExit("EMPTY_SIGSTORE_VERIFICATION")
+          report={"schema":"RIO_H00_ATTESTATION_VERIFICATION/1.0",
+                  "status":"GITHUB_SIGSTORE_VERIFIED_IN_READ_ONLY_JOB",
+                  "evidence_authority":"GITHUB_WORKFLOW_NOT_INDEPENDENT_EVALUATOR",
+                  "repository":os.environ["GITHUB_REPOSITORY"],"source_sha":os.environ["GITHUB_SHA"],
+                  "run_id":os.environ["GITHUB_RUN_ID"],"attempt":os.environ["GITHUB_RUN_ATTEMPT"],
+                  "signer_workflow":os.environ["GITHUB_REPOSITORY"]+"/.github/workflows/h00-integrity.yml",
+                  "sha256":{n:hashlib.sha256(Path("signed/"+n+".json").read_bytes()).hexdigest()
+                            for n in ("verify-receipt","strict-receipt")},
+                  "external_holdout_authenticated":False,"candidate_promoted":False,"production_ready":False}
+          Path("signed/authentication-readback.json").write_text(json.dumps(report,indent=2,sort_keys=True)+"\n")
+          print(json.dumps(report,sort_keys=True))
+          PY
+      - name: Publish read-only verification evidence
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: h00-authentication-readback-${{ github.run_attempt }}
+          path: |
+            signed/*-verification.json
+            signed/authentication-readback.json
+          retention-days: 30
+          if-no-files-found: error
