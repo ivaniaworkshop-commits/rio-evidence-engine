@@ -47,6 +47,11 @@
       "sha256": "fdea44370c10d5b22a84d5d48e72ec57ba6ccc25cfb4997c8a8b0e5e14af6d45"
     },
     {
+      "path": ".github/workflows/rio-r033-check-provenance.yml",
+      "bytes": 3288,
+      "sha256": "3f8ad845f635463a8866d355d4a0c2308efd57c004261fea4034f6b434debf1d"
+    },
+    {
       "path": ".gitignore",
       "bytes": 46,
       "sha256": "d70f7828a8d79a3f519edada327cbf38e22a1af9b12d50023c50f37b3c69c96e"
@@ -377,6 +382,16 @@
       "sha256": "63c1be120550257e6d51918d46c32d2a4f7a6d94c26fe74cadb91a1b1fbf93f1"
     },
     {
+      "path": "demos/rio-primer-cobro/integrations/R033_CHECK_PROVENANCE.md",
+      "bytes": 1015,
+      "sha256": "ff26938c79ab0755535460677cf59a278609f4f5f4e87668c30ab86137f3812f"
+    },
+    {
+      "path": "demos/rio-primer-cobro/integrations/attest_check_provenance_r033.py",
+      "bytes": 4317,
+      "sha256": "d515c584a8fac710bbbded72401ed7d807da6e8c4f5711b00ada92ebd60d706d"
+    },
+    {
       "path": "demos/rio-primer-cobro/integrations/audit_legacy_refs_r029.py",
       "bytes": 3682,
       "sha256": "80f4f19da525305d05d04469a4e68a83a4eaf8487d13001af73026945e1e9f8f"
@@ -400,6 +415,11 @@
       "path": "demos/rio-primer-cobro/integrations/ruleset_admin_r032.py",
       "bytes": 8015,
       "sha256": "31a70b567bb2d0fb2f7bcb1e262c926e825dfce374a2401f7a690bd30ccac8b7"
+    },
+    {
+      "path": "demos/rio-primer-cobro/integrations/tests/test_check_provenance_r033.py",
+      "bytes": 3377,
+      "sha256": "610c18538dce21239d4f6351c88e07586952aca13a03a8d8d961352c2c4fdde6"
     },
     {
       "path": "demos/rio-primer-cobro/integrations/tests/test_legacy_refs_r029.py",
