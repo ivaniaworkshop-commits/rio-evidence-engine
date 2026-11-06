@@ -10,7 +10,19 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
+      - name: H00 reject green CI for unprotected main push
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        env:
+          RIO_MAIN_REF_PROTECTED: ${{ github.ref_protected }}
+        run: |
+          if [ "$RIO_MAIN_REF_PROTECTED" != "true" ]; then
+            echo "::error::UNPROTECTED_MAIN_PUSH: refusing successful CI on an unprotected main ref"
+            exit 2
+          fi
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6 (Node.js 24)
+      - name: H00 verify PR checkout parent binding
+        if: ${{ github.event_name == 'pull_request' }}
+        run: python3 -m scripts.h00_pr_checkout --output output/h00/pr-checkout.json
       - name: Verify complete source inventory and byte hashes
         run: python3 scripts/verify_manifest.py
       - name: Run test suite; report skips explicitly
@@ -99,11 +111,46 @@ jobs:
         run: |
           python3 -m rio_evidence.independent_gate > /tmp/h08.json
           python3 -c 'import json; x=json.load(open("/tmp/h08.json")); assert x["status"]=="BLOCKED_NO_EXTERNAL_HOLDOUT" and x["candidate_promoted"] is False'
+      - name: H00 record verify evidence (fail-closed, no promotion)
+        if: always()
+        env:
+          H00_JOB_STATUS: ${{ job.status }}
+        run: python3 scripts/h00_ci_receipt.py --job verify --ci-status "$H00_JOB_STATUS" --pr-checkout output/h00/pr-checkout.json --output output/h00/verify-receipt.json
+      - name: Upload H00 verify evidence from this runner
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2 (Node.js 24)
+        with:
+          name: h00-verify-${{ github.run_attempt }}
+          retention-days: 30
+          if-no-files-found: warn
+          path: |
+            output/h00/verify-receipt.json
+            output/h00/pr-checkout.json
+            /tmp/h08.json
+            /tmp/h11_blocked.json
+            /tmp/h11_h09.json
+            /tmp/h11_legacy.json
+            /tmp/h12.json
+            /tmp/h14.json
+            /tmp/h14_h11.json
+            /tmp/h14_freeze.json
   strict-torch:
     runs-on: ubuntu-24.04
     timeout-minutes: 25
     steps:
+      - name: H00 reject green CI for unprotected main push
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        env:
+          RIO_MAIN_REF_PROTECTED: ${{ github.ref_protected }}
+        run: |
+          if [ "$RIO_MAIN_REF_PROTECTED" != "true" ]; then
+            echo "::error::UNPROTECTED_MAIN_PUSH: refusing successful CI on an unprotected main ref"
+            exit 2
+          fi
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6 (Node.js 24)
+      - name: H00 verify PR checkout parent binding
+        if: ${{ github.event_name == 'pull_request' }}
+        run: python3 -m scripts.h00_pr_checkout --output output/h00/pr-checkout.json
       - name: Verify source before installing dependencies
         run: python3 scripts/verify_manifest.py
       - name: Install declared optional CPU runtime
@@ -112,7 +159,9 @@ jobs:
           .venv/bin/python -m pip install -r model/requirements-cpu.txt
           .venv/bin/python -c 'import torch; print("torch", torch.__version__)'
       - name: Run complete suite; reject every skip
-        run: .venv/bin/python scripts/run_strict_tests.py
+        run: |
+          set -o pipefail
+          .venv/bin/python scripts/run_strict_tests.py 2>&1 | tee /tmp/h00_strict_tests.log
       - name: P4 reject rounding divergence in strict environment
         run: .venv/bin/python scripts/ieee754_differential.py
       - name: P5 strict exact-rational oracle (no skips)
@@ -125,3 +174,227 @@ jobs:
         run: |
           .venv/bin/python scripts/evaluate_network_value.py
           .venv/bin/python scripts/h07_audit.py
+      - name: H00 record strict-torch evidence (fail-closed, no promotion)
+        if: always()
+        env:
+          H00_JOB_STATUS: ${{ job.status }}
+        run: |
+          if [ -x .venv/bin/python ]; then PY=.venv/bin/python; else PY=python3; fi
+          "$PY" scripts/h00_ci_receipt.py --job strict-torch --ci-status "$H00_JOB_STATUS" --pr-checkout output/h00/pr-checkout.json --output output/h00/strict-receipt.json
+      - name: Upload H00 strict-torch evidence from this runner
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2 (Node.js 24)
+        with:
+          name: h00-strict-torch-${{ github.run_attempt }}
+          retention-days: 30
+          if-no-files-found: warn
+          path: |
+            output/h00/strict-receipt.json
+            output/h00/pr-checkout.json
+            /tmp/h00_strict_tests.log
+
+  cross-audit:
+    name: H00 cross-audit receipts (read-only)
+    if: ${{ github.event_name == 'pull_request' }}
+    needs: [verify, strict-torch]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6 (Node.js 24)
+      - name: Verify source inventory before cross-audit
+        run: python3 scripts/verify_manifest.py
+      - name: Download verify evidence from this run
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2 (Node.js 24)
+        with:
+          name: h00-verify-${{ github.run_attempt }}
+          path: evidence/r022/verify
+      - name: Download strict evidence from this run
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2 (Node.js 24)
+        with:
+          name: h00-strict-torch-${{ github.run_attempt }}
+          path: evidence/r022/strict
+      - name: R022 run 22 adversarial tests and cross-validate downloaded evidence
+        env:
+          RIO_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          python3 -m unittest discover -s tests -p 'test_h00_cross_artifact_audit.py' -v
+          python3 -m scripts.h00_cross_artifact_audit \
+            --verify-dir evidence/r022/verify \
+            --strict-dir evidence/r022/strict \
+            --expected-run-id "$GITHUB_RUN_ID" \
+            --expected-head-sha "$RIO_HEAD_SHA" \
+            --expected-checkout-sha "$GITHUB_SHA" \
+            --output output/h00/cross-audit.json
+      - name: Preserve R022 cross-audit diagnostic
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2 (Node.js 24)
+        with:
+          name: h00-cross-audit-${{ github.run_attempt }}
+          path: output/h00/cross-audit.json
+          retention-days: 30
+          if-no-files-found: warn
+
+  attest-receipts:
+    name: Attest H00 CI receipts (GitHub OIDC + Sigstore)
+    needs: [verify, strict-torch]
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.ref_protected == true }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read
+      id-token: write
+      attestations: write
+    steps:
+      - name: Download verify evidence from same run
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2 (Node.js 24)
+        with:
+          name: h00-verify-${{ github.run_attempt }}
+          path: attest-input/verify
+      - name: Download strict evidence from same run
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2 (Node.js 24)
+        with:
+          name: h00-strict-torch-${{ github.run_attempt }}
+          path: attest-input/strict
+      - name: Reject conflicting context, bytes and unearned promotion
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,os,shutil
+          from pathlib import Path
+          base=Path("attest-input")
+          def one(folder,name):
+              matches=list((base/folder).rglob(name))
+              if len(matches)!=1 or not matches[0].is_file() or matches[0].is_symlink():
+                  raise RuntimeError("MISSING_DUPLICATED_OR_LINKED: "+folder+"/"+name)
+              path=matches[0]
+              if path.stat().st_size>4_000_000:raise RuntimeError("OVERSIZE_EVIDENCE")
+              return path
+          def pairs(items):
+              d={}
+              for k,v in items:
+                  if k in d:raise ValueError("DUPLICATE_JSON_KEY: "+k)
+                  d[k]=v
+              return d
+          def reject_constant(value):raise ValueError("NONFINITE_JSON: "+value)
+          def read(path):
+              return json.loads(path.read_bytes(),object_pairs_hook=pairs,parse_constant=reject_constant)
+          def must(ok,reason):
+              if not ok:raise RuntimeError(reason)
+          verify=read(one("verify","verify-receipt.json"))
+          strict=read(one("strict","strict-receipt.json"))
+          for stage,r in (("verify",verify),("strict-torch",strict)):
+              must(r["schema"]=="RIO_H00_CI_RECEIPT/1.0" and r["stage"]==stage,"BAD_RECEIPT_SCHEMA")
+              must(r["status"]=="COMPLETE_LOCAL_CI_RECEIPT" and r["ci_job_status_reported"]=="success","NOT_GREEN")
+              for key,expected in (("repository",os.environ["GITHUB_REPOSITORY"]),
+                                   ("sha",os.environ["GITHUB_SHA"]),("id",os.environ["GITHUB_RUN_ID"]),
+                                   ("attempt",os.environ["GITHUB_RUN_ATTEMPT"]),
+                                   ("event",os.environ["GITHUB_EVENT_NAME"]),("ref",os.environ["GITHUB_REF"])):
+                  must(r["run"][key]==expected,"RUN_CONTEXT_MISMATCH_"+key)
+              must(r["candidate_promoted"] is False and r["production_ready"] is False,"FALSE_PROMOTION")
+              must(r["external_holdout_authenticated"] is False and
+                   r["source_class_verified_externally"] is False,"FALSE_EXTERNAL_VERIFICATION")
+              must(bool(r["checks"]) and all(x is True for x in r["checks"].values()),"FAILED_CHECKS")
+          expected={"h08_independent_gate":"h08.json","h11_blocked":"h11_blocked.json",
+                    "h11_h09":"h11_h09.json","h11_legacy":"h11_legacy.json",
+                    "h12_power":"h12.json","h14_development":"h14.json",
+                    "h14_paired":"h14_h11.json","h14_freeze":"h14_freeze.json"}
+          must(set(verify["input_records"])==set(expected),"MISSING_VERIFY_EVIDENCE")
+          for key,name in expected.items():
+              content=one("verify",name).read_bytes()
+              record=verify["input_records"][key]
+              must(record["bytes"]==len(content) and record["sha256"]==hashlib.sha256(content).hexdigest(),
+                   "HASH_MISMATCH_"+name)
+          h08=read(one("verify","h08.json"))
+          must(h08["status"]=="BLOCKED_NO_EXTERNAL_HOLDOUT" and h08["candidate_promoted"] is False,"H08_PROMOTED")
+          h14=read(one("verify","h14_h11.json"))
+          must(h14["candidate_promoted"] is False and h14["source_class_verified"] is False,"H14_PROMOTED")
+          content=one("strict","h00_strict_tests.log").read_bytes()
+          rec=strict["input_records"]["strict_suite_log"]
+          must(rec["bytes"]==len(content) and rec["sha256"]==hashlib.sha256(content).hexdigest(),
+               "STRICT_LOG_HASH_MISMATCH")
+          t=strict["strict_suite"]
+          must(t["status"]=="PASS_NO_SKIPS" and type(t["tests_run"]) is int and t["tests_run"]>0
+               and all(type(t[k]) is int and t[k]==0 for k in ("failed","errors","skipped")),"STRICT_FAIL")
+          target=base/"subjects"
+          target.mkdir(exist_ok=True)
+          shutil.copyfile(one("verify","verify-receipt.json"),target/"verify-receipt.json")
+          shutil.copyfile(one("strict","strict-receipt.json"),target/"strict-receipt.json")
+          print("H00_AUTH_PRECHECK_OK; two subjects; no model promotion")
+          PY
+      - name: Issue GitHub OIDC / Sigstore provenance for both receipts
+        id: attest
+        uses: actions/attest-build-provenance@977bb373ede98d70efdf65b84cb5f73e068dcc2a # v3
+        with:
+          subject-path: |
+            attest-input/subjects/verify-receipt.json
+            attest-input/subjects/strict-receipt.json
+      - name: Preserve exact signed bundle
+        env:
+          BUNDLE_PATH: ${{ steps.attest.outputs.bundle-path }}
+        run: |
+          test -s "$BUNDLE_PATH"
+          cp -- "$BUNDLE_PATH" attest-input/subjects/bundle.json
+      - name: Publish signed receipts and provenance
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2 (Node.js 24)
+        with:
+          name: h00-attested-${{ github.run_attempt }}
+          retention-days: 30
+          if-no-files-found: error
+          path: attest-input/subjects/
+
+  verify-attestation:
+    name: Verify Sigstore signature with read-only CI principal
+    needs: [attest-receipts]
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.ref_protected == true }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - name: Download signed receipts from same run
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2 (Node.js 24)
+        with:
+          name: h00-attested-${{ github.run_attempt }}
+          path: signed
+      - name: Authenticate byte digest, source SHA and signer workflow
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          for subject in verify-receipt strict-receipt; do
+            gh attestation verify "signed/$subject.json" --bundle signed/bundle.json --repo "$GITHUB_REPOSITORY" --signer-workflow "$GITHUB_REPOSITORY/.github/workflows/h00-integrity.yml" --source-digest "$GITHUB_SHA" --format json > "signed/$subject-verification.json"
+            test -s "signed/$subject-verification.json"
+          done
+          python3 - <<'PY'
+          import hashlib,json,os
+          from pathlib import Path
+          for n in ("verify-receipt","strict-receipt"):
+              result=json.loads(Path("signed/"+n+"-verification.json").read_text())
+              if not result:raise SystemExit("EMPTY_SIGSTORE_VERIFICATION")
+          report={"schema":"RIO_H00_ATTESTATION_VERIFICATION/1.0",
+                  "status":"GITHUB_SIGSTORE_VERIFIED_IN_READ_ONLY_JOB",
+                  "evidence_authority":"GITHUB_WORKFLOW_NOT_INDEPENDENT_EVALUATOR",
+                  "repository":os.environ["GITHUB_REPOSITORY"],"source_sha":os.environ["GITHUB_SHA"],
+                  "run_id":os.environ["GITHUB_RUN_ID"],"attempt":os.environ["GITHUB_RUN_ATTEMPT"],
+                  "signer_workflow":os.environ["GITHUB_REPOSITORY"]+"/.github/workflows/h00-integrity.yml",
+                  "sha256":{n:hashlib.sha256(Path("signed/"+n+".json").read_bytes()).hexdigest()
+                            for n in ("verify-receipt","strict-receipt")},
+                  "external_holdout_authenticated":False,"candidate_promoted":False,"production_ready":False}
+          Path("signed/authentication-readback.json").write_text(json.dumps(report,indent=2,sort_keys=True)+"\n")
+          print(json.dumps(report,sort_keys=True))
+          PY
+      - name: Publish read-only verification evidence
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2 (Node.js 24)
+        with:
+          name: h00-authentication-readback-${{ github.run_attempt }}
+          path: |
+            signed/*-verification.json
+            signed/authentication-readback.json
+          retention-days: 30
+          if-no-files-found: error
