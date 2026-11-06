@@ -112,7 +112,9 @@ jobs:
           fi
   deploy:
     needs: [verify, browser-public, release-authority]
-    if: github.ref == 'refs/heads/deploy/primer-cobro' && vars.RIO_PUBLIC_AUTO_DEPLOY == 'enabled' && needs.release-authority.outputs.authorized == 'true'
+    # R029: RETIRED LEGACY RELEASE BRANCH. Keep this job disabled unconditionally.
+    # A new reviewed branch + admin protections are required for any future release.
+    if: false
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     environment: rio-primer-cobro-production
