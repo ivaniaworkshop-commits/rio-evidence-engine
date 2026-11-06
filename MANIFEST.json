@@ -643,8 +643,8 @@
     },
     {
       "path": "scripts/h00_ci_receipt.py",
-      "bytes": 10551,
-      "sha256": "679eb662df42592a13fe64b069b5bed6311257186e86dbe363e1209d10b34e5a"
+      "bytes": 10838,
+      "sha256": "dbac56e3b2ffa5ae85d61ec0c4e926d8eecfe0dc38a4b69c87fca8e97714fe66"
     },
     {
       "path": "scripts/h07_audit.py",
@@ -853,8 +853,8 @@
     },
     {
       "path": "tests/test_h00_ci_receipt.py",
-      "bytes": 14669,
-      "sha256": "88f03a3b5dae8431c7aaf93cbbd65946b7acb3e1942acd1608c582c5e2862b6a"
+      "bytes": 14799,
+      "sha256": "6f847f695a615e145aa3464047702a5a3bf7559aa180674ce4cd91146571f051"
     },
     {
       "path": "tests/test_hybrid.py",

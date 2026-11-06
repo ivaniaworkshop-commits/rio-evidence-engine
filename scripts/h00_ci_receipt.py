@@ -134,8 +134,14 @@ def _pull_request_context(env):
             "checkout_kind": "GITHUB_PR_SYNTHETIC_MERGE",
             "event_merge_sha": event_merge_sha,
         }, True
-    except (OSError, UnicodeError, ValueError, KeyError, TypeError, AttributeError):
-        return {"status": "INVALID_PR_CONTEXT"}, False
+    except (OSError, UnicodeError, ValueError, KeyError, TypeError, AttributeError) as exc:
+        if isinstance(exc, ValueError) and str(exc).startswith("PR_"):
+            reason = str(exc)
+        elif isinstance(exc, KeyError):
+            reason = "MISSING_FIELD_" + str(exc.args[0])[:32]
+        else:
+            reason = type(exc).__name__
+        return {"status": "INVALID_PR_CONTEXT", "reason_code": reason}, False
 
 
 

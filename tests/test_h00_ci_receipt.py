@@ -104,6 +104,8 @@ class H00ReceiptTests(unittest.TestCase):
         self._save_event()
         report = build_receipt("verify", "success", self.root, env=self.env)
         self.assertFalse(report["checks"]["github_pr_context_consistent"])
+        self.assertEqual(report["run"]["pull_request"]["reason_code"],
+                         "PR_CHECKOUT_MERGE_SHA_MISMATCH")
 
     def test_pr_duplicate_event_json_key_fails_closed(self):
         self.event_path.write_text('{"number":26,"number":27}', encoding="utf-8")
