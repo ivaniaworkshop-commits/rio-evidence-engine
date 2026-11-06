@@ -90,6 +90,55 @@ def _strict_checks(log_text):
     return {"strict_tests_pass_no_skips": ok}, summary
 
 
+def _pull_request_context(env):
+    """Bind PR head and base to checkout using the runner-supplied event JSON.
+
+    Consistency only, not an external attestation. A missing or conflicting PR
+    event is invalid; no PR identity is invented from GITHUB_SHA.
+    """
+    if env.get("GITHUB_EVENT_NAME") != "pull_request":
+        return None, True
+    try:
+        raw = Path(env["GITHUB_EVENT_PATH"]).read_bytes()
+        if len(raw) > 1_000_000:
+            raise ValueError("PR_EVENT_OVERSIZE")
+        event = _load_json(raw)
+        if not isinstance(event, dict):
+            raise ValueError("PR_EVENT_NOT_OBJECT")
+        pr = event["pull_request"]
+        number = pr["number"]
+        if type(number) is not int or number <= 0 or event["number"] != number:
+            raise ValueError("PR_NUMBER_INVALID")
+        if env.get("GITHUB_REF") != "refs/pull/{}/merge".format(number):
+            raise ValueError("PR_REF_NUMBER_MISMATCH")
+        repository = env["GITHUB_REPOSITORY"]
+        if event["repository"]["full_name"] != repository or pr["base"]["repo"]["full_name"] != repository:
+            raise ValueError("PR_REPOSITORY_MISMATCH")
+        head_sha, base_sha = pr["head"]["sha"], pr["base"]["sha"]
+        if any(re.fullmatch(r"[0-9a-f]{40}", sha) is None for sha in (head_sha, base_sha)):
+            raise ValueError("PR_SOURCE_SHA_INVALID")
+        event_merge_sha = pr.get("merge_commit_sha")
+        if event_merge_sha is not None:
+            if re.fullmatch(r"[0-9a-f]{40}", event_merge_sha) is None:
+                raise ValueError("PR_EVENT_MERGE_SHA_INVALID")
+            if event_merge_sha != env.get("GITHUB_SHA"):
+                raise ValueError("PR_CHECKOUT_MERGE_SHA_MISMATCH")
+        if env.get("GITHUB_HEAD_REF") and env["GITHUB_HEAD_REF"] != pr["head"]["ref"]:
+            raise ValueError("PR_HEAD_REF_MISMATCH")
+        if env.get("GITHUB_BASE_REF") and env["GITHUB_BASE_REF"] != pr["base"]["ref"]:
+            raise ValueError("PR_BASE_REF_MISMATCH")
+        return {
+            "number": number, "head_sha": head_sha, "base_sha": base_sha,
+            "head_repository": pr["head"]["repo"]["full_name"],
+            "base_repository": repository, "checkout_sha": env.get("GITHUB_SHA"),
+            "checkout_kind": "GITHUB_PR_SYNTHETIC_MERGE",
+            "event_merge_sha": event_merge_sha,
+        }, True
+    except (OSError, UnicodeError, ValueError, KeyError, TypeError, AttributeError):
+        return {"status": "INVALID_PR_CONTEXT"}, False
+
+
+
 def build_receipt(job, ci_status, input_dir, *, env=None):
     env = os.environ if env is None else env
     records, data, errors = {}, {}, []
@@ -126,6 +175,11 @@ def build_receipt(job, ci_status, input_dir, *, env=None):
                   and env.get("GITHUB_REPOSITORY") == "ivaniaworkshop-commits/rio-evidence-engine"
                   and (env.get("GITHUB_RUN_ID", "").isdigit()))
     checks["github_context_present"] = context_ok
+    pr_context, pr_context_ok = _pull_request_context(env)
+    if env.get("GITHUB_EVENT_NAME") == "pull_request":
+        checks["github_pr_context_consistent"] = pr_context_ok
+        if not pr_context_ok:
+            errors.append("github_pull_request_context_invalid")
     complete = ci_status == "success" and not errors and bool(checks) and all(checks.values())
     try:
         torch_version = importlib.metadata.version("torch")
@@ -146,6 +200,7 @@ def build_receipt(job, ci_status, input_dir, *, env=None):
             "repository": env.get("GITHUB_REPOSITORY"), "sha": full_sha or None,
             "event": env.get("GITHUB_EVENT_NAME"), "ref": env.get("GITHUB_REF"),
             "id": env.get("GITHUB_RUN_ID"), "attempt": env.get("GITHUB_RUN_ATTEMPT"),
+            "pull_request": pr_context,
         },
         "runtime": {"python": platform.python_version(), "node": node_version, "torch": torch_version},
         "input_records": records,

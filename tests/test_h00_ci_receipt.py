@@ -9,7 +9,8 @@ from scripts.h00_ci_receipt import VERIFY_FILES, _load_json, build_receipt
 
 ENV = {"GITHUB_REPOSITORY": "ivaniaworkshop-commits/rio-evidence-engine",
        "GITHUB_SHA": "a" * 40, "GITHUB_RUN_ID": "123",
-       "GITHUB_RUN_ATTEMPT": "1", "GITHUB_EVENT_NAME": "pull_request"}
+       "GITHUB_RUN_ATTEMPT": "1", "GITHUB_EVENT_NAME": "pull_request",
+       "GITHUB_REF": "refs/pull/26/merge"}
 
 
 class H00ReceiptTests(unittest.TestCase):
@@ -30,27 +31,113 @@ class H00ReceiptTests(unittest.TestCase):
         }
         for key, filename in VERIFY_FILES.items():
             (self.root / filename).write_text(json.dumps(fixtures[key]), encoding="utf-8")
+        self.env = dict(ENV)
+        self.event = {
+            "number": 26, "repository": {"full_name": ENV["GITHUB_REPOSITORY"]},
+            "pull_request": {
+                "number": 26, "merge_commit_sha": "a" * 40,
+                "head": {"sha": "b" * 40, "ref": "feature",
+                         "repo": {"full_name": ENV["GITHUB_REPOSITORY"]}},
+                "base": {"sha": "c" * 40, "ref": "main",
+                         "repo": {"full_name": ENV["GITHUB_REPOSITORY"]}},
+            },
+        }
+        self.event_path = self.root / "github-event.json"
+        self.env["GITHUB_EVENT_PATH"] = str(self.event_path)
+        self._save_event()
+
+    def _save_event(self):
+        self.event_path.write_text(json.dumps(self.event), encoding="utf-8")
 
     def test_complete_verify_is_still_not_production(self):
-        r = build_receipt("verify", "success", self.root, env=ENV)
+        r = build_receipt("verify", "success", self.root, env=self.env)
         self.assertEqual(r["status"], "COMPLETE_LOCAL_CI_RECEIPT")
         self.assertFalse(r["candidate_promoted"])
         self.assertFalse(r["external_holdout_authenticated"])
         self.assertEqual(len(r["input_records"]), 8)
 
+
+    def test_pr_head_and_merge_checkout_are_distinct(self):
+        report = build_receipt("verify", "success", self.root, env=self.env)
+        self.assertEqual(report["status"], "COMPLETE_LOCAL_CI_RECEIPT")
+        self.assertTrue(report["checks"]["github_pr_context_consistent"])
+        self.assertEqual(report["run"]["sha"], "a" * 40)
+        self.assertEqual(report["run"]["pull_request"]["head_sha"], "b" * 40)
+        self.assertEqual(report["run"]["pull_request"]["base_sha"], "c" * 40)
+        self.assertEqual(report["run"]["pull_request"]["checkout_kind"],
+                         "GITHUB_PR_SYNTHETIC_MERGE")
+
+    def test_pr_missing_event_payload_fails_closed(self):
+        self.env.pop("GITHUB_EVENT_PATH")
+        result = build_receipt("verify", "success", self.root, env=self.env)
+        self.assertEqual(result["status"], "INCOMPLETE_OR_FAILED")
+        self.assertFalse(result["checks"]["github_pr_context_consistent"])
+
+    def test_pr_wrong_number_or_ref_fails_closed(self):
+        self.event["number"] = 27
+        self._save_event()
+        result = build_receipt("verify", "success", self.root, env=self.env)
+        self.assertEqual(result["status"], "INCOMPLETE_OR_FAILED")
+        self.event["number"] = 26
+        self.env["GITHUB_REF"] = "refs/pull/25/merge"
+        self._save_event()
+        result = build_receipt("verify", "success", self.root, env=self.env)
+        self.assertEqual(result["status"], "INCOMPLETE_OR_FAILED")
+
+    def test_pr_wrong_base_repository_fails_closed(self):
+        self.event["pull_request"]["base"]["repo"]["full_name"] = "different/repo"
+        self._save_event()
+        report = build_receipt("verify", "success", self.root, env=self.env)
+        self.assertFalse(report["checks"]["github_pr_context_consistent"])
+
+    def test_pr_invalid_head_or_base_sha_fails_closed(self):
+        for label in ("head", "base"):
+            with self.subTest(label=label):
+                self.event["pull_request"][label]["sha"] = "not-a-sha"
+                self._save_event()
+                result = build_receipt("verify", "success", self.root, env=self.env)
+                self.assertEqual(result["status"], "INCOMPLETE_OR_FAILED")
+                self.event["pull_request"][label]["sha"] = ("b" if label == "head" else "c") * 40
+
+    def test_pr_event_merge_checkout_conflict_fails_closed(self):
+        self.event["pull_request"]["merge_commit_sha"] = "d" * 40
+        self._save_event()
+        report = build_receipt("verify", "success", self.root, env=self.env)
+        self.assertFalse(report["checks"]["github_pr_context_consistent"])
+
+    def test_pr_duplicate_event_json_key_fails_closed(self):
+        self.event_path.write_text('{"number":26,"number":27}', encoding="utf-8")
+        self.assertEqual(build_receipt("verify", "success", self.root, env=self.env)["status"],
+                         "INCOMPLETE_OR_FAILED")
+
+    def test_fork_pr_preserves_head_repository_without_granting_trust(self):
+        self.event["pull_request"]["head"]["repo"]["full_name"] = "forkuser/fork"
+        self._save_event()
+        report = build_receipt("verify", "success", self.root, env=self.env)
+        self.assertEqual(report["status"], "COMPLETE_LOCAL_CI_RECEIPT")
+        self.assertEqual(report["run"]["pull_request"]["head_repository"], "forkuser/fork")
+        self.assertFalse(report["external_holdout_authenticated"])
+
+    def test_non_pr_has_no_fabricated_pr_identity(self):
+        env = {**self.env, "GITHUB_EVENT_NAME": "push", "GITHUB_REF": "refs/heads/main"}
+        env.pop("GITHUB_EVENT_PATH")
+        report = build_receipt("verify", "success", self.root, env=env)
+        self.assertIsNone(report["run"]["pull_request"])
+        self.assertNotIn("github_pr_context_consistent", report["checks"])
+
     def test_missing_input_fails_closed(self):
         (self.root / "h08.json").unlink()
-        self.assertEqual(build_receipt("verify", "success", self.root, env=ENV)["status"], "INCOMPLETE_OR_FAILED")
+        self.assertEqual(build_receipt("verify", "success", self.root, env=self.env)["status"], "INCOMPLETE_OR_FAILED")
 
     def test_fake_external_success_fails_closed(self):
         f = self.root / "h08.json"
         f.write_text(json.dumps({"status": "PROMOTED", "candidate_promoted": True}), encoding="utf-8")
-        r = build_receipt("verify", "success", self.root, env=ENV)
+        r = build_receipt("verify", "success", self.root, env=self.env)
         self.assertFalse(r["checks"]["h08_independence_fail_closed"])
         self.assertEqual(r["status"], "INCOMPLETE_OR_FAILED")
 
     def test_failure_collects_without_green_claim(self):
-        self.assertEqual(build_receipt("verify", "failure", self.root, env=ENV)["status"], "INCOMPLETE_OR_FAILED")
+        self.assertEqual(build_receipt("verify", "failure", self.root, env=self.env)["status"], "INCOMPLETE_OR_FAILED")
 
     def test_no_git_sha_fails_closed(self):
         self.assertEqual(build_receipt("verify", "success", self.root, env={})["status"], "INCOMPLETE_OR_FAILED")
@@ -59,7 +146,7 @@ class H00ReceiptTests(unittest.TestCase):
         f = self.root / "h00_strict_tests.log"
         f.write_text('Ran 265 tests\n' + json.dumps({"status": "PASS_NO_SKIPS", "tests_run": 265,
             "failed": 0, "errors": 0, "skipped": 0}) + '\n', encoding="utf-8")
-        r = build_receipt("strict-torch", "success", self.root, env=ENV)
+        r = build_receipt("strict-torch", "success", self.root, env=self.env)
         self.assertEqual(r["status"], "COMPLETE_LOCAL_CI_RECEIPT")
         self.assertEqual(r["strict_suite"]["tests_run"], 265)
 
@@ -67,7 +154,7 @@ class H00ReceiptTests(unittest.TestCase):
         f = self.root / "h00_strict_tests.log"
         f.write_text(json.dumps({"status": "FAIL_OR_SKIPPED", "tests_run": 3,
             "failed": 0, "errors": 0, "skipped": 1}) + '\n', encoding="utf-8")
-        self.assertEqual(build_receipt("strict-torch", "success", self.root, env=ENV)["status"], "INCOMPLETE_OR_FAILED")
+        self.assertEqual(build_receipt("strict-torch", "success", self.root, env=self.env)["status"], "INCOMPLETE_OR_FAILED")
 
     def test_duplicate_json_keys_rejected(self):
         with self.assertRaises(ValueError):
@@ -75,7 +162,7 @@ class H00ReceiptTests(unittest.TestCase):
 
     def test_large_invalid_json_fails_closed(self):
         (self.root / "h12.json").write_text('{"bad":NaN}', encoding="utf-8")
-        self.assertEqual(build_receipt("verify", "success", self.root, env=ENV)["status"], "INCOMPLETE_OR_FAILED")
+        self.assertEqual(build_receipt("verify", "success", self.root, env=self.env)["status"], "INCOMPLETE_OR_FAILED")
 
 
 class H00WorkflowTrustBoundaryTests(unittest.TestCase):

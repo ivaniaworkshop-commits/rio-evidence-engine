@@ -63,3 +63,11 @@ El valor de la atestación alcanza: *"estos bytes fueron atestados por un workfl
 - The tests extract the `run: |` shell script for `H00 reject green CI for unprotected main push` directly from the checked-in workflow, for both `verify` and `strict-torch`.
 - They execute that exact script in a temporary directory with a restricted environment and no GitHub credentials. Values `false`, empty, absent, `0`, `TRUE`, and `true ` must return exit code 2 with `UNPROTECTED_MAIN_PUSH`; only exact `true` may return 0.
 - This adds behavioral evidence beyond R013's static YAML checks. It does **not** exercise a real GitHub push, prove `github.ref_protected` mapping, or activate repository branch rules. No direct writes to `main` are permitted by this test.
+
+## R015 — identidad PR vs checkout de integración
+
+- En eventos pull_request, GITHUB_SHA/run.sha identifica el checkout de refs/pull/N/merge, que difiere del head SHA de la rama del PR.
+- Añadimos run.pull_request con número, head_sha, base_sha, repositorios y checkout_sha, verificando consistencia con el JSON del evento; se conserva el contrato extensible RIO_H00_CI_RECEIPT/1.0.
+- Se rechazan eventos ausentes o malformados, claves duplicadas, referencias/números inconsistentes, SHAs inválidos, repositorios base diferentes y discrepancias entre merge_commit_sha y GITHUB_SHA cuando el dato está presente.
+- La consistencia es autodeclarada por GitHub Actions, NO una certificación independiente ni una política de rama.
+- Evidencia histórica (run 42197920923): PR head 2ed2090199e685400d05ad6615b53f5dc472215a; merge checkout 5c65a2a28b2563f9ac3d33a0fc5ec07f47a3f48a; main base e85b1e808081510a8267457c9b4aafeca064cb36.
