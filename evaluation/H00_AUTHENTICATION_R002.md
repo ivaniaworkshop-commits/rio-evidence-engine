@@ -83,3 +83,12 @@ Los dos jobs de validación previa al merge (`verify` y `strict-torch`) ejecutan
 Una ejecución pasa únicamente si `GITHUB_SHA` coincide con `HEAD`, el commit tiene **exactamente dos padres**, el primero coincide con el SHA de base y el segundo con el SHA de head del evento PR. Cualquier discrepancia da exit 2 y deja diagnóstico con `reason_code`. La diferencia histórica `event_merge_matches_checkout=false` permanece consultiva, nunca una identidad acreditada.
 
 Los artefactos H00 de ambos jobs incorporan `pr-checkout.json`. La procedencia es `RUNNER_GIT_OBJECT_AND_EVENT_NOT_INDEPENDENT`: corrobora genealogía de checkout en el runner pero no autentica revisión, ruleset ni producción. Son once regresiones nuevas, con checkout superficial y rechazos adversariales. `main` no cambia y el PR #26 sigue sin fusionar.
+
+## R020 — asociación criptográfica del parent-binding al recibo principal H00
+
+- En eventos `pull_request`, el colector `scripts/h00_ci_receipt.py` incorpora `pr-checkout.json` con su tamaño y SHA-256 en `input_records.pr_checkout` y valida su contexto: esquema, autoridad de runner, estado `RUNNER_GIT_PARENT_BINDING_PASS`, ausencia de promoción, ID e intento del run, número de PR, SHA de checkout, base/head y **padres ordenados**.
+- La verificación rechaza (código 2 del CLI cuando el upstream era verde) si el archivo falta, está malformado, tiene claves JSON duplicadas o contradice las identidades del evento. `checks.pr_checkout_parent_binding` no se marca verdadero por la mera existencia de un hash.
+- Una prueba válida queda registrada como `run.pull_request.checkout_parent_binding=RUNNER_REPORT_CONSISTENT_NOT_INDEPENDENT`, junto con `parent_binding_report_sha256`. Esta consistencia no sustituye verificación independiente, revisión humana ni controles administrativos.
+- Los jobs `verify` y `strict-torch` pasan explícitamente `--pr-checkout output/h00/pr-checkout.json`; el reporte debe existir porque ambos ejecutan primero el verificador de padres R016. Para `push` a `main` no se exige ni inventa el archivo de PR.
+- Se mantiene el esquema compatible `RIO_H00_CI_RECEIPT/1.0` con campos aditivos, pero se endurecen las condiciones de éxito en un PR. La garantía es **vinculación de bytes y contexto generados por el propio runner**, nunca verdad semántica o custodia externa.
+- `MAIN_PROTECTED=true` por ruleset R017, pero los checks administrativos obligatorios y la revisión independiente del PR #26 continúan pendientes.

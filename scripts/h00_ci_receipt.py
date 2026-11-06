@@ -146,7 +146,36 @@ def _pull_request_context(env):
 
 
 
-def build_receipt(job, ci_status, input_dir, *, env=None):
+def _pr_checkout_report_matches(report, pr, env):
+    """Validate a runner's parent-binding report without promoting its authority.
+
+    This verifies internal consistency and byte linkage, not provenance or
+    independent review. The raw report SHA-256 is recorded by _file_record.
+    """
+    if not isinstance(report, dict) or not isinstance(pr, dict):
+        return False
+    return (
+        report.get("schema") == "RIO_H00_PR_PARENT_BINDING/1.0"
+        and report.get("authority") == "RUNNER_GIT_OBJECT_AND_EVENT_NOT_INDEPENDENT"
+        and report.get("status") == "RUNNER_GIT_PARENT_BINDING_PASS"
+        and report.get("reason_code") is None
+        and report.get("checkout_sha") == env.get("GITHUB_SHA")
+        and report.get("run_id") == env.get("GITHUB_RUN_ID")
+        and report.get("attempt") == env.get("GITHUB_RUN_ATTEMPT")
+        and type(report.get("pr_number")) is int
+        and report["pr_number"] == pr.get("number")
+        and report.get("head_sha") == pr.get("head_sha")
+        and report.get("base_sha") == pr.get("base_sha")
+        and type(report.get("parent_shas")) is list
+        and report["parent_shas"] == [pr.get("base_sha"), pr.get("head_sha")]
+        and report.get("event_merge_matches_checkout") == pr.get("event_merge_matches_checkout")
+        and report.get("candidate_promoted") is False
+        and report.get("production_ready") is False
+        and report.get("external_holdout_authenticated") is False
+    )
+
+
+def build_receipt(job, ci_status, input_dir, *, env=None, pr_checkout_path=None):
     env = os.environ if env is None else env
     records, data, errors = {}, {}, []
     if job == "verify":
@@ -187,6 +216,26 @@ def build_receipt(job, ci_status, input_dir, *, env=None):
         checks["github_pr_context_consistent"] = pr_context_ok
         if not pr_context_ok:
             errors.append("github_pull_request_context_invalid")
+        path = (Path(pr_checkout_path) if pr_checkout_path is not None
+                else input_dir / "pr-checkout.json")
+        try:
+            records["pr_checkout"], checkout_report = _file_record(path)
+            consistent = pr_context_ok and _pr_checkout_report_matches(
+                checkout_report, pr_context, env)
+            checks["pr_checkout_parent_binding"] = consistent
+            if not consistent:
+                errors.append("pr_checkout_parent_binding_invalid")
+        except (OSError, ValueError, TypeError) as exc:
+            records["pr_checkout"] = {"missing_or_invalid": True}
+            checks["pr_checkout_parent_binding"] = False
+            errors.append("pr_checkout: " + type(exc).__name__)
+            consistent = False
+        if isinstance(pr_context, dict):
+            pr_context["checkout_parent_binding"] = (
+                "RUNNER_REPORT_CONSISTENT_NOT_INDEPENDENT" if consistent
+                else "INVALID_OR_MISSING_PR_PARENT_BINDING")
+            pr_context["parent_binding_report_sha256"] = (
+                records["pr_checkout"].get("sha256") if consistent else None)
     complete = ci_status == "success" and not errors and bool(checks) and all(checks.values())
     try:
         torch_version = importlib.metadata.version("torch")
@@ -226,9 +275,11 @@ def main(argv=None):
     parser.add_argument("--job", choices=["verify", "strict-torch"], required=True)
     parser.add_argument("--ci-status", required=True)
     parser.add_argument("--input-dir", type=Path, default=Path("/tmp"))
+    parser.add_argument("--pr-checkout", type=Path, default=Path("output/h00/pr-checkout.json"))
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args(argv)
-    report = build_receipt(args.job, args.ci_status, args.input_dir)
+    report = build_receipt(args.job, args.ci_status, args.input_dir,
+                           pr_checkout_path=args.pr_checkout)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2, sort_keys=True, ensure_ascii=False) + "\n", encoding="utf-8")
     print(json.dumps({"schema": SCHEMA, "job": args.job, "status": report["status"],

@@ -45,6 +45,28 @@ class H00ReceiptTests(unittest.TestCase):
         self.event_path = self.root / "github-event.json"
         self.env["GITHUB_EVENT_PATH"] = str(self.event_path)
         self._save_event()
+        self.pr_checkout_path = self.root / "pr-checkout.json"
+        self.pr_proof = {
+            "schema": "RIO_H00_PR_PARENT_BINDING/1.0",
+            "status": "RUNNER_GIT_PARENT_BINDING_PASS",
+            "reason_code": None,
+            "authority": "RUNNER_GIT_OBJECT_AND_EVENT_NOT_INDEPENDENT",
+            "run_id": self.env["GITHUB_RUN_ID"],
+            "attempt": self.env["GITHUB_RUN_ATTEMPT"],
+            "checkout_sha": self.env["GITHUB_SHA"],
+            "pr_number": 26,
+            "head_sha": "b" * 40, "base_sha": "c" * 40,
+            "parent_shas": ["c" * 40, "b" * 40],
+            "event_merge_matches_checkout": True,
+            "candidate_promoted": False,
+            "production_ready": False,
+            "external_holdout_authenticated": False,
+        }
+        self._save_proof()
+
+    def _save_proof(self):
+        self.pr_checkout_path.write_text(json.dumps(self.pr_proof), encoding="utf-8")
+
 
     def _save_event(self):
         self.event_path.write_text(json.dumps(self.event), encoding="utf-8")
@@ -54,7 +76,12 @@ class H00ReceiptTests(unittest.TestCase):
         self.assertEqual(r["status"], "COMPLETE_LOCAL_CI_RECEIPT")
         self.assertFalse(r["candidate_promoted"])
         self.assertFalse(r["external_holdout_authenticated"])
-        self.assertEqual(len(r["input_records"]), 8)
+        self.assertEqual(len(r["input_records"]), 9)
+        self.assertTrue(r["checks"]["pr_checkout_parent_binding"])
+        self.assertEqual(r["run"]["pull_request"]["checkout_parent_binding"],
+                         "RUNNER_REPORT_CONSISTENT_NOT_INDEPENDENT")
+        self.assertEqual(r["run"]["pull_request"]["parent_binding_report_sha256"],
+                         r["input_records"]["pr_checkout"]["sha256"])
 
 
     def test_pr_head_and_merge_checkout_are_distinct(self):
@@ -101,11 +128,15 @@ class H00ReceiptTests(unittest.TestCase):
 
     def test_pr_event_merge_checkout_difference_is_advisory(self):
         self.event["pull_request"]["merge_commit_sha"] = "d" * 40
+        self.pr_proof["event_merge_matches_checkout"] = False
+        self._save_proof()
         self._save_event()
         report = build_receipt("verify", "success", self.root, env=self.env)
         self.assertEqual(report["status"], "COMPLETE_LOCAL_CI_RECEIPT")
         self.assertFalse(report["run"]["pull_request"]["event_merge_matches_checkout"])
-        self.assertEqual(report["run"]["pull_request"]["checkout_parent_binding"], "NOT_VERIFIED_BY_RECEIPT")
+        self.assertTrue(report["checks"]["pr_checkout_parent_binding"])
+        self.assertEqual(report["run"]["pull_request"]["checkout_parent_binding"],
+                         "RUNNER_REPORT_CONSISTENT_NOT_INDEPENDENT")
 
     def test_pr_duplicate_event_json_key_fails_closed(self):
         self.event_path.write_text('{"number":26,"number":27}', encoding="utf-8")
@@ -126,6 +157,103 @@ class H00ReceiptTests(unittest.TestCase):
         report = build_receipt("verify", "success", self.root, env=env)
         self.assertIsNone(report["run"]["pull_request"])
         self.assertNotIn("github_pr_context_consistent", report["checks"])
+
+
+    def test_missing_parent_proof_fails_both_jobs(self):
+        self.pr_checkout_path.unlink()
+        for job in ("verify", "strict-torch"):
+            if job == "strict-torch":
+                self._write_strict_log()
+            with self.subTest(job=job):
+                result = build_receipt(job, "success", self.root, env=self.env)
+                self.assertEqual(result["status"], "INCOMPLETE_OR_FAILED")
+                self.assertFalse(result["checks"]["pr_checkout_parent_binding"])
+                self.assertTrue(result["input_records"]["pr_checkout"]["missing_or_invalid"])
+
+    def _write_strict_log(self):
+        (self.root / "h00_strict_tests.log").write_text(
+            json.dumps({"status": "PASS_NO_SKIPS", "tests_run": 287,
+                        "failed": 0, "errors": 0, "skipped": 0}) + "\n",
+            encoding="utf-8")
+
+    def test_parent_proof_recorded_in_strict_receipt(self):
+        self._write_strict_log()
+        report = build_receipt("strict-torch", "success", self.root, env=self.env)
+        self.assertEqual(report["status"], "COMPLETE_LOCAL_CI_RECEIPT")
+        self.assertIn("sha256", report["input_records"]["pr_checkout"])
+        self.assertTrue(report["checks"]["pr_checkout_parent_binding"])
+
+    def test_parent_proof_rejects_false_authority_or_status(self):
+        for field, value in (
+            ("authority", "INDEPENDENT_EVALUATOR"),
+            ("status", "BLOCKED"),
+            ("reason_code", "UNEXPECTED"),
+            ("candidate_promoted", True),
+            ("production_ready", True),
+            ("external_holdout_authenticated", True),
+            ("schema", "FAKE_SCHEMA"),
+        ):
+            with self.subTest(field=field):
+                original = self.pr_proof[field]
+                self.pr_proof[field] = value
+                self._save_proof()
+                result = build_receipt("verify", "success", self.root, env=self.env)
+                self.assertEqual(result["status"], "INCOMPLETE_OR_FAILED")
+                self.assertFalse(result["checks"]["pr_checkout_parent_binding"])
+                self.pr_proof[field] = original
+
+    def test_parent_proof_rejects_stale_run_checkout_or_pr(self):
+        for field, value in (
+            ("run_id", "4321"), ("attempt", "2"),
+            ("checkout_sha", "d" * 40), ("pr_number", 25),
+            ("head_sha", "f" * 40), ("base_sha", "e" * 40),
+            ("parent_shas", ["b" * 40, "c" * 40]),
+            ("event_merge_matches_checkout", False),
+        ):
+            with self.subTest(field=field):
+                original = self.pr_proof[field]
+                self.pr_proof[field] = value
+                self._save_proof()
+                result = build_receipt("verify", "success", self.root, env=self.env)
+                self.assertEqual(result["status"], "INCOMPLETE_OR_FAILED")
+                self.assertFalse(result["checks"]["pr_checkout_parent_binding"])
+                self.pr_proof[field] = original
+
+    def test_parent_proof_rejects_duplicate_keys_and_nonfinite(self):
+        for bad in ('{"status":"PASS","status":"BLOCKED"}',
+                    '{"status":NaN}'):
+            with self.subTest(bad=bad):
+                self.pr_checkout_path.write_text(bad, encoding="utf-8")
+                result = build_receipt("verify", "success", self.root, env=self.env)
+                self.assertEqual(result["status"], "INCOMPLETE_OR_FAILED")
+                self.assertTrue(result["input_records"]["pr_checkout"]["missing_or_invalid"])
+
+    def test_push_does_not_fabricate_parent_binding(self):
+        env = {**self.env, "GITHUB_EVENT_NAME": "push", "GITHUB_REF": "refs/heads/main"}
+        self.pr_checkout_path.unlink()
+        result = build_receipt("verify", "success", self.root, env=env)
+        self.assertEqual(result["status"], "COMPLETE_LOCAL_CI_RECEIPT")
+        self.assertNotIn("pr_checkout", result["input_records"])
+        self.assertNotIn("pr_checkout_parent_binding", result["checks"])
+
+    def test_parent_proof_with_wrong_shape_fails_closed(self):
+        for value in (None, [], "RUNNER_GIT_PARENT_BINDING_PASS"):
+            with self.subTest(value=value):
+                self.pr_checkout_path.write_text(json.dumps(value), encoding="utf-8")
+                result = build_receipt("verify", "success", self.root, env=self.env)
+                self.assertEqual(result["status"], "INCOMPLETE_OR_FAILED")
+                self.assertFalse(result["checks"]["pr_checkout_parent_binding"])
+
+    def test_parent_proof_explicit_override_path(self):
+        destination = self.root / "evidence" / "parent.json"
+        destination.parent.mkdir()
+        self.pr_checkout_path.rename(destination)
+        self.assertEqual(
+            build_receipt("verify", "success", self.root, env=self.env)["status"],
+            "INCOMPLETE_OR_FAILED")
+        result = build_receipt("verify", "success", self.root, env=self.env,
+                               pr_checkout_path=destination)
+        self.assertEqual(result["status"], "COMPLETE_LOCAL_CI_RECEIPT")
 
     def test_missing_input_fails_closed(self):
         (self.root / "h08.json").unlink()
