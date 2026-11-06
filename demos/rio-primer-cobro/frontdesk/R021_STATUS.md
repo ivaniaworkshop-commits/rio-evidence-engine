@@ -17,3 +17,11 @@
 
 ## Next delta
 If the rehearsal passes, retain the exact-byte and E2E gates, then implement a production post-promotion incident/rollback decision with concurrency fencing and independently verify GitHub policy before any activation.
+
+## R021 observed rehearsal #1
+
+GitHub Actions `42192581104` completed SUCCESS using a clean GitHub runner: the candidate's two HTML files matched the reviewed source byte-for-byte and the full 33/33 checkout flow passed. This was not a production promotion.
+
+## R021 security hardening replay
+
+The public-probe hostname allowlist now admits only this project's production or Vercel candidate deployment hosts. The staged URL is validated before entering workflow outputs; readback and promotion receive it through an environment variable, not interpolation into a shell script. Four negative URL tests were added. A second candidate rehearsal is triggered to verify the hardened code. Do not claim this replay passed until the new run is observed.

@@ -3,3 +3,4 @@ Source branch: deploy/primer-cobro
 Candidate URL: https://rio-primer-cobro-frontdesk-o6k25ltke-ivaniaworkshop-6855.vercel.app/
 Purpose: one-shot anonymous byte readback and 33-check Chrome E2E before production release
 Do not interpret successful rehearsal as production deployment.
+Security replay: R021 validator restricts Vercel project hostnames; candidate URL environment-only; new external rehearsal required.
