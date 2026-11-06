@@ -23,8 +23,8 @@
     },
     {
       "path": ".github/workflows/rio-r025-artifact-audit.yml",
-      "bytes": 2233,
-      "sha256": "fa12a4d00350456342094a35828a2287af9650962e15273b15680b79387e5f04"
+      "bytes": 2283,
+      "sha256": "a86d4a163cf70a9ac58e386895aa7803f88c0b02d887c26f11355380eff95306"
     },
     {
       "path": ".gitignore",
@@ -233,8 +233,8 @@
     },
     {
       "path": "demos/rio-primer-cobro/frontdesk/audit/R025_TRIGGER.txt",
-      "bytes": 226,
-      "sha256": "4ced923e2859d754a8d49360cce63bf93490a7b65f1619c7cc825b4974153fee"
+      "bytes": 271,
+      "sha256": "dc9cab34cae18a03dea478b010c85e7079fbfda5e5f694da1f4c9073edd25884"
     },
     {
       "path": "demos/rio-primer-cobro/frontdesk/audit/audit_github_artifact_r025.py",
