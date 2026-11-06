@@ -34,7 +34,7 @@ test("duplicate event not money",()=>assert.equal(classifyUnverifiedPaymentSigna
 test("unknown event kind rejected",()=>assert.throws(()=>classifyUnverifiedPaymentSignal({...signal,kind:"PAID"}),/SIGNAL_KIND_INVALID/));
 test("banking account field rejected in external signal",()=>assert.throws(()=>classifyUnverifiedPaymentSignal({...signal,account:"x"}),/UNRECOGNIZED/));
 test("webhook body rejected",()=>assert.throws(()=>classifyUnverifiedPaymentSignal({...signal,payload:{paid:true}}),/UNRECOGNIZED/));
-test("arbitrary reference rejected",()=>assert.throws(()=>classifyUnverifiedPaymentSignal({...signal,referenceId:"123456789012345678"}),/UNSAFE_REFERENCE/));
+test("arbitrary reference rejected",()=>assert.throws(()=>classifyUnverifiedPaymentSignal({...signal,referenceId:"UNSAFE_REFERENCE_FIXTURE"}),/UNSAFE_REFERENCE/));
 test("timestamp must be safe",()=>assert.throws(()=>classifyUnverifiedPaymentSignal({...signal,reportedAtMs:Infinity}),/TIMESTAMP_INVALID/));
 test("origin must be typed",()=>assert.throws(()=>classifyUnverifiedPaymentSignal({...signal,origin:"BANXICO_VERIFIED"}),/SIGNAL_ORIGIN_INVALID/));
 test("provider data contains no real account information",()=>{const s=JSON.stringify(providerEvidenceMatrix());assert.equal(/\b[0-9]{18}\b/.test(s),false);assert.equal(/BENEFICIARY_REAL|CLABE_REAL/.test(s),false);});
