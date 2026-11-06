@@ -41,3 +41,14 @@ Hasta instalar ese secreto y habilitar la variable, `deploy` queda **SKIPPED_BY_
 ## Protocolo de campo R017
 
 Abre la URL publica en modo incognito o dispositivo no autenticado y anota `HTTP_VISIBLE`, `LOGIN_REQUESTED`, `UNKNOWN`. En Android, registra modelo/navegador sin identificadores personales, acceso, agregar producto, QR, ticket, cierre/reapertura, copia/exportacion. Marca cada paso `PASS_USER_REPORTED`, `FAIL_USER_REPORTED` o `NOT_TESTED`. No publiques datos de ventas reales ni conversaciones personales en el repositorio.
+
+
+## R018 — observación externa y promoción segura
+
+**Verificación de acceso público sin autenticación:** `check_public_site.py` prueba / y /app.html mediante HTTP estándar desde GitHub Actions. No añade cookies ni Authorization. Se ejecutan primero 8 regresiones locales y luego la prueba HTTP externa. `HTTP_PUBLIC_ANONYMOUS=PASS` no implica `BROWSER_UI=PASS` ni `ANDROID_FISICO=PASS`.
+
+**Cuando el despliegue autorizado esté activo**, la secuencia cambia a:
+`SOURCE_VERIFY → STAGE_PROD_WITHOUT_ALIAS → ANONYMOUS_EXACT_BYTE_READBACK → PROMOTE → PUBLIC_EXACT_BYTE_READBACK`.
+La URL pública **no se modifica si falla el readback del candidato**. Una falla posterior a promover sigue siendo incidente abierto, no PASS. Las credenciales se entregan únicamente a las acciones Vercel de staging y promoción; pruebas de acceso HTTP no las reciben.
+
+La activación sigue pendiente de habilitar `RIO_PUBLIC_AUTO_DEPLOY`, definir `VERCEL_CLI_VERSION` exacta, proteger la rama y configurar `VERCEL_TOKEN` como secreto del entorno `rio-primer-cobro-production`. No hay dato que acredite Android físico ni pagos reales.
