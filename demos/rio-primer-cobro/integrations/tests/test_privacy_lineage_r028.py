@@ -9,6 +9,11 @@ PATH="demos/rio-primer-cobro/tests/test_pey_r027.mjs"
 def git(repo,*args):
  return subprocess.run(["git","-C",str(repo),*args],check=True,
    stdout=subprocess.PIPE,stderr=subprocess.PIPE).stdout.decode().strip()
+def sample_valid_numeric():
+ prefix="".join(str(i%10) for i in range(17))
+ w=(3,7,1)
+ digit=(10-sum((int(prefix[i])*w[i%3])%10 for i in range(17))%10)%10
+ return prefix+str(digit)
 class CleanLineageTests(unittest.TestCase):
  def setUp(self):
   self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup)
@@ -25,11 +30,15 @@ class CleanLineageTests(unittest.TestCase):
   self.file.write_text("still safe");self.commit()
   self.assertEqual(audit(self.repo,self.base,(PATH,))["new_commits"],1)
  def test_historical_exposure_detected_after_head_cleanup(self):
-  candidate="".join(str(i%10) for i in range(18))
+  candidate=sample_valid_numeric()
   self.file.write_text(candidate);self.commit()
   self.file.write_text("restored safe");self.commit()
-  with self.assertRaisesRegex(PrivacyGuardError,"HISTORICAL_SENSITIVE_PATTERN"):
+  with self.assertRaisesRegex(PrivacyGuardError,"HISTORICAL_CLABE_PATTERN"):
    audit(self.repo,self.base,(PATH,))
+ def test_non_checksum_numeric_reference_does_not_trigger(self):
+  candidate="".join(str(i%10) for i in range(18))
+  self.file.write_text(candidate);self.commit()
+  self.assertEqual(audit(self.repo,self.base,(PATH,))["new_commits"],1)
  def test_no_delta_rejected(self):
   with self.assertRaisesRegex(PrivacyGuardError,"SPAN_OUTSIDE_POLICY"):
    audit(self.repo,self.base,(PATH,))
@@ -43,7 +52,7 @@ class CleanLineageTests(unittest.TestCase):
   with self.assertRaises(PrivacyGuardError):
    audit(self.repo,self.base,(PATH,))
  def test_sensitive_value_not_in_error(self):
-  candidate="".join(str(i%10) for i in range(18))
+  candidate=sample_valid_numeric()
   self.file.write_text(candidate);self.commit()
   try:audit(self.repo,self.base,(PATH,))
   except PrivacyGuardError as error:self.assertNotIn(candidate,str(error))
