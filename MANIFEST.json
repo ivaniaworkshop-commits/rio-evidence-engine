@@ -7,6 +7,11 @@
       "sha256": "b04d6aa062bac020c5bda4d64fcfc589aa1abc2b09590b837f4ba796d2e2ef61"
     },
     {
+      "path": ".githooks/pre-push",
+      "bytes": 347,
+      "sha256": "3bad6553514d755a9e52b0abf8d54f9f7d7b5a9c1f9e6850554109e8c4dea23e"
+    },
+    {
       "path": ".github/workflows/h00-integrity.yml",
       "bytes": 7368,
       "sha256": "f2d99bccae6608bdccc1ce7b2f8af608b515d8a3a745326b323715f56dbb545b"
@@ -772,6 +777,11 @@
       "sha256": "cd9152632b4089c9aa71a474b2c4d229c76061c1a82b67f7df9d16ad5551ed1f"
     },
     {
+      "path": "scripts/verify_push_manifest.py",
+      "bytes": 7834,
+      "sha256": "bf06220f092edd6447c6b1d069e0a9ffe68a267d20d27e3c76ffce27b79a23f9"
+    },
+    {
       "path": "tests/fixtures/p4_compare_baseline.js",
       "bytes": 3882,
       "sha256": "3d8a68c8b3f4aca382aaad297052836598f22566d36120a136d16260544d4e3f"
@@ -965,6 +975,21 @@
       "path": "tests/test_tutor.py",
       "bytes": 2460,
       "sha256": "407c109f8dc1cfec43a77411ac63168c9ad813041612f2940d885ac4a9eca877"
+    },
+    {
+      "path": "tests/test_verify_push_manifest.py",
+      "bytes": 5627,
+      "sha256": "59a079f6f0a1a3ef3959b6fb475cb63e915ec9f3c644c7472eded3c01ee60e83"
+    },
+    {
+      "path": "tests/test_verify_push_manifest_batch.py",
+      "bytes": 2888,
+      "sha256": "6b6168e31a3263a9c2e0fa208f434a22e719c4da4d95786b5e1f071afe18cc11"
+    },
+    {
+      "path": "tests/test_verify_push_manifest_extra.py",
+      "bytes": 2835,
+      "sha256": "a15902bc3a9bce6eff56d23f06fd7e6dcec8c792d67fdc856ca8ea2b943c3f0d"
     },
     {
       "path": "tests/test_weight_registry.py",
