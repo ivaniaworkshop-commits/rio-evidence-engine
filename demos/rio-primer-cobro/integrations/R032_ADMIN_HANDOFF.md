@@ -32,8 +32,11 @@ revisada y actualmente SIN protección administrativa acreditada.
    Si los checks no aparecen, generar primero un PR de prueba dirigido a esta
    rama; NO usar nombres arbitrarios.
 5. Guardar. Leer nuevamente las reglas por la API; confirmar coincidencia
-   de rama, tipo de reglas, contexto e integración. Evaluar separadamente
-   protección de environment y secretos Vercel.
+   de rama, tipo de reglas, contexto e integración. Además, consultar
+   `GET /branches/candidate%2Fprimer-cobro-r031-clean-20261106` y exigir
+   `protected=true` en GitHub para el SHA esperado. Una respuesta de ruleset
+   correcta NO acredita por sí sola que la rama esté protegida.
+   Evaluar separadamente protección de environment y secretos Vercel.
 
 ## Opción CLI para administrador autenticado (manual)
 El administrador, fuera de este chat, puede generar y revisar primero un plan:
@@ -41,7 +44,9 @@ El administrador, fuera de este chat, puede generar y revisar primero un plan:
 
 El script admite `--apply` **sólo con token GH_TOKEN fuera del repositorio**,
 variable de reconocimiento `RIO_R032_ADMIN_APPROVAL=approved`, confirmación
-literal de rama y SHA conocido mediante `--expected-head`. NO almacenar tokens,
+literal de rama y SHA conocido mediante `--expected-head`. El script debe
+exigir `protected=true` en el readback posterior al intento administrativo;
+de lo contrario retorna `FAIL_CLOSED`, aunque haya creado una regla. NO almacenar tokens,
 señales bancarias ni datos personales en el repositorio o logs de Actions.
 
 ## Semántica de evidencias

@@ -139,6 +139,8 @@ def apply(confirm,expected_head):
     second=api(base+"/branches/"+quote(TARGET_REF.removeprefix("refs/heads/"),safe=""))
     require(((second.get("commit") or {}).get("sha"))==expected_head,
             "POST_WRITE_CONCURRENT_BRANCH_CHANGE")
+    # A valid ruleset JSON is insufficient: GitHub must report the actual ref protected.
+    require(second.get("protected") is True,"POST_WRITE_BRANCH_NOT_PROTECTED")
     return {**result,"operation":action,
        "expected_head":expected_head,"write_authorized_by_operator":True,
        "release_authorization":"STILL_BLOCKED_PENDING_ENVIRONMENT_AND_REVIEW"}
