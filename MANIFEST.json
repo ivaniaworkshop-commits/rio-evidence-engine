@@ -373,8 +373,8 @@
     },
     {
       "path": "demos/rio-primer-cobro/integrations/R032_ADMIN_HANDOFF.md",
-      "bytes": 3398,
-      "sha256": "63c1be120550257e6d51918d46c32d2a4f7a6d94c26fe74cadb91a1b1fbf93f1"
+      "bytes": 3768,
+      "sha256": "77e3d72c7ad3f3702d6dde77dc7e8c87c15f94c42247c43237ce68b17b748e04"
     },
     {
       "path": "demos/rio-primer-cobro/integrations/audit_legacy_refs_r029.py",

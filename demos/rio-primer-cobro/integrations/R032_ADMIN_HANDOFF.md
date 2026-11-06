@@ -53,3 +53,9 @@ identidad restringida ni disponibilidad de credenciales de Vercel.
 GitHub ruleset aún no aplicado por este conector; environment de Vercel no
 acreditado; PR #36 sin fusionar; referencias históricas contaminadas aún accesibles;
 Pey real y pagos bancarios siguen desactivados. Ninguna escritura de producción.
+
+## R032 CI-context smoke fixture (review-only branch)
+This additional paragraph is a harmless, non-production fixture to prove a
+pull request to the candidate branch actually produces all required check-run
+contexts: `verify`, `strict-torch`, and `candidate-readiness`, from app 15368.
+The smoke PR must be CLOSED WITHOUT MERGE after its checks are independently read.
