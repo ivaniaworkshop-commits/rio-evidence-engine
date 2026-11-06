@@ -55,6 +55,8 @@ jobs:
           command -v google-chrome || command -v google-chrome-stable || command -v chromium || command -v chromium-browser
       - name: Render live public pages with fresh unauthenticated Chrome
         run: python3 demos/rio-primer-cobro/frontdesk/test_public_chrome.py
+      - name: Complete real QR practice checkout and restore from browser storage
+        run: node demos/rio-primer-cobro/frontdesk/tests/test_public_checkout.mjs
   deploy:
     needs: [verify, browser-public]
     if: github.ref == 'refs/heads/deploy/primer-cobro' && vars.RIO_PUBLIC_AUTO_DEPLOY == 'enabled'
