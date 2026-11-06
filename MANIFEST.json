@@ -8,8 +8,8 @@
     },
     {
       "path": ".github/workflows/rio-primer-cobro-deploy.yml",
-      "bytes": 13234,
-      "sha256": "89aebbe40e814183a5a6c0d3bf9aa79148e24bbd9adbe956e2fe3a16c097bdd9"
+      "bytes": 13253,
+      "sha256": "e2f56de4574d371cbc6f1c4e8c51102d21ca816629ef4c025e53586f8dcffd00"
     },
     {
       "path": ".github/workflows/rio-r021-candidate-rehearsal.yml",
@@ -1320,6 +1320,11 @@
       "path": "tests/test_manifest.py",
       "bytes": 1613,
       "sha256": "74ba35e2f4798d7bc6771ebf808cd71324acbccb87269433fb274c373b3f5584"
+    },
+    {
+      "path": "tests/test_r004_release_workflow.py",
+      "bytes": 4500,
+      "sha256": "ff5b3c127fb1f176dbefd3c98794646614fc5f03dbfaef17d39f540614464119"
     },
     {
       "path": "tests/test_metamorphic_sum.py",
