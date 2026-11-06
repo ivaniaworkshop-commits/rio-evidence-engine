@@ -18,8 +18,8 @@
     },
     {
       "path": "AGENTS.md",
-      "bytes": 1460,
-      "sha256": "2c5e534a7dee630ce73b1b6985ebe716222b3ba2b06adadba3369bde1f83c574"
+      "bytes": 1963,
+      "sha256": "6f0979418833c96fc21285b963e74df5e973205aa7ac3ecf3d80069bc08ac4d0"
     },
     {
       "path": "BENCHMARK.json",
@@ -602,6 +602,11 @@
       "sha256": "94abfc030093d873fa955928160fb2280be0cb4be0e1acbba5076f6892ab1dc6"
     },
     {
+      "path": "scripts/commit_staged_manifest.py",
+      "bytes": 2490,
+      "sha256": "6f584003aaee61ddd8e7590866091895aff5824103d3645a174d177353572198"
+    },
+    {
       "path": "scripts/compare_modes.py",
       "bytes": 5656,
       "sha256": "5392c90209bcd8df5a9c940b445f36f9efa621e045ddc07efc6340c327749eec"
@@ -795,6 +800,11 @@
       "path": "tests/test_candidate_v1.py",
       "bytes": 5626,
       "sha256": "dc8010b9f169c91ea32cbf409d0aae6290c32ab8a1da9cfe78feb06021487ce9"
+    },
+    {
+      "path": "tests/test_commit_staged_manifest.py",
+      "bytes": 4171,
+      "sha256": "f856ed2b1a2294bb37d05919bcd9c0b3ea78c954c5643b7682de1fb78ff88fd2"
     },
     {
       "path": "tests/test_constrained_extraction.py",
