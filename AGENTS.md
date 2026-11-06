@@ -1,0 +1,9 @@
+# RÍO — source manifest authoring contract
+
+- A producer MUST publish each source edit and its corresponding `MANIFEST.json` entry in **the same Git commit**. A passing CI run on an earlier SHA never validates a later SHA.
+- For a local Git index: review and stage approved source files; run `python3 scripts/prepare_staged_manifest.py --prepare`, then `python3 scripts/prepare_staged_manifest.py` and `python3 scripts/verify_manifest.py`. Commit the staged snapshot atomically. Do **not** execute `git add -A` blindly.
+- For GitHub REST/Git Data authors: build **one tree** containing all source blobs plus the matching manifest blob, then create a **single** commit and update only the authorized feature/ref. Do not push intermediate source-only commits.
+- CI remains fail-closed; it MUST NOT regenerate or silently accept a manifest from untrusted source. Hashes prove byte identity, not approval or truth.
+- Never write directly to protected `main`, bypass an approval, invent deployment authority, or deploy during source repair.
+- Local contributors may opt in to the read-only Git pre-commit guard (`.githooks/pre-commit`) only after checking existing hooks and `core.hooksPath`: `git config --local core.hooksPath .githooks`. This setting replaces other configured hooks; do not overwrite an existing hook setup. The hook rejects stale staged manifests; prepare explicitly beforehand. Git hooks can be bypassed, so CI remains the enforcement gate.
+- Local automated producers (including OpenCode workflows that use local Git) can explicitly use `python3 scripts/commit_staged_manifest.py --message "<approved message>" --expected-head "$(git rev-parse HEAD)"` after staging only approved sources. This creates one local commit with a matching manifest, runs existing Git hooks, and performs commit-parent/manifest readback; it does not push, open a PR, merge or deploy. If a hook rejects a commit, the producer must stop and inspect the staged state.

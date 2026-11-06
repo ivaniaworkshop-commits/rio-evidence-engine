@@ -2,6 +2,16 @@
   "scope": "SOURCE_BYTES_NOT_TRUTH_OR_AUTHENTICITY",
   "files": [
     {
+      "path": ".githooks/pre-commit",
+      "bytes": 316,
+      "sha256": "b04d6aa062bac020c5bda4d64fcfc589aa1abc2b09590b837f4ba796d2e2ef61"
+    },
+    {
+      "path": ".githooks/pre-push",
+      "bytes": 347,
+      "sha256": "3bad6553514d755a9e52b0abf8d54f9f7d7b5a9c1f9e6850554109e8c4dea23e"
+    },
+    {
       "path": ".github/workflows/h00-integrity.yml",
       "bytes": 7368,
       "sha256": "f2d99bccae6608bdccc1ce7b2f8af608b515d8a3a745326b323715f56dbb545b"
@@ -10,6 +20,11 @@
       "path": ".gitignore",
       "bytes": 46,
       "sha256": "d70f7828a8d79a3f519edada327cbf38e22a1af9b12d50023c50f37b3c69c96e"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 1963,
+      "sha256": "6f0979418833c96fc21285b963e74df5e973205aa7ac3ecf3d80069bc08ac4d0"
     },
     {
       "path": "BENCHMARK.json",
@@ -592,6 +607,11 @@
       "sha256": "94abfc030093d873fa955928160fb2280be0cb4be0e1acbba5076f6892ab1dc6"
     },
     {
+      "path": "scripts/commit_staged_manifest.py",
+      "bytes": 4904,
+      "sha256": "2e49b7a35b7771373325bb4dc6c23ba84242452167dc2cb79a3f31f9aeddcdeb"
+    },
+    {
       "path": "scripts/compare_modes.py",
       "bytes": 5656,
       "sha256": "5392c90209bcd8df5a9c940b445f36f9efa621e045ddc07efc6340c327749eec"
@@ -702,6 +722,11 @@
       "sha256": "3737a01c2ae3dc3354aa07eb13ffcc6afa51550f84061a277d71339f79343025"
     },
     {
+      "path": "scripts/prepare_staged_manifest.py",
+      "bytes": 3262,
+      "sha256": "6e2127cd723d5f82d4ed33633a8c76b0fc776d7c48499ac82731461a2f4323f9"
+    },
+    {
       "path": "scripts/prioritize_deltas.py",
       "bytes": 2812,
       "sha256": "87df5ec57970f7e5c83dfce20de5d69dcf5ca7f1ac611e68b796562727c52d6d"
@@ -752,6 +777,11 @@
       "sha256": "cd9152632b4089c9aa71a474b2c4d229c76061c1a82b67f7df9d16ad5551ed1f"
     },
     {
+      "path": "scripts/verify_push_manifest.py",
+      "bytes": 7834,
+      "sha256": "bf06220f092edd6447c6b1d069e0a9ffe68a267d20d27e3c76ffce27b79a23f9"
+    },
+    {
       "path": "tests/fixtures/p4_compare_baseline.js",
       "bytes": 3882,
       "sha256": "3d8a68c8b3f4aca382aaad297052836598f22566d36120a136d16260544d4e3f"
@@ -780,6 +810,11 @@
       "path": "tests/test_candidate_v1.py",
       "bytes": 5626,
       "sha256": "dc8010b9f169c91ea32cbf409d0aae6290c32ab8a1da9cfe78feb06021487ce9"
+    },
+    {
+      "path": "tests/test_commit_staged_manifest.py",
+      "bytes": 5840,
+      "sha256": "e7757a993af73504610cfbb4456830c91047f2f3036dd1572581e2b6ccdc3df7"
     },
     {
       "path": "tests/test_constrained_extraction.py",
@@ -882,6 +917,11 @@
       "sha256": "74ba35e2f4798d7bc6771ebf808cd71324acbccb87269433fb274c373b3f5584"
     },
     {
+      "path": "tests/test_manifest_hook.py",
+      "bytes": 3003,
+      "sha256": "fee2d0d17578af091199dc398fc8a2cb9d245f8b23dbba7d914085919db06e5f"
+    },
+    {
       "path": "tests/test_metamorphic_sum.py",
       "bytes": 2516,
       "sha256": "c637ef42945644fc00a19d05c592ba2841410ddcb9a9b5384c7e0ec3c0fe038b"
@@ -900,6 +940,11 @@
       "path": "tests/test_power_bounds.py",
       "bytes": 2908,
       "sha256": "c7e80b98b2f0784cabf0c9597a4bc54a6ad5100d860a153ea2e51df4b8f92527"
+    },
+    {
+      "path": "tests/test_prepare_staged_manifest.py",
+      "bytes": 2733,
+      "sha256": "f0b4b2254f91d598ec34ab95820e12d6ecf20e95ede684eaae228823205009bb"
     },
     {
       "path": "tests/test_program.py",
@@ -930,6 +975,21 @@
       "path": "tests/test_tutor.py",
       "bytes": 2460,
       "sha256": "407c109f8dc1cfec43a77411ac63168c9ad813041612f2940d885ac4a9eca877"
+    },
+    {
+      "path": "tests/test_verify_push_manifest.py",
+      "bytes": 5627,
+      "sha256": "59a079f6f0a1a3ef3959b6fb475cb63e915ec9f3c644c7472eded3c01ee60e83"
+    },
+    {
+      "path": "tests/test_verify_push_manifest_batch.py",
+      "bytes": 2888,
+      "sha256": "6b6168e31a3263a9c2e0fa208f434a22e719c4da4d95786b5e1f071afe18cc11"
+    },
+    {
+      "path": "tests/test_verify_push_manifest_extra.py",
+      "bytes": 2835,
+      "sha256": "a15902bc3a9bce6eff56d23f06fd7e6dcec8c792d67fdc856ca8ea2b943c3f0d"
     },
     {
       "path": "tests/test_weight_registry.py",

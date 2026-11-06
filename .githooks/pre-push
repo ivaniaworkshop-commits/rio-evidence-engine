@@ -1,0 +1,10 @@
+#!/bin/sh
+# RÍO: opt-in, read-only guard against publishing invalid Git commit histories.
+set -eu
+root=$(git rev-parse --show-toplevel) || exit 2
+if ! command -v python3 >/dev/null 2>&1; then
+    echo 'RIO_PRE_PUSH_DENIED: python3 missing' >&2
+    exit 2
+fi
+cd "$root" || exit 2
+exec python3 "$root/scripts/verify_push_manifest.py" --remote "$1"
