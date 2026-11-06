@@ -83,11 +83,11 @@ jobs:
           echo "authorized=false" >> "$GITHUB_OUTPUT"
           if ! gh api "/repos/${GITHUB_REPOSITORY}/rulesets?includes_parents=true" --jq '.[] | select(.target == "branch" and .enforcement == "active") | .id' > /tmp/rio-rule-ids; then
             echo "RELEASE_AUTHORITY=UNKNOWN_API_UNAVAILABLE" | tee -a "$GITHUB_STEP_SUMMARY"
-            exit 0
+            exit 2
           fi
           if ! test -s /tmp/rio-rule-ids; then
             echo "RELEASE_AUTHORITY=BLOCKED_NO_ACTIVE_RULESETS" | tee -a "$GITHUB_STEP_SUMMARY"
-            exit 0
+            exit 2
           fi
           printf '[' > /tmp/rio-release-rulesets.json
           first=1
@@ -95,7 +95,7 @@ jobs:
             if [[ "$first" = 0 ]]; then printf ',' >> /tmp/rio-release-rulesets.json; fi
             if ! gh api "/repos/${GITHUB_REPOSITORY}/rulesets/${rid}" >> /tmp/rio-release-rulesets.json; then
               echo "RELEASE_AUTHORITY=UNKNOWN_RULESET_READ" | tee -a "$GITHUB_STEP_SUMMARY"
-              exit 0
+              exit 2
             fi
             first=0
           done < /tmp/rio-rule-ids
@@ -105,6 +105,7 @@ jobs:
             echo "RELEASE_AUTHORITY=VERIFIED_RULESET_GUARDS" | tee -a "$GITHUB_STEP_SUMMARY"
           else
             echo "RELEASE_AUTHORITY=BLOCKED_POLICY_CHECK" | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 2
           fi
   deploy:
     needs: [verify, browser-public, release-authority]

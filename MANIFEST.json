@@ -8,8 +8,8 @@
     },
     {
       "path": ".github/workflows/rio-primer-cobro-deploy.yml",
-      "bytes": 12783,
-      "sha256": "eadc92441763e17eebbc3b2ba1dd235abd6213fd03646c1a53e8b3b6241c277c"
+      "bytes": 12802,
+      "sha256": "8f49a440065296b6702a6d7cfaaf9ed75edd63b0b49ffef50e4bfb9de5380881"
     },
     {
       "path": ".github/workflows/rio-r021-candidate-rehearsal.yml",
