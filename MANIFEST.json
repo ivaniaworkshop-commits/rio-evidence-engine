@@ -353,13 +353,13 @@
     },
     {
       "path": "demos/rio-primer-cobro/integrations/tests/test_privacy_lineage_r028.py",
-      "bytes": 2305,
-      "sha256": "dd57a89acad3b27d7a76b4454cee8e16f9f37a96625423c958378d7d57e1115f"
+      "bytes": 2686,
+      "sha256": "7a3b975b32ac3ed50e8ec15c49bef42b1751511e97f9506191a5c8b691bcb7af"
     },
     {
       "path": "demos/rio-primer-cobro/integrations/verify_privacy_lineage_r028.py",
-      "bytes": 2610,
-      "sha256": "0f1cb151924d43d5c404af674ae3e05e1cbee170be53aeb8073cda87f197c2bc"
+      "bytes": 2848,
+      "sha256": "5e7f54aa37b691b3451af423ff78b4ce36ac67350ece8e6e1ebdac3bfa7cc666"
     },
     {
       "path": "demos/rio-primer-cobro/reports/R013_E2E.json",
