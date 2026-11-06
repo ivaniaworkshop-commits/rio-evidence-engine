@@ -30,9 +30,17 @@ jobs:
         run: node demos/rio-primer-cobro/tests/test_logic.mjs
       - name: Verify and stage immutable front desk
         run: python3 demos/rio-primer-cobro/frontdesk/verify_release.py
-      - name: Record staging readback
+      - name: Test anonymous HTTP observer against local mock server
+        run: python3 -m unittest discover -s demos/rio-primer-cobro/frontdesk/tests -v
+      - name: Probe both live public routes from GitHub runner without credentials
+        run: |
+          python3 demos/rio-primer-cobro/frontdesk/check_public_site.py \
+            --mode access \
+            --output output/rio-primer-cobro/remote-observation.json
+      - name: Record staging and public-access receipts
         run: |
           cat output/rio-primer-cobro/release-receipt.json >> "$GITHUB_STEP_SUMMARY"
+          cat output/rio-primer-cobro/remote-observation.json >> "$GITHUB_STEP_SUMMARY"
   deploy:
     needs: verify
     if: github.ref == 'refs/heads/deploy/primer-cobro' && vars.RIO_PUBLIC_AUTO_DEPLOY == 'enabled'
@@ -73,28 +81,41 @@ jobs:
         run: |
           set -euo pipefail
           npm install --global "vercel@${VERCEL_CLI_VERSION}"
-      - name: Deploy exact checked files to production
+      - id: stage
+        name: Stage immutable production candidate without assigning live domain
         shell: bash
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
           set -euo pipefail
           test -n "${VERCEL_TOKEN:-}" || { echo "::error::Missing VERCEL_TOKEN in protected environment"; exit 2; }
-          vercel deploy --prod --yes --cwd output/rio-primer-cobro
-      - name: Read back public bytes without authentication
+          candidate="$(vercel deploy --prod --yes --skip-domain --cwd output/rio-primer-cobro | tail -n 1)"
+          python3 - "$candidate" <<'PY'
+          from urllib.parse import urlparse
+          import sys
+          p = urlparse(sys.argv[1])
+          if (p.scheme != "https" or not p.hostname or
+              not p.hostname.endswith(".vercel.app") or p.username or p.password or
+              p.path not in ("", "/") or p.query or p.fragment):
+              raise SystemExit("INVALID_STAGING_URL")
+          PY
+          printf 'url=%s\n' "$candidate" >> "$GITHUB_OUTPUT"
+      - name: Read back candidate bytes independently of Vercel credentials
+        run: |
+          python3 demos/rio-primer-cobro/frontdesk/check_public_site.py \
+            --base-url "${{ steps.stage.outputs.url }}" \
+            --source output/rio-primer-cobro --mode exact
+      - name: Promote only the candidate whose bytes matched
         shell: bash
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
           set -euo pipefail
-          ok=0
-          for attempt in 1 2 3 4 5 6 7 8 9 10; do
-            if curl --fail --silent --show-error --location --max-time 20 "${PUBLIC_URL}/?build=${GITHUB_SHA}" -o /tmp/rio-live-index.html &&
-               curl --fail --silent --show-error --location --max-time 20 "${PUBLIC_URL}/app.html?build=${GITHUB_SHA}" -o /tmp/rio-live-app.html &&
-               cmp -s output/rio-primer-cobro/index.html /tmp/rio-live-index.html &&
-               cmp -s output/rio-primer-cobro/app.html /tmp/rio-live-app.html; then
-              ok=1
-              break
-            fi
-            sleep 4
-          done
-          test "$ok" = 1 || { echo "::error::Public anonymous readback does not match exact source bytes"; exit 2; }
+          test -n "${VERCEL_TOKEN:-}" || exit 2
+          vercel promote "${{ steps.stage.outputs.url }}" --yes
+      - name: Confirm live alias serves the same release anonymously
+        run: |
+          python3 demos/rio-primer-cobro/frontdesk/check_public_site.py \
+            --base-url "$PUBLIC_URL" --source output/rio-primer-cobro \
+            --mode exact --attempts 6
           echo "PUBLIC_READBACK_PASS commit=${GITHUB_SHA} portal=$PUBLIC_URL" >> "$GITHUB_STEP_SUMMARY"
