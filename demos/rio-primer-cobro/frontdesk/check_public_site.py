@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 import sys
 import time
 from pathlib import Path
@@ -23,11 +24,18 @@ class RedirectOnSameHost(HTTPRedirectHandler):
         return super().redirect_request(request, fp, code, msg, headers, newurl)
 
 def valid_base(url, allow_local=False):
+    if not isinstance(url, str) or len(url) > 2048 or any(ord(ch) <= 32 for ch in url):
+        raise ValueError("BAD_BASE_URL")
     p = urlparse(url)
     safe_local = allow_local and p.scheme == "http" and p.hostname in ("127.0.0.1", "localhost")
-    safe_public = p.scheme == "https" and p.hostname is not None and (
-        p.hostname == "rio-primer-cobro-frontdesk.vercel.app" or p.hostname.endswith(".vercel.app"))
-    if not (safe_local or safe_public) or p.username or p.password or p.query or p.fragment or p.path not in ("", "/"):
+    safe_candidate = bool(re.fullmatch(
+        r"rio-primer-cobro-frontdesk-[a-z0-9]+-ivaniaworkshop-6855\\.vercel\\.app",
+        p.hostname or ""))
+    safe_public = p.scheme == "https" and (
+        p.hostname == "rio-primer-cobro-frontdesk.vercel.app" or safe_candidate)
+    if (not (safe_local or safe_public) or p.username or p.password
+            or p.query or p.fragment or p.path not in ("", "/")
+            or (not safe_local and p.port is not None)):
         raise ValueError("BAD_BASE_URL")
     return url.rstrip("/")
 
