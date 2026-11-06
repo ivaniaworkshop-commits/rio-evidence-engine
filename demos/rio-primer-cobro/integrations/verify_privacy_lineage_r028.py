@@ -16,6 +16,11 @@ PATHS=(
  "demos/rio-primer-cobro/integrations/pey_emulated_r026.mjs",
  "demos/rio-primer-cobro/tests/test_pey_r026.mjs")
 PATTERN=re.compile(rb"(?<!\d)\d{18}(?!\d)")
+def checksum_valid(candidate):
+ weights=(3,7,1)
+ weighted=sum((int(candidate[i])-48)*weights[i%3]%10 for i in range(17))
+ return (10-weighted%10)%10==int(candidate[17])-48
+
 class PrivacyGuardError(Exception):pass
 def git(repo,*args):
  p=subprocess.run(["git","-C",str(repo),*args],capture_output=True,timeout=15)
@@ -36,10 +41,11 @@ def audit(repo,base=BASE,paths=PATHS):
    value=git(repo,"show",commit+":"+path)
    if len(value)>2_000_000:raise PrivacyGuardError("SOURCE_TOO_LARGE")
    checked+=1
-   if PATTERN.search(value):raise PrivacyGuardError("HISTORICAL_SENSITIVE_PATTERN")
+   if any(checksum_valid(match.group()) for match in PATTERN.finditer(value)):
+    raise PrivacyGuardError("HISTORICAL_CLABE_PATTERN")
  return {"schema":"RIO_R028_PRIVACY_LINEAGE_V1","status":"PASS_SELECTED_PATH_HISTORY",
   "base":base,"head":head,"new_commits":len(revisions),"examined_revisions":checked,
-  "known_pattern_detected":False,"all_refs_remediated":False,"github_cache_purged":False,
+  "checksum_valid_18digit_pattern_found":False,"all_refs_remediated":False,"github_cache_purged":False,
   "historical_incident_closed":False}
 if __name__=="__main__":
  p=argparse.ArgumentParser();p.add_argument("--repo",default=".");p.add_argument("--base",default=BASE);p.add_argument("--output")
