@@ -70,6 +70,35 @@ class CommitProducerTests(unittest.TestCase):
         self.assertEqual(self.git('show', 'HEAD:app.txt'), 'staged')
         self.assertEqual((self.root / 'app.txt').read_text(), 'unstaged')
 
+    def test_hook_injecting_unlisted_file_is_detected_after_commit(self):
+        # A user hook may stage extra source after the manifest was prepared.
+        # This test establishes fail detection, NOT rollback of the local commit.
+        (self.root / 'app.txt').write_text('two', encoding='utf-8')
+        self.git('add', 'app.txt')
+        hook = self.root / '.git' / 'hooks' / 'pre-commit'
+        hook.write_text('#!/bin/sh\nprintf injected > extra.txt\ngit add extra.txt\n')
+        hook.chmod(0o755)
+        previous_head = self.git('rev-parse', 'HEAD')
+        with self.assertRaisesRegex(MODULE.PostCommitIntegrityError,
+                                    'POST_COMMIT_TREE_MANIFEST_MISMATCH'):
+            MODULE.commit_staged(self.root, 'invalid-local-commit')
+        new_head = self.git('rev-parse', 'HEAD')
+        self.assertNotEqual(previous_head, new_head)
+        self.assertEqual(self.git('show', 'HEAD:extra.txt'), 'injected')
+        data = json.loads(self.git('show', 'HEAD:MANIFEST.json'))
+        self.assertNotIn('extra.txt', {item['path'] for item in data['files']})
+
+    def test_hook_deleting_manifest_prevents_git_commit(self):
+        (self.root / 'app.txt').write_text('two', encoding='utf-8')
+        self.git('add', 'app.txt')
+        hook = self.root / '.git' / 'hooks' / 'pre-commit'
+        hook.write_text('#!/bin/sh\ngit rm -q MANIFEST.json\n')
+        hook.chmod(0o755)
+        previous_head = self.git('rev-parse', 'HEAD')
+        with self.assertRaises(subprocess.CalledProcessError):
+            MODULE.commit_staged(self.root, 'invalid-local-commit')
+        self.assertEqual(self.git('rev-parse', 'HEAD'), previous_head)
+
     def test_empty_index_source_delta_aborts(self):
         head = self.git('rev-parse', 'HEAD')
         with self.assertRaisesRegex(ValueError, 'NO_STAGED_SOURCE_DELTA'):

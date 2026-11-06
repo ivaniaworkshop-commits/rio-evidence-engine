@@ -603,8 +603,8 @@
     },
     {
       "path": "scripts/commit_staged_manifest.py",
-      "bytes": 2490,
-      "sha256": "6f584003aaee61ddd8e7590866091895aff5824103d3645a174d177353572198"
+      "bytes": 4904,
+      "sha256": "2e49b7a35b7771373325bb4dc6c23ba84242452167dc2cb79a3f31f9aeddcdeb"
     },
     {
       "path": "scripts/compare_modes.py",
@@ -803,8 +803,8 @@
     },
     {
       "path": "tests/test_commit_staged_manifest.py",
-      "bytes": 4171,
-      "sha256": "f856ed2b1a2294bb37d05919bcd9c0b3ea78c954c5643b7682de1fb78ff88fd2"
+      "bytes": 5840,
+      "sha256": "e7757a993af73504610cfbb4456830c91047f2f3036dd1572581e2b6ccdc3df7"
     },
     {
       "path": "tests/test_constrained_extraction.py",
