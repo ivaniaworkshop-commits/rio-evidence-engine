@@ -136,6 +136,57 @@ class H00WorkflowTrustBoundaryTests(unittest.TestCase):
         self.assertIn("      attestations: write", signer)
         self.assertNotIn("      attestations: write", verifier)
 
+
+    @staticmethod
+    def _actual_main_guard_script(job):
+        """Extract the Bash run block from the checked-in workflow, not a copied fixture."""
+        marker = "      - name: H00 reject green CI for unprotected main push"
+        parts = job.split(marker)
+        if len(parts) != 2:
+            raise AssertionError("GUARD_STEP_AMBIGUOUS")
+        block = parts[1].split("\n      - ", 1)[0].splitlines()
+        try:
+            start = block.index("        run: |") + 1
+        except ValueError as exc:
+            raise AssertionError("GUARD_SCRIPT_MISSING") from exc
+        lines = block[start:]
+        if not lines or any(not line.startswith("          ") for line in lines if line.strip()):
+            raise AssertionError("GUARD_SCRIPT_INDENTATION_INVALID")
+        script = "\n".join(line[10:] for line in lines) + "\n"
+        if "UNPROTECTED_MAIN_PUSH" not in script or "exit 2" not in script:
+            raise AssertionError("GUARD_SCRIPT_UNEXPECTED")
+        return script
+
+    def _execute_guard(self, job_name, value):
+        """Run actual YAML Bash with isolated environment and no repository writes."""
+        import os
+        import subprocess
+        script = self._actual_main_guard_script(self.jobs[job_name])
+        env = {"PATH": os.defpath}
+        if value is not None:
+            env["RIO_MAIN_REF_PROTECTED"] = value
+        with tempfile.TemporaryDirectory() as workdir:
+            return subprocess.run(
+                ["bash", "--noprofile", "--norc", "-e", "-o", "pipefail", "-c", script],
+                cwd=workdir, env=env, capture_output=True, text=True, timeout=5,
+                check=False,
+            )
+
+    def test_actual_guard_rejects_unprotected_or_unknown_context(self):
+        for job in ("verify", "strict-torch"):
+            for value in ("false", "", None, "0", "TRUE", "true "):
+                with self.subTest(job=job, protected=value):
+                    result = self._execute_guard(job, value)
+                    self.assertEqual(result.returncode, 2, (result.stdout, result.stderr))
+                    self.assertIn("UNPROTECTED_MAIN_PUSH", result.stdout)
+
+    def test_actual_guard_accepts_exact_protected_true(self):
+        for job in ("verify", "strict-torch"):
+            with self.subTest(job=job):
+                result = self._execute_guard(job, "true")
+                self.assertEqual(result.returncode, 0, (result.stdout, result.stderr))
+                self.assertNotIn("UNPROTECTED_MAIN_PUSH", result.stdout)
+
     def test_pre_merge_jobs_remain_available(self):
         self.assertIn("  pull_request:", self.source)
         self.assertIn("    branches: [main]", self.source)

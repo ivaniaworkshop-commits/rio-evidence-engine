@@ -57,3 +57,9 @@ El valor de la atestación alcanza: *"estos bytes fueron atestados por un workfl
 - A PR continues to run the two validation jobs; the guard step is omitted on PR events. OIDC/Sigstore signing remains restricted to protected `main` pushes and remains skipped on PRs.
 - A green main workflow should not be possible solely because attestation jobs were skipped on an unprotected main push. This is an observability/fail-closed improvement, **not branch write enforcement**.
 - The guard depends on GitHub's `ref_protected` metadata, which does not itself prove approval requirements, effective ruleset content, or bypass policy. No live unprotected main push was executed to test this path. `MAIN_PROTECTED=false` and `RULESET_ACTIVE=false` remain observed blockers.
+
+## R014 — behavioral tests of actual YAML guard (candidate PR #26)
+
+- The tests extract the `run: |` shell script for `H00 reject green CI for unprotected main push` directly from the checked-in workflow, for both `verify` and `strict-torch`.
+- They execute that exact script in a temporary directory with a restricted environment and no GitHub credentials. Values `false`, empty, absent, `0`, `TRUE`, and `true ` must return exit code 2 with `UNPROTECTED_MAIN_PUSH`; only exact `true` may return 0.
+- This adds behavioral evidence beyond R013's static YAML checks. It does **not** exercise a real GitHub push, prove `github.ref_protected` mapping, or activate repository branch rules. No direct writes to `main` are permitted by this test.
