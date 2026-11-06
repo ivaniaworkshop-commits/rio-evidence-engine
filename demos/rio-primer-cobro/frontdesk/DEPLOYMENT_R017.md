@@ -52,3 +52,14 @@ Abre la URL publica en modo incognito o dispositivo no autenticado y anota `HTTP
 La URL pública **no se modifica si falla el readback del candidato**. Una falla posterior a promover sigue siendo incidente abierto, no PASS. Las credenciales se entregan únicamente a las acciones Vercel de staging y promoción; pruebas de acceso HTTP no las reciben.
 
 La activación sigue pendiente de habilitar `RIO_PUBLIC_AUTO_DEPLOY`, definir `VERCEL_CLI_VERSION` exacta, proteger la rama y configurar `VERCEL_TOKEN` como secreto del entorno `rio-primer-cobro-production`. No hay dato que acredite Android físico ni pagos reales.
+
+
+## R020 — autoridad de publicación y activación real
+
+- La rama \`deploy/primer-cobro\` se considera una **ruta de publicación restringida**. El workflow comprueba en tiempo de ejecución reglas activas de GitHub: revisión obligatoria con al menos una aprobación, prohibición de eliminar ramas y de reescribir historial, y ausencia de actores con bypass en el ruleset aplicable. Si no puede acreditarlo, el despliegue **falla cerrado**.
+- Las **9 pruebas unitarias** de \`release_authority_r020.py\` comprueban políticas válidas e inválidas. Estas pruebas no sustituyen una observación de protecciones realmente activas en GitHub.
+- Para activar: visita https://github.com/ivaniaworkshop-commits/rio-evidence-engine/settings/rules y crea un Ruleset \`RÍO Primer Cobro — release\`, enforcement **Active**, solo rama \`deploy/primer-cobro\`. Configura \`Require a pull request before merging\` y al menos una aprobación, \`Block force pushes\` y \`Restrict deletions\`. No permitas bypass. Si tu plan/repositorio no admite todas estas opciones, **no declares ACTIVE**.
+- En https://github.com/ivaniaworkshop-commits/rio-evidence-engine/settings/environments crea el entorno \`rio-primer-cobro-production\`, limita deployments a \`deploy/primer-cobro\`, exige revisión de despliegue si está disponible y añade **solo en ese entorno** el secreto \`VERCEL_TOKEN\`. Nunca lo pegues en chats, README o archivos públicos.
+- En Actions Variables del repositorio define \`VERCEL_CLI_VERSION\` con una versión exacta revisada y \`RIO_PUBLIC_AUTO_DEPLOY=enabled\`. El token solo se expone a los dos pasos de staging/promoción de Vercel.
+- En cada cambio revisado del branch, CI verifica manifest y regresiones, accesibilidad HTTP anónima, Chrome real y flujo completo de QR y efectivo. **Solo entonces** la rama podrá preparar un candidato, verificar bytes, promoverlo y contrastar la URL pública.
+- Estado observado de configuración en esta ronda: \`GitHub GET /rulesets = []\`; no hay reglasets visibles. Los conectores no exponen edición de reglas ni secretos. Resultado: \`AUTO_DEPLOY=BLOCKED_PENDING_EXTERNAL_CONFIGURATION\`. Este documento no afirma haber realizado esas acciones. La aplicación pública R016 sigue disponible.
