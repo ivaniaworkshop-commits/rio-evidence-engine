@@ -93,8 +93,8 @@
     },
     {
       "path": "demos/rio-primer-cobro/README.md",
-      "bytes": 3691,
-      "sha256": "aa8c30fafed9864d455b5b925c0efa8cbcd39e0b7fe8b76b32b1b77158f7ec32"
+      "bytes": 4100,
+      "sha256": "563c03f66fb5d44e310275cf69100d144453fd617cd752fb253f2170d28557c2"
     },
     {
       "path": "demos/rio-primer-cobro/RIO_PRIMER_COBRO_R013_OFFLINE.html",
@@ -165,6 +165,21 @@
       "path": "demos/rio-primer-cobro/experiments/sensitivity.py",
       "bytes": 1894,
       "sha256": "3f44846493d03544b3ae5823964f398ed769562533b7b7152d0f924c7da1ece9"
+    },
+    {
+      "path": "demos/rio-primer-cobro/frontdesk/README.md",
+      "bytes": 1421,
+      "sha256": "d126eb182d555cb287dc8d50c8749db38071baabdf681c99c365e23b880a846f"
+    },
+    {
+      "path": "demos/rio-primer-cobro/frontdesk/app.html",
+      "bytes": 112138,
+      "sha256": "61cc8f8e71e2708141b22c090faadafe3f50ffaf373db8c992a80bb5077943f1"
+    },
+    {
+      "path": "demos/rio-primer-cobro/frontdesk/index.html",
+      "bytes": 8405,
+      "sha256": "7b484430e0985b715ac1d9c1aa4e3ad269612973415978618fe25daa28ae1c6b"
     },
     {
       "path": "demos/rio-primer-cobro/reports/R013_E2E.json",
