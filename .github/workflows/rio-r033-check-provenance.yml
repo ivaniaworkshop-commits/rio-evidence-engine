@@ -1,0 +1,71 @@
+name: RIO R033 independent check provenance
+on:
+  push:
+    branches: [candidate/primer-cobro-r031-clean-20261106]
+    paths:
+      - ".github/workflows/rio-r033-check-provenance.yml"
+      - "demos/rio-primer-cobro/integrations/attest_check_provenance_r033.py"
+      - "demos/rio-primer-cobro/integrations/tests/test_check_provenance_r033.py"
+      - "demos/rio-primer-cobro/integrations/R033_CHECK_PROVENANCE.md"
+      - "MANIFEST.json"
+permissions:
+  contents: read
+  checks: read
+  pull-requests: read
+jobs:
+  check-provenance:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - name: Exact manifest
+        run: python3 scripts/verify_manifest.py
+      - name: Synthetic adversarial cases
+        run: python3 -m unittest discover -s demos/rio-primer-cobro/integrations/tests -p 'test_check_provenance_r033.py' -v
+      - name: Get immutable historical check-run and active ruleset data
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p output/rio-r033
+          gh api "/repos/${GITHUB_REPOSITORY}/git/ref/heads/candidate/primer-cobro-r031-clean-20261106" > output/rio-r033/branch.json
+          gh api "/repos/${GITHUB_REPOSITORY}/pulls/39" > output/rio-r033/pr.json
+          gh api "/repos/${GITHUB_REPOSITORY}/commits/3c67d0a08b822bc88c7a4e239cf2df0dfc764fb9/check-runs?per_page=100" > output/rio-r033/checks.json
+          gh api "/repos/${GITHUB_REPOSITORY}/rulesets?includes_parents=true" > output/rio-r033/summary.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("output/rio-r033/summary.json").read_text())
+          assert isinstance(d,list)
+          ids=[x["id"] for x in d if isinstance(x,dict) and
+               x.get("target")=="branch" and x.get("enforcement")=="active"
+               and type(x.get("id")) is int]
+          Path("output/rio-r033/ids.txt").write_text("".join(str(i)+"\n" for i in ids))
+          PY
+          printf '[' > output/rio-r033/rules.json
+          first=1
+          while IFS= read -r id; do
+            if test "$first" -eq 0; then printf ',' >> output/rio-r033/rules.json; fi
+            gh api "/repos/${GITHUB_REPOSITORY}/rulesets/$id" >> output/rio-r033/rules.json
+            first=0
+          done < output/rio-r033/ids.txt
+          printf ']\n' >> output/rio-r033/rules.json
+      - name: Independent attestation and release denial
+        run: |
+          python3 demos/rio-primer-cobro/integrations/attest_check_provenance_r033.py \
+            --branch output/rio-r033/branch.json \
+            --pr output/rio-r033/pr.json \
+            --checks output/rio-r033/checks.json \
+            --rules output/rio-r033/rules.json \
+            --output output/rio-r033/receipt.json
+          cat output/rio-r033/receipt.json >> "$GITHUB_STEP_SUMMARY"
+      - name: Preserve independent audit receipt
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: rio-r033-check-provenance
+          path: output/rio-r033/receipt.json
+          if-no-files-found: error
+          retention-days: 14

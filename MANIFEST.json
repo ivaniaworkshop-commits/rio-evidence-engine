@@ -43,8 +43,13 @@
     },
     {
       "path": ".github/workflows/rio-r031-candidate-readiness.yml",
-      "bytes": 3202,
-      "sha256": "5f86a29a000738933e74e9dcedd64e69038e25e0b20737bf2209a0e0a35af1e8"
+      "bytes": 4285,
+      "sha256": "fdea44370c10d5b22a84d5d48e72ec57ba6ccc25cfb4997c8a8b0e5e14af6d45"
+    },
+    {
+      "path": ".github/workflows/rio-r033-check-provenance.yml",
+      "bytes": 3288,
+      "sha256": "3f8ad845f635463a8866d355d4a0c2308efd57c004261fea4034f6b434debf1d"
     },
     {
       "path": ".gitignore",
@@ -368,8 +373,23 @@
     },
     {
       "path": "demos/rio-primer-cobro/integrations/R031_CANDIDATE_RELEASE.md",
-      "bytes": 2283,
-      "sha256": "e1c572f4119cb8c63e5f56628756016ed72288178967fde0072d8a488da9a05e"
+      "bytes": 3317,
+      "sha256": "1e14f24c606ba42c84133255027649325b1627f7ad15024196ce990c03595c6a"
+    },
+    {
+      "path": "demos/rio-primer-cobro/integrations/R032_ADMIN_HANDOFF.md",
+      "bytes": 3398,
+      "sha256": "63c1be120550257e6d51918d46c32d2a4f7a6d94c26fe74cadb91a1b1fbf93f1"
+    },
+    {
+      "path": "demos/rio-primer-cobro/integrations/R033_CHECK_PROVENANCE.md",
+      "bytes": 1015,
+      "sha256": "ff26938c79ab0755535460677cf59a278609f4f5f4e87668c30ab86137f3812f"
+    },
+    {
+      "path": "demos/rio-primer-cobro/integrations/attest_check_provenance_r033.py",
+      "bytes": 4317,
+      "sha256": "d515c584a8fac710bbbded72401ed7d807da6e8c4f5711b00ada92ebd60d706d"
     },
     {
       "path": "demos/rio-primer-cobro/integrations/audit_legacy_refs_r029.py",
@@ -388,8 +408,18 @@
     },
     {
       "path": "demos/rio-primer-cobro/integrations/release_readiness_r031.py",
-      "bytes": 6269,
-      "sha256": "29d3617ab328accfe92c7d86757c62705a60b4dc7654879b432be55a0cb45b82"
+      "bytes": 6354,
+      "sha256": "26b73925b2a32b2af532731a7c55282ddce89195b5f53144839e0d4184daf184"
+    },
+    {
+      "path": "demos/rio-primer-cobro/integrations/ruleset_admin_r032.py",
+      "bytes": 8015,
+      "sha256": "31a70b567bb2d0fb2f7bcb1e262c926e825dfce374a2401f7a690bd30ccac8b7"
+    },
+    {
+      "path": "demos/rio-primer-cobro/integrations/tests/test_check_provenance_r033.py",
+      "bytes": 3377,
+      "sha256": "610c18538dce21239d4f6351c88e07586952aca13a03a8d8d961352c2c4fdde6"
     },
     {
       "path": "demos/rio-primer-cobro/integrations/tests/test_legacy_refs_r029.py",
@@ -403,8 +433,13 @@
     },
     {
       "path": "demos/rio-primer-cobro/integrations/tests/test_release_readiness_r031.py",
-      "bytes": 7377,
-      "sha256": "9ec48066f2785c3ced6890fe220001e3c71c46f5790368e9cd7adf1201497a65"
+      "bytes": 8011,
+      "sha256": "77e088e58fc40c6f201876abb5f52eb35ea0807224d1f471e0a63c48598bb3dc"
+    },
+    {
+      "path": "demos/rio-primer-cobro/integrations/tests/test_ruleset_admin_r032.py",
+      "bytes": 6812,
+      "sha256": "0ac554401703b3616af8e123790b69462396e10d9ce13794388a335d6b18302d"
     },
     {
       "path": "demos/rio-primer-cobro/integrations/verify_privacy_lineage_r028.py",

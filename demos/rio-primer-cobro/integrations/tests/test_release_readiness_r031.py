@@ -18,7 +18,7 @@ def ruleset(**kwargs):
          {"type":"pull_request","parameters":{"required_approving_review_count":1}},
          {"type":"deletion"},
          {"type":"non_fast_forward"},
-         {"type":"required_status_checks","parameters":{"required_status_checks":[{"context":"verify","integration_id":15368},{"context":"strict-torch","integration_id":15368}]}}
+         {"type":"required_status_checks","parameters":{"strict_required_status_checks_policy":True,"required_status_checks":[{"context":"verify","integration_id":15368},{"context":"strict-torch","integration_id":15368},{"context":"candidate-readiness","integration_id":15368}]}}
       ]
     }
     base.update(kwargs)
@@ -57,6 +57,14 @@ class CandidateGate(unittest.TestCase):
     def test_review_bool_not_valid_int(self):
         x=ruleset()
         x["rules"][0]["parameters"]["required_approving_review_count"]=True
+        self.assertEqual(assess([x])["result"],"BLOCKED_INCOMPLETE_RELEASE_RULESET")
+    def test_missing_candidate_readiness_check_blocks(self):
+        x=ruleset()
+        x["rules"][3]["parameters"]["required_status_checks"]=x["rules"][3]["parameters"]["required_status_checks"][:2]
+        self.assertEqual(assess([x])["result"],"BLOCKED_INCOMPLETE_RELEASE_RULESET")
+    def test_non_strict_required_status_checks_block(self):
+        x=ruleset()
+        x["rules"][3]["parameters"]["strict_required_status_checks_policy"]=False
         self.assertEqual(assess([x])["result"],"BLOCKED_INCOMPLETE_RELEASE_RULESET")
     def test_missing_status_checks_blocks(self):
         x=ruleset()

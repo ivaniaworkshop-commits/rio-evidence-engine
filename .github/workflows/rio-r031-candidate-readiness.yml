@@ -1,5 +1,8 @@
 name: RIO R031 candidate release readiness - read only
 on:
+  pull_request:
+    branches:
+      - candidate/primer-cobro-r031-clean-20261106
   push:
     branches:
       - security/primer-cobro-r028-clean-20261106
@@ -9,6 +12,9 @@ on:
       - "demos/rio-primer-cobro/integrations/release_readiness_r031.py"
       - "demos/rio-primer-cobro/integrations/tests/test_release_readiness_r031.py"
       - "demos/rio-primer-cobro/integrations/R031_CANDIDATE_RELEASE.md"
+      - "demos/rio-primer-cobro/integrations/ruleset_admin_r032.py"
+      - "demos/rio-primer-cobro/integrations/tests/test_ruleset_admin_r032.py"
+      - "demos/rio-primer-cobro/integrations/R032_ADMIN_HANDOFF.md"
       - "MANIFEST.json"
 permissions:
   contents: read
@@ -25,8 +31,22 @@ jobs:
           persist-credentials: false
       - name: SHA manifest and inventory
         run: python3 scripts/verify_manifest.py
-      - name: 23 adversarial R031 policy tests
+      - name: 25 adversarial R031+R032 policy tests
         run: python3 -m unittest discover -s demos/rio-primer-cobro/integrations/tests -p 'test_release_readiness_r031.py' -v
+      - name: R032 administrative plan regression suite (NO ADMIN WRITE)
+        run: python3 -m unittest discover -s demos/rio-primer-cobro/integrations/tests -p 'test_ruleset_admin_r032.py' -v
+      - name: Emit exact administrative ruleset plan, NO GitHub mutation
+        run: |
+          python3 demos/rio-primer-cobro/integrations/ruleset_admin_r032.py --plan --output /tmp/r032-plan.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          plan=json.loads(Path("/tmp/r032-plan.json").read_text(encoding="utf-8"))
+          assert plan["state"]=="PLAN_ONLY_NOT_APPLIED"
+          assert plan["write_executed"] is False
+          assert plan["active_ruleset_observed"] is False
+          print("R032_NO_ADMIN_WRITE_PASS")
+          PY
       - name: Verify ancestor R030 in clean history
         run: |
           git merge-base --is-ancestor 9be2a37a1873c11ef0b98266e5cb39285363a2b1 HEAD

@@ -15,7 +15,7 @@ TARGET_REF="refs/heads/candidate/primer-cobro-r031-clean-20261106"
 EXPECTED_REPO="ivaniaworkshop-commits/rio-evidence-engine"
 R030_ANCHOR="9be2a37a1873c11ef0b98266e5cb39285363a2b1"
 REQUIRED={"pull_request","deletion","non_fast_forward","required_status_checks"}
-REQUIRED_CI_CONTEXTS=frozenset({"verify","strict-torch"})
+REQUIRED_CI_CONTEXTS=frozenset({"verify","strict-torch","candidate-readiness"})
 TRUSTED_CHECK_INTEGRATION_ID=15368  # GitHub Actions app ID read from actual checks
 SCHEMA="RIO_R031_RELEASE_CANDIDATE_GATE_V1"
 
@@ -89,7 +89,7 @@ def assess(rulesets, branch=TARGET_REF, repository=EXPECTED_REPO):
                     and type(c.get("integration_id")) is int
                     and c["integration_id"]==TRUSTED_CHECK_INTEGRATION_ID
                 }
-                if REQUIRED_CI_CONTEXTS.issubset(contexts):
+                if params.get("strict_required_status_checks_policy") is True and REQUIRED_CI_CONTEXTS.issubset(contexts):
                     per.add(kind)
         if REQUIRED.issubset(per):
             return report("RULESET_CONTRACT_VERIFIED_ENVIRONMENT_UNVERIFIED",len(active),sorted(per),[])

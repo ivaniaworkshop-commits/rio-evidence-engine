@@ -36,3 +36,22 @@ The old `deploy/primer-cobro` workflow has `deploy: if: false`, but historical
 reachable commits also exist on `rio/omniretro-r003-release-status-a896efcd`.
 Legacy PRs #30/#35 closed without merge; historical objects/caches/forks/clones
 are NOT purged. No bank account is registered and Pey remains unverified.
+
+## Candidate checkpoint (R031)
+Created `candidate/primer-cobro-r031-clean-20261106` from tested clean commit
+`3d1ec198e77c134be1d74811bd88662be36b8e3f` with an identical initial
+tree. This checkpoint is a candidate-only document change; it does not change
+application behavior or activate Vercel.
+
+Expected protection status at creation: `NOT_VERIFIED`. A GitHub Actions
+receipt must independently observe the exact branch ruleset. A workflow PASS
+with `BLOCKED_NO_EXACT_ACTIVE_RELEASE_RULESET` means successful detection
+of a missing administrative guard, NOT authorization to deploy.
+
+## R032 stricter acceptance
+Ruleset must pin ALL THREE GitHub Actions app checks: `verify`,
+`strict-torch`, and `candidate-readiness`; check producer ID is `15368`
+(as observed on actual check runs). Require strict status-check freshness.
+The `candidate-readiness` job now runs unconditionally on pull requests
+targeting this candidate branch (while push tests remain path-filtered).
+Administrative provisioning is not executed by this workflow.
