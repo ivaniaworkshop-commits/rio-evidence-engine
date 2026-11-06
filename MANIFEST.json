@@ -368,8 +368,8 @@
     },
     {
       "path": "demos/rio-primer-cobro/integrations/R031_CANDIDATE_RELEASE.md",
-      "bytes": 1979,
-      "sha256": "ea1c3a600bbf155d820200586be467bd3b6110ea72ab29fd8cd444f515f7debd"
+      "bytes": 2566,
+      "sha256": "555885948f36137249da08f6a6716ed358f433c29bbea4edcfe1a7a55bf91c91"
     },
     {
       "path": "demos/rio-primer-cobro/integrations/audit_legacy_refs_r029.py",
