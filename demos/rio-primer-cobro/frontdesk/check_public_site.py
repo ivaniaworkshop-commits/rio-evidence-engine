@@ -29,7 +29,7 @@ def valid_base(url, allow_local=False):
     p = urlparse(url)
     safe_local = allow_local and p.scheme == "http" and p.hostname in ("127.0.0.1", "localhost")
     safe_candidate = bool(re.fullmatch(
-        r"rio-primer-cobro-frontdesk-[a-z0-9]+-ivaniaworkshop-6855\\.vercel\\.app",
+        r"rio-primer-cobro-frontdesk-[a-z0-9]+-ivaniaworkshop-6855\.vercel\.app",
         p.hostname or ""))
     safe_public = p.scheme == "https" and (
         p.hostname == "rio-primer-cobro-frontdesk.vercel.app" or safe_candidate)
