@@ -173,13 +173,13 @@
     },
     {
       "path": "demos/rio-primer-cobro/frontdesk/DEPLOYMENT_R017.md",
-      "bytes": 6730,
-      "sha256": "74b0f3c22283f3b338cecaafe0afda8b56c5669a3e28703666b8145429ebdafa"
+      "bytes": 7233,
+      "sha256": "42c79cc3e035e80d2c1443db31e4d74342cf8b5271969d57aaa015a92aa18712"
     },
     {
       "path": "demos/rio-primer-cobro/frontdesk/R020_STATUS.md",
-      "bytes": 3297,
-      "sha256": "1ae7511c94a83f9414ed8926e85a8888957a1b7c570707bba6594dfd0713b4c2"
+      "bytes": 4191,
+      "sha256": "724e2dcd63eaa14be1727968e9e94a452bd8c8bf4c396c612299f07735d26ec2"
     },
     {
       "path": "demos/rio-primer-cobro/frontdesk/README.md",
