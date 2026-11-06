@@ -8,8 +8,8 @@
     },
     {
       "path": ".github/workflows/rio-primer-cobro-deploy.yml",
-      "bytes": 9280,
-      "sha256": "190db10a6491e914f05da8873b86747220a89280c1adf969cd4225983f7ec6f7"
+      "bytes": 9310,
+      "sha256": "a441fd508a852973da8461d145847ba4a4eeb97910962867fd9651efcab4b9bf"
     },
     {
       "path": ".gitignore",
