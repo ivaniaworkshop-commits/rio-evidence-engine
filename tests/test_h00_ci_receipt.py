@@ -115,6 +115,27 @@ class H00WorkflowTrustBoundaryTests(unittest.TestCase):
                 self.assertNotIn("      id-token: write", block, name)
                 self.assertNotIn("      attestations: write", block, name)
 
+
+    def test_main_push_guard_is_first_step_in_both_required_jobs(self):
+        for name in ("verify", "strict-torch"):
+            job = self.jobs[name]
+            self.assertEqual(job.count("      - name: H00 reject green CI for unprotected main push"), 1)
+            self.assertLess(job.index("      - name: H00 reject green CI for unprotected main push"),
+                            job.index("      - uses: actions/checkout@"))
+            self.assertIn("        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}", job)
+            self.assertIn("          RIO_MAIN_REF_PROTECTED: ${{ github.ref_protected }}", job)
+            self.assertIn('if [ "$RIO_MAIN_REF_PROTECTED" != "true" ]; then', job)
+            self.assertIn("UNPROTECTED_MAIN_PUSH", job)
+            self.assertIn("            exit 2", job)
+
+    def test_pre_merge_signing_remains_guarded(self):
+        signer = self.jobs["attest-receipts"]
+        verifier = self.jobs["verify-attestation"]
+        for job in (signer, verifier):
+            self.assertEqual([x for x in job.splitlines() if x.startswith("    if: ")], [self.GUARD])
+        self.assertIn("      attestations: write", signer)
+        self.assertNotIn("      attestations: write", verifier)
+
     def test_pre_merge_jobs_remain_available(self):
         self.assertIn("  pull_request:", self.source)
         self.assertIn("    branches: [main]", self.source)

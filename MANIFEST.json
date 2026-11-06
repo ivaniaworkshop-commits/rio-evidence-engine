@@ -3,8 +3,8 @@
   "files": [
     {
       "path": ".github/workflows/h00-integrity.yml",
-      "bytes": 18070,
-      "sha256": "16634547378990205f46dcc4dd4a176993c149417c5a005ac5f9bab88287c3f1"
+      "bytes": 18918,
+      "sha256": "aa391c96992d398f37d7d0a0a7a8976db90480f027624615229167cbf8a61c63"
     },
     {
       "path": ".gitignore",
@@ -88,8 +88,8 @@
     },
     {
       "path": "evaluation/H00_AUTHENTICATION_R002.md",
-      "bytes": 5539,
-      "sha256": "b86422041c72789c0acf49cb8435fa3a654c6a004bb211713a6c6956fe63f17c"
+      "bytes": 6503,
+      "sha256": "1c01feb949ca4ea37253ff091f95384767c07858c63cdc7508f840ba77283293"
     },
     {
       "path": "evaluation/H07_GATE_R001.md",
@@ -853,8 +853,8 @@
     },
     {
       "path": "tests/test_h00_ci_receipt.py",
-      "bytes": 6278,
-      "sha256": "1a932d7164f4eceba2e6e7091a08f4ba113633d813fce1da2513e075b509767c"
+      "bytes": 7536,
+      "sha256": "17e2971e1c6de05d7ca9129a8dc1bf7ac14e4db1a0bf4fc8243105b7a4893b1c"
     },
     {
       "path": "tests/test_hybrid.py",

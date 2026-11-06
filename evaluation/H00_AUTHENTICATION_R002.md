@@ -50,3 +50,10 @@ El valor de la atestación alcanza: *"estos bytes fueron atestados por un workfl
 - **Regla de checks propuesta para PR:** exigir `verify` y `strict-torch` como prerrequisitos de integración, más revisión por persona distinta del autor y reglas de rama. No exigir los dos jobs posteriores al merge como checks de PR. Un check omitido puede aparecer como resultado aceptable en GitHub y **no prueba emisión de firma**.
 - **Procedencia histórica:** la atestación del run 42180299757 sigue siendo válida para `refs/pull/26/merge`; no debe reclasificarse retrospectivamente como atestación de `main` protegida.
 - **Protección remota:** no está activada; `H08=BLOCKED_NO_EXTERNAL_HOLDOUT`, `candidate_promoted=false` y `production_ready=false` no cambian.
+
+## R013 — unprotected main push fails closed (candidate PR #26)
+
+- The `verify` and `strict-torch` jobs now fail with exit code 2 if a `push` event targeting `refs/heads/main` reports `github.ref_protected != true`. This guard is the **first step before checkout** in both jobs.
+- A PR continues to run the two validation jobs; the guard step is omitted on PR events. OIDC/Sigstore signing remains restricted to protected `main` pushes and remains skipped on PRs.
+- A green main workflow should not be possible solely because attestation jobs were skipped on an unprotected main push. This is an observability/fail-closed improvement, **not branch write enforcement**.
+- The guard depends on GitHub's `ref_protected` metadata, which does not itself prove approval requirements, effective ruleset content, or bypass policy. No live unprotected main push was executed to test this path. `MAIN_PROTECTED=false` and `RULESET_ACTIVE=false` remain observed blockers.
