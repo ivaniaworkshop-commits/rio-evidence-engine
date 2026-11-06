@@ -158,6 +158,14 @@ jobs:
         run: |
           set -euo pipefail
           npm install --global "vercel@${VERCEL_CLI_VERSION}"
+      - name: Capture existing production alias before staging
+        shell: bash
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          set -euo pipefail
+          python3 demos/rio-primer-cobro/frontdesk/release_fence_r022.py snapshot \
+            --output output/rio-primer-cobro/r022-baseline.json
       - id: stage
         name: Stage immutable production candidate without assigning live domain
         shell: bash
@@ -188,7 +196,27 @@ jobs:
         env:
           RIO_TEST_BASE_URL: ${{ steps.stage.outputs.url }}
         run: node demos/rio-primer-cobro/frontdesk/tests/test_public_checkout.mjs
-      - name: Promote only the candidate whose bytes matched
+      - name: Abort if branch moved during staging and independent tests
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          current="$(gh api "/repos/${GITHUB_REPOSITORY}/git/ref/heads/deploy/primer-cobro" --jq '.object.sha')"
+          test "$current" = "$GITHUB_SHA" || { echo "::error::STALE_RELEASE_BRANCH_REBASE_REQUIRED"; exit 2; }
+      - name: Fence existing alias against concurrent Vercel changes
+        shell: bash
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          RIO_CANDIDATE_URL: ${{ steps.stage.outputs.url }}
+        run: |
+          set -euo pipefail
+          python3 demos/rio-primer-cobro/frontdesk/release_fence_r022.py guard \
+            --baseline output/rio-primer-cobro/r022-baseline.json \
+            --candidate-url "$RIO_CANDIDATE_URL" \
+            --output output/rio-primer-cobro/r022-fence.json
+      - id: promote
+        name: Promote only the candidate whose bytes matched
         shell: bash
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
@@ -197,9 +225,33 @@ jobs:
           set -euo pipefail
           test -n "${VERCEL_TOKEN:-}" || exit 2
           vercel promote "$RIO_CANDIDATE_URL" --yes
+      - name: Verify production alias points at the tested candidate
+        shell: bash
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          set -euo pipefail
+          python3 demos/rio-primer-cobro/frontdesk/release_fence_r022.py confirm \
+            --fence output/rio-primer-cobro/r022-fence.json \
+            --output output/rio-primer-cobro/r022-alias-confirmation.json
       - name: Confirm live alias serves the same release anonymously
         run: |
           python3 demos/rio-primer-cobro/frontdesk/check_public_site.py \
             --base-url "$PUBLIC_URL" --source output/rio-primer-cobro \
             --mode exact --attempts 6
           echo "PUBLIC_READBACK_PASS commit=${GITHUB_SHA} portal=$PUBLIC_URL" >> "$GITHUB_STEP_SUMMARY"
+      - name: Reconcile any post-stage failure without automatic rollback
+        if: ${{ failure() && steps.stage.outcome == 'success' }}
+        shell: bash
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          set -euo pipefail
+          python3 demos/rio-primer-cobro/frontdesk/release_fence_r022.py incident \
+            --fence output/rio-primer-cobro/r022-fence.json \
+            --output output/rio-primer-cobro/r022-incident.json || true
+          if test -s output/rio-primer-cobro/r022-incident.json; then
+            cat output/rio-primer-cobro/r022-incident.json >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "INCIDENT_UNKNOWN_MANUAL_REVIEW_NO_AUTOMATIC_ROLLBACK" >> "$GITHUB_STEP_SUMMARY"
+          fi
