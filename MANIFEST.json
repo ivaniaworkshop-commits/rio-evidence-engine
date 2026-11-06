@@ -17,6 +17,11 @@
       "sha256": "0608cf0156fef6bf397bd707f04862089c756fc43a1eee3365c18d9235613d8e"
     },
     {
+      "path": ".github/workflows/rio-r024-incident-drill.yml",
+      "bytes": 4790,
+      "sha256": "54ccc760ad10600e1ab639336fa8c036e624fc22db50a7ab40f561c2e55c2d94"
+    },
+    {
       "path": ".gitignore",
       "bytes": 46,
       "sha256": "d70f7828a8d79a3f519edada327cbf38e22a1af9b12d50023c50f37b3c69c96e"
@@ -202,6 +207,11 @@
       "sha256": "2fc86955c69c3231a713ab8f5f5f390ebdaf828a3dbba96b3f7345f829a9fed8"
     },
     {
+      "path": "demos/rio-primer-cobro/frontdesk/R024_STATUS.md",
+      "bytes": 1118,
+      "sha256": "afa5906202246fc30fdb7e2e0ef1e9bf22fa336983368737a4b442e249e5f8f1"
+    },
+    {
       "path": "demos/rio-primer-cobro/frontdesk/README.md",
       "bytes": 1789,
       "sha256": "b6713d2a48cf420f2d04b5fc7763c96000689c814ab12d11588ca9b7dacf5adb"
@@ -217,14 +227,19 @@
       "sha256": "85f27f322de23750b049aee343f4f0807d6f225393d0cc856c4c1632d73f30d2"
     },
     {
+      "path": "demos/rio-primer-cobro/frontdesk/drills/R024_TRIGGER.txt",
+      "bytes": 326,
+      "sha256": "e13b6c5ce22afc66d7a513be32cacf664e807b7368eedb5b7ac14bc7186089c9"
+    },
+    {
       "path": "demos/rio-primer-cobro/frontdesk/incident_matrix_r023.py",
       "bytes": 4037,
       "sha256": "bc2a323e6e48166ca11e3707a7173dfe3c1414ae35270f180de0d306bde18ae1"
     },
     {
       "path": "demos/rio-primer-cobro/frontdesk/incident_reconcile_r023.py",
-      "bytes": 5997,
-      "sha256": "bb8070dfdbcbc64bb561f9701cf1c136d6d376f5fccb0c3c8ad9f337ec052c3b"
+      "bytes": 6217,
+      "sha256": "9cd8b12f3b8a2d12e081a2812c767f39047db59fc2ae64cb50cb13992875adb1"
     },
     {
       "path": "demos/rio-primer-cobro/frontdesk/index.html",
@@ -253,8 +268,8 @@
     },
     {
       "path": "demos/rio-primer-cobro/frontdesk/tests/test_incident_reconcile_r023.py",
-      "bytes": 8498,
-      "sha256": "62133bf321d7f5abef22a856ffbb4b7832f9231aae9bc34165ddacdfd5f629fb"
+      "bytes": 9417,
+      "sha256": "4bf54f25cd7af50a5e26c921d7a866434f8be2833f8bfa90ce8b550924b0e2f3"
     },
     {
       "path": "demos/rio-primer-cobro/frontdesk/tests/test_public_checkout.mjs",
