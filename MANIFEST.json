@@ -3,8 +3,8 @@
   "files": [
     {
       "path": ".github/workflows/h00-integrity.yml",
-      "bytes": 19466,
-      "sha256": "fe93faf5d835ba2cf2d54649f59c101aced1a6522a33bd3f23676f003a312cf1"
+      "bytes": 21424,
+      "sha256": "e252321b9958d8929f702822085352bf9fac8c892f1e7bbadb21f19ebf3a50a8"
     },
     {
       "path": ".gitignore",
@@ -88,8 +88,8 @@
     },
     {
       "path": "evaluation/H00_AUTHENTICATION_R002.md",
-      "bytes": 11575,
-      "sha256": "c58f0b89e263e689e51b6268376d7a1bbbe7413d195c654d6b043839cdf34174"
+      "bytes": 13241,
+      "sha256": "b3b70e0fdf1394225716a4bff63de3e5069dffd86e3c4c0a392195433d722030"
     },
     {
       "path": "evaluation/H07_GATE_R001.md",
@@ -647,6 +647,11 @@
       "sha256": "2fc9795bf880dd5664d8fa995af1a1336407d2ecf8b22b3baeeecede43dd2d3b"
     },
     {
+      "path": "scripts/h00_cross_artifact_audit.py",
+      "bytes": 13576,
+      "sha256": "14bc59409bc3a5006fd30c9a39c65faf0f86f794587a800497f59f3a59a677dd"
+    },
+    {
       "path": "scripts/h00_pr_checkout.py",
       "bytes": 4174,
       "sha256": "469d1af1530e6fb46212314293f19b990ddbb94c06863ef1bc88552ffe9af572"
@@ -860,6 +865,11 @@
       "path": "tests/test_h00_ci_receipt.py",
       "bytes": 21398,
       "sha256": "2264622bdc7ebfb639d1963bb591d3d8d7214d3e5250d2c0771c7853c28a9869"
+    },
+    {
+      "path": "tests/test_h00_cross_artifact_audit.py",
+      "bytes": 9494,
+      "sha256": "0ae148a8cb0fd4a159d03ca7f5b11c8be198a4dddb20626d6056c4fbfce1c55b"
     },
     {
       "path": "tests/test_h00_pr_checkout.py",
