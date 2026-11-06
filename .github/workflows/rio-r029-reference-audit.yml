@@ -1,0 +1,35 @@
+name: RIO R029 reference reachability
+on:
+  push:
+    branches: [security/primer-cobro-r028-clean-20261106]
+    paths:
+      - ".github/workflows/rio-r029-reference-audit.yml"
+      - "demos/rio-primer-cobro/integrations/**"
+      - "MANIFEST.json"
+permissions:
+  contents: read
+jobs:
+  reachability:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Integrity
+        run: python3 scripts/verify_manifest.py
+      - name: Reference test cases
+        run: python3 -m unittest discover -s demos/rio-primer-cobro/integrations/tests -p 'test_legacy_refs_r029.py' -v
+      - name: Historical reachability readback
+        run: |
+          python3 demos/rio-primer-cobro/integrations/audit_legacy_refs_r029.py --output /tmp/r029-refs.json
+          cat /tmp/r029-refs.json >> "$GITHUB_STEP_SUMMARY"
+      - name: Previous clean lineage checks
+        run: python3 -m unittest discover -s demos/rio-primer-cobro/integrations/tests -p 'test_privacy_lineage_r028.py' -v
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: rio-r029-reference-audit
+          path: /tmp/r029-refs.json
+          if-no-files-found: error
+          retention-days: 14
