@@ -32,7 +32,7 @@ try{
  await call('Browser.setDownloadBehavior',{behavior:'allow',downloadPath:downloads,eventsEnabled:true});
  await navigate(base);
  check('public front desk HTML',await js('document.title.includes("RÍO Primer Cobro")'));
- check('public GitHub repository linked',await js('Boolean(document.querySelector("a[href*=github.com]"))'));
+ check('public GitHub repository linked',await js('Boolean([...document.querySelectorAll("a")].some(a=>a.href.includes("github.com")))'));
  await click('#abrir');await loaded();
  check('front desk link opens app',await js('location.pathname.endsWith("/app.html")'));
  check('cart starts empty',(await state()).lines.length===0);
