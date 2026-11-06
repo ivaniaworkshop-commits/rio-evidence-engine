@@ -5,6 +5,7 @@ and an actual deployment require independent authorized evidence.
 """
 from __future__ import annotations
 import argparse
+import fnmatch
 import json
 import re
 import sys
@@ -34,7 +35,11 @@ def matching(rule,branch):
     includes=refs.get("include")
     excludes=refs.get("exclude")
     return isinstance(includes,list) and branch in includes and (
-      isinstance(excludes,list) and branch not in excludes and "~ALL" not in excludes
+      isinstance(excludes,list) and all(
+        isinstance(pattern,str) and pattern!="~ALL" and
+        not fnmatch.fnmatchcase(branch,pattern)
+        for pattern in excludes
+      )
     )
 
 def assess(rulesets, branch=TARGET_REF, repository=EXPECTED_REPO):
@@ -44,7 +49,7 @@ def assess(rulesets, branch=TARGET_REF, repository=EXPECTED_REPO):
         reject("RULESETS_MUST_BE_LIST")
     active=[x for x in rulesets if matching(x,branch)]
     if not active:
-        return report("BLOCKED_NO_EXACT_ACTIVE_RELEASE_RULESET",0,[],[])
+        return report("BLOCKED_NO_EXACT_ACTIVE_RELEASE_RULESET",0,[],sorted(REQUIRED))
     found=set()
     # Require the complete protection contract to be in one release ruleset
     # rather than mixing controls from unrelated, less-specific rulesets.

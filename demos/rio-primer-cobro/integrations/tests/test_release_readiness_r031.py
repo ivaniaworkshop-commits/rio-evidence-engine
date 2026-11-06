@@ -26,7 +26,10 @@ def ruleset(**kwargs):
 
 class CandidateGate(unittest.TestCase):
     def test_empty_rule_list_denies(self):
-        self.assertEqual(assess([])["result"],"BLOCKED_NO_EXACT_ACTIVE_RELEASE_RULESET")
+        result=assess([])
+        self.assertEqual(result["result"],"BLOCKED_NO_EXACT_ACTIVE_RELEASE_RULESET")
+        self.assertEqual(set(result["missing_required_rule_types"]),
+                         {"pull_request","deletion","non_fast_forward","required_status_checks"})
     def test_main_protection_does_not_protect_candidate(self):
         x=ruleset(conditions={"ref_name":{"include":["refs/heads/main"],"exclude":[]}})
         self.assertFalse(matching(x,TARGET_REF))
@@ -39,6 +42,10 @@ class CandidateGate(unittest.TestCase):
         self.assertFalse(matching(x,TARGET_REF))
     def test_exact_branch_excluded(self):
         x=ruleset(conditions={"ref_name":{"include":[TARGET_REF],"exclude":[TARGET_REF]}})
+        self.assertFalse(matching(x,TARGET_REF))
+        x["conditions"]["ref_name"]["exclude"]=["refs/heads/candidate/*"]
+        self.assertFalse(matching(x,TARGET_REF))
+        x["conditions"]["ref_name"]["exclude"]=["~ALL"]
         self.assertFalse(matching(x,TARGET_REF))
     def test_bypass_never_allowed(self):
         x=ruleset(bypass_actors=[{"actor_id":1,"bypass_mode":"always"}])
