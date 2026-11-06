@@ -458,8 +458,8 @@
     },
     {
       "path": "demos/rio-primer-cobro/tests/test_pey_r027.mjs",
-      "bytes": 5431,
-      "sha256": "a705aa98fe065beb7bf2aae76c82cec8d55e0306ebbc413fb986f900da64c722"
+      "bytes": 5445,
+      "sha256": "9b1f3e544b78392359b49614923cd4188eda12bab07faa7756d41edc3da30632"
     },
     {
       "path": "demos/rio-primer-cobro/tests/test_qr_matrix.py",
