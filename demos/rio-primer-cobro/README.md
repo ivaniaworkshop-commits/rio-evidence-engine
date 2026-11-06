@@ -1,3 +1,7 @@
+> **🌐 Acceso público — R016 Front Desk:** [Abrir RÍO Primer Cobro](https://rio-primer-cobro-frontdesk.vercel.app/) · [Ir directamente a la caja](https://rio-primer-cobro-frontdesk.vercel.app/app.html) · [Código del front desk](./frontdesk/README.md).
+>
+> Sitio estático educativo. QR no pagable; sin conexión financiera. Publicación de Vercel independiente del PR: no constituye fusión a main.
+
 # 🌊 RÍO Primer Cobro — R015
 
 Aplicación educativa **offline**, de interfaz móvil. Permite carrito por pieza/peso, cobro de efectivo **declarado manualmente**, QR **NO PAGABLE**, tickets, compartir mediante correo/WhatsApp a elección del usuario, historial local y respaldo JSON. No conecta a bancos ni a pey/CoDi.
