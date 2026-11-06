@@ -28,6 +28,8 @@ jobs:
         run: python3 scripts/verify_manifest.py
       - name: Commercial calculation and chat regressions
         run: node demos/rio-primer-cobro/tests/test_logic.mjs
+      - name: Verify Pey offline emulation contract and reject real bank data
+        run: node --test demos/rio-primer-cobro/tests/test_pey_r026.mjs
       - name: Verify and stage immutable front desk
         run: python3 demos/rio-primer-cobro/frontdesk/verify_release.py
       - name: Test anonymous HTTP observer against local mock server
@@ -130,6 +132,7 @@ jobs:
         run: |
           python3 scripts/verify_manifest.py
           node demos/rio-primer-cobro/tests/test_logic.mjs
+          node --test demos/rio-primer-cobro/tests/test_pey_r026.mjs
           python3 demos/rio-primer-cobro/frontdesk/verify_release.py
       - name: Verify effective release branch ruleset before exposing deploy token
         shell: bash

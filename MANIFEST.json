@@ -8,8 +8,8 @@
     },
     {
       "path": ".github/workflows/rio-primer-cobro-deploy.yml",
-      "bytes": 12783,
-      "sha256": "eadc92441763e17eebbc3b2ba1dd235abd6213fd03646c1a53e8b3b6241c277c"
+      "bytes": 13002,
+      "sha256": "c2b282c20cd9d8110c7d4738a5267ab7a316f6b6aa89653e0b93315ded26206a"
     },
     {
       "path": ".github/workflows/rio-r021-candidate-rehearsal.yml",
@@ -322,6 +322,16 @@
       "sha256": "34ff53fd24f21ba9619a1878484e383158cb5f736e5beede8fa88c1472f7d6ca"
     },
     {
+      "path": "demos/rio-primer-cobro/integrations/R026_PEY_EMULATED_CONTRACT.md",
+      "bytes": 3610,
+      "sha256": "9f66c72c7204711a4c54576890ce738e0c0a71ce458d7b0c7a8fc6f7034df815"
+    },
+    {
+      "path": "demos/rio-primer-cobro/integrations/pey_emulated_r026.mjs",
+      "bytes": 5215,
+      "sha256": "cd65e54f6a7aac8509d72fb628f69ed4c58c8574672997375ddfef08b2ca7e0d"
+    },
+    {
       "path": "demos/rio-primer-cobro/reports/R013_E2E.json",
       "bytes": 3818,
       "sha256": "dfeed030c2ae017fcf86ae17d9445dd3212a59ab4a05ed86ba6657097d9a23af"
@@ -430,6 +440,11 @@
       "path": "demos/rio-primer-cobro/tests/test_persistence_r014.mjs",
       "bytes": 4815,
       "sha256": "f8cfe7830c10e6dccc8d61e38fa0ce6964f2918186c7ffa38a144f750cf69878"
+    },
+    {
+      "path": "demos/rio-primer-cobro/tests/test_pey_r026.mjs",
+      "bytes": 4517,
+      "sha256": "8c974e49ef9ff68ef6fcaa6ee8ae74dab6f00f5b541043a8cfabe042f41ce222"
     },
     {
       "path": "demos/rio-primer-cobro/tests/test_qr_matrix.py",
