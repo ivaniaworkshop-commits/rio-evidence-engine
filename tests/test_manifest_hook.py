@@ -65,7 +65,7 @@ class ManifestHookTests(unittest.TestCase):
         self.run_git('rm', '-q', 'MANIFEST.json')
         result = self.run_git('commit', '-qm', 'missing-manifest', check=False)
         self.assertNotEqual(result.returncode, 0)
-        self.assertIn('STAGED_MANIFEST_MISMATCH', result.stderr)
+        self.assertIn('MANIFEST_NOT_STAGED', result.stderr)
 
 
 if __name__ == '__main__':

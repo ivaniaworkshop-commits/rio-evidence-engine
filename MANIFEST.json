@@ -898,8 +898,8 @@
     },
     {
       "path": "tests/test_manifest_hook.py",
-      "bytes": 3008,
-      "sha256": "b84a98e8e5613c36318d6296516c2c9481ecc1b0c43d08c0e1e4b43e9727fefc"
+      "bytes": 3003,
+      "sha256": "fee2d0d17578af091199dc398fc8a2cb9d245f8b23dbba7d914085919db06e5f"
     },
     {
       "path": "tests/test_metamorphic_sum.py",
