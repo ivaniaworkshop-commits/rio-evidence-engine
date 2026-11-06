@@ -203,8 +203,8 @@
     },
     {
       "path": "demos/rio-primer-cobro/frontdesk/tests/test_public_checkout.mjs",
-      "bytes": 7176,
-      "sha256": "63ed80ea8bf3cce05d09b493fead74a10ce6a1614c0dc535fabf59d25b46e4af"
+      "bytes": 9111,
+      "sha256": "9131e352c3af68535adc578cf8a068ce4874b2852120351ec0b585d6d197d3af"
     },
     {
       "path": "demos/rio-primer-cobro/frontdesk/tests/test_public_site.py",
