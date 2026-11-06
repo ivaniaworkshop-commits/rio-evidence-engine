@@ -7,7 +7,7 @@ import {join} from 'node:path';
 import {setTimeout as delay} from 'node:timers/promises';
 const configuredBase=process.env.RIO_TEST_BASE_URL||'https://rio-primer-cobro-frontdesk.vercel.app/';
 const parsedBase=new URL(configuredBase);
-const hostOK=parsedBase.hostname==='rio-primer-cobro-frontdesk.vercel.app'||/^rio-primer-cobro-frontdesk-[a-z0-9]+-ivaniaworkshop-6855\\.vercel\\.app$/.test(parsedBase.hostname);
+const hostOK=parsedBase.hostname==='rio-primer-cobro-frontdesk.vercel.app'||/^rio-primer-cobro-frontdesk-[a-z0-9]+-ivaniaworkshop-6855\.vercel\.app$/.test(parsedBase.hostname);
 if(parsedBase.protocol!=='https:'||!hostOK||parsedBase.username||parsedBase.password||parsedBase.pathname!=='/'||parsedBase.search||parsedBase.hash||parsedBase.port)throw Error('UNAPPROVED_RIO_TEST_BASE_URL');
 const base=parsedBase.origin+'/';
 const chrome=process.env.CHROME_BIN||'google-chrome';
