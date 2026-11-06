@@ -28,8 +28,8 @@ jobs:
           mkdir -p output/rio-r025
           gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/42199945830" > output/rio-r025/run.json
           gh api "/repos/${GITHUB_REPOSITORY}/actions/artifacts/13492779462" > output/rio-r025/metadata.json
-          gh api "/repos/${GITHUB_REPOSITORY}/actions/artifacts/13492779462/zip" > output/rio-r025/source-artifact.zip
-          gh api "/repos/${GITHUB_REPOSITORY}/actions/jobs/127832534471/logs" > output/rio-r025/source-job.log
+          gh api --allow-escape-sequences "/repos/${GITHUB_REPOSITORY}/actions/artifacts/13492779462/zip" > output/rio-r025/source-artifact.zip
+          gh api --allow-escape-sequences "/repos/${GITHUB_REPOSITORY}/actions/jobs/127832534471/logs" > output/rio-r025/source-job.log
       - name: Verify digest, exact contents, provenance and real failed-step logs
         shell: bash
         run: |
