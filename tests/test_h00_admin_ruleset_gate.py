@@ -275,20 +275,38 @@ class RulesetGateTests(unittest.TestCase):
             self.assertEqual(data["failure_codes"],
                              ["required_status_checks_present"])
 
-    def test_workflow_wires_policy_as_read_only_job(self):
-        wf = (Path(__file__).resolve().parents[1] /
-              ".github/workflows/h00-integrity.yml").read_text(encoding="utf-8")
-        section = wf.split("\n  admin-policy:\n")
-        self.assertEqual(len(section), 2)
-        body = section[1].split("\n  attest-receipts:", 1)[0]
-        self.assertIn("name: H00 admin policy gate (read-only)", body)
-        self.assertIn("contents: read", body)
-        self.assertNotIn("contents: write", body)
-        self.assertNotIn("attestations: write", body)
-        self.assertNotIn("id-token: write", body)
-        self.assertIn("python3 -m scripts.h00_admin_ruleset_gate", body)
-        self.assertIn("if: always()", body)
-        self.assertIn("h00-admin-policy-", body)
+    def test_policy_diagnostic_is_separate_read_only_workflow(self):
+        root = Path(__file__).resolve().parents[1]
+        tech = (root / ".github/workflows/h00-integrity.yml").read_text(encoding="utf-8")
+        diag = (root / ".github/workflows/h00-admin-policy.yml").read_text(encoding="utf-8")
+        self.assertNotIn("\n  admin-policy:\n", tech)
+        self.assertNotIn("python3 -m scripts.h00_admin_ruleset_gate", tech)
+        self.assertNotIn("h00-admin-policy-", tech)
+        self.assertIn("\n  admin-policy:\n", diag)
+        self.assertIn("name: H00 admin policy gate (read-only)", diag)
+        self.assertIn("contents: read", diag)
+        self.assertNotIn("contents: write", diag)
+        self.assertNotIn("attestations: write", diag)
+        self.assertNotIn("id-token: write", diag)
+        self.assertIn("python3 -m scripts.h00_admin_ruleset_gate", diag)
+        self.assertIn("if: always()", diag)
+        self.assertIn("h00-admin-policy-", diag)
+
+    def test_diagnostic_is_not_required_merge_workflow(self):
+        root = Path(__file__).resolve().parents[1]
+        tech = (root / ".github/workflows/h00-integrity.yml").read_text(encoding="utf-8")
+        diag = (root / ".github/workflows/h00-admin-policy.yml").read_text(encoding="utf-8")
+        self.assertTrue(diag.startswith(
+            "name: H00 administrative ruleset diagnostic (read-only)\non:\n  pull_request:\n"))
+        self.assertNotIn("\n  push:\n", diag)
+        self.assertNotIn("\n  workflow_dispatch:\n", diag)
+        self.assertIn("\n  verify:\n", tech)
+        self.assertIn("\n  strict-torch:\n", tech)
+        self.assertIn("\n  cross-audit:\n", tech)
+        self.assertIn("\n  attest-receipts:\n", tech)
+        self.assertNotIn("\n  attest-receipts:\n", diag)
+        self.assertNotIn("continue-on-error:", diag)
+        self.assertIn("R023 verify effective main ruleset via GitHub API (fail closed)", diag)
 
 
 if __name__ == "__main__":

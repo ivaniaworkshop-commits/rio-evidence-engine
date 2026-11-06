@@ -2,9 +2,14 @@
   "scope": "SOURCE_BYTES_NOT_TRUTH_OR_AUTHENTICITY",
   "files": [
     {
+      "path": ".github/workflows/h00-admin-policy.yml",
+      "bytes": 1266,
+      "sha256": "ac7cce3b556c990d28496cd8ae4a0b7c9d37d5bb44fcfd61c4d898e54d1b2cea"
+    },
+    {
       "path": ".github/workflows/h00-integrity.yml",
-      "bytes": 22578,
-      "sha256": "f8be74b940f482cd6dcf3c25500573b05c3f03c58ffed4bbf0ecbd54b8bba914"
+      "bytes": 21424,
+      "sha256": "e252321b9958d8929f702822085352bf9fac8c892f1e7bbadb21f19ebf3a50a8"
     },
     {
       "path": ".gitignore",
@@ -88,8 +93,8 @@
     },
     {
       "path": "evaluation/H00_AUTHENTICATION_R002.md",
-      "bytes": 19028,
-      "sha256": "b2d15d3c3d794ab8433625cac369898fef9f625ea4bd463e19aa35a071dd4ae5"
+      "bytes": 20875,
+      "sha256": "aa112c7ed5c2bd8e41e80547bfdf5baa99cef86279733f5187e2d95a1ede05a9"
     },
     {
       "path": "evaluation/H07_GATE_R001.md",
@@ -868,8 +873,8 @@
     },
     {
       "path": "tests/test_h00_admin_ruleset_gate.py",
-      "bytes": 13380,
-      "sha256": "2c308dd73652cd65218f82ad3680df2f5d91a0e8d6eb3c0a1d8352a2d1b93cd2"
+      "bytes": 14514,
+      "sha256": "89020aff57a41f73f070f79a4eccc6dc0b54b13dff2acc8a8c9b22ca62536c8b"
     },
     {
       "path": "tests/test_h00_ci_receipt.py",
