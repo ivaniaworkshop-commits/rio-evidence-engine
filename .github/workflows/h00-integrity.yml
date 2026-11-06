@@ -20,6 +20,9 @@ jobs:
             exit 2
           fi
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6 (Node.js 24)
+      - name: H00 verify PR checkout parent binding
+        if: ${{ github.event_name == 'pull_request' }}
+        run: python3 -m scripts.h00_pr_checkout --output output/h00/pr-checkout.json
       - name: Verify complete source inventory and byte hashes
         run: python3 scripts/verify_manifest.py
       - name: Run test suite; report skips explicitly
@@ -122,6 +125,7 @@ jobs:
           if-no-files-found: warn
           path: |
             output/h00/verify-receipt.json
+            output/h00/pr-checkout.json
             /tmp/h08.json
             /tmp/h11_blocked.json
             /tmp/h11_h09.json
@@ -144,6 +148,9 @@ jobs:
             exit 2
           fi
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6 (Node.js 24)
+      - name: H00 verify PR checkout parent binding
+        if: ${{ github.event_name == 'pull_request' }}
+        run: python3 -m scripts.h00_pr_checkout --output output/h00/pr-checkout.json
       - name: Verify source before installing dependencies
         run: python3 scripts/verify_manifest.py
       - name: Install declared optional CPU runtime
@@ -183,6 +190,7 @@ jobs:
           if-no-files-found: warn
           path: |
             output/h00/strict-receipt.json
+            output/h00/pr-checkout.json
             /tmp/h00_strict_tests.log
 
   attest-receipts:

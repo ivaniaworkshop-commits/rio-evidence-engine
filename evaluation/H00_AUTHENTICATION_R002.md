@@ -75,3 +75,11 @@ El valor de la atestación alcanza: *"estos bytes fueron atestados por un workfl
 ### Corrección R015 tras prueba real
 
 Las ejecuciones 42199523148 y 42199986207 rechazaron la igualdad obligatoria entre merge_commit_sha del payload y GITHUB_SHA del checkout. El segundo run identificó PR_CHECKOUT_MERGE_SHA_MISMATCH. El recibo conserva event_merge_matches_checkout y declara checkout_parent_binding=NOT_VERIFIED_BY_RECEIPT. La correspondencia real de padres fue comprobada separadamente con la API GitHub, no acreditada por este recibo.
+
+## R016 — prueba de padres del checkout sintético
+
+Los dos jobs de validación previa al merge (`verify` y `strict-torch`) ejecutan `python3 -m scripts.h00_pr_checkout --output output/h00/pr-checkout.json` inmediatamente después del checkout. El verificador lee `git rev-parse HEAD` y las cabeceras reales del objeto `git cat-file -p HEAD`; funciona también con `fetch-depth: 1`, a diferencia de un `rev-list --parents` sobre un clon superficial.
+
+Una ejecución pasa únicamente si `GITHUB_SHA` coincide con `HEAD`, el commit tiene **exactamente dos padres**, el primero coincide con el SHA de base y el segundo con el SHA de head del evento PR. Cualquier discrepancia da exit 2 y deja diagnóstico con `reason_code`. La diferencia histórica `event_merge_matches_checkout=false` permanece consultiva, nunca una identidad acreditada.
+
+Los artefactos H00 de ambos jobs incorporan `pr-checkout.json`. La procedencia es `RUNNER_GIT_OBJECT_AND_EVENT_NOT_INDEPENDENT`: corrobora genealogía de checkout en el runner pero no autentica revisión, ruleset ni producción. Son once regresiones nuevas, con checkout superficial y rechazos adversariales. `main` no cambia y el PR #26 sigue sin fusionar.
