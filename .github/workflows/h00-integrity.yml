@@ -170,7 +170,7 @@ jobs:
   attest-receipts:
     name: Attest H00 CI receipts (GitHub OIDC + Sigstore)
     needs: [verify, strict-torch]
-    if: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository }}
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.ref_protected == true }}
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     permissions:
@@ -279,6 +279,7 @@ jobs:
   verify-attestation:
     name: Verify Sigstore signature with read-only CI principal
     needs: [attest-receipts]
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.ref_protected == true }}
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     permissions:

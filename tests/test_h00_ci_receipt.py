@@ -78,5 +78,50 @@ class H00ReceiptTests(unittest.TestCase):
         self.assertEqual(build_receipt("verify", "success", self.root, env=ENV)["status"], "INCOMPLETE_OR_FAILED")
 
 
+class H00WorkflowTrustBoundaryTests(unittest.TestCase):
+    """Static fail-closed guard: a PR may run CI but must never mint an attestation."""
+
+    GUARD = "    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.ref_protected == true }}"
+
+    @classmethod
+    def setUpClass(cls):
+        import re
+        cls.source = (Path(__file__).resolve().parents[1] /
+                      ".github/workflows/h00-integrity.yml").read_text(encoding="utf-8")
+        parts = list(re.finditer(r"(?m)^  ([A-Za-z][A-Za-z0-9_-]*):\s*$", cls.source))
+        cls.jobs = {m.group(1): cls.source[m.start():parts[i+1].start() if i+1 < len(parts)
+                                             else len(cls.source)]
+                    for i, m in enumerate(parts)}
+
+    def test_signer_main_protected_push_only(self):
+        signer = self.jobs["attest-receipts"]
+        self.assertEqual([line for line in signer.splitlines() if line.startswith("    if: ")],
+                         [self.GUARD])
+        self.assertIn("    needs: [verify, strict-torch]", signer)
+        self.assertIn("      id-token: write", signer)
+        self.assertIn("      attestations: write", signer)
+
+    def test_verification_is_post_merge_only(self):
+        verifier = self.jobs["verify-attestation"]
+        self.assertEqual([line for line in verifier.splitlines() if line.startswith("    if: ")],
+                         [self.GUARD])
+        self.assertIn("    needs: [attest-receipts]", verifier)
+        self.assertNotIn("      id-token: write", verifier)
+        self.assertNotIn("      attestations: write", verifier)
+
+    def test_only_signer_has_signature_permissions(self):
+        for name, block in self.jobs.items():
+            if name != "attest-receipts":
+                self.assertNotIn("      id-token: write", block, name)
+                self.assertNotIn("      attestations: write", block, name)
+
+    def test_pre_merge_jobs_remain_available(self):
+        self.assertIn("  pull_request:", self.source)
+        self.assertIn("    branches: [main]", self.source)
+        for name in ("verify", "strict-torch"):
+            self.assertIn(name, self.jobs)
+            self.assertNotIn("      attestations: write", self.jobs[name])
+
+
 if __name__ == "__main__":
     unittest.main()

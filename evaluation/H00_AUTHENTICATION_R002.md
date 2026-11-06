@@ -9,7 +9,7 @@ Estado: **implementación candidata en PR, no promoción**. Esto autentica la **
 3. Solo ese job tiene `id-token: write` y `attestations: write`. `actions/attest-build-provenance` usa identidad OIDC GitHub y la cadena de confianza Sigstore para emitir una atestación de los bytes exactos de `verify-receipt.json` y `strict-receipt.json`.
 4. `verify-attestation`, sin permisos OIDC ni de escritura, comprueba criptográficamente ambos sujetos con `gh attestation verify`; obliga a identificar repositorio, workflow firmante y digest de código fuente.
 5. Los bundles y resultados de verificación se publican como artefactos. La retención es de 30 días; conservar externamente los paquetes si se necesita prueba histórica.
-6. Se permiten atestaciones de `push` a `main` y PRs internos, pero **no** se emiten desde PRs originados en forks con permisos de firma. La validez de la firma no convierte un PR en código aprobado.
+6. **R012:** únicamente se emiten atestaciones al ejecutar `push` en `refs/heads/main` con `github.ref_protected == true`. Los PR internos y de forks producen recibos para diagnóstico, **no** una firma. Que GitHub marque una referencia como protegida no acredita por sí mismo una revisión independiente ni la política completa.
 
 ## Comprobación independiente, fuera del runner
 
@@ -41,3 +41,12 @@ Después comprobar `run.id`, `run.attempt`, `run.sha`, estado y SHA-256 de cada 
 - Sin una atestación real descargable y una verificación válida, el estado es `AUTHENTICATION_PENDING`, no `AUTHENTICATED`.
 
 El valor de la atestación alcanza: *"estos bytes fueron atestados por un workflow identificable con identidad respaldada por GitHub"*. No alcanza: *"todo el experimento fue probado por un evaluador independiente"*.
+
+## R012 — separación de checks y firma (política candidata, PR #26)
+
+- **Antes del merge (PR):** los jobs `verify` y `strict-torch` ejecutan los gates y publican recibos; `attest-receipts` y `verify-attestation` se omiten deliberadamente. La omisión no es un `PASS` de firma.
+- **Después del merge (push a main):** sólo se permite firmar cuando `github.ref_protected == true`; después el job de verificación read-only valida ambos recibos del mismo run.
+- **Advertencia de autoridad:** `github.ref_protected` no prueba que el ruleset incluya los cuatro checks, revisión independiente o ausencia de bypass. Se requiere readback administrativo y control de cambios antes de llamar confiable al workflow.
+- **Regla de checks propuesta para PR:** exigir `verify` y `strict-torch` como prerrequisitos de integración, más revisión por persona distinta del autor y reglas de rama. No exigir los dos jobs posteriores al merge como checks de PR. Un check omitido puede aparecer como resultado aceptable en GitHub y **no prueba emisión de firma**.
+- **Procedencia histórica:** la atestación del run 42180299757 sigue siendo válida para `refs/pull/26/merge`; no debe reclasificarse retrospectivamente como atestación de `main` protegida.
+- **Protección remota:** no está activada; `H08=BLOCKED_NO_EXTERNAL_HOLDOUT`, `candidate_promoted=false` y `production_ready=false` no cambian.
