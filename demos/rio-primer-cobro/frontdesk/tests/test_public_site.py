@@ -64,5 +64,18 @@ class CheckPublicSite(unittest.TestCase):
     def test_url_path_rejected(self):
         with self.assertRaisesRegex(ValueError, 'BAD_BASE_URL'):
             valid_base('https://rio-primer-cobro-frontdesk.vercel.app/private')
+    def test_other_vercel_project_rejected(self):
+        with self.assertRaisesRegex(ValueError, 'BAD_BASE_URL'):
+            valid_base('https://unrelated-project.vercel.app')
+    def test_known_candidate_hostname_allowed(self):
+        self.assertEqual(
+            valid_base('https://rio-primer-cobro-frontdesk-o6k25ltke-ivaniaworkshop-6855.vercel.app/'),
+            'https://rio-primer-cobro-frontdesk-o6k25ltke-ivaniaworkshop-6855.vercel.app')
+    def test_newline_in_url_rejected(self):
+        with self.assertRaisesRegex(ValueError, 'BAD_BASE_URL'):
+            valid_base('https://rio-primer-cobro-frontdesk.vercel.app/\\nattack')
+    def test_public_port_rejected(self):
+        with self.assertRaisesRegex(ValueError, 'BAD_BASE_URL'):
+            valid_base('https://rio-primer-cobro-frontdesk.vercel.app:443/')
 
 if __name__ == '__main__': unittest.main()
