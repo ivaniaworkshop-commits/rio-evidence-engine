@@ -168,19 +168,21 @@ jobs:
           test -n "${VERCEL_TOKEN:-}" || { echo "::error::Missing VERCEL_TOKEN in protected environment"; exit 2; }
           candidate="$(vercel deploy --prod --yes --skip-domain --cwd output/rio-primer-cobro | tail -n 1)"
           python3 - "$candidate" <<'PY'
-          from urllib.parse import urlparse
           import sys
-          p = urlparse(sys.argv[1])
-          if (p.scheme != "https" or not p.hostname or
-              not p.hostname.endswith(".vercel.app") or p.username or p.password or
-              p.path not in ("", "/") or p.query or p.fragment):
-              raise SystemExit("INVALID_STAGING_URL")
+          from pathlib import Path
+          sys.path.insert(0, str(Path("demos/rio-primer-cobro/frontdesk").resolve()))
+          from check_public_site import valid_base, DEFAULT_URL
+          url = sys.argv[1]
+          if url != valid_base(url) or url == DEFAULT_URL:
+              raise SystemExit("INVALID_STAGING_URL_FOR_THIS_PROJECT")
           PY
           printf 'url=%s\n' "$candidate" >> "$GITHUB_OUTPUT"
       - name: Read back candidate bytes independently of Vercel credentials
+        env:
+          RIO_CANDIDATE_URL: ${{ steps.stage.outputs.url }}
         run: |
           python3 demos/rio-primer-cobro/frontdesk/check_public_site.py \
-            --base-url "${{ steps.stage.outputs.url }}" \
+            --base-url "$RIO_CANDIDATE_URL" \
             --source output/rio-primer-cobro --mode exact
       - name: Rehearse both payment paths on staged production candidate
         env:
@@ -190,10 +192,11 @@ jobs:
         shell: bash
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          RIO_CANDIDATE_URL: ${{ steps.stage.outputs.url }}
         run: |
           set -euo pipefail
           test -n "${VERCEL_TOKEN:-}" || exit 2
-          vercel promote "${{ steps.stage.outputs.url }}" --yes
+          vercel promote "$RIO_CANDIDATE_URL" --yes
       - name: Confirm live alias serves the same release anonymously
         run: |
           python3 demos/rio-primer-cobro/frontdesk/check_public_site.py \
