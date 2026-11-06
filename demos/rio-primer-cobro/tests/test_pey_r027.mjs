@@ -1,0 +1,40 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import {SCHEMA,providerEvidenceMatrix,compareProviderContracts,
+  assessProductionEligibility,classifyUnverifiedPaymentSignal} from "../integrations/pey_evidence_r027.mjs";
+const readiness={providerId:"PEY_CANDIDATE",officialContractVerified:false,sandboxObserved:false,
+  merchantAuthorizationVerified:false,webhookVerificationObserved:false,
+  settlementReconciliationObserved:false,secretEnvironmentProtected:false,githubReleaseAuthorized:false};
+const signal={kind:"QR_RENDERED",origin:"SYNTHETIC_TEST",referenceId:"RIO_R027_1",reportedAtMs:1800000000000};
+test("schema is stable",()=>assert.equal(providerEvidenceMatrix().schema,SCHEMA));
+test("historical Pey claims remain nonofficial",()=>assert.equal(providerEvidenceMatrix().officialPeyDocumentation,"NOT_VERIFIED"));
+test("Pey route distinct from CoDi project route",()=>assert.equal(compareProviderContracts().qrRoute.same,false));
+test("Pey auth distinct from third party CoDi auth",()=>assert.equal(compareProviderContracts().authScheme.same,false));
+test("provider equivalence never inferred",()=>assert.equal(providerEvidenceMatrix().equivalence,"NOT_ESTABLISHED"));
+test("third party source is not Pey",()=>assert.equal(compareProviderContracts().compatibility,"UNVERIFIED_NOT_INTERCHANGEABLE"));
+test("no automatic field mapping",()=>assert.equal(compareProviderContracts().automaticFieldMapping,false));
+test("historical QR minimum is claim not runtime",()=>{const x=providerEvidenceMatrix().claims.find(x=>x.field==="minimumQrValidity");assert.match(x.authority,/UNVERIFIED/);});
+test("Pey webhook signature unknown",()=>assert.equal(providerEvidenceMatrix().claims.find(x=>x.provider==="PEY_CANDIDATE"&&x.field==="webhookSignature").value,"UNKNOWN"));
+test("no sandbox has been observed",()=>assert.equal(providerEvidenceMatrix().externalBankConnectivity,"NOT_OBSERVED"));
+test("caller false claims always blocked",()=>assert.equal(assessProductionEligibility(readiness).enabled,false));
+test("caller true claims still cannot authorize",()=>{const flags=Object.fromEntries(Object.entries(readiness).map(([k,v])=>[k,typeof v==="boolean"?true:v]));const r=assessProductionEligibility(flags);assert.equal(r.claimedReady,true);assert.equal(r.enabled,false);assert.match(r.authorization,/UNTRUSTED/);});
+test("bank account creation forbidden",()=>assert.equal(assessProductionEligibility(readiness).mayRegisterBankAccount,false));
+test("real QR creation forbidden",()=>assert.equal(assessProductionEligibility(readiness).mayCreateRealQr,false));
+test("real fund reception forbidden",()=>assert.equal(assessProductionEligibility(readiness).mayReceiveFunds,false));
+test("caller cannot add CLABE",()=>assert.throws(()=>assessProductionEligibility({...readiness,clabe:"REDACTED_INVALID_FIXTURE"}),/UNRECOGNIZED/));
+test("caller cannot add beneficiary",()=>assert.throws(()=>assessProductionEligibility({...readiness,beneficiary:"x"}),/UNRECOGNIZED/));
+test("unknown provider rejected",()=>assert.throws(()=>assessProductionEligibility({...readiness,providerId:"MALICIOUS"}),/PROVIDER_ID_UNKNOWN/));
+test("missing flag rejected",()=>{const {sandboxObserved,...partial}=readiness;assert.throws(()=>assessProductionEligibility(partial),/CHECK_MISSING/);});
+test("nonboolean flag rejected",()=>assert.throws(()=>assessProductionEligibility({...readiness,sandboxObserved:"true"}),/CHECK_MISSING/));
+test("rendered QR does not confirm payment",()=>assert.equal(classifyUnverifiedPaymentSignal(signal).realPaymentConfirmed,false));
+test("claimed webhook signature does not confirm payment",()=>assert.equal(classifyUnverifiedPaymentSignal({...signal,kind:"WEBHOOK_SIGNATURE_CLAIMED"}).paymentState,"UNPAID_OR_UNKNOWN"));
+test("external settlement claim stays quarantined",()=>{const r=classifyUnverifiedPaymentSignal({...signal,origin:"EXTERNAL_UNVERIFIED",kind:"BANK_SETTLEMENT_CLAIMED"});assert.equal(r.disposition,"QUARANTINE_EXTERNAL_SIGNAL");assert.equal(r.bankSettlementConfirmed,false);});
+test("synthetic confirmation remains demo only",()=>assert.equal(classifyUnverifiedPaymentSignal({...signal,kind:"SIMULATED_CONFIRMATION"}).disposition,"DEMO_EVIDENCE_ONLY"));
+test("duplicate event not money",()=>assert.equal(classifyUnverifiedPaymentSignal({...signal,kind:"DUPLICATE_EVENT"}).mayIssuePaidReceipt,false));
+test("unknown event kind rejected",()=>assert.throws(()=>classifyUnverifiedPaymentSignal({...signal,kind:"PAID"}),/SIGNAL_KIND_INVALID/));
+test("banking account field rejected in external signal",()=>assert.throws(()=>classifyUnverifiedPaymentSignal({...signal,account:"x"}),/UNRECOGNIZED/));
+test("webhook body rejected",()=>assert.throws(()=>classifyUnverifiedPaymentSignal({...signal,payload:{paid:true}}),/UNRECOGNIZED/));
+test("arbitrary reference rejected",()=>assert.throws(()=>classifyUnverifiedPaymentSignal({...signal,referenceId:"123456789012345678"}),/UNSAFE_REFERENCE/));
+test("timestamp must be safe",()=>assert.throws(()=>classifyUnverifiedPaymentSignal({...signal,reportedAtMs:Infinity}),/TIMESTAMP_INVALID/));
+test("origin must be typed",()=>assert.throws(()=>classifyUnverifiedPaymentSignal({...signal,origin:"BANXICO_VERIFIED"}),/SIGNAL_ORIGIN_INVALID/));
+test("provider data contains no real account information",()=>{const s=JSON.stringify(providerEvidenceMatrix());assert.equal(s.includes("012180015826225713"),false);assert.equal(s.includes("Ramón"),false);});
