@@ -40,3 +40,6 @@ input:not([type=radio]):not([type=checkbox]),select,textarea{border-radius:13px;
 
 /* R013 mobile actions never clip labels */
 .ticket-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.ticket-actions .btn{min-width:0;width:100%;white-space:normal;overflow-wrap:anywhere;text-align:center}.ticket-actions a.btn{white-space:normal;line-height:1.3}.ticket-actions .btn:last-child{grid-column:1/-1}
+
+/* R014: historial táctil y respaldo local */
+.history-list{display:grid;gap:9px;margin:14px 0}.history-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px;border:1px solid var(--border,#dbe2ed);border-radius:14px;background:var(--panel,#fff)}.history-row>div{display:grid;gap:4px;min-width:0}.history-row strong{overflow-wrap:anywhere}.history-row small{display:block;overflow-wrap:anywhere}.history-row button{flex-shrink:0}.file-label{display:inline-flex;align-items:center;justify-content:center;cursor:pointer}#import-backup{position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden}#import-backup:focus-visible+.file-label{outline:3px solid #2563eb}@media(max-width:410px){.history-row{flex-direction:column;align-items:stretch}.history-row button{width:100%}}
