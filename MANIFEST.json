@@ -44,7 +44,7 @@
     {
       "path": ".github/workflows/rio-r031-candidate-readiness.yml",
       "bytes": 3202,
-      "sha256": "e75a00b92be748bba86c42ed2a5f86b3daf26241397c61c4d973e94f1d718395"
+      "sha256": "5f86a29a000738933e74e9dcedd64e69038e25e0b20737bf2209a0e0a35af1e8"
     },
     {
       "path": ".gitignore",
@@ -368,8 +368,8 @@
     },
     {
       "path": "demos/rio-primer-cobro/integrations/R031_CANDIDATE_RELEASE.md",
-      "bytes": 1979,
-      "sha256": "ea1c3a600bbf155d820200586be467bd3b6110ea72ab29fd8cd444f515f7debd"
+      "bytes": 2283,
+      "sha256": "e1c572f4119cb8c63e5f56628756016ed72288178967fde0072d8a488da9a05e"
     },
     {
       "path": "demos/rio-primer-cobro/integrations/audit_legacy_refs_r029.py",
@@ -388,8 +388,8 @@
     },
     {
       "path": "demos/rio-primer-cobro/integrations/release_readiness_r031.py",
-      "bytes": 5861,
-      "sha256": "e141ab490456e4391d43471d0af974c4406dbdd7d8b3fff4ee6d3e1cc3ed512f"
+      "bytes": 6269,
+      "sha256": "29d3617ab328accfe92c7d86757c62705a60b4dc7654879b432be55a0cb45b82"
     },
     {
       "path": "demos/rio-primer-cobro/integrations/tests/test_legacy_refs_r029.py",
@@ -403,8 +403,8 @@
     },
     {
       "path": "demos/rio-primer-cobro/integrations/tests/test_release_readiness_r031.py",
-      "bytes": 5986,
-      "sha256": "81cd663a2ed99524a4d392dde64f670e7a74fb03547725b46bdbfcce394adc40"
+      "bytes": 7377,
+      "sha256": "9ec48066f2785c3ced6890fe220001e3c71c46f5790368e9cd7adf1201497a65"
     },
     {
       "path": "demos/rio-primer-cobro/integrations/verify_privacy_lineage_r028.py",

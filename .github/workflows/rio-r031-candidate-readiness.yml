@@ -25,7 +25,7 @@ jobs:
           persist-credentials: false
       - name: SHA manifest and inventory
         run: python3 scripts/verify_manifest.py
-      - name: 18 adversarial R031 policy tests
+      - name: 23 adversarial R031 policy tests
         run: python3 -m unittest discover -s demos/rio-primer-cobro/integrations/tests -p 'test_release_readiness_r031.py' -v
       - name: Verify ancestor R030 in clean history
         run: |

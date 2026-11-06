@@ -11,7 +11,8 @@ The R031 read-only workflow:
 - Runs 18 synthetic, independent branch-ruleset policy tests.
 - Fetches active GitHub rulesets using Actions read-only credentials.
 - Checks a future exact branch ruleset for 1+ independent approval, deletion
-  protection, non-fast-forward rejection, at least one required CI check and no bypass.
+  protection, non-fast-forward rejection, both `verify` and `strict-torch`
+  required checks produced by GitHub Actions integration ID `15368`, and no bypass.
 - Writes a receipt. Even if rules match, it explicitly leaves protected
   environment, secrets, user identity, review and Vercel activation UNKNOWN/OFF.
 - Never accesses the Vercel token or calls `vercel deploy`, `promote`,
@@ -25,6 +26,9 @@ and reviewed status checks. Protect credentials in an approved GitHub environmen
 and enforce environment reviewers before any future workflow can deploy.
 
 Do not mark `PROTECTED` until the R031 readback shows a ruleset that applies.
+An arbitrary required check name, just one check or an unverified check producer
+does not satisfy the release contract. Both check contexts must be required on
+the candidate PR, and source-only contract verification is not a review.
 Do not mark `ACTIVE` merely because the policy gate passes—host identity,
 secret state, review and Vercel deployment must be independently observed.
 
