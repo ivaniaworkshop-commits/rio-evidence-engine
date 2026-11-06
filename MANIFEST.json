@@ -8,8 +8,8 @@
     },
     {
       "path": ".github/workflows/rio-primer-cobro-deploy.yml",
-      "bytes": 5988,
-      "sha256": "a81f69da9edf6a5a0214d964f939682810fb896634c1f5a27d2060bc9ca80bd5"
+      "bytes": 6152,
+      "sha256": "ad3544b0a19ca4e7e1fe0c76e37391f39ad79f30f8b927a40c9ceda7a02e131a"
     },
     {
       "path": ".gitignore",
@@ -200,6 +200,11 @@
       "path": "demos/rio-primer-cobro/frontdesk/test_public_chrome.py",
       "bytes": 2929,
       "sha256": "9f6d52e5f88c2ff99709c3287da6fc4321071a8e45b1db37d05e9eed60514a1d"
+    },
+    {
+      "path": "demos/rio-primer-cobro/frontdesk/tests/test_public_checkout.mjs",
+      "bytes": 7147,
+      "sha256": "70d90c4c494109483caba55ef42dc8fb84a51a7cf82cff017c44949bbb5a8192"
     },
     {
       "path": "demos/rio-primer-cobro/frontdesk/tests/test_public_site.py",
