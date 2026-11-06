@@ -14,7 +14,7 @@ import re
 import sys
 from pathlib import Path
 from urllib.parse import quote, urlparse
-from urllib.request import Request, urlopen
+from urllib.request import HTTPRedirectHandler, Request, build_opener
 
 from check_public_site import valid_base, DEFAULT_URL
 
@@ -159,6 +159,11 @@ def write_json(path: str | None, item: dict) -> None:
     print(json.dumps(item, ensure_ascii=False))
 
 
+class DenyAPIRedirect(HTTPRedirectHandler):
+    def redirect_request(self, request, fp, code, msg, headers, newurl):
+        raise FenceError("VERCEL_API_REDIRECT_BLOCKED")
+
+
 def api_get(path: str) -> dict:
     token = os.environ.get("VERCEL_TOKEN", "")
     if len(token) < 12 or "\n" in token:
@@ -170,7 +175,7 @@ def api_get(path: str) -> dict:
         "User-Agent": "RIO-RELEASE-FENCE-R022",
     })
     try:
-        with urlopen(request, timeout=18) as response:
+        with build_opener(DenyAPIRedirect()).open(request, timeout=18) as response:
             if response.status != 200:
                 raise FenceError("VERCEL_API_NON_200")
             data = response.read(262145)
