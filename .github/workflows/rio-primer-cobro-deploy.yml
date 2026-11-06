@@ -182,6 +182,10 @@ jobs:
           python3 demos/rio-primer-cobro/frontdesk/check_public_site.py \
             --base-url "${{ steps.stage.outputs.url }}" \
             --source output/rio-primer-cobro --mode exact
+      - name: Rehearse both payment paths on staged production candidate
+        env:
+          RIO_TEST_BASE_URL: ${{ steps.stage.outputs.url }}
+        run: node demos/rio-primer-cobro/frontdesk/tests/test_public_checkout.mjs
       - name: Promote only the candidate whose bytes matched
         shell: bash
         env:
