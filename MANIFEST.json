@@ -2,6 +2,11 @@
   "scope": "SOURCE_BYTES_NOT_TRUTH_OR_AUTHENTICITY",
   "files": [
     {
+      "path": ".githooks/pre-commit",
+      "bytes": 316,
+      "sha256": "b04d6aa062bac020c5bda4d64fcfc589aa1abc2b09590b837f4ba796d2e2ef61"
+    },
+    {
       "path": ".github/workflows/h00-integrity.yml",
       "bytes": 7368,
       "sha256": "f2d99bccae6608bdccc1ce7b2f8af608b515d8a3a745326b323715f56dbb545b"
@@ -13,8 +18,8 @@
     },
     {
       "path": "AGENTS.md",
-      "bytes": 1039,
-      "sha256": "c5d875795884f33f0a41f5da036d74dd855da42b761520fa01599240a267d620"
+      "bytes": 1460,
+      "sha256": "2c5e534a7dee630ce73b1b6985ebe716222b3ba2b06adadba3369bde1f83c574"
     },
     {
       "path": "BENCHMARK.json",
@@ -890,6 +895,11 @@
       "path": "tests/test_manifest.py",
       "bytes": 1613,
       "sha256": "74ba35e2f4798d7bc6771ebf808cd71324acbccb87269433fb274c373b3f5584"
+    },
+    {
+      "path": "tests/test_manifest_hook.py",
+      "bytes": 3008,
+      "sha256": "b84a98e8e5613c36318d6296516c2c9481ecc1b0c43d08c0e1e4b43e9727fefc"
     },
     {
       "path": "tests/test_metamorphic_sum.py",

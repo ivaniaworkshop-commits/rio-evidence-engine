@@ -5,3 +5,4 @@
 - For GitHub REST/Git Data authors: build **one tree** containing all source blobs plus the matching manifest blob, then create a **single** commit and update only the authorized feature/ref. Do not push intermediate source-only commits.
 - CI remains fail-closed; it MUST NOT regenerate or silently accept a manifest from untrusted source. Hashes prove byte identity, not approval or truth.
 - Never write directly to protected `main`, bypass an approval, invent deployment authority, or deploy during source repair.
+- Local contributors may opt in to the read-only Git pre-commit guard (`.githooks/pre-commit`) only after checking existing hooks and `core.hooksPath`: `git config --local core.hooksPath .githooks`. This setting replaces other configured hooks; do not overwrite an existing hook setup. The hook rejects stale staged manifests; prepare explicitly beforehand. Git hooks can be bypassed, so CI remains the enforcement gate.
