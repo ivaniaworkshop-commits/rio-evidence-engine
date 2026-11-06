@@ -32,6 +32,11 @@
       "sha256": "b930b812fe3e3aa8597edf010759e9424d0555430a190548203b9331c284e8f8"
     },
     {
+      "path": ".github/workflows/rio-r029-reference-audit.yml",
+      "bytes": 1370,
+      "sha256": "076d8ac9727436c963804539fcb5e3c6a1d8afa5272d6724b0e25c733637d690"
+    },
+    {
       "path": ".gitignore",
       "bytes": 46,
       "sha256": "d70f7828a8d79a3f519edada327cbf38e22a1af9b12d50023c50f37b3c69c96e"
@@ -342,6 +347,16 @@
       "sha256": "03e3df11b09ba5858d8701c383bfc0abd10537494df1558e3f2459ff15a4d2de"
     },
     {
+      "path": "demos/rio-primer-cobro/integrations/R029_RETIREMENT.md",
+      "bytes": 1180,
+      "sha256": "717c4a4275df2957c054bbaa73d0b64d7fc31a7f1bc0fe058bc3cdf170733b88"
+    },
+    {
+      "path": "demos/rio-primer-cobro/integrations/audit_legacy_refs_r029.py",
+      "bytes": 3682,
+      "sha256": "80f4f19da525305d05d04469a4e68a83a4eaf8487d13001af73026945e1e9f8f"
+    },
+    {
       "path": "demos/rio-primer-cobro/integrations/pey_emulated_r026.mjs",
       "bytes": 5320,
       "sha256": "9f51e4b8a2afafa8e08c1896e097c04311ff2001673fb1d6e9e2d059aa586840"
@@ -350,6 +365,11 @@
       "path": "demos/rio-primer-cobro/integrations/pey_evidence_r027.mjs",
       "bytes": 5821,
       "sha256": "888527946d0bd0b6f84241043110887d68398711577756d5deb7dae358fd61ec"
+    },
+    {
+      "path": "demos/rio-primer-cobro/integrations/tests/test_legacy_refs_r029.py",
+      "bytes": 2592,
+      "sha256": "23bac7e1a5083728a86df336c43585711d69911148f48d67337c276d1deaafc7"
     },
     {
       "path": "demos/rio-primer-cobro/integrations/tests/test_privacy_lineage_r028.py",
