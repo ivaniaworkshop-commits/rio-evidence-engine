@@ -82,6 +82,23 @@ jobs:
           python3 scripts/verify_manifest.py
           node demos/rio-primer-cobro/tests/test_logic.mjs
           python3 demos/rio-primer-cobro/frontdesk/verify_release.py
+      - name: Verify effective release branch ruleset before exposing deploy token
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh api "/repos/${GITHUB_REPOSITORY}/rulesets?includes_parents=true" --jq '.[] | select(.target == "branch" and .enforcement == "active") | .id' > /tmp/rio-release-ruleset-ids
+          test -s /tmp/rio-release-ruleset-ids || { echo "::error::No active GitHub branch rulesets"; exit 2; }
+          printf '[' > /tmp/rio-release-rulesets.json
+          first=1
+          while IFS= read -r rid; do
+            if [[ "$first" = 0 ]]; then printf ',' >> /tmp/rio-release-rulesets.json; fi
+            gh api "/repos/${GITHUB_REPOSITORY}/rulesets/${rid}" >> /tmp/rio-release-rulesets.json
+            first=0
+          done < /tmp/rio-release-ruleset-ids
+          printf ']\n' >> /tmp/rio-release-rulesets.json
+          python3 demos/rio-primer-cobro/frontdesk/release_authority_r020.py --rulesets /tmp/rio-release-rulesets.json
       - name: Link staging directory to approved Vercel project
         run: |
           python3 - <<'PY'
