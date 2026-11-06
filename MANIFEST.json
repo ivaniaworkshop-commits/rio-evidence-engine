@@ -12,6 +12,11 @@
       "sha256": "d70f7828a8d79a3f519edada327cbf38e22a1af9b12d50023c50f37b3c69c96e"
     },
     {
+      "path": "AGENTS.md",
+      "bytes": 1039,
+      "sha256": "c5d875795884f33f0a41f5da036d74dd855da42b761520fa01599240a267d620"
+    },
+    {
       "path": "BENCHMARK.json",
       "bytes": 450,
       "sha256": "617966f2d14571880a590af3da39e43f2eeebf1ce50337cd0358ca215b783a46"
@@ -702,6 +707,11 @@
       "sha256": "3737a01c2ae3dc3354aa07eb13ffcc6afa51550f84061a277d71339f79343025"
     },
     {
+      "path": "scripts/prepare_staged_manifest.py",
+      "bytes": 3262,
+      "sha256": "6e2127cd723d5f82d4ed33633a8c76b0fc776d7c48499ac82731461a2f4323f9"
+    },
+    {
       "path": "scripts/prioritize_deltas.py",
       "bytes": 2812,
       "sha256": "87df5ec57970f7e5c83dfce20de5d69dcf5ca7f1ac611e68b796562727c52d6d"
@@ -900,6 +910,11 @@
       "path": "tests/test_power_bounds.py",
       "bytes": 2908,
       "sha256": "c7e80b98b2f0784cabf0c9597a4bc54a6ad5100d860a153ea2e51df4b8f92527"
+    },
+    {
+      "path": "tests/test_prepare_staged_manifest.py",
+      "bytes": 2733,
+      "sha256": "f0b4b2254f91d598ec34ab95820e12d6ecf20e95ede684eaae228823205009bb"
     },
     {
       "path": "tests/test_program.py",
