@@ -77,11 +77,11 @@ jobs:
           set -euo pipefail
           echo "authorized=false" >> "$GITHUB_OUTPUT"
           if ! gh api "/repos/${GITHUB_REPOSITORY}/rulesets?includes_parents=true" --jq '.[] | select(.target == "branch" and .enforcement == "active") | .id' > /tmp/rio-rule-ids; then
-            echo "RELEASE_AUTHORITY=UNKNOWN_API_UNAVAILABLE" >> "$GITHUB_STEP_SUMMARY"
+            echo "RELEASE_AUTHORITY=UNKNOWN_API_UNAVAILABLE" | tee -a "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
           if ! test -s /tmp/rio-rule-ids; then
-            echo "RELEASE_AUTHORITY=BLOCKED_NO_ACTIVE_RULESETS" >> "$GITHUB_STEP_SUMMARY"
+            echo "RELEASE_AUTHORITY=BLOCKED_NO_ACTIVE_RULESETS" | tee -a "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
           printf '[' > /tmp/rio-release-rulesets.json
@@ -89,7 +89,7 @@ jobs:
           while IFS= read -r rid; do
             if [[ "$first" = 0 ]]; then printf ',' >> /tmp/rio-release-rulesets.json; fi
             if ! gh api "/repos/${GITHUB_REPOSITORY}/rulesets/${rid}" >> /tmp/rio-release-rulesets.json; then
-              echo "RELEASE_AUTHORITY=UNKNOWN_RULESET_READ" >> "$GITHUB_STEP_SUMMARY"
+              echo "RELEASE_AUTHORITY=UNKNOWN_RULESET_READ" | tee -a "$GITHUB_STEP_SUMMARY"
               exit 0
             fi
             first=0
@@ -97,9 +97,9 @@ jobs:
           printf ']\n' >> /tmp/rio-release-rulesets.json
           if python3 demos/rio-primer-cobro/frontdesk/release_authority_r020.py --rulesets /tmp/rio-release-rulesets.json; then
             echo "authorized=true" >> "$GITHUB_OUTPUT"
-            echo "RELEASE_AUTHORITY=VERIFIED_RULESET_GUARDS" >> "$GITHUB_STEP_SUMMARY"
+            echo "RELEASE_AUTHORITY=VERIFIED_RULESET_GUARDS" | tee -a "$GITHUB_STEP_SUMMARY"
           else
-            echo "RELEASE_AUTHORITY=BLOCKED_POLICY_CHECK" >> "$GITHUB_STEP_SUMMARY"
+            echo "RELEASE_AUTHORITY=BLOCKED_POLICY_CHECK" | tee -a "$GITHUB_STEP_SUMMARY"
           fi
   deploy:
     needs: [verify, browser-public, release-authority]
