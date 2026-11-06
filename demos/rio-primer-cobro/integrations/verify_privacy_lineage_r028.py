@@ -16,6 +16,10 @@ PATHS=(
  "demos/rio-primer-cobro/integrations/pey_emulated_r026.mjs",
  "demos/rio-primer-cobro/tests/test_pey_r026.mjs")
 PATTERN=re.compile(rb"(?<!\d)\d{18}(?!\d)")
+# The original R026 negative sale-ID fixture is tolerated only if unchanged.
+# Git blob identity is a byte check, not semantic proof of general safety.
+REVIEWED_FIXTURE_PATH="demos/rio-primer-cobro/tests/test_pey_r026.mjs"
+REVIEWED_FIXTURE_BLOB="70e4972f9ae003b9a54c77e98e683d64760814f1"
 def checksum_valid(candidate):
  weights=(3,7,1)
  weighted=sum((int(candidate[i])-48)*weights[i%3]%10 for i in range(17))
@@ -31,9 +35,15 @@ def audit(repo,base=BASE,paths=PATHS):
  head=git(repo,"rev-parse","HEAD").decode().strip()
  git(repo,"cat-file","-e",base+"^{commit}")
  git(repo,"merge-base","--is-ancestor",base,"HEAD")
+ if REVIEWED_FIXTURE_PATH in paths:
+  base_paths=set(git(repo,"ls-tree","-r","--name-only",base).decode().splitlines())
+  if REVIEWED_FIXTURE_PATH not in base_paths:raise PrivacyGuardError("REVIEWED_FIXTURE_BASE_MISSING")
+  base_blob=git(repo,"rev-parse",base+":"+REVIEWED_FIXTURE_PATH).decode().strip()
+  if base_blob!=REVIEWED_FIXTURE_BLOB:raise PrivacyGuardError("REVIEWED_FIXTURE_BASE_MISMATCH")
  revisions=git(repo,"rev-list","--reverse",base+"..HEAD").decode().splitlines()
  if not 1<=len(revisions)<=128:raise PrivacyGuardError("SPAN_OUTSIDE_POLICY")
  checked=0
+ reviewed_fixture_reuses=0
  for commit in [base,*revisions]:
   files=set(git(repo,"ls-tree","-r","--name-only",commit).decode().splitlines())
   for path in paths:
@@ -41,11 +51,19 @@ def audit(repo,base=BASE,paths=PATHS):
    value=git(repo,"show",commit+":"+path)
    if len(value)>2_000_000:raise PrivacyGuardError("SOURCE_TOO_LARGE")
    checked+=1
-   if any(checksum_valid(match.group()) for match in PATTERN.finditer(value)):
-    raise PrivacyGuardError("HISTORICAL_CLABE_PATTERN")
+   if path==REVIEWED_FIXTURE_PATH:
+    blob=git(repo,"rev-parse",commit+":"+path).decode().strip()
+    if blob==REVIEWED_FIXTURE_BLOB:
+     reviewed_fixture_reuses+=1
+     continue
+   match=PATTERN.search(value)
+   if match:
+    if checksum_valid(match.group()):raise PrivacyGuardError("HISTORICAL_CLABE_PATTERN")
+    raise PrivacyGuardError("HISTORICAL_18DIGIT_IDENTIFIER")
  return {"schema":"RIO_R028_PRIVACY_LINEAGE_V1","status":"PASS_SELECTED_PATH_HISTORY",
   "base":base,"head":head,"new_commits":len(revisions),"examined_revisions":checked,
-  "checksum_valid_18digit_pattern_found":False,"all_refs_remediated":False,"github_cache_purged":False,
+  "checksum_valid_18digit_pattern_found":False,"other_18digit_pattern_found":False,
+  "reviewed_fixture_reuses":reviewed_fixture_reuses,"all_refs_remediated":False,"github_cache_purged":False,
   "historical_incident_closed":False}
 if __name__=="__main__":
  p=argparse.ArgumentParser();p.add_argument("--repo",default=".");p.add_argument("--base",default=BASE);p.add_argument("--output")

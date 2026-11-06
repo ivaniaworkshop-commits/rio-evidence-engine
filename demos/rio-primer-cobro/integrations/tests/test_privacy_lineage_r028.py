@@ -35,10 +35,39 @@ class CleanLineageTests(unittest.TestCase):
   self.file.write_text("restored safe");self.commit()
   with self.assertRaisesRegex(PrivacyGuardError,"HISTORICAL_CLABE_PATTERN"):
    audit(self.repo,self.base,(PATH,))
- def test_non_checksum_numeric_reference_does_not_trigger(self):
+ def test_non_checksum_numeric_reference_is_still_rejected(self):
   candidate="".join(str(i%10) for i in range(18))
   self.file.write_text(candidate);self.commit()
-  self.assertEqual(audit(self.repo,self.base,(PATH,))["new_commits"],1)
+  with self.assertRaisesRegex(PrivacyGuardError,"HISTORICAL_18DIGIT_IDENTIFIER"):
+   audit(self.repo,self.base,(PATH,))
+ def install_reviewed_fixture(self):
+  from verify_privacy_lineage_r028 import REVIEWED_FIXTURE_PATH,REVIEWED_FIXTURE_BLOB
+  original=Path(__file__).resolve().parents[2]/"tests"/"test_pey_r026.mjs"
+  dest=self.repo/REVIEWED_FIXTURE_PATH
+  dest.parent.mkdir(parents=True,exist_ok=True)
+  dest.write_bytes(original.read_bytes())
+  self.commit()
+  self.assertEqual(git(self.repo,"hash-object",REVIEWED_FIXTURE_PATH),REVIEWED_FIXTURE_BLOB)
+  return dest,git(self.repo,"rev-parse","HEAD"),REVIEWED_FIXTURE_PATH
+ def test_exact_unchanged_legacy_fixture_allowed_only_by_blob(self):
+  dest,base,legacy=self.install_reviewed_fixture()
+  self.file.write_text("safe new source",encoding="utf-8");self.commit()
+  result=audit(self.repo,base,(PATH,legacy))
+  self.assertEqual(result["reviewed_fixture_reuses"],2)
+  self.assertEqual(result["status"],"PASS_SELECTED_PATH_HISTORY")
+ def test_modified_legacy_fixture_is_reexamined(self):
+  dest,base,legacy=self.install_reviewed_fixture()
+  dest.write_bytes(dest.read_bytes()+bytes([10])+b"// reviewed fixture edited"+bytes([10]))
+  self.commit()
+  with self.assertRaisesRegex(PrivacyGuardError,"HISTORICAL_18DIGIT_IDENTIFIER"):
+   audit(self.repo,base,(PATH,legacy))
+ def test_unreviewed_base_cannot_claim_fixture_exception(self):
+  dest,base,legacy=self.install_reviewed_fixture()
+  dest.write_text("safe unrelated fixture",encoding="utf-8");self.commit()
+  new_base=git(self.repo,"rev-parse","HEAD")
+  self.file.write_text("safe progression",encoding="utf-8");self.commit()
+  with self.assertRaisesRegex(PrivacyGuardError,"REVIEWED_FIXTURE_BASE_MISMATCH"):
+   audit(self.repo,new_base,(PATH,legacy))
  def test_no_delta_rejected(self):
   with self.assertRaisesRegex(PrivacyGuardError,"SPAN_OUTSIDE_POLICY"):
    audit(self.repo,self.base,(PATH,))
