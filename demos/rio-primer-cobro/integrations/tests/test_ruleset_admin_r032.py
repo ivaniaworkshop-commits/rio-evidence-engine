@@ -83,7 +83,7 @@ class AdminRulesetR032(unittest.TestCase):
         calls=[]
         def fake_api(path,method="GET",payload=None):
             calls.append((path,method,payload))
-            if "/branches/" in path:return {"commit":{"sha":SHA}}
+            if "/branches/" in path:return {"commit":{"sha":SHA},"protected":True}
             if path.endswith("/rulesets") and method=="GET":return []
             if path.endswith("/rulesets") and method=="POST":return {"id":444}
             if path.endswith("/rulesets/444"):return readback()
@@ -98,7 +98,7 @@ class AdminRulesetR032(unittest.TestCase):
         calls=[]
         def fake_api(path,method="GET",payload=None):
             calls.append(method)
-            if "/branches/" in path:return {"commit":{"sha":SHA}}
+            if "/branches/" in path:return {"commit":{"sha":SHA},"protected":True}
             if path.endswith("/rulesets"):return [{"id":444,"name":NAME}]
             if path.endswith("/rulesets/444"):return readback()
             raise AssertionError("unknown path")
@@ -107,6 +107,35 @@ class AdminRulesetR032(unittest.TestCase):
                 result=apply(TARGET_REF,SHA)
         self.assertEqual(result["operation"],"ALREADY_ACTIVE_VERIFIED")
         self.assertNotIn("POST",calls)
+    def test_apply_rejects_postwrite_branch_still_unprotected(self):
+        calls=[]
+        def fake_api(path,method="GET",payload=None):
+            calls.append(method)
+            if "/branches/" in path:return {"commit":{"sha":SHA},"protected":False}
+            if path.endswith("/rulesets") and method=="GET":return []
+            if path.endswith("/rulesets") and method=="POST":return {"id":444}
+            if path.endswith("/rulesets/444"):return readback()
+            raise AssertionError("unexpected API call")
+        with patch.dict(os.environ,{"GH_TOKEN":"synthetic","RIO_R032_ADMIN_APPROVAL":"approved"}):
+            with patch("ruleset_admin_r032.api",side_effect=fake_api):
+                with self.assertRaisesRegex(AdminGateError,"POST_WRITE_BRANCH_NOT_PROTECTED"):
+                    apply(TARGET_REF,SHA)
+        self.assertEqual(calls.count("POST"),1)
+    def test_apply_rejects_postwrite_missing_protection_readback(self):
+        count=[0]
+        def fake_api(path,method="GET",payload=None):
+            if "/branches/" in path:
+                count[0]+=1
+                return {"commit":{"sha":SHA},"protected":False} if count[0]==1 else {"commit":{"sha":SHA}}
+            if path.endswith("/rulesets") and method=="GET":return []
+            if path.endswith("/rulesets") and method=="POST":return {"id":444}
+            if path.endswith("/rulesets/444"):return readback()
+            raise AssertionError("unexpected API call")
+        with patch.dict(os.environ,{"GH_TOKEN":"synthetic","RIO_R032_ADMIN_APPROVAL":"approved"}):
+            with patch("ruleset_admin_r032.api",side_effect=fake_api):
+                with self.assertRaisesRegex(AdminGateError,"POST_WRITE_BRANCH_NOT_PROTECTED"):
+                    apply(TARGET_REF,SHA)
+        self.assertEqual(count[0],2)
     def test_cli_plan_no_token(self):
         script=Path(__file__).resolve().parents[1]/"ruleset_admin_r032.py"
         with tempfile.TemporaryDirectory() as d:
