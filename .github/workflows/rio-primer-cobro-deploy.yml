@@ -46,7 +46,7 @@ jobs:
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
       PUBLIC_URL: https://rio-primer-cobro-frontdesk.vercel.app
     steps:
-      - uses: actions/checkout@d23441a48e5166b6c34aea4fa41551a30e30af803
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
         with:
           persist-credentials: false
       - name: Fail closed without one-time configuration
