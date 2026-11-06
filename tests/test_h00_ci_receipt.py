@@ -99,13 +99,13 @@ class H00ReceiptTests(unittest.TestCase):
                 self.assertEqual(result["status"], "INCOMPLETE_OR_FAILED")
                 self.event["pull_request"][label]["sha"] = ("b" if label == "head" else "c") * 40
 
-    def test_pr_event_merge_checkout_conflict_fails_closed(self):
+    def test_pr_event_merge_checkout_difference_is_advisory(self):
         self.event["pull_request"]["merge_commit_sha"] = "d" * 40
         self._save_event()
         report = build_receipt("verify", "success", self.root, env=self.env)
-        self.assertFalse(report["checks"]["github_pr_context_consistent"])
-        self.assertEqual(report["run"]["pull_request"]["reason_code"],
-                         "PR_CHECKOUT_MERGE_SHA_MISMATCH")
+        self.assertEqual(report["status"], "COMPLETE_LOCAL_CI_RECEIPT")
+        self.assertFalse(report["run"]["pull_request"]["event_merge_matches_checkout"])
+        self.assertEqual(report["run"]["pull_request"]["checkout_parent_binding"], "NOT_VERIFIED_BY_RECEIPT")
 
     def test_pr_duplicate_event_json_key_fails_closed(self):
         self.event_path.write_text('{"number":26,"number":27}', encoding="utf-8")

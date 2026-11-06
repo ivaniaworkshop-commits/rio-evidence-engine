@@ -121,8 +121,6 @@ def _pull_request_context(env):
         if event_merge_sha is not None:
             if re.fullmatch(r"[0-9a-f]{40}", event_merge_sha) is None:
                 raise ValueError("PR_EVENT_MERGE_SHA_INVALID")
-            if event_merge_sha != env.get("GITHUB_SHA"):
-                raise ValueError("PR_CHECKOUT_MERGE_SHA_MISMATCH")
         if env.get("GITHUB_HEAD_REF") and env["GITHUB_HEAD_REF"] != pr["head"]["ref"]:
             raise ValueError("PR_HEAD_REF_MISMATCH")
         if env.get("GITHUB_BASE_REF") and env["GITHUB_BASE_REF"] != pr["base"]["ref"]:
@@ -133,6 +131,9 @@ def _pull_request_context(env):
             "base_repository": repository, "checkout_sha": env.get("GITHUB_SHA"),
             "checkout_kind": "GITHUB_PR_SYNTHETIC_MERGE",
             "event_merge_sha": event_merge_sha,
+            "event_merge_matches_checkout": (event_merge_sha == env.get("GITHUB_SHA"))
+                if event_merge_sha is not None else None,
+            "checkout_parent_binding": "NOT_VERIFIED_BY_RECEIPT",
         }, True
     except (OSError, UnicodeError, ValueError, KeyError, TypeError, AttributeError) as exc:
         if isinstance(exc, ValueError) and str(exc).startswith("PR_"):

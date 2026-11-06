@@ -68,6 +68,10 @@ El valor de la atestación alcanza: *"estos bytes fueron atestados por un workfl
 
 - En eventos pull_request, GITHUB_SHA/run.sha identifica el checkout de refs/pull/N/merge, que difiere del head SHA de la rama del PR.
 - Añadimos run.pull_request con número, head_sha, base_sha, repositorios y checkout_sha, verificando consistencia con el JSON del evento; se conserva el contrato extensible RIO_H00_CI_RECEIPT/1.0.
-- Se rechazan eventos ausentes o malformados, claves duplicadas, referencias/números inconsistentes, SHAs inválidos, repositorios base diferentes y discrepancias entre merge_commit_sha y GITHUB_SHA cuando el dato está presente.
+- Se rechazan eventos ausentes o malformados, claves duplicadas, referencias/números inconsistentes, SHAs inválidos y repositorios base diferentes. El merge SHA del evento puede estar desfasado: su diferencia respecto del checkout se conserva como telemetría consultiva, no como una denegación.
 - La consistencia es autodeclarada por GitHub Actions, NO una certificación independiente ni una política de rama.
 - Evidencia histórica (run 42197920923): PR head 2ed2090199e685400d05ad6615b53f5dc472215a; merge checkout 5c65a2a28b2563f9ac3d33a0fc5ec07f47a3f48a; main base e85b1e808081510a8267457c9b4aafeca064cb36.
+
+### Corrección R015 tras prueba real
+
+Las ejecuciones 42199523148 y 42199986207 rechazaron la igualdad obligatoria entre merge_commit_sha del payload y GITHUB_SHA del checkout. El segundo run identificó PR_CHECKOUT_MERGE_SHA_MISMATCH. El recibo conserva event_merge_matches_checkout y declara checkout_parent_binding=NOT_VERIFIED_BY_RECEIPT. La correspondencia real de padres fue comprobada separadamente con la API GitHub, no acreditada por este recibo.

@@ -88,8 +88,8 @@
     },
     {
       "path": "evaluation/H00_AUTHENTICATION_R002.md",
-      "bytes": 8185,
-      "sha256": "d9442cf9f03907cebb61e733059710782d770bed387e6677f5b162dbdf7abf62"
+      "bytes": 8711,
+      "sha256": "01e8d778f91a19fc1f162e2cd97ec06fd7bd5a29ab934fcd366252f73e58dbc0"
     },
     {
       "path": "evaluation/H07_GATE_R001.md",
@@ -643,8 +643,8 @@
     },
     {
       "path": "scripts/h00_ci_receipt.py",
-      "bytes": 10838,
-      "sha256": "dbac56e3b2ffa5ae85d61ec0c4e926d8eecfe0dc38a4b69c87fca8e97714fe66"
+      "bytes": 10925,
+      "sha256": "6aeebe21fdab2921a67570bdcb84fac45a0825004e8bf8c78420d382a66f040a"
     },
     {
       "path": "scripts/h07_audit.py",
@@ -853,8 +853,8 @@
     },
     {
       "path": "tests/test_h00_ci_receipt.py",
-      "bytes": 14799,
-      "sha256": "6f847f695a615e145aa3464047702a5a3bf7559aa180674ce4cd91146571f051"
+      "bytes": 14865,
+      "sha256": "6340d9cd4cd4fe74f40483aac3faba9eb667e36e06531445da00fe71f1a91aaa"
     },
     {
       "path": "tests/test_hybrid.py",
