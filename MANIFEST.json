@@ -27,6 +27,11 @@
       "sha256": "a86d4a163cf70a9ac58e386895aa7803f88c0b02d887c26f11355380eff95306"
     },
     {
+      "path": ".github/workflows/rio-r028-privacy-lineage.yml",
+      "bytes": 1454,
+      "sha256": "b930b812fe3e3aa8597edf010759e9424d0555430a190548203b9331c284e8f8"
+    },
+    {
       "path": ".gitignore",
       "bytes": 46,
       "sha256": "d70f7828a8d79a3f519edada327cbf38e22a1af9b12d50023c50f37b3c69c96e"
@@ -332,6 +337,11 @@
       "sha256": "c62b4e1fe51e460b5c6fa2b4c18868b58f4411c185ac754ba6b5512d1e43ea44"
     },
     {
+      "path": "demos/rio-primer-cobro/integrations/R028_PRIVACY_REVIEW.md",
+      "bytes": 1403,
+      "sha256": "03e3df11b09ba5858d8701c383bfc0abd10537494df1558e3f2459ff15a4d2de"
+    },
+    {
       "path": "demos/rio-primer-cobro/integrations/pey_emulated_r026.mjs",
       "bytes": 5320,
       "sha256": "9f51e4b8a2afafa8e08c1896e097c04311ff2001673fb1d6e9e2d059aa586840"
@@ -340,6 +350,16 @@
       "path": "demos/rio-primer-cobro/integrations/pey_evidence_r027.mjs",
       "bytes": 5821,
       "sha256": "888527946d0bd0b6f84241043110887d68398711577756d5deb7dae358fd61ec"
+    },
+    {
+      "path": "demos/rio-primer-cobro/integrations/tests/test_privacy_lineage_r028.py",
+      "bytes": 2305,
+      "sha256": "dd57a89acad3b27d7a76b4454cee8e16f9f37a96625423c958378d7d57e1115f"
+    },
+    {
+      "path": "demos/rio-primer-cobro/integrations/verify_privacy_lineage_r028.py",
+      "bytes": 2610,
+      "sha256": "0f1cb151924d43d5c404af674ae3e05e1cbee170be53aeb8073cda87f197c2bc"
     },
     {
       "path": "demos/rio-primer-cobro/reports/R013_E2E.json",
