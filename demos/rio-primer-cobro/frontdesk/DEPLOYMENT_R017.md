@@ -63,3 +63,7 @@ La activación sigue pendiente de habilitar `RIO_PUBLIC_AUTO_DEPLOY`, definir `V
 - En Actions Variables del repositorio define \`VERCEL_CLI_VERSION\` con una versión exacta revisada y \`RIO_PUBLIC_AUTO_DEPLOY=enabled\`. El token solo se expone a los dos pasos de staging/promoción de Vercel.
 - En cada cambio revisado del branch, CI verifica manifest y regresiones, accesibilidad HTTP anónima, Chrome real y flujo completo de QR y efectivo. **Solo entonces** la rama podrá preparar un candidato, verificar bytes, promoverlo y contrastar la URL pública.
 - Estado observado de configuración en esta ronda: \`GitHub GET /rulesets = []\`; no hay reglasets visibles. Los conectores no exponen edición de reglas ni secretos. Resultado: \`AUTO_DEPLOY=BLOCKED_PENDING_EXTERNAL_CONFIGURATION\`. Este documento no afirma haber realizado esas acciones. La aplicación pública R016 sigue disponible.
+
+## Control de exactitud de Vercel
+
+El despliegue de prueba R020 encontró una inyección automática de comentarios de Vercel de 163 bytes por HTML. Se corrigió desactivando el feedback de vista previa y desplegando un candidato nuevo, que devolvió los HTML **idénticos** a GitHub. La guarda de comparación binaria debe **permanecer estricta**, porque si se reactiva la inyección volverá a bloquear la promoción. La comprobación previa se hizo mediante conector Vercel, no con Android físico.
