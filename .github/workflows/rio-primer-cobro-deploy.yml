@@ -32,6 +32,11 @@ jobs:
         run: python3 demos/rio-primer-cobro/frontdesk/verify_release.py
       - name: Test anonymous HTTP observer against local mock server
         run: python3 -m unittest discover -s demos/rio-primer-cobro/frontdesk/tests -v
+      - name: Generate 13-case R023 synthetic incident classification receipt
+        run: |
+          python3 demos/rio-primer-cobro/frontdesk/incident_matrix_r023.py \
+            --output output/rio-primer-cobro/r023-synthetic-matrix.json
+          cat output/rio-primer-cobro/r023-synthetic-matrix.json >> "$GITHUB_STEP_SUMMARY"
       - name: Probe both live public routes from GitHub runner without credentials
         run: |
           python3 demos/rio-primer-cobro/frontdesk/check_public_site.py \
