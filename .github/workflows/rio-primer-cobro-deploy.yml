@@ -43,7 +43,6 @@ jobs:
       VERCEL_ORG_ID: team_cAq0fHixSn0Hck4ogKCifUzi
       VERCEL_PROJECT_ID: prj_J7YrJusN08qUXrZNPDBmspVRKW6d
       VERCEL_CLI_VERSION: ${{ vars.VERCEL_CLI_VERSION }}
-      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
       PUBLIC_URL: https://rio-primer-cobro-frontdesk.vercel.app
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
@@ -53,7 +52,6 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test -n "${VERCEL_TOKEN:-}" || { echo "::error::Missing GitHub Actions secret VERCEL_TOKEN"; exit 2; }
           [[ "${VERCEL_CLI_VERSION:-}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "::error::Set a reviewed exact VERCEL_CLI_VERSION"; exit 2; }
       - name: Revalidate exact release source
         run: |
@@ -70,11 +68,18 @@ jobs:
           path.write_text(json.dumps({"orgId": os.environ["VERCEL_ORG_ID"],
                                       "projectId": os.environ["VERCEL_PROJECT_ID"]}))
           PY
-      - name: Deploy exact checked files to production
+      - name: Install reviewed Vercel CLI without credentials
         shell: bash
         run: |
           set -euo pipefail
           npm install --global "vercel@${VERCEL_CLI_VERSION}"
+      - name: Deploy exact checked files to production
+        shell: bash
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          set -euo pipefail
+          test -n "${VERCEL_TOKEN:-}" || { echo "::error::Missing VERCEL_TOKEN in protected environment"; exit 2; }
           vercel deploy --prod --yes --cwd output/rio-primer-cobro
       - name: Read back public bytes without authentication
         shell: bash
