@@ -1,0 +1,95 @@
+name: RIO Primer Cobro - verified public deployment
+on:
+  push:
+    branches:
+      - deploy/primer-cobro
+    paths:
+      - ".github/workflows/rio-primer-cobro-deploy.yml"
+      - "demos/rio-primer-cobro/frontdesk/**"
+      - "demos/rio-primer-cobro/app/**"
+      - "demos/rio-primer-cobro/tests/**"
+      - "MANIFEST.json"
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: rio-primer-cobro-production
+  cancel-in-progress: false
+jobs:
+  verify:
+    if: github.ref == 'refs/heads/deploy/primer-cobro'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - name: Verify all tracked source inventory and SHA-256
+        run: python3 scripts/verify_manifest.py
+      - name: Commercial calculation and chat regressions
+        run: node demos/rio-primer-cobro/tests/test_logic.mjs
+      - name: Verify and stage immutable front desk
+        run: python3 demos/rio-primer-cobro/frontdesk/verify_release.py
+      - name: Record staging readback
+        run: |
+          cat output/rio-primer-cobro/release-receipt.json >> "$GITHUB_STEP_SUMMARY"
+  deploy:
+    needs: verify
+    if: github.ref == 'refs/heads/deploy/primer-cobro' && vars.RIO_PUBLIC_AUTO_DEPLOY == 'enabled'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    environment: rio-primer-cobro-production
+    env:
+      VERCEL_ORG_ID: team_cAq0fHixSn0Hck4ogKCifUzi
+      VERCEL_PROJECT_ID: prj_J7YrJusN08qUXrZNPDBmspVRKW6d
+      VERCEL_CLI_VERSION: ${{ vars.VERCEL_CLI_VERSION }}
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      PUBLIC_URL: https://rio-primer-cobro-frontdesk.vercel.app
+    steps:
+      - uses: actions/checkout@d23441a48e5166b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - name: Fail closed without one-time configuration
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "${VERCEL_TOKEN:-}" || { echo "::error::Missing GitHub Actions secret VERCEL_TOKEN"; exit 2; }
+          [[ "${VERCEL_CLI_VERSION:-}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "::error::Set a reviewed exact VERCEL_CLI_VERSION"; exit 2; }
+      - name: Revalidate exact release source
+        run: |
+          python3 scripts/verify_manifest.py
+          node demos/rio-primer-cobro/tests/test_logic.mjs
+          python3 demos/rio-primer-cobro/frontdesk/verify_release.py
+      - name: Link staging directory to approved Vercel project
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          path = Path("output/rio-primer-cobro/.vercel/project.json")
+          path.parent.mkdir(parents=True, exist_ok=True)
+          path.write_text(json.dumps({"orgId": os.environ["VERCEL_ORG_ID"],
+                                      "projectId": os.environ["VERCEL_PROJECT_ID"]}))
+          PY
+      - name: Deploy exact checked files to production
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --global "vercel@${VERCEL_CLI_VERSION}"
+          vercel deploy --prod --yes --cwd output/rio-primer-cobro
+      - name: Read back public bytes without authentication
+        shell: bash
+        run: |
+          set -euo pipefail
+          ok=0
+          for attempt in 1 2 3 4 5 6 7 8 9 10; do
+            if curl --fail --silent --show-error --location --max-time 20 "${PUBLIC_URL}/?build=${GITHUB_SHA}" -o /tmp/rio-live-index.html &&
+               curl --fail --silent --show-error --location --max-time 20 "${PUBLIC_URL}/app.html?build=${GITHUB_SHA}" -o /tmp/rio-live-app.html &&
+               cmp -s output/rio-primer-cobro/index.html /tmp/rio-live-index.html &&
+               cmp -s output/rio-primer-cobro/app.html /tmp/rio-live-app.html; then
+              ok=1
+              break
+            fi
+            sleep 4
+          done
+          test "$ok" = 1 || { echo "::error::Public anonymous readback does not match exact source bytes"; exit 2; }
+          echo "PUBLIC_READBACK_PASS commit=${GITHUB_SHA} portal=$PUBLIC_URL" >> "$GITHUB_STEP_SUMMARY"
