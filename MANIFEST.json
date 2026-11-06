@@ -328,8 +328,8 @@
     },
     {
       "path": "demos/rio-primer-cobro/integrations/pey_emulated_r026.mjs",
-      "bytes": 5215,
-      "sha256": "cd65e54f6a7aac8509d72fb628f69ed4c58c8574672997375ddfef08b2ca7e0d"
+      "bytes": 5320,
+      "sha256": "9f51e4b8a2afafa8e08c1896e097c04311ff2001673fb1d6e9e2d059aa586840"
     },
     {
       "path": "demos/rio-primer-cobro/reports/R013_E2E.json",
@@ -443,8 +443,8 @@
     },
     {
       "path": "demos/rio-primer-cobro/tests/test_pey_r026.mjs",
-      "bytes": 4517,
-      "sha256": "8c974e49ef9ff68ef6fcaa6ee8ae74dab6f00f5b541043a8cfabe042f41ce222"
+      "bytes": 4779,
+      "sha256": "bd1d2cd1bc242f9ee99459335d2dc28bbb0156053cc7faa61e15fca258571d53"
     },
     {
       "path": "demos/rio-primer-cobro/tests/test_qr_matrix.py",

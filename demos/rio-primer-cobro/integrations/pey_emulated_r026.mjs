@@ -25,8 +25,10 @@ export function signSyntheticEvent(event,syntheticSecret){
   if(typeof syntheticSecret!=="string"||syntheticSecret.length<24||syntheticSecret.length>128)fail("DEMO_SECRET_INVALID");
   return createHmac("sha256",syntheticSecret).update(canonical(event),"utf8").digest("hex");
 }
-export function createDemoIntent({saleId,amountCents,createdAtMs,expiresAtMs,account}={}){
-  str(saleId,/^[A-Za-z0-9_-]{1,64}$/,"SALE_ID");
+export function createDemoIntent(input={}){
+  obj(input,["saleId","amountCents","createdAtMs","expiresAtMs","account"]);
+  const {saleId,amountCents,createdAtMs,expiresAtMs,account}=input;
+  str(saleId,/^RIO[-_][A-Za-z0-9_-]{1,60}$/,"SALE_ID");
   integer(amountCents,1,100000000,"AMOUNT_CENTS");
   integer(createdAtMs,1,8640000000000000,"CREATED_AT");
   integer(expiresAtMs,1,8640000000000000,"EXPIRES_AT");

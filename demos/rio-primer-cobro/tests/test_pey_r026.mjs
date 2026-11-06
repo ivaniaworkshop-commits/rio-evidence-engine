@@ -16,6 +16,8 @@ test("different amount changes intent identity",()=>assert.notEqual(fixture().id
 test("not a real account",()=>assert.deepEqual(fixture().account,DEMO_ACCOUNT));
 test("CLABE and other extra account keys rejected",()=>assert.throws(()=>fixture({account:{...DEMO_ACCOUNT,clabe:"INVALID_FIXTURE"}}),/UNRECOGNIZED/));
 test("real account type forbidden",()=>assert.throws(()=>fixture({account:{type:"BankAccount",id:"x"}}),/REAL_ACCOUNT/));
+test("top-level CLABE field rejected rather than silently ignored",()=>assert.throws(()=>fixture({clabe:"INVALID_FIXTURE"}),/UNRECOGNIZED/));
+test("sale reference must have RIO namespace",()=>assert.throws(()=>fixture({saleId:"123456789012345678"}),/SALE_ID/));
 test("amount is positive integer",()=>{for(const n of [0,-1,1.2,NaN,Infinity,9007199254740993])assert.throws(()=>fixture({amountCents:n}),/AMOUNT_CENTS/);});
 test("expiry must be after creation",()=>assert.throws(()=>fixture({expiresAtMs:time}),/EXPIRY/));
 test("expiry longer than a day rejected",()=>assert.throws(()=>fixture({expiresAtMs:time+86400001}),/EXPIRY/));
