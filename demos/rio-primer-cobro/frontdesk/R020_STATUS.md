@@ -36,3 +36,9 @@ Cadena programada:
 4. Ejecutar desde un push autorizado; exigir evidencia real de `verify`, `browser-public`, `deploy` y readback byte a byte.
 
 Toda acción sobre `main` y el canon de RÍO permanece fuera de alcance.
+
+## Readiness automática en cada push
+
+El workflow R020 incorpora el job `release-authority` y clasifica la política real del repositorio desde GitHub. Sus salidas son `authorized=true/false`, y su resumen distingue `BLOCKED_NO_ACTIVE_RULESETS`, `BLOCKED_POLICY_CHECK`, `UNKNOWN_API_UNAVAILABLE` o `VERIFIED_RULESET_GUARDS`.
+
+`deploy` solo se habilita cuando `verify`, `browser-public` y `release-authority` terminaron, se obtuvo `authorized=true` y `RIO_PUBLIC_AUTO_DEPLOY=enabled`. Un run global `SUCCESS` con `deploy=SKIPPED` **no acredita publicación**. El token continúa siendo necesario únicamente en el entorno protegido del paso autorizado.
