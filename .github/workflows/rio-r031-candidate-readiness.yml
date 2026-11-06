@@ -1,0 +1,70 @@
+name: RIO R031 candidate release readiness - read only
+on:
+  push:
+    branches:
+      - security/primer-cobro-r028-clean-20261106
+      - candidate/primer-cobro-r031-clean-20261106
+    paths:
+      - ".github/workflows/rio-r031-candidate-readiness.yml"
+      - "demos/rio-primer-cobro/integrations/release_readiness_r031.py"
+      - "demos/rio-primer-cobro/integrations/tests/test_release_readiness_r031.py"
+      - "demos/rio-primer-cobro/integrations/R031_CANDIDATE_RELEASE.md"
+      - "MANIFEST.json"
+permissions:
+  contents: read
+jobs:
+  candidate-readiness:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: SHA manifest and inventory
+        run: python3 scripts/verify_manifest.py
+      - name: 18 adversarial R031 policy tests
+        run: python3 -m unittest discover -s demos/rio-primer-cobro/integrations/tests -p 'test_release_readiness_r031.py' -v
+      - name: Verify ancestor R030 in clean history
+        run: |
+          git merge-base --is-ancestor 9be2a37a1873c11ef0b98266e5cb39285363a2b1 HEAD
+          python3 demos/rio-primer-cobro/integrations/verify_privacy_lineage_r028.py --output /tmp/r031-clean.json
+      - name: Inspect GitHub active rulesets without changing protection
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh api "/repos/${GITHUB_REPOSITORY}/rulesets?includes_parents=true" > /tmp/r031-summary.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          source=json.loads(Path("/tmp/r031-summary.json").read_text(encoding="utf-8"))
+          if not isinstance(source,list):raise SystemExit(2)
+          ids=[x.get("id") for x in source if isinstance(x,dict)
+               and x.get("target")=="branch" and x.get("enforcement")=="active"]
+          if any(type(x)!=int or x<=0 for x in ids):raise SystemExit(2)
+          Path("/tmp/r031-ids.txt").write_text("\n".join(map(str,ids))+"\n" if ids else "",encoding="utf-8")
+          PY
+          printf '[' > /tmp/r031-rulesets.json
+          first=1
+          while IFS= read -r id; do
+            test -n "$id" || continue
+            if test "$first" = 0; then printf ',' >> /tmp/r031-rulesets.json; fi
+            gh api "/repos/${GITHUB_REPOSITORY}/rulesets/$id" >> /tmp/r031-rulesets.json
+            first=0
+          done < /tmp/r031-ids.txt
+          printf ']\n' >> /tmp/r031-rulesets.json
+      - name: Emit explicit untrusted release-readiness receipt, never deploy
+        run: |
+          python3 demos/rio-primer-cobro/integrations/release_readiness_r031.py \
+            --rulesets /tmp/r031-rulesets.json \
+            --output /tmp/r031-readiness.json
+          cat /tmp/r031-readiness.json >> "$GITHUB_STEP_SUMMARY"
+      - name: Preserve readiness receipt for external review
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: rio-r031-readiness
+          path: /tmp/r031-readiness.json
+          if-no-files-found: error
+          retention-days: 14
