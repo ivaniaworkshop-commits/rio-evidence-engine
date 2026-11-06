@@ -1,0 +1,4 @@
+RIO_R025_INDEPENDENT_ARTIFACT_AUDIT_TRIGGER
+Scope: read-only GitHub API artifact, job log and source provenance; no production or bank operations.
+Reconciled source inventory R025: verification rerun after source publication.
+R025_BINARY_GH_API_RETRY_AFTER_GUARD_FAILURE
