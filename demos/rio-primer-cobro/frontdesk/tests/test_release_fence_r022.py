@@ -5,7 +5,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from release_fence_r022 import (
-    ALIAS, PROJECT, FenceError, alias_deployment, baseline_record,
+    ALIAS, PROJECT, DenyAPIRedirect, FenceError, alias_deployment, baseline_record,
     candidate_deployment, confirm_fence, fence_record, incident_record,
     validate_candidate_url,
 )
@@ -136,6 +136,12 @@ class ReleaseFenceR022(unittest.TestCase):
         result = incident_record(None, OLD, "fence missing")
         self.assertEqual(result["classification"], "FENCE_UNKNOWN_MANUAL_REVIEW")
         self.assertFalse(result["automatic_rollback"])
+
+    def test_api_redirect_forbidden_to_protect_token(self):
+        with self.assertRaisesRegex(FenceError, "VERCEL_API_REDIRECT_BLOCKED"):
+            DenyAPIRedirect().redirect_request(
+                request=None, fp=None, code=302, msg="Moved",
+                headers={}, newurl="https://malicious.invalid/steal")
 
 
 if __name__ == "__main__":
