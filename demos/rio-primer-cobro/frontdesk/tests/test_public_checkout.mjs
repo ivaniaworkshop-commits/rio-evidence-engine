@@ -65,6 +65,29 @@ try{
  check('previous sale stored in history',s.history.some(x=>x.sale.saleId===folio));
  await click('#history-list button');s=await state();
  check('ticket restored from local history',s.sale?.saleId===folio&&s.sale.totalCents===2500);
+ // Separate cash example: manual declaration is not a bank transaction.
+ await click('#new-sale');
+ await click('#example-product');await click('#add');
+ await click('input[name="method"][value="cash"]');
+ await click('#start-sale');s=await state();
+ check('cash method selected',s.sale?.method==='cash'&&s.sale.totalCents===2500);
+ check('cash receipt entry visible',await js('Boolean(document.querySelector("#cash-received"))'));
+ const receiptEntry=await js('(()=>{let x=document.querySelector("#cash-received");x.value="50.00";x.dispatchEvent(new Event("input",{bubbles:true}));return x.value})()');
+ check('cash amount entered in browser',receiptEntry==='50.00');
+ check('change calculated before confirmation',await js('document.querySelector("#cash-change").textContent.includes("25.00")'));
+ await click('#register-cash');s=await state();
+ check('manual cash registration recorded',s.sale?.cashReceivedCents===5000);
+ check('exact change persisted',s.sale?.changeCents===2500);
+ check('cash payment never bank-confirmed',s.sale?.realPaymentConfirmed===false);
+ check('cash ticket visible',await js('document.querySelector("#ticket-card").hidden===false && document.querySelector("#ticket-preview").textContent.includes("50.00")'));
+ // Report must run internal tests and deliver actual JSON to isolated browser download directory.
+ await click('#tab-informe');await click('#generate');
+ const reportFiles=await poll(async()=>{let f=await readdir(downloads);return f.some(x=>x.endsWith('.json'))?f:null},50);
+ const reportName=reportFiles.find(x=>x.endsWith('.json'));
+ const json=JSON.parse(await readFile(join(downloads,reportName),'utf8'));
+ check('report generated on user click',json.tests?.executed_on_click===true);
+ check('report internal regressions executed',json.tests?.failed===0&&json.tests?.passed>0);
+ check('report never claims actual digital payment',json.real_payment==='NO'&&json.payment_provider==='NONE');
  console.log(JSON.stringify({schema:'RIO_PUBLIC_CHECKOUT_E2E_R019',status:'PASS',browser:'GITHUB_RUNNER_CHROME_HEADLESS',viewport:'393x852',site:base,authentication:'FRESH_PROFILE_NONE',real_bank_payment:false,android_physical:'NOT_OBSERVED',checks_passed:checks.length,checks_total:checks.length,checks},null,2));
 }catch(error){let debug={};try{debug=await js('({url:location.href,title:document.title,ready:document.readyState,notification:document.getElementById("app-notice")?.textContent,html:document.body?.textContent.slice(0,400)})')}catch{}
  console.error(JSON.stringify({schema:'RIO_PUBLIC_CHECKOUT_E2E_R019',status:'FAIL',error:String(error?.stack||error),checks,debug}));process.exitCode=2;
