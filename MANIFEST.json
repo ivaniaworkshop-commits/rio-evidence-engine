@@ -8,8 +8,8 @@
     },
     {
       "path": ".github/workflows/rio-primer-cobro-deploy.yml",
-      "bytes": 13234,
-      "sha256": "89aebbe40e814183a5a6c0d3bf9aa79148e24bbd9adbe956e2fe3a16c097bdd9"
+      "bytes": 13253,
+      "sha256": "e2f56de4574d371cbc6f1c4e8c51102d21ca816629ef4c025e53586f8dcffd00"
     },
     {
       "path": ".github/workflows/rio-r021-candidate-rehearsal.yml",
@@ -35,6 +35,11 @@
       "path": ".github/workflows/rio-r029-reference-audit.yml",
       "bytes": 1370,
       "sha256": "076d8ac9727436c963804539fcb5e3c6a1d8afa5272d6724b0e25c733637d690"
+    },
+    {
+      "path": ".github/workflows/rio-r030-authority-migration.yml",
+      "bytes": 1730,
+      "sha256": "26e234f186d7d462b610b2225b90da766d99f5de826fe0b111acca40034b8f02"
     },
     {
       "path": ".gitignore",
@@ -350,6 +355,11 @@
       "path": "demos/rio-primer-cobro/integrations/R029_RETIREMENT.md",
       "bytes": 1180,
       "sha256": "717c4a4275df2957c054bbaa73d0b64d7fc31a7f1bc0fe058bc3cdf170733b88"
+    },
+    {
+      "path": "demos/rio-primer-cobro/integrations/R030_PR35_MIGRATION.md",
+      "bytes": 1655,
+      "sha256": "a83a9796784c04053c97f69209bf24eb2e93167309e5a21243de92308cc283af"
     },
     {
       "path": "demos/rio-primer-cobro/integrations/audit_legacy_refs_r029.py",
@@ -1345,6 +1355,11 @@
       "path": "tests/test_program.py",
       "bytes": 2813,
       "sha256": "40bc948bd81a82a0d9619eb2c6eb174a664c57bfbb16f35c0665e0926f5b927e"
+    },
+    {
+      "path": "tests/test_r030_release_authority.py",
+      "bytes": 5614,
+      "sha256": "99e1d3facfa7de14babf94ed293b47cf4955a5855a2c68a6199f40ebbe46af40"
     },
     {
       "path": "tests/test_regressions.py",
