@@ -41,8 +41,22 @@ jobs:
         run: |
           cat output/rio-primer-cobro/release-receipt.json >> "$GITHUB_STEP_SUMMARY"
           cat output/rio-primer-cobro/remote-observation.json >> "$GITHUB_STEP_SUMMARY"
-  deploy:
+  browser-public:
     needs: verify
+    if: github.ref == 'refs/heads/deploy/primer-cobro'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - name: Confirm Chrome exists in this runner
+        run: |
+          command -v google-chrome || command -v google-chrome-stable || command -v chromium || command -v chromium-browser
+      - name: Render live public pages with fresh unauthenticated Chrome
+        run: python3 demos/rio-primer-cobro/frontdesk/test_public_chrome.py
+  deploy:
+    needs: [verify, browser-public]
     if: github.ref == 'refs/heads/deploy/primer-cobro' && vars.RIO_PUBLIC_AUTO_DEPLOY == 'enabled'
     runs-on: ubuntu-24.04
     timeout-minutes: 20
