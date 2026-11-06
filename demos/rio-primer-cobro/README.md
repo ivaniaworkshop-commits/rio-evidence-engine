@@ -1,27 +1,40 @@
-# RÍO Primer Cobro — R014
+# 🌊 RÍO Primer Cobro — R015
 
-**Producto:** prototipo local de caja para efectivo manual y **QR de práctica no pagable**.
+Aplicación educativa **offline**, de interfaz móvil. Permite carrito por pieza/peso, cobro de efectivo **declarado manualmente**, QR **NO PAGABLE**, tickets, compartir mediante correo/WhatsApp a elección del usuario, historial local y respaldo JSON. No conecta a bancos ni a pey/CoDi.
 
-R014 añade continuidad: venta activa, ticket, historial limitado a 50 ventas, importación y exportación JSON con validación, y controles ante almacenamiento corrupto o bloqueado. El archivo `RIO_PRIMER_COBRO_R014_OFFLINE.html` funciona sin conexión.
+## Nuevo: pestaña «Prueba móvil»
 
-## Uso
-1. Abre el HTML en un navegador y agrega un producto.
-2. Selecciona **Efectivo** o **QR de práctica** y crea la venta.
-3. Para QR: pulsa **Generar QR**, que es únicamente texto educativo sin posibilidad de pago. Para efectivo: registra manualmente el monto recibido.
-4. Genera el ticket; puedes preparar un correo o mensaje de WhatsApp que **tú** decides enviar.
-5. Pulsa **Nueva venta**: la anterior pasa al historial. Si cierras la aplicación, vuelve a abrirla en el mismo origen del navegador; si necesitas cambiar de dispositivo, exporta y después importa el respaldo JSON.
+Esta versión incorpora un protocolo de campo para comprobar continuidad de una venta en Android y registrar problemas de QR, accesibilidad y recuperación **sin inventar resultados físicos**.
 
-## Seguridad y alcance
-- **No admite pagos reales**, no incluye credenciales, ni da comprobantes bancarios/CFDI.
-- El historial se almacena sólo en el navegador si su política lo permite. El navegador o usuario pueden borrarlo.
-- El respaldo puede contener nombres y detalles de ventas; guárdalo con cuidado. No está cifrado ni tiene firma verificable independiente.
-- La importación valida montos, eventos y estados y rechaza una declaración de pago real. Aun así, el fichero local no prueba que un pago haya ocurrido.
-- Si falla la lectura, no se sobrescribe automáticamente la clave dañada. Se puede descargar una copia cruda antes de reiniciar.
-- La generación de reporte ejecuta nuevamente las pruebas internas, no las pruebas externas de dispositivos.
-- Android físico, TalkBack y pruebas con comerciantes: **NOT_OBSERVED**.
+1. Descarga `RIO_PRIMER_COBRO_R015_OFFLINE.html`, ábrelo **en Chrome o Edge**, no en la vista previa del chat. Recuerda dónde lo guardaste; al cambiar ruta o aplicación puedes cambiar el origen y perder acceso a `localStorage`.
+2. En **Caja**, agrega un producto, crea una venta (efectivo o QR) y, si elegiste QR, pulsa **Generar QR de práctica**.
+3. En **Prueba móvil**, pulsa **Iniciar punto de control**. Confirma que aparece un folio e importe.
+4. Cierra el documento/pestaña, vuelve a abrir **el mismo archivo en la misma aplicación** y entra a **Prueba móvil**. Pulsa **Verificar recuperación**. `PASS_NEW_DOCUMENT` significa que coinciden folio, importe, método y estado tras una nueva carga; **no demuestra por sí mismo que Android haya cerrado el proceso**.
+5. Para verificar QR, usa otra cámara o lector, copia el texto leído al campo «Contenido que devolvió el lector QR» y pulsa **Comparar con la venta**. El texto esperado comienza `RIO-QR-DEMO|NO-PAGABLE|...`. No es CoDi.
+6. Con TalkBack habilitado, intenta navegar por los botones, agregar un producto y recuperar un ticket. Selecciona **Completada / Falló / No disponible / Sin probar** según lo ocurrido; no marques como completado lo que no hiciste.
+7. Prueba exportar el respaldo JSON de ventas e importarlo en otro dispositivo si está disponible. Registra el resultado.
+8. Pulsa **Ejecutar pruebas y generar reporte R015**. La descarga contiene pruebas internas ejecutadas *en ese momento* y resultados de campo `USER_REPORTED_ONLY` (no enviados automáticamente).
 
-## Pruebas
-`node --test tests/test_persistence_r014.mjs` y `python tests/test_e2e_r014.py` (requiere Chromium/Playwright).
+**El reporte de campo no contiene el texto escaneado**, ni texto del chat, ni una firma bancaria, ni una certificación independiente del equipo. Sí incluye folio e importe de práctica; trata el reporte como información privada hasta revisarlo.
 
-## Publicación
-El desarrollo se realiza sobre una rama de revisión de un repositorio público; `main` queda protegido de escrituras automáticas.
+## Pruebas reproducibles en ordenador
+
+```bash
+node --test tests/test_field_r015.mjs tests/test_logic.mjs tests/test_persistence_r014.mjs
+python tests/test_e2e_r015.py
+python tests/test_qr_matrix.py
+python tests/test_server.py
+python tests/build_offline.py
+```
+
+El E2E de Chromium usa un **almacenamiento simulado dentro de la misma página** para reproducir nuevas cargas del HTML. No acredita reinicio de un teléfono. Las cifras y alcances exactos se registran en `reports/R015_TEST_STATUS.json`.
+
+## Seguridad, privacidad y límites
+
+- `REAL_PAYMENT=NO`, `QR_PAYABLE=NO`, `PEY_CODI_CONNECTED=NO`, `LLM_ACTIVE_BY_DEFAULT=NO`.
+- El pago en efectivo se registra por declaración manual, no por observación física.
+- Ticket y historial no son CFDI, ni acuse de banco, ni autorización de entrega.
+- `localStorage` puede borrarse o estar bloqueado; exporta respaldos para conservar información. No hay sincronización remota ni cifrado del respaldo.
+- Una pantalla etiquetada y teclas compatibles no prueban conformidad completa WCAG; falta prueba TalkBack real.
+- Android físico, cámara externa y evaluación con comerciantes siguen `NOT_INDEPENDENTLY_VERIFIED` hasta recuperar evidencia fuera del simulador.
+- No se modificó el repositorio canónico de RÍO ni se activaron operadores o mecanismos adversariales globales.

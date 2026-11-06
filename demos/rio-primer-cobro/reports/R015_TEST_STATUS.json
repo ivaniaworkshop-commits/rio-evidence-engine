@@ -1,0 +1,41 @@
+{
+  "schema": "RIO_PRIMER_COBRO_R015_TEST_STATUS_V1",
+  "date_utc": "2026-11-06T06:22:18.578773+00:00",
+  "origin": "LOCAL_RUN",
+  "tests": {
+    "node": {
+      "passed": 42,
+      "failed": 0
+    },
+    "chromium_in_memory_mock": {
+      "passed": 44,
+      "failed": 0,
+      "scope": "CHROMIUM_MEMORY_MOCK_NOT_ANDROID_PHYSICAL"
+    },
+    "in_app_click": {
+      "passed": 125,
+      "failed": 0,
+      "scope": "IN_APP_SELF_TESTS_NOT_EXTERNAL_TESTS"
+    },
+    "qr_reference": {
+      "matched": 60,
+      "mismatched": 0
+    },
+    "http": {
+      "passed": 5,
+      "failed": 0
+    }
+  },
+  "not_observed": [
+    "physical_android",
+    "complete_chrome_restart",
+    "talkback_on_real_android",
+    "physical_camera",
+    "merchant_user_study",
+    "financial_payment"
+  ],
+  "canonical_promotion": "NO",
+  "real_payment": "NO",
+  "qr_payable": "NO",
+  "evidence_level": "BROWSER_LOCAL_AND_REPORTED_ONLY"
+}
