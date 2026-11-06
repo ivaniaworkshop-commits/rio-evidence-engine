@@ -86,13 +86,36 @@ class RulesetGateTests(unittest.TestCase):
         self.assertFalse(gate.verify_ruleset(self.policy)[
             "required_check_contexts_exact"])
 
-    def test_policy_gate_must_require_itself(self):
-        self.policy["rules"][-1]["parameters"]["required_status_checks"] = [
-            c for c in self.policy["rules"][-1]["parameters"]["required_status_checks"]
-            if c["context"] != "H00 admin policy gate (read-only)"
-        ]
-        self.assertFalse(gate.verify_ruleset(self.policy)[
-            "required_check_contexts_exact"])
+    def test_admin_diagnostic_is_not_allowed_as_required_check(self):
+        self.policy["rules"][-1]["parameters"]["required_status_checks"].append(
+            {"context": gate.DIAGNOSTIC_CONTEXT,
+             "integration_id": gate.ACTIONS_APP_ID}
+        )
+        checks = gate.verify_ruleset(self.policy)
+        self.assertFalse(checks["required_check_contexts_exact"])
+        self.assertFalse(checks["diagnostic_excluded_from_required_checks"])
+
+    def test_three_executable_checks_are_exact_and_pinned(self):
+        names = self.policy["rules"][-1]["parameters"]["required_status_checks"]
+        self.assertEqual([c["context"] for c in names],
+                         ["verify", "strict-torch",
+                          "H00 cross-audit receipts (read-only)"])
+        self.assertEqual([c["integration_id"] for c in names],
+                         [gate.ACTIONS_APP_ID] * 3)
+        checks = gate.verify_ruleset(self.policy)
+        self.assertTrue(checks["required_check_contexts_exact"])
+        self.assertTrue(checks["diagnostic_excluded_from_required_checks"])
+
+    def test_diagnostic_remains_fail_closed_even_when_not_required(self):
+        # Merge enforcement belongs to the ruleset; a broken diagnostic is
+        # still rejected and its failure is not relabeled as success.
+        self.policy.pop("bypass_actors")
+        report = gate.audit(runner_fixture(),
+                            fetch=lambda token: (self.policy, "e" * 64))
+        self.assertEqual(report["status"], gate.BLOCK)
+        self.assertIn("no_bypass", report["failure_codes"])
+        self.assertEqual(report["diagnostic_job_not_merge_required"],
+                         gate.DIAGNOSTIC_CONTEXT)
 
     def test_signer_check_must_not_be_required_on_pr(self):
         self.policy["rules"][-1]["parameters"]["required_status_checks"].append(

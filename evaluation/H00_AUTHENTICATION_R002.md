@@ -120,3 +120,13 @@ Los artefactos H00 de ambos jobs incorporan `pr-checkout.json`. La procedencia e
 - El readback autenticado por el conector administrativo sí observó `bypass_actors=[]`; esta observación **distinta** no se transfiere artificialmente al runner ni se usa para autoaprobar la rama.
 - Por seguridad, **no** se expone un token administrativo en workflows de PR que pueden ejecutar código no revisado. Una eventual vía de readback privilegiado exige aislamiento adicional respecto al checkout del PR.
 - Las cuatro comprobaciones administrativamente necesarias siguen siendo `verify`, `strict-torch`, `H00 cross-audit receipts (read-only)`, `H00 admin policy gate (read-only)`. Incluso al configurarlas, la falta de visibilidad de bypass del runner quedará como UNKNOWN hasta resolverla con una fuente autorizada independiente del PR.
+
+## R024 — Corrección de dependencia circular de aprobación
+
+**R024 sustituye únicamente el requisito de checks que R023 describía como cuatro. No borra su historial.** Los tres checks recomendados para el ruleset de GitHub son `verify`, `strict-torch` y `H00 cross-audit receipts (read-only)`, con `integration_id=15368` (GitHub Actions) y rama base actualizada. Los jobs de Sigstore, reservados al `push` protegido de `main`, tampoco deben exigirse en un PR.
+
+El cuarto job `H00 admin policy gate (read-only)` permanece **diagnóstico, fail-closed y con resultado rojo** cuando el ruleset sea insuficiente o su token no pueda observar el campo `bypass_actors`. **No debe incluirse entre checks obligatorios de merge**, dado que su token restringido no devuelve actualmente el campo de bypass y exigir ese mismo job crearía una condición circular imposible de satisfacer aun con el ruleset correcto. Su estado no es una aprobación independiente; `UNKNOWN` de bypass desde CI no significa `NO` ni `SÍ`.
+
+**Separación de autoridad:** la aplicación administrativa real del ruleset es responsabilidad de GitHub. El readback de `bypass_actors=[]` por el conector administrativo (o una identidad privilegiada en un host confiable) debe permanecer fuera de la ejecución de código de PR no revisado. Nunca inyectar credenciales administrativas en `pull_request`.
+
+**Compatibilidad:** la función `verify_ruleset` mantiene los checks de protección, añade `diagnostic_excluded_from_required_checks` y los recibos H00 incorporan `diagnostic_job_not_merge_required` como **política objetivo**, no como prueba de configuración ya aplicada. R024 no modifica la protección real de GitHub, no certifica independencia ni activa producción. El PR #26 sigue sujeto a aprobación válida por tercero y a la habilitación administrativa de los tres checks.

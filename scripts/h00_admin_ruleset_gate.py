@@ -17,11 +17,14 @@ from pathlib import Path
 REPO = "ivaniaworkshop-commits/rio-evidence-engine"
 RULESET_ID = 26688691
 ACTIONS_APP_ID = 15368
+# Only executable PR evidence checks belong in GitHub's merge-enforced set.
+# The admin policy reader currently lacks complete bypass visibility with its
+# unprivileged PR token. Requiring its own check would deadlock reviews.
+DIAGNOSTIC_CONTEXT = "H00 admin policy gate (read-only)"
 REQUIRED_CONTEXTS = (
     "verify",
     "strict-torch",
     "H00 cross-audit receipts (read-only)",
-    "H00 admin policy gate (read-only)",
 )
 PASS = "ACTIVE_ADMIN_POLICY_VERIFIED"
 BLOCK = "BLOCKED_ADMIN_POLICY"
@@ -115,6 +118,9 @@ def verify_ruleset(policy: dict) -> dict:
             valid_definitions and len(names) == len(REQUIRED_CONTEXTS)
             and set(names) == set(REQUIRED_CONTEXTS)
         ),
+        "diagnostic_excluded_from_required_checks": (
+            valid_definitions and DIAGNOSTIC_CONTEXT not in names
+        ),
         "required_checks_pinned_to_github_actions": (
             valid_definitions and len(ids) == len(REQUIRED_CONTEXTS)
             and all(i == ACTIONS_APP_ID for i in ids)
@@ -155,6 +161,7 @@ def audit(env: dict, fetch=get_policy) -> dict:
         "ruleset_id": RULESET_ID, "policy_sha256": None,
         "bypass_readback_visibility": "NOT_OBSERVED",
         "required_status_checks": list(REQUIRED_CONTEXTS),
+        "diagnostic_job_not_merge_required": DIAGNOSTIC_CONTEXT,
         "required_approvals": 1,
         "checks": {}, "failure_codes": [],
         "external_holdout_authenticated": False,
