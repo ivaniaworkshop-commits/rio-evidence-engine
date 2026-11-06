@@ -18,7 +18,7 @@ def ruleset(**kwargs):
          {"type":"pull_request","parameters":{"required_approving_review_count":1}},
          {"type":"deletion"},
          {"type":"non_fast_forward"},
-         {"type":"required_status_checks","parameters":{"required_status_checks":[{"context":"verify"}]}}
+         {"type":"required_status_checks","parameters":{"strict_required_status_checks_policy":True,"required_status_checks":[{"context":"verify","integration_id":15368},{"context":"strict-torch","integration_id":15368},{"context":"candidate-readiness","integration_id":15368}]}}
       ]
     }
     base.update(kwargs)
@@ -58,6 +58,14 @@ class CandidateGate(unittest.TestCase):
         x=ruleset()
         x["rules"][0]["parameters"]["required_approving_review_count"]=True
         self.assertEqual(assess([x])["result"],"BLOCKED_INCOMPLETE_RELEASE_RULESET")
+    def test_missing_candidate_readiness_check_blocks(self):
+        x=ruleset()
+        x["rules"][3]["parameters"]["required_status_checks"]=x["rules"][3]["parameters"]["required_status_checks"][:2]
+        self.assertEqual(assess([x])["result"],"BLOCKED_INCOMPLETE_RELEASE_RULESET")
+    def test_non_strict_required_status_checks_block(self):
+        x=ruleset()
+        x["rules"][3]["parameters"]["strict_required_status_checks_policy"]=False
+        self.assertEqual(assess([x])["result"],"BLOCKED_INCOMPLETE_RELEASE_RULESET")
     def test_missing_status_checks_blocks(self):
         x=ruleset()
         x["rules"]=x["rules"][:3]
@@ -77,6 +85,27 @@ class CandidateGate(unittest.TestCase):
         self.assertFalse(r["vercel_token_verified"])
         self.assertFalse(r["host_identity_authorized"])
         self.assertEqual(r["source_ancestor_required"],R030_ANCHOR)
+    def test_unrelated_check_does_not_count(self):
+        x=ruleset()
+        x["rules"][3]["parameters"]["required_status_checks"]=[{"context":"made-up","integration_id":15368}]
+        self.assertIn("required_status_checks",assess([x])["missing_required_rule_types"])
+    def test_one_legit_check_does_not_count(self):
+        x=ruleset()
+        x["rules"][3]["parameters"]["required_status_checks"]=[{"context":"verify","integration_id":15368}]
+        self.assertIn("required_status_checks",assess([x])["missing_required_rule_types"])
+    def test_foreign_check_producer_does_not_count(self):
+        x=ruleset()
+        x["rules"][3]["parameters"]["required_status_checks"][1]["integration_id"]=12345
+        self.assertIn("required_status_checks",assess([x])["missing_required_rule_types"])
+    def test_unspecified_producer_does_not_count(self):
+        x=ruleset()
+        del x["rules"][3]["parameters"]["required_status_checks"][0]["integration_id"]
+        self.assertIn("required_status_checks",assess([x])["missing_required_rule_types"])
+    def test_exact_trusted_pair_remains_observation_only(self):
+        result=assess([ruleset()])
+        self.assertTrue(result["rule_contract_observed"])
+        self.assertFalse(result["deployment_enabled"])
+        self.assertFalse(result["review_completed"])
     def test_different_repository_rejected(self):
         with self.assertRaisesRegex(ReleaseGateError,"IDENTITY"):
             assess([ruleset()],repository="untrusted/other")
