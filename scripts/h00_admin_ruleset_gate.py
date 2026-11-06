@@ -100,7 +100,8 @@ def verify_ruleset(policy: dict) -> dict:
             ref.get("include") == ["refs/heads/main"]
             and ref.get("exclude") == []
         ),
-        "no_bypass": policy.get("bypass_actors") == [],
+        "no_bypass": (policy["bypass_actors"] == []
+                      if "bypass_actors" in policy else None),
         "no_deletion": len(selected["deletion"]) == 1,
         "no_force_push": len(selected["non_fast_forward"]) == 1,
         "review_rule_unique": len(selected["pull_request"]) == 1,
@@ -152,6 +153,7 @@ def audit(env: dict, fetch=get_policy) -> dict:
         "run_id": env.get("GITHUB_RUN_ID"),
         "attempt": env.get("GITHUB_RUN_ATTEMPT"),
         "ruleset_id": RULESET_ID, "policy_sha256": None,
+        "bypass_readback_visibility": "NOT_OBSERVED",
         "required_status_checks": list(REQUIRED_CONTEXTS),
         "required_approvals": 1,
         "checks": {}, "failure_codes": [],
@@ -173,6 +175,9 @@ def audit(env: dict, fetch=get_policy) -> dict:
     try:
         policy, digest = fetch(env.get("GITHUB_TOKEN", ""))
         result["policy_sha256"] = digest
+        result["bypass_readback_visibility"] = (
+            "PRESENT" if "bypass_actors" in policy else "NOT_RETURNED"
+        )
         result["checks"].update(verify_ruleset(policy))
     except (urllib.error.URLError, OSError, ValueError, TypeError,
             TimeoutError, OverflowError):

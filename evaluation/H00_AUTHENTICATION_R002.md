@@ -112,3 +112,11 @@ Los artefactos H00 de ambos jobs incorporan `pr-checkout.json`. La procedencia e
 - Las 26 regresiones offline cubren cambios de bypass, ámbitos, integraciones, aprobación, checks omitidos, duplicados JSON, valores no finitos, tamaño, tokens ausentes y una solicitud GET de sólo lectura.
 
 **Instrucción de configuración administrativa restante:** editar `https://github.com/ivaniaworkshop-commits/rio-evidence-engine/rules/26688691`, activar `Require status checks to pass`, marcar los cuatro nombres exactos anteriores y `Require branches to be up to date`; preservar todas las restricciones existentes y no habilitar bypass. Hacer readback y volver a ejecutar CI. Una aprobación independiente sigue siendo una condición separada.
+
+### R023B — corrección de incertidumbre sobre bypass observada en CI
+
+- En el run `42218839541`, el control administrativo respondió `BLOCKED_ADMIN_POLICY`: el ruleset sigue sin `required_status_checks`. Los 26 tests de R023 y los 343 tests estrictos pasaron. La falla final del workflow es **deliberada y correctamente atribuida** a la política insuficiente.
+- El token de CI no aportó evidencia suficiente para afirmar `bypass_actors=[]`. Cuando no retorna ese campo, el auditor ahora representa `checks.no_bypass=null` (**UNKNOWN**) y `bypass_readback_visibility=NOT_RETURNED`, manteniendo rechazo seguro. Antes se representaba equivocadamente como `false`, semánticamente indistinguible de un bypass observado.
+- El readback autenticado por el conector administrativo sí observó `bypass_actors=[]`; esta observación **distinta** no se transfiere artificialmente al runner ni se usa para autoaprobar la rama.
+- Por seguridad, **no** se expone un token administrativo en workflows de PR que pueden ejecutar código no revisado. Una eventual vía de readback privilegiado exige aislamiento adicional respecto al checkout del PR.
+- Las cuatro comprobaciones administrativamente necesarias siguen siendo `verify`, `strict-torch`, `H00 cross-audit receipts (read-only)`, `H00 admin policy gate (read-only)`. Incluso al configurarlas, la falta de visibilidad de bypass del runner quedará como UNKNOWN hasta resolverla con una fuente autorizada independiente del PR.

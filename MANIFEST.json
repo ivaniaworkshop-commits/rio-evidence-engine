@@ -88,8 +88,8 @@
     },
     {
       "path": "evaluation/H00_AUTHENTICATION_R002.md",
-      "bytes": 15696,
-      "sha256": "b63a680d84788aeb0849a7141c2d1a11f7fb47c042fa51f4956400a53fd8b63e"
+      "bytes": 17171,
+      "sha256": "73f32b9bf7bbffde29fee8f36d4765a9d252326fa72aa986afcdd189ddbed216"
     },
     {
       "path": "evaluation/H07_GATE_R001.md",
@@ -643,8 +643,8 @@
     },
     {
       "path": "scripts/h00_admin_ruleset_gate.py",
-      "bytes": 7814,
-      "sha256": "1e83880630c6958362ca4582428add4f4bf88e1805b10694880c2cf86553e538"
+      "bytes": 8057,
+      "sha256": "253f502ea2f002eb227fdc1d986801b7a43dad23c7c5436bf9767eaff12a0f75"
     },
     {
       "path": "scripts/h00_ci_receipt.py",
@@ -868,8 +868,8 @@
     },
     {
       "path": "tests/test_h00_admin_ruleset_gate.py",
-      "bytes": 11510,
-      "sha256": "52dce284ea897b805121b88e332939379d2f2a6432fb1660709a51c2f9d8841b"
+      "bytes": 12081,
+      "sha256": "04da1e1808298a9dceb3953fa6e19065b2efef356894db3370ba4bc525072786"
     },
     {
       "path": "tests/test_h00_ci_receipt.py",

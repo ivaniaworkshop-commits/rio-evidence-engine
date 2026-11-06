@@ -128,6 +128,17 @@ class RulesetGateTests(unittest.TestCase):
                 obj["rules"][2]["parameters"][key] = value
                 self.assertFalse(gate.verify_ruleset(obj)[check])
 
+    def test_absent_bypass_field_is_unknown_and_blocks(self):
+        self.policy.pop("bypass_actors")
+        checks = gate.verify_ruleset(self.policy)
+        self.assertIsNone(checks["no_bypass"])
+        report = gate.audit(runner_fixture(),
+                            fetch=lambda token: (self.policy, "d" * 64))
+        self.assertEqual(report["status"], gate.BLOCK)
+        self.assertIsNone(report["checks"]["no_bypass"])
+        self.assertEqual(report["bypass_readback_visibility"], "NOT_RETURNED")
+        self.assertIn("no_bypass", report["failure_codes"])
+
     def test_bypass_actors_are_never_acceptable(self):
         self.policy["bypass_actors"] = [
             {"actor_id": 1, "actor_type": "OrganizationAdmin", "bypass_mode": "always"}
