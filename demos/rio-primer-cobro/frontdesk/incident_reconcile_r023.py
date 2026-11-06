@@ -115,14 +115,18 @@ def main() -> int:
     parser.add_argument("--promote-outcome", choices=sorted(ALLOWED_PROMOTE), default="unknown")
     parser.add_argument("--commit", default=os.environ.get("GITHUB_SHA", ""))
     parser.add_argument("--output", required=True)
+    parser.add_argument("--offline-alias-unavailable", action="store_true", help="No Vercel request in isolated test")
     args = parser.parse_args()
     try:
         baseline, bs = read_receipt(args.baseline, BASELINE_SCHEMA, args.commit)
         fence, fs = read_receipt(args.fence, FENCE_SCHEMA, args.commit)
-        try:
-            observed = read_alias()
-        except (ValueError, OSError, AttributeError):
+        if args.offline_alias_unavailable:
             observed = None
+        else:
+            try:
+                observed = read_alias()
+            except (ValueError, OSError, AttributeError):
+                observed = None
         report = reconcile(baseline, bs, fence, fs, observed, args.promote_outcome, args.commit)
         write_json(args.output, report)
         return 0

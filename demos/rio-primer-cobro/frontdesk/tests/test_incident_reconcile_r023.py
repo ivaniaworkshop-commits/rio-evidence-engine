@@ -165,6 +165,21 @@ class IncidentR023(unittest.TestCase):
         self.assertEqual(doc["fence_receipt"], INVALID)
         self.assertFalse(doc["automatic_rollback"])
 
+    def test_offline_cli_does_not_call_real_vercel_alias(self):
+        from incident_reconcile_r023 import main
+        path = Path(self.tmp.name) / "offline.json"
+        with patch("incident_reconcile_r023.read_alias", side_effect=AssertionError("NETWORK_UNAUTHORIZED")) as observer, \
+             patch.object(sys, "argv", ["incident_reconcile_r023.py", "--offline-alias-unavailable",
+                                        "--commit", COMMIT, "--promote-outcome", "failure",
+                                        "--output", str(path)]):
+            return_code = main()
+        self.assertEqual(return_code, 0)
+        observer.assert_not_called()
+        artifact = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(artifact["classification"], "ALIAS_UNKNOWN_MANUAL_REVIEW")
+        self.assertFalse(artifact["automatic_rollback"])
+        self.assertFalse(artifact["production_write"])
+
 
 if __name__ == "__main__":
     unittest.main()
