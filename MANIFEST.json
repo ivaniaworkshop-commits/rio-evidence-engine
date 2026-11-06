@@ -3,8 +3,8 @@
   "files": [
     {
       "path": ".github/workflows/h00-integrity.yml",
-      "bytes": 21424,
-      "sha256": "e252321b9958d8929f702822085352bf9fac8c892f1e7bbadb21f19ebf3a50a8"
+      "bytes": 22578,
+      "sha256": "f8be74b940f482cd6dcf3c25500573b05c3f03c58ffed4bbf0ecbd54b8bba914"
     },
     {
       "path": ".gitignore",
@@ -88,8 +88,8 @@
     },
     {
       "path": "evaluation/H00_AUTHENTICATION_R002.md",
-      "bytes": 13241,
-      "sha256": "b3b70e0fdf1394225716a4bff63de3e5069dffd86e3c4c0a392195433d722030"
+      "bytes": 15696,
+      "sha256": "b63a680d84788aeb0849a7141c2d1a11f7fb47c042fa51f4956400a53fd8b63e"
     },
     {
       "path": "evaluation/H07_GATE_R001.md",
@@ -642,6 +642,11 @@
       "sha256": "e955ea49da33dc2e57727bc907b60a1b9742d0571199b1ea25a5caaebc666dd5"
     },
     {
+      "path": "scripts/h00_admin_ruleset_gate.py",
+      "bytes": 7814,
+      "sha256": "1e83880630c6958362ca4582428add4f4bf88e1805b10694880c2cf86553e538"
+    },
+    {
       "path": "scripts/h00_ci_receipt.py",
       "bytes": 13709,
       "sha256": "2fc9795bf880dd5664d8fa995af1a1336407d2ecf8b22b3baeeecede43dd2d3b"
@@ -860,6 +865,11 @@
       "path": "tests/test_graph_copy.py",
       "bytes": 1633,
       "sha256": "772faebbc5095926328906e64fc927685b54872befe56d24c8d81af9679a7ff6"
+    },
+    {
+      "path": "tests/test_h00_admin_ruleset_gate.py",
+      "bytes": 11510,
+      "sha256": "52dce284ea897b805121b88e332939379d2f2a6432fb1660709a51c2f9d8841b"
     },
     {
       "path": "tests/test_h00_ci_receipt.py",

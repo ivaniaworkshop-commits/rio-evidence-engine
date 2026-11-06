@@ -237,6 +237,32 @@ jobs:
           retention-days: 30
           if-no-files-found: warn
 
+  admin-policy:
+    name: H00 admin policy gate (read-only)
+    if: ${{ github.event_name == 'pull_request' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6 (Node.js 24)
+      - name: Verify source inventory before administrative readback
+        run: python3 scripts/verify_manifest.py
+      - name: R023 adversarial policy checks (offline)
+        run: python3 -m unittest discover -s tests -p 'test_h00_admin_ruleset_gate.py' -v
+      - name: R023 verify effective main ruleset via GitHub API (fail closed)
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python3 -m scripts.h00_admin_ruleset_gate --output output/h00/admin-policy.json
+      - name: Publish R023 administrative policy diagnostic
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2 (Node.js 24)
+        with:
+          name: h00-admin-policy-${{ github.run_attempt }}
+          retention-days: 30
+          if-no-files-found: warn
+          path: output/h00/admin-policy.json
+
   attest-receipts:
     name: Attest H00 CI receipts (GitHub OIDC + Sigstore)
     needs: [verify, strict-torch]
