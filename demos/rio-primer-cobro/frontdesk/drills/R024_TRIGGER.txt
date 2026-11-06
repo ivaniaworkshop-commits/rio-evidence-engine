@@ -1,0 +1,5 @@
+R024 CONTROLLED GITHUB ACTIONS FAILURE DRILL
+Commit source: branch deploy/primer-cobro
+Step failure scenarios: exit 47 without receipts and exit 49 with invalid JSON.
+No Vercel credential, no production writes, no real payments.
+Expected proof: genuine failed steps, 2 reconciled JSON incident artifacts, job assertions pass.

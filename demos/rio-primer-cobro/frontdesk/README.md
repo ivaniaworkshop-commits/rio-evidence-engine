@@ -18,3 +18,7 @@ La carpeta contiene exclusivamente los dos HTML que componen la versión web: `i
 Los endpoints `/` y `/app.html` respondieron HTTP 200 en la comprobación del alojamiento. El proyecto de Vercel tiene SSO y contraseña desactivados. La validación real de navegador físico, cámara y TalkBack sigue pendiente.
 
 **NO ES COdi, QR PAGABLE NI COMPROBANTE DE PAGO.** Los tickets no son CFDI.
+
+## R017 — despliegue verificable
+
+El procedimiento está en [DEPLOYMENT_R017.md](./DEPLOYMENT_R017.md). El código de publicación se conserva en la rama `deploy/primer-cobro`; la comprobación automatizada puede ejecutarse sin credenciales, pero el despliegue a Vercel necesita la configuración única descrita. No se actualiza `main` ni se activan pagos reales.

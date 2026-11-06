@@ -42,3 +42,7 @@ El E2E de Chromium usa un **almacenamiento simulado dentro de la misma página**
 - Una pantalla etiquetada y teclas compatibles no prueban conformidad completa WCAG; falta prueba TalkBack real.
 - Android físico, cámara externa y evaluación con comerciantes siguen `NOT_INDEPENDENTLY_VERIFIED` hasta recuperar evidencia fuera del simulador.
 - No se modificó el repositorio canónico de RÍO ni se activaron operadores o mecanismos adversariales globales.
+
+## R017 — despliegue verificable
+
+El procedimiento está en [DEPLOYMENT_R017.md](./frontdesk/DEPLOYMENT_R017.md). El código de publicación se conserva en la rama `deploy/primer-cobro`; la comprobación automatizada puede ejecutarse sin credenciales, pero el despliegue a Vercel necesita la configuración única descrita. No se actualiza `main` ni se activan pagos reales.

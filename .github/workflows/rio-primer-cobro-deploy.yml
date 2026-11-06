@@ -1,0 +1,277 @@
+name: RIO Primer Cobro - verified public deployment
+on:
+  push:
+    branches:
+      - deploy/primer-cobro
+    paths:
+      - ".github/workflows/rio-primer-cobro-deploy.yml"
+      - "demos/rio-primer-cobro/frontdesk/**"
+      - "demos/rio-primer-cobro/app/**"
+      - "demos/rio-primer-cobro/tests/**"
+      - "MANIFEST.json"
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: rio-primer-cobro-production
+  cancel-in-progress: false
+jobs:
+  verify:
+    if: github.ref == 'refs/heads/deploy/primer-cobro'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - name: Verify all tracked source inventory and SHA-256
+        run: python3 scripts/verify_manifest.py
+      - name: Commercial calculation and chat regressions
+        run: node demos/rio-primer-cobro/tests/test_logic.mjs
+      - name: Verify Pey offline emulation contract and reject real bank data
+        run: node --test demos/rio-primer-cobro/tests/test_pey_r026.mjs
+      - name: Verify Pey versus CoDi candidate provenance and block unverified settlements
+        run: node --test demos/rio-primer-cobro/tests/test_pey_r027.mjs
+      - name: Verify and stage immutable front desk
+        run: python3 demos/rio-primer-cobro/frontdesk/verify_release.py
+      - name: Test anonymous HTTP observer against local mock server
+        run: python3 -m unittest discover -s demos/rio-primer-cobro/frontdesk/tests -v
+      - name: Generate 13-case R023 synthetic incident classification receipt
+        run: |
+          python3 demos/rio-primer-cobro/frontdesk/incident_matrix_r023.py \
+            --output output/rio-primer-cobro/r023-synthetic-matrix.json
+          cat output/rio-primer-cobro/r023-synthetic-matrix.json >> "$GITHUB_STEP_SUMMARY"
+      - name: Probe both live public routes from GitHub runner without credentials
+        run: |
+          python3 demos/rio-primer-cobro/frontdesk/check_public_site.py \
+            --mode access \
+            --output output/rio-primer-cobro/remote-observation.json
+      - name: Record staging and public-access receipts
+        run: |
+          cat output/rio-primer-cobro/release-receipt.json >> "$GITHUB_STEP_SUMMARY"
+          cat output/rio-primer-cobro/remote-observation.json >> "$GITHUB_STEP_SUMMARY"
+  browser-public:
+    needs: verify
+    if: github.ref == 'refs/heads/deploy/primer-cobro'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - name: Confirm Chrome exists in this runner
+        run: |
+          command -v google-chrome || command -v google-chrome-stable || command -v chromium || command -v chromium-browser
+      - name: Render live public pages with fresh unauthenticated Chrome
+        run: python3 demos/rio-primer-cobro/frontdesk/test_public_chrome.py
+      - name: Complete real QR practice checkout and restore from browser storage
+        run: node demos/rio-primer-cobro/frontdesk/tests/test_public_checkout.mjs
+  release-authority:
+    needs: verify
+    if: github.ref == 'refs/heads/deploy/primer-cobro'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    outputs:
+      authorized: ${{ steps.policy.outputs.authorized }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - id: policy
+        name: Observe active GitHub release-branch rulesets and report authorization
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          echo "authorized=false" >> "$GITHUB_OUTPUT"
+          if ! gh api "/repos/${GITHUB_REPOSITORY}/rulesets?includes_parents=true" --jq '.[] | select(.target == "branch" and .enforcement == "active") | .id' > /tmp/rio-rule-ids; then
+            echo "RELEASE_AUTHORITY=UNKNOWN_API_UNAVAILABLE" | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 2
+          fi
+          if ! test -s /tmp/rio-rule-ids; then
+            echo "RELEASE_AUTHORITY=BLOCKED_NO_ACTIVE_RULESETS" | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 2
+          fi
+          printf '[' > /tmp/rio-release-rulesets.json
+          first=1
+          while IFS= read -r rid; do
+            if [[ "$first" = 0 ]]; then printf ',' >> /tmp/rio-release-rulesets.json; fi
+            if ! gh api "/repos/${GITHUB_REPOSITORY}/rulesets/${rid}" >> /tmp/rio-release-rulesets.json; then
+              echo "RELEASE_AUTHORITY=UNKNOWN_RULESET_READ" | tee -a "$GITHUB_STEP_SUMMARY"
+              exit 2
+            fi
+            first=0
+          done < /tmp/rio-rule-ids
+          printf ']\n' >> /tmp/rio-release-rulesets.json
+          if python3 demos/rio-primer-cobro/frontdesk/release_authority_r020.py --rulesets /tmp/rio-release-rulesets.json; then
+            echo "authorized=true" >> "$GITHUB_OUTPUT"
+            echo "RELEASE_AUTHORITY=VERIFIED_RULESET_GUARDS" | tee -a "$GITHUB_STEP_SUMMARY"
+          else
+            echo "RELEASE_AUTHORITY=BLOCKED_POLICY_CHECK" | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 2
+          fi
+  deploy:
+    needs: [verify, browser-public, release-authority]
+    if: github.ref == 'refs/heads/deploy/primer-cobro' && vars.RIO_PUBLIC_AUTO_DEPLOY == 'enabled' && needs.release-authority.outputs.authorized == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    environment: rio-primer-cobro-production
+    env:
+      VERCEL_ORG_ID: team_cAq0fHixSn0Hck4ogKCifUzi
+      VERCEL_PROJECT_ID: prj_J7YrJusN08qUXrZNPDBmspVRKW6d
+      VERCEL_CLI_VERSION: ${{ vars.VERCEL_CLI_VERSION }}
+      PUBLIC_URL: https://rio-primer-cobro-frontdesk.vercel.app
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - name: Fail closed without one-time configuration
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "${VERCEL_CLI_VERSION:-}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "::error::Set a reviewed exact VERCEL_CLI_VERSION"; exit 2; }
+      - name: Revalidate exact release source
+        run: |
+          python3 scripts/verify_manifest.py
+          node demos/rio-primer-cobro/tests/test_logic.mjs
+          node --test demos/rio-primer-cobro/tests/test_pey_r026.mjs
+          node --test demos/rio-primer-cobro/tests/test_pey_r027.mjs
+          python3 demos/rio-primer-cobro/frontdesk/verify_release.py
+      - name: Verify effective release branch ruleset before exposing deploy token
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh api "/repos/${GITHUB_REPOSITORY}/rulesets?includes_parents=true" --jq '.[] | select(.target == "branch" and .enforcement == "active") | .id' > /tmp/rio-release-ruleset-ids
+          test -s /tmp/rio-release-ruleset-ids || { echo "::error::No active GitHub branch rulesets"; exit 2; }
+          printf '[' > /tmp/rio-release-rulesets.json
+          first=1
+          while IFS= read -r rid; do
+            if [[ "$first" = 0 ]]; then printf ',' >> /tmp/rio-release-rulesets.json; fi
+            gh api "/repos/${GITHUB_REPOSITORY}/rulesets/${rid}" >> /tmp/rio-release-rulesets.json
+            first=0
+          done < /tmp/rio-release-ruleset-ids
+          printf ']\n' >> /tmp/rio-release-rulesets.json
+          python3 demos/rio-primer-cobro/frontdesk/release_authority_r020.py --rulesets /tmp/rio-release-rulesets.json
+      - name: Link staging directory to approved Vercel project
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          path = Path("output/rio-primer-cobro/.vercel/project.json")
+          path.parent.mkdir(parents=True, exist_ok=True)
+          path.write_text(json.dumps({"orgId": os.environ["VERCEL_ORG_ID"],
+                                      "projectId": os.environ["VERCEL_PROJECT_ID"]}))
+          PY
+      - name: Install reviewed Vercel CLI without credentials
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --global "vercel@${VERCEL_CLI_VERSION}"
+      - name: Capture existing production alias before staging
+        shell: bash
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          set -euo pipefail
+          python3 demos/rio-primer-cobro/frontdesk/release_fence_r022.py snapshot \
+            --output output/rio-primer-cobro/r022-baseline.json
+      - id: stage
+        name: Stage immutable production candidate without assigning live domain
+        shell: bash
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          set -euo pipefail
+          test -n "${VERCEL_TOKEN:-}" || { echo "::error::Missing VERCEL_TOKEN in protected environment"; exit 2; }
+          candidate="$(vercel deploy --prod --yes --skip-domain --cwd output/rio-primer-cobro | tail -n 1)"
+          python3 - "$candidate" <<'PY'
+          import sys
+          from pathlib import Path
+          sys.path.insert(0, str(Path("demos/rio-primer-cobro/frontdesk").resolve()))
+          from check_public_site import valid_base, DEFAULT_URL
+          url = sys.argv[1]
+          if url != valid_base(url) or url == DEFAULT_URL:
+              raise SystemExit("INVALID_STAGING_URL_FOR_THIS_PROJECT")
+          PY
+          printf 'url=%s\n' "$candidate" >> "$GITHUB_OUTPUT"
+      - name: Read back candidate bytes independently of Vercel credentials
+        env:
+          RIO_CANDIDATE_URL: ${{ steps.stage.outputs.url }}
+        run: |
+          python3 demos/rio-primer-cobro/frontdesk/check_public_site.py \
+            --base-url "$RIO_CANDIDATE_URL" \
+            --source output/rio-primer-cobro --mode exact
+      - name: Rehearse both payment paths on staged production candidate
+        env:
+          RIO_TEST_BASE_URL: ${{ steps.stage.outputs.url }}
+        run: node demos/rio-primer-cobro/frontdesk/tests/test_public_checkout.mjs
+      - name: Abort if branch moved during staging and independent tests
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          current="$(gh api "/repos/${GITHUB_REPOSITORY}/git/ref/heads/deploy/primer-cobro" --jq '.object.sha')"
+          test "$current" = "$GITHUB_SHA" || { echo "::error::STALE_RELEASE_BRANCH_REBASE_REQUIRED"; exit 2; }
+      - name: Fence existing alias against concurrent Vercel changes
+        shell: bash
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          RIO_CANDIDATE_URL: ${{ steps.stage.outputs.url }}
+        run: |
+          set -euo pipefail
+          python3 demos/rio-primer-cobro/frontdesk/release_fence_r022.py guard \
+            --baseline output/rio-primer-cobro/r022-baseline.json \
+            --candidate-url "$RIO_CANDIDATE_URL" \
+            --output output/rio-primer-cobro/r022-fence.json
+      - id: promote
+        name: Promote only the candidate whose bytes matched
+        shell: bash
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          RIO_CANDIDATE_URL: ${{ steps.stage.outputs.url }}
+        run: |
+          set -euo pipefail
+          test -n "${VERCEL_TOKEN:-}" || exit 2
+          vercel promote "$RIO_CANDIDATE_URL" --yes
+      - name: Verify production alias points at the tested candidate
+        shell: bash
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          set -euo pipefail
+          python3 demos/rio-primer-cobro/frontdesk/release_fence_r022.py confirm \
+            --fence output/rio-primer-cobro/r022-fence.json \
+            --output output/rio-primer-cobro/r022-alias-confirmation.json
+      - name: Confirm live alias serves the same release anonymously
+        run: |
+          python3 demos/rio-primer-cobro/frontdesk/check_public_site.py \
+            --base-url "$PUBLIC_URL" --source output/rio-primer-cobro \
+            --mode exact --attempts 6
+          echo "PUBLIC_READBACK_PASS commit=${GITHUB_SHA} portal=$PUBLIC_URL" >> "$GITHUB_STEP_SUMMARY"
+      - name: Reconcile any release failure (including before a fence) without rollback
+        if: ${{ failure() }}
+        shell: bash
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          RIO_PROMOTE_OUTCOME: ${{ steps.promote.outcome }}
+        run: |
+          set -euo pipefail
+          outcome="${RIO_PROMOTE_OUTCOME:-unknown}"
+          case "$outcome" in
+            success|failure|skipped|unknown) ;;
+            *) outcome=unknown ;;
+          esac
+          python3 demos/rio-primer-cobro/frontdesk/incident_reconcile_r023.py \
+            --baseline output/rio-primer-cobro/r022-baseline.json \
+            --fence output/rio-primer-cobro/r022-fence.json \
+            --promote-outcome "$outcome" \
+            --output output/rio-primer-cobro/r023-incident.json || true
+          if test -s output/rio-primer-cobro/r023-incident.json; then
+            cat output/rio-primer-cobro/r023-incident.json >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "R023_INCIDENT_UNAVAILABLE_FAIL_CLOSED_NO_ROLLBACK" | tee -a "$GITHUB_STEP_SUMMARY"
+          fi

@@ -1,0 +1,40 @@
+name: RIO R030 fail-closed release authority migration
+on:
+  push:
+    branches:
+      - security/primer-cobro-r028-clean-20261106
+    paths:
+      - ".github/workflows/rio-primer-cobro-deploy.yml"
+      - ".github/workflows/rio-r030-authority-migration.yml"
+      - "tests/test_r030_release_authority.py"
+      - "demos/rio-primer-cobro/integrations/R030_PR35_MIGRATION.md"
+      - "MANIFEST.json"
+permissions:
+  contents: read
+jobs:
+  policy-tests:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Verify source manifest
+        run: python3 scripts/verify_manifest.py
+      - name: Ten adversarial shell tests; no GitHub credential or money movement
+        run: python3 -m unittest discover -s tests -p 'test_r030_release_authority.py' -v
+      - name: Verify clean ancestry and reachable legacy references
+        run: |
+          python3 demos/rio-primer-cobro/integrations/verify_privacy_lineage_r028.py --output /tmp/r030-clean.json
+          python3 demos/rio-primer-cobro/integrations/audit_legacy_refs_r029.py --output /tmp/r030-legacy.json
+      - name: Confirm production branch still independently gated
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          s=Path(".github/workflows/rio-primer-cobro-deploy.yml").read_text(encoding="utf-8")
+          assert "if: github.ref == 'refs/heads/deploy/primer-cobro'" in s
+          assert "RELEASE_AUTHORITY=VERIFIED_RULESET_GUARDS" in s
+          assert s.count("exit 2") >= 4
+          print("R030_SOURCE_ONLY_PASS_REAL_AUTHORIZATION_NOT_OBSERVED")
+          PY

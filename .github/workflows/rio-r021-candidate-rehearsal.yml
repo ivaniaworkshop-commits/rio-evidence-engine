@@ -1,0 +1,37 @@
+name: RIO R021 candidate rehearsal (one-shot)
+on:
+  push:
+    branches:
+      - deploy/primer-cobro
+    paths:
+      - "demos/rio-primer-cobro/frontdesk/rehearsals/R021_TRIGGER.txt"
+permissions:
+  contents: read
+jobs:
+  candidate-rehearsal:
+    if: github.ref == 'refs/heads/deploy/primer-cobro'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    env:
+      RIO_TEST_BASE_URL: https://rio-primer-cobro-frontdesk-o6k25ltke-ivaniaworkshop-6855.vercel.app/
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - name: Verify complete GitHub source inventory
+        run: python3 scripts/verify_manifest.py
+      - name: Assemble exact standalone front desk source
+        run: python3 demos/rio-primer-cobro/frontdesk/verify_release.py
+      - name: Exact anonymous HTTP comparison of staged Vercel candidate
+        run: |
+          python3 demos/rio-primer-cobro/frontdesk/check_public_site.py \
+            --base-url "$RIO_TEST_BASE_URL" \
+            --source output/rio-primer-cobro \
+            --mode exact --attempts 3
+      - name: Complete QR and cash checkout on staged candidate using Chrome
+        run: node demos/rio-primer-cobro/frontdesk/tests/test_public_checkout.mjs
+      - name: Record candidate identity, not a production promotion
+        run: |
+          echo "CANDIDATE_R021_REHEARSAL_PASS" >> "$GITHUB_STEP_SUMMARY"
+          echo "R021 target: $RIO_TEST_BASE_URL" >> "$GITHUB_STEP_SUMMARY"
+          echo "No bank transactions and no Android physical observation." >> "$GITHUB_STEP_SUMMARY"
