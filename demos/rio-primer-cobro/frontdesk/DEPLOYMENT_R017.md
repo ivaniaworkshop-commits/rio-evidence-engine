@@ -23,9 +23,9 @@ Cada push autorizado a `deploy/primer-cobro`, si cambia la portada, aplicacion o
 ## Configuracion unica pendiente (no pegar secretos al chat)
 
 1. Crea un token Vercel restringido de despliegue para el proyecto/equipo autorizado.
-2. En GitHub: Settings > Secrets and variables > Actions > Secrets > New repository secret. Nombra el secreto `VERCEL_TOKEN`. Introduce el token solo en GitHub.
+2. En GitHub: Settings > Environments > `rio-primer-cobro-production`. Configura primero la restriccion de rama `deploy/primer-cobro` y los revisores requeridos; despues crea ahi el **environment secret** `VERCEL_TOKEN`. No uses un secreto general del repositorio.
 3. En GitHub: Settings > Secrets and variables > Actions > Variables, agrega `VERCEL_CLI_VERSION` con una version exacta comprobada del CLI y `RIO_PUBLIC_AUTO_DEPLOY` con valor `enabled`.
-4. En GitHub: Settings > Environments > `rio-primer-cobro-production`, restringe implementaciones a la rama `deploy/primer-cobro` y configura revisores si procede. No permitas a contribuyentes no autorizados escribir a esa rama.
+4. Protege `deploy/primer-cobro` contra pushes directos no revisados (Settings > Branches o Rulesets) y exige revision antes de actualizarla. Sin esta proteccion, NO habilites `RIO_PUBLIC_AUTO_DEPLOY`. El token se entrega solo al paso `vercel deploy`, no a npm ni a los tests.
 5. Lanza una ejecucion de `RIO Primer Cobro - verified public deployment` desde la rama de publicacion, o realiza un nuevo push revisado. Exige `verify=success`, `deploy=success` y `PUBLIC_READBACK_PASS`.
 
 Hasta instalar ese secreto y habilitar la variable, `deploy` queda **SKIPPED_BY_POLICY** mientras `verify` puede ejecutarse.
