@@ -1,0 +1,30 @@
+{
+  "schema": "RIO_R041_FINANCIAL_SENSITIVITY_NOT_TRACTION",
+  "scenarios": [
+    {
+      "active_merchants_assumed": 10000,
+      "conversion_assumed": "1%",
+      "subscription_fee_mxn_assumed": 49,
+      "paid_merchants_computed": 100,
+      "gross_monthly_mxn_hypothetical": 4900
+    },
+    {
+      "active_merchants_assumed": 10000,
+      "conversion_assumed": "3%",
+      "subscription_fee_mxn_assumed": 99,
+      "paid_merchants_computed": 300,
+      "gross_monthly_mxn_hypothetical": 29700
+    },
+    {
+      "active_merchants_assumed": 10000,
+      "conversion_assumed": "5%",
+      "subscription_fee_mxn_assumed": 99,
+      "paid_merchants_computed": 500,
+      "gross_monthly_mxn_hypothetical": 49500
+    }
+  ],
+  "all_assumptions_are_unverified": true,
+  "costs_excluded": true,
+  "observed_revenue": "UNKNOWN",
+  "not_investment_forecast": true
+}

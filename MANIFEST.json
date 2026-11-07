@@ -557,6 +557,41 @@
       "sha256": "6fcdc670c71da7f0102cf75e796cabe0ea1734e802509e1b51ce948e749f9e82"
     },
     {
+      "path": "demos/rio-primer-cobro/marketing/r041/R041_GUION_Y_AUDITORIA_COMERCIAL.md",
+      "bytes": 4935,
+      "sha256": "f331352cdc6d7cccd40a825cbdf4bf23f68efec9116442696e1d22ae04f4921a"
+    },
+    {
+      "path": "demos/rio-primer-cobro/marketing/r041/R041_INVESTOR_PITCH_HANDOFF.md",
+      "bytes": 3049,
+      "sha256": "f2d8b805e7aa76b35b27431a43a495ee5a93eb530396e0205eca954d0c03a1bd"
+    },
+    {
+      "path": "demos/rio-primer-cobro/marketing/r041/R041_SENSIBILIDAD_COMERCIAL.json",
+      "bytes": 860,
+      "sha256": "29ba46ab223e9fb7f913c4f62e8bb617ceac6354cbbeb55b59bedffc60fdf9ad"
+    },
+    {
+      "path": "demos/rio-primer-cobro/marketing/r041/R041_SUBTITULOS_ES_MX.srt",
+      "bytes": 1693,
+      "sha256": "42f3cd62da8e5ad3eb283d8b705db8d114b095803e3a433c43a5c43f5e957b4c"
+    },
+    {
+      "path": "demos/rio-primer-cobro/marketing/r041/build_investor_pitch.py",
+      "bytes": 29473,
+      "sha256": "374660057376698ee3044a89f0c59bbbda2989be6172876c6781167aa93cf3ae"
+    },
+    {
+      "path": "demos/rio-primer-cobro/marketing/r041/reports/R041_AUDITORIA_FINAL.json",
+      "bytes": 2240,
+      "sha256": "0cb38311fdd9a81b827f36ca631c78ff88fc1e169d745565a93efa557dc8877b"
+    },
+    {
+      "path": "demos/rio-primer-cobro/marketing/r041/reports/storyboard.json",
+      "bytes": 5923,
+      "sha256": "776c846b8897f710697632594b87addbca6eb3134f921a4dadc084c5b9cdacf4"
+    },
+    {
       "path": "demos/rio-primer-cobro/reports/R013_E2E.json",
       "bytes": 3818,
       "sha256": "dfeed030c2ae017fcf86ae17d9445dd3212a59ab4a05ed86ba6657097d9a23af"

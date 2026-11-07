@@ -1,0 +1,66 @@
+{
+  "audience": "investment-partners-not-end-users",
+  "audio_human_listening_review": "NOT_INDEPENDENTLY_OBSERVED",
+  "checks": {
+    "business_validity": true,
+    "captions_dont_cross": true,
+    "contiguous": true,
+    "example_valid": true,
+    "financial_disclosure_in_narration": true,
+    "not_pretend_published": true,
+    "payments_caveat": true,
+    "scene_count": true,
+    "subtitles_bounded": true
+  },
+  "files": {
+    "h": {
+      "audio_codec": "aac",
+      "bytes": 4235170,
+      "duration": 120.0,
+      "fps": "24/1",
+      "height": 720,
+      "path": "/mnt/data/rio_video_r041/RIO_R041_PITCH_INVERSIONISTAS_120S_HORIZONTAL.mp4",
+      "sha256": "1b71679a854a332eb8ae8d20ce8c15b20fe7ac988d8fd140ead2a8d34f19e54d",
+      "video_codec": "h264",
+      "width": 1280
+    },
+    "v": {
+      "audio_codec": "aac",
+      "bytes": 4094663,
+      "duration": 120.0,
+      "fps": "24/1",
+      "height": 1280,
+      "path": "/mnt/data/rio_video_r041/RIO_R041_PITCH_INVERSIONISTAS_120S_VERTICAL.mp4",
+      "sha256": "078c847fecddbef763649e78b91cb99a244b8f9fbcce3e059b85d2679fd744ee",
+      "video_codec": "h264",
+      "width": 720
+    }
+  },
+  "generated_by": "LOCAL_FFMPEG_PIL_ESPEAK",
+  "human_visual_review": "SAMPLED_NINE_SCENES_BOTH_FORMATS_PLUS_FINANCIAL_SCENE_FRAMES",
+  "hypothetical_scenario": {
+    "conversion_ASSUMED": 0.05,
+    "gross_monthly_mxn_COMPUTED": 49500,
+    "is_forecast": false,
+    "merchants_active_ASSUMED": 10000,
+    "observed_revenue": "NOT_VERIFIED",
+    "subscription_mxn_month_ASSUMED": 99
+  },
+  "invideo_credits_required": 0,
+  "invideo_render": false,
+  "metrics": {
+    "CAC": "NOT_OBSERVED",
+    "commercial_adoption": "NOT_OBSERVED",
+    "payment_readiness": "BLOCKED",
+    "retention": "NOT_OBSERVED"
+  },
+  "portfolio_status": "DEMO_ONLY_NOT_INVESTMENT_OFFER",
+  "release_judgement": "TECHNICALLY_READY_FOR_INVESTOR_PREVIEW_NOT_CERTIFIED_MARKET_TRACTION",
+  "result": "PASS_LOCAL_AV",
+  "schema": "RIO_R041_INVESTOR_VIDEO_LOCAL_QA_V1",
+  "source": "commercial-narrative-from-verified-R015-R016-plus-explicit-new-hypotheses",
+  "spoken_words": 253,
+  "subtitles_final_render": "OPAQUE_CAPTION_BAND_BOTH_FORMATS",
+  "total_seconds": 120,
+  "voice": "ESPEAK_ES-LA_SYNTHETIC_NOT_HUMAN"
+}
