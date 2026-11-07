@@ -502,6 +502,16 @@
       "sha256": "7ddb1df1653422565a170f96c2cc3e7842844a2a816ac33fc7fcae1888c86e85"
     },
     {
+      "path": "demos/rio-primer-cobro/marketing/RIO_PRIMER_COBRO_GUION_INVIDEO_120S_R039.md",
+      "bytes": 8775,
+      "sha256": "c37241ceff5916879952d8bd30d95c87ecdd4433c1cbb537be712c8e916b6e6a"
+    },
+    {
+      "path": "demos/rio-primer-cobro/marketing/RIO_PRIMER_COBRO_PROMPT_PARA_INVIDEO_R039.md",
+      "bytes": 5599,
+      "sha256": "0abff5d089827e5e9c2fc2e85d8b75d5ce25a76ea9d7c7c550e5760278616232"
+    },
+    {
       "path": "demos/rio-primer-cobro/reports/R013_E2E.json",
       "bytes": 3818,
       "sha256": "dfeed030c2ae017fcf86ae17d9445dd3212a59ab4a05ed86ba6657097d9a23af"
