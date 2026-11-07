@@ -3,7 +3,7 @@ import copy
 from pathlib import Path
 import sys
 import unittest
-sys.path.insert(0, str(Path(__file__).resolve().parent))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from r037_governance import blueprint, evaluate, GateError, TARGET, BASE, BASE_REF, BASE_RULESET_NAME, CHECKS, APP_ID
 
 HEAD = 'a' * 40

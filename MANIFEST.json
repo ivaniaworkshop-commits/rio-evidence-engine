@@ -393,8 +393,8 @@
     },
     {
       "path": "demos/rio-primer-cobro/integrations/tests/test_r037_governance.py",
-      "bytes": 4926,
-      "sha256": "559332b979b517c52af6f26d4e2308898eeb143abd370dc1ab3952b9375072dd"
+      "bytes": 4930,
+      "sha256": "81916b128445d8d6a64ac468df3aec42112a32fe349ad05e330f97af8e561a3f"
     },
     {
       "path": "demos/rio-primer-cobro/integrations/tests/test_release_readiness_r031.py",
