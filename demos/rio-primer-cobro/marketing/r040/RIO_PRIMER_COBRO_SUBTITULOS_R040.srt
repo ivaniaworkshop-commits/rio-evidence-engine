@@ -1,0 +1,103 @@
+1
+00:00:00,380 --> 00:00:04,794
+¿Vendes en una tienda, un puesto o un mercado?
+
+2
+00:00:04,794 --> 00:00:08,718
+Entre cantidades y cambio, cada venta merece claridad.
+
+3
+00:00:08,718 --> 00:00:10,770
+Conoce RÍO Primer Cobro.
+
+4
+00:00:11,380 --> 00:00:14,975
+Una caja educativa y gratuita, en español.
+
+5
+00:00:14,975 --> 00:00:19,598
+Abre la demo desde tu celular, entra a Caja
+
+6
+00:00:19,598 --> 00:00:22,770
+y practica sin crear una cuenta.
+
+7
+00:00:23,380 --> 00:00:27,370
+Dos panes de quince pesos: treinta.
+
+8
+00:00:27,370 --> 00:00:33,355
+Quinientos gramos de jitomate a cuarenta por kilo: veinte.
+
+9
+00:00:33,355 --> 00:00:36,770
+Tu carrito suma cincuenta pesos.
+
+10
+00:00:37,380 --> 00:00:41,259
+Elige efectivo. Registra manualmente cien pesos recibidos.
+
+11
+00:00:41,259 --> 00:00:46,801
+Para una venta de cincuenta, RÍO muestra cincuenta de cambio.
+
+12
+00:00:46,801 --> 00:00:50,770
+La verificación del dinero depende de ti.
+
+13
+00:00:51,380 --> 00:00:54,705
+¿Quieres practicar un recorrido digital?
+
+14
+00:00:54,705 --> 00:00:58,695
+Genera un QR escaneable de demostración.
+
+15
+00:00:58,695 --> 00:01:04,770
+No es pagable y nunca confirma un cobro real.
+
+16
+00:01:05,380 --> 00:01:10,821
+Prepara un ticket de práctica; cópialo, imprímelo o descárgalo.
+
+17
+00:01:10,821 --> 00:01:15,053
+Consulta el historial guardado en el navegador.
+
+18
+00:01:15,053 --> 00:01:18,770
+No es factura ni comprobante bancario.
+
+19
+00:01:19,380 --> 00:01:23,896
+El archivo descargado funciona sin internet.
+
+20
+00:01:23,896 --> 00:01:30,669
+Tus datos son locales cuando el navegador permite guardarlos.
+
+21
+00:01:30,669 --> 00:01:33,770
+Exporta un respaldo JSON.
+
+22
+00:01:34,380 --> 00:01:39,828
+¿Dudas sobre el peso, el efectivo o internet?
+
+23
+00:01:39,828 --> 00:01:43,913
+La ayuda responde mediante reglas locales.
+
+24
+00:01:43,913 --> 00:01:48,770
+Ejecuta pruebas internas y descarga tu reporte.
+
+25
+00:01:49,380 --> 00:01:55,102
+RÍO Primer Cobro. Aprende paso a paso, sin mover dinero.
+
+26
+00:01:55,102 --> 00:01:59,770
+Pruébalo gratis. Para pagos reales, usa medios autorizados.

@@ -1,0 +1,39 @@
+[Script Info]
+Title: RÍO Primer Cobro R040 subtitles
+ScriptType: v4.00+
+PlayResX: 1280
+PlayResY: 720
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Main,Lato,35,&H00FFFFFF,&H000000FF,&H00202530,&H90071C2B,-1,0,0,0,100,100,0,0,3,1,1,2,50,50,44,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.38,0:00:04.79,Main,,0,0,0,,¿Vendes en una tienda, un puesto o un mercado?
+Dialogue: 0,0:00:04.79,0:00:08.72,Main,,0,0,0,,Entre cantidades y cambio, cada venta merece claridad.
+Dialogue: 0,0:00:08.72,0:00:10.77,Main,,0,0,0,,Conoce RÍO Primer Cobro.
+Dialogue: 0,0:00:11.38,0:00:14.98,Main,,0,0,0,,Una caja educativa y gratuita, en español.
+Dialogue: 0,0:00:14.98,0:00:19.60,Main,,0,0,0,,Abre la demo desde tu celular, entra a Caja
+Dialogue: 0,0:00:19.60,0:00:22.77,Main,,0,0,0,,y practica sin crear una cuenta.
+Dialogue: 0,0:00:23.38,0:00:27.37,Main,,0,0,0,,Dos panes de quince pesos: treinta.
+Dialogue: 0,0:00:27.37,0:00:33.36,Main,,0,0,0,,Quinientos gramos de jitomate a cuarenta por kilo: veinte.
+Dialogue: 0,0:00:33.36,0:00:36.77,Main,,0,0,0,,Tu carrito suma cincuenta pesos.
+Dialogue: 0,0:00:37.38,0:00:41.26,Main,,0,0,0,,Elige efectivo. Registra manualmente cien pesos recibidos.
+Dialogue: 0,0:00:41.26,0:00:46.80,Main,,0,0,0,,Para una venta de cincuenta, RÍO muestra cincuenta de cambio.
+Dialogue: 0,0:00:46.80,0:00:50.77,Main,,0,0,0,,La verificación del dinero depende de ti.
+Dialogue: 0,0:00:51.38,0:00:54.71,Main,,0,0,0,,¿Quieres practicar un recorrido digital?
+Dialogue: 0,0:00:54.71,0:00:58.70,Main,,0,0,0,,Genera un QR escaneable de demostración.
+Dialogue: 0,0:00:58.70,0:01:04.77,Main,,0,0,0,,No es pagable y nunca confirma un cobro real.
+Dialogue: 0,0:01:05.38,0:01:10.82,Main,,0,0,0,,Prepara un ticket de práctica; cópialo, imprímelo o descárgalo.
+Dialogue: 0,0:01:10.82,0:01:15.05,Main,,0,0,0,,Consulta el historial guardado en el navegador.
+Dialogue: 0,0:01:15.05,0:01:18.77,Main,,0,0,0,,No es factura ni comprobante bancario.
+Dialogue: 0,0:01:19.38,0:01:23.90,Main,,0,0,0,,El archivo descargado funciona sin internet.
+Dialogue: 0,0:01:23.90,0:01:30.67,Main,,0,0,0,,Tus datos son locales cuando el navegador permite guardarlos.
+Dialogue: 0,0:01:30.67,0:01:33.77,Main,,0,0,0,,Exporta un respaldo JSON.
+Dialogue: 0,0:01:34.38,0:01:39.83,Main,,0,0,0,,¿Dudas sobre el peso, el efectivo o internet?
+Dialogue: 0,0:01:39.83,0:01:43.91,Main,,0,0,0,,La ayuda responde mediante reglas locales.
+Dialogue: 0,0:01:43.91,0:01:48.77,Main,,0,0,0,,Ejecuta pruebas internas y descarga tu reporte.
+Dialogue: 0,0:01:49.38,0:01:55.10,Main,,0,0,0,,RÍO Primer Cobro. Aprende paso a paso, sin mover dinero.
+Dialogue: 0,0:01:55.10,0:01:59.77,Main,,0,0,0,,Pruébalo gratis. Para pagos reales, usa medios autorizados.

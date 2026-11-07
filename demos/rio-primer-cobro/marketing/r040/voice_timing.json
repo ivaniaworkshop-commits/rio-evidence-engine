@@ -1,0 +1,83 @@
+[
+  {
+    "scene": 1,
+    "raw_voice_duration_s": 12.0,
+    "atempo": 1.1505,
+    "post_s": 11.0,
+    "target_scene_s": 11,
+    "words": 21,
+    "words_per_minute_at_scene_length": 114.5
+  },
+  {
+    "scene": 2,
+    "raw_voice_duration_s": 10.266,
+    "atempo": 1.0,
+    "post_s": 12.0,
+    "target_scene_s": 12,
+    "words": 22,
+    "words_per_minute_at_scene_length": 110.0
+  },
+  {
+    "scene": 3,
+    "raw_voice_duration_s": 13.273,
+    "atempo": 1.0,
+    "post_s": 14.0,
+    "target_scene_s": 14,
+    "words": 23,
+    "words_per_minute_at_scene_length": 98.6
+  },
+  {
+    "scene": 4,
+    "raw_voice_duration_s": 15.145,
+    "atempo": 1.1277,
+    "post_s": 14.0,
+    "target_scene_s": 14,
+    "words": 24,
+    "words_per_minute_at_scene_length": 102.9
+  },
+  {
+    "scene": 5,
+    "raw_voice_duration_s": 13.88,
+    "atempo": 1.0335,
+    "post_s": 14.0,
+    "target_scene_s": 14,
+    "words": 24,
+    "words_per_minute_at_scene_length": 102.9
+  },
+  {
+    "scene": 6,
+    "raw_voice_duration_s": 13.636,
+    "atempo": 1.0153,
+    "post_s": 14.0,
+    "target_scene_s": 14,
+    "words": 24,
+    "words_per_minute_at_scene_length": 102.9
+  },
+  {
+    "scene": 7,
+    "raw_voice_duration_s": 16.725,
+    "atempo": 1.1591,
+    "post_s": 15.0,
+    "target_scene_s": 15,
+    "words": 28,
+    "words_per_minute_at_scene_length": 112.0
+  },
+  {
+    "scene": 8,
+    "raw_voice_duration_s": 14.938,
+    "atempo": 1.0352,
+    "post_s": 15.0,
+    "target_scene_s": 15,
+    "words": 28,
+    "words_per_minute_at_scene_length": 112.0
+  },
+  {
+    "scene": 9,
+    "raw_voice_duration_s": 11.884,
+    "atempo": 1.1394,
+    "post_s": 11.0,
+    "target_scene_s": 11,
+    "words": 20,
+    "words_per_minute_at_scene_length": 109.1
+  }
+]

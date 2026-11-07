@@ -1,0 +1,143 @@
+{
+  "scenes": [
+    {
+      "d": 12,
+      "kicker": "TESIS DE INVERSIÓN",
+      "title": "Del primer cobro al ecosistema",
+      "sub": "Una puerta de entrada para el pequeño comercio",
+      "kind": "hero",
+      "n": "¿Y si el primer cobro también fuera el primer paso de una plataforma comercial? RÍO quiere acompañar a pequeños negocios desde una tarea cotidiana.",
+      "capt": [
+        "¿Y si el primer cobro fuera el inicio de una plataforma comercial?",
+        "RÍO: una puerta de entrada para el pequeño comercio."
+      ],
+      "index": 1,
+      "start": 0,
+      "end": 12
+    },
+    {
+      "d": 13,
+      "kicker": "01  /  EL PROBLEMA",
+      "title": "El reto va más allá de cobrar",
+      "sub": "Procesos aislados frenan la continuidad del negocio",
+      "kind": "problem",
+      "n": "Muchos comercios combinan papel, calculadora y herramientas aisladas. El reto no es solamente cobrar: es transformar la actividad diaria en organización, aprendizaje y nuevas oportunidades.",
+      "capt": [
+        "Muchos comercios usan herramientas aisladas.",
+        "La oportunidad: conectar operación, información y crecimiento."
+      ],
+      "index": 2,
+      "start": 12,
+      "end": 25
+    },
+    {
+      "d": 13,
+      "kicker": "02  /  LO QUE YA EXISTE",
+      "title": "Una primera puerta funcional",
+      "sub": "RÍO Primer Cobro · demo educativa R015/R016",
+      "kind": "product",
+      "n": "La primera pieza existe: RÍO Primer Cobro. Una caja educativa gratuita con cálculo por pieza o peso, efectivo declarado, tickets, historial y un QR de práctica que no recibe dinero.",
+      "capt": [
+        "Ya existe una caja educativa gratuita.",
+        "Piezas, peso, efectivo declarado, tickets e historial."
+      ],
+      "index": 3,
+      "start": 25,
+      "end": 38
+    },
+    {
+      "d": 13,
+      "kicker": "03  /  HIPÓTESIS DE DISTRIBUCIÓN",
+      "title": "Empezar gratis. Medir el valor.",
+      "sub": "Propuesta de captación de baja fricción, aún sin validación de mercado",
+      "kind": "funnel",
+      "n": "Nuestra tesis de distribución empieza por ayudar gratis. Después medimos uso repetido, confianza y necesidades. La adquisición de comercios es todavía una hipótesis; no estamos reportando clientes activos.",
+      "capt": [
+        "Nuestra tesis: ayudar primero y medir la recurrencia.",
+        "La adquisición de comercios todavía debe validarse."
+      ],
+      "index": 4,
+      "start": 38,
+      "end": 51
+    },
+    {
+      "d": 15,
+      "kicker": "04  /  HOJA DE RUTA",
+      "title": "Una escalera de servicios",
+      "sub": "De práctica educativa a herramientas comerciales integradas",
+      "kind": "roadmap",
+      "n": "La evolución propuesta suma punto de venta, inventario, CRM y cotizaciones. Después podría conectar minoristas, mayoristas y logística. Son módulos e integraciones por construir o validar; no servicios productivos de Primer Cobro.",
+      "capt": [
+        "Propuesta: punto de venta, inventario, CRM y cotizaciones.",
+        "Más adelante: mayoristas y logística, sujetos a validación."
+      ],
+      "index": 5,
+      "start": 51,
+      "end": 66
+    },
+    {
+      "d": 14,
+      "kicker": "05  /  MODELO COMERCIAL",
+      "title": "Monetización por capas",
+      "sub": "Acceso gratuito + servicios de valor agregado",
+      "kind": "revenue",
+      "n": "El modelo potencial tiene tres capas: educación gratuita, suscripciones a herramientas profesionales y comisiones por servicios transaccionales. Precios, adopción, costos y márgenes requieren pruebas antes de invertir a escala.",
+      "capt": [
+        "Educación gratuita, suscripción y comisión: modelo propuesto.",
+        "Precio, adopción y margen todavía deben comprobarse."
+      ],
+      "index": 6,
+      "start": 66,
+      "end": 80
+    },
+    {
+      "d": 18,
+      "kicker": "06  /  SENSIBILIDAD FINANCIERA",
+      "title": "El modelo se puede calcular",
+      "sub": "Escenario matemático ilustrativo · no pronóstico",
+      "kind": "math",
+      "n": "Un escenario hipotético: diez mil comercios activos, cinco por ciento de conversión y una suscripción supuesta de noventa y nueve pesos mensuales. El resultado sería cuarenta y nueve mil quinientos pesos mensuales brutos, antes de costos. No es ingreso observado ni una proyección.",
+      "capt": [
+        "Escenario hipotético: diez mil comercios; cinco por ciento convierte.",
+        "A noventa y nueve pesos: cuarenta y nueve mil quinientos mensuales brutos.",
+        "No es ingreso real ni pronóstico."
+      ],
+      "index": 7,
+      "start": 80,
+      "end": 98
+    },
+    {
+      "d": 11,
+      "kicker": "07  /  DESRIESGO",
+      "title": "La evidencia marca los hitos",
+      "sub": "El siguiente objetivo es validar economía y adopción",
+      "kind": "risk",
+      "n": "Hoy hay software y pruebas técnicas. Faltan pilotos con comerciantes, retención, costo de adquisición, conversión y autorizaciones de producción.",
+      "capt": [
+        "Software y pruebas: evidencia disponible.",
+        "Retención, CAC y conversión: pendientes de medir."
+      ],
+      "index": 8,
+      "start": 98,
+      "end": 109
+    },
+    {
+      "d": 11,
+      "kicker": "08  /  INVITACIÓN",
+      "title": "Validemos el potencial juntos",
+      "sub": "Pilotos comerciales, métricas claras, decisiones por evidencia",
+      "kind": "close",
+      "n": "Buscamos aliados para pilotos medibles en México. Validemos adopción, ingresos por comercio y costos. RÍO: del primer cobro a una red comercial conectada.",
+      "capt": [
+        "Buscamos aliados para pilotos medibles en México.",
+        "RÍO: del primer cobro a una red comercial conectada."
+      ],
+      "index": 9,
+      "start": 109,
+      "end": 120
+    }
+  ],
+  "seconds": 120,
+  "product_evidence": "R015_R016",
+  "business_evidence": "MIXED_WITH_HYPOTHESES"
+}

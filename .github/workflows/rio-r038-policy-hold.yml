@@ -1,0 +1,125 @@
+name: RIO R038 independent policy prerequisite HOLD (NO RELEASE)
+on:
+  push:
+    branches:
+      - candidate/primer-cobro-r035-atomic-clean-20261106
+  pull_request:
+    branches:
+      - review-base/primer-cobro-r026-preincident-20261106
+permissions:
+  contents: read
+  pull-requests: read
+  checks: read
+jobs:
+  r038-adversarial-tests:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Check complete source inventory
+        run: python3 scripts/verify_manifest.py
+      - name: Review-state and governance regression tests
+        run: python3 -m unittest discover -s demos/rio-primer-cobro/integrations/tests -p 'test_r038_governance.py' -v
+      - name: Export uninstalled exact-branch dual ruleset proposal
+        run: python3 demos/rio-primer-cobro/integrations/r038_governance.py --plan --output /tmp/r038-admin-plan.json
+      - name: Upload R038 administrative plan (proposal only)
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: r038-two-branch-ruleset-plan-NOT-APPLIED
+          path: /tmp/r038-admin-plan.json
+          if-no-files-found: error
+          retention-days: 14
+  r038-live-readback:
+    needs: r038-adversarial-tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    outputs:
+      verdict: ${{ steps.assess.outputs.verdict }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Authenticated GitHub API readback and bounded exhaustive review pagination
+        id: assess
+        shell: bash
+        run: |
+          set -euo pipefail
+          head="$(git rev-parse HEAD)"
+          gh api "/repos/${GITHUB_REPOSITORY}/rulesets?includes_parents=true" > /tmp/r038-ruleset-index.json
+          python3 - <<'PY'
+          import json,os,subprocess
+          from pathlib import Path
+          data=json.loads(Path('/tmp/r038-ruleset-index.json').read_text())
+          if not isinstance(data,list) or len(data)>100:raise SystemExit('RULESET_INDEX_OUT_OF_BOUNDS')
+          ids=[]; details=[]
+          for item in data:
+              if not isinstance(item,dict) or type(item.get('id')) is not int or item['id']<=0:
+                  raise SystemExit('INVALID_RULESET_ID')
+              ids.append(item['id'])
+          if len(ids)!=len(set(ids)):raise SystemExit('DUPLICATE_RULESET_ID')
+          for rid in ids:
+              p=subprocess.run(['gh','api',f'/repos/{os.environ["GITHUB_REPOSITORY"]}/rulesets/{rid}'],capture_output=True,text=True,timeout=20,check=False)
+              if p.returncode:raise SystemExit('RULESET_READBACK_UNAVAILABLE')
+              item=json.loads(p.stdout)
+              if not isinstance(item,dict) or item.get('id')!=rid:
+                  raise SystemExit('RULESET_READBACK_ID_MISMATCH')
+              details.append(item)
+          Path('/tmp/r038-rulesets.json').write_text(json.dumps(details))
+          PY
+          gh api "/repos/${GITHUB_REPOSITORY}/pulls/41" > /tmp/r038-pr.json
+          gh api --paginate --slurp "/repos/${GITHUB_REPOSITORY}/pulls/41/reviews?per_page=100" > /tmp/r038-review-pages.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          pages=json.loads(Path('/tmp/r038-review-pages.json').read_text())
+          if not isinstance(pages,list) or len(pages)>6:
+              raise SystemExit('REVIEWS_PAGINATION_BOUNDS')
+          if any(not isinstance(p,list) or len(p)>100 for p in pages):
+              raise SystemExit('REVIEWS_PAGE_INVALID')
+          reviews=[x for page in pages for x in page]
+          if len(reviews)>500:raise SystemExit('REVIEWS_OUT_OF_BOUNDS')
+          Path('/tmp/r038-reviews.json').write_text(json.dumps(reviews))
+          print('REVIEW_PAGINATION_RETRIEVED:',len(pages),'pages;',len(reviews),'reviews')
+          PY
+          gh api -H "Accept: application/vnd.github+json" "/repos/${GITHUB_REPOSITORY}/commits/${head}/check-runs?per_page=100" > /tmp/r038-checks.json
+          python3 demos/rio-primer-cobro/integrations/r038_governance.py \
+            --rulesets /tmp/r038-rulesets.json --pr /tmp/r038-pr.json \
+            --reviews /tmp/r038-reviews.json --checks /tmp/r038-checks.json \
+            --head "$head" --output /tmp/r038-governance-readback.json
+          verdict="$(python3 -c 'import json;print(json.load(open("/tmp/r038-governance-readback.json"))["result"])')"
+          echo "verdict=$verdict" >> "$GITHUB_OUTPUT"
+          cat /tmp/r038-governance-readback.json >> "$GITHUB_STEP_SUMMARY"
+      - name: Preserve independent read-only diagnostic, including blocked verdict
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: r038-governance-readback-NOT-PRODUCTION
+          path: /tmp/r038-governance-readback.json
+          if-no-files-found: warn
+          retention-days: 14
+  r038-policy-hold:
+    needs: r038-live-readback
+    if: always()
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    env:
+      READBACK_JOB_STATUS: ${{ needs.r038-live-readback.result }}
+      READBACK_VERDICT: ${{ needs.r038-live-readback.outputs.verdict }}
+    steps:
+      - name: Fail closed until two active protections, trusted CI and independent fresh review are all observed
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "$READBACK_JOB_STATUS" != "success" ] || [ "$READBACK_VERDICT" != "POLICY_AND_REVIEW_PREREQUISITES_OBSERVED" ]; then
+            echo "::error title=R038 HOLD::Governance release prerequisites absent/unverified; expected failure; production remains denied"
+            exit 2
+          fi
+          echo "Prerequisites observed only; NO production authorization, NO independent real denied-write proof"
