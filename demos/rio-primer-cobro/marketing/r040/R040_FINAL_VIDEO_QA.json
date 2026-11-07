@@ -1,0 +1,38 @@
+{
+  "schema": "RIO_R040_FINAL_VIDEO_QA",
+  "scenes": 9,
+  "subtitle_segments": 26,
+  "time_ranges_sorted_nonoverlapping": true,
+  "narration_words": 214,
+  "target_duration_s": 120,
+  "videos": [
+    {
+      "file": "RIO_PRIMER_COBRO_VIDEO_120S_R040.mp4",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "duration_s": 120.0,
+      "codec_video": "h264",
+      "codec_audio": "aac",
+      "bytes": 4163539,
+      "sha256": "8d5927814bae30f28e525aae0e78886fef9e5147209999c4e802b896bf20b165"
+    },
+    {
+      "file": "RIO_PRIMER_COBRO_VERTICAL_120S_R040.mp4",
+      "dimensions": [
+        720,
+        1280
+      ],
+      "duration_s": 120.0,
+      "codec_video": "h264",
+      "codec_audio": "aac",
+      "bytes": 3791790,
+      "sha256": "174a16d50761e7a46028cb53ea3b9d57c42efebfd7f6e507948f9164822e1af2"
+    }
+  ],
+  "screen_source": "ILLUSTRATIVE_RECREATIONS_NOT_ACTUAL_APP_SCREENSHOTS",
+  "real_payments_verified": false,
+  "release_authorized": false,
+  "social_post_published": false
+}

@@ -512,6 +512,51 @@
       "sha256": "0abff5d089827e5e9c2fc2e85d8b75d5ce25a76ea9d7c7c550e5760278616232"
     },
     {
+      "path": "demos/rio-primer-cobro/marketing/r040/R040_FINAL_VIDEO_QA.json",
+      "bytes": 1008,
+      "sha256": "47ab19531ef732e4a37ba2678d35d57e78f5d30cb2b8005abd11378ec903c024"
+    },
+    {
+      "path": "demos/rio-primer-cobro/marketing/r040/RELEASE_README_R040.md",
+      "bytes": 3089,
+      "sha256": "e6e1f14e812d5341b686c8fb1003d3bd2c6017d324bf2d156455d8d17f620bbd"
+    },
+    {
+      "path": "demos/rio-primer-cobro/marketing/r040/RIO_PRIMER_COBRO_GUION_FINAL_AUDITADO_R040.md",
+      "bytes": 6285,
+      "sha256": "b65d08a6eabe27c119b1d95246c9f24533acd79cc934efe0aabb06ecd67ee039"
+    },
+    {
+      "path": "demos/rio-primer-cobro/marketing/r040/RIO_PRIMER_COBRO_SUBTITULOS_R040.ass",
+      "bytes": 3015,
+      "sha256": "20f9b50eab4667c8b5f251f99af7ec05051b9a8848a3a5d397a0fc3e3a65b948"
+    },
+    {
+      "path": "demos/rio-primer-cobro/marketing/r040/RIO_PRIMER_COBRO_SUBTITULOS_R040.srt",
+      "bytes": 2092,
+      "sha256": "15468a77a1f6a8ebe81c72e715d122902dbce5a1422f075d619e37c04bcdba96"
+    },
+    {
+      "path": "demos/rio-primer-cobro/marketing/r040/build_vertical.py",
+      "bytes": 5240,
+      "sha256": "fc344d60f0191271d78016e3248d21f67212b42cead5f14dd38f7be9b786d422"
+    },
+    {
+      "path": "demos/rio-primer-cobro/marketing/r040/build_video.py",
+      "bytes": 30404,
+      "sha256": "52ad001d1adce56499a67b9da20586c4d0faf2c5b421b300ec7c051570672fea"
+    },
+    {
+      "path": "demos/rio-primer-cobro/marketing/r040/timeline.json",
+      "bytes": 5817,
+      "sha256": "fe21b0041814928473e1772953611b889f7c9c4dcdc0e6612297065622b3a855"
+    },
+    {
+      "path": "demos/rio-primer-cobro/marketing/r040/voice_timing.json",
+      "bytes": 1721,
+      "sha256": "6fcdc670c71da7f0102cf75e796cabe0ea1734e802509e1b51ce948e749f9e82"
+    },
+    {
       "path": "demos/rio-primer-cobro/reports/R013_E2E.json",
       "bytes": 3818,
       "sha256": "dfeed030c2ae017fcf86ae17d9445dd3212a59ab4a05ed86ba6657097d9a23af"

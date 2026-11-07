@@ -1,0 +1,149 @@
+{
+  "scenes": [
+    {
+      "id": 1,
+      "from_s": 0,
+      "duration": 11,
+      "title": "Una venta más clara",
+      "subtitle": "Para puestos, tiendas y mercados",
+      "accent": "Tu negocio. Tus decisiones.",
+      "screen": "market",
+      "label": "EL RETO COTIDIANO",
+      "narration": "¿Vendes en una tienda, un puesto o un mercado? Entre cantidades y cambio, cada venta merece claridad. Conoce RÍO Primer Cobro.",
+      "subs": [
+        "¿Vendes en una tienda, un puesto o un mercado?",
+        "Entre cantidades y cambio, cada venta merece claridad.",
+        "Conoce RÍO Primer Cobro."
+      ]
+    },
+    {
+      "id": 2,
+      "from_s": 11,
+      "duration": 12,
+      "title": "Aprende sin registro",
+      "subtitle": "Caja educativa en español, gratuita",
+      "accent": "Comienza desde tu celular",
+      "screen": "welcome",
+      "label": "01 · EMPIEZA",
+      "narration": "Una caja educativa y gratuita, en español. Abre la demo desde tu celular, entra a Caja y practica sin crear una cuenta.",
+      "subs": [
+        "Una caja educativa y gratuita, en español.",
+        "Abre la demo desde tu celular, entra a Caja",
+        "y practica sin crear una cuenta."
+      ]
+    },
+    {
+      "id": 3,
+      "from_s": 23,
+      "duration": 14,
+      "title": "Piezas y peso",
+      "subtitle": "Carrito con cálculos por producto",
+      "accent": "$30 + $20 = $50 MXN",
+      "screen": "cart",
+      "label": "02 · ARMA TU VENTA",
+      "narration": "Agrega dos panes de quince pesos: treinta. Después, quinientos gramos de jitomate a cuarenta pesos por kilo: veinte. Tu carrito suma cincuenta pesos.",
+      "subs": [
+        "Dos panes de quince pesos: treinta.",
+        "Quinientos gramos de jitomate a cuarenta por kilo: veinte.",
+        "Tu carrito suma cincuenta pesos."
+      ]
+    },
+    {
+      "id": 4,
+      "from_s": 37,
+      "duration": 14,
+      "title": "Efectivo y cambio",
+      "subtitle": "Registra la recepción manualmente",
+      "accent": "$100 recibido → $50 de cambio",
+      "screen": "cash",
+      "label": "03 · REVISA EL CAMBIO",
+      "narration": "Elige efectivo. Registra manualmente cien pesos recibidos. Para una venta de cincuenta, RÍO muestra cincuenta de cambio. La verificación del dinero depende de ti.",
+      "subs": [
+        "Elige efectivo. Registra manualmente cien pesos recibidos.",
+        "Para una venta de cincuenta, RÍO muestra cincuenta de cambio.",
+        "La verificación del dinero depende de ti."
+      ]
+    },
+    {
+      "id": 5,
+      "from_s": 51,
+      "duration": 14,
+      "title": "QR de práctica",
+      "subtitle": "Aprende el recorrido digital sin pagar",
+      "accent": "NO PAGABLE · DEMO",
+      "screen": "qr",
+      "label": "04 · PRACTICA CON QR",
+      "narration": "¿Quieres practicar un recorrido digital? Genera un QR escaneable de demostración. Atención: no es pagable, no envía dinero y nunca confirma un cobro real.",
+      "subs": [
+        "¿Quieres practicar un recorrido digital?",
+        "Genera un QR escaneable de demostración.",
+        "No es pagable y nunca confirma un cobro real."
+      ]
+    },
+    {
+      "id": 6,
+      "from_s": 65,
+      "duration": 14,
+      "title": "Ticket e historial",
+      "subtitle": "Revisa tus ventas de práctica",
+      "accent": "Ticket de demostración · No CFDI",
+      "screen": "ticket",
+      "label": "05 · DOCUMENTA",
+      "narration": "Prepara un ticket de práctica; cópialo, imprímelo o descárgalo. Consulta el historial guardado en el navegador. Ese ticket no es factura ni comprobante bancario.",
+      "subs": [
+        "Prepara un ticket de práctica; cópialo, imprímelo o descárgalo.",
+        "Consulta el historial guardado en el navegador.",
+        "No es factura ni comprobante bancario."
+      ]
+    },
+    {
+      "id": 7,
+      "from_s": 79,
+      "duration": 15,
+      "title": "Tus datos, locales",
+      "subtitle": "Archivo sin conexión y respaldo JSON",
+      "accent": "Sin sincronización automática",
+      "screen": "offline",
+      "label": "06 · CONSERVA TUS PRÁCTICAS",
+      "narration": "El archivo descargado funciona sin internet, en un navegador compatible. Tus datos permanecen locales cuando el navegador permite guardarlos. Exporta un respaldo JSON antes de cambiarlos o borrarlos.",
+      "subs": [
+        "El archivo descargado funciona sin internet.",
+        "Tus datos son locales cuando el navegador permite guardarlos.",
+        "Exporta un respaldo JSON."
+      ]
+    },
+    {
+      "id": 8,
+      "from_s": 94,
+      "duration": 15,
+      "title": "Ayuda y reporte",
+      "subtitle": "Reglas locales que acompañan tu práctica",
+      "accent": "Dudas → guía → pruebas internas",
+      "screen": "help",
+      "label": "07 · APRENDE Y EVALÚA",
+      "narration": "¿Tienes dudas sobre el peso, el efectivo o internet? La ayuda responde mediante reglas locales. En Reporte puedes ejecutar pruebas internas y descargar un resumen de tu práctica.",
+      "subs": [
+        "¿Dudas sobre el peso, el efectivo o internet?",
+        "La ayuda responde mediante reglas locales.",
+        "Ejecuta pruebas internas y descarga tu reporte."
+      ]
+    },
+    {
+      "id": 9,
+      "from_s": 109,
+      "duration": 11,
+      "title": "RÍO Primer Cobro",
+      "subtitle": "Aprende antes de cobrar de verdad",
+      "accent": "Pruébalo gratis",
+      "screen": "outro",
+      "label": "COMIENZA GRATIS",
+      "narration": "RÍO Primer Cobro. Aprende paso a paso, sin mover dinero. Pruébalo gratis y utiliza medios autorizados cuando cobres de verdad.",
+      "subs": [
+        "RÍO Primer Cobro. Aprende paso a paso, sin mover dinero.",
+        "Pruébalo gratis. Para pagos reales, usa medios autorizados."
+      ]
+    }
+  ],
+  "total_s": 120,
+  "fps": 24
+}
