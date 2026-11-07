@@ -1,0 +1,11 @@
+# RÍO Primer Cobro R037 — read-only GitHub governance handoff
+
+**Not production authorization.** The draft PR #41 goes from `candidate/primer-cobro-r035-atomic-clean-20261106` into `review-base/primer-cobro-r026-preincident-20261106`. **Both refs need protection**. Protecting only the candidate does not secure the merge destination.
+
+`r037_governance.py --plan` emits two *proposals*, not installed rulesets. Each one requires a uniquely named **active** branch ruleset matching the **exact ref**, zero bypass actors, deletion and non-fast-forward rejection, one fresh approval by someone other than the last pusher, review thread resolution, and strict status checks tied to verified GitHub Actions app ID **15368**: `verify`, `strict-torch`, `independent-history`.
+
+The connected GitHub tool set exposes `GET` for rulesets but **no authenticated administrator write endpoint**. No ruleset was applied in R037. A human owner must use the GitHub repository settings or a separately authorized administrative host. With an authorized host, the 2 `rulesets` objects from the plan can be submitted individually to GitHub's **repository rulesets create API**, after verifying current branches, existing policy conflicts, and effective permissions. Do **not** paste privileged tokens into comments, commits or ChatGPT. Do not automatically delete or weaken existing rulesets.
+
+**Readback acceptance:** obtain GitHub's independent `GET /repos/ivaniaworkshop-commits/rio-evidence-engine/rulesets/{id}` for both policies, verify they are active and contain the precise protected ref, checks, required reviewers and absence of bypasses. Then use a *genuinely restricted* agent identity to attempt a non-destructive, unauthorized branch write and verify **GitHub denies it**. This cannot be simulated by tests. Do not use owner credentials for the restricted-identity test. Request a real independent code review; the owner cannot provide their own independent approval.
+
+**Additional HOLD:** The R036 audit covers selected historical commits and selected payment files only. Old refs, caches, forks, clones, production identity, release environment and any real payment integration remain unverified. Keep PR #41 **draft**, no merge, no deployment, no real banking transactions.

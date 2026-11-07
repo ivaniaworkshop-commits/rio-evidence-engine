@@ -1,0 +1,93 @@
+name: RIO R037 governance policy and live readback (NO DEPLOY)
+on:
+  push:
+    branches:
+      - candidate/primer-cobro-r035-atomic-clean-20261106
+  pull_request:
+    branches:
+      - review-base/primer-cobro-r026-preincident-20261106
+permissions:
+  contents: read
+  pull-requests: read
+  checks: read
+jobs:
+  governance-policy-tests:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Verify full inventory
+        run: python3 scripts/verify_manifest.py
+      - name: R037 synthetic adversarial policy tests (never evidence of live protection)
+        run: python3 -m unittest discover -s demos/rio-primer-cobro/integrations/tests -p 'test_r037_governance.py' -v
+      - name: Generate two-branch ruleset administrative proposal (NO WRITE)
+        run: python3 demos/rio-primer-cobro/integrations/r037_governance.py --plan --output /tmp/r037-admin-plan.json
+      - name: Retain proposed branch ruleset configurations, NOT applied
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: rio-r037-admin-plan-not-applied
+          path: /tmp/r037-admin-plan.json
+          if-no-files-found: error
+          retention-days: 14
+  governance-live-readback:
+    needs: governance-policy-tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Read authenticated live GitHub rule contracts, PR reviews and trusted check runs (NO WRITE)
+        shell: bash
+        run: |
+          set -euo pipefail
+          head="$(git rev-parse HEAD)"
+          gh api "/repos/${GITHUB_REPOSITORY}/rulesets?includes_parents=true" > /tmp/r037-ruleset-index.json
+          python3 - <<'PY'
+          import json, os, subprocess
+          from pathlib import Path
+          value=json.loads(Path('/tmp/r037-ruleset-index.json').read_text())
+          if not isinstance(value,list) or len(value)>100:
+              raise SystemExit('INVALID_RULESET_INDEX')
+          ids=[]
+          for item in value:
+              if not isinstance(item,dict) or type(item.get('id')) is not int or item['id']<=0:
+                  raise SystemExit('INVALID_RULESET_INDEX_ID')
+              ids.append(item['id'])
+          if len(ids)!=len(set(ids)):
+              raise SystemExit('DUPLICATE_RULESET_ID')
+          details=[]
+          for rid in ids:
+              command=['gh','api',f'/repos/{os.environ["GITHUB_REPOSITORY"]}/rulesets/{rid}']
+              p=subprocess.run(command,capture_output=True,text=True,timeout=15,check=False)
+              if p.returncode:
+                  raise SystemExit('RULESET_READBACK_DENIED_OR_UNAVAILABLE')
+              detail=json.loads(p.stdout)
+              if not isinstance(detail,dict) or detail.get('id')!=rid:
+                  raise SystemExit('RULESET_READBACK_ID_MISMATCH')
+              details.append(detail)
+          Path('/tmp/r037-rulesets.json').write_text(json.dumps(details),encoding='utf-8')
+          PY
+          gh api "/repos/${GITHUB_REPOSITORY}/pulls/41" > /tmp/r037-pr.json
+          gh api "/repos/${GITHUB_REPOSITORY}/pulls/41/reviews?per_page=100" > /tmp/r037-reviews.json
+          gh api -H "Accept: application/vnd.github+json" "/repos/${GITHUB_REPOSITORY}/commits/${head}/check-runs?per_page=100" > /tmp/r037-checks.json
+          python3 demos/rio-primer-cobro/integrations/r037_governance.py \
+            --rulesets /tmp/r037-rulesets.json --pr /tmp/r037-pr.json \
+            --reviews /tmp/r037-reviews.json --checks /tmp/r037-checks.json \
+            --head "$head" --output /tmp/r037-governance-readback.json
+          cat /tmp/r037-governance-readback.json >> "$GITHUB_STEP_SUMMARY"
+      - name: Save authenticated-API input assessment receipt (blocked is not approval)
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: rio-r037-governance-readback-not-release
+          path: /tmp/r037-governance-readback.json
+          if-no-files-found: error
+          retention-days: 14
