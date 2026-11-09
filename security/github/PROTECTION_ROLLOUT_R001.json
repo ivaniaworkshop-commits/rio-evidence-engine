@@ -1,0 +1,78 @@
+{
+  "schema": "RIO_GITHUB_PROTECTION_ROLLOUT_R001",
+  "as_of": "2026-11-09",
+  "repository": "ivaniaworkshop-commits/rio-evidence-engine",
+  "evidence_kind": "REMOTE_READBACK_PLUS_PROPOSED_REPOSITORY_FILES",
+  "observed_gitHub_enforcement": {
+    "main_protected": true,
+    "active_ruleset_id": 26688691,
+    "active_rule_types": [
+      "deletion",
+      "non_fast_forward",
+      "pull_request"
+    ],
+    "required_status_checks_effective": false,
+    "require_code_owner_review_effective": false
+  },
+  "branch_with_proposed_changes": "security/github-protection-bundle-20261109",
+  "repository_files_staged_not_merged": [
+    ".github/CODEOWNERS",
+    ".github/dependabot.yml",
+    "SECURITY.md",
+    ".github/pull_request_template.md"
+  ],
+  "ruleset_blueprints_not_installed": [
+    {
+      "path": "security/github/ruleset-proposals/main-review.json",
+      "scope": "main",
+      "rule_types": [
+        "deletion",
+        "non_fast_forward",
+        "pull_request"
+      ],
+      "prerequisite": "INDEPENDENT_REVIEWER_READY"
+    },
+    {
+      "path": "security/github/ruleset-proposals/main-ci.json",
+      "scope": "main",
+      "rule_types": [
+        "required_status_checks"
+      ],
+      "prerequisite": "TRUSTED_JOB_IDENTITY_AND_PASSING_CI_OBSERVED",
+      "contexts": [
+        "verify",
+        "strict-torch"
+      ]
+    },
+    {
+      "path": "security/github/ruleset-proposals/main-verified-history.json",
+      "scope": "main",
+      "rule_types": [
+        "required_signatures",
+        "required_linear_history"
+      ],
+      "prerequisite": "SIGNED_COMMIT_AND_MERGE_METHOD_COMPATIBILITY_AUDIT"
+    },
+    {
+      "path": "security/github/ruleset-proposals/immutable-tags.json",
+      "scope": "refs/tags/v*",
+      "rule_types": [
+        "deletion",
+        "non_fast_forward"
+      ],
+      "prerequisite": "RELEASE_TAG_REVIEW_AND_ADMIN_AUTHORITY"
+    }
+  ],
+  "rule_template_instances": 8,
+  "distinct_rule_types": 6,
+  "github_native_file_types": 4,
+  "limitations": [
+    "RULESET_JSON_IN_GIT_IS_NOT_APPLIED",
+    "CODEOWNERS_WITHOUT_REQUIRED_REVIEW_IS_NOT_MERGE_PROTECTION",
+    "DEPENDABOT_CONFIG_EFFECT_REQUIRES_DEFAULT_BRANCH_MERGE_AND_PLATFORM_SUPPORT",
+    "A_DRAFT_PULL_REQUEST_DOES_NOT_CHANGE_DEFAULT_BRANCH",
+    "ADMIN_RULESET_MUTATION_NOT_AVAILABLE_TO_CONNECTED_GITHUB_TOOL",
+    "R038_FAIL_CLOSED_HOLD_IS_INTENTIONAL"
+  ],
+  "safety": "NO_UNTRUSTED_ACTIONS_PRIVILEGE_ESCALATION; NO_BYPASS; NO_AUTO_MERGE; NO_PRODUCTION_RELEASE"
+}

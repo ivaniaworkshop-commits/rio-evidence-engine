@@ -1,0 +1,15 @@
+# RÍO — ownership metadata. Enforced only if a GitHub rule requires code-owner review.
+# Do not interpret an owner listed here as independent approval.
+/.github/ @ivaniaworkshop-commits
+/.github/workflows/ @ivaniaworkshop-commits
+/.github/dependabot.yml @ivaniaworkshop-commits
+/.github/CODEOWNERS @ivaniaworkshop-commits
+/SECURITY.md @ivaniaworkshop-commits
+/rio_evidence/ @ivaniaworkshop-commits
+/external_validator/ @ivaniaworkshop-commits
+/model/ @ivaniaworkshop-commits
+/scripts/ @ivaniaworkshop-commits
+/runtime/ @ivaniaworkshop-commits
+/training/ @ivaniaworkshop-commits
+/tests/ @ivaniaworkshop-commits
+/MANIFEST.json @ivaniaworkshop-commits

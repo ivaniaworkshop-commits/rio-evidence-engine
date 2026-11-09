@@ -1,0 +1,16 @@
+# GitHub-native Dependabot version-update configuration; effective on default branch only.
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Etc/UTC"
+    open-pull-requests-limit: 3
+    groups:
+      action-minor-and-patch:
+        update-types:
+          - "minor"
+          - "patch"
