@@ -27,7 +27,7 @@ The core uses the standard library to reduce setup requirements. Graph schedulin
 
 ## Verification
 
-One hundred five tests (including four optional Node-based dashboard checks) cover graph scheduling, paired metrics, numeric boundaries, budget reserve, schema limits, journal consistency and incomplete-line handling. Actual execution results are recorded in VALIDATION.json. Regression tests include malformed inputs, CLI subprocesses, and dependency invariants across 64 seeded synthetic graphs. The demo uses authored synthetic values; it is not a benchmark or evidence of real-world performance improvement.
+The suite covers graph scheduling, paired metrics, numeric boundaries, budget reserve, schema limits, journal consistency, incomplete-line handling and dashboard behavior. The current run is recorded in VALIDATION.json. Regression tests include malformed inputs, CLI subprocesses, and dependency invariants across 64 seeded synthetic graphs. The demo uses authored synthetic values; it is not a benchmark or evidence of real-world performance improvement.
 
 ## Limits
 
@@ -206,7 +206,7 @@ Context refusal is not correct semantic abstention and does not pass extraction.
 <!-- MODEL_STATUS_START -->
 ## Current model status (evidence synchronized)
 
-Río ByteGRU is a **small neural language model, not an LLM**: 17,344 parameters, 250 observed training steps. Checkpoint saved and reloaded. Current strict suite: 225 passing local tests, zero skipped.
+Río ByteGRU is a **small neural language model, not an LLM**: 17,344 parameters, 250 observed training steps. Checkpoint saved and reloaded. Current strict suite: 252 passing local tests, zero skipped.
 
 Current free generation rejects prompt-plus-output budgets above 128 UTF-8 bytes. The extraction fixture has 28 context rejections, not semantic abstentions. Neural extraction is not established. Hybrid arithmetic remains deterministic. Optional neural ranking showed no output benefit in the paired 42-case comparison. Earlier low loss and failed raw-generation probes are historical, not current capability certificates.
 Experimental recurrent prefill processes up to 4096 prompt bytes; observed full processing in 28/28 cases, but 0/24 exact graphs and 0/4 correct abstentions. No weights changed.
@@ -215,7 +215,7 @@ Separate closed-grammar decoding: 94/94 structurally valid outputs, but 0/78 exa
 Code-grounded durations: 312/312 fields correct, but exact graphs 0/78. Code abstentions are not learned neural ability.
 Current accuracy-first paired comparison: code 94/94 correct decisions vs neural pipeline 16/94. Network value: NO_ON_THIS_SCOPE_WITH_CURRENT_WEIGHTS. No new weights or promotion.
 A separate weight-scaling candidate was programmed from 96 seeded trials; loss improved but dev exact graphs remain 0/78. Not promoted; no demonstrated neural utility gain.
-Bounded warm-cache/atomic-round support is observed. It changes runtime reuse, not neural weights, semantic accuracy or antivirus activation.
+The bounded runtime checks the packaged public precalculation against the active source and data revisions before warming the cache. This is a deterministic runtime check.
 <!-- MODEL_STATUS_END -->
 
 ## Experimental full recurrent prefill
@@ -296,9 +296,11 @@ The persistent JSONL session fills a bounded LRU on demand; optional
 `--prewarm-public` loads only the published synthetic precompute. Returned results
 are isolated copies. Invalidating duration-parser atoms preserves unrelated
 numeric-cache entries. No arbitrary commands, code/weight changes, publication
-or network calls are accepted from runtime input.
+or network calls are accepted from runtime input. An existing public package with a mismatched
+source or dev-data revision stops the round with `HOLD`. CI verifies that the
+shipped records match a fresh derivation of the 94 public examples.
 
-Local cache median was 0.0163 ms vs 0.0417 ms direct; bootstrap/prewarm
+In the original local benchmark, cache median was 0.0163 ms vs 0.0417 ms direct; bootstrap/prewarm
 was 23.48 ms, with an estimated break-even of 925 reuses.
 This is repeated-input evidence, not an unconditional end-to-end speedup. Memory cache lasts per process; public
 precomputed artifacts can be reused across processes with matching revisions.
@@ -414,4 +416,4 @@ Instrument tests use authored temporary Git fixtures; current strict suite: 214 
 
 A reproducible authored counterexample made the prior standalone validator pass its technical screen with five baseline runtime errors across five clusters. The errors produced five apparent paired wins even though the reference execution was invalid. The patch preserves those raw observations but blocks the technical screen whenever either side has runtime/interface/invalid-graph errors. Wrong semantic answers and legitimate abstentions remain comparable; this guard targets invalid execution, not disagreement. The report includes screen_blockers for these error conditions.
 
-Eleven new controls cover legitimate positive acceptance, baseline crashes, malformed baseline graphs, candidate crashes, concentration of wins in one cluster, four-win threshold, abstention regression, excessive latency, malformed abstention, source mutation during a worker call, and timeout. Against the original source commit, the counterexample passed; patched code rejects it while a legitimate positive control still passes. Current strict suite: 225 passed, zero skipped. Evidence: runtime/PROOF_DELTA_RESULT.json and runtime/PROOF_DELTA_VALIDATION.json. These are instrument/regression proofs, not external model accuracy or new learned capacity; no weights changed.
+Eleven new controls cover legitimate positive acceptance, baseline crashes, malformed baseline graphs, candidate crashes, concentration of wins in one cluster, four-win threshold, abstention regression, excessive latency, malformed abstention, source mutation during a worker call, and timeout. Against the original source commit, the counterexample passed; patched code rejects it while a legitimate positive control still passes. That proof round passed 225 tests with zero skips. Evidence: runtime/PROOF_DELTA_RESULT.json and runtime/PROOF_DELTA_VALIDATION.json. These are instrument/regression proofs, not external model accuracy or new learned capacity; no weights changed.

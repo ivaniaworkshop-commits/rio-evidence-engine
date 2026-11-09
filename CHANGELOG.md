@@ -1,5 +1,12 @@
 # Changes
 
+## Public precalculation revision check
+
+Rebuild the packaged derivation for the current parser source. All 94 records
+retain their previous digest. A present package with a stale source or dev-data
+revision now stops the automatic round with `HOLD`. CI compares the shipped
+package with a fresh derivation so source changes cannot silently leave it stale.
+
 ## P6 resource and near-1MiB performance differential
 
 Introduce reproducible synthetic arrays near the strict 1 MiB **per-input** decoder limit, compare P4 vs P5 on matching Node workloads with separate parse/compute timing, and measure P5 Python stages, process RSS and traced allocations. Accept only bit-exact output against the rational P5 oracle and matching count metrics; require bounds on measured host CPU and memory plus conservative relative slowdown guard in CI. Record input SHA256, environment, median/p95 and measured data; no claim of Android performance from GitHub runners. Provide an opt-in Android/browser local test page that produces a user-owned JSON report and does not transmit content. Physical Android and mobile memory peak remain unverified.

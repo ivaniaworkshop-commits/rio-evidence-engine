@@ -1,7 +1,7 @@
 {
   "schema": "rio-dashboard-v1",
-  "updated": "2026-10-30",
-  "tests": 225,
+  "updated": "2026-11-09",
+  "tests": 252,
   "synthetic_graphs": 64,
   "benchmark": {
     "nodes": 2000,
@@ -14,6 +14,12 @@
     "detail": "Five daily tasks enabled, starting 2026-10-31: improvement ~08:00; correctness ~10:00; security ~12:00; performance ~14:00; dashboard ~16:00, Mexico City time. Only improvement may publish. No completed run is claimed."
   },
   "deltas": [
+    {
+      "title": "Public precompute revision check",
+      "state": "VERIFIED",
+      "value": "Reuse 94 verified public derivations. Stop on mismatched source or data revisions.",
+      "evidence": "VALIDATION.json"
+    },
     {
       "title": "Strict input contracts",
       "state": "VERIFIED",
@@ -47,11 +53,11 @@
   ],
   "benchmark_source_commit": "7eb02c14e23453f109604ddefaeb5c944fad05fa",
   "provenance": {
-    "core_sha256": "fb232e58f1ab1260d9b74b454a0a267cd73171e0aedaf0fc4867df552fd2caf5",
-    "validation_sha256": "f426b8259db966548f37941da870dad2f7130fe3a8731241b2f187a5a5857128",
+    "core_sha256": "14d30226f7050c2e08272d9ab2207bc949f3d1663d0dc3b101dd7be602ba797b",
+    "validation_sha256": "502c7a4a349cfdd63f6879a7645935ca2cb1bdb18f3792f079c18e8548edffc8",
     "scope": "LOCAL_EXECUTION_RECORD_BOUND_TO_SOURCE_BYTES_NOT_REMOTE_CI",
-    "current_test_evidence": "runtime/PROOF_DELTA_VALIDATION.json",
-    "current_test_evidence_sha256": "a72f367c12e3bcc23843f5deac8e5f7500c615fab71b9a5a15c5a7f646413d6d"
+    "current_test_evidence": "VALIDATION.json",
+    "current_test_evidence_sha256": "502c7a4a349cfdd63f6879a7645935ca2cb1bdb18f3792f079c18e8548edffc8"
   },
   "model": {
     "status": "SMALL_NEURAL_LM_TRAINED_AND_RELOADED_NOT_LLM",
@@ -120,7 +126,7 @@
     "semantic_extraction_status": "NOT_DEMONSTRATED_WITH_FULL_RECURRENT_PREFILL",
     "current_context_rejections": 28,
     "context_rejections_are_semantic_abstentions": false,
-    "project_tests_passed": 225,
+    "project_tests_passed": 252,
     "hybrid_role": "OPTIONAL_RANKING_OF_DETERMINISTIC_EXPLANATIONS",
     "observed_neural_value": "NO_OUTPUT_BENEFIT_IN_42_CASE_PAIRED_ABLATION",
     "historical_task_probe": "0/26 extractable durations before context safety fix",
@@ -422,11 +428,11 @@
       "validation": "runtime/H16_VALIDATION.json"
     },
     "current_strict_verification": {
-      "tests": 225,
-      "passed": 225,
+      "tests": 252,
+      "passed": 252,
       "skipped": 0,
       "scope": "LOCAL_NOT_REMOTE_CI",
-      "evidence": "runtime/PROOF_DELTA_VALIDATION.json"
+      "evidence": "VALIDATION.json"
     },
     "weight_registry": {
       "models_loaded": 3,
@@ -615,7 +621,7 @@
       "break_even_scope": "Estimate covers controller bootstrap and memory prewarm, excludes interpreter/import startup; assumes repeated public workload and this measured median saving."
     }
   },
-  "snapshot_generated_at_utc": "2026-10-30T20:45:53.168819+00:00",
+  "snapshot_generated_at_utc": "2026-11-09T14:36:12.352311+00:00",
   "h15_declared_inventory": {
     "status": "OPTIONAL_DECLARED_COUNT_GUARD_OBSERVED_ON_AUTHORED_CASES",
     "result": "runtime/H15_OBJECTIVE_RECALCULATION.json",
@@ -647,11 +653,11 @@
     "validation": "runtime/H16_VALIDATION.json"
   },
   "current_strict_verification": {
-    "tests": 225,
-    "passed": 225,
+    "tests": 252,
+    "passed": 252,
     "skipped": 0,
     "scope": "LOCAL_NOT_REMOTE_CI",
-    "evidence": "runtime/PROOF_DELTA_VALIDATION.json"
+    "evidence": "VALIDATION.json"
   },
   "weight_registry": {
     "models_loaded": 3,
