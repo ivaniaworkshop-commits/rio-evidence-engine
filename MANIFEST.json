@@ -2,6 +2,21 @@
   "scope": "SOURCE_BYTES_NOT_TRUTH_OR_AUTHENTICITY",
   "files": [
     {
+      "path": ".github/CODEOWNERS",
+      "sha256": "39f5f3bfbb686159c959a5422d82f86d73e6309a622c4f0617260a4275324a9b",
+      "bytes": 652
+    },
+    {
+      "path": ".github/dependabot.yml",
+      "sha256": "479c1a10ea6caafc2548ea87808a239dfea518004ff60e4c4295833754704bcb",
+      "bytes": 411
+    },
+    {
+      "path": ".github/pull_request_template.md",
+      "sha256": "2a4bb178f6d0fe9a1c7782959e4e7936913c05a4a861709de1e4636a1bbc97be",
+      "bytes": 792
+    },
+    {
       "path": ".github/workflows/h00-integrity.yml",
       "bytes": 7368,
       "sha256": "f2d99bccae6608bdccc1ce7b2f8af608b515d8a3a745326b323715f56dbb545b"
@@ -35,6 +50,11 @@
       "path": "RECALCULATION.md",
       "bytes": 2046,
       "sha256": "3684763fc06ac2f897101d657c59c545299d64e7ea03c63142a51e0922bc92ed"
+    },
+    {
+      "path": "SECURITY.md",
+      "sha256": "af20fcd82461d263a6ff9879b6951ac49dcf6e21d89374a753482f5f5ba4ca09",
+      "bytes": 1514
     },
     {
       "path": "VALIDATION.json",
@@ -750,6 +770,36 @@
       "path": "scripts/verify_manifest.py",
       "bytes": 1671,
       "sha256": "cd9152632b4089c9aa71a474b2c4d229c76061c1a82b67f7df9d16ad5551ed1f"
+    },
+    {
+      "path": "security/github/PROTECTION_ROLLOUT_R001.json",
+      "sha256": "e93fe171178d7bc56218146257d57da41e447411c6c79ad93141e8a977edf568",
+      "bytes": 2478
+    },
+    {
+      "path": "security/github/PROTECTION_RUNBOOK_R001.md",
+      "sha256": "854a71a7943f06e206468f95ac299066f748ffbd7da5d4a5c5db8424e5820ef1",
+      "bytes": 6872
+    },
+    {
+      "path": "security/github/ruleset-proposals/immutable-tags.json",
+      "sha256": "0113da5c398c4c814d9b23f52a16caabecdd20f5e4ace10df70543d88b0e6413",
+      "bytes": 336
+    },
+    {
+      "path": "security/github/ruleset-proposals/main-ci.json",
+      "sha256": "b02f02f4d34e1ec165b97ffd94681529c5538f1172d6897093dca100066e0383",
+      "bytes": 558
+    },
+    {
+      "path": "security/github/ruleset-proposals/main-review.json",
+      "sha256": "b43cdb1f0e443f7dd48704988ab7f634d1e82c848042e7f0a99226e05621327d",
+      "bytes": 846
+    },
+    {
+      "path": "security/github/ruleset-proposals/main-verified-history.json",
+      "sha256": "477bed13464b546af8f69f4b4b79edfda0b47fdec9951e39da3b69c1323a9493",
+      "bytes": 359
     },
     {
       "path": "tests/fixtures/p4_compare_baseline.js",
