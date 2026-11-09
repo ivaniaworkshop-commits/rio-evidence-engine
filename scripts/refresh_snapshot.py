@@ -23,10 +23,13 @@ def main():
     if 'source_commit' in data:
         data['benchmark_source_commit'] = data.pop('source_commit')
     data['tests'] = int(match.group(1))
+    validation_sha256 = hashlib.sha256((ROOT/'VALIDATION.json').read_bytes()).hexdigest()
     data['provenance'] = {
         'core_sha256': hashlib.sha256((ROOT/'rio_evidence/core.py').read_bytes()).hexdigest(),
-        'validation_sha256': hashlib.sha256((ROOT/'VALIDATION.json').read_bytes()).hexdigest(),
+        'validation_sha256': validation_sha256,
         'scope': 'LOCAL_EXECUTION_RECORD_BOUND_TO_SOURCE_BYTES_NOT_REMOTE_CI',
+        'current_test_evidence': 'VALIDATION.json',
+        'current_test_evidence_sha256': validation_sha256,
     }
     model_path = ROOT/'model/TRAINING_RESULT.json'
     if model_path.exists():
@@ -47,6 +50,7 @@ def main():
     description_path=ROOT/'model/DESCRIPTION.json'
     if description_path.exists():
         data['model_description']=json.loads(description_path.read_text())
+        data['current_strict_verification'] = data['model_description']['current_strict_verification']
     stream_path=ROOT/'model/STREAMING_GATE_RESULT.json'
     if stream_path.exists():
         stream=json.loads(stream_path.read_text())
@@ -81,7 +85,7 @@ def main():
     if auto_path.exists():
         auto=json.loads(auto_path.read_text())
         data['automatic_runtime']={'round_statuses':[r['status'] for r in auto['rounds']], 'benchmark':auto['rounds'][0]['benchmark']}
-    encoded = json.dumps(data, indent=2)+'\n'
+    encoded = json.dumps(data, indent=2, ensure_ascii=False)+'\n'
     for name in ['DELTAS.json','docs/data.json']:
         (ROOT/name).write_text(encoded)
 

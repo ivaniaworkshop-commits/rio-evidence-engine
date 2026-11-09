@@ -42,6 +42,48 @@ class AtomicRuntimeTests(unittest.TestCase):
         with self.assertRaises(ValueError):priority(1,1,1,1,0,.1)
 
 class AutomaticBoundaryTests(unittest.TestCase):
+    def test_shipped_precompute_matches_current_source_and_dev(self):
+        from pathlib import Path
+        from rio_evidence.atomic_runtime import precompute_public
+
+        root = Path(__file__).resolve().parents[1]
+        shipped = json.loads((root / 'runtime/PUBLIC_PRECOMPUTE.json').read_text())
+        rebuilt = precompute_public(root)
+        self.assertEqual(shipped['source_revision'], rebuilt['source_revision'])
+        self.assertEqual(shipped['source_data_sha256'], rebuilt['source_data_sha256'])
+        self.assertEqual(shipped['records_sha256'], rebuilt['records_sha256'])
+        self.assertEqual(shipped['records'], rebuilt['records'])
+
+    def test_present_package_with_mismatched_revision_holds(self):
+        from pathlib import Path
+        from tempfile import TemporaryDirectory
+        from unittest.mock import patch
+        from rio_evidence.autoround import RoundController
+
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / 'runtime').mkdir()
+            (root / 'training').mkdir()
+            data = b''
+            (root / 'training/extraction_dev.jsonl').write_bytes(data)
+            package = root / 'runtime/PUBLIC_PRECOMPUTE.json'
+            valid_revisions = {
+                'source_revision': 'current',
+                'source_data_sha256': hashlib.sha256(data).hexdigest(),
+            }
+            for key, error in (
+                ('source_revision', 'stale precompute source revision'),
+                ('source_data_sha256', 'public data revision mismatch'),
+            ):
+                with self.subTest(key=key):
+                    package.write_text(json.dumps({**valid_revisions, key: 'stale'}))
+                    with (
+                        patch('rio_evidence.autoround.verify_source', return_value={}),
+                        patch('rio_evidence.autoround.source_fingerprint', return_value='current'),
+                    ):
+                        with self.assertRaisesRegex(ValueError, error):
+                            RoundController(root)
+
     def test_unlisted_action_is_rejected(self):
         from rio_evidence.autoround import RoundController
         controller=object.__new__(RoundController)

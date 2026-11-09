@@ -7,11 +7,15 @@ ROOT=Path(__file__).resolve().parents[1]
 def sync():
     training=json.loads((ROOT/'model/TRAINING_RESULT.json').read_text())
     validation=json.loads((ROOT/'VALIDATION.json').read_text())
+    description_path = ROOT / 'model/DESCRIPTION.json'
+    previous = json.loads(description_path.read_text()) if description_path.exists() else {}
     context=json.loads((ROOT/'model/SEMANTIC_CONTEXT_GATE.json').read_text())
     runs=[r for r in validation['checks'] if 'unittest' in r['command']]
     if len(runs)!=1 or runs[0]['exit_code']!=0:raise ValueError('successful test evidence required')
     match=re.search(r'Ran (\d+) tests?',runs[0]['stderr'])
-    if not match:raise ValueError('test count unavailable')
+    if not match or runs[0]['stderr'].strip().splitlines()[-1] != 'OK':
+        raise ValueError('complete passing unittest evidence required')
+    tests_passed = int(match.group(1))
     checkpoint_hash=hashlib.sha256((ROOT/'model/byte_gru.pt').read_bytes()).hexdigest()
     if checkpoint_hash!=training['checkpoint_sha256']:raise ValueError('training description does not match checkpoint')
     if context['checkpoint_sha256'] != checkpoint_hash:
@@ -24,7 +28,7 @@ def sync():
        'free_generation_context_policy':'NONEMPTY_UTF8_PROMPT_PLUS_REQUESTED_OUTPUT_AT_MOST_128_BYTES',
        'semantic_extraction_status':'BLOCKED_BY_CONTEXT_BUDGET',
        'current_context_rejections':context['summary']['neural']['context_rejections'],
-       'context_rejections_are_semantic_abstentions':False,'project_tests_passed':int(match.group(1)),
+       'context_rejections_are_semantic_abstentions':False,'project_tests_passed':tests_passed,
        'hybrid_role':'OPTIONAL_RANKING_OF_DETERMINISTIC_EXPLANATIONS',
        'observed_neural_value':('NO_OUTPUT_BENEFIT_IN_42_CASE_PAIRED_ABLATION' if ablation_current else 'NOT_EVALUATED_FOR_CURRENT_CHECKPOINT'),
        'historical_task_probe':'0/26 extractable durations before context safety fix',
@@ -97,56 +101,73 @@ def sync():
         auto=json.loads(auto_path.read_text())
         d['runtime_support']={'status':'BOUNDED_LOCAL_ROUNDS_OBSERVED','round_statuses':[r['status'] for r in auto['rounds']], 'benchmark':auto['rounds'][0]['benchmark'], 'weight_changes':False, 'antivirus_activation':False}
         d['sources'].append('runtime/AUTO_ROUND_RESULT.json')
+    # Retain the attributed historical receipts when regenerating current fields.
+    historical_sections = (
+        'verification_h00_strict_2026_10_30', 'h01_authority', 'h07_value_gate',
+        'h08_independent_capability_gate', 'h09_deterministic_extension',
+        'h10_new_wording_probe', 'h11_paired_runner', 'h12_power_design',
+        'latest_strict_suite_observed', 'h14_structured_candidate',
+    )
+    d.update({name: previous[name] for name in historical_sections if name in previous})
+    observations = 'model/EVALUATION_OBSERVATIONS_R001.json'
+    if (ROOT / observations).exists():
+        d['sources'].append(observations)
     h15_path=ROOT/'runtime/H15_OBJECTIVE_RECALCULATION.json'
     if h15_path.exists():
-        prior=json.loads((ROOT/'model/DESCRIPTION.json').read_text())
-        d['h15_declared_inventory']=prior['h15_declared_inventory']
+        d['h15_declared_inventory']=previous['h15_declared_inventory']
         d['sources'].extend(['runtime/H15_OBJECTIVE_RECALCULATION.json','runtime/H15_VALIDATION.json'])
     h16_path=ROOT/'runtime/H16_SPANISH_RESULT.json'
     if h16_path.exists():
         h16=json.loads(h16_path.read_text())
-        d['h16_spanish_development']={k:h16[k] for k in ['supported_cases','baseline_exact','candidate_exact','candidate_correct_abstentions','paired_wins','paired_losses','weights_changed','candidate_promoted','independent_data']}
+        d['h16_spanish_development'] = {
+            'status': 'OPT_IN_CLOSED_SPANISH_GRAMMAR_DEVELOPMENT_GAIN',
+            'supported_cases': h16['supported_cases'],
+            'baseline_exact': h16['baseline_exact'],
+            'candidate_exact': h16['candidate_exact'],
+            'correct_abstentions': h16['candidate_correct_abstentions'],
+            'negative_cases': h16['negative_cases'],
+            'paired_wins': h16['paired_wins'],
+            'paired_losses': h16['paired_losses'],
+            'synthetic_order_variants': h16['order_crlf_variants_checked'],
+            'independent_data': h16['independent_data'],
+            'weights_changed': h16['weights_changed'],
+            'candidate_promoted': h16['candidate_promoted'],
+            'result': 'runtime/H16_SPANISH_RESULT.json',
+            'validation': 'runtime/H16_VALIDATION.json',
+        }
         d['sources'].extend(['runtime/H16_SPANISH_RESULT.json','runtime/H16_VALIDATION.json'])
     strict_path=ROOT/'runtime/STRICT_TEST_REPAIR_RESULT.json'
     registry_path=ROOT/'runtime/WEIGHT_REGISTRY_RESULT.json'
     if strict_path.exists():
-        current=json.loads(strict_path.read_text())['current_suite']
-        d['current_strict_verification']={**current,'scope':'LOCAL_NOT_REMOTE_CI','evidence':'runtime/STRICT_TEST_REPAIR_RESULT.json'}
-        d['project_tests_passed']=current['tests_run']-current['skipped']-current['failed']-current['errors']
         d['sources'].append('runtime/STRICT_TEST_REPAIR_RESULT.json')
+    d['current_strict_verification'] = {
+        'tests': tests_passed, 'passed': tests_passed, 'skipped': 0,
+        'scope': 'LOCAL_NOT_REMOTE_CI', 'evidence': 'VALIDATION.json',
+    }
     if registry_path.exists():
-        d['weight_registry']=json.loads(registry_path.read_text())
+        registry = json.loads(registry_path.read_text())
+        d['weight_registry'] = {name: registry[name] for name in (
+            'models_loaded', 'checkpoints', 'default_checkpoint', 'weights_modified', 'candidate_promoted',
+        )}
         d['sources'].append('runtime/WEIGHT_REGISTRY_RESULT.json')
     h17_path=ROOT/'runtime/H17_RECONCILED_PROGRAM.json'
     if h17_path.exists():
-        previous=json.loads((ROOT/'model/DESCRIPTION.json').read_text())
         d['h17_reconciled_program']=previous['h17_reconciled_program']
-        current=json.loads((ROOT/'runtime/H17_VALIDATION.json').read_text())['current_suite']
-        d['current_strict_verification']={**current,'scope':'LOCAL_NOT_REMOTE_CI','evidence':'runtime/H17_VALIDATION.json'}
-        d['project_tests_passed']=current['tests_run']-current['skipped']-current['failed']-current['errors']
-        d['sources'].extend(['runtime/H17_RECONCILED_PROGRAM.json','runtime/H17_REJECTION_LATENCY.json','runtime/H17_VALIDATION.json'])
+        d['sources'].extend(['runtime/H17_REJECTION_LATENCY.json','runtime/H17_RECONCILED_PROGRAM.json','runtime/H17_VALIDATION.json'])
     external_path=ROOT/'runtime/EXTERNAL_VALIDATOR_VALIDATION.json'
     if external_path.exists():
-        previous=json.loads((ROOT/'model/DESCRIPTION.json').read_text())
         d['external_validator']=previous['external_validator']
-        current=json.loads(external_path.read_text())['current_suite']
-        d['current_strict_verification']={**current,'scope':'LOCAL_NOT_REMOTE_CI','evidence':'runtime/EXTERNAL_VALIDATOR_VALIDATION.json'}
-        d['project_tests_passed']=current['tests_run']-current['skipped']-current['failed']-current['errors']
         d['sources'].append('runtime/EXTERNAL_VALIDATOR_VALIDATION.json')
     proof_path=ROOT/'runtime/PROOF_DELTA_VALIDATION.json'
     if proof_path.exists():
-        previous=json.loads((ROOT/'model/DESCRIPTION.json').read_text())
         d['proof_delta']=previous['proof_delta']
-        current=json.loads(proof_path.read_text())['current_suite']
-        d['current_strict_verification']={**current,'scope':'LOCAL_NOT_REMOTE_CI','evidence':'runtime/PROOF_DELTA_VALIDATION.json'}
-        d['project_tests_passed']=current['tests_run']-current['skipped']-current['failed']-current['errors']
         d['sources'].extend(['runtime/PROOF_DELTA_RESULT.json','runtime/PROOF_DELTA_VALIDATION.json'])
-    (ROOT/'model/DESCRIPTION.json').write_text(json.dumps(d,indent=2)+'\n')
+    description_path.write_text(json.dumps(d,indent=2,ensure_ascii=False)+'\n')
     value_statement=('Optional neural ranking showed no output benefit in the paired 42-case comparison.' if ablation_current else 'The current checkpoint has no matching paired utility evaluation.')
     block=('<!-- MODEL_STATUS_START -->\n## Current model status (evidence synchronized)\n\n'
        f"Río ByteGRU is a **small neural language model, not an LLM**: {d['parameters']:,} parameters, "
        f"{d['training_steps']} observed training steps. Checkpoint saved and reloaded. "
-       f"Project suite: {d['project_tests_passed']} passing local tests.\n\n"
+       f"Current strict suite: {d['project_tests_passed']} passing local tests, zero skipped.\n\n"
        'Current free generation rejects prompt-plus-output budgets above 128 UTF-8 bytes. '
        f"The extraction fixture has {d['current_context_rejections']} context rejections, not semantic abstentions. "
        'Neural extraction is not established. Hybrid arithmetic remains deterministic. '
@@ -158,7 +179,7 @@ def sync():
        +(f"Code-grounded durations: {d['extraction_candidate']['duration_copy']['duration_fields_correct']}/{d['extraction_candidate']['duration_copy']['duration_fields_total']} fields correct, but exact graphs {d['extraction_candidate']['duration_copy']['supported_exact_graph_matches']}/{d['extraction_candidate']['duration_copy']['supported_cases']}. Code abstentions are not learned neural ability.\n" if 'duration_copy' in d.get('extraction_candidate',{}) else '')
        +(f"Current accuracy-first paired comparison: code {d['current_accuracy_first_comparison']['code_correct_task_decisions']}/{d['current_accuracy_first_comparison']['cases']} correct decisions vs neural pipeline {d['current_accuracy_first_comparison']['neural_pipeline_correct_task_decisions']}/{d['current_accuracy_first_comparison']['cases']}. Network value: {d['current_accuracy_first_comparison']['network_earns_its_cost']}. No new weights or promotion.\n" if 'current_accuracy_first_comparison' in d else '')
        +(f"A separate weight-scaling candidate was programmed from {d['weight_search_candidate']['trial_count']} seeded trials; loss improved but dev exact graphs remain {d['weight_search_candidate']['dev_exact_graph_matches']}/{d['weight_search_candidate']['dev_supported_cases']}. Not promoted; no demonstrated neural utility gain.\n" if 'weight_search_candidate' in d else '')
-       +('Bounded warm-cache/atomic-round support is observed. It changes runtime reuse, not neural weights, semantic accuracy or antivirus activation.\n' if 'runtime_support' in d else '')
+       +('The bounded runtime checks the packaged public precalculation against the active source and data revisions before warming the cache. This is a deterministic runtime check.\n' if 'runtime_support' in d else '')
        +'<!-- MODEL_STATUS_END -->')
     for name in ['README.md','model/MODEL_CARD.md']:
         path=ROOT/name;text=path.read_text()
