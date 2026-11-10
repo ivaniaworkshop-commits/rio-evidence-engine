@@ -1,7 +1,7 @@
 {
   "schema": "rio-dashboard-v1",
-  "updated": "2026-10-30",
-  "tests": 225,
+  "updated": "2026-11-10",
+  "tests": 250,
   "synthetic_graphs": 64,
   "benchmark": {
     "nodes": 2000,
@@ -43,15 +43,21 @@
       "state": "VERIFIED",
       "value": "Expose evidence and a browser-local synthetic comparison.",
       "evidence": "docs/index.html"
+    },
+    {
+      "title": "Reviewed dashboard comparator",
+      "state": "VERIFIED",
+      "value": "Reject duplicate keys and round the paired mean once. Link strict checks for the reviewed source and the earlier local suite separately.",
+      "evidence": "docs/compare.js"
     }
   ],
   "benchmark_source_commit": "7eb02c14e23453f109604ddefaeb5c944fad05fa",
   "provenance": {
-    "core_sha256": "fb232e58f1ab1260d9b74b454a0a267cd73171e0aedaf0fc4867df552fd2caf5",
-    "validation_sha256": "f426b8259db966548f37941da870dad2f7130fe3a8731241b2f187a5a5857128",
+    "core_sha256": "14d30226f7050c2e08272d9ab2207bc949f3d1663d0dc3b101dd7be602ba797b",
+    "validation_sha256": "1d915de5d5e83106365213d3f3dde1f924ce9e0c578671ee79e0fd743a34141e",
     "scope": "LOCAL_EXECUTION_RECORD_BOUND_TO_SOURCE_BYTES_NOT_REMOTE_CI",
-    "current_test_evidence": "runtime/PROOF_DELTA_VALIDATION.json",
-    "current_test_evidence_sha256": "a72f367c12e3bcc23843f5deac8e5f7500c615fab71b9a5a15c5a7f646413d6d"
+    "current_test_evidence": "VALIDATION.json",
+    "current_test_evidence_sha256": "1d915de5d5e83106365213d3f3dde1f924ce9e0c578671ee79e0fd743a34141e"
   },
   "model": {
     "status": "SMALL_NEURAL_LM_TRAINED_AND_RELOADED_NOT_LLM",
@@ -120,7 +126,7 @@
     "semantic_extraction_status": "NOT_DEMONSTRATED_WITH_FULL_RECURRENT_PREFILL",
     "current_context_rejections": 28,
     "context_rejections_are_semantic_abstentions": false,
-    "project_tests_passed": 225,
+    "project_tests_passed": 250,
     "hybrid_role": "OPTIONAL_RANKING_OF_DETERMINISTIC_EXPLANATIONS",
     "observed_neural_value": "NO_OUTPUT_BENEFIT_IN_42_CASE_PAIRED_ABLATION",
     "historical_task_probe": "0/26 extractable durations before context safety fix",
@@ -422,11 +428,16 @@
       "validation": "runtime/H16_VALIDATION.json"
     },
     "current_strict_verification": {
-      "tests": 225,
-      "passed": 225,
+      "status": "PASS_NO_SKIPS",
+      "tests_run": 250,
+      "failed": 0,
+      "errors": 0,
       "skipped": 0,
-      "scope": "LOCAL_NOT_REMOTE_CI",
-      "evidence": "runtime/PROOF_DELTA_VALIDATION.json"
+      "tests": 250,
+      "passed": 250,
+      "scope": "LOCAL_CHECKOUT_OF_DASHBOARD_SOURCE",
+      "source_commit": "e85b1e808081510a8267457c9b4aafeca064cb36",
+      "evidence": "VALIDATION.json"
     },
     "weight_registry": {
       "models_loaded": 3,
@@ -522,6 +533,32 @@
       "validation": "runtime/PROOF_DELTA_VALIDATION.json",
       "external_model_validation": false,
       "weights_changed": false
+    },
+    "dashboard_source_verification": {
+      "source_commit": "e85b1e808081510a8267457c9b4aafeca064cb36",
+      "comparator_sha256": "da4ef83aa8b49b3ad16cd2ab774bf54f72970594697fd6b8f7577de57b53b101",
+      "main_ci": {
+        "run_id": 41595060639,
+        "job_id": 125780368398,
+        "step": 5,
+        "strict_suite": {
+          "status": "PASS_NO_SKIPS",
+          "tests_run": 250,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      },
+      "historical_local_suite": {
+        "commit": "dd86709aa08ccf555c7c0bba49bbebba55779b09",
+        "path": "runtime/PROOF_DELTA_VALIDATION.json",
+        "sha256": "a72f367c12e3bcc23843f5deac8e5f7500c615fab71b9a5a15c5a7f646413d6d",
+        "status": "PASS_NO_SKIPS",
+        "tests_run": 225,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      }
     }
   },
   "streaming_gate": {
@@ -615,7 +652,7 @@
       "break_even_scope": "Estimate covers controller bootstrap and memory prewarm, excludes interpreter/import startup; assumes repeated public workload and this measured median saving."
     }
   },
-  "snapshot_generated_at_utc": "2026-10-30T20:45:53.168819+00:00",
+  "snapshot_generated_at_utc": "2026-11-10T14:32:23.475998+00:00",
   "h15_declared_inventory": {
     "status": "OPTIONAL_DECLARED_COUNT_GUARD_OBSERVED_ON_AUTHORED_CASES",
     "result": "runtime/H15_OBJECTIVE_RECALCULATION.json",
@@ -747,5 +784,65 @@
     "validation": "runtime/PROOF_DELTA_VALIDATION.json",
     "external_model_validation": false,
     "weights_changed": false
+  },
+  "dashboard_release": {
+    "scope": "REVIEWED_MAIN_COMPARATOR_AND_SYNTHETIC_DASHBOARD_CHECKS",
+    "observed_at_utc": "2026-11-10T14:28:24.864717+00:00",
+    "source_commit": "e85b1e808081510a8267457c9b4aafeca064cb36",
+    "core_sha256": "14d30226f7050c2e08272d9ab2207bc949f3d1663d0dc3b101dd7be602ba797b",
+    "comparator_sha256": "da4ef83aa8b49b3ad16cd2ab774bf54f72970594697fd6b8f7577de57b53b101",
+    "mobile_benchmark_sha256": "4a0ffe270c01c649bea33d6ec919b728fab34e5c96e872bc0ddf10ae9946b1e0",
+    "strict_suite": {
+      "status": "PASS_NO_SKIPS",
+      "tests_run": 250,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "main_ci": {
+      "run_id": 41595060639,
+      "job_id": 125780368398,
+      "step": 5,
+      "strict_suite": {
+        "status": "PASS_NO_SKIPS",
+        "tests_run": 250,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    "historical_local_suite": {
+      "commit": "dd86709aa08ccf555c7c0bba49bbebba55779b09",
+      "path": "runtime/PROOF_DELTA_VALIDATION.json",
+      "sha256": "a72f367c12e3bcc23843f5deac8e5f7500c615fab71b9a5a15c5a7f646413d6d",
+      "status": "PASS_NO_SKIPS",
+      "tests_run": 225,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "browser_javascript_probe": {
+      "scope": "NODE_EVENT_HANDLER_WITH_SYNTHETIC_INPUTS",
+      "published_baseline_version": 21,
+      "published_baseline_comparator_sha256": "4d91dbe819fd79133726ff64b39c8cfda93beb4633a96db75c5fbcbe0cb325b4",
+      "published_baseline_accepts_duplicate_key": true,
+      "published_baseline_subnormal_mean_ms": 0,
+      "reviewed_comparator_rejects_duplicate_key": true,
+      "reviewed_comparator_subnormal_mean_ms": 5e-324,
+      "valid_control_pairs": 3
+    },
+    "numeric_gates": {
+      "p4": "PASS_PARITY_GATE",
+      "p5": "PASS_EXACT_METAMORPHIC_GATE",
+      "p6": "PASS_HOST_RESOURCE_GATE"
+    },
+    "preview_chrome": {
+      "scope": "DESKTOP_CHROME_STATIC_PREVIEW",
+      "duplicate_key_rejected_by_playground": true,
+      "playground_subnormal_mean_ms": 5e-324,
+      "local_benchmark_subnormal_sentinel": "PASS",
+      "local_benchmark_advisory": "PASS_ADVISORY",
+      "physical_android": "NOT_RUN"
+    }
   }
 }

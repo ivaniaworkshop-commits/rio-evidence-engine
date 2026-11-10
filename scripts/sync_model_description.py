@@ -7,6 +7,8 @@ ROOT=Path(__file__).resolve().parents[1]
 def sync():
     training=json.loads((ROOT/'model/TRAINING_RESULT.json').read_text())
     validation=json.loads((ROOT/'VALIDATION.json').read_text())
+    description_path=ROOT/'model/DESCRIPTION.json'
+    previous=json.loads(description_path.read_text()) if description_path.exists() else {}
     context=json.loads((ROOT/'model/SEMANTIC_CONTEXT_GATE.json').read_text())
     runs=[r for r in validation['checks'] if 'unittest' in r['command']]
     if len(runs)!=1 or runs[0]['exit_code']!=0:raise ValueError('successful test evidence required')
@@ -97,15 +99,26 @@ def sync():
         auto=json.loads(auto_path.read_text())
         d['runtime_support']={'status':'BOUNDED_LOCAL_ROUNDS_OBSERVED','round_statuses':[r['status'] for r in auto['rounds']], 'benchmark':auto['rounds'][0]['benchmark'], 'weight_changes':False, 'antivirus_activation':False}
         d['sources'].append('runtime/AUTO_ROUND_RESULT.json')
+    historical_sections=(
+        'verification_h00_strict_2026_10_30','h01_authority','h07_value_gate',
+        'h08_independent_capability_gate','h09_deterministic_extension',
+        'h10_new_wording_probe','h11_paired_runner','h12_power_design',
+        'latest_strict_suite_observed','h14_structured_candidate',
+    )
+    d.update({name:previous[name] for name in historical_sections if name in previous})
+    observations='model/EVALUATION_OBSERVATIONS_R001.json'
+    if (ROOT/observations).exists():
+        d['sources'].append(observations)
     h15_path=ROOT/'runtime/H15_OBJECTIVE_RECALCULATION.json'
     if h15_path.exists():
-        prior=json.loads((ROOT/'model/DESCRIPTION.json').read_text())
-        d['h15_declared_inventory']=prior['h15_declared_inventory']
+        d['h15_declared_inventory']=previous['h15_declared_inventory']
         d['sources'].extend(['runtime/H15_OBJECTIVE_RECALCULATION.json','runtime/H15_VALIDATION.json'])
     h16_path=ROOT/'runtime/H16_SPANISH_RESULT.json'
     if h16_path.exists():
         h16=json.loads(h16_path.read_text())
         d['h16_spanish_development']={k:h16[k] for k in ['supported_cases','baseline_exact','candidate_exact','candidate_correct_abstentions','paired_wins','paired_losses','weights_changed','candidate_promoted','independent_data']}
+        if 'h16_spanish_development' in previous:
+            d['h16_spanish_development']=previous['h16_spanish_development']
         d['sources'].extend(['runtime/H16_SPANISH_RESULT.json','runtime/H16_VALIDATION.json'])
     strict_path=ROOT/'runtime/STRICT_TEST_REPAIR_RESULT.json'
     registry_path=ROOT/'runtime/WEIGHT_REGISTRY_RESULT.json'
@@ -115,19 +128,18 @@ def sync():
         d['project_tests_passed']=current['tests_run']-current['skipped']-current['failed']-current['errors']
         d['sources'].append('runtime/STRICT_TEST_REPAIR_RESULT.json')
     if registry_path.exists():
-        d['weight_registry']=json.loads(registry_path.read_text())
+        registry=json.loads(registry_path.read_text())
+        d['weight_registry']={k:registry[k] for k in ('models_loaded','checkpoints','default_checkpoint','weights_modified','candidate_promoted')}
         d['sources'].append('runtime/WEIGHT_REGISTRY_RESULT.json')
     h17_path=ROOT/'runtime/H17_RECONCILED_PROGRAM.json'
     if h17_path.exists():
-        previous=json.loads((ROOT/'model/DESCRIPTION.json').read_text())
         d['h17_reconciled_program']=previous['h17_reconciled_program']
         current=json.loads((ROOT/'runtime/H17_VALIDATION.json').read_text())['current_suite']
         d['current_strict_verification']={**current,'scope':'LOCAL_NOT_REMOTE_CI','evidence':'runtime/H17_VALIDATION.json'}
         d['project_tests_passed']=current['tests_run']-current['skipped']-current['failed']-current['errors']
-        d['sources'].extend(['runtime/H17_RECONCILED_PROGRAM.json','runtime/H17_REJECTION_LATENCY.json','runtime/H17_VALIDATION.json'])
+        d['sources'].extend(['runtime/H17_REJECTION_LATENCY.json','runtime/H17_RECONCILED_PROGRAM.json','runtime/H17_VALIDATION.json'])
     external_path=ROOT/'runtime/EXTERNAL_VALIDATOR_VALIDATION.json'
     if external_path.exists():
-        previous=json.loads((ROOT/'model/DESCRIPTION.json').read_text())
         d['external_validator']=previous['external_validator']
         current=json.loads(external_path.read_text())['current_suite']
         d['current_strict_verification']={**current,'scope':'LOCAL_NOT_REMOTE_CI','evidence':'runtime/EXTERNAL_VALIDATOR_VALIDATION.json'}
@@ -135,18 +147,32 @@ def sync():
         d['sources'].append('runtime/EXTERNAL_VALIDATOR_VALIDATION.json')
     proof_path=ROOT/'runtime/PROOF_DELTA_VALIDATION.json'
     if proof_path.exists():
-        previous=json.loads((ROOT/'model/DESCRIPTION.json').read_text())
         d['proof_delta']=previous['proof_delta']
         current=json.loads(proof_path.read_text())['current_suite']
         d['current_strict_verification']={**current,'scope':'LOCAL_NOT_REMOTE_CI','evidence':'runtime/PROOF_DELTA_VALIDATION.json'}
         d['project_tests_passed']=current['tests_run']-current['skipped']-current['failed']-current['errors']
         d['sources'].extend(['runtime/PROOF_DELTA_RESULT.json','runtime/PROOF_DELTA_VALIDATION.json'])
-    (ROOT/'model/DESCRIPTION.json').write_text(json.dumps(d,indent=2)+'\n')
+    release=validation.get('dashboard_release')
+    suite_statement=f"Project suite: {d['project_tests_passed']} passing local tests."
+    if release:
+        suite=release['strict_suite']
+        if (suite['status']!='PASS_NO_SKIPS' or type(suite['tests_run']) is not int or suite['tests_run']<=0
+                or any(suite[k]!=0 for k in ('failed','errors','skipped'))):
+            raise ValueError('dashboard release requires complete strict test evidence')
+        d['current_strict_verification']={**suite,'tests':suite['tests_run'],'passed':suite['tests_run'],
+            'scope':'LOCAL_CHECKOUT_OF_DASHBOARD_SOURCE',
+            'source_commit':release['source_commit'],'evidence':'VALIDATION.json'}
+        d['project_tests_passed']=suite['tests_run']
+        d['dashboard_source_verification']={k:release[k] for k in ('source_commit','comparator_sha256','main_ci','historical_local_suite')}
+        earlier=release['historical_local_suite']['tests_run']
+        suite_statement=(f"Dashboard source `{release['source_commit'][:7]}` passed {suite['tests_run']} strict tests locally "
+                         f"with zero skips. The earlier {earlier}-test suite has its own source and receipt.")
+    description_path.write_text(json.dumps(d,indent=2,ensure_ascii=False)+'\n')
     value_statement=('Optional neural ranking showed no output benefit in the paired 42-case comparison.' if ablation_current else 'The current checkpoint has no matching paired utility evaluation.')
     block=('<!-- MODEL_STATUS_START -->\n## Current model status (evidence synchronized)\n\n'
        f"Río ByteGRU is a **small neural language model, not an LLM**: {d['parameters']:,} parameters, "
        f"{d['training_steps']} observed training steps. Checkpoint saved and reloaded. "
-       f"Project suite: {d['project_tests_passed']} passing local tests.\n\n"
+       +suite_statement+'\n\n'
        'Current free generation rejects prompt-plus-output budgets above 128 UTF-8 bytes. '
        f"The extraction fixture has {d['current_context_rejections']} context rejections, not semantic abstentions. "
        'Neural extraction is not established. Hybrid arithmetic remains deterministic. '
