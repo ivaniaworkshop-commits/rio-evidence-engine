@@ -295,6 +295,7 @@ No new default, task benefit, positive ROI or LLM success is claimed.
 
 ```sh
 python -m rio_evidence.autoround --rounds 3 --max-actions 3
+python -m rio_evidence.autoround --verify-history
 python -m rio_evidence.warm_session --max-requests 1000
 ```
 
@@ -306,6 +307,14 @@ Each new receipt records its run ID, UTC time and the hash of the previous
 report observed during publication. Concurrent runs can share a predecessor.
 The history uses exclusive hard links to publish completed files on the local
 output filesystem.
+
+`--verify-history` reads the archive without running actions or updating
+reports. It checks each receipt against its filename SHA-256, checks predecessor
+references and confirms that the latest report matches archived bytes. It
+reports forks and auxiliary entries separately. Legacy bytes are checked by
+hash only. Use `--expect-receipt SHA256` with the audit to require a previously
+recorded receipt, including a leaf that has no successors. Exit code 0 means
+the local audit passed. Issues and an empty history return code 2.
 
 The persistent JSONL session fills a bounded LRU on demand; optional
 `--prewarm-public` loads only the published synthetic precompute. Returned results

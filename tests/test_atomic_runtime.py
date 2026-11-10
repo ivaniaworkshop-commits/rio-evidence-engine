@@ -4,7 +4,7 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 from unittest.mock import patch
 from rio_evidence.atomic_runtime import WarmRuntime,affected,atomic_matrices,canonical_bytes
-from rio_evidence.autoround import persist_rounds, priority
+from rio_evidence.autoround import persist_rounds, priority, verify_history
 
 TEXT=('Task A lasts 3 minutes. Prerequisites: none.\nTask B lasts 7 minutes. Prerequisites: A.\n'
       'Task C lasts 11 minutes. Prerequisites: A.\nTask D lasts 2 minutes. Prerequisites: B and C.')
@@ -138,3 +138,73 @@ class RoundHistoryTests(unittest.TestCase):
         self.assertEqual(len(archived), 2)
         for path in archived:
             self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), path.stem)
+
+    def test_audit_keeps_forks_and_checks_an_expected_leaf(self):
+        first = persist_rounds(self.root, self.rounds)
+        self.latest.write_bytes(self.previous)
+        second = persist_rounds(self.root, self.rounds)
+        before = {path: path.read_bytes() for path in self.history.glob('*.json')}
+        before[self.latest] = self.latest.read_bytes()
+
+        expected = first['receipt_sha256']
+        report = verify_history(self.root, expected_receipt=expected)
+        self.assertEqual(report['status'], 'HISTORY_VERIFIED')
+        self.assertEqual(report['hash_verified_receipts'], 3)
+        self.assertEqual(report['legacy_bytes_only'], 1)
+        self.assertEqual(report['latest_sha256'], second['receipt_sha256'])
+        self.assertEqual(report['forks'], {self.previous_sha: sorted([expected, second['receipt_sha256']])})
+        self.assertEqual({path: path.read_bytes() for path in before}, before)
+
+        (self.root / first['receipt']).rename(self.root / 'retained-leaf.json')
+        self.assertEqual(verify_history(self.root)['status'], 'HISTORY_VERIFIED')
+        anchored = verify_history(self.root, expected_receipt=expected)
+        self.assertEqual(anchored['status'], 'HOLD')
+        self.assertEqual(anchored['issues'], [{'code': 'EXPECTED_RECEIPT_MISSING', 'sha256': expected}])
+
+    def test_audit_reports_altered_bytes_and_missing_predecessor(self):
+        first, second, third, fourth = [persist_rounds(self.root, self.rounds) for _ in range(4)]
+        first_path = self.root / first['receipt']
+        (self.root / 'retained-first.json').write_bytes(first_path.read_bytes())
+        first_path.write_bytes(b'synthetic changed bytes')
+        (self.root / third['receipt']).rename(self.root / 'retained-third.json')
+
+        report = verify_history(self.root)
+        self.assertEqual(report['status'], 'HOLD')
+        self.assertEqual(report['latest_sha256'], fourth['receipt_sha256'])
+        self.assertEqual(report['hash_verified_receipts'], 3)
+        self.assertCountEqual(report['issues'], [
+            {'code': 'HASH_MISMATCH', 'sha256': first['receipt_sha256']},
+            {'code': 'UNVERIFIED_PREDECESSOR', 'sha256': first['receipt_sha256'], 'referenced_by': [second['receipt_sha256']]},
+            {'code': 'MISSING_PREDECESSOR', 'sha256': third['receipt_sha256'], 'referenced_by': [fourth['receipt_sha256']]},
+        ])
+        self.assertEqual(first_path.read_bytes(), b'synthetic changed bytes')
+        self.assertEqual(self.latest.read_bytes(), (self.root / fourth['receipt']).read_bytes())
+
+    def test_audit_distinguishes_empty_history_and_unarchived_latest(self):
+        empty_root = self.root / 'empty'
+        self.assertEqual(verify_history(empty_root)['status'], 'NO_HISTORY')
+        self.assertFalse(empty_root.exists())
+        unarchived = verify_history(self.root)
+        self.assertEqual(unarchived['status'], 'HOLD')
+        self.assertEqual(unarchived['issues'], [{'code': 'LATEST_UNARCHIVED', 'sha256': self.previous_sha}])
+        self.assertFalse(self.history.exists())
+
+    def test_audit_rejects_ambiguous_lineage_even_if_the_hash_matches(self):
+        data = b'{"rounds":[],"run_id":"fixture","recorded_at_utc":"fixture","previous_sha256":null,"previous_sha256":null}'
+        digest = hashlib.sha256(data).hexdigest()
+        self.history.mkdir()
+        (self.history / f'{digest}.json').write_bytes(data)
+        self.latest.write_bytes(data)
+
+        report = verify_history(self.root)
+        self.assertEqual(report['status'], 'HOLD')
+        self.assertEqual(report['hash_verified_receipts'], 1)
+        self.assertEqual([(issue['code'], issue['sha256']) for issue in report['issues']], [('INVALID_LINEAGE', digest)])
+
+    def test_audit_holds_when_latest_changes_during_readback(self):
+        persist_rounds(self.root, self.rounds)
+        current = self.latest.read_bytes()
+        with patch('rio_evidence.autoround._read_latest', side_effect=[current, b'new observation']):
+            report = verify_history(self.root)
+        self.assertEqual(report['status'], 'HOLD')
+        self.assertEqual(report['issues'], [{'code': 'CONCURRENT_CHANGE'}])
