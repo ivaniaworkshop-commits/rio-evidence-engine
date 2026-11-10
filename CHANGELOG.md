@@ -1,5 +1,9 @@
 # Changes
 
+## Bind external validation to committed worker source
+
+Materialize the registered worker package from the declared commit's Git blobs. Verify its inventory and blob identities before and after execution. The regression covers working-tree edits hidden by `assume-unchanged` and `skip-worktree`.
+
 ## P6 resource and near-1MiB performance differential
 
 Introduce reproducible synthetic arrays near the strict 1 MiB **per-input** decoder limit, compare P4 vs P5 on matching Node workloads with separate parse/compute timing, and measure P5 Python stages, process RSS and traced allocations. Accept only bit-exact output against the rational P5 oracle and matching count metrics; require bounds on measured host CPU and memory plus conservative relative slowdown guard in CI. Record input SHA256, environment, median/p95 and measured data; no claim of Android performance from GitHub runners. Provide an opt-in Android/browser local test page that produces a user-owned JSON report and does not transmit content. Physical Android and mobile memory peak remain unverified.

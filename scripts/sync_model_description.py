@@ -141,7 +141,31 @@ def sync():
         d['current_strict_verification']={**current,'scope':'LOCAL_NOT_REMOTE_CI','evidence':'runtime/PROOF_DELTA_VALIDATION.json'}
         d['project_tests_passed']=current['tests_run']-current['skipped']-current['failed']-current['errors']
         d['sources'].extend(['runtime/PROOF_DELTA_RESULT.json','runtime/PROOF_DELTA_VALIDATION.json'])
-    (ROOT/'model/DESCRIPTION.json').write_text(json.dumps(d,indent=2)+'\n')
+    if receipt := validation.get('external_worker_source'):
+        implementation_hash = hashlib.sha256((ROOT/'external_validator/validate.py').read_bytes()).hexdigest()
+        if receipt['implementation_sha256'] != implementation_hash:
+            raise ValueError('external worker source differs from its test receipt')
+        suite = receipt['strict_suite']
+        if (suite['status'] != 'PASS_NO_SKIPS' or type(suite['tests_run']) is not int
+                or suite['tests_run'] < 1 or any(suite[k] != 0 for k in ('failed','errors','skipped'))):
+            raise ValueError('external worker source requires a complete strict test receipt')
+        previous = json.loads((ROOT/'model/DESCRIPTION.json').read_text())
+        d = {**previous, **d}
+        for key in ('weight_registry','h16_spanish_development'):
+            if key in previous:
+                d[key] = previous[key]
+        d['sources'] = list(dict.fromkeys(previous.get('sources', []) + d['sources']))
+        d['external_validator'] = {**d['external_validator'], 'worker_source': {
+            'scope': 'LOCAL_COMMITTED_BLOB_EXECUTION_REGRESSION',
+            'evidence': 'VALIDATION.json',
+            'implementation_sha256': receipt['implementation_sha256'],
+        }}
+        d['current_strict_verification'] = {
+            'tests': suite['tests_run'], 'passed': suite['tests_run'], 'skipped': 0,
+            'scope': 'LOCAL_CANDIDATE_SUITE', 'evidence': 'VALIDATION.json',
+        }
+        d['project_tests_passed'] = suite['tests_run']
+    (ROOT/'model/DESCRIPTION.json').write_text(json.dumps(d,indent=2,ensure_ascii=False)+'\n')
     value_statement=('Optional neural ranking showed no output benefit in the paired 42-case comparison.' if ablation_current else 'The current checkpoint has no matching paired utility evaluation.')
     block=('<!-- MODEL_STATUS_START -->\n## Current model status (evidence synchronized)\n\n'
        f"Río ByteGRU is a **small neural language model, not an LLM**: {d['parameters']:,} parameters, "
@@ -159,6 +183,7 @@ def sync():
        +(f"Current accuracy-first paired comparison: code {d['current_accuracy_first_comparison']['code_correct_task_decisions']}/{d['current_accuracy_first_comparison']['cases']} correct decisions vs neural pipeline {d['current_accuracy_first_comparison']['neural_pipeline_correct_task_decisions']}/{d['current_accuracy_first_comparison']['cases']}. Network value: {d['current_accuracy_first_comparison']['network_earns_its_cost']}. No new weights or promotion.\n" if 'current_accuracy_first_comparison' in d else '')
        +(f"A separate weight-scaling candidate was programmed from {d['weight_search_candidate']['trial_count']} seeded trials; loss improved but dev exact graphs remain {d['weight_search_candidate']['dev_exact_graph_matches']}/{d['weight_search_candidate']['dev_supported_cases']}. Not promoted; no demonstrated neural utility gain.\n" if 'weight_search_candidate' in d else '')
        +('Bounded warm-cache/atomic-round support is observed. It changes runtime reuse, not neural weights, semantic accuracy or antivirus activation.\n' if 'runtime_support' in d else '')
+       +('The external evaluation instrument now binds worker source to committed Git blobs in the locally tested candidate. Model capability evidence remains separate.\n' if receipt else '')
        +'<!-- MODEL_STATUS_END -->')
     for name in ['README.md','model/MODEL_CARD.md']:
         path=ROOT/name;text=path.read_text()

@@ -206,7 +206,7 @@ Context refusal is not correct semantic abstention and does not pass extraction.
 <!-- MODEL_STATUS_START -->
 ## Current model status (evidence synchronized)
 
-Río ByteGRU is a **small neural language model, not an LLM**: 17,344 parameters, 250 observed training steps. Checkpoint saved and reloaded. Current strict suite: 225 passing local tests, zero skipped.
+Río ByteGRU is a **small neural language model, not an LLM**: 17,344 parameters, 250 observed training steps. Checkpoint saved and reloaded. Project suite: 251 passing local tests.
 
 Current free generation rejects prompt-plus-output budgets above 128 UTF-8 bytes. The extraction fixture has 28 context rejections, not semantic abstentions. Neural extraction is not established. Hybrid arithmetic remains deterministic. Optional neural ranking showed no output benefit in the paired 42-case comparison. Earlier low loss and failed raw-generation probes are historical, not current capability certificates.
 Experimental recurrent prefill processes up to 4096 prompt bytes; observed full processing in 28/28 cases, but 0/24 exact graphs and 0/4 correct abstentions. No weights changed.
@@ -216,6 +216,7 @@ Code-grounded durations: 312/312 fields correct, but exact graphs 0/78. Code abs
 Current accuracy-first paired comparison: code 94/94 correct decisions vs neural pipeline 16/94. Network value: NO_ON_THIS_SCOPE_WITH_CURRENT_WEIGHTS. No new weights or promotion.
 A separate weight-scaling candidate was programmed from 96 seeded trials; loss improved but dev exact graphs remain 0/78. Not promoted; no demonstrated neural utility gain.
 Bounded warm-cache/atomic-round support is observed. It changes runtime reuse, not neural weights, semantic accuracy or antivirus activation.
+The external evaluation instrument now binds worker source to committed Git blobs in the locally tested candidate. Model capability evidence remains separate.
 <!-- MODEL_STATUS_END -->
 
 ## Experimental full recurrent prefill
@@ -404,6 +405,8 @@ Observed API and CLI outputs matched with all three checkpoints, and repeated ca
 
 
 ## Standalone external evaluation instrument
+
+The worker imports the registered package from verified Git blobs at the declared commit. Local tests cover source edits hidden by Git index flags. See `VALIDATION.json` for the regression receipt.
 
 See external_validator/README.md and external_validator/validate.py. The stdlib-only tool is designed to run on an independent evaluator's machine. It verifies clean exact-commit Git checkouts, executes registered graph readers in separate Python isolated-mode processes without transmitting labels, and scores with a parent comparator that imports no project grading modules. It rejects submitted outputs/times and exact known-text overlap. Private aggregate reports use exclusive creation and permissions 0600. It does not fetch code, send data, promote a model or authenticate external provenance.
 

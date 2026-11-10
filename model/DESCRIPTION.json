@@ -11,7 +11,7 @@
   "semantic_extraction_status": "NOT_DEMONSTRATED_WITH_FULL_RECURRENT_PREFILL",
   "current_context_rejections": 28,
   "context_rejections_are_semantic_abstentions": false,
-  "project_tests_passed": 225,
+  "project_tests_passed": 251,
   "hybrid_role": "OPTIONAL_RANKING_OF_DETERMINISTIC_EXPLANATIONS",
   "observed_neural_value": "NO_OUTPUT_BENEFIT_IN_42_CASE_PAIRED_ABLATION",
   "historical_task_probe": "0/26 extractable durations before context safety fix",
@@ -313,11 +313,11 @@
     "validation": "runtime/H16_VALIDATION.json"
   },
   "current_strict_verification": {
-    "tests": 225,
-    "passed": 225,
+    "tests": 251,
+    "passed": 251,
     "skipped": 0,
-    "scope": "LOCAL_NOT_REMOTE_CI",
-    "evidence": "runtime/PROOF_DELTA_VALIDATION.json"
+    "scope": "LOCAL_CANDIDATE_SUITE",
+    "evidence": "VALIDATION.json"
   },
   "weight_registry": {
     "models_loaded": 3,
@@ -401,7 +401,12 @@
     "worker_messages_include_labels": false,
     "independence_verified": false,
     "candidate_promoted": false,
-    "validation": "runtime/EXTERNAL_VALIDATOR_VALIDATION.json"
+    "validation": "runtime/EXTERNAL_VALIDATOR_VALIDATION.json",
+    "worker_source": {
+      "scope": "LOCAL_COMMITTED_BLOB_EXECUTION_REGRESSION",
+      "evidence": "VALIDATION.json",
+      "implementation_sha256": "fe35db5e5889bc1a23b50850f4f83ad46dd1974b9b770e741c5570dfe3cd01fa"
+    }
   },
   "proof_delta": {
     "status": "BASELINE_ERROR_FALSE_TECHNICAL_PASS_PATCHED",

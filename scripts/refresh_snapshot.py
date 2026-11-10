@@ -47,6 +47,14 @@ def main():
     description_path=ROOT/'model/DESCRIPTION.json'
     if description_path.exists():
         data['model_description']=json.loads(description_path.read_text())
+    if validation.get('external_worker_source'):
+        description = data['model_description']
+        suite = description['current_strict_verification']
+        data['tests'] = suite['passed']
+        data['current_strict_verification'] = suite
+        data['external_validator'] = description['external_validator']
+        data['provenance']['current_test_evidence'] = 'VALIDATION.json'
+        data['provenance']['current_test_evidence_sha256'] = data['provenance']['validation_sha256']
     stream_path=ROOT/'model/STREAMING_GATE_RESULT.json'
     if stream_path.exists():
         stream=json.loads(stream_path.read_text())
@@ -81,7 +89,7 @@ def main():
     if auto_path.exists():
         auto=json.loads(auto_path.read_text())
         data['automatic_runtime']={'round_statuses':[r['status'] for r in auto['rounds']], 'benchmark':auto['rounds'][0]['benchmark']}
-    encoded = json.dumps(data, indent=2)+'\n'
+    encoded = json.dumps(data, indent=2, ensure_ascii=False)+'\n'
     for name in ['DELTAS.json','docs/data.json']:
         (ROOT/name).write_text(encoded)
 

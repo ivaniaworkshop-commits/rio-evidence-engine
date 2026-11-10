@@ -3,7 +3,7 @@
 Run on a third-party machine with operator-reviewed clean frozen Git checkouts.
 No package imports from the evaluated repo are used by the parent grader.
 """
-import argparse,datetime,hashlib,json,math,os,re,statistics,subprocess,sys,tempfile
+import argparse,datetime,hashlib,io,json,math,os,re,statistics,subprocess,sys,tempfile
 from pathlib import Path
 SCHEMA='RIO_EXTERNAL_VALIDATOR_INPUT_V1'
 TARGETS={'h09':('rio_evidence.extended_graph','extract_extended_graph'),
@@ -78,23 +78,77 @@ def validate_bundle(bundle,known_texts):
         if row['expected'] is not None:graph(row['expected'])
         ids.add(key);texts.add(normalized)
     return rows
+def git_bytes(root, *args, input=None):
+    result = subprocess.run(['git', '--no-replace-objects', '-C', str(root), *args],
+                            input=input, capture_output=True, timeout=15)
+    if result.returncode:
+        raise ValueError('GIT_VERIFICATION_FAILED')
+    return result.stdout
+
+
 def frozen(root,commit):
     root=Path(root).resolve()
     if not isinstance(commit,str) or not re.fullmatch('[0-9a-f]{40}',commit):raise ValueError('FULL_COMMIT_REQUIRED')
     def git(*args):
-        r=subprocess.run(['git','-C',str(root),*args],capture_output=True,text=True,timeout=15)
-        if r.returncode:raise ValueError('GIT_VERIFICATION_FAILED')
-        return r.stdout.strip()
+        return os.fsdecode(git_bytes(root, *args)).strip()
     if git('rev-parse','--show-toplevel')!=str(root) or git('rev-parse','HEAD')!=commit:raise ValueError('FROZEN_COMMIT_MISMATCH')
     if git('status','--porcelain','--untracked-files=all','--ignored'):raise ValueError('DIRTY_CHECKOUT')
     return root
+
+
+def verify_worker_source(source, blobs):
+    actual = {path for path in source.rglob('*') if path.is_symlink() or not path.is_dir()}
+    if actual != blobs.keys():
+        raise ValueError('DIRTY_WORKER_SOURCE')
+    for path, oid in blobs.items():
+        if path.is_symlink() or not path.is_file():
+            raise ValueError('DIRTY_WORKER_SOURCE')
+        data = path.read_bytes()
+        header = f'blob {len(data)}\0'.encode('ascii')
+        if hashlib.sha1(header + data).hexdigest() != oid:
+            raise ValueError('DIRTY_WORKER_SOURCE')
+
+
+def worker_source(root, commit, source, module):
+    entries = git_bytes(root, 'ls-tree', '-rz', '--full-tree', commit, '--', 'rio_evidence')
+    blobs = {}
+    for entry in entries.split(b'\0')[:-1]:
+        metadata, name = entry.split(b'\t', 1)
+        mode, kind, oid = metadata.decode('ascii').split()
+        name = os.fsdecode(name)
+        relative = Path(name)
+        if (kind != 'blob' or mode not in ('100644', '100755')
+                or not name.startswith('rio_evidence/') or '\\' in name or '..' in relative.parts):
+            raise ValueError('INVALID_WORKER_SOURCE_ENTRY')
+        blobs[source / relative] = oid
+    if (source / 'rio_evidence/__init__.py' not in blobs
+            or source / (module.replace('.', '/') + '.py') not in blobs):
+        raise ValueError('MISSING_WORKER_MODULE')
+    requests = ''.join(oid + '\n' for oid in blobs.values()).encode('ascii')
+    stream = io.BytesIO(git_bytes(root, 'cat-file', '--batch', input=requests))
+    for path, oid in blobs.items():
+        header = stream.readline().split()
+        if len(header) != 3 or header[:2] != [oid.encode('ascii'), b'blob'] or not header[2].isdigit():
+            raise ValueError('INVALID_WORKER_SOURCE_BLOB')
+        size = int(header[2])
+        data = stream.read(size)
+        if len(data) != size or stream.read(1) != b'\n':
+            raise ValueError('INVALID_WORKER_SOURCE_BLOB')
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(data)
+    verify_worker_source(source, blobs)
+    return blobs
+
 
 def execute(root,commit,target,cases,python=sys.executable,timeout=60):
     if target not in TARGETS:raise ValueError('UNREGISTERED_TARGET')
     root=frozen(root,commit);module,function=TARGETS[target]
     request=[{'case_id':r['case_id'],'text':r['text']} for r in cases] # Never transmit labels.
     with tempfile.TemporaryDirectory(prefix='rio-external-worker-') as cwd:
-        r=subprocess.run([python,'-I','-B','-c',WORKER,str(root),module,function],input=json.dumps(request),capture_output=True,text=True,cwd=cwd,timeout=timeout)
+        source = Path(cwd) / 'source'
+        blobs = worker_source(root, commit, source, module)
+        r=subprocess.run([python,'-I','-B','-c',WORKER,str(source),module,function],input=json.dumps(request),capture_output=True,text=True,cwd=cwd,timeout=timeout)
+        verify_worker_source(source, blobs)
     frozen(root,commit) # Reject tracked or untracked changes caused during execution.
     if r.returncode or len(r.stdout.encode())>4*1024*1024:raise ValueError('WORKER_FAILED_OR_OUTPUT_TOO_LARGE')
     results=loads(r.stdout)
