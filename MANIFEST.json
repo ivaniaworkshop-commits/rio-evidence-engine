@@ -28,8 +28,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 36551,
-      "sha256": "95110e8d1083cb4ad1178d3cb3bbb18f41d3a71d62e61776422a4f2ae1ecf706"
+      "bytes": 37140,
+      "sha256": "ac7e48ee546270ea05b42148add5485caa05cf4ce3ef2311ca48570992aaf629"
     },
     {
       "path": "RECALCULATION.md",
@@ -708,8 +708,8 @@
     },
     {
       "path": "scripts/refresh_manifest.py",
-      "bytes": 825,
-      "sha256": "41026b906c9a7d82ff8f0a12197807a3dffef3263a9d263c7bece612524a1164"
+      "bytes": 1065,
+      "sha256": "7685647e522aa1bb22827bff1e971d762df47947d5a8ff3b024f47420696284d"
     },
     {
       "path": "scripts/refresh_snapshot.py",
@@ -748,8 +748,8 @@
     },
     {
       "path": "scripts/verify_manifest.py",
-      "bytes": 1671,
-      "sha256": "cd9152632b4089c9aa71a474b2c4d229c76061c1a82b67f7df9d16ad5551ed1f"
+      "bytes": 4079,
+      "sha256": "754de2864899c4978e4afe1e17c933267c455f37ac3d58d386e6aea12ff4cc0a"
     },
     {
       "path": "tests/fixtures/p4_compare_baseline.js",
@@ -878,8 +878,8 @@
     },
     {
       "path": "tests/test_manifest.py",
-      "bytes": 1613,
-      "sha256": "74ba35e2f4798d7bc6771ebf808cd71324acbccb87269433fb274c373b3f5584"
+      "bytes": 4049,
+      "sha256": "88d60fe1992e86faa4916261a3770919efff499828dd7db1aa9502d4aba1987b"
     },
     {
       "path": "tests/test_metamorphic_sum.py",

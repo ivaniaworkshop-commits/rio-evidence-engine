@@ -1,12 +1,30 @@
 """Explicit build helper; run only after authorized changes and validation."""
-import hashlib,json
+import hashlib
+import json
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[1]
-EXCLUDED={'.git','__pycache__','.venv','output'}
-if __name__=='__main__':
-    files=[f for f in ROOT.rglob('*') if f.is_file() and f.name!='MANIFEST.json' and not (set(f.relative_to(ROOT).parts)&EXCLUDED)]
-    manifest={'scope':'SOURCE_BYTES_NOT_TRUTH_OR_AUTHENTICITY','files':[{'path':str(f.relative_to(ROOT)),
-      'bytes':f.stat().st_size,'sha256':hashlib.sha256(f.read_bytes()).hexdigest()} for f in sorted(files)]}
-    path=ROOT/'MANIFEST.json';temp=ROOT/'MANIFEST.tmp'
-    temp.write_text(json.dumps(manifest,indent=2)+'\n');temp.replace(path)
-    print(json.dumps({'files':len(files),'guard':'BUILD_ONLY_NOT_AN_AUTOMATIC_REPAIR_OF_UNTRUSTED_SOURCE'}))
+
+if __package__:
+    from .verify_manifest import reconcile_inventory, resolve_source_path
+else:
+    from verify_manifest import reconcile_inventory, resolve_source_path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+
+if __name__ == '__main__':
+    source_files, report = reconcile_inventory(ROOT)
+    files = []
+    for relative in sorted(source_files, key=Path):
+        data = resolve_source_path(ROOT, relative).read_bytes()
+        files.append({'path': relative, 'bytes': len(data), 'sha256': hashlib.sha256(data).hexdigest()})
+
+    manifest = {'scope': 'SOURCE_BYTES_NOT_TRUTH_OR_AUTHENTICITY', 'files': files}
+    path = ROOT / 'MANIFEST.json'
+    temp = ROOT / 'MANIFEST.tmp'
+    temp.write_text(json.dumps(manifest, indent=2) + '\n')
+    temp.replace(path)
+    print(json.dumps({
+        'files': len(files),
+        'guard': 'BUILD_ONLY_NOT_AN_AUTOMATIC_REPAIR_OF_UNTRUSTED_SOURCE',
+        'reconciliation': report,
+    }))
