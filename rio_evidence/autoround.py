@@ -1,6 +1,10 @@
 """Finite derived-work controller. Never edits source, weights, permissions or publishes."""
 import argparse,hashlib,importlib.util,json,math,statistics,time
+from datetime import datetime, timezone
+import os
 from pathlib import Path
+import tempfile
+from uuid import uuid4
 from .atomic_runtime import WarmRuntime,atomic_matrices,source_fingerprint,precompute_public
 from .graph_copy import extract_graph
 from .json_io import load
@@ -91,17 +95,81 @@ class RoundController:
         return json.loads(json.dumps(report,allow_nan=False)) # Snapshot, not a shared mutable controller view.
 
 
+def _write_round_file(path, data, *, preserve=False):
+    descriptor, name = tempfile.mkstemp(prefix='.autoround-', suffix='.tmp', dir=path.parent)
+    temporary = Path(name)
+    try:
+        with os.fdopen(descriptor, 'wb') as stream:
+            stream.write(data)
+        if not preserve:
+            temporary.replace(path)
+            return
+        try:
+            os.link(temporary, path)
+        except FileExistsError:
+            pass  # Concurrent writers can observe the same previous report.
+    finally:
+        temporary.unlink(missing_ok=True)
+
+
+def _archive_round_file(history, data):
+    digest = hashlib.sha256(data).hexdigest()
+    path = history / f'{digest}.json'
+    if not path.exists():
+        _write_round_file(path, data, preserve=True)
+    if path.is_symlink() or not path.is_file() or path.read_bytes() != data:
+        raise ValueError('round receipt conflicts with its SHA-256')
+    return path, digest
+
+
+def persist_rounds(root, reports):
+    """Preserve exact reports before advancing the compatible latest view."""
+    output = root / 'output'
+    history = output / 'autoround-history'
+    latest = output / 'AUTO_ROUND.json'
+    if output.is_symlink() or history.is_symlink():
+        raise ValueError('round report directories must be local directories')
+    if latest.is_symlink() or (latest.exists() and not latest.is_file()):
+        raise ValueError('latest round report must be a regular file')
+    history.mkdir(parents=True, exist_ok=True)
+
+    previous_sha256 = None
+    try:
+        previous = latest.read_bytes()
+    except FileNotFoundError:
+        pass
+    else:
+        _, previous_sha256 = _archive_round_file(history, previous)
+
+    payload = {
+        'rounds': reports,
+        'run_id': uuid4().hex,
+        'recorded_at_utc': datetime.now(timezone.utc).isoformat(),
+        'previous_sha256': previous_sha256,
+    }
+    data = (json.dumps(payload, indent=2, allow_nan=False) + '\n').encode('utf-8')
+    receipt, digest = _archive_round_file(history, data)
+    _write_round_file(latest, data)
+    return {
+        'reports': str(latest.relative_to(root)),
+        'receipt': str(receipt.relative_to(root)),
+        'receipt_sha256': digest,
+    }
+
+
 def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--rounds',type=int,default=1);p.add_argument('--max-actions',type=int,default=3);a=p.parse_args(argv)
     if not 1<=a.rounds<=4:p.error('rounds must be 1..4')
     root=Path(__file__).resolve().parents[1]
+    reports = None
     try:
         controller=RoundController(root);reports=[controller.run(a.max_actions) for _ in range(a.rounds)]
-        output=root/'output';output.mkdir(exist_ok=True)
-        path=output/'AUTO_ROUND.json';temporary=path.with_suffix('.tmp')
-        temporary.write_text(json.dumps({'rounds':reports},indent=2)+'\n');temporary.replace(path)
-        print(json.dumps({'status':'EXECUTED_LOCAL','reports':str(path.relative_to(root)),'round_statuses':[r['status'] for r in reports]}));return 0
+        saved = persist_rounds(root, reports)
+        print(json.dumps({'status': 'EXECUTED_LOCAL', **saved, 'round_statuses': [report['status'] for report in reports]}))
+        return 0
     except (ValueError,TypeError,KeyError,OSError) as error:
-        print(json.dumps({'status':'HOLD','error':str(error),'action_execution':'STOPPED_OR_NOT_STARTED'}));return 2
+        execution = 'STOPPED_OR_NOT_STARTED' if reports is None else 'COMPLETED_LOCAL'
+        print(json.dumps({'status': 'HOLD', 'error': str(error), 'action_execution': execution}))
+        return 2
 
 if __name__=='__main__':raise SystemExit(main())

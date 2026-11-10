@@ -1,6 +1,10 @@
 import hashlib,json,unittest
+from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
+from tempfile import TemporaryDirectory
+from unittest.mock import patch
 from rio_evidence.atomic_runtime import WarmRuntime,affected,atomic_matrices,canonical_bytes
-from rio_evidence.autoround import priority
+from rio_evidence.autoround import persist_rounds, priority
 
 TEXT=('Task A lasts 3 minutes. Prerequisites: none.\nTask B lasts 7 minutes. Prerequisites: A.\n'
       'Task C lasts 11 minutes. Prerequisites: A.\nTask D lasts 2 minutes. Prerequisites: B and C.')
@@ -70,3 +74,67 @@ class SnapshotIsolationTests(unittest.TestCase):
             first=c.run(1);length=len(first['rankings_recomputed']);c.run(1)
         self.assertEqual(len(first['rankings_recomputed']),length)
         self.assertEqual(length,2)
+
+
+class RoundHistoryTests(unittest.TestCase):
+    def setUp(self):
+        directory = TemporaryDirectory()
+        self.addCleanup(directory.cleanup)
+        self.root = Path(directory.name)
+        self.latest = self.root / 'output/AUTO_ROUND.json'
+        self.history = self.latest.parent / 'autoround-history'
+        self.latest.parent.mkdir()
+        self.previous = b'{"rounds":[]}\r\n'
+        self.latest.write_bytes(self.previous)
+        self.previous_sha = hashlib.sha256(self.previous).hexdigest()
+        self.rounds = [{'status': 'NO_MATERIAL_DELTA'}]
+
+    def read_receipt(self, saved):
+        data = (self.root / saved['receipt']).read_bytes()
+        self.assertEqual(hashlib.sha256(data).hexdigest(), saved['receipt_sha256'])
+        return json.loads(data)
+
+    def test_preserves_legacy_bytes_and_distinguishes_identical_runs(self):
+        first = persist_rounds(self.root, self.rounds)
+        second = persist_rounds(self.root, self.rounds)
+        self.assertEqual((self.history / f'{self.previous_sha}.json').read_bytes(), self.previous)
+        first_receipt = self.read_receipt(first)
+        second_receipt = self.read_receipt(second)
+        self.assertEqual(first_receipt['previous_sha256'], self.previous_sha)
+        self.assertEqual(second_receipt['previous_sha256'], first['receipt_sha256'])
+        self.assertNotEqual(first_receipt['run_id'], second_receipt['run_id'])
+        self.assertEqual(second_receipt['rounds'], self.rounds)
+        self.assertEqual(self.latest.read_bytes(), (self.root / second['receipt']).read_bytes())
+        self.assertEqual(len(list(self.history.glob('*.json'))), 3)
+
+    def test_conflicting_archive_keeps_both_existing_files(self):
+        self.history.mkdir()
+        conflict = self.history / f'{self.previous_sha}.json'
+        conflict.write_bytes(b'different bytes')
+        with self.assertRaisesRegex(ValueError, 'conflicts with its SHA-256'):
+            persist_rounds(self.root, self.rounds)
+        self.assertEqual(conflict.read_bytes(), b'different bytes')
+        self.assertEqual(self.latest.read_bytes(), self.previous)
+
+    def test_concurrent_runs_keep_every_receipt_and_predecessor(self):
+        with ThreadPoolExecutor(max_workers=4) as executor:
+            futures = [executor.submit(persist_rounds, self.root, self.rounds) for _ in range(8)]
+            receipts = [future.result() for future in futures]
+        hashes = {saved['receipt_sha256'] for saved in receipts}
+        self.assertEqual(len(hashes), 8)
+        self.assertEqual(len(list(self.history.glob('*.json'))), 9)
+        self.assertIn(hashlib.sha256(self.latest.read_bytes()).hexdigest(), hashes)
+        for saved in receipts:
+            previous = self.read_receipt(saved)['previous_sha256']
+            self.assertIn(previous, hashes | {self.previous_sha})
+            self.assertNotEqual(previous, saved['receipt_sha256'])
+
+    def test_failed_latest_update_leaves_a_readable_archive(self):
+        with patch.object(Path, 'replace', side_effect=OSError('simulated latest write failure')):
+            with self.assertRaisesRegex(OSError, 'simulated latest write failure'):
+                persist_rounds(self.root, self.rounds)
+        self.assertEqual(self.latest.read_bytes(), self.previous)
+        archived = list(self.history.glob('*.json'))
+        self.assertEqual(len(archived), 2)
+        for path in archived:
+            self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), path.stem)

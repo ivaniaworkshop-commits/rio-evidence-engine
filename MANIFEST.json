@@ -28,8 +28,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 37140,
-      "sha256": "ac7e48ee546270ea05b42148add5485caa05cf4ce3ef2311ca48570992aaf629"
+      "bytes": 37624,
+      "sha256": "4bc97ca35905ed1a535de57586bfc015a5eaa0b88a82c68538f07b6e92c388ea"
     },
     {
       "path": "RECALCULATION.md",
@@ -363,8 +363,8 @@
     },
     {
       "path": "rio_evidence/autoround.py",
-      "bytes": 7479,
-      "sha256": "3e1f7b57903ec5069566e33c625cc0871616866e429aa27402d131f7ade00c02"
+      "bytes": 9688,
+      "sha256": "e2e4edfc94cc0f81b5b7f6c0e7f6eb8255632e5be8ce4f3c6f50c73845c25e57"
     },
     {
       "path": "rio_evidence/candidate_v1.py",
@@ -768,8 +768,8 @@
     },
     {
       "path": "tests/test_atomic_runtime.py",
-      "bytes": 4636,
-      "sha256": "02259e3c3a8116dac2c9e4d328685da479d7b47c42c78465de5ed546153d7fce"
+      "bytes": 8274,
+      "sha256": "c27c191587a78bd19665f162bbd6443c4db390a3dac83dca109e925c5fd48e76"
     },
     {
       "path": "tests/test_benchmark_exact_sum.py",

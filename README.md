@@ -299,6 +299,14 @@ python -m rio_evidence.warm_session --max-requests 1000
 ```
 
 Automatic rounds recalculate the queue around every allowlisted derived action.
+The CLI retains each invocation in `output/autoround-history/<sha256>.json` and
+returns its relative path and hash. It archives the previous report byte for
+byte before updating `output/AUTO_ROUND.json`, which still exposes `rounds`.
+Each new receipt records its run ID, UTC time and the hash of the previous
+report observed during publication. Concurrent runs can share a predecessor.
+The history uses exclusive hard links to publish completed files on the local
+output filesystem.
+
 The persistent JSONL session fills a bounded LRU on demand; optional
 `--prewarm-public` loads only the published synthetic precompute. Returned results
 are isolated copies. Invalidating duration-parser atoms preserves unrelated
