@@ -1,5 +1,9 @@
 # Changes
 
+## Public dashboard comparator and evidence reconciliation
+
+Prepare the public dashboard bundle with the reviewed P6 source. The synthetic playground rejects duplicate object keys and returns `5e-324` for the paired subnormal regression. The bundle includes the browser benchmark and the six evidence panels recovered from the Site. The snapshot identifies the comparator revision, links its 250-test H00 strict result, and retains the earlier 225-test local receipt at its original commit.
+
 ## P6 resource and near-1MiB performance differential
 
 Introduce reproducible synthetic arrays near the strict 1 MiB **per-input** decoder limit, compare P4 vs P5 on matching Node workloads with separate parse/compute timing, and measure P5 Python stages, process RSS and traced allocations. Accept only bit-exact output against the rational P5 oracle and matching count metrics; require bounds on measured host CPU and memory plus conservative relative slowdown guard in CI. Record input SHA256, environment, median/p95 and measured data; no claim of Android performance from GitHub runners. Provide an opt-in Android/browser local test page that produces a user-owned JSON report and does not transmit content. Physical Android and mobile memory peak remain unverified.

@@ -11,7 +11,7 @@
   "semantic_extraction_status": "NOT_DEMONSTRATED_WITH_FULL_RECURRENT_PREFILL",
   "current_context_rejections": 28,
   "context_rejections_are_semantic_abstentions": false,
-  "project_tests_passed": 225,
+  "project_tests_passed": 250,
   "hybrid_role": "OPTIONAL_RANKING_OF_DETERMINISTIC_EXPLANATIONS",
   "observed_neural_value": "NO_OUTPUT_BENEFIT_IN_42_CASE_PAIRED_ABLATION",
   "historical_task_probe": "0/26 extractable durations before context safety fix",
@@ -313,11 +313,16 @@
     "validation": "runtime/H16_VALIDATION.json"
   },
   "current_strict_verification": {
-    "tests": 225,
-    "passed": 225,
+    "status": "PASS_NO_SKIPS",
+    "tests_run": 250,
+    "failed": 0,
+    "errors": 0,
     "skipped": 0,
-    "scope": "LOCAL_NOT_REMOTE_CI",
-    "evidence": "runtime/PROOF_DELTA_VALIDATION.json"
+    "tests": 250,
+    "passed": 250,
+    "scope": "LOCAL_CHECKOUT_OF_DASHBOARD_SOURCE",
+    "source_commit": "e85b1e808081510a8267457c9b4aafeca064cb36",
+    "evidence": "VALIDATION.json"
   },
   "weight_registry": {
     "models_loaded": 3,
@@ -413,5 +418,31 @@
     "validation": "runtime/PROOF_DELTA_VALIDATION.json",
     "external_model_validation": false,
     "weights_changed": false
+  },
+  "dashboard_source_verification": {
+    "source_commit": "e85b1e808081510a8267457c9b4aafeca064cb36",
+    "comparator_sha256": "da4ef83aa8b49b3ad16cd2ab774bf54f72970594697fd6b8f7577de57b53b101",
+    "main_ci": {
+      "run_id": 41595060639,
+      "job_id": 125780368398,
+      "step": 5,
+      "strict_suite": {
+        "status": "PASS_NO_SKIPS",
+        "tests_run": 250,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    "historical_local_suite": {
+      "commit": "dd86709aa08ccf555c7c0bba49bbebba55779b09",
+      "path": "runtime/PROOF_DELTA_VALIDATION.json",
+      "sha256": "a72f367c12e3bcc23843f5deac8e5f7500c615fab71b9a5a15c5a7f646413d6d",
+      "status": "PASS_NO_SKIPS",
+      "tests_run": 225,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0
+    }
   }
 }

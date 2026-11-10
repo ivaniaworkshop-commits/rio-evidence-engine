@@ -28,6 +28,14 @@ def main():
         'validation_sha256': hashlib.sha256((ROOT/'VALIDATION.json').read_bytes()).hexdigest(),
         'scope': 'LOCAL_EXECUTION_RECORD_BOUND_TO_SOURCE_BYTES_NOT_REMOTE_CI',
     }
+    if release := validation.get('dashboard_release'):
+        comparator_hash = hashlib.sha256((ROOT/'docs/compare.js').read_bytes()).hexdigest()
+        if release['core_sha256'] != data['provenance']['core_sha256'] or release['comparator_sha256'] != comparator_hash:
+            raise ValueError('dashboard source differs from the recorded release checks')
+        data['tests'] = release['strict_suite']['tests_run']
+        data['dashboard_release'] = release
+        data['provenance']['current_test_evidence'] = 'VALIDATION.json'
+        data['provenance']['current_test_evidence_sha256'] = data['provenance']['validation_sha256']
     model_path = ROOT/'model/TRAINING_RESULT.json'
     if model_path.exists():
         result=json.loads(model_path.read_text())
@@ -81,7 +89,7 @@ def main():
     if auto_path.exists():
         auto=json.loads(auto_path.read_text())
         data['automatic_runtime']={'round_statuses':[r['status'] for r in auto['rounds']], 'benchmark':auto['rounds'][0]['benchmark']}
-    encoded = json.dumps(data, indent=2)+'\n'
+    encoded = json.dumps(data, indent=2, ensure_ascii=False)+'\n'
     for name in ['DELTAS.json','docs/data.json']:
         (ROOT/name).write_text(encoded)
 
