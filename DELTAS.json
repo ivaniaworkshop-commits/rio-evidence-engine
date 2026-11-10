@@ -1,7 +1,7 @@
 {
   "schema": "rio-dashboard-v1",
-  "updated": "2026-10-30",
-  "tests": 225,
+  "updated": "2026-11-10",
+  "tests": 251,
   "synthetic_graphs": 64,
   "benchmark": {
     "nodes": 2000,
@@ -43,15 +43,21 @@
       "state": "VERIFIED",
       "value": "Expose evidence and a browser-local synthetic comparison.",
       "evidence": "docs/index.html"
+    },
+    {
+      "title": "Committed source for external evaluation workers",
+      "state": "VERIFIED",
+      "value": "Local regression preserves the declared commit outcome when Git index flags hide working-tree edits.",
+      "evidence": "external_validator/validate.py"
     }
   ],
   "benchmark_source_commit": "7eb02c14e23453f109604ddefaeb5c944fad05fa",
   "provenance": {
-    "core_sha256": "fb232e58f1ab1260d9b74b454a0a267cd73171e0aedaf0fc4867df552fd2caf5",
-    "validation_sha256": "f426b8259db966548f37941da870dad2f7130fe3a8731241b2f187a5a5857128",
+    "core_sha256": "14d30226f7050c2e08272d9ab2207bc949f3d1663d0dc3b101dd7be602ba797b",
+    "validation_sha256": "6e44aca768b7ec9e6c6eec41e0a2de886e19a7dfde0e45289a7ba6cc22c66163",
     "scope": "LOCAL_EXECUTION_RECORD_BOUND_TO_SOURCE_BYTES_NOT_REMOTE_CI",
-    "current_test_evidence": "runtime/PROOF_DELTA_VALIDATION.json",
-    "current_test_evidence_sha256": "a72f367c12e3bcc23843f5deac8e5f7500c615fab71b9a5a15c5a7f646413d6d"
+    "current_test_evidence": "VALIDATION.json",
+    "current_test_evidence_sha256": "6e44aca768b7ec9e6c6eec41e0a2de886e19a7dfde0e45289a7ba6cc22c66163"
   },
   "model": {
     "status": "SMALL_NEURAL_LM_TRAINED_AND_RELOADED_NOT_LLM",
@@ -120,7 +126,7 @@
     "semantic_extraction_status": "NOT_DEMONSTRATED_WITH_FULL_RECURRENT_PREFILL",
     "current_context_rejections": 28,
     "context_rejections_are_semantic_abstentions": false,
-    "project_tests_passed": 225,
+    "project_tests_passed": 251,
     "hybrid_role": "OPTIONAL_RANKING_OF_DETERMINISTIC_EXPLANATIONS",
     "observed_neural_value": "NO_OUTPUT_BENEFIT_IN_42_CASE_PAIRED_ABLATION",
     "historical_task_probe": "0/26 extractable durations before context safety fix",
@@ -422,11 +428,11 @@
       "validation": "runtime/H16_VALIDATION.json"
     },
     "current_strict_verification": {
-      "tests": 225,
-      "passed": 225,
+      "tests": 251,
+      "passed": 251,
       "skipped": 0,
-      "scope": "LOCAL_NOT_REMOTE_CI",
-      "evidence": "runtime/PROOF_DELTA_VALIDATION.json"
+      "scope": "LOCAL_CANDIDATE_SUITE",
+      "evidence": "VALIDATION.json"
     },
     "weight_registry": {
       "models_loaded": 3,
@@ -510,7 +516,12 @@
       "worker_messages_include_labels": false,
       "independence_verified": false,
       "candidate_promoted": false,
-      "validation": "runtime/EXTERNAL_VALIDATOR_VALIDATION.json"
+      "validation": "runtime/EXTERNAL_VALIDATOR_VALIDATION.json",
+      "worker_source": {
+        "scope": "LOCAL_COMMITTED_BLOB_EXECUTION_REGRESSION",
+        "evidence": "VALIDATION.json",
+        "implementation_sha256": "fe35db5e5889bc1a23b50850f4f83ad46dd1974b9b770e741c5570dfe3cd01fa"
+      }
     },
     "proof_delta": {
       "status": "BASELINE_ERROR_FALSE_TECHNICAL_PASS_PATCHED",
@@ -615,7 +626,7 @@
       "break_even_scope": "Estimate covers controller bootstrap and memory prewarm, excludes interpreter/import startup; assumes repeated public workload and this measured median saving."
     }
   },
-  "snapshot_generated_at_utc": "2026-10-30T20:45:53.168819+00:00",
+  "snapshot_generated_at_utc": "2026-11-10T21:05:25.939443+00:00",
   "h15_declared_inventory": {
     "status": "OPTIONAL_DECLARED_COUNT_GUARD_OBSERVED_ON_AUTHORED_CASES",
     "result": "runtime/H15_OBJECTIVE_RECALCULATION.json",
@@ -647,11 +658,11 @@
     "validation": "runtime/H16_VALIDATION.json"
   },
   "current_strict_verification": {
-    "tests": 225,
-    "passed": 225,
+    "tests": 251,
+    "passed": 251,
     "skipped": 0,
-    "scope": "LOCAL_NOT_REMOTE_CI",
-    "evidence": "runtime/PROOF_DELTA_VALIDATION.json"
+    "scope": "LOCAL_CANDIDATE_SUITE",
+    "evidence": "VALIDATION.json"
   },
   "weight_registry": {
     "models_loaded": 3,
@@ -735,7 +746,12 @@
     "worker_messages_include_labels": false,
     "independence_verified": false,
     "candidate_promoted": false,
-    "validation": "runtime/EXTERNAL_VALIDATOR_VALIDATION.json"
+    "validation": "runtime/EXTERNAL_VALIDATOR_VALIDATION.json",
+    "worker_source": {
+      "scope": "LOCAL_COMMITTED_BLOB_EXECUTION_REGRESSION",
+      "evidence": "VALIDATION.json",
+      "implementation_sha256": "fe35db5e5889bc1a23b50850f4f83ad46dd1974b9b770e741c5570dfe3cd01fa"
+    }
   },
   "proof_delta": {
     "status": "BASELINE_ERROR_FALSE_TECHNICAL_PASS_PATCHED",
