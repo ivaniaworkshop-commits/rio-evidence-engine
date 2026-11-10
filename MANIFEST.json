@@ -28,8 +28,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 36551,
-      "sha256": "95110e8d1083cb4ad1178d3cb3bbb18f41d3a71d62e61776422a4f2ae1ecf706"
+      "bytes": 38203,
+      "sha256": "dedc4dbefa476ffc6744536d1d73d4b5e7317aa84318d18c72cdfe0557874825"
     },
     {
       "path": "RECALCULATION.md",
@@ -363,8 +363,8 @@
     },
     {
       "path": "rio_evidence/autoround.py",
-      "bytes": 7479,
-      "sha256": "3e1f7b57903ec5069566e33c625cc0871616866e429aa27402d131f7ade00c02"
+      "bytes": 15118,
+      "sha256": "b510f963993ea8ff583ce810353056e94802ed8c7644ec869521bb948330d0d3"
     },
     {
       "path": "rio_evidence/candidate_v1.py",
@@ -708,8 +708,8 @@
     },
     {
       "path": "scripts/refresh_manifest.py",
-      "bytes": 825,
-      "sha256": "41026b906c9a7d82ff8f0a12197807a3dffef3263a9d263c7bece612524a1164"
+      "bytes": 1065,
+      "sha256": "7685647e522aa1bb22827bff1e971d762df47947d5a8ff3b024f47420696284d"
     },
     {
       "path": "scripts/refresh_snapshot.py",
@@ -748,8 +748,8 @@
     },
     {
       "path": "scripts/verify_manifest.py",
-      "bytes": 1671,
-      "sha256": "cd9152632b4089c9aa71a474b2c4d229c76061c1a82b67f7df9d16ad5551ed1f"
+      "bytes": 4079,
+      "sha256": "754de2864899c4978e4afe1e17c933267c455f37ac3d58d386e6aea12ff4cc0a"
     },
     {
       "path": "tests/fixtures/p4_compare_baseline.js",
@@ -768,8 +768,8 @@
     },
     {
       "path": "tests/test_atomic_runtime.py",
-      "bytes": 4636,
-      "sha256": "02259e3c3a8116dac2c9e4d328685da479d7b47c42c78465de5ed546153d7fce"
+      "bytes": 12438,
+      "sha256": "852b0f049bf027aca48f5043a9b97b775c9c22683a6df1c2eb029944debd962b"
     },
     {
       "path": "tests/test_benchmark_exact_sum.py",
@@ -878,8 +878,8 @@
     },
     {
       "path": "tests/test_manifest.py",
-      "bytes": 1613,
-      "sha256": "74ba35e2f4798d7bc6771ebf808cd71324acbccb87269433fb274c373b3f5584"
+      "bytes": 4049,
+      "sha256": "88d60fe1992e86faa4916261a3770919efff499828dd7db1aa9502d4aba1987b"
     },
     {
       "path": "tests/test_metamorphic_sum.py",
