@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "destination": "https://rio-pey-codi-gateway.vercel.app/login",
+      "permanent": false
+    }
+  ]
+}

@@ -1,6 +1,6 @@
-> **🌐 Acceso público — R016 Front Desk:** [Abrir RÍO Primer Cobro](https://rio-primer-cobro-frontdesk.vercel.app/) · [Ir directamente a la caja](https://rio-primer-cobro-frontdesk.vercel.app/app.html) · [Código del front desk](./frontdesk/README.md).
+> **Aplicación web actual (2026-11-13):** [Abrir Pey / RÍO](https://rio-primer-cobro-frontdesk.vercel.app/app.html) · [Código de la entrada pública](./frontdesk/README.md) · [Estado y verificaciones](./frontdesk/ESTADO_20261113.md).
 >
-> Sitio estático educativo. QR no pagable; sin conexión financiera. Publicación de Vercel independiente del PR: no constituye fusión a main.
+> La entrada actual lleva al login del gateway con PEY/CoDi. Las instrucciones siguientes corresponden al archivo educativo R015 histórico, no al funcionamiento del gateway actual. La publicación de Vercel es independiente de la fusión de este PR.
 
 # 🌊 RÍO Primer Cobro — R015
 

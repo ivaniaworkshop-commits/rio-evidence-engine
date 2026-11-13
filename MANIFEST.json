@@ -93,8 +93,8 @@
     },
     {
       "path": "demos/rio-primer-cobro/README.md",
-      "bytes": 4100,
-      "sha256": "563c03f66fb5d44e310275cf69100d144453fd617cd752fb253f2170d28557c2"
+      "bytes": 4184,
+      "sha256": "42c6eae752905421ef1b9381a1a7e020ba250f1708014424a3dcdfbc76e0b4ba"
     },
     {
       "path": "demos/rio-primer-cobro/RIO_PRIMER_COBRO_R013_OFFLINE.html",
@@ -167,19 +167,39 @@
       "sha256": "3f44846493d03544b3ae5823964f398ed769562533b7b7152d0f924c7da1ece9"
     },
     {
+      "path": "demos/rio-primer-cobro/frontdesk/ESTADO_20261113.md",
+      "bytes": 3813,
+      "sha256": "dcd33353309bf30d7e3e511ef34798a2e6a61f1f0e9627679c763d52dc1865a4"
+    },
+    {
+      "path": "demos/rio-primer-cobro/frontdesk/EVIDENCE_20261113.json",
+      "bytes": 1427,
+      "sha256": "9f743ee28f75c058c01525bf88c55ee2c99df331ea805fd921a0e639cd37410e"
+    },
+    {
       "path": "demos/rio-primer-cobro/frontdesk/README.md",
-      "bytes": 1421,
-      "sha256": "d126eb182d555cb287dc8d50c8749db38071baabdf681c99c365e23b880a846f"
+      "bytes": 2315,
+      "sha256": "78c841427dfc2b8f1fccbb685e0c2ff24365e56960d7d502d1704228f841d81f"
     },
     {
       "path": "demos/rio-primer-cobro/frontdesk/app.html",
-      "bytes": 112138,
-      "sha256": "61cc8f8e71e2708141b22c090faadafe3f50ffaf373db8c992a80bb5077943f1"
+      "bytes": 413,
+      "sha256": "e23d579894881efb7aead5a1b5ce37c328b0323bd0b4f6992eb7849718f7abb8"
     },
     {
       "path": "demos/rio-primer-cobro/frontdesk/index.html",
-      "bytes": 8405,
-      "sha256": "7b484430e0985b715ac1d9c1aa4e3ad269612973415978618fe25daa28ae1c6b"
+      "bytes": 413,
+      "sha256": "e23d579894881efb7aead5a1b5ce37c328b0323bd0b4f6992eb7849718f7abb8"
+    },
+    {
+      "path": "demos/rio-primer-cobro/frontdesk/practica.html",
+      "bytes": 112325,
+      "sha256": "7ff629fe8f4d8ecefbfbdc9d987ff879e8a9301bcde1aae9fed5926c6ab975f7"
+    },
+    {
+      "path": "demos/rio-primer-cobro/frontdesk/vercel.json",
+      "bytes": 213,
+      "sha256": "b9afdafb9544c713e5682d71338c42d6ad0abad9c7d72ca030b16707ee6eb903"
     },
     {
       "path": "demos/rio-primer-cobro/reports/R013_E2E.json",

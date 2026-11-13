@@ -1,20 +1,21 @@
-# 🌐 RÍO Primer Cobro — Front Desk R016
+# Pey / RÍO · entrada web actual
 
-**[Abrir portada pública](https://rio-primer-cobro-frontdesk.vercel.app/)** · **[Abrir caja de práctica](https://rio-primer-cobro-frontdesk.vercel.app/app.html)** · [Código del proyecto](https://github.com/ivaniaworkshop-commits/rio-evidence-engine)
+[Abrir la aplicación](https://rio-primer-cobro-frontdesk.vercel.app/app.html) · [Iniciar sesión](https://rio-pey-codi-gateway.vercel.app/login) · [Estado y verificaciones](ESTADO_20261113.md)
 
-La carpeta contiene exclusivamente los dos HTML que componen la versión web: `index.html` (portada pública) y `app.html` (demo R015 autónoma).
+Esta carpeta contiene la entrada pública de la aplicación. `index.html` y `app.html` llevan al login del gateway. `vercel.json` dirige las rutas al mismo acceso. El backend se mantiene en un repositorio privado y no está incluido en esta carpeta.
 
-## Alcance
+## Funciones disponibles en el gateway
 
-- Interfaz pública gratuita y adaptable a móvil; no requiere cuenta de GitHub.
-- Carrito, registro manual de efectivo, QR **NO PAGABLE**, tickets e historial local.
-- Ventas de práctica almacenadas **solo en el navegador del visitante** mediante almacenamiento local.
-- No hay base de datos remota de usuarios, pagos reales, tokens privados ni credenciales en los HTML.
-- El código publicado en esta rama puede diferir del contenido de `main` hasta que se revise e integre.
-- La URL de Vercel se actualiza mediante publicación explícita desde los archivos de esta carpeta; la conexión Git automática no está configurada.
+- Acceso obligatorio antes de servir la aplicación y sus módulos; navegación única entre Caja, Historial, Conectar pey, Mi negocio y Otros módulos.
+- Registro con verificación de correo y recuperación por SMTP.
+- Conexión de pey persistente y cifrada por comercio, con estado actualizado entre pestañas. La ficha muestra identificadores y fechas, permite habilitar CoDi y retirar la conexión sin borrar el historial. Las claves no se muestran.
+- Cobro mediante PEY/CoDi con credenciales del comercio. El aviso `codi.qr.payment_received` se valida y contrasta con la API de PEY antes de confirmar el pago en la aplicación. La integración es multibanco mediante PEY.
+- Comprobante «Pago confirmado por pey» con QR verificable. Puede enviarse al pagador y al titular con correo verificado. La casilla de desactivación cancela ambos correos para ese cobro y conserva el comprobante dentro de la aplicación.
 
-## Verificación R016
+La cuenta y las credenciales del comercio deben estar guardadas y habilitadas para emitir cobros. Que las banderas generales estén en LIVE no demuestra un pago real ni la acreditación bancaria. Los comprobantes no son CFDI.
 
-Los endpoints `/` y `/app.html` respondieron HTTP 200 en la comprobación del alojamiento. El proyecto de Vercel tiene SSO y contraseña desactivados. La validación real de navegador físico, cámara y TalkBack sigue pendiente.
+## Archivo histórico y publicación
 
-**NO ES COdi, QR PAGABLE NI COMPROBANTE DE PAGO.** Los tickets no son CFDI.
+`practica.html` conserva exactamente la antigua aplicación educativa R015, antes publicada como `app.html`. Es un archivo histórico con QR no pagables y almacenamiento local. Está en Git, pero **no se incluye en los archivos publicados en Vercel**. El despliegue de la entrada usa exclusivamente `index.html`, `app.html` y `vercel.json`. Las rutas del sitio llevan al login. No se migraron ni borraron registros de navegadores anteriores.
+
+La publicación en Vercel es explícita; actualizar esta rama no crea por sí solo otro despliegue. El PR permanece en borrador hasta su revisión e integración.
