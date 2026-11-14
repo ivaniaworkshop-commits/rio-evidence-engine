@@ -1,6 +1,6 @@
 # Pey / RÍO · entrada web actual
 
-[Abrir la aplicación](https://rio-primer-cobro-frontdesk.vercel.app/app.html) · [Iniciar sesión](https://rio-pey-codi-gateway.vercel.app/login) · [Estado y verificaciones](ESTADO_20261113.md)
+[Abrir la aplicación](https://rio-primer-cobro-frontdesk.vercel.app/app.html) · [Iniciar sesión](https://rio-pey-codi-gateway.vercel.app/login) · [Estado y verificaciones](ESTADO_20261113.md) · [Accesibilidad R003: implementación y estado](A11Y_R003_20261114.md)
 
 Esta carpeta contiene la entrada pública de la aplicación. `index.html` y `app.html` llevan al login del gateway. `vercel.json` dirige las rutas al mismo acceso. El backend se mantiene en un repositorio privado y no está incluido en esta carpeta.
 
@@ -19,3 +19,7 @@ La cuenta y las credenciales del comercio deben estar guardadas y habilitadas pa
 `practica.html` conserva exactamente la antigua aplicación educativa R015, antes publicada como `app.html`. Es un archivo histórico con QR no pagables y almacenamiento local. Está en Git, pero **no se incluye en los archivos publicados en Vercel**. El despliegue de la entrada usa exclusivamente `index.html`, `app.html` y `vercel.json`. Las rutas del sitio llevan al login. No se migraron ni borraron registros de navegadores anteriores.
 
 La publicación en Vercel es explícita; actualizar esta rama no crea por sí solo otro despliegue. El PR permanece en borrador hasta su revisión e integración.
+
+## Accesibilidad R003 (14 de noviembre)
+
+El trabajo de accesibilidad está registrado en [RÍO privado #306](https://github.com/ivaniaworkshop-commits/rio/pull/306) y documentado en el [checkpoint R003](A11Y_R003_20261114.md). Esta rama pública **no incluye el código interno** y el sitio productivo todavía no incorpora esas modificaciones. Las comprobaciones estáticas no sustituyen las pruebas de navegador, lector de pantalla ni de despliegue.
