@@ -22,14 +22,39 @@
       "sha256": "7c8b6272049c8263c7c23ff0e61f41cc02a85bfe7c7572bcb4599ffdc86320e8"
     },
     {
-      "path": "competition/ACCEPTANCE_AUTHORITY_R001.json",
-      "bytes": 2666,
-      "sha256": "154e55e37cf4431c3aa1a4719c00c9d3b7238e5ac4ef538743529aefe162aade"
+      "path": "DELTAS.json",
+      "bytes": 27031,
+      "sha256": "ee59fa8cd17467ee150e5aef5d3df4161d1ff8aae2c40c717fde3e40e0d2bdf2"
+    },
+    {
+      "path": "README.md",
+      "bytes": 36551,
+      "sha256": "95110e8d1083cb4ad1178d3cb3bbb18f41d3a71d62e61776422a4f2ae1ecf706"
+    },
+    {
+      "path": "RECALCULATION.md",
+      "bytes": 2046,
+      "sha256": "3684763fc06ac2f897101d657c59c545299d64e7ea03c63142a51e0922bc92ed"
+    },
+    {
+      "path": "VALIDATION.json",
+      "bytes": 13579,
+      "sha256": "f426b8259db966548f37941da870dad2f7130fe3a8731241b2f187a5a5857128"
+    },
+    {
+      "path": "VALIDATION_ACCOUNT.json",
+      "bytes": 5801,
+      "sha256": "89f7faed5739a59a17b56cb335484a50b4419471dfeb5b3eea92ffa6249a9dc1"
     },
     {
       "path": "competition/ACCEPTANCE.md",
       "bytes": 3594,
       "sha256": "7b1f860f03d983853cdfdafcf91b4bd26f784e5fb99bfcce288412361b274664"
+    },
+    {
+      "path": "competition/ACCEPTANCE_AUTHORITY_R001.json",
+      "bytes": 2666,
+      "sha256": "154e55e37cf4431c3aa1a4719c00c9d3b7238e5ac4ef538743529aefe162aade"
     },
     {
       "path": "competition/DEBRIEF.md",
@@ -42,14 +67,54 @@
       "sha256": "c7f53c74eb1c2c5f89d58cb09b6d11389b25d315c73ddccd53365d375adc7e50"
     },
     {
-      "path": "DELTAS.json",
-      "bytes": 27031,
-      "sha256": "ee59fa8cd17467ee150e5aef5d3df4161d1ff8aae2c40c717fde3e40e0d2bdf2"
-    },
-    {
       "path": "demo.py",
       "bytes": 1102,
       "sha256": "11bcb9c96b1d31dca9d4914327280dc9c1f428ef4f82bb1cf01b3a066907808a"
+    },
+    {
+      "path": "demos/rio-primer-cobro/PROJECT_STATUS_R013.md",
+      "bytes": 3311,
+      "sha256": "0f92f5b1eb155f808b3ee9d5f0f1405562f9be07a7f0a59af4d3325a7f76c520"
+    },
+    {
+      "path": "demos/rio-primer-cobro/PROJECT_STATUS_R014.md",
+      "bytes": 2398,
+      "sha256": "23aa715aa08349bf386807ba83b812eb9ad20d1ff1217b611ef7807651b98c21"
+    },
+    {
+      "path": "demos/rio-primer-cobro/PROJECT_STATUS_R015.md",
+      "bytes": 1194,
+      "sha256": "f58108513010a471ba1aef1c429e1c0be8fb68e65da0d53f1179cd0fbcc3bb5d"
+    },
+    {
+      "path": "demos/rio-primer-cobro/R014_RELEASE_RECEIPT.json",
+      "bytes": 4588,
+      "sha256": "e2d63502dabea38b6dbb60d2a2301433a1ed89a1ae002df23cd6501371b7be38"
+    },
+    {
+      "path": "demos/rio-primer-cobro/README.md",
+      "bytes": 4184,
+      "sha256": "42c6eae752905421ef1b9381a1a7e020ba250f1708014424a3dcdfbc76e0b4ba"
+    },
+    {
+      "path": "demos/rio-primer-cobro/RIO_PRIMER_COBRO_R013_OFFLINE.html",
+      "bytes": 76446,
+      "sha256": "24128de75119267c569c7066e41fef54e2c842b030ae4f4283298aca64005845"
+    },
+    {
+      "path": "demos/rio-primer-cobro/RIO_PRIMER_COBRO_R014_OFFLINE.html",
+      "bytes": 93407,
+      "sha256": "67cf74dc9d7affe416cdda98f4f403bfc3d40c4ba97c9e4fee38ac6d5c1923e6"
+    },
+    {
+      "path": "demos/rio-primer-cobro/RIO_PRIMER_COBRO_R015_OFFLINE.html",
+      "bytes": 112138,
+      "sha256": "61cc8f8e71e2708141b22c090faadafe3f50ffaf373db8c992a80bb5077943f1"
+    },
+    {
+      "path": "demos/rio-primer-cobro/ROUND_LOG.md",
+      "bytes": 1294,
+      "sha256": "15c81d6d38d24a09eee807503f87b582d2849ccdf2c7c3c7e2a7ed5fc89aee0d"
     },
     {
       "path": "demos/rio-primer-cobro/app/app.js",
@@ -107,11 +172,6 @@
       "sha256": "c7a7d5ef4c4d1efb483065c5af6747de5721488c22e2c04e7434b7e0099b251a"
     },
     {
-      "path": "demos/rio-primer-cobro/frontdesk/app.html",
-      "bytes": 413,
-      "sha256": "e23d579894881efb7aead5a1b5ce37c328b0323bd0b4f6992eb7849718f7abb8"
-    },
-    {
       "path": "demos/rio-primer-cobro/frontdesk/ESTADO_20261113.md",
       "bytes": 3813,
       "sha256": "dcd33353309bf30d7e3e511ef34798a2e6a61f1f0e9627679c763d52dc1865a4"
@@ -120,6 +180,16 @@
       "path": "demos/rio-primer-cobro/frontdesk/EVIDENCE_20261113.json",
       "bytes": 1427,
       "sha256": "9f743ee28f75c058c01525bf88c55ee2c99df331ea805fd921a0e639cd37410e"
+    },
+    {
+      "path": "demos/rio-primer-cobro/frontdesk/README.md",
+      "bytes": 2841,
+      "sha256": "92f17f626f29ca56602e181724ec07642866a6d00aa9317e97ec4cbf8774368e"
+    },
+    {
+      "path": "demos/rio-primer-cobro/frontdesk/app.html",
+      "bytes": 413,
+      "sha256": "e23d579894881efb7aead5a1b5ce37c328b0323bd0b4f6992eb7849718f7abb8"
     },
     {
       "path": "demos/rio-primer-cobro/frontdesk/index.html",
@@ -132,39 +202,9 @@
       "sha256": "7ff629fe8f4d8ecefbfbdc9d987ff879e8a9301bcde1aae9fed5926c6ab975f7"
     },
     {
-      "path": "demos/rio-primer-cobro/frontdesk/README.md",
-      "bytes": 2841,
-      "sha256": "92f17f626f29ca56602e181724ec07642866a6d00aa9317e97ec4cbf8774368e"
-    },
-    {
       "path": "demos/rio-primer-cobro/frontdesk/vercel.json",
       "bytes": 213,
       "sha256": "b9afdafb9544c713e5682d71338c42d6ad0abad9c7d72ca030b16707ee6eb903"
-    },
-    {
-      "path": "demos/rio-primer-cobro/PROJECT_STATUS_R013.md",
-      "bytes": 3311,
-      "sha256": "0f92f5b1eb155f808b3ee9d5f0f1405562f9be07a7f0a59af4d3325a7f76c520"
-    },
-    {
-      "path": "demos/rio-primer-cobro/PROJECT_STATUS_R014.md",
-      "bytes": 2398,
-      "sha256": "23aa715aa08349bf386807ba83b812eb9ad20d1ff1217b611ef7807651b98c21"
-    },
-    {
-      "path": "demos/rio-primer-cobro/PROJECT_STATUS_R015.md",
-      "bytes": 1194,
-      "sha256": "f58108513010a471ba1aef1c429e1c0be8fb68e65da0d53f1179cd0fbcc3bb5d"
-    },
-    {
-      "path": "demos/rio-primer-cobro/R014_RELEASE_RECEIPT.json",
-      "bytes": 4588,
-      "sha256": "e2d63502dabea38b6dbb60d2a2301433a1ed89a1ae002df23cd6501371b7be38"
-    },
-    {
-      "path": "demos/rio-primer-cobro/README.md",
-      "bytes": 4184,
-      "sha256": "42c6eae752905421ef1b9381a1a7e020ba250f1708014424a3dcdfbc76e0b4ba"
     },
     {
       "path": "demos/rio-primer-cobro/reports/R013_E2E.json",
@@ -212,6 +252,11 @@
       "sha256": "6485ae9b58253342be6490352885696a5cd8b1882ce940f01b5c2aad81f4a2ad"
     },
     {
+      "path": "demos/rio-primer-cobro/reports/R015_TEST_STATUS.json",
+      "bytes": 915,
+      "sha256": "fdef6be2a474c4af663104d533920e911324047db9cc449bcae05a5f1f2320c7"
+    },
+    {
       "path": "demos/rio-primer-cobro/reports/R015_report_desktop.json",
       "bytes": 15088,
       "sha256": "fcb7a90770c8856d43ac0e349df768503e47dd508958b0f480027195a40eaa96"
@@ -220,31 +265,6 @@
       "path": "demos/rio-primer-cobro/reports/R015_report_mobile.json",
       "bytes": 15087,
       "sha256": "11a61f44f52e3de103d648c66b2e98d1b18c7fc84891c0bf3075c3e307df130f"
-    },
-    {
-      "path": "demos/rio-primer-cobro/reports/R015_TEST_STATUS.json",
-      "bytes": 915,
-      "sha256": "fdef6be2a474c4af663104d533920e911324047db9cc449bcae05a5f1f2320c7"
-    },
-    {
-      "path": "demos/rio-primer-cobro/RIO_PRIMER_COBRO_R013_OFFLINE.html",
-      "bytes": 76446,
-      "sha256": "24128de75119267c569c7066e41fef54e2c842b030ae4f4283298aca64005845"
-    },
-    {
-      "path": "demos/rio-primer-cobro/RIO_PRIMER_COBRO_R014_OFFLINE.html",
-      "bytes": 93407,
-      "sha256": "67cf74dc9d7affe416cdda98f4f403bfc3d40c4ba97c9e4fee38ac6d5c1923e6"
-    },
-    {
-      "path": "demos/rio-primer-cobro/RIO_PRIMER_COBRO_R015_OFFLINE.html",
-      "bytes": 112138,
-      "sha256": "61cc8f8e71e2708141b22c090faadafe3f50ffaf373db8c992a80bb5077943f1"
-    },
-    {
-      "path": "demos/rio-primer-cobro/ROUND_LOG.md",
-      "bytes": 1294,
-      "sha256": "15c81d6d38d24a09eee807503f87b582d2849ccdf2c7c3c7e2a7ed5fc89aee0d"
     },
     {
       "path": "demos/rio-primer-cobro/server/dev_server.mjs",
@@ -422,11 +442,6 @@
       "sha256": "e5c8521c580d4bd2c95defcad2dab8becda574d430a78413f4acffd4619a936b"
     },
     {
-      "path": "model/byte_gru.pt",
-      "bytes": 72734,
-      "sha256": "a190c30ef90aa4bf21d92036d388c9c272fda73e7869f507648a6d053bb1ec29"
-    },
-    {
       "path": "model/CONSTRAINED_DECODING_CARD.md",
       "bytes": 2482,
       "sha256": "2585933c628570e0ed75c5df94191e378388d76752d3ab3565b6532632909557"
@@ -455,11 +470,6 @@
       "path": "model/EVALUATION_OBSERVATIONS_R001.json",
       "bytes": 2914,
       "sha256": "4db6387523313b660827d0f861b3d1d0c684b5e6256f796c88333d8bd92471a7"
-    },
-    {
-      "path": "model/extraction_gru.pt",
-      "bytes": 72940,
-      "sha256": "71515bb4638bfe9e6fce922c7242746092a5a35920d8673bf74719eb473ecbfa"
     },
     {
       "path": "model/EXTRACTION_MODEL_CARD.md",
@@ -492,6 +502,11 @@
       "sha256": "a3109b416195a9aaf8cdcdb3bf7517ff5d55fe9a807146dab5c87063d875b1bb"
     },
     {
+      "path": "model/MODEL_CARD.md",
+      "bytes": 21596,
+      "sha256": "dbf06d4632347cee17b99618d47aa83590350705842891d6855c503ab7217eaf"
+    },
+    {
       "path": "model/MODE_ABLATION.json",
       "bytes": 30426,
       "sha256": "caf83ddd093198dd9a560fba26f1ff8ab6e7c3de7cb211996c0be476f54cdf14"
@@ -502,11 +517,6 @@
       "sha256": "b44d3857b142840c39c485cebada5a9f1006b38b8a709d871fbfb629f4b388c0"
     },
     {
-      "path": "model/MODEL_CARD.md",
-      "bytes": 21596,
-      "sha256": "dbf06d4632347cee17b99618d47aa83590350705842891d6855c503ab7217eaf"
-    },
-    {
       "path": "model/NETWORK_VALUE_CARD.md",
       "bytes": 3115,
       "sha256": "a5bb304efb6795a0e375b6bdf9fcaff95f3813f2b6c5fb0a910b172f870c9ad4"
@@ -515,11 +525,6 @@
       "path": "model/NETWORK_VALUE_RESULT.json",
       "bytes": 65422,
       "sha256": "1801babab2c99039095a35c2bd3681032dd6d4379940ad3cd076d08382a286d3"
-    },
-    {
-      "path": "model/requirements-cpu.txt",
-      "bytes": 67,
-      "sha256": "23eb49e255df12bb49cbaf1cc844594349e62640696021ae1e6be0f9fd6daca9"
     },
     {
       "path": "model/SEMANTIC_CONTEXT_GATE.json",
@@ -562,19 +567,24 @@
       "sha256": "709fdc5d9f2f698ccf63a5dbb4bcb54fccd496004a527f69758e3393b6ca08ec"
     },
     {
+      "path": "model/byte_gru.pt",
+      "bytes": 72734,
+      "sha256": "a190c30ef90aa4bf21d92036d388c9c272fda73e7869f507648a6d053bb1ec29"
+    },
+    {
+      "path": "model/extraction_gru.pt",
+      "bytes": 72940,
+      "sha256": "71515bb4638bfe9e6fce922c7242746092a5a35920d8673bf74719eb473ecbfa"
+    },
+    {
+      "path": "model/requirements-cpu.txt",
+      "bytes": 67,
+      "sha256": "23eb49e255df12bb49cbaf1cc844594349e62640696021ae1e6be0f9fd6daca9"
+    },
+    {
       "path": "model/weighted_extraction_gru.pt",
       "bytes": 73121,
       "sha256": "828555a6cc298d62f2549516721088a52eca2c38a51268d13c5f18cc7f24fb95"
-    },
-    {
-      "path": "README.md",
-      "bytes": 36551,
-      "sha256": "95110e8d1083cb4ad1178d3cb3bbb18f41d3a71d62e61776422a4f2ae1ecf706"
-    },
-    {
-      "path": "RECALCULATION.md",
-      "bytes": 2046,
-      "sha256": "3684763fc06ac2f897101d657c59c545299d64e7ea03c63142a51e0922bc92ed"
     },
     {
       "path": "research/DELTA_MONTE_CARLO.json",
@@ -727,14 +737,14 @@
       "sha256": "c91a2d5245e72bf7bc1a1a5b3845b37ccd7fc0c07ebaa46e4c458f544a16c9ba"
     },
     {
-      "path": "runtime/AUTO_ROUND_RESULT.json",
-      "bytes": 33908,
-      "sha256": "43c04107af329e272d3dcf0779d55d0d852f6e4a4871bd213356768a71333693"
-    },
-    {
       "path": "runtime/AUTOMATION_CARD.txt",
       "bytes": 2772,
       "sha256": "0a14a907d725a8255cb70c6bcda4c4517fbae546d0e794a815902b2492e69df6"
+    },
+    {
+      "path": "runtime/AUTO_ROUND_RESULT.json",
+      "bytes": 33908,
+      "sha256": "43c04107af329e272d3dcf0779d55d0d852f6e4a4871bd213356768a71333693"
     },
     {
       "path": "runtime/EXTERNAL_VALIDATOR_VALIDATION.json",
@@ -982,14 +992,14 @@
       "sha256": "d88004749b5abfa50eeeb867e7251fdcf3a27827289e0a12dcd4b0e08ed8ebd1"
     },
     {
-      "path": "scripts/verify_h00_connector.js",
-      "bytes": 2714,
-      "sha256": "a3cbc9db11e07cdbb33be7a3aaeb2d9eca4a1a22590640ba7c6266a50cd34fa4"
-    },
-    {
       "path": "scripts/verify_h00.py",
       "bytes": 2860,
       "sha256": "cb9a873fa3b50039bac6e6176b1fe2229d0c59e2b166d62000e99e9b8e3e5e6e"
+    },
+    {
+      "path": "scripts/verify_h00_connector.js",
+      "bytes": 2714,
+      "sha256": "a3cbc9db11e07cdbb33be7a3aaeb2d9eca4a1a22590640ba7c6266a50cd34fa4"
     },
     {
       "path": "scripts/verify_manifest.py",
@@ -1067,14 +1077,14 @@
       "sha256": "3eaa5212a20662d5c31922e3509df691f5495e681bdbc9c1c4ae039d3373600c"
     },
     {
-      "path": "tests/test_external_validator_adversarial.py",
-      "bytes": 4925,
-      "sha256": "7e5c77f4479905300116a6b8d4d55b39f94fb2d6978eb2b63f2acb00faaf5b2d"
-    },
-    {
       "path": "tests/test_external_validator.py",
       "bytes": 5624,
       "sha256": "1d9aa680d9e89c1bfdad74ed331da3e1fd4b888f88a3d5c85d44c0b1d1a5b729"
+    },
+    {
+      "path": "tests/test_external_validator_adversarial.py",
+      "bytes": 4925,
+      "sha256": "7e5c77f4479905300116a6b8d4d55b39f94fb2d6978eb2b63f2acb00faaf5b2d"
     },
     {
       "path": "tests/test_extraction_data.py",
@@ -1187,11 +1197,6 @@
       "sha256": "462902659b4a65f78813ad7b4910fd9b42bf0282ea8057dc5d3fed58109e9efe"
     },
     {
-      "path": "training/answer_matrix.jsonl",
-      "bytes": 111702,
-      "sha256": "067a0ecff1d59f2b7b8c1807e45652850729fa811cf9ae29155e14dc4577fca3"
-    },
-    {
       "path": "training/ANSWER_MATRIX.md",
       "bytes": 13721,
       "sha256": "c0a0cadbf6b20a61bd3f0993624e20d587fd4af0084a5fe07193c446bc4290e3"
@@ -1207,6 +1212,16 @@
       "sha256": "35a4f7e0fc706d2bb082168068bb29573748bb4005cdc8ed1a119bfcb936d607"
     },
     {
+      "path": "training/MODEL_CARD.md",
+      "bytes": 3550,
+      "sha256": "208ef53ef1938bd02ba17d1212b1afa9b095dae553a4790ff7bb00499463ec8f"
+    },
+    {
+      "path": "training/answer_matrix.jsonl",
+      "bytes": 111702,
+      "sha256": "067a0ecff1d59f2b7b8c1807e45652850729fa811cf9ae29155e14dc4577fca3"
+    },
+    {
       "path": "training/extraction_dev.jsonl",
       "bytes": 69735,
       "sha256": "5d71ad4b3292b1ce3c940e71df1416e879d7808dcab5de841c80b3a832a95b1f"
@@ -1215,21 +1230,6 @@
       "path": "training/extraction_train.jsonl",
       "bytes": 250732,
       "sha256": "73f66636a300783aee948c0061cf3d7cf64452355d9c4efb776fa70a284c7994"
-    },
-    {
-      "path": "training/MODEL_CARD.md",
-      "bytes": 3550,
-      "sha256": "208ef53ef1938bd02ba17d1212b1afa9b095dae553a4790ff7bb00499463ec8f"
-    },
-    {
-      "path": "VALIDATION_ACCOUNT.json",
-      "bytes": 5801,
-      "sha256": "89f7faed5739a59a17b56cb335484a50b4419471dfeb5b3eea92ffa6249a9dc1"
-    },
-    {
-      "path": "VALIDATION.json",
-      "bytes": 13579,
-      "sha256": "f426b8259db966548f37941da870dad2f7130fe3a8731241b2f187a5a5857128"
     }
   ]
 }
