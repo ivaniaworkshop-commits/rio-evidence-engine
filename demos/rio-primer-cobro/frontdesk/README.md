@@ -29,3 +29,18 @@ El trabajo de accesibilidad está registrado en [RÍO privado #306](https://gith
 `vercel.json` añade para `/(.*)`: `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` sin cámara/micrófono/geolocalización/pagos, HSTS (`max-age=63072000; includeSubDomains; preload`) y CSP restringida a mismo origen con `frame-ancestors 'none'`, `object-src 'none'`, `base-uri 'self'` y `form-action 'self'`.
 
 Estas cabeceras corresponden **a la entrada pública de frontdesk**. La aplicación autenticada responde desde otro origen (gateway privado), cuya rama del [PR privado #306](https://github.com/ivaniaworkshop-commits/rio/pull/306) incluye sus propias cabeceras y controles de sesión. Las cabeceras no sustituyen autenticación ni autorización. GitHub confirma la modificación del archivo; **falta observar la respuesta HTTP del despliegue**. La palabra `preload` en HSTS no acredita inscripción en listas de precarga y debe evaluarse junto con los subdominios reales del dominio que se publique.
+
+## Centro de ayuda RÍO · estado R002 (documental)
+
+El PR privado `rio#306` contiene una interfaz de ayuda en el espacio autenticado y un snapshot local versionado de 61 tutoriales del catálogo del PR público `rio-evidence-engine#48`. Es **código en rama**, no despliegue comprobado. La entrada pública conserva su redirección inmediata a login; los enlaces siguientes también aparecen en el catálogo E01–E06.
+
+| ID | Recurso autorizado por fuente disponible | Enlace | Validación HTTP |
+|---|---|---|---|
+| E01 | Acceso Mercado Abierto | https://rio-pey-codi-gateway.vercel.app/login | NOT_OBSERVED en esta actualización |
+| E02 | Entrada pública | https://rio-primer-cobro-frontdesk.vercel.app/app.html | NOT_OBSERVED en esta actualización |
+| E03 | Documentación pey/CoDi QR (URL aportada) | https://docs.pey.mx/docs/webhooks/codi/qr | NOT_OBSERVED |
+| E04 | Portal pey (existía en HTML privado) | https://portal.pey.mx/ | NOT_OBSERVED |
+| E05 | Consulta CEP Banxico (existía en HTML privado) | https://www.banxico.org.mx/cep/ | NOT_OBSERVED |
+| E06 | Validación CEP Banxico (existía en HTML privado) | https://www.banxico.org.mx/validador-cep-spei/ | NOT_OBSERVED |
+
+**Límite de evidencia:** esta ayuda no realiza pagos, no confirma recepción de correo ni certifica liquidación bancaria. La autorización sigue en el servidor; ni el navegador ni el chatbot pueden atribuir roles o completar credenciales por el usuario.
