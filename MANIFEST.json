@@ -23,13 +23,13 @@
     },
     {
       "path": "chatbot/chatbot_rio_matrix.json",
-      "bytes": 492047,
-      "sha256": "1ce3526ba1b0a6c5a0dc861f8540a6d1c679b0e2db87835cb5bb2f26cba254a3"
+      "bytes": 492060,
+      "sha256": "894a2515a1f23ebdb5be0e491df8b28356fb2afceb5dbd5facf499e45aeae497"
     },
     {
       "path": "chatbot/chatbot_rio_matrix.md",
-      "bytes": 143286,
-      "sha256": "c8ba3c3f05f20e7ff0606791b4b59c00a94957c5911332102e5eee72638926d4"
+      "bytes": 143279,
+      "sha256": "5168e4d927f753c27d317eb2f662f78f6e837d807df70540c67346bfdf53c1d9"
     },
     {
       "path": "competition/ACCEPTANCE_AUTHORITY_R001.json",
