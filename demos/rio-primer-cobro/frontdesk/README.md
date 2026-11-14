@@ -23,3 +23,9 @@ La publicación en Vercel es explícita; actualizar esta rama no crea por sí so
 ## Accesibilidad R003 (14 de noviembre)
 
 El trabajo de accesibilidad está registrado en [RÍO privado #306](https://github.com/ivaniaworkshop-commits/rio/pull/306) y documentado en el [checkpoint R003](A11Y_R003_20261114.md). Esta rama pública **no incluye el código interno** y el sitio productivo todavía no incorpora esas modificaciones. Las comprobaciones estáticas no sustituyen las pruebas de navegador, lector de pantalla ni de despliegue.
+
+## Endurecimiento de cabeceras (14 de noviembre de 2026)
+
+`vercel.json` añade para `/(.*)`: `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` sin cámara/micrófono/geolocalización/pagos, HSTS (`max-age=63072000; includeSubDomains; preload`) y CSP restringida a mismo origen con `frame-ancestors 'none'`, `object-src 'none'`, `base-uri 'self'` y `form-action 'self'`.
+
+Estas cabeceras corresponden **a la entrada pública de frontdesk**. La aplicación autenticada responde desde otro origen (gateway privado), cuya rama del [PR privado #306](https://github.com/ivaniaworkshop-commits/rio/pull/306) incluye sus propias cabeceras y controles de sesión. Las cabeceras no sustituyen autenticación ni autorización. GitHub confirma la modificación del archivo; **falta observar la respuesta HTTP del despliegue**. La palabra `preload` en HSTS no acredita inscripción en listas de precarga y debe evaluarse junto con los subdominios reales del dominio que se publique.
