@@ -60,7 +60,7 @@ R1: el cobro CoDi sólo se confirma tras la validación contra PEY. R2: correo a
 |---|---|---|---|---:|---|---|---|
 | T001 | Entrar a tu cuenta | auth | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E01 | C01 |
 | T002 | Recuperar acceso | auth | asistido | 4 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E01 | C01 |
-| T003 | Conectar pey a tu comercio | mis_negocios | asistido | 5 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E04 | C02 |
+| T003 | Conectar pey a tu comercio | mis_negocios | asistido | 5 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E03, E04 | C02 |
 | T004 | Preparar un cobro CoDi | caja_codi | bloqueado | 6 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E03 | C03 |
 | T005 | Registrar efectivo | caja_efectivo | guiado | 4 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C04 |
 | T006 | Consultar y compartir comprobante | comprobantes | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C05 |
