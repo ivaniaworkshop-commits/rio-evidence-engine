@@ -197,9 +197,44 @@
       "sha256": "5659fa49f8c0712478b2da6a302fdbb966500171beb84898cc18497e89d68378"
     },
     {
+      "path": "demos/rio-primer-cobro/frontdesk/practica-r015-app.js",
+      "bytes": 33728,
+      "sha256": "c68be3815583101dc953807846227fc1d27f7cf6df4a57938bca9a22524cf03e"
+    },
+    {
+      "path": "demos/rio-primer-cobro/frontdesk/practica-r015-chat.js",
+      "bytes": 3391,
+      "sha256": "6d8af7f821787b2cc03d5f3296b3ce6e3f97da56a405c3dfb916e125b92446f7"
+    },
+    {
+      "path": "demos/rio-primer-cobro/frontdesk/practica-r015-field.js",
+      "bytes": 12926,
+      "sha256": "bb8c54f33b058208abd3a3bf349c1d34c93330402bcbc683cd7507272690272c"
+    },
+    {
+      "path": "demos/rio-primer-cobro/frontdesk/practica-r015-logic.js",
+      "bytes": 18390,
+      "sha256": "be56ae903f3eb630eaebafa9c8218a2ebb81d476fef1b74f1d81c1e82ace9ec3"
+    },
+    {
+      "path": "demos/rio-primer-cobro/frontdesk/practica-r015-persistence.js",
+      "bytes": 5679,
+      "sha256": "701bb942c7f44a67ffda504ec4ac762a36ecf9489cf65b4bdd3039f7e6c02f56"
+    },
+    {
+      "path": "demos/rio-primer-cobro/frontdesk/practica-r015-qrcode.js",
+      "bytes": 4069,
+      "sha256": "3f8a7e0e31311920158be948d35b83f04d996c9e3ec283e00ac68fc438de5f75"
+    },
+    {
+      "path": "demos/rio-primer-cobro/frontdesk/practica-r015-style.css",
+      "bytes": 16680,
+      "sha256": "4847473fe71844afd23a31e380a2fb33c1502bd19df54972d1724f008c93c834"
+    },
+    {
       "path": "demos/rio-primer-cobro/frontdesk/practica.html",
-      "bytes": 112325,
-      "sha256": "7ff629fe8f4d8ecefbfbdc9d987ff879e8a9301bcde1aae9fed5926c6ab975f7"
+      "bytes": 17679,
+      "sha256": "850888eb917bdfdc952d813434787fa6616b4ddce9be4a4fb9098795ed51b49a"
     },
     {
       "path": "demos/rio-primer-cobro/frontdesk/vercel.json",
@@ -1100,6 +1135,11 @@
       "path": "tests/test_freeze_guard.py",
       "bytes": 1996,
       "sha256": "3c74c471460c8416ed263ffcfcd33fedb573a13982c20018eb5e6f13ab7fde23"
+    },
+    {
+      "path": "tests/test_frontdesk_csp.py",
+      "bytes": 2455,
+      "sha256": "bc4907fe7032483dce83337455047b8328c38454c381b1cd7e224eb7dc2cbf2d"
     },
     {
       "path": "tests/test_graph_copy.py",
