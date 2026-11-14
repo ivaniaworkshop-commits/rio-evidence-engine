@@ -81,7 +81,7 @@ R1: el cobro CoDi sólo se confirma tras la validación contra PEY. R2: correo a
 | T021 | Cómo ingreso al área Actividad | actividad | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C06 |
 | T022 | Cómo interpreto la información de Actividad | actividad | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C06 |
 | T023 | Cómo reporto que Actividad no abre | actividad | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C06 |
-| T024 | Cómo consulto el comprobante de un pago CoDi | comprobantes | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C05 |
+| T024 | Cómo verifico el QR de un comprobante | comprobantes | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C05 |
 | T025 | Cómo reporto que no recibí el correo del comprobante | comprobantes | manual | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C05 |
 | T026 | Cómo mantengo segura mi sesión | seguridad | manual | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E01 | C01 |
 | T027 | Cómo pido ayuda sin compartir datos bancarios | seguridad | manual | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E01 | C01 |
