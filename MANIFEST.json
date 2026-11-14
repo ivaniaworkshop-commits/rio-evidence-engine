@@ -183,8 +183,8 @@
     },
     {
       "path": "demos/rio-primer-cobro/frontdesk/README.md",
-      "bytes": 2841,
-      "sha256": "92f17f626f29ca56602e181724ec07642866a6d00aa9317e97ec4cbf8774368e"
+      "bytes": 3895,
+      "sha256": "8c2c9a94320c50905d0df6e2a4be410f20fd507118832811d65f280321319a01"
     },
     {
       "path": "demos/rio-primer-cobro/frontdesk/app.html",
@@ -203,8 +203,8 @@
     },
     {
       "path": "demos/rio-primer-cobro/frontdesk/vercel.json",
-      "bytes": 213,
-      "sha256": "b9afdafb9544c713e5682d71338c42d6ad0abad9c7d72ca030b16707ee6eb903"
+      "bytes": 1034,
+      "sha256": "cb5e7a3a2384bac587f6f7f4f880c4418f2847c73fe0ba1340b946efe8789d93"
     },
     {
       "path": "demos/rio-primer-cobro/reports/R013_E2E.json",
