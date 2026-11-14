@@ -1,3 +1,7 @@
+> **Aplicación web actual (2026-11-13):** [Abrir Pey / RÍO](https://rio-primer-cobro-frontdesk.vercel.app/app.html) · [Código de la entrada pública](./frontdesk/README.md) · [Estado y verificaciones](./frontdesk/ESTADO_20261113.md).
+>
+> La entrada actual lleva al login del gateway con PEY/CoDi. Las instrucciones siguientes corresponden al archivo educativo R015 histórico, no al funcionamiento del gateway actual. La publicación de Vercel es independiente de la fusión de este PR.
+
 # 🌊 RÍO Primer Cobro — R015
 
 Aplicación educativa **offline**, de interfaz móvil. Permite carrito por pieza/peso, cobro de efectivo **declarado manualmente**, QR **NO PAGABLE**, tickets, compartir mediante correo/WhatsApp a elección del usuario, historial local y respaldo JSON. No conecta a bancos ni a pey/CoDi.
