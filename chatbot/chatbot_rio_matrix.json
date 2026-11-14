@@ -55,11 +55,11 @@
   },
   "cobertura": {
     "actor": {
-      "titular": 66,
-      "miembro": 39,
+      "titular": 68,
+      "miembro": 43,
       "visitante": 21,
-      "pagador": 24,
-      "no_titular": 30
+      "pagador": 22,
+      "no_titular": 26
     },
     "momento": {
       "pre_login": 36,
@@ -97,6 +97,10 @@
         "miembro × en_cobro × caja_codi × que_significa",
         "miembro × en_cobro × caja_efectivo × como_hacer",
         "miembro × en_cobro × caja_efectivo × que_significa",
+        "miembro × error × caja_codi × como_hacer",
+        "miembro × error × caja_efectivo × como_hacer",
+        "miembro × error × historial × como_hacer",
+        "miembro × error × mis_negocios × como_hacer",
         "miembro × post_cobro × caja_codi × por_que",
         "miembro × post_cobro × caja_codi × que_fallo",
         "miembro × post_cobro × caja_codi × que_significa",
@@ -127,16 +131,12 @@
         "no_titular × en_cobro × general × es_seguro",
         "no_titular × en_cobro × general × por_que",
         "no_titular × en_cobro × general × que_fallo",
-        "no_titular × error × actividad × como_hacer",
         "no_titular × error × actividad × por_que",
         "no_titular × error × actividad × que_significa",
-        "no_titular × error × historial × como_hacer",
         "no_titular × error × historial × por_que",
         "no_titular × error × historial × que_significa",
-        "no_titular × error × mercado × como_hacer",
         "no_titular × error × mercado × por_que",
         "no_titular × error × mercado × que_significa",
-        "no_titular × error × mis_negocios × como_hacer",
         "no_titular × error × mis_negocios × por_que",
         "no_titular × error × mis_negocios × que_significa",
         "no_titular × post_login × mis_negocios × como_hacer",
@@ -154,10 +154,8 @@
         "no_titular × recuperacion × auth × por_que",
         "no_titular × recuperacion × auth × que_fallo",
         "no_titular × recuperacion × auth × que_significa",
-        "pagador × error × caja_codi × como_hacer",
         "pagador × error × caja_codi × por_que",
         "pagador × error × caja_codi × que_significa",
-        "pagador × error × caja_efectivo × como_hacer",
         "pagador × error × caja_efectivo × por_que",
         "pagador × error × caja_efectivo × que_significa",
         "pagador × error × comprobantes × como_hacer",
@@ -178,6 +176,8 @@
         "pagador × recuperacion × comprobantes × por_que",
         "pagador × recuperacion × comprobantes × que_fallo",
         "pagador × recuperacion × comprobantes × que_significa",
+        "titular × error × actividad × como_hacer",
+        "titular × error × mercado × como_hacer",
         "titular × post_cobro × caja_efectivo × por_que",
         "titular × post_cobro × caja_efectivo × que_fallo",
         "titular × post_cobro × caja_efectivo × que_significa",
@@ -283,6 +283,122 @@
         "pregunta_vetada": "¿Puedes convertir este comprobante en CFDI?",
         "reescritura": "¿En qué se diferencia un comprobante de una factura fiscal?",
         "tratamiento": "Explicar que el comprobante no es fiscal."
+      }
+    ],
+    "correcciones_de_roles": [
+      {
+        "id": "Q006",
+        "tipo": "actor_no_compatible",
+        "antes": "pagador",
+        "despues": "miembro"
+      },
+      {
+        "id": "Q009",
+        "tipo": "actor_no_compatible",
+        "antes": "pagador",
+        "despues": "miembro"
+      },
+      {
+        "id": "Q012",
+        "tipo": "actor_no_compatible",
+        "antes": "no_titular",
+        "despues": "miembro"
+      },
+      {
+        "id": "Q015",
+        "tipo": "actor_no_compatible",
+        "antes": "no_titular",
+        "despues": "miembro"
+      },
+      {
+        "id": "Q018",
+        "tipo": "actor_no_compatible",
+        "antes": "no_titular",
+        "despues": "titular"
+      },
+      {
+        "id": "Q021",
+        "tipo": "actor_no_compatible",
+        "antes": "no_titular",
+        "despues": "titular"
+      },
+      {
+        "id": "Q024",
+        "tipo": "respuesta_reescrita_por_rol",
+        "actor": "pagador",
+        "area": "comprobantes"
+      },
+      {
+        "id": "Q035",
+        "tipo": "respuesta_reescrita_por_rol",
+        "actor": "pagador",
+        "area": "caja_codi"
+      },
+      {
+        "id": "Q038",
+        "tipo": "respuesta_reescrita_por_rol",
+        "actor": "pagador",
+        "area": "caja_efectivo"
+      },
+      {
+        "id": "Q041",
+        "tipo": "respuesta_reescrita_por_rol",
+        "actor": "no_titular",
+        "area": "mis_negocios"
+      },
+      {
+        "id": "Q044",
+        "tipo": "respuesta_reescrita_por_rol",
+        "actor": "no_titular",
+        "area": "historial"
+      },
+      {
+        "id": "Q047",
+        "tipo": "respuesta_reescrita_por_rol",
+        "actor": "no_titular",
+        "area": "mercado"
+      },
+      {
+        "id": "Q050",
+        "tipo": "respuesta_reescrita_por_rol",
+        "actor": "no_titular",
+        "area": "actividad"
+      },
+      {
+        "id": "Q053",
+        "tipo": "respuesta_reescrita_por_rol",
+        "actor": "pagador",
+        "area": "comprobantes"
+      },
+      {
+        "id": "Q054",
+        "tipo": "respuesta_reescrita_por_rol",
+        "actor": "pagador",
+        "area": "comprobantes"
+      },
+      {
+        "id": "Q154",
+        "tipo": "respuesta_reescrita_por_rol",
+        "actor": "pagador",
+        "area": "caja_codi"
+      },
+      {
+        "id": "Q157",
+        "tipo": "respuesta_reescrita_por_rol",
+        "actor": "pagador",
+        "area": "caja_efectivo"
+      },
+      {
+        "id": "Q160",
+        "tipo": "respuesta_reescrita_por_rol",
+        "actor": "no_titular",
+        "area": "mis_negocios"
+      },
+      {
+        "id": "Q163",
+        "tipo": "respuesta_reescrita_por_rol",
+        "actor": "visitante",
+        "area": "historial"
       }
     ]
   },
@@ -569,7 +685,7 @@
         "¿De qué manera reviso un cobro CoDi que sigue sin confirmarse?",
         "¿Me orientas sobre esto: cómo reviso un cobro CoDi que sigue sin confirmarse?"
       ],
-      "actor": "pagador",
+      "actor": "miembro",
       "momento": "error",
       "area": "caja_codi",
       "intencion": "como_hacer",
@@ -734,7 +850,7 @@
         "¿De qué manera reviso un importe de efectivo mal capturado?",
         "¿Me orientas sobre esto: cómo reviso un importe de efectivo mal capturado?"
       ],
-      "actor": "pagador",
+      "actor": "miembro",
       "momento": "error",
       "area": "caja_efectivo",
       "intencion": "como_hacer",
@@ -899,7 +1015,7 @@
         "¿De qué manera reviso una conexión de pey que no aparece?",
         "¿Me orientas sobre esto: cómo reviso una conexión de pey que no aparece?"
       ],
-      "actor": "no_titular",
+      "actor": "miembro",
       "momento": "error",
       "area": "mis_negocios",
       "intencion": "como_hacer",
@@ -1064,7 +1180,7 @@
         "¿De qué manera reporto un cobro que no aparece en Historial?",
         "¿Me orientas sobre esto: cómo reporto un cobro que no aparece en Historial?"
       ],
-      "actor": "no_titular",
+      "actor": "miembro",
       "momento": "error",
       "area": "historial",
       "intencion": "como_hacer",
@@ -1229,7 +1345,7 @@
         "¿De qué manera reporto un bloqueo de Mercado siendo titular?",
         "¿Me orientas sobre esto: cómo reporto un bloqueo de Mercado siendo titular?"
       ],
-      "actor": "no_titular",
+      "actor": "titular",
       "momento": "error",
       "area": "mercado",
       "intencion": "como_hacer",
@@ -1394,7 +1510,7 @@
         "¿De qué manera reporto que Actividad no abre?",
         "¿Me orientas sobre esto: cómo reporto que Actividad no abre?"
       ],
-      "actor": "no_titular",
+      "actor": "titular",
       "momento": "error",
       "area": "actividad",
       "intencion": "como_hacer",
@@ -1564,9 +1680,9 @@
       "area": "comprobantes",
       "intencion": "como_hacer",
       "respuesta_directa": [
-        "Revisa el comprobante disponible en la cuenta autorizada.",
-        "Comprueba si se solicitó el envío para esa operación.",
-        "Si el destinatario no lo recibió, pide revisión a soporte."
+        "Consulta al comercio si solicitó el correo del comprobante.",
+        "Un envío aceptado no demuestra que el mensaje llegó.",
+        "Si no lo recibes, pide revisión sin enviar contraseñas ni códigos."
       ],
       "limite": "El bot no garantiza que un correo haya llegado ni reenvía mensajes.",
       "derivacion": {
@@ -1591,7 +1707,7 @@
         "solicitar contraseñas o datos bancarios en el chat"
       ],
       "a11y": {
-        "palabras": 27,
+        "palabras": 29,
         "jerga_evitada": [
           "webhook",
           "SMTP",
@@ -2166,7 +2282,7 @@
       "intencion": "que_significa",
       "respuesta_directa": [
         "El QR permite presentar una solicitud; no es un recibo de dinero.",
-        "Si necesitas un dato de tu caso, revísalo desde la cuenta autorizada."
+        "Si necesitas revisar un caso específico, pide al comercio autorizado una comprobación."
       ],
       "limite": "Un QR creado no demuestra pago bancario.",
       "derivacion": {
@@ -2328,7 +2444,7 @@
       "intencion": "que_significa",
       "respuesta_directa": [
         "El cambio es la diferencia entre lo recibido y el total; requiere revisión humana.",
-        "Si necesitas un dato de tu caso, revísalo desde la cuenta autorizada."
+        "Si necesitas revisar un caso específico, pide al comercio autorizado una comprobación."
       ],
       "limite": "El bot no atestigua cambio entregado ni movimientos bancarios.",
       "derivacion": {
@@ -2490,7 +2606,7 @@
       "intencion": "que_significa",
       "respuesta_directa": [
         "La conexión pertenece al comercio seleccionado y no se comparte automáticamente con otros.",
-        "Si necesitas un dato de tu caso, revísalo desde la cuenta autorizada."
+        "Si necesitas revisar un caso específico, pide al comercio autorizado una comprobación."
       ],
       "limite": "Una etiqueta visible no demuestra por sí sola cobros reales.",
       "derivacion": {
@@ -2652,7 +2768,7 @@
       "intencion": "que_significa",
       "respuesta_directa": [
         "Pendiente no acredita dinero recibido; confirmado requiere evidencia válida del tipo de cobro.",
-        "Si necesitas un dato de tu caso, revísalo desde la cuenta autorizada."
+        "Si necesitas revisar un caso específico, pide al comercio autorizado una comprobación."
       ],
       "limite": "El bot no convierte un estado pendiente en pago validado.",
       "derivacion": {
@@ -2814,7 +2930,7 @@
       "intencion": "que_significa",
       "respuesta_directa": [
         "El área Mercado se reserva a cuentas titulares autorizadas.",
-        "Si necesitas un dato de tu caso, revísalo desde la cuenta autorizada."
+        "Si necesitas revisar un caso específico, pide al comercio autorizado una comprobación."
       ],
       "limite": "El bot no asigna ni comprueba el rol de titular.",
       "derivacion": {
@@ -2976,7 +3092,7 @@
       "intencion": "que_significa",
       "respuesta_directa": [
         "La información visible depende de la vista autorizada; el bot no conoce tus registros.",
-        "Si necesitas un dato de tu caso, revísalo desde la cuenta autorizada."
+        "Si necesitas revisar un caso específico, pide al comercio autorizado una comprobación."
       ],
       "limite": "El bot no observa tu actividad privada ni certifica sus resultados.",
       "derivacion": {
@@ -3138,7 +3254,7 @@
       "intencion": "que_significa",
       "respuesta_directa": [
         "La verificación busca corresponder el QR con un registro; no lo convierte en factura.",
-        "Si necesitas un dato de tu caso, revísalo desde la cuenta autorizada."
+        "Si necesitas revisar un caso específico, pide al comercio autorizado una comprobación."
       ],
       "limite": "Un QR firmado no equivale a CFDI ni a liquidación bancaria independiente.",
       "derivacion": {
@@ -3192,7 +3308,7 @@
       "intencion": "que_significa",
       "respuesta_directa": [
         "Que un servicio acepte un envío no confirma recepción en la bandeja.",
-        "Si necesitas un dato de tu caso, revísalo desde la cuenta autorizada."
+        "Si necesitas revisar un caso específico, pide al comercio autorizado una comprobación."
       ],
       "limite": "El bot no garantiza que un correo haya llegado ni reenvía mensajes.",
       "derivacion": {
@@ -8594,9 +8710,9 @@
       "area": "caja_codi",
       "intencion": "como_hacer",
       "respuesta_directa": [
-        "Entra a Caja y elige CoDi con el comercio correcto.",
-        "Un QR o una captura no confirma el cobro; revisa el estado contrastado con PEY.",
-        "Si no puedes confirmar el resultado, pide revisión humana."
+        "Pide al comercio el estado de tu solicitud CoDi.",
+        "Un QR o una captura no confirma el dinero; el comercio debe contrastarlo con PEY.",
+        "Si no está claro, solicita revisión con el folio."
       ],
       "limite": "No confirmo dinero recibido sin validación contrastada por PEY.",
       "derivacion": {
@@ -8621,7 +8737,7 @@
         "solicitar contraseñas o datos bancarios en el chat"
       ],
       "a11y": {
-        "palabras": 34,
+        "palabras": 33,
         "jerga_evitada": [
           "webhook",
           "SMTP",
@@ -8759,9 +8875,9 @@
       "area": "caja_efectivo",
       "intencion": "como_hacer",
       "respuesta_directa": [
-        "Entra a Caja y elige efectivo.",
-        "Comprueba en la pantalla la operación, el comercio y el estado que correspondan.",
-        "Si no puedes confirmar el resultado, pide revisión humana."
+        "Aclara directamente con el comercio el importe que entregaste.",
+        "El registro de efectivo es una declaración local, no un depósito bancario.",
+        "Ante una diferencia, solicita revisión con el folio."
       ],
       "limite": "El bot no certifica entrega física de efectivo ni saldo bancario.",
       "derivacion": {
@@ -8786,7 +8902,7 @@
         "solicitar contraseñas o datos bancarios en el chat"
       ],
       "a11y": {
-        "palabras": 28,
+        "palabras": 29,
         "jerga_evitada": [
           "webhook",
           "SMTP",
@@ -8924,9 +9040,9 @@
       "area": "mis_negocios",
       "intencion": "como_hacer",
       "respuesta_directa": [
-        "Entra a Mis negocios desde tu sesión.",
-        "Comprueba en la pantalla la operación, el comercio y el estado que correspondan.",
-        "Si no puedes confirmar el resultado, pide revisión humana."
+        "Inicia sesión únicamente con una cuenta autorizada.",
+        "Revisa sólo los negocios que la plataforma te permite consultar.",
+        "Si el negocio no aparece, solicita revisión de permisos sin compartir claves."
       ],
       "limite": "El bot no cambia el receptor ni concede acceso a negocios.",
       "derivacion": {
@@ -9089,9 +9205,9 @@
       "area": "historial",
       "intencion": "como_hacer",
       "respuesta_directa": [
-        "Entra a Historial desde tu cuenta autorizada.",
-        "Comprueba en la pantalla la operación, el comercio y el estado que correspondan.",
-        "Si no puedes confirmar el resultado, pide revisión humana."
+        "Solicita al comercio autorizado el estado de tu operación.",
+        "No intentes acceder a registros privados de otro comercio.",
+        "Si hay dudas sobre el pago, conserva folio, monto y hora para soporte."
       ],
       "limite": "El bot no consulta historial privado ni certifica depósitos.",
       "derivacion": {
@@ -9116,7 +9232,7 @@
         "solicitar contraseñas o datos bancarios en el chat"
       ],
       "a11y": {
-        "palabras": 29,
+        "palabras": 31,
         "jerga_evitada": [
           "webhook",
           "SMTP",
