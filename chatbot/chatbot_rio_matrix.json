@@ -1,8 +1,8 @@
 {
   "titulo": "Matriz de ayuda · RÍO / Mercado Abierto",
-  "version": "1.0-R001+R002-contraste",
+  "version": "1.1-R002-TUTORIAL-DOCUMENTAL",
   "fecha": "2026-11-14",
-  "estado": "PROPUESTA_DRAFT_HOLD_F01_Y_SEMILLAS_PENDIENTES",
+  "estado": "PROPUESTA_PENDIENTE_CONCILIAR_SEMILLAS / TUTORIALES_DOCUMENTALES_NO_RUNTIME",
   "procedencia": {
     "q001": "Texto literal aportado en la solicitud del usuario.",
     "q002_q030": "Reconstrucción propuesta a partir de documentación del gateway y del contexto provisto; no se encontraron las 29 semillas literales.",
@@ -46,7 +46,11 @@
     "R2": "No afirmar entrega de correo por aceptación de envío.",
     "R3": "No exponer CLABE, token, password ni endpoint interno.",
     "R4": "No validar el rol titular desde el bot; derivar al acceso oficial.",
-    "R5": "No afirmar que el comprobante es CFDI; no es fiscal."
+    "R5": "No afirmar que el comprobante es CFDI; no es fiscal.",
+    "R6": "Toda mutación requiere confirmación explícita; la guía no ejecuta cambios.",
+    "R7": "Nunca escribir ni prellenar CLABE, token, contraseña, API key, secreto de webhook o código de acceso.",
+    "R8": "Deshacer sólo si está implementado y observado; irreversible requiere doble confirmación. No prometer reversibilidad ficticia.",
+    "R9": "Todo tutorial declara un nivel: manual | asistido | guiado | bloqueado."
   },
   "total_preguntas": 180,
   "semillas": {
@@ -458,7 +462,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T001"
     },
     {
       "id": "Q002",
@@ -513,7 +518,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T008"
     },
     {
       "id": "Q003",
@@ -568,7 +574,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T002"
     },
     {
       "id": "Q004",
@@ -623,7 +630,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T004"
     },
     {
       "id": "Q005",
@@ -678,7 +686,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T009"
     },
     {
       "id": "Q006",
@@ -733,7 +742,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T010"
     },
     {
       "id": "Q007",
@@ -788,7 +798,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T005"
     },
     {
       "id": "Q008",
@@ -843,7 +854,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T011"
     },
     {
       "id": "Q009",
@@ -898,7 +910,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T012"
     },
     {
       "id": "Q010",
@@ -953,7 +966,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T013"
     },
     {
       "id": "Q011",
@@ -1008,7 +1022,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T014"
     },
     {
       "id": "Q012",
@@ -1063,7 +1078,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T015"
     },
     {
       "id": "Q013",
@@ -1118,7 +1134,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T007"
     },
     {
       "id": "Q014",
@@ -1173,7 +1190,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T016"
     },
     {
       "id": "Q015",
@@ -1228,7 +1246,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T017"
     },
     {
       "id": "Q016",
@@ -1284,7 +1303,8 @@
         "R4",
         "R5"
       ],
-      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio).",
+      "tutorial_id": "T018"
     },
     {
       "id": "Q017",
@@ -1340,7 +1360,8 @@
         "R4",
         "R5"
       ],
-      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio).",
+      "tutorial_id": "T019"
     },
     {
       "id": "Q018",
@@ -1396,7 +1417,8 @@
         "R4",
         "R5"
       ],
-      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio).",
+      "tutorial_id": "T020"
     },
     {
       "id": "Q019",
@@ -1452,7 +1474,8 @@
         "R4",
         "R5"
       ],
-      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio).",
+      "tutorial_id": "T021"
     },
     {
       "id": "Q020",
@@ -1508,7 +1531,8 @@
         "R4",
         "R5"
       ],
-      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio).",
+      "tutorial_id": "T022"
     },
     {
       "id": "Q021",
@@ -1564,7 +1588,8 @@
         "R4",
         "R5"
       ],
-      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio).",
+      "tutorial_id": "T023"
     },
     {
       "id": "Q022",
@@ -1619,7 +1644,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T024"
     },
     {
       "id": "Q023",
@@ -1674,7 +1700,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T006"
     },
     {
       "id": "Q024",
@@ -1729,7 +1756,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T025"
     },
     {
       "id": "Q025",
@@ -1784,7 +1812,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T026"
     },
     {
       "id": "Q026",
@@ -1839,7 +1868,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T027"
     },
     {
       "id": "Q027",
@@ -1894,7 +1924,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T028"
     },
     {
       "id": "Q028",
@@ -1949,7 +1980,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T029"
     },
     {
       "id": "Q029",
@@ -2004,7 +2036,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T030"
     },
     {
       "id": "Q030",
@@ -2059,7 +2092,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T031"
     },
     {
       "id": "Q031",
@@ -8619,7 +8653,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T032"
     },
     {
       "id": "Q152",
@@ -8674,7 +8709,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T033"
     },
     {
       "id": "Q153",
@@ -8729,7 +8765,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T034"
     },
     {
       "id": "Q154",
@@ -8784,7 +8821,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T035"
     },
     {
       "id": "Q155",
@@ -8839,7 +8877,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T036"
     },
     {
       "id": "Q156",
@@ -8894,7 +8933,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T037"
     },
     {
       "id": "Q157",
@@ -8949,7 +8989,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T038"
     },
     {
       "id": "Q158",
@@ -9004,7 +9045,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T039"
     },
     {
       "id": "Q159",
@@ -9059,7 +9101,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T040"
     },
     {
       "id": "Q160",
@@ -9114,7 +9157,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T041"
     },
     {
       "id": "Q161",
@@ -9169,7 +9213,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T042"
     },
     {
       "id": "Q162",
@@ -9224,7 +9269,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T043"
     },
     {
       "id": "Q163",
@@ -9279,7 +9325,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T044"
     },
     {
       "id": "Q164",
@@ -9334,7 +9381,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T045"
     },
     {
       "id": "Q165",
@@ -9389,7 +9437,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T046"
     },
     {
       "id": "Q166",
@@ -9445,7 +9494,8 @@
         "R4",
         "R5"
       ],
-      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio).",
+      "tutorial_id": "T047"
     },
     {
       "id": "Q167",
@@ -9501,7 +9551,8 @@
         "R4",
         "R5"
       ],
-      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio).",
+      "tutorial_id": "T048"
     },
     {
       "id": "Q168",
@@ -9557,7 +9608,8 @@
         "R4",
         "R5"
       ],
-      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio).",
+      "tutorial_id": "T049"
     },
     {
       "id": "Q169",
@@ -9613,7 +9665,8 @@
         "R4",
         "R5"
       ],
-      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio).",
+      "tutorial_id": "T050"
     },
     {
       "id": "Q170",
@@ -9669,7 +9722,8 @@
         "R4",
         "R5"
       ],
-      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio).",
+      "tutorial_id": "T051"
     },
     {
       "id": "Q171",
@@ -9725,7 +9779,8 @@
         "R4",
         "R5"
       ],
-      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio).",
+      "tutorial_id": "T052"
     },
     {
       "id": "Q172",
@@ -9780,7 +9835,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T053"
     },
     {
       "id": "Q173",
@@ -9835,7 +9891,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T054"
     },
     {
       "id": "Q174",
@@ -9890,7 +9947,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T055"
     },
     {
       "id": "Q175",
@@ -9945,7 +10003,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T056"
     },
     {
       "id": "Q176",
@@ -10000,7 +10059,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T057"
     },
     {
       "id": "Q177",
@@ -10055,7 +10115,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T058"
     },
     {
       "id": "Q178",
@@ -10110,7 +10171,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T059"
     },
     {
       "id": "Q179",
@@ -10165,7 +10227,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T060"
     },
     {
       "id": "Q180",
@@ -10220,7 +10283,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "tutorial_id": "T061"
     }
   ],
   "auditoria_cruzada_R002": {
@@ -10328,5 +10392,4794 @@
       "mercado",
       "actividad"
     ]
+  },
+  "enlaces_utiles": [
+    {
+      "id": "E01",
+      "titulo": "Acceso oficial Mercado Abierto",
+      "url": "https://rio-pey-codi-gateway.vercel.app/login",
+      "procedencia": "Frontdesk PR29",
+      "verificacion_http": "NOT_OBSERVED"
+    },
+    {
+      "id": "E02",
+      "titulo": "Entrada pública de Primer Cobro",
+      "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+      "procedencia": "Frontdesk PR29",
+      "verificacion_http": "NOT_OBSERVED"
+    },
+    {
+      "id": "E03",
+      "titulo": "Documentación pey/CoDi QR",
+      "url": "https://docs.pey.mx/docs/webhooks/codi/qr",
+      "procedencia": "Proporcionado por el usuario, HTTP no observado",
+      "verificacion_http": "NOT_OBSERVED"
+    },
+    {
+      "id": "E04",
+      "titulo": "Portal de pey",
+      "url": "https://portal.pey.mx/",
+      "procedencia": "Enlace encontrado en HTML PR306",
+      "verificacion_http": "NOT_OBSERVED"
+    },
+    {
+      "id": "E05",
+      "titulo": "CEP Banxico",
+      "url": "https://www.banxico.org.mx/cep/",
+      "procedencia": "Enlace encontrado en HTML PR306",
+      "verificacion_http": "NOT_OBSERVED"
+    },
+    {
+      "id": "E06",
+      "titulo": "Validación CEP Banxico",
+      "url": "https://www.banxico.org.mx/validador-cep-spei/",
+      "procedencia": "Enlace encontrado en HTML PR306",
+      "verificacion_http": "NOT_OBSERVED"
+    }
+  ],
+  "consejos": [
+    {
+      "id": "C01",
+      "texto": "No introducir credenciales ni códigos en el chatbot; usa el acceso oficial."
+    },
+    {
+      "id": "C02",
+      "texto": "Introduce personalmente la llave pey y el secreto de webhook en el formulario autorizado; no los compartas."
+    },
+    {
+      "id": "C03",
+      "texto": "Un QR no demuestra pago: exige confirmación contrastada con pey y trata la liquidación bancaria por separado."
+    },
+    {
+      "id": "C04",
+      "texto": "Cuenta el efectivo recibido, revisa el cambio y evita duplicar folios; no es comprobación de depósito."
+    },
+    {
+      "id": "C05",
+      "texto": "El comprobante no es CFDI ni demuestra entrega efectiva de correo o liquidación bancaria."
+    },
+    {
+      "id": "C06",
+      "texto": "Revisa el comercio seleccionado antes de consultar historial y evita divulgar datos sensibles."
+    },
+    {
+      "id": "C07",
+      "texto": "Para liquidaciones inciertas, consulta banco/CEP oficial; nunca infieras el abono de una captura."
+    }
+  ],
+  "tutoriales": [
+    {
+      "id": "T001",
+      "titulo": "Entrar a tu cuenta",
+      "area": "auth",
+      "actor": "titular",
+      "nivel_automatizacion": "asistido",
+      "fuente_pregunta": "Q001",
+      "prerrequisitos": [
+        "Acceso al sitio oficial"
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Abre la página oficial de acceso.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Abre la página oficial de acceso."
+        },
+        {
+          "n": 2,
+          "texto": "Introduce los datos sólo en su formulario; el bot no los recibe.",
+          "selector": null,
+          "accion": "enfocar",
+          "auto": false,
+          "a11y_label": "Introduce los datos sólo en su formulario; el bot no los recibe."
+        },
+        {
+          "n": 3,
+          "texto": "Revisa que la sesión se haya iniciado mediante el servidor.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Revisa que la sesión se haya iniciado mediante el servidor."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": null,
+        "si_falla": "Q003",
+        "metodo": "manual_no_observado"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E01",
+          "titulo": "Acceso oficial Mercado Abierto",
+          "url": "https://rio-pey-codi-gateway.vercel.app/login",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C01",
+          "texto": "No introducir credenciales ni códigos en el chatbot; usa el acceso oficial."
+        }
+      ],
+      "ataques_resistidos": [
+        "omitir autenticación",
+        "solicitar contraseña"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T002",
+      "titulo": "Recuperar acceso",
+      "area": "auth",
+      "actor": "visitante",
+      "nivel_automatizacion": "asistido",
+      "fuente_pregunta": "Q003",
+      "prerrequisitos": [
+        "Acceso a la página oficial"
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Abre el acceso oficial.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Abre el acceso oficial."
+        },
+        {
+          "n": 2,
+          "texto": "Usa la recuperación que ofrezca ese sitio.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Usa la recuperación que ofrezca ese sitio."
+        },
+        {
+          "n": 3,
+          "texto": "Consulta por tu cuenta el mensaje de recuperación.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Consulta por tu cuenta el mensaje de recuperación."
+        },
+        {
+          "n": 4,
+          "texto": "Si persiste el problema, pide soporte sin enviar códigos.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si persiste el problema, pide soporte sin enviar códigos."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": null,
+        "si_falla": "Q003",
+        "metodo": "manual_no_observado"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E01",
+          "titulo": "Acceso oficial Mercado Abierto",
+          "url": "https://rio-pey-codi-gateway.vercel.app/login",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C01",
+          "texto": "No introducir credenciales ni códigos en el chatbot; usa el acceso oficial."
+        }
+      ],
+      "ataques_resistidos": [
+        "leer códigos por chat",
+        "afirmar entrega de correo"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T003",
+      "titulo": "Conectar pey a tu comercio",
+      "area": "mis_negocios",
+      "actor": "titular",
+      "nivel_automatizacion": "asistido",
+      "fuente_pregunta": null,
+      "prerrequisitos": [
+        "Sesión iniciada como titular",
+        "Comercio activo seleccionado"
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Entra a Mis negocios.",
+          "selector": "nav[aria-label='Áreas del comercio'] a[href='#mis-negocios']",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Entra a Mis negocios."
+        },
+        {
+          "n": 2,
+          "texto": "Elige el comercio correcto.",
+          "selector": "#business-list",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Elige el comercio correcto."
+        },
+        {
+          "n": 3,
+          "texto": "Abre la configuración de pey del comercio activo.",
+          "selector": "#configuracion-pey",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Abre la configuración de pey del comercio activo."
+        },
+        {
+          "n": 4,
+          "texto": "Introduce personalmente API key, secreto del webhook e IDs en el formulario autorizado.",
+          "selector": "#private-pey-key",
+          "accion": "enfocar",
+          "auto": false,
+          "a11y_label": "Introduce personalmente API key, secreto del webhook e IDs en el formulario autorizado."
+        },
+        {
+          "n": 5,
+          "texto": "Revisa y pulsa Guardar configuración sólo con confirmación explícita.",
+          "selector": "#private-pey-form button[type='submit']",
+          "accion": "confirmar_antes",
+          "auto": false,
+          "a11y_label": "Revisa y pulsa Guardar configuración sólo con confirmación explícita."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#private-pey-account-status",
+        "si_falla": "Q012",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E04",
+          "titulo": "Portal de pey",
+          "url": "https://portal.pey.mx/",
+          "procedencia": "Enlace encontrado en HTML PR306",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C02",
+          "texto": "Introduce personalmente la llave pey y el secreto de webhook en el formulario autorizado; no los compartas."
+        }
+      ],
+      "ataques_resistidos": [
+        "rellenar credenciales por el bot",
+        "conectar sin confirmación",
+        "omitir selección de comercio"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T004",
+      "titulo": "Preparar un cobro CoDi",
+      "area": "caja_codi",
+      "actor": "titular",
+      "nivel_automatizacion": "bloqueado",
+      "fuente_pregunta": "Q004",
+      "prerrequisitos": [
+        "Sesión autorizada",
+        "Comercio correcto",
+        "Conexión pey validable"
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Entra a Caja CoDi.",
+          "selector": "#cobro-codi",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Entra a Caja CoDi."
+        },
+        {
+          "n": 2,
+          "texto": "Comprueba el comercio.",
+          "selector": "#charge-merchant",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Comprueba el comercio."
+        },
+        {
+          "n": 3,
+          "texto": "Indica folio.",
+          "selector": "#sale-order",
+          "accion": "enfocar",
+          "auto": false,
+          "a11y_label": "Indica folio."
+        },
+        {
+          "n": 4,
+          "texto": "Revisa concepto e importe.",
+          "selector": "#amount",
+          "accion": "enfocar",
+          "auto": false,
+          "a11y_label": "Revisa concepto e importe."
+        },
+        {
+          "n": 5,
+          "texto": "Solicita manualmente el cobro; el bot no lo genera.",
+          "selector": "#charge-submit",
+          "accion": "confirmar_antes",
+          "auto": false,
+          "a11y_label": "Solicita manualmente el cobro; el bot no lo genera."
+        },
+        {
+          "n": 6,
+          "texto": "Comprueba el estado contra el proveedor, sin inferir liquidación.",
+          "selector": "#charge-result-status",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Comprueba el estado contra el proveedor, sin inferir liquidación."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#charge-result-status",
+        "si_falla": "Q006",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E03",
+          "titulo": "Documentación pey/CoDi QR",
+          "url": "https://docs.pey.mx/docs/webhooks/codi/qr",
+          "procedencia": "Proporcionado por el usuario, HTTP no observado",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C03",
+          "texto": "Un QR no demuestra pago: exige confirmación contrastada con pey y trata la liquidación bancaria por separado."
+        }
+      ],
+      "ataques_resistidos": [
+        "cobrar sin permiso",
+        "considerar QR como pago"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T005",
+      "titulo": "Registrar efectivo",
+      "area": "caja_efectivo",
+      "actor": "titular",
+      "nivel_automatizacion": "guiado",
+      "fuente_pregunta": "Q007",
+      "prerrequisitos": [
+        "Sesión autorizada",
+        "Efectivo contado"
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Abre Efectivo.",
+          "selector": "#cash-tools",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Abre Efectivo."
+        },
+        {
+          "n": 2,
+          "texto": "Captura el importe recibido.",
+          "selector": "#cash-received",
+          "accion": "enfocar",
+          "auto": false,
+          "a11y_label": "Captura el importe recibido."
+        },
+        {
+          "n": 3,
+          "texto": "Compara el cambio.",
+          "selector": "#cash-change",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Compara el cambio."
+        },
+        {
+          "n": 4,
+          "texto": "Confirma y registra manualmente; el bot no envía.",
+          "selector": "#cash-record",
+          "accion": "confirmar_antes",
+          "auto": false,
+          "a11y_label": "Confirma y registra manualmente; el bot no envía."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#cash-status",
+        "si_falla": "Q009",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C04",
+          "texto": "Cuenta el efectivo recibido, revisa el cambio y evita duplicar folios; no es comprobación de depósito."
+        }
+      ],
+      "ataques_resistidos": [
+        "duplicar registro",
+        "suponer depósito bancario"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T006",
+      "titulo": "Consultar y compartir comprobante",
+      "area": "comprobantes",
+      "actor": "titular",
+      "nivel_automatizacion": "asistido",
+      "fuente_pregunta": "Q023",
+      "prerrequisitos": [
+        "Operación existente",
+        "Acceso autorizado"
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Localiza la operación.",
+          "selector": "#result",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Localiza la operación."
+        },
+        {
+          "n": 2,
+          "texto": "Abre el comprobante si existe.",
+          "selector": "#receipt-link",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Abre el comprobante si existe."
+        },
+        {
+          "n": 3,
+          "texto": "Comparte manualmente por un canal autorizado; no hay envío automático.",
+          "selector": "#receipt-status",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Comparte manualmente por un canal autorizado; no hay envío automático."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#receipt-status",
+        "si_falla": "Q024",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C05",
+          "texto": "El comprobante no es CFDI ni demuestra entrega efectiva de correo o liquidación bancaria."
+        }
+      ],
+      "ataques_resistidos": [
+        "enviar correo sin permiso",
+        "confundir CFDI con ticket"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T007",
+      "titulo": "Ver historial",
+      "area": "historial",
+      "actor": "miembro",
+      "nivel_automatizacion": "manual",
+      "fuente_pregunta": "Q013",
+      "prerrequisitos": [
+        "Sesión autorizada",
+        "Comercio seleccionado"
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Abre Historial.",
+          "selector": "a[data-workspace-view='historial']",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Abre Historial."
+        },
+        {
+          "n": 2,
+          "texto": "Revisa el estado en la tabla o lista móvil.",
+          "selector": "#history-table-body",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Revisa el estado en la tabla o lista móvil."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#history-table-body",
+        "si_falla": "Q015",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C06",
+          "texto": "Revisa el comercio seleccionado antes de consultar historial y evita divulgar datos sensibles."
+        }
+      ],
+      "ataques_resistidos": [
+        "ver historial ajeno",
+        "inventar liquidación"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T008",
+      "titulo": "Cómo me registro con un correo",
+      "area": "auth",
+      "actor": "miembro",
+      "nivel_automatizacion": "asistido",
+      "fuente_pregunta": "Q002",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Desde la página oficial, elige la opción de registro.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Desde la página oficial, elige la opción de registro."
+        },
+        {
+          "n": 2,
+          "texto": "Completa el formulario en el sitio, no en el chat.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Completa el formulario en el sitio, no en el chat."
+        },
+        {
+          "n": 3,
+          "texto": "Revisa la verificación de correo que solicite la página.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Revisa la verificación de correo que solicite la página."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": null,
+        "si_falla": "Q091",
+        "metodo": "manual_no_observado"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E01",
+          "titulo": "Acceso oficial Mercado Abierto",
+          "url": "https://rio-pey-codi-gateway.vercel.app/login",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C01",
+          "texto": "No introducir credenciales ni códigos en el chatbot; usa el acceso oficial."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T009",
+      "titulo": "Cómo interpreto un QR CoDi generado",
+      "area": "caja_codi",
+      "actor": "miembro",
+      "nivel_automatizacion": "bloqueado",
+      "fuente_pregunta": "Q005",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Si tu cuenta tiene acceso, abre la solicitud CoDi desde Caja del comercio correcto.",
+          "selector": "#cobro-codi",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si tu cuenta tiene acceso, abre la solicitud CoDi desde Caja del comercio correcto."
+        },
+        {
+          "n": 2,
+          "texto": "Revisa importe y estado: un QR emitido no demuestra que se haya pagado.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Revisa importe y estado: un QR emitido no demuestra que se haya pagado."
+        },
+        {
+          "n": 3,
+          "texto": "Si el resultado es incierto, conserva el folio y solicita revisión autorizada.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si el resultado es incierto, conserva el folio y solicita revisión autorizada."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#charge-result-status",
+        "si_falla": "Q094",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E03",
+          "titulo": "Documentación pey/CoDi QR",
+          "url": "https://docs.pey.mx/docs/webhooks/codi/qr",
+          "procedencia": "Proporcionado por el usuario, HTTP no observado",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C03",
+          "texto": "Un QR no demuestra pago: exige confirmación contrastada con pey y trata la liquidación bancaria por separado."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T010",
+      "titulo": "Cómo reviso un cobro CoDi que sigue sin confirmarse",
+      "area": "caja_codi",
+      "actor": "miembro",
+      "nivel_automatizacion": "bloqueado",
+      "fuente_pregunta": "Q006",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Abre Caja o Historial desde tu cuenta.",
+          "selector": "#cobro-codi",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Abre Caja o Historial desde tu cuenta."
+        },
+        {
+          "n": 2,
+          "texto": "Localiza la operación y revisa el estado disponible.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Localiza la operación y revisa el estado disponible."
+        },
+        {
+          "n": 3,
+          "texto": "Si sigue incierto, pide revisión con folio, monto y hora.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si sigue incierto, pide revisión con folio, monto y hora."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#charge-result-status",
+        "si_falla": "Q094",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E03",
+          "titulo": "Documentación pey/CoDi QR",
+          "url": "https://docs.pey.mx/docs/webhooks/codi/qr",
+          "procedencia": "Proporcionado por el usuario, HTTP no observado",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C03",
+          "texto": "Un QR no demuestra pago: exige confirmación contrastada con pey y trata la liquidación bancaria por separado."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T011",
+      "titulo": "Cómo reviso el cambio que debo entregar",
+      "area": "caja_efectivo",
+      "actor": "miembro",
+      "nivel_automatizacion": "guiado",
+      "fuente_pregunta": "Q008",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Si puedes operar Caja, elige Efectivo y compara total y dinero recibido.",
+          "selector": "#cash-tools",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si puedes operar Caja, elige Efectivo y compara total y dinero recibido."
+        },
+        {
+          "n": 2,
+          "texto": "Revisa el cambio calculado con el dinero contado.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Revisa el cambio calculado con el dinero contado."
+        },
+        {
+          "n": 3,
+          "texto": "Si no tienes permisos o existe una diferencia, pide revisión antes de registrar.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si no tienes permisos o existe una diferencia, pide revisión antes de registrar."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#cash-status",
+        "si_falla": "Q097",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C04",
+          "texto": "Cuenta el efectivo recibido, revisa el cambio y evita duplicar folios; no es comprobación de depósito."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T012",
+      "titulo": "Cómo reviso un importe de efectivo mal capturado",
+      "area": "caja_efectivo",
+      "actor": "miembro",
+      "nivel_automatizacion": "guiado",
+      "fuente_pregunta": "Q009",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "En Caja, selecciona Efectivo y abre «Historial y respaldo de efectivo» del negocio correcto.",
+          "selector": "#cash-tools",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "En Caja, selecciona Efectivo y abre «Historial y respaldo de efectivo» del negocio correcto."
+        },
+        {
+          "n": 2,
+          "texto": "Busca el registro local y compara su importe con el efectivo contado.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Busca el registro local y compara su importe con el efectivo contado."
+        },
+        {
+          "n": 3,
+          "texto": "Si hay una diferencia, conserva folio, monto y hora y solicita revisión; no supongas que puedas borrar la venta.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si hay una diferencia, conserva folio, monto y hora y solicita revisión; no supongas que puedas borrar la venta."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#cash-status",
+        "si_falla": "Q097",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C04",
+          "texto": "Cuenta el efectivo recibido, revisa el cambio y evita duplicar folios; no es comprobación de depósito."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T013",
+      "titulo": "Cómo selecciono el negocio con el que voy a cobrar",
+      "area": "mis_negocios",
+      "actor": "titular",
+      "nivel_automatizacion": "asistido",
+      "fuente_pregunta": "Q010",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Entra a Mis negocios desde tu sesión.",
+          "selector": "#business-list",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Entra a Mis negocios desde tu sesión."
+        },
+        {
+          "n": 2,
+          "texto": "Selecciona el comercio que vas a usar.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Selecciona el comercio que vas a usar."
+        },
+        {
+          "n": 3,
+          "texto": "Comprueba el nombre antes de preparar un cobro.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Comprueba el nombre antes de preparar un cobro."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#business-results",
+        "si_falla": "Q100",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E04",
+          "titulo": "Portal de pey",
+          "url": "https://portal.pey.mx/",
+          "procedencia": "Enlace encontrado en HTML PR306",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C02",
+          "texto": "Introduce personalmente la llave pey y el secreto de webhook en el formulario autorizado; no los compartas."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T014",
+      "titulo": "Cómo identifico si un negocio tiene pey conectado",
+      "area": "mis_negocios",
+      "actor": "miembro",
+      "nivel_automatizacion": "asistido",
+      "fuente_pregunta": "Q011",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Abre Mis negocios y selecciona el comercio.",
+          "selector": "#business-list",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Abre Mis negocios y selecciona el comercio."
+        },
+        {
+          "n": 2,
+          "texto": "Revisa el estado de su conexión pey.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Revisa el estado de su conexión pey."
+        },
+        {
+          "n": 3,
+          "texto": "Si no aparece habilitada, solicita revisión antes de cobrar con CoDi.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si no aparece habilitada, solicita revisión antes de cobrar con CoDi."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#business-results",
+        "si_falla": "Q100",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E04",
+          "titulo": "Portal de pey",
+          "url": "https://portal.pey.mx/",
+          "procedencia": "Enlace encontrado en HTML PR306",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C02",
+          "texto": "Introduce personalmente la llave pey y el secreto de webhook en el formulario autorizado; no los compartas."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T015",
+      "titulo": "Cómo reviso una conexión de pey que no aparece",
+      "area": "mis_negocios",
+      "actor": "miembro",
+      "nivel_automatizacion": "asistido",
+      "fuente_pregunta": "Q012",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Desde Mis negocios, comprueba qué comercio está seleccionado.",
+          "selector": "#business-list",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Desde Mis negocios, comprueba qué comercio está seleccionado."
+        },
+        {
+          "n": 2,
+          "texto": "Revisa el estado disponible de su conexión.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Revisa el estado disponible de su conexión."
+        },
+        {
+          "n": 3,
+          "texto": "Si sigue faltando, informa a soporte sin compartir claves.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si sigue faltando, informa a soporte sin compartir claves."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#business-results",
+        "si_falla": "Q100",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E04",
+          "titulo": "Portal de pey",
+          "url": "https://portal.pey.mx/",
+          "procedencia": "Enlace encontrado en HTML PR306",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C02",
+          "texto": "Introduce personalmente la llave pey y el secreto de webhook en el formulario autorizado; no los compartas."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T016",
+      "titulo": "Cómo distingo un estado pendiente de uno confirmado",
+      "area": "historial",
+      "actor": "miembro",
+      "nivel_automatizacion": "manual",
+      "fuente_pregunta": "Q014",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Localiza la operación en Historial.",
+          "selector": "#historial",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Localiza la operación en Historial."
+        },
+        {
+          "n": 2,
+          "texto": "Lee el estado y el método de cobro.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Lee el estado y el método de cobro."
+        },
+        {
+          "n": 3,
+          "texto": "Para CoDi, confía sólo en confirmación contrastada con PEY.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Para CoDi, confía sólo en confirmación contrastada con PEY."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#history-table-body",
+        "si_falla": "Q103",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C06",
+          "texto": "Revisa el comercio seleccionado antes de consultar historial y evita divulgar datos sensibles."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T017",
+      "titulo": "Cómo reporto un cobro que no aparece en Historial",
+      "area": "historial",
+      "actor": "miembro",
+      "nivel_automatizacion": "manual",
+      "fuente_pregunta": "Q015",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Selecciona el comercio correcto y abre Historial.",
+          "selector": "#historial",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Selecciona el comercio correcto y abre Historial."
+        },
+        {
+          "n": 2,
+          "texto": "Revisa si la operación aparece con otro estado.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Revisa si la operación aparece con otro estado."
+        },
+        {
+          "n": 3,
+          "texto": "Si no figura, solicita revisión con folio, monto y hora.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si no figura, solicita revisión con folio, monto y hora."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#history-table-body",
+        "si_falla": "Q103",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C06",
+          "texto": "Revisa el comercio seleccionado antes de consultar historial y evita divulgar datos sensibles."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T018",
+      "titulo": "Cómo ingreso al área Mercado",
+      "area": "mercado",
+      "actor": "titular",
+      "nivel_automatizacion": "asistido",
+      "fuente_pregunta": "Q016",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Inicia sesión mediante el acceso oficial.",
+          "selector": "[data-owner-area='market']",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Inicia sesión mediante el acceso oficial."
+        },
+        {
+          "n": 2,
+          "texto": "Busca Mercado: esta área es exclusiva del titular de la plataforma, no de cualquier titular de comercio.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Busca Mercado: esta área es exclusiva del titular de la plataforma, no de cualquier titular de comercio."
+        },
+        {
+          "n": 3,
+          "texto": "Si figura deshabilitada, solicita revisión de permisos; el bot no los concede.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si figura deshabilitada, solicita revisión de permisos; el bot no los concede."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "[data-owner-area='market']",
+        "si_falla": "Q106",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C06",
+          "texto": "Revisa el comercio seleccionado antes de consultar historial y evita divulgar datos sensibles."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T019",
+      "titulo": "Cómo sé por qué Mercado pide ser titular",
+      "area": "mercado",
+      "actor": "titular",
+      "nivel_automatizacion": "asistido",
+      "fuente_pregunta": "Q017",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Consulta el menú de áreas después de iniciar sesión.",
+          "selector": "[data-owner-area='market']",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Consulta el menú de áreas después de iniciar sesión."
+        },
+        {
+          "n": 2,
+          "texto": "Distingue Mercado de Mercado Abierto.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Distingue Mercado de Mercado Abierto."
+        },
+        {
+          "n": 3,
+          "texto": "Si el acceso no coincide con tu cuenta, pide revisión a soporte.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si el acceso no coincide con tu cuenta, pide revisión a soporte."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "[data-owner-area='market']",
+        "si_falla": "Q106",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C06",
+          "texto": "Revisa el comercio seleccionado antes de consultar historial y evita divulgar datos sensibles."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T020",
+      "titulo": "Cómo reporto un bloqueo de Mercado siendo titular",
+      "area": "mercado",
+      "actor": "titular",
+      "nivel_automatizacion": "asistido",
+      "fuente_pregunta": "Q018",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Inicia sesión y comprueba el menú de áreas.",
+          "selector": "[data-owner-area='market']",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Inicia sesión y comprueba el menú de áreas."
+        },
+        {
+          "n": 2,
+          "texto": "Registra el aviso visible sin incluir datos secretos.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Registra el aviso visible sin incluir datos secretos."
+        },
+        {
+          "n": 3,
+          "texto": "Solicita revisión a soporte si crees tener acceso autorizado.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Solicita revisión a soporte si crees tener acceso autorizado."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "[data-owner-area='market']",
+        "si_falla": "Q106",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C06",
+          "texto": "Revisa el comercio seleccionado antes de consultar historial y evita divulgar datos sensibles."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T021",
+      "titulo": "Cómo ingreso al área Actividad",
+      "area": "actividad",
+      "actor": "titular",
+      "nivel_automatizacion": "asistido",
+      "fuente_pregunta": "Q019",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Inicia sesión mediante el acceso oficial.",
+          "selector": "#owner-activity-open",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Inicia sesión mediante el acceso oficial."
+        },
+        {
+          "n": 2,
+          "texto": "Busca Actividad: sólo está disponible para el titular de la plataforma autorizado por el servidor.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Busca Actividad: sólo está disponible para el titular de la plataforma autorizado por el servidor."
+        },
+        {
+          "n": 3,
+          "texto": "Si no aparece, pide revisión de acceso sin compartir credenciales.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si no aparece, pide revisión de acceso sin compartir credenciales."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#owner-activity-status",
+        "si_falla": "Q109",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C06",
+          "texto": "Revisa el comercio seleccionado antes de consultar historial y evita divulgar datos sensibles."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T022",
+      "titulo": "Cómo interpreto la información de Actividad",
+      "area": "actividad",
+      "actor": "titular",
+      "nivel_automatizacion": "asistido",
+      "fuente_pregunta": "Q020",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Entra a Actividad sólo si tu cuenta está autorizada.",
+          "selector": "#owner-activity-open",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Entra a Actividad sólo si tu cuenta está autorizada."
+        },
+        {
+          "n": 2,
+          "texto": "Revisa las etiquetas y estados que muestre la pantalla.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Revisa las etiquetas y estados que muestre la pantalla."
+        },
+        {
+          "n": 3,
+          "texto": "Si no están claros, solicita interpretación a soporte sin divulgar datos privados.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si no están claros, solicita interpretación a soporte sin divulgar datos privados."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#owner-activity-status",
+        "si_falla": "Q109",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C06",
+          "texto": "Revisa el comercio seleccionado antes de consultar historial y evita divulgar datos sensibles."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T023",
+      "titulo": "Cómo reporto que Actividad no abre",
+      "area": "actividad",
+      "actor": "titular",
+      "nivel_automatizacion": "asistido",
+      "fuente_pregunta": "Q021",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Revisa el aviso mostrado por la página.",
+          "selector": "#owner-activity-open",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Revisa el aviso mostrado por la página."
+        },
+        {
+          "n": 2,
+          "texto": "Comprueba que la sesión siga abierta.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Comprueba que la sesión siga abierta."
+        },
+        {
+          "n": 3,
+          "texto": "Solicita revisión de acceso sin compartir claves.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Solicita revisión de acceso sin compartir claves."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#owner-activity-status",
+        "si_falla": "Q109",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C06",
+          "texto": "Revisa el comercio seleccionado antes de consultar historial y evita divulgar datos sensibles."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T024",
+      "titulo": "Cómo consulto el comprobante de un pago CoDi",
+      "area": "comprobantes",
+      "actor": "titular",
+      "nivel_automatizacion": "asistido",
+      "fuente_pregunta": "Q022",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "En tu cuenta, localiza la operación correspondiente.",
+          "selector": "#receipt-link",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "En tu cuenta, localiza la operación correspondiente."
+        },
+        {
+          "n": 2,
+          "texto": "Comprueba si CoDi figura confirmado tras validación con PEY.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Comprueba si CoDi figura confirmado tras validación con PEY."
+        },
+        {
+          "n": 3,
+          "texto": "Consulta su comprobante si está disponible o pide revisión.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Consulta su comprobante si está disponible o pide revisión."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#receipt-status",
+        "si_falla": "Q112",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C05",
+          "texto": "El comprobante no es CFDI ni demuestra entrega efectiva de correo o liquidación bancaria."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T025",
+      "titulo": "Cómo reporto que no recibí el correo del comprobante",
+      "area": "comprobantes",
+      "actor": "pagador",
+      "nivel_automatizacion": "manual",
+      "fuente_pregunta": "Q024",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Consulta al comercio si solicitó el correo del comprobante.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Consulta al comercio si solicitó el correo del comprobante."
+        },
+        {
+          "n": 2,
+          "texto": "Un envío aceptado no demuestra que el mensaje llegó.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Un envío aceptado no demuestra que el mensaje llegó."
+        },
+        {
+          "n": 3,
+          "texto": "Si no lo recibes, pide revisión sin enviar contraseñas ni códigos.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si no lo recibes, pide revisión sin enviar contraseñas ni códigos."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": null,
+        "si_falla": "Q112",
+        "metodo": "manual_no_observado"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C05",
+          "texto": "El comprobante no es CFDI ni demuestra entrega efectiva de correo o liquidación bancaria."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T026",
+      "titulo": "Cómo mantengo segura mi sesión",
+      "area": "seguridad",
+      "actor": "titular",
+      "nivel_automatizacion": "manual",
+      "fuente_pregunta": "Q025",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Entra sólo por la página oficial.",
+          "selector": "#logout",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Entra sólo por la página oficial."
+        },
+        {
+          "n": 2,
+          "texto": "No compartas la contraseña ni uses sesiones ajenas.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "No compartas la contraseña ni uses sesiones ajenas."
+        },
+        {
+          "n": 3,
+          "texto": "Cierra tu sesión al terminar de usar el equipo.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Cierra tu sesión al terminar de usar el equipo."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": null,
+        "si_falla": "Q115",
+        "metodo": "manual_no_observado"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E01",
+          "titulo": "Acceso oficial Mercado Abierto",
+          "url": "https://rio-pey-codi-gateway.vercel.app/login",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C01",
+          "texto": "No introducir credenciales ni códigos en el chatbot; usa el acceso oficial."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T027",
+      "titulo": "Cómo pido ayuda sin compartir datos bancarios",
+      "area": "seguridad",
+      "actor": "miembro",
+      "nivel_automatizacion": "manual",
+      "fuente_pregunta": "Q026",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Describe el problema sin escribir números de cuenta.",
+          "selector": "#logout",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Describe el problema sin escribir números de cuenta."
+        },
+        {
+          "n": 2,
+          "texto": "Si corresponde, comparte únicamente folio, monto y hora no sensibles.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si corresponde, comparte únicamente folio, monto y hora no sensibles."
+        },
+        {
+          "n": 3,
+          "texto": "Solicita revisión por el canal oficial.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Solicita revisión por el canal oficial."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": null,
+        "si_falla": "Q115",
+        "metodo": "manual_no_observado"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E01",
+          "titulo": "Acceso oficial Mercado Abierto",
+          "url": "https://rio-pey-codi-gateway.vercel.app/login",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C01",
+          "texto": "No introducir credenciales ni códigos en el chatbot; usa el acceso oficial."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T028",
+      "titulo": "Cómo detecto un comprobante sospechoso",
+      "area": "seguridad",
+      "actor": "pagador",
+      "nivel_automatizacion": "manual",
+      "fuente_pregunta": "Q027",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "No te bases sólo en una imagen o captura.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "No te bases sólo en una imagen o captura."
+        },
+        {
+          "n": 2,
+          "texto": "Comprueba el registro con la verificación oficial disponible.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Comprueba el registro con la verificación oficial disponible."
+        },
+        {
+          "n": 3,
+          "texto": "Si no coincide o sigue incierto, pide revisión antes de entregar mercancía.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si no coincide o sigue incierto, pide revisión antes de entregar mercancía."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": null,
+        "si_falla": "Q115",
+        "metodo": "manual_no_observado"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E01",
+          "titulo": "Acceso oficial Mercado Abierto",
+          "url": "https://rio-pey-codi-gateway.vercel.app/login",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C01",
+          "texto": "No introducir credenciales ni códigos en el chatbot; usa el acceso oficial."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T029",
+      "titulo": "Cómo distingo Mercado Abierto de Mercado",
+      "area": "general",
+      "actor": "titular",
+      "nivel_automatizacion": "manual",
+      "fuente_pregunta": "Q028",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Revisa el menú después de iniciar sesión.",
+          "selector": "#dashboard",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Revisa el menú después de iniciar sesión."
+        },
+        {
+          "n": 2,
+          "texto": "Identifica Mercado Abierto como área general y Mercado como área restringida.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Identifica Mercado Abierto como área general y Mercado como área restringida."
+        },
+        {
+          "n": 3,
+          "texto": "Consulta los permisos desde la plataforma si tienes dudas.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Consulta los permisos desde la plataforma si tienes dudas."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": null,
+        "si_falla": "Q118",
+        "metodo": "manual_no_observado"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C07",
+          "texto": "Para liquidaciones inciertas, consulta banco/CEP oficial; nunca infieras el abono de una captura."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T030",
+      "titulo": "Cómo compruebo si una transferencia quedó pagada",
+      "area": "general",
+      "actor": "miembro",
+      "nivel_automatizacion": "bloqueado",
+      "fuente_pregunta": "Q029",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Consulta el estado de la operación dentro de tu cuenta.",
+          "selector": "#dashboard",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Consulta el estado de la operación dentro de tu cuenta."
+        },
+        {
+          "n": 2,
+          "texto": "Para CoDi, espera confirmación contrastada por la aplicación con PEY.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Para CoDi, espera confirmación contrastada por la aplicación con PEY."
+        },
+        {
+          "n": 3,
+          "texto": "Si no existe, conserva folio, monto y hora y pide revisión.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si no existe, conserva folio, monto y hora y pide revisión."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": null,
+        "si_falla": "Q118",
+        "metodo": "manual_no_observado"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C07",
+          "texto": "Para liquidaciones inciertas, consulta banco/CEP oficial; nunca infieras el abono de una captura."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T031",
+      "titulo": "Cómo sé qué puede resolver este chatbot",
+      "area": "general",
+      "actor": "pagador",
+      "nivel_automatizacion": "manual",
+      "fuente_pregunta": "Q030",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Describe la duda sobre acceso, caja, negocios o comprobantes.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Describe la duda sobre acceso, caja, negocios o comprobantes."
+        },
+        {
+          "n": 2,
+          "texto": "Sigue las instrucciones generales que correspondan.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Sigue las instrucciones generales que correspondan."
+        },
+        {
+          "n": 3,
+          "texto": "Deriva a soporte cuando haya pagos, permisos, correos o datos que verificar.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Deriva a soporte cuando haya pagos, permisos, correos o datos que verificar."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": null,
+        "si_falla": "Q118",
+        "metodo": "manual_no_observado"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C07",
+          "texto": "Para liquidaciones inciertas, consulta banco/CEP oficial; nunca infieras el abono de una captura."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T032",
+      "titulo": "Cómo aclaro el ingreso a la cuenta si sigo con dudas",
+      "area": "auth",
+      "actor": "miembro",
+      "nivel_automatizacion": "asistido",
+      "fuente_pregunta": "Q151",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Abre la página oficial de acceso.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Abre la página oficial de acceso."
+        },
+        {
+          "n": 2,
+          "texto": "Comprueba en la pantalla la operación, el comercio y el estado que correspondan.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Comprueba en la pantalla la operación, el comercio y el estado que correspondan."
+        },
+        {
+          "n": 3,
+          "texto": "Si no puedes confirmar el resultado, pide revisión humana.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si no puedes confirmar el resultado, pide revisión humana."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": null,
+        "si_falla": "Q091",
+        "metodo": "manual_no_observado"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E01",
+          "titulo": "Acceso oficial Mercado Abierto",
+          "url": "https://rio-pey-codi-gateway.vercel.app/login",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C01",
+          "texto": "No introducir credenciales ni códigos en el chatbot; usa el acceso oficial."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T033",
+      "titulo": "Cómo aclaro el registro de una cuenta si sigo con dudas",
+      "area": "auth",
+      "actor": "titular",
+      "nivel_automatizacion": "asistido",
+      "fuente_pregunta": "Q152",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Desde la página oficial, elige la opción de registro.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Desde la página oficial, elige la opción de registro."
+        },
+        {
+          "n": 2,
+          "texto": "Comprueba en la pantalla la operación, el comercio y el estado que correspondan.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Comprueba en la pantalla la operación, el comercio y el estado que correspondan."
+        },
+        {
+          "n": 3,
+          "texto": "Si no puedes confirmar el resultado, pide revisión humana.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si no puedes confirmar el resultado, pide revisión humana."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": null,
+        "si_falla": "Q091",
+        "metodo": "manual_no_observado"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E01",
+          "titulo": "Acceso oficial Mercado Abierto",
+          "url": "https://rio-pey-codi-gateway.vercel.app/login",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C01",
+          "texto": "No introducir credenciales ni códigos en el chatbot; usa el acceso oficial."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T034",
+      "titulo": "Cómo aclaro la recuperación del acceso si sigo con dudas",
+      "area": "auth",
+      "actor": "miembro",
+      "nivel_automatizacion": "asistido",
+      "fuente_pregunta": "Q153",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Abre el acceso oficial y busca la recuperación de cuenta.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Abre el acceso oficial y busca la recuperación de cuenta."
+        },
+        {
+          "n": 2,
+          "texto": "Comprueba en la pantalla la operación, el comercio y el estado que correspondan.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Comprueba en la pantalla la operación, el comercio y el estado que correspondan."
+        },
+        {
+          "n": 3,
+          "texto": "Si no puedes confirmar el resultado, pide revisión humana.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si no puedes confirmar el resultado, pide revisión humana."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": null,
+        "si_falla": "Q091",
+        "metodo": "manual_no_observado"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E01",
+          "titulo": "Acceso oficial Mercado Abierto",
+          "url": "https://rio-pey-codi-gateway.vercel.app/login",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C01",
+          "texto": "No introducir credenciales ni códigos en el chatbot; usa el acceso oficial."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T035",
+      "titulo": "Cómo aclaro la preparación de un cobro CoDi si sigo con dudas",
+      "area": "caja_codi",
+      "actor": "pagador",
+      "nivel_automatizacion": "manual",
+      "fuente_pregunta": "Q154",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Pide al comercio el estado de tu solicitud CoDi.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Pide al comercio el estado de tu solicitud CoDi."
+        },
+        {
+          "n": 2,
+          "texto": "Un QR o una captura no confirma el dinero; el comercio debe contrastarlo con PEY.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Un QR o una captura no confirma el dinero; el comercio debe contrastarlo con PEY."
+        },
+        {
+          "n": 3,
+          "texto": "Si no está claro, solicita revisión con el folio.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si no está claro, solicita revisión con el folio."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": null,
+        "si_falla": "Q094",
+        "metodo": "manual_no_observado"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E03",
+          "titulo": "Documentación pey/CoDi QR",
+          "url": "https://docs.pey.mx/docs/webhooks/codi/qr",
+          "procedencia": "Proporcionado por el usuario, HTTP no observado",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C03",
+          "texto": "Un QR no demuestra pago: exige confirmación contrastada con pey y trata la liquidación bancaria por separado."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T036",
+      "titulo": "Cómo aclaro el significado de un QR CoDi si sigo con dudas",
+      "area": "caja_codi",
+      "actor": "titular",
+      "nivel_automatizacion": "bloqueado",
+      "fuente_pregunta": "Q155",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Desde Caja, abre la solicitud CoDi del comercio.",
+          "selector": "#cobro-codi",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Desde Caja, abre la solicitud CoDi del comercio."
+        },
+        {
+          "n": 2,
+          "texto": "Un QR o una captura no confirma el cobro; revisa el estado contrastado con PEY.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Un QR o una captura no confirma el cobro; revisa el estado contrastado con PEY."
+        },
+        {
+          "n": 3,
+          "texto": "Si no puedes confirmar el resultado, pide revisión humana.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si no puedes confirmar el resultado, pide revisión humana."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#charge-result-status",
+        "si_falla": "Q094",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E03",
+          "titulo": "Documentación pey/CoDi QR",
+          "url": "https://docs.pey.mx/docs/webhooks/codi/qr",
+          "procedencia": "Proporcionado por el usuario, HTTP no observado",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C03",
+          "texto": "Un QR no demuestra pago: exige confirmación contrastada con pey y trata la liquidación bancaria por separado."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T037",
+      "titulo": "Cómo aclaro la confirmación pendiente de CoDi si sigo con dudas",
+      "area": "caja_codi",
+      "actor": "miembro",
+      "nivel_automatizacion": "bloqueado",
+      "fuente_pregunta": "Q156",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Abre Caja o Historial desde tu cuenta.",
+          "selector": "#cobro-codi",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Abre Caja o Historial desde tu cuenta."
+        },
+        {
+          "n": 2,
+          "texto": "Un QR o una captura no confirma el cobro; revisa el estado contrastado con PEY.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Un QR o una captura no confirma el cobro; revisa el estado contrastado con PEY."
+        },
+        {
+          "n": 3,
+          "texto": "Si no puedes confirmar el resultado, pide revisión humana.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si no puedes confirmar el resultado, pide revisión humana."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#charge-result-status",
+        "si_falla": "Q094",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E03",
+          "titulo": "Documentación pey/CoDi QR",
+          "url": "https://docs.pey.mx/docs/webhooks/codi/qr",
+          "procedencia": "Proporcionado por el usuario, HTTP no observado",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C03",
+          "texto": "Un QR no demuestra pago: exige confirmación contrastada con pey y trata la liquidación bancaria por separado."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T038",
+      "titulo": "Cómo aclaro el registro manual de efectivo si sigo con dudas",
+      "area": "caja_efectivo",
+      "actor": "pagador",
+      "nivel_automatizacion": "manual",
+      "fuente_pregunta": "Q157",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Aclara directamente con el comercio el importe que entregaste.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Aclara directamente con el comercio el importe que entregaste."
+        },
+        {
+          "n": 2,
+          "texto": "El registro de efectivo es una declaración local, no un depósito bancario.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "El registro de efectivo es una declaración local, no un depósito bancario."
+        },
+        {
+          "n": 3,
+          "texto": "Ante una diferencia, solicita revisión con el folio.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Ante una diferencia, solicita revisión con el folio."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": null,
+        "si_falla": "Q097",
+        "metodo": "manual_no_observado"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C04",
+          "texto": "Cuenta el efectivo recibido, revisa el cambio y evita duplicar folios; no es comprobación de depósito."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T039",
+      "titulo": "Cómo calculo el total de productos por piezas o peso en Caja",
+      "area": "caja_efectivo",
+      "actor": "titular",
+      "nivel_automatizacion": "guiado",
+      "fuente_pregunta": "Q158",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Si tienes permiso para operar Caja, abre «Carrito de productos · piezas o peso».",
+          "selector": "#cash-tools",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si tienes permiso para operar Caja, abre «Carrito de productos · piezas o peso»."
+        },
+        {
+          "n": 2,
+          "texto": "Indica precio, cantidad y unidad y revisa el total calculado.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Indica precio, cantidad y unidad y revisa el total calculado."
+        },
+        {
+          "n": 3,
+          "texto": "Usa «Usar carrito en el cobro» sólo si corresponde a la venta actual.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Usa «Usar carrito en el cobro» sólo si corresponde a la venta actual."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#cash-status",
+        "si_falla": "Q097",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C04",
+          "texto": "Cuenta el efectivo recibido, revisa el cambio y evita duplicar folios; no es comprobación de depósito."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T040",
+      "titulo": "Cómo aclaro la corrección de un importe de efectivo si sigo con dudas",
+      "area": "caja_efectivo",
+      "actor": "miembro",
+      "nivel_automatizacion": "guiado",
+      "fuente_pregunta": "Q159",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Abre Caja → Efectivo → «Historial y respaldo de efectivo» del negocio correcto.",
+          "selector": "#cash-tools",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Abre Caja → Efectivo → «Historial y respaldo de efectivo» del negocio correcto."
+        },
+        {
+          "n": 2,
+          "texto": "Consulta el registro guardado en este navegador para ese usuario y comercio.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Consulta el registro guardado en este navegador para ese usuario y comercio."
+        },
+        {
+          "n": 3,
+          "texto": "Si no coincide, conserva el folio y solicita revisión sin modificar el respaldo original.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si no coincide, conserva el folio y solicita revisión sin modificar el respaldo original."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#cash-status",
+        "si_falla": "Q097",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C04",
+          "texto": "Cuenta el efectivo recibido, revisa el cambio y evita duplicar folios; no es comprobación de depósito."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T041",
+      "titulo": "Cómo aclaro la selección del negocio activo si sigo con dudas",
+      "area": "mis_negocios",
+      "actor": "no_titular",
+      "nivel_automatizacion": "asistido",
+      "fuente_pregunta": "Q160",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Inicia sesión únicamente con una cuenta autorizada.",
+          "selector": "#business-list",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Inicia sesión únicamente con una cuenta autorizada."
+        },
+        {
+          "n": 2,
+          "texto": "Revisa sólo los negocios que la plataforma te permite consultar.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Revisa sólo los negocios que la plataforma te permite consultar."
+        },
+        {
+          "n": 3,
+          "texto": "Si el negocio no aparece, solicita revisión de permisos sin compartir claves.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si el negocio no aparece, solicita revisión de permisos sin compartir claves."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#business-results",
+        "si_falla": "Q100",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E04",
+          "titulo": "Portal de pey",
+          "url": "https://portal.pey.mx/",
+          "procedencia": "Enlace encontrado en HTML PR306",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C02",
+          "texto": "Introduce personalmente la llave pey y el secreto de webhook en el formulario autorizado; no los compartas."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T042",
+      "titulo": "Cómo aclaro el estado de conexión de pey por negocio si sigo con dudas",
+      "area": "mis_negocios",
+      "actor": "titular",
+      "nivel_automatizacion": "asistido",
+      "fuente_pregunta": "Q161",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Abre Mis negocios y selecciona el comercio.",
+          "selector": "#business-list",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Abre Mis negocios y selecciona el comercio."
+        },
+        {
+          "n": 2,
+          "texto": "Comprueba en la pantalla la operación, el comercio y el estado que correspondan.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Comprueba en la pantalla la operación, el comercio y el estado que correspondan."
+        },
+        {
+          "n": 3,
+          "texto": "Si no puedes confirmar el resultado, pide revisión humana.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si no puedes confirmar el resultado, pide revisión humana."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#business-results",
+        "si_falla": "Q100",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E04",
+          "titulo": "Portal de pey",
+          "url": "https://portal.pey.mx/",
+          "procedencia": "Enlace encontrado en HTML PR306",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C02",
+          "texto": "Introduce personalmente la llave pey y el secreto de webhook en el formulario autorizado; no los compartas."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T043",
+      "titulo": "Cómo aclaro la conexión pey ausente de un comercio si sigo con dudas",
+      "area": "mis_negocios",
+      "actor": "miembro",
+      "nivel_automatizacion": "asistido",
+      "fuente_pregunta": "Q162",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Desde Mis negocios, comprueba qué comercio está seleccionado.",
+          "selector": "#business-list",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Desde Mis negocios, comprueba qué comercio está seleccionado."
+        },
+        {
+          "n": 2,
+          "texto": "Comprueba en la pantalla la operación, el comercio y el estado que correspondan.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Comprueba en la pantalla la operación, el comercio y el estado que correspondan."
+        },
+        {
+          "n": 3,
+          "texto": "Si no puedes confirmar el resultado, pide revisión humana.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si no puedes confirmar el resultado, pide revisión humana."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#business-results",
+        "si_falla": "Q100",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E04",
+          "titulo": "Portal de pey",
+          "url": "https://portal.pey.mx/",
+          "procedencia": "Enlace encontrado en HTML PR306",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C02",
+          "texto": "Introduce personalmente la llave pey y el secreto de webhook en el formulario autorizado; no los compartas."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T044",
+      "titulo": "Cómo aclaro la consulta del historial de ventas si sigo con dudas",
+      "area": "historial",
+      "actor": "visitante",
+      "nivel_automatizacion": "manual",
+      "fuente_pregunta": "Q163",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Solicita al comercio autorizado el estado de tu operación.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Solicita al comercio autorizado el estado de tu operación."
+        },
+        {
+          "n": 2,
+          "texto": "No intentes acceder a registros privados de otro comercio.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "No intentes acceder a registros privados de otro comercio."
+        },
+        {
+          "n": 3,
+          "texto": "Si hay dudas sobre el pago, conserva folio, monto y hora para soporte.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si hay dudas sobre el pago, conserva folio, monto y hora para soporte."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": null,
+        "si_falla": "Q103",
+        "metodo": "manual_no_observado"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C06",
+          "texto": "Revisa el comercio seleccionado antes de consultar historial y evita divulgar datos sensibles."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T045",
+      "titulo": "Cómo aclaro la diferencia entre pendiente y confirmado si sigo con dudas",
+      "area": "historial",
+      "actor": "titular",
+      "nivel_automatizacion": "manual",
+      "fuente_pregunta": "Q164",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Localiza la operación en Historial.",
+          "selector": "#historial",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Localiza la operación en Historial."
+        },
+        {
+          "n": 2,
+          "texto": "Comprueba en la pantalla la operación, el comercio y el estado que correspondan.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Comprueba en la pantalla la operación, el comercio y el estado que correspondan."
+        },
+        {
+          "n": 3,
+          "texto": "Si no puedes confirmar el resultado, pide revisión humana.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si no puedes confirmar el resultado, pide revisión humana."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#history-table-body",
+        "si_falla": "Q103",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C06",
+          "texto": "Revisa el comercio seleccionado antes de consultar historial y evita divulgar datos sensibles."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T046",
+      "titulo": "Cómo aclaro la ausencia de una operación en Historial si sigo con dudas",
+      "area": "historial",
+      "actor": "miembro",
+      "nivel_automatizacion": "manual",
+      "fuente_pregunta": "Q165",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Selecciona el comercio correcto y abre Historial.",
+          "selector": "#historial",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Selecciona el comercio correcto y abre Historial."
+        },
+        {
+          "n": 2,
+          "texto": "Comprueba en la pantalla la operación, el comercio y el estado que correspondan.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Comprueba en la pantalla la operación, el comercio y el estado que correspondan."
+        },
+        {
+          "n": 3,
+          "texto": "Si no puedes confirmar el resultado, pide revisión humana.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si no puedes confirmar el resultado, pide revisión humana."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#history-table-body",
+        "si_falla": "Q103",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C06",
+          "texto": "Revisa el comercio seleccionado antes de consultar historial y evita divulgar datos sensibles."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T047",
+      "titulo": "Cómo aclaro el acceso al área Mercado si sigo con dudas",
+      "area": "mercado",
+      "actor": "visitante",
+      "nivel_automatizacion": "manual",
+      "fuente_pregunta": "Q166",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Abre la página oficial de acceso.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Abre la página oficial de acceso."
+        },
+        {
+          "n": 2,
+          "texto": "Inicia sesión con tu propia cuenta; el sistema determina qué áreas puedes usar.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Inicia sesión con tu propia cuenta; el sistema determina qué áreas puedes usar."
+        },
+        {
+          "n": 3,
+          "texto": "Si no tienes el permiso, solicita orientación sin compartir contraseñas.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si no tienes el permiso, solicita orientación sin compartir contraseñas."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": null,
+        "si_falla": "Q106",
+        "metodo": "manual_no_observado"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C06",
+          "texto": "Revisa el comercio seleccionado antes de consultar historial y evita divulgar datos sensibles."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T048",
+      "titulo": "Cómo aclaro la restricción de titular en Mercado si sigo con dudas",
+      "area": "mercado",
+      "actor": "titular",
+      "nivel_automatizacion": "asistido",
+      "fuente_pregunta": "Q167",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Consulta el menú de áreas después de iniciar sesión.",
+          "selector": "[data-owner-area='market']",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Consulta el menú de áreas después de iniciar sesión."
+        },
+        {
+          "n": 2,
+          "texto": "Comprueba en la pantalla la operación, el comercio y el estado que correspondan.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Comprueba en la pantalla la operación, el comercio y el estado que correspondan."
+        },
+        {
+          "n": 3,
+          "texto": "Si no puedes confirmar el resultado, pide revisión humana.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si no puedes confirmar el resultado, pide revisión humana."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "[data-owner-area='market']",
+        "si_falla": "Q106",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C06",
+          "texto": "Revisa el comercio seleccionado antes de consultar historial y evita divulgar datos sensibles."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T049",
+      "titulo": "Cómo aclaro la revisión del bloqueo de Mercado si sigo con dudas",
+      "area": "mercado",
+      "actor": "titular",
+      "nivel_automatizacion": "asistido",
+      "fuente_pregunta": "Q168",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Inicia sesión y comprueba el menú de áreas.",
+          "selector": "[data-owner-area='market']",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Inicia sesión y comprueba el menú de áreas."
+        },
+        {
+          "n": 2,
+          "texto": "Comprueba en la pantalla la operación, el comercio y el estado que correspondan.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Comprueba en la pantalla la operación, el comercio y el estado que correspondan."
+        },
+        {
+          "n": 3,
+          "texto": "Si no puedes confirmar el resultado, pide revisión humana.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si no puedes confirmar el resultado, pide revisión humana."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "[data-owner-area='market']",
+        "si_falla": "Q106",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C06",
+          "texto": "Revisa el comercio seleccionado antes de consultar historial y evita divulgar datos sensibles."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T050",
+      "titulo": "Cómo aclaro el acceso al área Actividad si sigo con dudas",
+      "area": "actividad",
+      "actor": "visitante",
+      "nivel_automatizacion": "manual",
+      "fuente_pregunta": "Q169",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Abre la página oficial de acceso.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Abre la página oficial de acceso."
+        },
+        {
+          "n": 2,
+          "texto": "Inicia sesión con tu propia cuenta; el sistema determina qué áreas puedes usar.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Inicia sesión con tu propia cuenta; el sistema determina qué áreas puedes usar."
+        },
+        {
+          "n": 3,
+          "texto": "Si no tienes el permiso, solicita orientación sin compartir contraseñas.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si no tienes el permiso, solicita orientación sin compartir contraseñas."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": null,
+        "si_falla": "Q109",
+        "metodo": "manual_no_observado"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C06",
+          "texto": "Revisa el comercio seleccionado antes de consultar historial y evita divulgar datos sensibles."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T051",
+      "titulo": "Cómo aclaro la lectura del área Actividad si sigo con dudas",
+      "area": "actividad",
+      "actor": "titular",
+      "nivel_automatizacion": "asistido",
+      "fuente_pregunta": "Q170",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Entra a Actividad sólo si tu cuenta está autorizada.",
+          "selector": "#owner-activity-open",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Entra a Actividad sólo si tu cuenta está autorizada."
+        },
+        {
+          "n": 2,
+          "texto": "Comprueba en la pantalla la operación, el comercio y el estado que correspondan.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Comprueba en la pantalla la operación, el comercio y el estado que correspondan."
+        },
+        {
+          "n": 3,
+          "texto": "Si no puedes confirmar el resultado, pide revisión humana.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si no puedes confirmar el resultado, pide revisión humana."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#owner-activity-status",
+        "si_falla": "Q109",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C06",
+          "texto": "Revisa el comercio seleccionado antes de consultar historial y evita divulgar datos sensibles."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T052",
+      "titulo": "Cómo aclaro el error al abrir Actividad si sigo con dudas",
+      "area": "actividad",
+      "actor": "titular",
+      "nivel_automatizacion": "asistido",
+      "fuente_pregunta": "Q171",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Revisa el aviso mostrado por la página.",
+          "selector": "#owner-activity-open",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Revisa el aviso mostrado por la página."
+        },
+        {
+          "n": 2,
+          "texto": "Comprueba en la pantalla la operación, el comercio y el estado que correspondan.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Comprueba en la pantalla la operación, el comercio y el estado que correspondan."
+        },
+        {
+          "n": 3,
+          "texto": "Si no puedes confirmar el resultado, pide revisión humana.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si no puedes confirmar el resultado, pide revisión humana."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#owner-activity-status",
+        "si_falla": "Q109",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C06",
+          "texto": "Revisa el comercio seleccionado antes de consultar historial y evita divulgar datos sensibles."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T053",
+      "titulo": "Cómo aclaro el comprobante de un pago CoDi si sigo con dudas",
+      "area": "comprobantes",
+      "actor": "titular",
+      "nivel_automatizacion": "asistido",
+      "fuente_pregunta": "Q172",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "En tu cuenta, localiza la operación correspondiente.",
+          "selector": "#receipt-link",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "En tu cuenta, localiza la operación correspondiente."
+        },
+        {
+          "n": 2,
+          "texto": "El comprobante no es una factura fiscal y el correo enviado puede no haber llegado.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "El comprobante no es una factura fiscal y el correo enviado puede no haber llegado."
+        },
+        {
+          "n": 3,
+          "texto": "Si no puedes confirmar el resultado, pide revisión humana.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si no puedes confirmar el resultado, pide revisión humana."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#receipt-status",
+        "si_falla": "Q112",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C05",
+          "texto": "El comprobante no es CFDI ni demuestra entrega efectiva de correo o liquidación bancaria."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T054",
+      "titulo": "Cómo aclaro la verificación de un QR de comprobante si sigo con dudas",
+      "area": "comprobantes",
+      "actor": "titular",
+      "nivel_automatizacion": "asistido",
+      "fuente_pregunta": "Q173",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Abre la opción de verificación del comprobante disponible.",
+          "selector": "#receipt-link",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Abre la opción de verificación del comprobante disponible."
+        },
+        {
+          "n": 2,
+          "texto": "El comprobante no es una factura fiscal y el correo enviado puede no haber llegado.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "El comprobante no es una factura fiscal y el correo enviado puede no haber llegado."
+        },
+        {
+          "n": 3,
+          "texto": "Si no puedes confirmar el resultado, pide revisión humana.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si no puedes confirmar el resultado, pide revisión humana."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#receipt-status",
+        "si_falla": "Q112",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C05",
+          "texto": "El comprobante no es CFDI ni demuestra entrega efectiva de correo o liquidación bancaria."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T055",
+      "titulo": "Cómo consulto el comprobante si no se envió por correo",
+      "area": "comprobantes",
+      "actor": "miembro",
+      "nivel_automatizacion": "asistido",
+      "fuente_pregunta": "Q174",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Si tienes acceso a la operación, consulta su estado desde la cuenta oficial.",
+          "selector": "#receipt-link",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si tienes acceso a la operación, consulta su estado desde la cuenta oficial."
+        },
+        {
+          "n": 2,
+          "texto": "Cuando el pago esté reportado por PEY y el comprobante se haya emitido, abre «Abrir comprobante verificable» si aparece.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Cuando el pago esté reportado por PEY y el comprobante se haya emitido, abre «Abrir comprobante verificable» si aparece."
+        },
+        {
+          "n": 3,
+          "texto": "El envío desactivado no acredita ni impide por sí solo el pago; el comprobante no es una factura fiscal.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "El envío desactivado no acredita ni impide por sí solo el pago; el comprobante no es una factura fiscal."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": "#receipt-status",
+        "si_falla": "Q112",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C05",
+          "texto": "El comprobante no es CFDI ni demuestra entrega efectiva de correo o liquidación bancaria."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T056",
+      "titulo": "Cómo aclaro la protección de mi sesión si sigo con dudas",
+      "area": "seguridad",
+      "actor": "titular",
+      "nivel_automatizacion": "manual",
+      "fuente_pregunta": "Q175",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Entra sólo por la página oficial.",
+          "selector": "#logout",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Entra sólo por la página oficial."
+        },
+        {
+          "n": 2,
+          "texto": "Comprueba en la pantalla la operación, el comercio y el estado que correspondan.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Comprueba en la pantalla la operación, el comercio y el estado que correspondan."
+        },
+        {
+          "n": 3,
+          "texto": "Si no puedes confirmar el resultado, pide revisión humana.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si no puedes confirmar el resultado, pide revisión humana."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": null,
+        "si_falla": "Q115",
+        "metodo": "manual_no_observado"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E01",
+          "titulo": "Acceso oficial Mercado Abierto",
+          "url": "https://rio-pey-codi-gateway.vercel.app/login",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C01",
+          "texto": "No introducir credenciales ni códigos en el chatbot; usa el acceso oficial."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T057",
+      "titulo": "Cómo aclaro la ayuda sin compartir datos sensibles si sigo con dudas",
+      "area": "seguridad",
+      "actor": "titular",
+      "nivel_automatizacion": "manual",
+      "fuente_pregunta": "Q176",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Describe el problema sin escribir números de cuenta.",
+          "selector": "#logout",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Describe el problema sin escribir números de cuenta."
+        },
+        {
+          "n": 2,
+          "texto": "Comprueba en la pantalla la operación, el comercio y el estado que correspondan.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Comprueba en la pantalla la operación, el comercio y el estado que correspondan."
+        },
+        {
+          "n": 3,
+          "texto": "Si no puedes confirmar el resultado, pide revisión humana.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si no puedes confirmar el resultado, pide revisión humana."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": null,
+        "si_falla": "Q115",
+        "metodo": "manual_no_observado"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E01",
+          "titulo": "Acceso oficial Mercado Abierto",
+          "url": "https://rio-pey-codi-gateway.vercel.app/login",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C01",
+          "texto": "No introducir credenciales ni códigos en el chatbot; usa el acceso oficial."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T058",
+      "titulo": "Cómo aclaro la revisión de un comprobante sospechoso si sigo con dudas",
+      "area": "seguridad",
+      "actor": "miembro",
+      "nivel_automatizacion": "manual",
+      "fuente_pregunta": "Q177",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "No te bases sólo en una imagen o captura.",
+          "selector": "#logout",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "No te bases sólo en una imagen o captura."
+        },
+        {
+          "n": 2,
+          "texto": "Comprueba en la pantalla la operación, el comercio y el estado que correspondan.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Comprueba en la pantalla la operación, el comercio y el estado que correspondan."
+        },
+        {
+          "n": 3,
+          "texto": "Si no puedes confirmar el resultado, pide revisión humana.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si no puedes confirmar el resultado, pide revisión humana."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": null,
+        "si_falla": "Q115",
+        "metodo": "manual_no_observado"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E01",
+          "titulo": "Acceso oficial Mercado Abierto",
+          "url": "https://rio-pey-codi-gateway.vercel.app/login",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C01",
+          "texto": "No introducir credenciales ni códigos en el chatbot; usa el acceso oficial."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T059",
+      "titulo": "Cómo encuentro Mercado Abierto desde el menú",
+      "area": "general",
+      "actor": "titular",
+      "nivel_automatizacion": "manual",
+      "fuente_pregunta": "Q178",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Inicia sesión y abre el menú de áreas.",
+          "selector": "#dashboard",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Inicia sesión y abre el menú de áreas."
+        },
+        {
+          "n": 2,
+          "texto": "Elige «Mercado Abierto» para la sección comercial general; es diferente del área «Mercado» reservada al titular de plataforma.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Elige «Mercado Abierto» para la sección comercial general; es diferente del área «Mercado» reservada al titular de plataforma."
+        },
+        {
+          "n": 3,
+          "texto": "Si el enlace falla, conserva el mensaje visible y pide revisión sin enviar claves.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si el enlace falla, conserva el mensaje visible y pide revisión sin enviar claves."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": null,
+        "si_falla": "Q118",
+        "metodo": "manual_no_observado"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C07",
+          "texto": "Para liquidaciones inciertas, consulta banco/CEP oficial; nunca infieras el abono de una captura."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T060",
+      "titulo": "Cómo aclaro la comprobación de una transferencia o CoDi si sigo con dudas",
+      "area": "general",
+      "actor": "titular",
+      "nivel_automatizacion": "bloqueado",
+      "fuente_pregunta": "Q179",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Primero inicia sesión desde el acceso oficial; el bot no puede abrir tu cuenta.",
+          "selector": "#dashboard",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Primero inicia sesión desde el acceso oficial; el bot no puede abrir tu cuenta."
+        },
+        {
+          "n": 2,
+          "texto": "Selecciona el comercio correcto y consulta la operación en Caja o Historial, según el tipo de registro.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Selecciona el comercio correcto y consulta la operación en Caja o Historial, según el tipo de registro."
+        },
+        {
+          "n": 3,
+          "texto": "Si el estado CoDi continúa incierto, conserva folio, monto y hora y solicita revisión; no supongas un depósito.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si el estado CoDi continúa incierto, conserva folio, monto y hora y solicita revisión; no supongas un depósito."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": null,
+        "si_falla": "Q118",
+        "metodo": "manual_no_observado"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C07",
+          "texto": "Para liquidaciones inciertas, consulta banco/CEP oficial; nunca infieras el abono de una captura."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    },
+    {
+      "id": "T061",
+      "titulo": "Cómo aclaro los límites del chatbot de RÍO si sigo con dudas",
+      "area": "general",
+      "actor": "miembro",
+      "nivel_automatizacion": "manual",
+      "fuente_pregunta": "Q180",
+      "prerrequisitos": [
+        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Describe la duda sobre acceso, caja, negocios o comprobantes.",
+          "selector": "#dashboard",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Describe la duda sobre acceso, caja, negocios o comprobantes."
+        },
+        {
+          "n": 2,
+          "texto": "Comprueba en la pantalla la operación, el comercio y el estado que correspondan.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Comprueba en la pantalla la operación, el comercio y el estado que correspondan."
+        },
+        {
+          "n": 3,
+          "texto": "Si no puedes confirmar el resultado, pide revisión humana.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Si no puedes confirmar el resultado, pide revisión humana."
+        }
+      ],
+      "verificacion": {
+        "texto": "Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria.",
+        "selector": null,
+        "si_falla": "Q118",
+        "metodo": "manual_no_observado"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E02",
+          "titulo": "Entrada pública de Primer Cobro",
+          "url": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+          "procedencia": "Frontdesk PR29",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C07",
+          "texto": "Para liquidaciones inciertas, consulta banco/CEP oficial; nunca infieras el abono de una captura."
+        }
+      ],
+      "ataques_resistidos": [
+        "eludir control de acceso",
+        "declarar un resultado sin evidencia"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_PROMETER_SIN_IMPLEMENTACION",
+      "confirmacion": "MUTACION_REQUIERE_CONFIRMACION; IRREVERSIBLE_DOBLE_CONFIRMACION"
+    }
+  ],
+  "niveles_automatizacion": {
+    "manual": "Solo orientación; el usuario realiza acciones.",
+    "asistido": "Resaltar/enfocar sin efectuar cambios.",
+    "guiado": "Preparar campos no secretos sin envío automático; cualquier mutación debe confirmarse.",
+    "bloqueado": "No automatizar pagos, identidad, pey, roles, correos ni resultados externos inciertos."
+  },
+  "auditoria_tutoriales": {
+    "preguntas_evaluadas": 180,
+    "criterio": "como_hacer o que_fallo con mas de 2 pasos",
+    "preguntas_que_requieren_tutorial": 60,
+    "preguntas_sin_tutorial_que_lo_requieren": [],
+    "tutoriales_total": 61,
+    "por_nivel": {
+      "asistido": 28,
+      "bloqueado": 7,
+      "guiado": 5,
+      "manual": 21
+    },
+    "pasos_auto_true": 0,
+    "selectores_de_verificacion_no_observables": 24,
+    "nota": "Q003 es recuperar acceso, no falla pey (Q012). No se verificaron URLs en vivo, pagos, liquidación o ejecución de tutoriales en navegador."
   }
 }
