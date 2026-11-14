@@ -10689,6 +10689,13 @@
       },
       "enlaces_utiles": [
         {
+          "id": "E03",
+          "titulo": "Documentación pey/CoDi QR",
+          "url": "https://docs.pey.mx/docs/webhooks/codi/qr",
+          "procedencia": "Proporcionado por el usuario, HTTP no observado",
+          "verificacion_http": "NOT_OBSERVED"
+        },
+        {
           "id": "E04",
           "titulo": "Portal de pey",
           "url": "https://portal.pey.mx/",
