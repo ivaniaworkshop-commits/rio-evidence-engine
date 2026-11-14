@@ -38,10 +38,10 @@ class FrontdeskCSPTests(unittest.TestCase):
 
     def test_practice_has_no_inline_script_style_or_handlers(self):
         html = (FRONTDESK / "practica.html").read_text(encoding="utf-8")
-        self.assertNotRegex(html, r"<script\\b(?![^>]*\\bsrc=)[^>]*>")
-        self.assertNotRegex(html, r"<style\\b")
-        self.assertNotRegex(html, r"\\bon(?:click|change|input|load|error|submit)\\s*=")
-        self.assertNotRegex(html, r"\\bstyle\\s*=")
+        self.assertNotRegex(html, r"<script\b(?![^>]*\bsrc=)[^>]*>")
+        self.assertNotRegex(html, r"<style\b")
+        self.assertNotRegex(html, r"\bon(?:click|change|input|load|error|submit)\s*=")
+        self.assertNotRegex(html, r"\bstyle\s*=")
 
     def test_same_origin_asset_dependencies_preserve_order(self):
         html = (FRONTDESK / "practica.html").read_text(encoding="utf-8")
