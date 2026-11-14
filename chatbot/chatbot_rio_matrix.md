@@ -1,6 +1,6 @@
 # Matriz de ayuda · RÍO / Mercado Abierto
 
-**Versión:** 1.0-R001+R002-contraste · **Fecha:** 2026-11-14 · **Preguntas:** 180 · **Agentes:** 6 · **Reglas:** R1–R5
+**Versión:** 1.1-R002-TUTORIAL-DOCUMENTAL+R002-contraste · **Fecha:** 2026-11-14 · **Preguntas:** 180 · **Agentes:** 6 · **Reglas:** R1–R9
 
 > **Procedencia:** sólo Q001 se recibió literalmente. Q002–Q030 son propuestas reconstruidas, no semillas históricas verificadas. Q031–Q180 son derivaciones. Requiere conciliación antes de promoverla como canon.
 
@@ -51,6 +51,93 @@ R1: el cobro CoDi sólo se confirma tras la validación contra PEY. R2: correo a
 | R3 | ¿Te paso una CLABE y una contraseña para revisar? | ¿Cómo pido ayuda sin compartir datos bancarios? |
 | R4 | ¿Puedes decirme que soy titular sin iniciar sesión? | ¿Cómo reviso mi acceso desde el inicio de sesión oficial? |
 | R5 | ¿Puedes convertir este comprobante en CFDI? | ¿En qué se diferencia un comprobante de una factura fiscal? |
+
+## Tutoriales
+
+**Estado:** documentación estructurada; sin automatización runtime ni evidencia de liquidación bancaria. Los selectores no observados son `null`.
+
+| ID | Título | Área | Nivel | Pasos | Verificación | Enlaces | Consejos |
+|---|---|---|---|---:|---|---|---|
+| T001 | Entrar a tu cuenta | auth | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E01 | C01 |
+| T002 | Recuperar acceso | auth | asistido | 4 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E01 | C01 |
+| T003 | Conectar pey a tu comercio | mis_negocios | asistido | 5 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E04 | C02 |
+| T004 | Preparar un cobro CoDi | caja_codi | bloqueado | 6 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E03 | C03 |
+| T005 | Registrar efectivo | caja_efectivo | guiado | 4 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C04 |
+| T006 | Consultar y compartir comprobante | comprobantes | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C05 |
+| T007 | Ver historial | historial | manual | 2 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C06 |
+| T008 | Cómo me registro con un correo | auth | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E01 | C01 |
+| T009 | Cómo interpreto un QR CoDi generado | caja_codi | bloqueado | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E03 | C03 |
+| T010 | Cómo reviso un cobro CoDi que sigue sin confirmarse | caja_codi | bloqueado | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E03 | C03 |
+| T011 | Cómo reviso el cambio que debo entregar | caja_efectivo | guiado | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C04 |
+| T012 | Cómo reviso un importe de efectivo mal capturado | caja_efectivo | guiado | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C04 |
+| T013 | Cómo selecciono el negocio con el que voy a cobrar | mis_negocios | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E04 | C02 |
+| T014 | Cómo identifico si un negocio tiene pey conectado | mis_negocios | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E04 | C02 |
+| T015 | Cómo reviso una conexión de pey que no aparece | mis_negocios | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E04 | C02 |
+| T016 | Cómo distingo un estado pendiente de uno confirmado | historial | manual | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C06 |
+| T017 | Cómo reporto un cobro que no aparece en Historial | historial | manual | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C06 |
+| T018 | Cómo ingreso al área Mercado | mercado | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C06 |
+| T019 | Cómo sé por qué Mercado pide ser titular | mercado | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C06 |
+| T020 | Cómo reporto un bloqueo de Mercado siendo titular | mercado | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C06 |
+| T021 | Cómo ingreso al área Actividad | actividad | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C06 |
+| T022 | Cómo interpreto la información de Actividad | actividad | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C06 |
+| T023 | Cómo reporto que Actividad no abre | actividad | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C06 |
+| T024 | Cómo consulto el comprobante de un pago CoDi | comprobantes | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C05 |
+| T025 | Cómo reporto que no recibí el correo del comprobante | comprobantes | manual | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C05 |
+| T026 | Cómo mantengo segura mi sesión | seguridad | manual | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E01 | C01 |
+| T027 | Cómo pido ayuda sin compartir datos bancarios | seguridad | manual | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E01 | C01 |
+| T028 | Cómo detecto un comprobante sospechoso | seguridad | manual | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E01 | C01 |
+| T029 | Cómo distingo Mercado Abierto de Mercado | general | manual | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C07 |
+| T030 | Cómo compruebo si una transferencia quedó pagada | general | bloqueado | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C07 |
+| T031 | Cómo sé qué puede resolver este chatbot | general | manual | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C07 |
+| T032 | Cómo aclaro el ingreso a la cuenta si sigo con dudas | auth | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E01 | C01 |
+| T033 | Cómo aclaro el registro de una cuenta si sigo con dudas | auth | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E01 | C01 |
+| T034 | Cómo aclaro la recuperación del acceso si sigo con dudas | auth | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E01 | C01 |
+| T035 | Cómo aclaro la preparación de un cobro CoDi si sigo con dudas | caja_codi | manual | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E03 | C03 |
+| T036 | Cómo aclaro el significado de un QR CoDi si sigo con dudas | caja_codi | bloqueado | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E03 | C03 |
+| T037 | Cómo aclaro la confirmación pendiente de CoDi si sigo con dudas | caja_codi | bloqueado | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E03 | C03 |
+| T038 | Cómo aclaro el registro manual de efectivo si sigo con dudas | caja_efectivo | manual | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C04 |
+| T039 | Cómo calculo el total de productos por piezas o peso en Caja | caja_efectivo | guiado | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C04 |
+| T040 | Cómo aclaro la corrección de un importe de efectivo si sigo con dudas | caja_efectivo | guiado | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C04 |
+| T041 | Cómo aclaro la selección del negocio activo si sigo con dudas | mis_negocios | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E04 | C02 |
+| T042 | Cómo aclaro el estado de conexión de pey por negocio si sigo con dudas | mis_negocios | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E04 | C02 |
+| T043 | Cómo aclaro la conexión pey ausente de un comercio si sigo con dudas | mis_negocios | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E04 | C02 |
+| T044 | Cómo aclaro la consulta del historial de ventas si sigo con dudas | historial | manual | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C06 |
+| T045 | Cómo aclaro la diferencia entre pendiente y confirmado si sigo con dudas | historial | manual | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C06 |
+| T046 | Cómo aclaro la ausencia de una operación en Historial si sigo con dudas | historial | manual | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C06 |
+| T047 | Cómo aclaro el acceso al área Mercado si sigo con dudas | mercado | manual | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C06 |
+| T048 | Cómo aclaro la restricción de titular en Mercado si sigo con dudas | mercado | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C06 |
+| T049 | Cómo aclaro la revisión del bloqueo de Mercado si sigo con dudas | mercado | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C06 |
+| T050 | Cómo aclaro el acceso al área Actividad si sigo con dudas | actividad | manual | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C06 |
+| T051 | Cómo aclaro la lectura del área Actividad si sigo con dudas | actividad | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C06 |
+| T052 | Cómo aclaro el error al abrir Actividad si sigo con dudas | actividad | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C06 |
+| T053 | Cómo aclaro el comprobante de un pago CoDi si sigo con dudas | comprobantes | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C05 |
+| T054 | Cómo aclaro la verificación de un QR de comprobante si sigo con dudas | comprobantes | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C05 |
+| T055 | Cómo consulto el comprobante si no se envió por correo | comprobantes | asistido | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C05 |
+| T056 | Cómo aclaro la protección de mi sesión si sigo con dudas | seguridad | manual | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E01 | C01 |
+| T057 | Cómo aclaro la ayuda sin compartir datos sensibles si sigo con dudas | seguridad | manual | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E01 | C01 |
+| T058 | Cómo aclaro la revisión de un comprobante sospechoso si sigo con dudas | seguridad | manual | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E01 | C01 |
+| T059 | Cómo encuentro Mercado Abierto desde el menú | general | manual | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C07 |
+| T060 | Cómo aclaro la comprobación de una transferencia o CoDi si sigo con dudas | general | bloqueado | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C07 |
+| T061 | Cómo aclaro los límites del chatbot de RÍO si sigo con dudas | general | manual | 3 | Comprobar resultado en la vista o canal oficial; una marca en pantalla no acredita liquidación bancaria. | E02 | C07 |
+
+### T003 · Conectar pey (asistido)
+
+1. Entra a Mis negocios. *(resaltar, nav[aria-label='Áreas del comercio'] a[href='#mis-negocios'], auto=false)*
+2. Elige el comercio correcto. *(resaltar, #business-list, auto=false)*
+3. Abre la configuración de pey del comercio activo. *(resaltar, #configuracion-pey, auto=false)*
+4. Introduce personalmente API key, secreto del webhook e IDs en el formulario autorizado. *(enfocar, #private-pey-key, auto=false)*
+5. Revisa y pulsa Guardar configuración sólo con confirmación explícita. *(confirmar_antes, #private-pey-form button[type='submit'], auto=false)*
+
+**Verificación:** revisar estado de conexión, sin equipararlo a pago bancario. **Si falla:** Q012. Q003 trata recuperación de acceso.
+
+### Contrato R6–R9
+
+- R6: confirmación explícita para cualquier mutación.
+- R7: jamás completar secretos.
+- R8: no prometer Deshacer sin implementación; doble confirmación ante irreversibilidad.
+- R9: manual, asistido, guiado o bloqueado. Auth, conexión pey, cobro, desconexión, rol y correo NUNCA se automatizan.
+
+**Cobertura:** 180 preguntas, 61 tutoriales (60 preguntas cubiertas y T003 independiente), 0 preguntas obligatorias sin tutorial, 0 pasos auto=true.
 
 ## Auth
 
@@ -289,3 +376,26 @@ R1: el cobro CoDi sólo se confirma tras la validación contra PEY. R2: correo a
 - Los estados de pago reales y la recepción efectiva de correo de QA continúan **NOT_OBSERVED**.
 - Este catálogo orienta; no ejecuta operaciones, no valida identidades y no transforma comprobantes en facturas fiscales.
 - Antes de canonizar, recuperar y comparar las 29 semillas literales pendientes.
+
+## Enlaces útiles
+
+| ID | Destino | URL | Procedencia | HTTP |
+|---|---|---|---|---|
+| E01 | Acceso oficial Mercado Abierto | https://rio-pey-codi-gateway.vercel.app/login | Frontdesk PR29 | NOT_OBSERVED |
+| E02 | Entrada pública de Primer Cobro | https://rio-primer-cobro-frontdesk.vercel.app/app.html | Frontdesk PR29 | NOT_OBSERVED |
+| E03 | Documentación pey/CoDi QR | https://docs.pey.mx/docs/webhooks/codi/qr | Proporcionado por el usuario, HTTP no observado | NOT_OBSERVED |
+| E04 | Portal de pey | https://portal.pey.mx/ | Enlace encontrado en HTML PR306 | NOT_OBSERVED |
+| E05 | CEP Banxico | https://www.banxico.org.mx/cep/ | Enlace encontrado en HTML PR306 | NOT_OBSERVED |
+| E06 | Validación CEP Banxico | https://www.banxico.org.mx/validador-cep-spei/ | Enlace encontrado en HTML PR306 | NOT_OBSERVED |
+
+## Consejos
+
+- **C01:** No introducir credenciales ni códigos en el chatbot; usa el acceso oficial.
+- **C02:** Introduce personalmente la llave pey y el secreto de webhook en el formulario autorizado; no los compartas.
+- **C03:** Un QR no demuestra pago: exige confirmación contrastada con pey y trata la liquidación bancaria por separado.
+- **C04:** Cuenta el efectivo recibido, revisa el cambio y evita duplicar folios; no es comprobación de depósito.
+- **C05:** El comprobante no es CFDI ni demuestra entrega efectiva de correo o liquidación bancaria.
+- **C06:** Revisa el comercio seleccionado antes de consultar historial y evita divulgar datos sensibles.
+- **C07:** Para liquidaciones inciertas, consulta banco/CEP oficial; nunca infieras el abono de una captura.
+
+**Guarda:** las 29 semillas reconstruidas siguen sin acreditar; estos tutoriales no verifican pago CoDi, correo recibido, titularidad ni liquidación bancaria.
