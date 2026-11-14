@@ -1,8 +1,8 @@
 {
   "titulo": "Matriz de ayuda · RÍO / Mercado Abierto",
-  "version": "1.0-R001",
+  "version": "1.0-R001+R002-contraste",
   "fecha": "2026-11-14",
-  "estado": "PROPUESTA_PENDIENTE_CONCILIAR_SEMILLAS",
+  "estado": "PROPUESTA_DRAFT_HOLD_F01_Y_SEMILLAS_PENDIENTES",
   "procedencia": {
     "q001": "Texto literal aportado en la solicitud del usuario.",
     "q002_q030": "Reconstrucción propuesta a partir de documentación del gateway y del contexto provisto; no se encontraron las 29 semillas literales.",
@@ -10,7 +10,9 @@
     "fuentes": [
       "Solicitud de esta tarea",
       "demos/rio-primer-cobro/frontdesk/README.md (rama del PR #29)",
-      "demos/rio-primer-cobro/frontdesk/ESTADO_20261113.md (rama del PR #29)"
+      "demos/rio-primer-cobro/frontdesk/ESTADO_20261113.md (rama del PR #29)",
+      "rio#306 HEAD 375bf7a (gateway, interfaz, roles, comprobantes)",
+      "rio-evidence-engine#29 HEAD c2dba7f (frontdesk)"
     ]
   },
   "agentes": [
@@ -448,7 +450,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -503,7 +505,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -558,7 +560,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -613,7 +615,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -635,9 +637,9 @@
       "area": "caja_codi",
       "intencion": "como_hacer",
       "respuesta_directa": [
-        "Desde Caja, abre la solicitud CoDi del comercio.",
-        "Verifica que corresponda al importe y operación.",
-        "Espera la confirmación contrastada con PEY antes de considerar pagado."
+        "Si tu cuenta tiene acceso, abre la solicitud CoDi desde Caja del comercio correcto.",
+        "Revisa importe y estado: un QR emitido no demuestra que se haya pagado.",
+        "Si el resultado es incierto, conserva el folio y solicita revisión autorizada."
       ],
       "limite": "Un QR creado no demuestra pago bancario.",
       "derivacion": {
@@ -668,7 +670,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -723,7 +725,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -745,9 +747,9 @@
       "area": "caja_efectivo",
       "intencion": "como_hacer",
       "respuesta_directa": [
-        "Entra a Caja y elige efectivo.",
-        "Revisa importe, concepto y dinero contado.",
-        "Registra lo recibido cuando corresponda."
+        "Si tu cuenta tiene permiso para operar Caja, selecciona el comercio y elige Efectivo.",
+        "Revisa concepto, importe y dinero recibido para calcular el cambio.",
+        "Registra lo recibido; el ticket queda en este navegador, no acredita un depósito bancario."
       ],
       "limite": "El bot no certifica entrega física de efectivo ni saldo bancario.",
       "derivacion": {
@@ -778,7 +780,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -800,9 +802,9 @@
       "area": "caja_efectivo",
       "intencion": "como_hacer",
       "respuesta_directa": [
-        "En Caja, revisa total e importe recibido.",
-        "Compara la diferencia con el dinero contado.",
-        "Aclara la discrepancia antes de registrar la venta."
+        "Si puedes operar Caja, elige Efectivo y compara total y dinero recibido.",
+        "Revisa el cambio calculado con el dinero contado.",
+        "Si no tienes permisos o existe una diferencia, pide revisión antes de registrar."
       ],
       "limite": "El bot no atestigua cambio entregado ni movimientos bancarios.",
       "derivacion": {
@@ -833,7 +835,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -855,9 +857,9 @@
       "area": "caja_efectivo",
       "intencion": "como_hacer",
       "respuesta_directa": [
-        "Revisa la venta y su folio en Caja o Historial.",
-        "No supongas que existe una opción de deshacer o borrar.",
-        "Solicita a soporte el procedimiento autorizado antes de modificar registros."
+        "En Caja, selecciona Efectivo y abre «Historial y respaldo de efectivo» del negocio correcto.",
+        "Busca el registro local y compara su importe con el efectivo contado.",
+        "Si hay una diferencia, conserva folio, monto y hora y solicita revisión; no supongas que puedas borrar la venta."
       ],
       "limite": "No puedo cancelar, editar ni borrar ventas desde el chat.",
       "derivacion": {
@@ -888,7 +890,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -943,7 +945,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -998,7 +1000,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -1053,7 +1055,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -1108,7 +1110,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -1163,7 +1165,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -1218,7 +1220,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -1240,9 +1242,9 @@
       "area": "mercado",
       "intencion": "como_hacer",
       "respuesta_directa": [
-        "Inicia sesión desde la página oficial.",
-        "Busca el área Mercado en el menú.",
-        "Si está bloqueada, solicita revisión; el acceso es exclusivo del titular autorizado."
+        "Inicia sesión mediante el acceso oficial.",
+        "Busca Mercado: esta área es exclusiva del titular de la plataforma, no de cualquier titular de comercio.",
+        "Si figura deshabilitada, solicita revisión de permisos; el bot no los concede."
       ],
       "limite": "El bot no valida titularidad ni habilita Mercado.",
       "derivacion": {
@@ -1273,7 +1275,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -1281,7 +1283,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q017",
@@ -1328,7 +1331,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -1336,7 +1339,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q018",
@@ -1383,7 +1387,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -1391,7 +1395,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q019",
@@ -1405,9 +1410,9 @@
       "area": "actividad",
       "intencion": "como_hacer",
       "respuesta_directa": [
-        "Inicia sesión en la página oficial.",
-        "Busca Actividad en el menú de áreas.",
-        "Si está restringida, solicita revisión de permisos a soporte."
+        "Inicia sesión mediante el acceso oficial.",
+        "Busca Actividad: sólo está disponible para el titular de la plataforma autorizado por el servidor.",
+        "Si no aparece, pide revisión de acceso sin compartir credenciales."
       ],
       "limite": "El bot no habilita Actividad ni valida titularidad.",
       "derivacion": {
@@ -1438,7 +1443,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -1446,7 +1451,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q020",
@@ -1493,7 +1499,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -1501,7 +1507,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q021",
@@ -1548,7 +1555,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -1556,7 +1563,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q022",
@@ -1603,7 +1611,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -1658,7 +1666,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -1713,7 +1721,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -1768,7 +1776,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -1823,7 +1831,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -1878,7 +1886,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -1933,7 +1941,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -1988,7 +1996,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -2043,7 +2051,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -2097,7 +2105,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -2151,7 +2159,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -2205,7 +2213,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -2259,7 +2267,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -2271,10 +2279,10 @@
     },
     {
       "id": "Q035",
-      "texto": "¿Qué significa el significado de un QR CoDi?",
+      "texto": "¿Qué significa un QR CoDi?",
       "variantes": [
-        "¿Qué quiere decir el significado de un QR CoDi?",
-        "¿Me orientas sobre esto: qué significa el significado de un QR CoDi?"
+        "¿Qué quiere decir un QR CoDi?",
+        "¿Me explicas qué significa un QR CoDi?"
       ],
       "actor": "pagador",
       "momento": "error",
@@ -2313,7 +2321,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -2367,7 +2375,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -2421,7 +2429,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -2475,7 +2483,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -2529,7 +2537,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -2583,7 +2591,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -2637,7 +2645,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -2691,7 +2699,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -2745,7 +2753,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -2799,7 +2807,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -2853,7 +2861,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -2907,7 +2915,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -2915,7 +2923,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q047",
@@ -2961,7 +2970,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -2969,7 +2978,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q048",
@@ -3015,7 +3025,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -3023,7 +3033,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q049",
@@ -3069,7 +3080,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -3077,7 +3088,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q050",
@@ -3123,7 +3135,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -3131,7 +3143,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q051",
@@ -3177,7 +3190,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -3185,7 +3198,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q052",
@@ -3231,7 +3245,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -3285,7 +3299,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -3339,7 +3353,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -3393,7 +3407,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -3447,7 +3461,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -3501,7 +3515,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -3555,7 +3569,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -3609,7 +3623,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -3621,10 +3635,10 @@
     },
     {
       "id": "Q060",
-      "texto": "¿Qué significa los límites del chatbot de RÍO?",
+      "texto": "¿Qué significan los límites del chatbot de RÍO?",
       "variantes": [
-        "¿Qué quiere decir los límites del chatbot de RÍO?",
-        "¿Me orientas sobre esto: qué significa los límites del chatbot de RÍO?"
+        "¿A qué se refieren los límites del chatbot de RÍO?",
+        "¿Me explicas qué límites tiene el chatbot de RÍO?"
       ],
       "actor": "visitante",
       "momento": "recuperacion",
@@ -3663,7 +3677,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -3717,7 +3731,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -3771,7 +3785,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -3825,7 +3839,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -3879,7 +3893,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -3933,7 +3947,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -3987,7 +4001,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -4041,7 +4055,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -4095,7 +4109,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -4149,7 +4163,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -4203,7 +4217,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -4257,7 +4271,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -4311,7 +4325,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -4365,7 +4379,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -4419,7 +4433,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -4473,7 +4487,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -4527,7 +4541,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -4535,7 +4549,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q077",
@@ -4581,7 +4596,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -4589,7 +4604,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q078",
@@ -4635,7 +4651,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -4643,7 +4659,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q079",
@@ -4689,7 +4706,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -4697,7 +4714,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q080",
@@ -4743,7 +4761,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -4751,7 +4769,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q081",
@@ -4797,7 +4816,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -4805,7 +4824,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q082",
@@ -4851,7 +4871,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -4905,7 +4925,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -4959,7 +4979,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -5013,7 +5033,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -5067,7 +5087,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -5121,7 +5141,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -5175,7 +5195,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -5229,7 +5249,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -5283,7 +5303,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -5337,7 +5357,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -5391,7 +5411,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -5445,7 +5465,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -5499,7 +5519,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -5553,7 +5573,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -5607,7 +5627,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -5661,7 +5681,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -5715,7 +5735,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -5769,7 +5789,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -5823,7 +5843,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -5877,7 +5897,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -5931,7 +5951,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -5985,7 +6005,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -6039,7 +6059,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -6093,7 +6113,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -6147,7 +6167,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -6155,7 +6175,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q107",
@@ -6201,7 +6222,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -6209,7 +6230,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q108",
@@ -6255,7 +6277,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -6263,7 +6285,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q109",
@@ -6309,7 +6332,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -6317,7 +6340,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q110",
@@ -6363,7 +6387,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -6371,7 +6395,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q111",
@@ -6417,7 +6442,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -6425,7 +6450,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q112",
@@ -6471,7 +6497,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -6525,7 +6551,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -6579,7 +6605,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -6633,7 +6659,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -6687,7 +6713,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -6741,7 +6767,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -6795,7 +6821,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -6849,7 +6875,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -6903,7 +6929,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -6957,7 +6983,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -7011,7 +7037,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -7065,7 +7091,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -7119,7 +7145,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -7173,7 +7199,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -7227,7 +7253,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -7239,18 +7265,19 @@
     },
     {
       "id": "Q127",
-      "texto": "¿Es seguro revisar el registro manual de efectivo desde este chat?",
+      "texto": "¿Es seguro importar un respaldo de efectivo en Caja?",
       "variantes": [
-        "¿Qué precauciones hay al revisar el registro manual de efectivo desde este chat?",
-        "¿Me orientas sobre esto: es seguro revisar el registro manual de efectivo desde este chat?"
+        "¿Puedo importar un respaldo de efectivo sin exponer mis datos?",
+        "¿Qué precauciones tomo al importar el respaldo local de efectivo?"
       ],
       "actor": "miembro",
       "momento": "post_login",
       "area": "caja_efectivo",
       "intencion": "es_seguro",
       "respuesta_directa": [
-        "No interpretes el ticket como confirmación de depósito.",
-        "Usa únicamente el acceso oficial; no reveles datos privados en el chat."
+        "Hazlo sólo desde la cuenta y negocio correctos, dentro de Caja → Efectivo → Historial y respaldo.",
+        "Usa un archivo autorizado del mismo negocio; evita compartirlo por este chat.",
+        "La importación es local y no comprueba depósitos bancarios."
       ],
       "limite": "El bot no certifica entrega física de efectivo ni saldo bancario.",
       "derivacion": {
@@ -7281,7 +7308,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -7335,7 +7362,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -7389,7 +7416,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -7443,7 +7470,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -7497,7 +7524,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -7551,7 +7578,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -7605,7 +7632,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -7659,7 +7686,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -7713,7 +7740,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -7767,7 +7794,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -7775,7 +7802,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q137",
@@ -7821,7 +7849,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -7829,7 +7857,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q138",
@@ -7875,7 +7904,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -7883,7 +7912,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q139",
@@ -7929,7 +7959,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -7937,7 +7967,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q140",
@@ -7983,7 +8014,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -7991,7 +8022,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q141",
@@ -8037,7 +8069,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -8045,7 +8077,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q142",
@@ -8091,7 +8124,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -8145,7 +8178,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -8199,7 +8232,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -8253,7 +8286,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -8307,7 +8340,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -8361,7 +8394,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -8415,7 +8448,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -8469,7 +8502,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -8523,7 +8556,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -8578,7 +8611,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -8633,7 +8666,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -8688,7 +8721,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -8743,7 +8776,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -8798,7 +8831,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -8853,7 +8886,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -8908,7 +8941,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -8920,19 +8953,19 @@
     },
     {
       "id": "Q158",
-      "texto": "¿Cómo aclaro el cálculo del cambio en efectivo si sigo con dudas?",
+      "texto": "¿Cómo calculo el total de productos por piezas o peso en Caja?",
       "variantes": [
-        "¿De qué otra manera aclaro el cálculo del cambio en efectivo si sigo con dudas?",
-        "¿Me orientas sobre esto: cómo aclaro el cálculo del cambio en efectivo si sigo con dudas?"
+        "¿Cómo uso el carrito por piezas o kilogramos en Caja?",
+        "¿Cómo reviso el cálculo de productos por peso o piezas?"
       ],
       "actor": "titular",
       "momento": "post_login",
       "area": "caja_efectivo",
       "intencion": "como_hacer",
       "respuesta_directa": [
-        "En Caja, revisa total e importe recibido.",
-        "Comprueba en la pantalla la operación, el comercio y el estado que correspondan.",
-        "Si no puedes confirmar el resultado, pide revisión humana."
+        "Si tienes permiso para operar Caja, abre «Carrito de productos · piezas o peso».",
+        "Indica precio, cantidad y unidad y revisa el total calculado.",
+        "Usa «Usar carrito en el cobro» sólo si corresponde a la venta actual."
       ],
       "limite": "El bot no atestigua cambio entregado ni movimientos bancarios.",
       "derivacion": {
@@ -8963,7 +8996,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -8985,9 +9018,9 @@
       "area": "caja_efectivo",
       "intencion": "como_hacer",
       "respuesta_directa": [
-        "Revisa la venta y su folio en Caja o Historial.",
-        "Comprueba en la pantalla la operación, el comercio y el estado que correspondan.",
-        "Si no puedes confirmar el resultado, pide revisión humana."
+        "Abre Caja → Efectivo → «Historial y respaldo de efectivo» del negocio correcto.",
+        "Consulta el registro guardado en este navegador para ese usuario y comercio.",
+        "Si no coincide, conserva el folio y solicita revisión sin modificar el respaldo original."
       ],
       "limite": "No puedo cancelar, editar ni borrar ventas desde el chat.",
       "derivacion": {
@@ -9018,7 +9051,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -9073,7 +9106,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -9128,7 +9161,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -9183,7 +9216,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -9238,7 +9271,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -9293,7 +9326,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -9348,7 +9381,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -9403,7 +9436,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -9411,7 +9444,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q167",
@@ -9458,7 +9492,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -9466,7 +9500,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q168",
@@ -9513,7 +9548,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -9521,7 +9556,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q169",
@@ -9568,7 +9604,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -9576,7 +9612,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q170",
@@ -9623,7 +9660,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -9631,7 +9668,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q171",
@@ -9678,7 +9716,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -9686,7 +9724,8 @@
         "R3",
         "R4",
         "R5"
-      ]
+      ],
+      "condicion_de_acceso": "Titular de la plataforma autorizado por servidor (no equivale a titular de comercio)."
     },
     {
       "id": "Q172",
@@ -9733,7 +9772,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -9788,7 +9827,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -9800,19 +9839,19 @@
     },
     {
       "id": "Q174",
-      "texto": "¿Cómo aclaro la recepción del correo del comprobante si sigo con dudas?",
+      "texto": "¿Cómo consulto el comprobante si no se envió por correo?",
       "variantes": [
-        "¿De qué otra manera aclaro la recepción del correo del comprobante si sigo con dudas?",
-        "¿Me orientas sobre esto: cómo aclaro la recepción del correo del comprobante si sigo con dudas?"
+        "¿Puedo abrir el comprobante aunque esté desactivado el correo?",
+        "¿Cómo veo el comprobante sin esperar un mensaje de correo?"
       ],
       "actor": "miembro",
       "momento": "post_cobro",
       "area": "comprobantes",
       "intencion": "como_hacer",
       "respuesta_directa": [
-        "Revisa el comprobante disponible en la cuenta autorizada.",
-        "El comprobante no es una factura fiscal y el correo enviado puede no haber llegado.",
-        "Si no puedes confirmar el resultado, pide revisión humana."
+        "Si tienes acceso a la operación, consulta su estado desde la cuenta oficial.",
+        "Cuando el pago esté reportado por PEY y el comprobante se haya emitido, abre «Abrir comprobante verificable» si aparece.",
+        "El envío desactivado no acredita ni impide por sí solo el pago; el comprobante no es una factura fiscal."
       ],
       "limite": "El bot no garantiza que un correo haya llegado ni reenvía mensajes.",
       "derivacion": {
@@ -9843,7 +9882,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -9898,7 +9937,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -9953,7 +9992,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -10008,7 +10047,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -10020,19 +10059,19 @@
     },
     {
       "id": "Q178",
-      "texto": "¿Cómo aclaro la diferencia entre Mercado Abierto y Mercado si sigo con dudas?",
+      "texto": "¿Cómo encuentro Mercado Abierto desde el menú?",
       "variantes": [
-        "¿De qué otra manera aclaro la diferencia entre Mercado Abierto y Mercado si sigo con dudas?",
-        "¿Me orientas sobre esto: cómo aclaro la diferencia entre Mercado Abierto y Mercado si sigo con dudas?"
+        "¿Dónde abro la sección Mercado Abierto tras iniciar sesión?",
+        "¿Cómo distingo el enlace Mercado Abierto del área Mercado?"
       ],
       "actor": "titular",
       "momento": "post_cobro",
       "area": "general",
       "intencion": "como_hacer",
       "respuesta_directa": [
-        "Revisa el menú después de iniciar sesión.",
-        "Comprueba en la pantalla la operación, el comercio y el estado que correspondan.",
-        "Si no puedes confirmar el resultado, pide revisión humana."
+        "Inicia sesión y abre el menú de áreas.",
+        "Elige «Mercado Abierto» para la sección comercial general; es diferente del área «Mercado» reservada al titular de plataforma.",
+        "Si el enlace falla, conserva el mensaje visible y pide revisión sin enviar claves."
       ],
       "limite": "El bot no valida titulares ni cambia permisos.",
       "derivacion": {
@@ -10063,7 +10102,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -10085,9 +10124,9 @@
       "area": "general",
       "intencion": "como_hacer",
       "respuesta_directa": [
-        "Consulta el estado de la operación dentro de tu cuenta.",
-        "Comprueba en la pantalla la operación, el comercio y el estado que correspondan.",
-        "Si no puedes confirmar el resultado, pide revisión humana."
+        "Primero inicia sesión desde el acceso oficial; el bot no puede abrir tu cuenta.",
+        "Selecciona el comercio correcto y consulta la operación en Caja o Historial, según el tipo de registro.",
+        "Si el estado CoDi continúa incierto, conserva folio, monto y hora y solicita revisión; no supongas un depósito."
       ],
       "limite": "El bot no consulta bancos ni certifica pagos reales.",
       "derivacion": {
@@ -10118,7 +10157,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -10173,7 +10212,7 @@
           "SMTP",
           "endpoint"
         ],
-        "version_larga_disponible": true
+        "version_larga_disponible": false
       },
       "reglas_aplicadas": [
         "R1",
@@ -10183,5 +10222,111 @@
         "R5"
       ]
     }
-  ]
+  ],
+  "auditoria_cruzada_R002": {
+    "estado": "CONTRASTE_ESTATICO_DOCUMENTAL_NO_E2E",
+    "fecha": "2026-11-14",
+    "fuentes": [
+      {
+        "repositorio": "ivaniaworkshop-commits/rio",
+        "pr": 306,
+        "head": "375bf7af87ad1117e9a9e33e51f01d47f901fff4"
+      },
+      {
+        "repositorio": "ivaniaworkshop-commits/rio-evidence-engine",
+        "pr": 29,
+        "head": "c2dba7f29631cc3035a6028e19865f85df6a11a2"
+      }
+    ],
+    "bloqueo": {
+      "id": "F01",
+      "tipo": "CONTRATO_INCOMPATIBLE",
+      "estado": "OPEN",
+      "detalle": "La regla R1 exige webhook firmado más consulta API, pero el gateway acepta PEY_API_READBACK para PROVIDER_REPORTED y receipts.eligible. No se cambió lógica bancaria.",
+      "promocion": "HOLD"
+    },
+    "fuentes_originales_q002_q030": "NOT_RECOVERED",
+    "pruebas_chatbot_runtime": "NOT_OBSERVED",
+    "pagos_reales": "NOT_OBSERVED",
+    "http_deploy": "NOT_OBSERVED",
+    "validacion_reglas": "DECLARADAS_NO_PROBADAS_INDIVIDUALMENTE",
+    "version_larga": "NOT_IMPLEMENTED_IN_MATRIX",
+    "derivacion_humana": "INDICATIVA_SIN_TICKET_INTEGRADO",
+    "correcciones_preguntas": [
+      {
+        "id": "Q005",
+        "texto_anterior": "¿Cómo interpreto un QR CoDi generado?",
+        "texto_actual": "¿Cómo interpreto un QR CoDi generado?"
+      },
+      {
+        "id": "Q007",
+        "texto_anterior": "¿Cómo registro una venta en efectivo?",
+        "texto_actual": "¿Cómo registro una venta en efectivo?"
+      },
+      {
+        "id": "Q008",
+        "texto_anterior": "¿Cómo reviso el cambio que debo entregar?",
+        "texto_actual": "¿Cómo reviso el cambio que debo entregar?"
+      },
+      {
+        "id": "Q009",
+        "texto_anterior": "¿Cómo reviso un importe de efectivo mal capturado?",
+        "texto_actual": "¿Cómo reviso un importe de efectivo mal capturado?"
+      },
+      {
+        "id": "Q016",
+        "texto_anterior": "¿Cómo ingreso al área Mercado?",
+        "texto_actual": "¿Cómo ingreso al área Mercado?"
+      },
+      {
+        "id": "Q019",
+        "texto_anterior": "¿Cómo ingreso al área Actividad?",
+        "texto_actual": "¿Cómo ingreso al área Actividad?"
+      },
+      {
+        "id": "Q035",
+        "texto_anterior": "¿Qué significa el significado de un QR CoDi?",
+        "texto_actual": "¿Qué significa un QR CoDi?"
+      },
+      {
+        "id": "Q060",
+        "texto_anterior": "¿Qué significa los límites del chatbot de RÍO?",
+        "texto_actual": "¿Qué significan los límites del chatbot de RÍO?"
+      },
+      {
+        "id": "Q127",
+        "texto_anterior": "¿Es seguro revisar el registro manual de efectivo desde este chat?",
+        "texto_actual": "¿Es seguro importar un respaldo de efectivo en Caja?"
+      },
+      {
+        "id": "Q158",
+        "texto_anterior": "¿Cómo aclaro el cálculo del cambio en efectivo si sigo con dudas?",
+        "texto_actual": "¿Cómo calculo el total de productos por piezas o peso en Caja?"
+      },
+      {
+        "id": "Q159",
+        "texto_anterior": "¿Cómo aclaro la corrección de un importe de efectivo si sigo con dudas?",
+        "texto_actual": "¿Cómo aclaro la corrección de un importe de efectivo si sigo con dudas?"
+      },
+      {
+        "id": "Q174",
+        "texto_anterior": "¿Cómo aclaro la recepción del correo del comprobante si sigo con dudas?",
+        "texto_actual": "¿Cómo consulto el comprobante si no se envió por correo?"
+      },
+      {
+        "id": "Q178",
+        "texto_anterior": "¿Cómo aclaro la diferencia entre Mercado Abierto y Mercado si sigo con dudas?",
+        "texto_actual": "¿Cómo encuentro Mercado Abierto desde el menú?"
+      },
+      {
+        "id": "Q179",
+        "texto_anterior": "¿Cómo aclaro la comprobación de una transferencia o CoDi si sigo con dudas?",
+        "texto_actual": "¿Cómo aclaro la comprobación de una transferencia o CoDi si sigo con dudas?"
+      }
+    ],
+    "areas_propietario": [
+      "mercado",
+      "actividad"
+    ]
+  }
 }
