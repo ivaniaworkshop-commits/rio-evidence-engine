@@ -1645,7 +1645,7 @@
         "R4",
         "R5"
       ],
-      "tutorial_id": "T024"
+      "tutorial_id": "T006"
     },
     {
       "id": "Q023",
@@ -1701,7 +1701,7 @@
         "R4",
         "R5"
       ],
-      "tutorial_id": "T006"
+      "tutorial_id": "T024"
     },
     {
       "id": "Q024",
@@ -10915,7 +10915,7 @@
       "area": "comprobantes",
       "actor": "titular",
       "nivel_automatizacion": "asistido",
-      "fuente_pregunta": "Q023",
+      "fuente_pregunta": "Q022",
       "prerrequisitos": [
         "Operación existente",
         "Acceso autorizado"
@@ -12273,38 +12273,39 @@
     },
     {
       "id": "T024",
-      "titulo": "Cómo consulto el comprobante de un pago CoDi",
+      "titulo": "Cómo verifico el QR de un comprobante",
       "area": "comprobantes",
-      "actor": "titular",
+      "actor": "miembro",
       "nivel_automatizacion": "asistido",
-      "fuente_pregunta": "Q022",
+      "fuente_pregunta": "Q023",
       "prerrequisitos": [
-        "Verifica identidad y permisos en el acceso oficial; el chatbot no concede permisos."
+        "Operación registrada",
+        "Permiso de acceso a la verificación del comprobante"
       ],
       "pasos": [
         {
           "n": 1,
-          "texto": "En tu cuenta, localiza la operación correspondiente.",
+          "texto": "Abre la opción de verificación del comprobante disponible.",
           "selector": "#receipt-link",
           "accion": "resaltar",
           "auto": false,
-          "a11y_label": "En tu cuenta, localiza la operación correspondiente."
+          "a11y_label": "Abre la opción de verificación del comprobante disponible."
         },
         {
           "n": 2,
-          "texto": "Comprueba si CoDi figura confirmado tras validación con PEY.",
+          "texto": "Comprueba que muestre el registro correspondiente.",
           "selector": null,
           "accion": "resaltar",
           "auto": false,
-          "a11y_label": "Comprueba si CoDi figura confirmado tras validación con PEY."
+          "a11y_label": "Comprueba que muestre el registro correspondiente."
         },
         {
           "n": 3,
-          "texto": "Consulta su comprobante si está disponible o pide revisión.",
+          "texto": "Si falla o hay discrepancias, pide revisión antes de entregar mercancía.",
           "selector": null,
           "accion": "resaltar",
           "auto": false,
-          "a11y_label": "Consulta su comprobante si está disponible o pide revisión."
+          "a11y_label": "Si falla o hay discrepancias, pide revisión antes de entregar mercancía."
         }
       ],
       "verificacion": {
