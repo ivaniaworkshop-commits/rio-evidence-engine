@@ -11,7 +11,7 @@
   "semantic_extraction_status": "NOT_DEMONSTRATED_WITH_FULL_RECURRENT_PREFILL",
   "current_context_rejections": 28,
   "context_rejections_are_semantic_abstentions": false,
-  "project_tests_passed": 225,
+  "project_tests_passed": 251,
   "hybrid_role": "OPTIONAL_RANKING_OF_DETERMINISTIC_EXPLANATIONS",
   "observed_neural_value": "NO_OUTPUT_BENEFIT_IN_42_CASE_PAIRED_ABLATION",
   "historical_task_probe": "0/26 extractable durations before context safety fix",
@@ -313,11 +313,12 @@
     "validation": "runtime/H16_VALIDATION.json"
   },
   "current_strict_verification": {
-    "tests": 225,
-    "passed": 225,
+    "tests": 251,
+    "passed": 251,
     "skipped": 0,
-    "scope": "LOCAL_NOT_REMOTE_CI",
-    "evidence": "runtime/PROOF_DELTA_VALIDATION.json"
+    "scope": "PR46_HISTORICAL_COMPONENT_NOT_COMBINED",
+    "evidence": "VALIDATION.json",
+    "source_commit": "35f176cb946b78487412d7757c8cc6a4a646c8d8"
   },
   "weight_registry": {
     "models_loaded": 3,
@@ -401,7 +402,12 @@
     "worker_messages_include_labels": false,
     "independence_verified": false,
     "candidate_promoted": false,
-    "validation": "runtime/EXTERNAL_VALIDATOR_VALIDATION.json"
+    "validation": "runtime/EXTERNAL_VALIDATOR_VALIDATION.json",
+    "worker_source": {
+      "scope": "LOCAL_COMMITTED_BLOB_EXECUTION_REGRESSION",
+      "evidence": "VALIDATION.json",
+      "implementation_sha256": "fe35db5e5889bc1a23b50850f4f83ad46dd1974b9b770e741c5570dfe3cd01fa"
+    }
   },
   "proof_delta": {
     "status": "BASELINE_ERROR_FALSE_TECHNICAL_PASS_PATCHED",
@@ -413,5 +419,66 @@
     "validation": "runtime/PROOF_DELTA_VALIDATION.json",
     "external_model_validation": false,
     "weights_changed": false
+  },
+  "dashboard_source_verification": {
+    "source_commit": "e85b1e808081510a8267457c9b4aafeca064cb36",
+    "comparator_sha256": "da4ef83aa8b49b3ad16cd2ab774bf54f72970594697fd6b8f7577de57b53b101",
+    "main_ci": {
+      "run_id": 41595060639,
+      "job_id": 125780368398,
+      "step": 5,
+      "strict_suite": {
+        "status": "PASS_NO_SKIPS",
+        "tests_run": 250,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    "historical_local_suite": {
+      "commit": "dd86709aa08ccf555c7c0bba49bbebba55779b09",
+      "path": "runtime/PROOF_DELTA_VALIDATION.json",
+      "sha256": "a72f367c12e3bcc23843f5deac8e5f7500c615fab71b9a5a15c5a7f646413d6d",
+      "status": "PASS_NO_SKIPS",
+      "tests_run": 225,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "public_precompute_source_verification": {
+    "source_pr_head": "8c0134de3d2fd5d5e310c71b3feb4999d64b87c5",
+    "validated_source_revision": "a70c1e21cf02241dd3f136d634561d604511397e6a1ab1eb180becde8665b6f4",
+    "source_data_sha256": "5d71ad4b3292b1ce3c940e71df1416e879d7808dcab5de841c80b3a832a95b1f"
+  },
+  "integration_candidate": {
+    "schema": "RIO_TRI_PR_SOURCE_INTEGRATION_R001",
+    "source_base": "e85b1e808081510a8267457c9b4aafeca064cb36",
+    "components": {
+      "p43": {
+        "pr": 43,
+        "head": "8c0134de3d2fd5d5e310c71b3feb4999d64b87c5",
+        "scope": "PRECOMPUTE_REVISION",
+        "historical_tests": 252
+      },
+      "p45": {
+        "pr": 45,
+        "head": "ed5a15d0186923304481ca7b69a9f455386cb04a",
+        "scope": "PUBLIC_DASHBOARD",
+        "historical_tests": 250
+      },
+      "p46": {
+        "pr": 46,
+        "head": "35f176cb946b78487412d7757c8cc6a4a646c8d8",
+        "scope": "COMMITTED_EXTERNAL_WORKER",
+        "historical_tests": 251
+      }
+    },
+    "combined_suite_status": "NOT_EXECUTED_IN_SOURCE_RECEIPT",
+    "combined_ci_status": "UNKNOWN_UNTIL_PR_RUN",
+    "runtime_active": false,
+    "independence_verified": false,
+    "governance": "PENDING_INDEPENDENT_REVIEW_AND_COMBINED_CI",
+    "interpretation": "Component receipts belong to source heads; combined suite is separately evaluated."
   }
 }

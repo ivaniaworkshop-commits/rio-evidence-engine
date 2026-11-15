@@ -28,6 +28,11 @@ def main():
         'validation_sha256': hashlib.sha256((ROOT/'VALIDATION.json').read_bytes()).hexdigest(),
         'scope': 'LOCAL_EXECUTION_RECORD_BOUND_TO_SOURCE_BYTES_NOT_REMOTE_CI',
     }
+    if release := validation.get('dashboard_release'):
+        comparator_sha256=hashlib.sha256((ROOT/'docs/compare.js').read_bytes()).hexdigest()
+        if comparator_sha256 != release['comparator_sha256'] or data['provenance']['core_sha256'] != release['core_sha256']:
+            raise ValueError('dashboard source differs from historical release')
+        data['dashboard_release']=release
     model_path = ROOT/'model/TRAINING_RESULT.json'
     if model_path.exists():
         result=json.loads(model_path.read_text())
@@ -47,6 +52,29 @@ def main():
     description_path=ROOT/'model/DESCRIPTION.json'
     if description_path.exists():
         data['model_description']=json.loads(description_path.read_text())
+    if validation.get('external_worker_source'):
+        description = data['model_description']
+        suite = description['current_strict_verification']
+        data['tests'] = suite['passed']
+        data['current_strict_verification'] = suite
+        data['external_validator'] = description['external_validator']
+        data['provenance']['current_test_evidence'] = 'VALIDATION.json'
+        data['provenance']['current_test_evidence_sha256'] = data['provenance']['validation_sha256']
+    if precompute := validation.get('public_precompute'):
+        package=json.loads((ROOT/'runtime/PUBLIC_PRECOMPUTE.json').read_text())
+        if package['source_revision'] != precompute['validated_source_revision']:
+            raise ValueError('precompute source differs from source receipt')
+        data['public_precompute_source']={
+            'source_pr_head':'8c0134de3d2fd5d5e310c71b3feb4999d64b87c5',
+            'validated_source_revision':precompute['validated_source_revision'],
+            'source_data_sha256':precompute['public_dev_sha256'],
+        }
+    if integration := validation.get('integration_candidate'):
+        data['integration_candidate']=integration
+        data['tests_scope']='PR46_HISTORICAL_COMPONENT_NOT_COMBINED'
+        data['current_strict_verification']={**data['current_strict_verification'],
+            'scope':'PR46_HISTORICAL_COMPONENT_NOT_COMBINED',
+            'source_commit':integration['components']['p46']['head']}
     stream_path=ROOT/'model/STREAMING_GATE_RESULT.json'
     if stream_path.exists():
         stream=json.loads(stream_path.read_text())
@@ -81,7 +109,7 @@ def main():
     if auto_path.exists():
         auto=json.loads(auto_path.read_text())
         data['automatic_runtime']={'round_statuses':[r['status'] for r in auto['rounds']], 'benchmark':auto['rounds'][0]['benchmark']}
-    encoded = json.dumps(data, indent=2)+'\n'
+    encoded = json.dumps(data, indent=2, ensure_ascii=False)+'\n'
     for name in ['DELTAS.json','docs/data.json']:
         (ROOT/name).write_text(encoded)
 

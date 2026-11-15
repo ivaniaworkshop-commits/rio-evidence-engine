@@ -206,7 +206,7 @@ Context refusal is not correct semantic abstention and does not pass extraction.
 <!-- MODEL_STATUS_START -->
 ## Current model status (evidence synchronized)
 
-Río ByteGRU is a **small neural language model, not an LLM**: 17,344 parameters, 250 observed training steps. Checkpoint saved and reloaded. Current strict suite: 225 passing local tests, zero skipped.
+Río ByteGRU is a **small neural language model, not an LLM**: 17,344 parameters, 250 observed training steps. Checkpoint saved and reloaded. PR #46 historical component suite: 251 passing local tests; combined suite NOT_OBSERVED.
 
 Current free generation rejects prompt-plus-output budgets above 128 UTF-8 bytes. The extraction fixture has 28 context rejections, not semantic abstentions. Neural extraction is not established. Hybrid arithmetic remains deterministic. Optional neural ranking showed no output benefit in the paired 42-case comparison. Earlier low loss and failed raw-generation probes are historical, not current capability certificates.
 Experimental recurrent prefill processes up to 4096 prompt bytes; observed full processing in 28/28 cases, but 0/24 exact graphs and 0/4 correct abstentions. No weights changed.
@@ -216,6 +216,7 @@ Code-grounded durations: 312/312 fields correct, but exact graphs 0/78. Code abs
 Current accuracy-first paired comparison: code 94/94 correct decisions vs neural pipeline 16/94. Network value: NO_ON_THIS_SCOPE_WITH_CURRENT_WEIGHTS. No new weights or promotion.
 A separate weight-scaling candidate was programmed from 96 seeded trials; loss improved but dev exact graphs remain 0/78. Not promoted; no demonstrated neural utility gain.
 Bounded warm-cache/atomic-round support is observed. It changes runtime reuse, not neural weights, semantic accuracy or antivirus activation.
+The external evaluation instrument now binds worker source to committed Git blobs in the locally tested candidate. Model capability evidence remains separate.
 <!-- MODEL_STATUS_END -->
 
 ## Experimental full recurrent prefill
@@ -405,6 +406,8 @@ Observed API and CLI outputs matched with all three checkpoints, and repeated ca
 
 ## Standalone external evaluation instrument
 
+The worker imports the registered package from verified Git blobs at the declared commit. Local tests cover source edits hidden by Git index flags. See `VALIDATION.json` for the regression receipt.
+
 See external_validator/README.md and external_validator/validate.py. The stdlib-only tool is designed to run on an independent evaluator's machine. It verifies clean exact-commit Git checkouts, executes registered graph readers in separate Python isolated-mode processes without transmitting labels, and scores with a parent comparator that imports no project grading modules. It rejects submitted outputs/times and exact known-text overlap. Private aggregate reports use exclusive creation and permissions 0600. It does not fetch code, send data, promote a model or authenticate external provenance.
 
 Instrument tests use authored temporary Git fixtures; current strict suite: 214 passed, zero skipped. All report paths preserve independence_verified=false. Without an external bundle, execution is BLOCKED_NO_EXTERNAL_DATA. This is a ready validation instrument, not completed independent model validation, and it currently evaluates graph-reader targets rather than neural checkpoints. Evidence: runtime/EXTERNAL_VALIDATOR_VALIDATION.json.
@@ -415,3 +418,7 @@ Instrument tests use authored temporary Git fixtures; current strict suite: 214 
 A reproducible authored counterexample made the prior standalone validator pass its technical screen with five baseline runtime errors across five clusters. The errors produced five apparent paired wins even though the reference execution was invalid. The patch preserves those raw observations but blocks the technical screen whenever either side has runtime/interface/invalid-graph errors. Wrong semantic answers and legitimate abstentions remain comparable; this guard targets invalid execution, not disagreement. The report includes screen_blockers for these error conditions.
 
 Eleven new controls cover legitimate positive acceptance, baseline crashes, malformed baseline graphs, candidate crashes, concentration of wins in one cluster, four-win threshold, abstention regression, excessive latency, malformed abstention, source mutation during a worker call, and timeout. Against the original source commit, the counterexample passed; patched code rejects it while a legitimate positive control still passes. Current strict suite: 225 passed, zero skipped. Evidence: runtime/PROOF_DELTA_RESULT.json and runtime/PROOF_DELTA_VALIDATION.json. These are instrument/regression proofs, not external model accuracy or new learned capacity; no weights changed.
+
+## Source integration of PR #43 + #45 + #46 · 2026-11-15
+
+**DRAFT / SOURCE_INTEGRATED / COMBINED_CI_PENDING / REVIEW_PENDING.** This candidate includes the public precalculation revision guard (#43), the dashboard release comparison (#45), and the committed-source external validator (#46). Their 252/250/251 passing test receipts describe **different historical source revisions**, not this combined tree. The combined result requires an H00 workflow run on the integration PR and an independent approving review before any merge. See `VALIDATION.json` (`integration_candidate`) and `DELTAS.json` (`tests_scope`). No production runtime or external evaluation is authenticated by this change.

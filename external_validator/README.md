@@ -49,6 +49,8 @@ Input envelope (illustrative schema, not an external test dataset):
 
 ## Interpretation and custody
 
+Workers import the registered package from a fresh temporary copy of the declared commit's Git blobs. The parent checks that copy's inventory and blob IDs before and after execution. Local Git index flags and object replacement refs do not select the worker's source. Operator review remains required because the worker runs with the local account's permissions.
+
 Technical screen: >=30 supported, >=10 unsupported, >=5 declared clusters; >=5 extra exact graphs; one-sided descriptive paired p<=0.05; >=5 winning clusters with cluster sign p<=0.05; no abstention regression or baseline/candidate interface/runtime/invalid-graph errors; candidate median call latency <=max(3*baseline, baseline+5ms). Cluster independence and random sampling are not verified. The screen is neither a generalization certificate nor a promotion decision. Single-pass worker timings exclude process startup and are hardware/load sensitive.
 
 Reports omit source texts, labels, raw predictions and case identifiers. They include aggregate metrics, commit IDs and hashes of input bytes. Output must be outside both frozen checkouts and must not exist; permissions are 0600. Treat aggregates and hashes as potentially sensitive and keep reports private until reviewed. Existing reports are never overwritten. No report is uploaded automatically.

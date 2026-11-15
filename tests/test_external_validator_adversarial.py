@@ -57,6 +57,28 @@ class WorkerFailureControls(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             root,sha=self.checkout(d," open(__file__,'a').write('\\n# drift')\n return {'status':'ABSTAIN','graph':None}\n")
             with self.assertRaisesRegex(ValueError,'DIRTY'):v.execute(root,sha,'h09',[{'case_id':'n','text':'fixture'}])
+
+    def test_hidden_worktree_edits_cannot_supply_worker_code(self):
+        relative = 'rio_evidence/extended_graph.py'
+        for flag in ('--assume-unchanged', '--skip-worktree'):
+            with self.subTest(flag=flag), tempfile.TemporaryDirectory() as d:
+                root, sha = self.checkout(d, " return {'status':'ABSTAIN','graph':None}\n")
+                subprocess.run(['git', '-C', str(root), 'update-index', flag, relative],
+                               capture_output=True, check=True)
+                (root/relative).write_text(
+                    "def extract_extended_graph(text):\n"
+                    f" return {{'status':'EXPLICIT_GRAPH_RECOVERED','graph':{G!r}}}\n"
+                )
+                status = subprocess.check_output(
+                    ['git', '-C', str(root), 'status', '--porcelain', '--untracked-files=all', '--ignored'],
+                    text=True,
+                )
+                self.assertEqual(status, '')
+                cases = [{'case_id':'n','text':'fixture'}]
+                result = v.execute(root, sha, 'h09', cases)[0]
+                self.assertEqual(result['kind'], 'ABSTAIN')
+                self.assertIsNone(result['graph'])
+
     def test_worker_timeout_is_not_a_successful_result(self):
         with tempfile.TemporaryDirectory() as d:
             root,sha=self.checkout(d," import time\n time.sleep(2)\n return {'status':'ABSTAIN','graph':None}\n")
