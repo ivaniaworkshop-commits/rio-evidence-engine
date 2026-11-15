@@ -23,8 +23,8 @@
     },
     {
       "path": "DELTAS.json",
-      "bytes": 27712,
-      "sha256": "28bd753b5078324e9a438a2721f11975689750a24324354ef809ee9044126fe2"
+      "bytes": 34115,
+      "sha256": "67ac9f6da33d5ba1f94c7aecb61382414cb941feb921042b3dda10baaa557000"
     },
     {
       "path": "README.md",
@@ -38,8 +38,8 @@
     },
     {
       "path": "VALIDATION.json",
-      "bytes": 15060,
-      "sha256": "6e44aca768b7ec9e6c6eec41e0a2de886e19a7dfde0e45289a7ba6cc22c66163"
+      "bytes": 20613,
+      "sha256": "99032afe8c5f25b22afda67b4d89b2ed20d5b3c3146b0d7e38a82930fe2c4a4c"
     },
     {
       "path": "VALIDATION_ACCOUNT.json",
@@ -83,8 +83,8 @@
     },
     {
       "path": "docs/data.json",
-      "bytes": 27712,
-      "sha256": "28bd753b5078324e9a438a2721f11975689750a24324354ef809ee9044126fe2"
+      "bytes": 34115,
+      "sha256": "67ac9f6da33d5ba1f94c7aecb61382414cb941feb921042b3dda10baaa557000"
     },
     {
       "path": "docs/index.html",
@@ -198,8 +198,8 @@
     },
     {
       "path": "model/DESCRIPTION.json",
-      "bytes": 15472,
-      "sha256": "57f068c1a9d676ee22015ee319e66b40e70a7c57a372434f808ae472b193e448"
+      "bytes": 17718,
+      "sha256": "7a8419ed9c2d9d46770df64c24594a40b8b4c3660fdc65611f75ba28ef3fe759"
     },
     {
       "path": "model/DURATION_COPY_CARD.md",
@@ -803,8 +803,8 @@
     },
     {
       "path": "tests/test_dashboard.py",
-      "bytes": 8547,
-      "sha256": "ba21d598d77f83babda0fa97894d0a4539df8a9d177c0d00d2ee901d4cc23a52"
+      "bytes": 8937,
+      "sha256": "9b253afbffb91771bcab8ad6ac13514e0476cfb1a8aa71b1037cd4f7f79ef31c"
     },
     {
       "path": "tests/test_duration_copy.py",
@@ -865,6 +865,11 @@
       "path": "tests/test_independent_gate.py",
       "bytes": 5162,
       "sha256": "b4c7c3b021769084c6f02d486af048d5d43d5474923c7a0e3c77272787961b2b"
+    },
+    {
+      "path": "tests/test_integration_attribution.py",
+      "bytes": 1753,
+      "sha256": "5570f757218175fcca6dbea1072c3816cbaf14744ef4b62e3158177bc47bad0f"
     },
     {
       "path": "tests/test_json_io.py",

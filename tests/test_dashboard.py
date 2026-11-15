@@ -139,7 +139,13 @@ class DashboardParity(unittest.TestCase):
         self.assertIn('dashboard_release', validation, 'dashboard needs a source-bound release record')
         release = validation['dashboard_release']
         self.assertEqual(snapshot['dashboard_release'], release)
-        self.assertEqual(snapshot['tests'], release['strict_suite']['tests_run'])
+        if 'integration_candidate' in snapshot:
+            self.assertEqual(snapshot['tests_scope'], 'PR46_HISTORICAL_COMPONENT_NOT_COMBINED')
+            self.assertEqual(snapshot['integration_candidate']['combined_suite_status'],
+                             'NOT_EXECUTED_IN_SOURCE_RECEIPT')
+            self.assertEqual(snapshot['tests'], 251)  # Source PR #46 only.
+        else:
+            self.assertEqual(snapshot['tests'], release['strict_suite']['tests_run'])
         self.assertEqual(snapshot['provenance']['core_sha256'], release['core_sha256'])
         historical = release['historical_local_suite']
         historical_bytes = (ROOT/historical['path']).read_bytes()

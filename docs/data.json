@@ -1,6 +1,6 @@
 {
   "schema": "rio-dashboard-v1",
-  "updated": "2026-11-10",
+  "updated": "2026-11-15",
   "tests": 251,
   "synthetic_graphs": 64,
   "benchmark": {
@@ -49,15 +49,27 @@
       "state": "VERIFIED",
       "value": "Local regression preserves the declared commit outcome when Git index flags hide working-tree edits.",
       "evidence": "external_validator/validate.py"
+    },
+    {
+      "title": "Public precompute revision check",
+      "evidence": "runtime/PUBLIC_PRECOMPUTE.json",
+      "origin_pr": 43,
+      "state": "PENDING_COMBINED_CI"
+    },
+    {
+      "title": "Reviewed dashboard comparator",
+      "evidence": "docs/compare.js",
+      "origin_pr": 45,
+      "state": "PENDING_COMBINED_CI"
     }
   ],
   "benchmark_source_commit": "7eb02c14e23453f109604ddefaeb5c944fad05fa",
   "provenance": {
     "core_sha256": "14d30226f7050c2e08272d9ab2207bc949f3d1663d0dc3b101dd7be602ba797b",
-    "validation_sha256": "6e44aca768b7ec9e6c6eec41e0a2de886e19a7dfde0e45289a7ba6cc22c66163",
+    "validation_sha256": "99032afe8c5f25b22afda67b4d89b2ed20d5b3c3146b0d7e38a82930fe2c4a4c",
     "scope": "LOCAL_EXECUTION_RECORD_BOUND_TO_SOURCE_BYTES_NOT_REMOTE_CI",
     "current_test_evidence": "VALIDATION.json",
-    "current_test_evidence_sha256": "6e44aca768b7ec9e6c6eec41e0a2de886e19a7dfde0e45289a7ba6cc22c66163"
+    "current_test_evidence_sha256": "99032afe8c5f25b22afda67b4d89b2ed20d5b3c3146b0d7e38a82930fe2c4a4c"
   },
   "model": {
     "status": "SMALL_NEURAL_LM_TRAINED_AND_RELOADED_NOT_LLM",
@@ -431,8 +443,9 @@
       "tests": 251,
       "passed": 251,
       "skipped": 0,
-      "scope": "LOCAL_CANDIDATE_SUITE",
-      "evidence": "VALIDATION.json"
+      "scope": "PR46_HISTORICAL_COMPONENT_NOT_COMBINED",
+      "evidence": "VALIDATION.json",
+      "source_commit": "35f176cb946b78487412d7757c8cc6a4a646c8d8"
     },
     "weight_registry": {
       "models_loaded": 3,
@@ -533,6 +546,67 @@
       "validation": "runtime/PROOF_DELTA_VALIDATION.json",
       "external_model_validation": false,
       "weights_changed": false
+    },
+    "dashboard_source_verification": {
+      "source_commit": "e85b1e808081510a8267457c9b4aafeca064cb36",
+      "comparator_sha256": "da4ef83aa8b49b3ad16cd2ab774bf54f72970594697fd6b8f7577de57b53b101",
+      "main_ci": {
+        "run_id": 41595060639,
+        "job_id": 125780368398,
+        "step": 5,
+        "strict_suite": {
+          "status": "PASS_NO_SKIPS",
+          "tests_run": 250,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      },
+      "historical_local_suite": {
+        "commit": "dd86709aa08ccf555c7c0bba49bbebba55779b09",
+        "path": "runtime/PROOF_DELTA_VALIDATION.json",
+        "sha256": "a72f367c12e3bcc23843f5deac8e5f7500c615fab71b9a5a15c5a7f646413d6d",
+        "status": "PASS_NO_SKIPS",
+        "tests_run": 225,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    "public_precompute_source_verification": {
+      "source_pr_head": "8c0134de3d2fd5d5e310c71b3feb4999d64b87c5",
+      "validated_source_revision": "a70c1e21cf02241dd3f136d634561d604511397e6a1ab1eb180becde8665b6f4",
+      "source_data_sha256": "5d71ad4b3292b1ce3c940e71df1416e879d7808dcab5de841c80b3a832a95b1f"
+    },
+    "integration_candidate": {
+      "schema": "RIO_TRI_PR_SOURCE_INTEGRATION_R001",
+      "source_base": "e85b1e808081510a8267457c9b4aafeca064cb36",
+      "components": {
+        "p43": {
+          "pr": 43,
+          "head": "8c0134de3d2fd5d5e310c71b3feb4999d64b87c5",
+          "scope": "PRECOMPUTE_REVISION",
+          "historical_tests": 252
+        },
+        "p45": {
+          "pr": 45,
+          "head": "ed5a15d0186923304481ca7b69a9f455386cb04a",
+          "scope": "PUBLIC_DASHBOARD",
+          "historical_tests": 250
+        },
+        "p46": {
+          "pr": 46,
+          "head": "35f176cb946b78487412d7757c8cc6a4a646c8d8",
+          "scope": "COMMITTED_EXTERNAL_WORKER",
+          "historical_tests": 251
+        }
+      },
+      "combined_suite_status": "NOT_EXECUTED_IN_SOURCE_RECEIPT",
+      "combined_ci_status": "UNKNOWN_UNTIL_PR_RUN",
+      "runtime_active": false,
+      "independence_verified": false,
+      "governance": "PENDING_INDEPENDENT_REVIEW_AND_COMBINED_CI",
+      "interpretation": "Component receipts belong to source heads; combined suite is separately evaluated."
     }
   },
   "streaming_gate": {
@@ -594,7 +668,7 @@
     "neural_pipeline_median_ms": 15.955322000081651,
     "network_earns_its_cost": "NO_ON_THIS_SCOPE_WITH_CURRENT_WEIGHTS",
     "fixed_seed_replay_equal": true,
-    "simulation_network_preferred_frequency": 0.0
+    "simulation_network_preferred_frequency": 0
   },
   "weight_search": {
     "trial_count": 96,
@@ -661,8 +735,9 @@
     "tests": 251,
     "passed": 251,
     "skipped": 0,
-    "scope": "LOCAL_CANDIDATE_SUITE",
-    "evidence": "VALIDATION.json"
+    "scope": "PR46_HISTORICAL_COMPONENT_NOT_COMBINED",
+    "evidence": "VALIDATION.json",
+    "source_commit": "35f176cb946b78487412d7757c8cc6a4a646c8d8"
   },
   "weight_registry": {
     "models_loaded": 3,
@@ -763,5 +838,101 @@
     "validation": "runtime/PROOF_DELTA_VALIDATION.json",
     "external_model_validation": false,
     "weights_changed": false
-  }
+  },
+  "dashboard_release": {
+    "scope": "REVIEWED_MAIN_COMPARATOR_AND_SYNTHETIC_DASHBOARD_CHECKS",
+    "observed_at_utc": "2026-11-10T14:28:24.864717+00:00",
+    "source_commit": "e85b1e808081510a8267457c9b4aafeca064cb36",
+    "core_sha256": "14d30226f7050c2e08272d9ab2207bc949f3d1663d0dc3b101dd7be602ba797b",
+    "comparator_sha256": "da4ef83aa8b49b3ad16cd2ab774bf54f72970594697fd6b8f7577de57b53b101",
+    "mobile_benchmark_sha256": "4a0ffe270c01c649bea33d6ec919b728fab34e5c96e872bc0ddf10ae9946b1e0",
+    "strict_suite": {
+      "status": "PASS_NO_SKIPS",
+      "tests_run": 250,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "main_ci": {
+      "run_id": 41595060639,
+      "job_id": 125780368398,
+      "step": 5,
+      "strict_suite": {
+        "status": "PASS_NO_SKIPS",
+        "tests_run": 250,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    "historical_local_suite": {
+      "commit": "dd86709aa08ccf555c7c0bba49bbebba55779b09",
+      "path": "runtime/PROOF_DELTA_VALIDATION.json",
+      "sha256": "a72f367c12e3bcc23843f5deac8e5f7500c615fab71b9a5a15c5a7f646413d6d",
+      "status": "PASS_NO_SKIPS",
+      "tests_run": 225,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "browser_javascript_probe": {
+      "scope": "NODE_EVENT_HANDLER_WITH_SYNTHETIC_INPUTS",
+      "published_baseline_version": 21,
+      "published_baseline_comparator_sha256": "4d91dbe819fd79133726ff64b39c8cfda93beb4633a96db75c5fbcbe0cb325b4",
+      "published_baseline_accepts_duplicate_key": true,
+      "published_baseline_subnormal_mean_ms": 0,
+      "reviewed_comparator_rejects_duplicate_key": true,
+      "reviewed_comparator_subnormal_mean_ms": 5e-324,
+      "valid_control_pairs": 3
+    },
+    "numeric_gates": {
+      "p4": "PASS_PARITY_GATE",
+      "p5": "PASS_EXACT_METAMORPHIC_GATE",
+      "p6": "PASS_HOST_RESOURCE_GATE"
+    },
+    "preview_chrome": {
+      "scope": "DESKTOP_CHROME_STATIC_PREVIEW",
+      "duplicate_key_rejected_by_playground": true,
+      "playground_subnormal_mean_ms": 5e-324,
+      "local_benchmark_subnormal_sentinel": "PASS",
+      "local_benchmark_advisory": "PASS_ADVISORY",
+      "physical_android": "NOT_RUN"
+    }
+  },
+  "public_precompute_source": {
+    "source_pr_head": "8c0134de3d2fd5d5e310c71b3feb4999d64b87c5",
+    "validated_source_revision": "a70c1e21cf02241dd3f136d634561d604511397e6a1ab1eb180becde8665b6f4",
+    "source_data_sha256": "5d71ad4b3292b1ce3c940e71df1416e879d7808dcab5de841c80b3a832a95b1f"
+  },
+  "integration_candidate": {
+    "schema": "RIO_TRI_PR_SOURCE_INTEGRATION_R001",
+    "source_base": "e85b1e808081510a8267457c9b4aafeca064cb36",
+    "components": {
+      "p43": {
+        "pr": 43,
+        "head": "8c0134de3d2fd5d5e310c71b3feb4999d64b87c5",
+        "scope": "PRECOMPUTE_REVISION",
+        "historical_tests": 252
+      },
+      "p45": {
+        "pr": 45,
+        "head": "ed5a15d0186923304481ca7b69a9f455386cb04a",
+        "scope": "PUBLIC_DASHBOARD",
+        "historical_tests": 250
+      },
+      "p46": {
+        "pr": 46,
+        "head": "35f176cb946b78487412d7757c8cc6a4a646c8d8",
+        "scope": "COMMITTED_EXTERNAL_WORKER",
+        "historical_tests": 251
+      }
+    },
+    "combined_suite_status": "NOT_EXECUTED_IN_SOURCE_RECEIPT",
+    "combined_ci_status": "UNKNOWN_UNTIL_PR_RUN",
+    "runtime_active": false,
+    "independence_verified": false,
+    "governance": "PENDING_INDEPENDENT_REVIEW_AND_COMBINED_CI",
+    "interpretation": "Component receipts belong to source heads; combined suite is separately evaluated."
+  },
+  "tests_scope": "PR46_HISTORICAL_COMPONENT_NOT_COMBINED"
 }
