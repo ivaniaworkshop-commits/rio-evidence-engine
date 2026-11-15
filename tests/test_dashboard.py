@@ -1,4 +1,5 @@
 """Browser comparator parity on authored cases; Node is optional for core users."""
+import hashlib
 import json
 import shutil
 import subprocess
@@ -131,3 +132,24 @@ class DashboardParity(unittest.TestCase):
 
     def test_snapshot_and_delta_ledger_are_identical(self):
         self.assertEqual(json.loads((ROOT/'DELTAS.json').read_text()),json.loads((ROOT/'docs/data.json').read_text()))
+
+    def test_snapshot_links_current_and_historical_suite_to_separate_evidence(self):
+        snapshot = json.loads((ROOT/'docs/data.json').read_text())
+        validation = json.loads((ROOT/'VALIDATION.json').read_text())
+        self.assertIn('dashboard_release', validation, 'dashboard needs a source-bound release record')
+        release = validation['dashboard_release']
+        self.assertEqual(snapshot['dashboard_release'], release)
+        self.assertEqual(snapshot['tests'], release['strict_suite']['tests_run'])
+        self.assertEqual(snapshot['provenance']['core_sha256'], release['core_sha256'])
+        historical = release['historical_local_suite']
+        historical_bytes = (ROOT/historical['path']).read_bytes()
+        self.assertEqual(hashlib.sha256(historical_bytes).hexdigest(), historical['sha256'])
+        self.assertEqual(json.loads(historical_bytes)['current_suite']['tests_run'], historical['tests_run'])
+        self.assertEqual(hashlib.sha256((ROOT/'docs/compare.js').read_bytes()).hexdigest(),
+                         release['comparator_sha256'])
+
+        page = (ROOT/'docs/index.html').read_text()
+        repo = 'https://github.com/ivaniaworkshop-commits/rio-evidence-engine'
+        current = release['main_ci']
+        self.assertIn(f'{repo}/actions/runs/{current["run_id"]}/job/{current["job_id"]}#step:{current["step"]}:1', page)
+        self.assertIn(f'{repo}/blob/{historical["commit"]}/{historical["path"]}', page)

@@ -73,8 +73,8 @@
     },
     {
       "path": "docs/app.js",
-      "bytes": 7321,
-      "sha256": "87ab3c0d3a6e00b5374b8e4a2c2a10e99d1a4dcc1860c6f3f4893a4e6d179cff"
+      "bytes": 7470,
+      "sha256": "455ad3cf41b3b893cde138a98fd9f50965ef350f8619823e79982dc4b059bc5a"
     },
     {
       "path": "docs/compare.js",
@@ -88,8 +88,8 @@
     },
     {
       "path": "docs/index.html",
-      "bytes": 8913,
-      "sha256": "1accf5084893a27e5e80bdcb44fbeadf2a52065a9d4b01dc0c6ae987464f162e"
+      "bytes": 16169,
+      "sha256": "b4d2b2a87613853c41aff411affa236a35a5d9fe4abbaae93af878273c68349e"
     },
     {
       "path": "docs/mobile-benchmark.html",
@@ -363,8 +363,8 @@
     },
     {
       "path": "rio_evidence/autoround.py",
-      "bytes": 7479,
-      "sha256": "3e1f7b57903ec5069566e33c625cc0871616866e429aa27402d131f7ade00c02"
+      "bytes": 7645,
+      "sha256": "3c6f939d196bb3623f8467de54cb781fd9dfa76848c2caab38c33607ea25bc64"
     },
     {
       "path": "rio_evidence/candidate_v1.py",
@@ -549,7 +549,7 @@
     {
       "path": "runtime/PUBLIC_PRECOMPUTE.json",
       "bytes": 397985,
-      "sha256": "b74bcb0a5aa1523e1112d50be8329760108aa1ed71fe80ee9784198a6aeb784b"
+      "sha256": "714cf95ddcc44dda70a268b05341a086d946d9836aced0eff7ed3def072a17f4"
     },
     {
       "path": "runtime/SESSION_SMOKE_RESULT.json",
@@ -768,8 +768,8 @@
     },
     {
       "path": "tests/test_atomic_runtime.py",
-      "bytes": 4636,
-      "sha256": "02259e3c3a8116dac2c9e4d328685da479d7b47c42c78465de5ed546153d7fce"
+      "bytes": 6710,
+      "sha256": "04800d9d16b95f100e29e0e50151d366b987d11bb68f073da1e8879345f2ba45"
     },
     {
       "path": "tests/test_benchmark_exact_sum.py",
@@ -803,8 +803,8 @@
     },
     {
       "path": "tests/test_dashboard.py",
-      "bytes": 7071,
-      "sha256": "56026ad9a16582b5d979a25315745ef0d37fa140590e5c44dd8920f0005a8de5"
+      "bytes": 8547,
+      "sha256": "ba21d598d77f83babda0fa97894d0a4539df8a9d177c0d00d2ee901d4cc23a52"
     },
     {
       "path": "tests/test_duration_copy.py",

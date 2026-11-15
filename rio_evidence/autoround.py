@@ -46,7 +46,11 @@ class RoundController:
         if path.exists():
             candidate=json.loads(path.read_text())
             expected=hashlib.sha256((self.root/'training/extraction_dev.jsonl').read_bytes()).hexdigest()
-            if candidate.get('source_revision')==self.revision and candidate.get('source_data_sha256')==expected:self.package=candidate
+            if candidate.get('source_revision') != self.revision:
+                raise ValueError('stale precompute source revision')
+            if candidate.get('source_data_sha256') != expected:
+                raise ValueError('public data revision mismatch')
+            self.package = candidate
         self.bootstrap_ms=(time.perf_counter()-bootstrap_start)*1000
     def candidates(self):
         proposals=[
