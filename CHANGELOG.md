@@ -1,5 +1,9 @@
 # Changes
 
+## PR #43 + #45 + #46 combined source candidate (2026-11-15)
+
+Integrate the precompute revision guard, public dashboard comparator wiring, and committed-source external worker while preserving three distinct historical evidence receipts. The combined suite remains unobserved until the new pull-request CI succeeds. No runtime promotion.
+
 ## Bind external validation to committed worker source
 
 Materialize the registered worker package from the declared commit's Git blobs. Verify its inventory and blob identities before and after execution. The regression covers working-tree edits hidden by `assume-unchanged` and `skip-worktree`.

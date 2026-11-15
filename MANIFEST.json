@@ -18,8 +18,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 11904,
-      "sha256": "098b2f3a698fc8c1da4177e25efa5430e12b3125d65c81ead96ba2aa813bb308"
+      "bytes": 12243,
+      "sha256": "27a07523469e40c058da65e5486aeee381e54146db7ee8a11170a3485445e717"
     },
     {
       "path": "DELTAS.json",
@@ -28,8 +28,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 36888,
-      "sha256": "a6766e64e2dbec64ba02ac9587fd375bb8c795d4bf96766299690a1cc4fab99b"
+      "bytes": 37632,
+      "sha256": "96c8915f9aa03f3b61cd573669fc085624c83454f479c2046f51982dba6a1847"
     },
     {
       "path": "RECALCULATION.md",
@@ -248,8 +248,8 @@
     },
     {
       "path": "model/MODEL_CARD.md",
-      "bytes": 21734,
-      "sha256": "b2fd328a5ee1a56b83fac85a9936079c40aef806d7b5d5f105af552a7aa2d1b6"
+      "bytes": 22478,
+      "sha256": "0fae089623cc81f80cf42cd03d37e7af05636068e7ca83d92c24a9df4ec3f3bd"
     },
     {
       "path": "model/MODE_ABLATION.json",
@@ -713,8 +713,8 @@
     },
     {
       "path": "scripts/refresh_snapshot.py",
-      "bytes": 6170,
-      "sha256": "66c55943dd8aa5e0863d3e5dd51119f297c04e3517ef4047a385e20ab749a623"
+      "bytes": 7534,
+      "sha256": "371df4a5ada78ac4bf112150b9de7eb02f4e88575d7fcf81d1bc8e9acf204778"
     },
     {
       "path": "scripts/run_strict_tests.py",
@@ -728,8 +728,8 @@
     },
     {
       "path": "scripts/sync_model_description.py",
-      "bytes": 17583,
-      "sha256": "8eabfe38d3e167a8b79b3c63d0d05772293adc53667d4f688c7eb175aa0d2e07"
+      "bytes": 19264,
+      "sha256": "bbcb47d110b9ffa6fa819c6b51dee6092e3cd7c9ba592b5a8b84064c23984ea2"
     },
     {
       "path": "scripts/train_extraction.py",

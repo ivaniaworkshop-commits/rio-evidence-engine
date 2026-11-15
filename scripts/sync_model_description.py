@@ -11,7 +11,8 @@ def sync():
     runs=[r for r in validation['checks'] if 'unittest' in r['command']]
     if len(runs)!=1 or runs[0]['exit_code']!=0:raise ValueError('successful test evidence required')
     match=re.search(r'Ran (\d+) tests?',runs[0]['stderr'])
-    if not match:raise ValueError('test count unavailable')
+    if not match or runs[0]['stderr'].strip().splitlines()[-1] != 'OK':
+        raise ValueError('complete passing unittest evidence required')
     checkpoint_hash=hashlib.sha256((ROOT/'model/byte_gru.pt').read_bytes()).hexdigest()
     if checkpoint_hash!=training['checkpoint_sha256']:raise ValueError('training description does not match checkpoint')
     if context['checkpoint_sha256'] != checkpoint_hash:
@@ -165,12 +166,33 @@ def sync():
             'scope': 'LOCAL_CANDIDATE_SUITE', 'evidence': 'VALIDATION.json',
         }
         d['project_tests_passed'] = suite['tests_run']
+    if release := validation.get('dashboard_release'):
+        comparator_hash=hashlib.sha256((ROOT/'docs/compare.js').read_bytes()).hexdigest()
+        if comparator_hash != release['comparator_sha256']:
+            raise ValueError('dashboard comparator differs from its historical release receipt')
+        d['dashboard_source_verification']={k:release[k] for k in ('source_commit','comparator_sha256','main_ci','historical_local_suite')}
+    if precompute := validation.get('public_precompute'):
+        package=json.loads((ROOT/'runtime/PUBLIC_PRECOMPUTE.json').read_text())
+        if package['source_revision'] != precompute['validated_source_revision']:
+            raise ValueError('precompute revision differs from the source receipt')
+        d['public_precompute_source_verification']={
+            'source_pr_head':'8c0134de3d2fd5d5e310c71b3feb4999d64b87c5',
+            'validated_source_revision':precompute['validated_source_revision'],
+            'source_data_sha256':precompute['public_dev_sha256'],
+        }
+    if integration := validation.get('integration_candidate'):
+        d['integration_candidate']=integration
+        d['current_strict_verification']={**d['current_strict_verification'],
+            'scope':'PR46_HISTORICAL_COMPONENT_NOT_COMBINED',
+            'source_commit':integration['components']['p46']['head']}
     (ROOT/'model/DESCRIPTION.json').write_text(json.dumps(d,indent=2,ensure_ascii=False)+'\n')
     value_statement=('Optional neural ranking showed no output benefit in the paired 42-case comparison.' if ablation_current else 'The current checkpoint has no matching paired utility evaluation.')
+    suite_statement=('PR #43/#45/#46 historical local suites: 252/250/251 passing in distinct source trees. The combined suite is NOT_OBSERVED in this source receipt.'
+                     if 'integration_candidate' in d else f"Project suite: {d['project_tests_passed']} passing local tests.")
     block=('<!-- MODEL_STATUS_START -->\n## Current model status (evidence synchronized)\n\n'
        f"Río ByteGRU is a **small neural language model, not an LLM**: {d['parameters']:,} parameters, "
        f"{d['training_steps']} observed training steps. Checkpoint saved and reloaded. "
-       f"Project suite: {d['project_tests_passed']} passing local tests.\n\n"
+       f"{suite_statement}\n\n"
        'Current free generation rejects prompt-plus-output budgets above 128 UTF-8 bytes. '
        f"The extraction fixture has {d['current_context_rejections']} context rejections, not semantic abstentions. "
        'Neural extraction is not established. Hybrid arithmetic remains deterministic. '
