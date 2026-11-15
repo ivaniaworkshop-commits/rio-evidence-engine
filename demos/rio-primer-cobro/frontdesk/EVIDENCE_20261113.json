@@ -1,0 +1,48 @@
+{
+  "scope": "PUBLIC_DEPLOYMENT_AND_REPORTED_LOCAL_VERIFICATION_NOT_BANK_ATTESTATION",
+  "checked_at_utc": "2026-11-13T13:57:19.925332+00:00",
+  "entry": "https://rio-primer-cobro-frontdesk.vercel.app/app.html",
+  "gateway_deployment": "dpl_3Gy4BwLBfuE9ArJDevAyAiEjaDRq",
+  "gateway_state": "READY",
+  "public_status": {
+    "application": "rio-merchant-codi",
+    "mode": "LIVE",
+    "environment": "production",
+    "access_enabled": true,
+    "registration_enabled": true,
+    "password_reset_enabled": true,
+    "payment_requests_enabled": true,
+    "webhook_enabled": true,
+    "email_delivery": "smtp",
+    "database_readiness": "SCHEMA_VERSION_AND_COLUMNS_MATCH",
+    "bank_settlement": "NOT_OBSERVED"
+  },
+  "local_test_groups": [
+    {
+      "suite": "general",
+      "passed": 516,
+      "skipped": 28
+    },
+    {
+      "suite": "receipts",
+      "passed": 12
+    },
+    {
+      "suite": "account_visibility_and_related_regressions",
+      "passed": 34
+    }
+  ],
+  "test_groups_overlap": true,
+  "browser": "Chromium synthetic fixture, 390px",
+  "real_payment_observed": false,
+  "real_receipt_inboxes_observed": false,
+  "independent_bank_settlement_observed": false,
+  "android_physical_observed": false,
+  "historical_archive_sha256": "7ff629fe8f4d8ecefbfbdc9d987ff879e8a9301bcde1aae9fed5926c6ab975f7",
+  "publish_files": [
+    "index.html",
+    "app.html",
+    "vercel.json"
+  ],
+  "archive_published": false
+}
