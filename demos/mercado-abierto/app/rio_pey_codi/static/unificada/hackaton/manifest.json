@@ -1,0 +1,43 @@
+{
+  "schema": "RIO_HACKATON_R010_ASSET_MANIFEST/1.0",
+  "R008_source_sha256": "e30e1c12dce570fdbd180ee83ff4c87c154ef4074cd9bf4e71f8a0bd9409959d",
+  "auth_source": "GATEWAY_RIO_SID_ONLY",
+  "admin_r003_grants": false,
+  "data_persistence": "LOCALSTORAGE_USER_SCOPED_DEMO_ONLY",
+  "real_payments": false,
+  "r003_credentials_automatically_accepted": false,
+  "views": [
+    "panel",
+    "mercado",
+    "solicitudes",
+    "ofertas",
+    "pedidos",
+    "fletes",
+    "caja",
+    "inventario",
+    "negocios",
+    "tickets",
+    "historial"
+  ],
+  "other_views": [
+    "centro",
+    "cuenta"
+  ],
+  "r003_admin_view": "DENIED_NOT_MAPPED",
+  "asset_sha256": {
+    "index.html": "c2f37f703b46a85334ba15efa2afed2fcd32ae9bb619d9a5145dd167294cebe0",
+    "app.css": "d4f4665511da7e580b85e09378d155b5e6a371979f53807c8451a845f6f300d8",
+    "app.js": "b63c465f69378faab2a12eed94985a363d5afb4c88320856f4a6f2882e2d2fab"
+  },
+  "css_attr_migration": {
+    "display:none": "r010-style-1",
+    "margin-top:12px": "r010-style-2",
+    "margin-top:14px": "r010-style-3",
+    "margin-top:15px": "r010-style-4",
+    "margin-top:16px": "r010-style-5",
+    "margin-top:8px": "r010-style-6",
+    "max-width:370px": "r010-style-7",
+    "padding:0 12px 14px": "r010-style-8",
+    "text-align:center": "r010-style-9"
+  }
+}

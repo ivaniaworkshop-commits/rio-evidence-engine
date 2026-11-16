@@ -1,0 +1,252 @@
+{
+  "tests": 61,
+  "passed": 61,
+  "failed": 0,
+  "scope": "CHROMIUM_IN_MEMORY_LOCALSTORAGE_MOCK_NOT_PHYSICAL_RESTART",
+  "cases": [
+    {
+      "name": "mobile app loaded",
+      "pass": true
+    },
+    {
+      "name": "mobile no horizontal overflow",
+      "pass": true
+    },
+    {
+      "name": "mobile cart sum",
+      "pass": true
+    },
+    {
+      "name": "mobile sale persisted",
+      "pass": true
+    },
+    {
+      "name": "mobile cash ticket change",
+      "pass": true
+    },
+    {
+      "name": "mobile paid cash only manually",
+      "pass": true
+    },
+    {
+      "name": "mobile recover same sale id",
+      "pass": true
+    },
+    {
+      "name": "mobile recovered cash change",
+      "pass": true
+    },
+    {
+      "name": "mobile history status recovered",
+      "pass": true
+    },
+    {
+      "name": "mobile active archived",
+      "pass": true
+    },
+    {
+      "name": "mobile old ticket in list",
+      "pass": true
+    },
+    {
+      "name": "mobile history survived reload",
+      "pass": true
+    },
+    {
+      "name": "mobile restore archived sale",
+      "pass": true
+    },
+    {
+      "name": "mobile reprinted receipt",
+      "pass": true
+    },
+    {
+      "name": "mobile share remains optional",
+      "pass": true
+    },
+    {
+      "name": "mobile backup contains active",
+      "pass": true
+    },
+    {
+      "name": "mobile backup no real payment",
+      "pass": true
+    },
+    {
+      "name": "mobile QR generated",
+      "pass": true
+    },
+    {
+      "name": "mobile demo not bank",
+      "pass": true
+    },
+    {
+      "name": "mobile QR sale recover",
+      "pass": true
+    },
+    {
+      "name": "mobile QR regenerated on demand",
+      "pass": true
+    },
+    {
+      "name": "mobile QR regenerated same sale",
+      "pass": true
+    },
+    {
+      "name": "mobile report runs tests on click",
+      "pass": true
+    },
+    {
+      "name": "mobile report internal all pass",
+      "pass": true
+    },
+    {
+      "name": "mobile report marks no real payment",
+      "pass": true
+    },
+    {
+      "name": "mobile report includes persisted sale",
+      "pass": true
+    },
+    {
+      "name": "mobile user imported original sale",
+      "pass": true
+    },
+    {
+      "name": "mobile bad import rejected",
+      "pass": true
+    },
+    {
+      "name": "mobile no page errors",
+      "pass": true
+    },
+    {
+      "name": "desktop app loaded",
+      "pass": true
+    },
+    {
+      "name": "desktop no horizontal overflow",
+      "pass": true
+    },
+    {
+      "name": "desktop cart sum",
+      "pass": true
+    },
+    {
+      "name": "desktop sale persisted",
+      "pass": true
+    },
+    {
+      "name": "desktop cash ticket change",
+      "pass": true
+    },
+    {
+      "name": "desktop paid cash only manually",
+      "pass": true
+    },
+    {
+      "name": "desktop recover same sale id",
+      "pass": true
+    },
+    {
+      "name": "desktop recovered cash change",
+      "pass": true
+    },
+    {
+      "name": "desktop history status recovered",
+      "pass": true
+    },
+    {
+      "name": "desktop active archived",
+      "pass": true
+    },
+    {
+      "name": "desktop old ticket in list",
+      "pass": true
+    },
+    {
+      "name": "desktop history survived reload",
+      "pass": true
+    },
+    {
+      "name": "desktop restore archived sale",
+      "pass": true
+    },
+    {
+      "name": "desktop reprinted receipt",
+      "pass": true
+    },
+    {
+      "name": "desktop share remains optional",
+      "pass": true
+    },
+    {
+      "name": "desktop backup contains active",
+      "pass": true
+    },
+    {
+      "name": "desktop backup no real payment",
+      "pass": true
+    },
+    {
+      "name": "desktop QR generated",
+      "pass": true
+    },
+    {
+      "name": "desktop demo not bank",
+      "pass": true
+    },
+    {
+      "name": "desktop QR sale recover",
+      "pass": true
+    },
+    {
+      "name": "desktop QR regenerated on demand",
+      "pass": true
+    },
+    {
+      "name": "desktop QR regenerated same sale",
+      "pass": true
+    },
+    {
+      "name": "desktop report runs tests on click",
+      "pass": true
+    },
+    {
+      "name": "desktop report internal all pass",
+      "pass": true
+    },
+    {
+      "name": "desktop report marks no real payment",
+      "pass": true
+    },
+    {
+      "name": "desktop report includes persisted sale",
+      "pass": true
+    },
+    {
+      "name": "desktop user imported original sale",
+      "pass": true
+    },
+    {
+      "name": "desktop bad import rejected",
+      "pass": true
+    },
+    {
+      "name": "desktop no page errors",
+      "pass": true
+    },
+    {
+      "name": "corruption is locked",
+      "pass": true
+    },
+    {
+      "name": "corruption raw bytes preserved",
+      "pass": true
+    },
+    {
+      "name": "corrupt backup not silently overwritten",
+      "pass": true
+    }
+  ]
+}

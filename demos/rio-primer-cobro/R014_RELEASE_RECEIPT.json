@@ -1,0 +1,161 @@
+{
+  "schema": "RIO_PRIMER_COBRO_R014_RELEASE_V1",
+  "created_at_utc": "2026-11-06T03:34:56.291523+00:00",
+  "files": [
+    {
+      "path": "PROJECT_STATUS_R014.md",
+      "bytes": 2398,
+      "sha256": "23aa715aa08349bf386807ba83b812eb9ad20d1ff1217b611ef7807651b98c21"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2086,
+      "sha256": "502e13e3661c546af6c0ba62534938b02ee68166e3bf3249991273b9325af889"
+    },
+    {
+      "path": "RIO_PRIMER_COBRO_R014_OFFLINE.html",
+      "bytes": 93407,
+      "sha256": "67cf74dc9d7affe416cdda98f4f403bfc3d40c4ba97c9e4fee38ac6d5c1923e6"
+    },
+    {
+      "path": "ROUND_LOG.md",
+      "bytes": 635,
+      "sha256": "48ffafb81183e6cff025793a69958531670a719f1c4e1ac636b006aa024df4d9"
+    },
+    {
+      "path": "app/app.js",
+      "bytes": 33150,
+      "sha256": "38034d6e025eab4b61b57c8a53d89c0c36bf2c63a6cb7fea93f5e8f8cf577433"
+    },
+    {
+      "path": "app/chat.js",
+      "bytes": 3389,
+      "sha256": "a99b33fb78a1fe0984e0fd2f37d12e2df38513a0c08cfa1476c7ce3aacf42c2c"
+    },
+    {
+      "path": "app/index.html",
+      "bytes": 12982,
+      "sha256": "531d483be2171b3a3700a6619ed33fab719e7a096e320b9e1ff33a267d4024d2"
+    },
+    {
+      "path": "app/logic.js",
+      "bytes": 18388,
+      "sha256": "e3c3b45796bde7a572518adeda9248b6401bbb5e543d0d8684399343211ddb03"
+    },
+    {
+      "path": "app/persistence.js",
+      "bytes": 5677,
+      "sha256": "cb48f8ed8dd2dbc581fc206fb3a1755a7cf9cd0739472066f55497d2dd779f23"
+    },
+    {
+      "path": "app/qrcode.js",
+      "bytes": 4067,
+      "sha256": "f5479dc4fb321fd5a243ea4f13df2f31ef88e881e3e9646b4d537084e8351c02"
+    },
+    {
+      "path": "app/style.css",
+      "bytes": 15848,
+      "sha256": "2295a4da022a10ada1f60e4a7f92d8d0a7fcbc1943af296c5bf64fccb03778c3"
+    },
+    {
+      "path": "contracts/pey_adapter_future.md",
+      "bytes": 2347,
+      "sha256": "46325d753a5967893f93ee643d572b59948d9065d28d43a5fd5d63d9c89a6958"
+    },
+    {
+      "path": "experiments/sensitivity.py",
+      "bytes": 1894,
+      "sha256": "3f44846493d03544b3ae5823964f398ed769562533b7b7152d0f924c7da1ece9"
+    },
+    {
+      "path": "reports/R014_E2E.json",
+      "bytes": 4863,
+      "sha256": "134d8362caba5ac193e2ed7df386c9712f91eebfa7920cb517efa4a37a6ea69d"
+    },
+    {
+      "path": "reports/R014_desktop.png",
+      "bytes": 1046366,
+      "sha256": "63e399f71504e606ee238a7b578d2f5ae6fdeddf61466b4792d5ee8f5a9353b1"
+    },
+    {
+      "path": "reports/R014_mobile.png",
+      "bytes": 432123,
+      "sha256": "ab90bbcd6550feca4a456e41945a87b695c29db29610aa5fd9e195f9fdc46ca8"
+    },
+    {
+      "path": "reports/R014_report_desktop.json",
+      "bytes": 11893,
+      "sha256": "e0674942abf57cb9970c702454e2d72b5ff4073ba43f70a25c3ac3845bb80909"
+    },
+    {
+      "path": "reports/R014_report_mobile.json",
+      "bytes": 11893,
+      "sha256": "a15b8a0f87b0483c90a4e77f333667358b5b4667abf3e995ac4087d56893e944"
+    },
+    {
+      "path": "server/dev_server.mjs",
+      "bytes": 4793,
+      "sha256": "854966c6ae40da802635fc2f3e80b5c73c34cc4700f8094002e8345befc20bc5"
+    },
+    {
+      "path": "tests/build_offline.py",
+      "bytes": 587,
+      "sha256": "1f79b14e7f80e66f2723d8235cbe4e050a08eedb961a8b5666f309fa9639d664"
+    },
+    {
+      "path": "tests/test_e2e_r014.py",
+      "bytes": 7016,
+      "sha256": "dc236d342bd4644b86716dc0ad7f2509bca20506660c20d9dd292f7c689b74e4"
+    },
+    {
+      "path": "tests/test_logic.mjs",
+      "bytes": 1155,
+      "sha256": "1629958eef3cf36498e48ab791758b46694611f77f50ea0318cfeef601a7ca82"
+    },
+    {
+      "path": "tests/test_persistence_r014.mjs",
+      "bytes": 4815,
+      "sha256": "f8cfe7830c10e6dccc8d61e38fa0ce6964f2918186c7ffa38a144f750cf69878"
+    },
+    {
+      "path": "tests/test_qr_matrix.py",
+      "bytes": 1212,
+      "sha256": "1c5e0f70010b78dd45e9a257648a1950698ddfd4b254639f3b17a45669f9cb0b"
+    },
+    {
+      "path": "tests/test_server.py",
+      "bytes": 1597,
+      "sha256": "4f3580d0c4ba963a507fa4e69d57939a3785fd93c860ef9783794787e6e1aaab"
+    }
+  ],
+  "test_results": {
+    "core": {
+      "passed": 67,
+      "total": 67
+    },
+    "persistence": {
+      "passed": 20,
+      "total": 20
+    },
+    "ui_mocked_continuity": {
+      "passed": 61,
+      "total": 61
+    },
+    "qr_independent_oracle": {
+      "passed": 60,
+      "total": 60
+    },
+    "local_http": {
+      "passed": 5,
+      "total": 5
+    },
+    "report_on_click": {
+      "passed": 106,
+      "total": 106
+    }
+  },
+  "authority": "LOCAL_EXECUTION",
+  "payment_real": false,
+  "android_physical": "NOT_OBSERVED",
+  "git_publication": "NOT_YET"
+}

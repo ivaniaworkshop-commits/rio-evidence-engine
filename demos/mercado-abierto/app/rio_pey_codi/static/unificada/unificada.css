@@ -1,0 +1,34 @@
+.rio-nav{display:flex;flex-wrap:wrap;gap:.5rem;margin:.7rem 0 1.2rem;align-items:center}
+.rio-nav a{font:600 .9rem/1.4 system-ui,sans-serif;border:1px solid #b4d7d5;border-radius:8px;background:#f1fbf9;color:#07554f;padding:.45rem .7rem;text-decoration:none}
+.rio-nav a:focus-visible,.rio-nav a:hover{outline:2px solid #087d76;outline-offset:2px}
+.rio-bridge-card{border:1px solid #b7dcd5;background:#f1faf7;border-radius:12px;padding:1rem;margin:1rem 0;color:#173d3a}
+.rio-bridge-card p{margin:.5rem 0;line-height:1.45}
+.rio-bridge-card button{margin:.35rem .5rem .2rem 0}
+.rio-bridge-status{min-height:1.4em;overflow-wrap:anywhere}
+
+/* R023: accessible, login-first merchant workspace. */
+.rio-access-intro{padding:1.3rem 1.5rem;margin:1rem 0;background:#e9f5f2;border:1px solid #94bbb1;border-radius:14px;color:#123d38}
+.rio-access-intro h1{margin:.1rem 0 .4rem;font-size:clamp(1.75rem,4vw,2.5rem);line-height:1.2}
+.rio-access-intro p:last-child{margin:0;line-height:1.55}
+.rio-kicker{font-size:.78rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:#14655b}
+#access{scroll-margin-top:1rem}
+#access .panel{border:2px solid #a6c9c2}
+#access form input{min-height:44px}
+#access form button{min-height:48px}
+.rio-module-section{margin:1.4rem 0;padding:1.3rem;background:#edf7f5;border:1px solid #abcac5;border-radius:16px;color:#153f3a}
+.rio-module-section h2{margin:.3rem 0;font-size:clamp(1.4rem,3vw,2rem)}
+.rio-module-section>p:not(.rio-kicker){line-height:1.5}
+.rio-module-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1.3rem}
+.rio-module-button{min-height:116px;display:flex;align-items:center;gap:1rem;padding:1.2rem;border:2px solid;border-radius:13px;text-decoration:none;line-height:1.4;transition:box-shadow .15s ease}
+.rio-module-button strong{display:block;font-size:1.25rem}
+.rio-module-button small{display:block;margin-top:.25rem;font-size:.88rem}
+.rio-module-symbol{font-size:2rem;flex:none}
+.rio-module-account{background:#e1f6f0;color:#105348;border-color:#238877}
+.rio-module-cash{background:#eff0ff;color:#303c7d;border-color:#6371c9}
+.rio-module-market{background:#fff2df;color:#75420e;border-color:#bb802d}
+.rio-module-hack{background:#f3eafd;color:#59347b;border-color:#9468b9}
+.rio-module-button:hover{box-shadow:0 4px 0 #0002}
+.rio-module-button:focus-visible{outline:3px solid #172e46;outline-offset:4px}
+#rio-merchant-details{scroll-margin-top:1rem}
+@media(max-width:650px){.rio-module-grid{grid-template-columns:1fr}.rio-module-button{min-height:92px;padding:1rem}.rio-access-intro{padding:1rem}}
+@media(prefers-reduced-motion:reduce){.rio-module-button{transition:none}}

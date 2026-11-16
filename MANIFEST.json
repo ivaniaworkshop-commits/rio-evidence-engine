@@ -28,8 +28,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 36551,
-      "sha256": "95110e8d1083cb4ad1178d3cb3bbb18f41d3a71d62e61776422a4f2ae1ecf706"
+      "bytes": 36912,
+      "sha256": "d1de6ca718bb44d8b718368d8b2dd11ebe28adfef5c60a9fbd7ff7113f12d0cb"
     },
     {
       "path": "RECALCULATION.md",
@@ -70,6 +70,1591 @@
       "path": "demo.py",
       "bytes": 1102,
       "sha256": "11bcb9c96b1d31dca9d4914327280dc9c1f428ef4f82bb1cf01b3a066907808a"
+    },
+    {
+      "path": "demos/mercado-abierto/.gitignore",
+      "bytes": 219,
+      "sha256": "6dc76480c3e775579d0d453f5448dbd28b5a79b4bd96c241682e0bed120e7875"
+    },
+    {
+      "path": "demos/mercado-abierto/PUBLIC_RELEASE_AUDIT.md",
+      "bytes": 1968,
+      "sha256": "32c09ad715a2e1c17e318fec6ab0b61f142edf195eebe679a740f7e8321cb787"
+    },
+    {
+      "path": "demos/mercado-abierto/README.md",
+      "bytes": 3168,
+      "sha256": "54819e7bef538d1cfb6c3628daa67044c46c145a8746757965380891183177ea"
+    },
+    {
+      "path": "demos/mercado-abierto/RELEASE_MANIFEST.json",
+      "bytes": 44714,
+      "sha256": "9ad290a22e44c1fb32d0d49208c151d5d39f82d0ba3b44df36ecfa37e4420953"
+    },
+    {
+      "path": "demos/mercado-abierto/THIRD_PARTY_NOTICES.md",
+      "bytes": 297,
+      "sha256": "f816f80f2a6fdd1848902584b94dbde06abeb08cf910c6147f6ff848dc56c02c"
+    },
+    {
+      "path": "demos/mercado-abierto/app/RELEASE_MANIFEST.json",
+      "bytes": 42323,
+      "sha256": "c226e27c5d22f7f2a2212436d4da7e5b5cb601ee3266ec49f310724cbcd5e512"
+    },
+    {
+      "path": "demos/mercado-abierto/app/alembic.ini",
+      "bytes": 96,
+      "sha256": "4be35c86b24192bde1327811488c4fcbc1f446b8c1e688fbbcba8f27640a252b"
+    },
+    {
+      "path": "demos/mercado-abierto/app/main.py",
+      "bytes": 1314,
+      "sha256": "98df707c1d0f2e79dc9841ef29729b49c198445528e5aab84fdf7e214cc5f996"
+    },
+    {
+      "path": "demos/mercado-abierto/app/migrations/env.py",
+      "bytes": 879,
+      "sha256": "2f54788e463a9705a3a943ca6f36fd46a5abeb75d8f3c8712076fde9a1a59877"
+    },
+    {
+      "path": "demos/mercado-abierto/app/migrations/versions/001_r005.py",
+      "bytes": 5714,
+      "sha256": "8f58ae4782849681b8eb2363b2631eca37890e8f1b8a05f15c3c493de7e54509"
+    },
+    {
+      "path": "demos/mercado-abierto/app/migrations/versions/002_auth_limits.py",
+      "bytes": 439,
+      "sha256": "9d199fef44c178dd0db0009b770956a5277267aaf6f685f69dcc8cfa8cd1f2d2"
+    },
+    {
+      "path": "demos/mercado-abierto/app/migrations/versions/003_membership_changes.py",
+      "bytes": 776,
+      "sha256": "acc2ddfa756144afacf53865656e873919f20ac3ff89b9d166f1a77a38db9ec6"
+    },
+    {
+      "path": "demos/mercado-abierto/app/migrations/versions/005_beneficiary.py",
+      "bytes": 1159,
+      "sha256": "d25feba7193289904fc9e60b1387af9b7deffe39cfc746068dc92e6bf4ae8e27"
+    },
+    {
+      "path": "demos/mercado-abierto/app/migrations/versions/007_webhook_bytes.py",
+      "bytes": 640,
+      "sha256": "33477e8b369e4e661394423a647d3ac64ff60599311900859f280f565f98d310"
+    },
+    {
+      "path": "demos/mercado-abierto/app/migrations/versions/008_unresolved_index.py",
+      "bytes": 390,
+      "sha256": "db302774b04acf1b64118b951d277906ca0703b05665540218a2065bf296bc45"
+    },
+    {
+      "path": "demos/mercado-abierto/app/migrations/versions/009_reconciliation_reviews.py",
+      "bytes": 2197,
+      "sha256": "9a17e4d95357551e4b4b361891ae644247b1f92f7fce34dc833e7d2c1f1ef8fb"
+    },
+    {
+      "path": "demos/mercado-abierto/app/migrations/versions/010_beneficiary_claims.py",
+      "bytes": 2122,
+      "sha256": "7df8bf45882ae9fc44f5b7cdb95bb4dd19878a6261c42c64394294ff9849f9a7"
+    },
+    {
+      "path": "demos/mercado-abierto/app/migrations/versions/011_webhook_signature_evidence.py",
+      "bytes": 2110,
+      "sha256": "0c929b6cabb7b3365a225055a35280ba24639c71b724efcc6ddfd61f3990a9db"
+    },
+    {
+      "path": "demos/mercado-abierto/app/migrations/versions/012_account_consistency.py",
+      "bytes": 1202,
+      "sha256": "4db5601a12f4fad7d7ca3eb1a4dfe49fd2712a408b79fcd0b452492d165ddf95"
+    },
+    {
+      "path": "demos/mercado-abierto/app/migrations/versions/013_provider_observations.py",
+      "bytes": 2288,
+      "sha256": "7d7b15fbacc14f786d0da55b41ef3fb7f8f2759eda89e54843818f072bb44426"
+    },
+    {
+      "path": "demos/mercado-abierto/app/migrations/versions/014_hackaton_commercial_states.py",
+      "bytes": 1231,
+      "sha256": "30d0f044ad14fbbbc403c11ba312acf4bc4ee657939feac112aa4f0acd8cad76"
+    },
+    {
+      "path": "demos/mercado-abierto/app/migrations/versions/015_merchant_pey_secrets.py",
+      "bytes": 828,
+      "sha256": "096975b7d5a77a19c460119622375cff37dc4878274f166c4c210b1fe2f3cb93"
+    },
+    {
+      "path": "demos/mercado-abierto/app/migrations/versions/016_merchant_pey_live.py",
+      "bytes": 5995,
+      "sha256": "937bb11872d76c39a1a3487405fa2af33d6dc90ab44ed2ad160b63fa3f1064c1"
+    },
+    {
+      "path": "demos/mercado-abierto/app/migrations/versions/017_payment_receipts.py",
+      "bytes": 1460,
+      "sha256": "1ed0dfe75be831e34d82ae695ac89ce0f3fe58ae76728c162f7cc80bf9f480d8"
+    },
+    {
+      "path": "demos/mercado-abierto/app/migrations/versions/018_owner_activity.py",
+      "bytes": 2589,
+      "sha256": "55bc236d952c89ddd66e2b1ddb3eea9f36c5e53a890d796e98ff2fdc82fac532"
+    },
+    {
+      "path": "demos/mercado-abierto/app/migrations/versions/019_production_market.py",
+      "bytes": 10462,
+      "sha256": "957c3f5637061ae2b21c632eee823d2a4f223957f0867fead130e6e12a99b988"
+    },
+    {
+      "path": "demos/mercado-abierto/app/migrations/versions/020_production_cash.py",
+      "bytes": 2015,
+      "sha256": "35f5e9436e261f6a0aff4a87666357b28a8dd3f8e7de5a5d8a08e37f29d6eb5f"
+    },
+    {
+      "path": "demos/mercado-abierto/app/migrations/versions/021_pey_operations.py",
+      "bytes": 1779,
+      "sha256": "52f7b65e35213f72089ba575ef049fdd26b83e840fc32ca433c0096a626f0e54"
+    },
+    {
+      "path": "demos/mercado-abierto/app/migrations/versions/022_verification_tasks.py",
+      "bytes": 2110,
+      "sha256": "ed94a1f77cb3b9d5fbf6f6e69ab998f842f5c60b3908ea82e419a77badac10f8"
+    },
+    {
+      "path": "demos/mercado-abierto/app/migrations/versions/023_market_whatsapp.py",
+      "bytes": 617,
+      "sha256": "357010aad1e2350c6d1fb9beac0013790d287d3de8148e293d7804f2c5da574c"
+    },
+    {
+      "path": "demos/mercado-abierto/app/migrations/versions/024_market_product_qr_fee_photo.py",
+      "bytes": 15972,
+      "sha256": "947694101b2af54b41b602e28f937b8b6bb9e7ed3b92e8194c7a5e2a5b3ab640"
+    },
+    {
+      "path": "demos/mercado-abierto/app/pyproject.toml",
+      "bytes": 1183,
+      "sha256": "ffa20bf4797b046ff2d23dbb566e72df918081511609a610140a5a9e4d7d5e88"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/__init__.py",
+      "bytes": 94,
+      "sha256": "bc2055fadaf708884f58e7e00279007d69ff6a878b6d5f6bea85035961c998aa"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/account_consistency.py",
+      "bytes": 1609,
+      "sha256": "bc41d4650ce880700fbd91a32de8c38660fbd4cf433b6f582f477a455e744fd9"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/activity.py",
+      "bytes": 5116,
+      "sha256": "07ddf0121fea8cd7eee4469ad4789ef71d038602f42170d1b58c75bb7ab3ac8e"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/app.py",
+      "bytes": 10102,
+      "sha256": "f2b9937ac6b28a6c20b3eacf46cc22fe87c8ed9b4ba79b858ed440737cb32dc8"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/bank_accounts.py",
+      "bytes": 1670,
+      "sha256": "134141396716fad412d2c32cb10514360f47e601812159b34b61de0398736e40"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/beneficiary_schema.py",
+      "bytes": 1232,
+      "sha256": "9f0b2a2e705590e907d96ae9c10c62899afa050b150bb444c140bff90f8d781f"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/cash_ledger.py",
+      "bytes": 9967,
+      "sha256": "37b46c7bc263ec7e89116854d62b6326aa3509b6f41fa67c90099c0be5f0477e"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/cash_ledger_models.py",
+      "bytes": 2580,
+      "sha256": "6371b2fea929c5f5844f781fa3b881fcb84d44bfb7b7ee4a30916fb07950b782"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/commerce_state.py",
+      "bytes": 6396,
+      "sha256": "13f91fa63eb43c4ba2c5034226f9a3ae410bd3099fa7dfa591d49858a3724f2d"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/hackaton_auth.py",
+      "bytes": 2805,
+      "sha256": "13a4c8c04d3758189bc08aabbfc8d7e08ac9de5097d15b6ff35b83f5bc829e2f"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/identity.py",
+      "bytes": 48574,
+      "sha256": "aa54ffb028af54882b5cd17027a218ad240ef2438c46572091d3f43bd35ebd1f"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/merchant_pey_checkout.py",
+      "bytes": 12264,
+      "sha256": "ef1953532df97d3e9db8bf6071297eb20d1020a4b2e2155e77d3b0db82090cb7"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/merchant_pey_vault.py",
+      "bytes": 11950,
+      "sha256": "46e2fc140bfac5a930f5506939a74a913e4eaa5001c202211b1b0fe32b3800e2"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/models.py",
+      "bytes": 17354,
+      "sha256": "b15102cd0972a5e8e1de23a3072d2b9fe363084fe88b1d94c7a3b1d2cd999ddf"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/owner_recovery_policy.py",
+      "bytes": 890,
+      "sha256": "8d78007c81d8026375da80e2e3edb8cc2e3232cc8bbeb8c290f07037d451de0e"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/payments_db.py",
+      "bytes": 26860,
+      "sha256": "7b4b95cbf484e8e73559d4c95c6e53496d5a23879c7dc57f0fc3debc21ab9a08"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/pey.py",
+      "bytes": 9183,
+      "sha256": "e28b99f1d2d680dc4de05625eda32193d3f6d4189eec15f91752e8085e84b0d8"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/pey_extended.py",
+      "bytes": 6778,
+      "sha256": "9f7aecc6d80b90e7db22a0b9ed2bdafd2231fa0276ec4743bd591e9de71e2faa"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/pey_operations.py",
+      "bytes": 37288,
+      "sha256": "ee0ef635361b0a8129d2907d27c43320a3d7aa5407245509cd39234e5eca6249"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/pey_operations_models.py",
+      "bytes": 1309,
+      "sha256": "5c8f237a51d6928e6941ebeaddd0656b50aa21048c356b70439a215d238458de"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/pey_transaction_review.py",
+      "bytes": 8535,
+      "sha256": "171241b183ddf3576d8cbf5fad557122683abe83c0fd4ef4ac8860514be5cbd6"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/platform.py",
+      "bytes": 56085,
+      "sha256": "e74cc51475cb9cff35d3ed695070d220078cbc39adf2e6d58a669e742b16a23b"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/pr_snapshot_guard.py",
+      "bytes": 6073,
+      "sha256": "2f239ec677a3a511cd0de64522a5a192230ddaf1f211b27a00aabded571bd147"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/production_market.py",
+      "bytes": 84630,
+      "sha256": "bc6f5c8fd5c14f0fe2f5ed053e95e002d89eddcc0cee4cd326a2217939fedbe5"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/production_market_models.py",
+      "bytes": 17311,
+      "sha256": "bfadb4657ac319129fe3c09c324100366de2048c11a3d89a2a26e33800cd6c88"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/provider_account.py",
+      "bytes": 3229,
+      "sha256": "751e8966a3d3bb23f58341a28cc952db4313d7d40a9d3b911effdbaed081409c"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/provider_observation_schema.py",
+      "bytes": 1316,
+      "sha256": "e3629e11dec127f226508f1a6ea17d2df08eb2f8399cfbbc0eca7df788519da7"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/provider_observations.py",
+      "bytes": 5737,
+      "sha256": "f5aeb1a807849f12b6dee28758a8b5fa3b4230803154c840f317415408776402"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/receipt_verification.py",
+      "bytes": 2811,
+      "sha256": "bc6f6ef7be713dbe965e3388f9b30c6f4131b8497a8afb19cf44ed27a3e83a1a"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/receipts.py",
+      "bytes": 11418,
+      "sha256": "b428711ee3781ac02fb7e2eb2c37707ebc4d650b30c40ce27b07fe93c30f9b87"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/reconciliation.py",
+      "bytes": 5416,
+      "sha256": "71bb76f39ab36a57ea203a761a1299c744e2c60806ec53816a470919d1a6ef2a"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/review_schema.py",
+      "bytes": 1378,
+      "sha256": "9893df29b05af644b7a153a78e61a44858b7f2f6c7601170c19387056e0d2850"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/signatures.py",
+      "bytes": 8064,
+      "sha256": "c2c29b3576584d1a2ac8871c7e9f4d3bfe68acc1f5d456af8068cfeff503f049"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/simulated_pey.py",
+      "bytes": 2448,
+      "sha256": "aa9c9f0d82a7af3af5d7cc515f593d7e3d34a97cdd2e7e2ccda613aa71530968"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/activity-ui.js",
+      "bytes": 4116,
+      "sha256": "fd96d177d6a9fddf83072c78d20571e59d3d4b1c5e67fb03be4efec35742ec5b"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/alta-pey.js",
+      "bytes": 3652,
+      "sha256": "512faa641bd2b1f4d76a6a2cee8c960b80e484d0beea1fcbc48df17a43a287a2"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/app.js",
+      "bytes": 62248,
+      "sha256": "7ddfe1ddb5dd3683643a4e228dfe8bf36248e2b9be60194b0897a8c7a78b988d"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/auth.js",
+      "bytes": 15482,
+      "sha256": "8da9cc6be678122a82b16c006dfc232748347afd623cfebbd9bf5fa88f12f20f"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/cash-ui.js",
+      "bytes": 23587,
+      "sha256": "dacf2a0777b6670abedbdf3f4f0d9a976add9cb3a8521eb7ba57be1da9a82afc"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/chatbot.css",
+      "bytes": 1864,
+      "sha256": "0dd3314096d6e3748e21816fa5e81b090f7a40fdc04f10d824c576c2ebfb4e5e"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/chatbot.js",
+      "bytes": 13703,
+      "sha256": "20e23ea2b3e1e8f2fd23afceecf40220381d0e4a2e967d7258923af487b34b2d"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/index.html",
+      "bytes": 33026,
+      "sha256": "7714a335f098a8ec1a206321582d667f7b85f32a54557f29ec1a767c60fb0c1b"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/login.html",
+      "bytes": 6328,
+      "sha256": "f0ac47950626ddf8b72999fad78b9b15ecb25c9f8d738bc5e2558793daa33da6"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/market-checkout.js",
+      "bytes": 3059,
+      "sha256": "63424b7de9ec52ecdbb511d7812a73c2b2c782b49137f7d7dc06c81208ec3a01"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/owner-invite.js",
+      "bytes": 2192,
+      "sha256": "3672cba60af22bf4624699df5c2cc6bcf6e965a79a8873bfc9040ef32dc89219"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/payment-return.html",
+      "bytes": 765,
+      "sha256": "a115ad584f2b4c5b231b91f29a9316363449bae8abd006d35e697f76cc9fb707"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/payment-return.js",
+      "bytes": 1195,
+      "sha256": "321b994694d7e0bed0966f0f735c11dd64abf43c5d94f104f76c5fd42c743d4a"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/pey-operations.js",
+      "bytes": 12026,
+      "sha256": "750d82850e135d4c296c83818d0035ef3aee2fb8f4e1e12ff5393a682e545d64"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/pey-private.js",
+      "bytes": 9091,
+      "sha256": "4b0564e4c1c650a5c499b74b464115efbd97332f8d76b6b66a0ac125f8cee4ec"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/pey_codi_dark.svg",
+      "bytes": 14836,
+      "sha256": "d88ce81917a79fd14bff890a1c98988da710715eb834f6756f9da2398bfe0664"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/pey_codi_light.svg",
+      "bytes": 14826,
+      "sha256": "7c75bb68bceef48e79b2a0db6fe397bcaf6c9be36bdf6166fa8412a56809f1c4"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/receipt-qr-decoder.js",
+      "bytes": 268319,
+      "sha256": "b5a550d2538f0149173c3868d0482254505747f271c64359d2d6da138fc20a29"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/receipt-scanner.css",
+      "bytes": 1309,
+      "sha256": "d9f35242d58dc3902435227cbd167022d541584ec9290074eb67fc41ecdef4bb"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/receipt-scanner.js",
+      "bytes": 9977,
+      "sha256": "8b5620368f457b98457412e77fe947069accc565f62b8cade212094eb9cc54f6"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/rio-help-catalog.json",
+      "bytes": 252419,
+      "sha256": "85b470c78780e0193ac430f6c96e1402aae7f7fe27e803afc13d301d7e8297a2"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/rio-help-product-overlay.json",
+      "bytes": 13208,
+      "sha256": "ecbb8603b6ec9c90858c87b02df512738d46b844e2bf0f8ce91d9071e701553f"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/rio-help.css",
+      "bytes": 1418,
+      "sha256": "ec3eb078d3e9f643b7c0594ca4666a0e4446d52b8a5e7f0ea164233de87cdf2a"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/rio-help.js",
+      "bytes": 12691,
+      "sha256": "0c253e1023d0a911a31a00db50241264f2f65ac94f9b7b3331a723ef8ade0e7d"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/session-guard.css",
+      "bytes": 111,
+      "sha256": "2d5df5277ad9c3caeb0bcaf71fa8df697899686ec5fc2e511ce0ba1ad18894eb"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/session-guard.js",
+      "bytes": 1993,
+      "sha256": "7269fd3c6065cd05dd15449644c56b6e25fcb4eb8dc99ad269374d5fcec6b525"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/style.css",
+      "bytes": 3251,
+      "sha256": "f16751a7dac078fed697ab0396394670bb8e30e3045dbb68f86e317a97a9074a"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/unificada/caja/caja-1.js",
+      "bytes": 18398,
+      "sha256": "a36af003315bc076a0c0674db4db099dbcf350c66d1b244c2612ea0199dc71e2"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/unificada/caja/caja-2.js",
+      "bytes": 3390,
+      "sha256": "aa070f07e85eac6bb43324df76a531056dbef9bf2b1acf0f292bf3b2cd5b1b2e"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/unificada/caja/caja-3.js",
+      "bytes": 4066,
+      "sha256": "957cc7d0ab97b1404b8c72871618f2ad0b259460916a7bb8530a7cc1083d7b2c"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/unificada/caja/caja-4.js",
+      "bytes": 5676,
+      "sha256": "db2bc01c22bd12426ae36c44be758b491e26d285d864b3f27c09c2fe193a3ad0"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/unificada/caja/caja-5.js",
+      "bytes": 34706,
+      "sha256": "fd1c9151d290170779a2e27decad24c1c474b0a808e2005fbab04c04db5fed7a"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/unificada/caja/caja-6.js",
+      "bytes": 12936,
+      "sha256": "2f7716213f1f44269ad97c24a2aaca1e5f807ac1bd68e9e7446fb5bec7e6cf3c"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/unificada/caja/caja.css",
+      "bytes": 16680,
+      "sha256": "4847473fe71844afd23a31e380a2fb33c1502bd19df54972d1724f008c93c834"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/unificada/caja/carrito-import.js",
+      "bytes": 2519,
+      "sha256": "cec99891514d4f739647cc172beb4e0f1789db8957d2a40d818f808b5890b6bc"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/unificada/caja/index.html",
+      "bytes": 19384,
+      "sha256": "49c953e07b964c66947d40c828fe088403eb3b97bcfa998266b068f173bb2b3b"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/unificada/caja/integracion.js",
+      "bytes": 2611,
+      "sha256": "262e74717438683082c8d4512945f7694f46b9693b099072994512c667cd2f76"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/unificada/cuenta.js",
+      "bytes": 3329,
+      "sha256": "80d079077e4186c735de350d4628d4debe138f741984e1d82e0500a47460689e"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/unificada/hackaton/app.css",
+      "bytes": 13299,
+      "sha256": "e0a8dfca5b841cfde27237e4d0777266d91970ec0f851522f97b4f59217d11ce"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/unificada/hackaton/app.js",
+      "bytes": 65454,
+      "sha256": "064ee6230b346446b40ed2c8bbe982f275084ed90d9139c6803941786627107d"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/unificada/hackaton/index.html",
+      "bytes": 1397,
+      "sha256": "4b779111cc5991755c5534ec92e6bcb6114ce066094eb172c8c44db67d3d365b"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/unificada/hackaton/manifest.json",
+      "bytes": 1292,
+      "sha256": "3e2f7d0c0680a0e7f0b94005c729406c0a257d2f56bb59180056277f6d13c53a"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/unificada/hackaton/production.css",
+      "bytes": 10576,
+      "sha256": "d42b181291fc1e225d0383c4d0af4417c65204dce658e182862da2e400f4cce0"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/unificada/hackaton/production.html",
+      "bytes": 4021,
+      "sha256": "851982e6b7372c218a129dee0bb12a1e7d1c70ad0639b62b6eb80acea6c13fc4"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/unificada/hackaton/production.js",
+      "bytes": 65600,
+      "sha256": "ec6355a195c9e8ff4cf1078c855241548db6ade2ecc767de6b2910688ec21470"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/unificada/index.html",
+      "bytes": 2845,
+      "sha256": "7667d20d35f86e4667f8b20a332fb8d1b09d2ab7bbc32d26e46f3e6d08fc3162"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/unificada/mercado/app.js",
+      "bytes": 16524,
+      "sha256": "50a1e168914a2f71bfb3049eef1c1b05b6708ebe9689965ec7b61f2f7346fb2c"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/unificada/mercado/data.js",
+      "bytes": 13951,
+      "sha256": "d9652b05ad7e26cff1e7997506c5caa13c718590329b8951a174f3e175bef307"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/unificada/mercado/index.html",
+      "bytes": 9469,
+      "sha256": "f349dba43221973ed54f6ca74fc1b98301922823bf9c1190574584619f97cf79"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/unificada/mercado/integracion.js",
+      "bytes": 1047,
+      "sha256": "e85c3e49e855b0b4053fa16629f00993a74ad95e1af4c144fb102876de960520"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/unificada/mercado/styles.css",
+      "bytes": 7327,
+      "sha256": "d8a84a15192f53ecf0640be4da57eb015b9aac807d1444b14954ebfe7e93298a"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/unificada/offline-manifiesto.js",
+      "bytes": 2045,
+      "sha256": "ceb3ddc93410856e3e56f142af389ae7667ae46c631cc52a0f695bf556a536e6"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/unificada/offline-sw.js",
+      "bytes": 2552,
+      "sha256": "360e2477c409c5428c7ef61b9e7bdb78dce40a45e52eb30a8f06076007fb6860"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/unificada/offline.js",
+      "bytes": 1876,
+      "sha256": "49587b3fd66734d3952fede0773ef0a2596f9ed9931f765daad2b9a0f609e299"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/unificada/puente.js",
+      "bytes": 3395,
+      "sha256": "28fd35cc77b19478f99b082ce1d707ad1fd9d2e72e3f1c50948a1e6d94c773ac"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/unificada/shell.css",
+      "bytes": 6654,
+      "sha256": "16f9995853397b1f03ab66718fbfead88af5e4ff4364f950c19a08286a1ef4e7"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/unificada/shell.js",
+      "bytes": 1816,
+      "sha256": "b56446b22ff07a96de32466763dcec31223d0d749fd75e2574e23d7257775011"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/unificada/unificada.css",
+      "bytes": 2658,
+      "sha256": "a2566da7a36fc91b0044865b878a4e4f87ae519d8cdbae492f1125dc24745f08"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/verification-tasks.js",
+      "bytes": 6186,
+      "sha256": "4604015b1c0e6637161a3fdbf66fba1a43463fc6f7f09b1810f8e149855c7dca"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/workspace.css",
+      "bytes": 11004,
+      "sha256": "5270e7f0c42a24b06963be70298c12403248757bde74dac303055d64a586e4d0"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/static/workspace.js",
+      "bytes": 2121,
+      "sha256": "8c2824bba0bcaf0d31e07230bf067553837d2bdf25179429b9941f028215f762"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/status_chatbot.py",
+      "bytes": 15286,
+      "sha256": "bc58dc0c40db29b3247226ed17de9a95e241eccdf7774984307690ef47df4bab"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/store.py",
+      "bytes": 8986,
+      "sha256": "a31a03d91ea6d712233a4d304c3a64368afa25c0b9cf36245629351afd60a075"
+    },
+    {
+      "path": "demos/mercado-abierto/app/rio_pey_codi/verification_tasks.py",
+      "bytes": 21209,
+      "sha256": "db3c717e7009d1060ec62726e5b4e55eb3d4651f0ad9935a384b306a189604ac"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/beneficiary_claim_ui.cjs",
+      "bytes": 4629,
+      "sha256": "d33eece61fe79d3843ce82d3119fa77a02007664b9b8fc92efc9731d4e6932b9"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/browser_checkout.cjs",
+      "bytes": 5072,
+      "sha256": "12c4d81e91145e1dfa16fa9a7e4a644a9f74980c82d28997770a98851f6ec9e6"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/browser_durable_review.cjs",
+      "bytes": 3973,
+      "sha256": "6fbf58760843d96575ed445c5de953d10538961c0408562a83decb17c7e7464f"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/browser_email_verification.py",
+      "bytes": 5024,
+      "sha256": "e0393cb89c02de3f7beadd63dd9eec86517de28aa69899b69361fb64bf9ca606"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/browser_fixture_server.py",
+      "bytes": 3477,
+      "sha256": "ab8bbb304101cffbd453d2fb099e71f8a882e8374c1a2c8a1219ca8123324b9b"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/browser_integracion.cjs",
+      "bytes": 6715,
+      "sha256": "77feaff857b65528df23f50476abb989c30eab19ad1b771d8a5805297373b94d"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/browser_login_workspace.cjs",
+      "bytes": 7618,
+      "sha256": "82b48e7b253ee71c2dda2cf9129e7628088abdb2ee3c3b37c7099b6f3825c830"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/browser_mercado_abierto_navigation.cjs",
+      "bytes": 9368,
+      "sha256": "608bbb7f9f90d02fdbf06508689bc9d67f91685bcc7b2a9a2376602a4889019b"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/browser_owner_activity.cjs",
+      "bytes": 2941,
+      "sha256": "1b2f3037bc554f0a13a346be804a8be108a979955484be982f0da60aa27be927"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/browser_pey_account.cjs",
+      "bytes": 4144,
+      "sha256": "9bad05c129774c1e4b4bceee9bb2a3cb3da04a589a0f1fea29ba532d82bb5ffd"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/browser_pey_activation.cjs",
+      "bytes": 4403,
+      "sha256": "66017478159a3f3d75785d11e67bbb4f9cab1efd757fa4fedc5c553b8d2c7a83"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/browser_pey_operations.cjs",
+      "bytes": 4981,
+      "sha256": "ed7e27e39124db79a63fcf5cc24feaae62d81448b56378a9375ef88928a2cc90"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/browser_pey_operations_fixture.py",
+      "bytes": 2228,
+      "sha256": "9838e9c5a5cd151d07f6c17d3a98fa14851c47e9e2851a979e14aefbfc01211c"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/browser_production_acceptance.cjs",
+      "bytes": 13965,
+      "sha256": "f825e2621f3e94714608f3f944223f3126fddab2117b0d2a4b16e457a317f9e0"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/browser_production_cash.cjs",
+      "bytes": 5912,
+      "sha256": "6bb778d910a5a41a4cbf04d268a6ea77f334c1df05459551ac16bd688cd6d6f8"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/browser_receipt_scanner.cjs",
+      "bytes": 7770,
+      "sha256": "8d55457f0570d010722520c09df18d05335be8d6c9a3345e2769c87306147d9f"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/browser_receipts.cjs",
+      "bytes": 3422,
+      "sha256": "ab1937071f298f4395cd1f3b9ca822cb77f451e082a35e65d7d813575f12642e"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/browser_registration_recovery.cjs",
+      "bytes": 6453,
+      "sha256": "609e57ca636a5f8a983b753b32130ca2f42bbbdf253ed88aff7be8ac3f0e0a00"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/browser_review_fixture_server.py",
+      "bytes": 3279,
+      "sha256": "4568993dd705b3cff11d48547b2c97133323d56136f1d4cd56ea43e4573c26ce"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/browser_shared_sale.cjs",
+      "bytes": 4832,
+      "sha256": "c160a5e331af376bc7a72f561ab21855d4339d312db33e5d1cbff4e9fa37ba1d"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/browser_shared_sale_pattern.cjs",
+      "bytes": 1129,
+      "sha256": "1eb3a4efad29157f07f3821c000d72a4b7933843feb0a68bb1dfb3a726eddc32"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/browser_unresolved_queue.cjs",
+      "bytes": 3047,
+      "sha256": "2bc45a0cd89bb6b4e84c149b490a88073fff0e157c2de2860cb9d515b98c9dab"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/cash_ui.test.cjs",
+      "bytes": 5914,
+      "sha256": "e279f521448aff27ce0d1502e6b5d8f893425e6c4454528fb76911f848eb6de2"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/checkout_recovery_ui.cjs",
+      "bytes": 9597,
+      "sha256": "421a8b54c858c7ad37806a1aea0697839785754f937cebd168676cff3e28d689"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/checkout_reference_ui.cjs",
+      "bytes": 4224,
+      "sha256": "d1d02cc6c274958dd83fa9fddeba36b0fb80c8e7037edf661d86fa45e4a8648f"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/durable_review_ui.cjs",
+      "bytes": 6461,
+      "sha256": "e6211b54261bb1e1af074a2c6ff1f96cdddf66d7e503628f04f18cffdf7c9fc1"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/fixtures/pey-contract-2026-10-20.json",
+      "bytes": 5475,
+      "sha256": "a21e4e5ba486a143c2837a09ac570d54704ea82eec24df891020a3791e014df4"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/fixtures/pey-openapi-2026-10-20.json",
+      "bytes": 130922,
+      "sha256": "5b92417faa1898e94561a723aae40ce4931b73a0dd3c5b5352f414b0b9c739cb"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/fixtures/pey-qr-transactions-contract-2026-10-20.json",
+      "bytes": 3612,
+      "sha256": "1be8973e893cd809a82c1736871b0d3f8e885f545a112677ff4f33bf86c1bbc1"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/limited_launch_ui.cjs",
+      "bytes": 2228,
+      "sha256": "cc7f340986c34715f277d0fdf86c8d06a2b07d15cd52a636809d5eded3d15663"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/market_checkout_ui.test.cjs",
+      "bytes": 7483,
+      "sha256": "d98816d77e32b9006fd0cab997fb0af283616f6eff166151e571b07a6e282ae2"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/offline_unificada.test.cjs",
+      "bytes": 5129,
+      "sha256": "2b00a0a8ade87c447dc30e4873f12c9900409f8b46bfb132674b87b127bc8d3b"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/production_acceptance_fixture.py",
+      "bytes": 5412,
+      "sha256": "30aec55b5f247712f24a359b1faf1f236b6e0c826725312a1d9e1afd7c54a324"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/provider_readiness_ui.cjs",
+      "bytes": 4209,
+      "sha256": "938d9324d201af8d0954e3dcc3868ac0550c96d0c95c311bfe79b988788e0e7b"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/puente.test.cjs",
+      "bytes": 13286,
+      "sha256": "51a46289f0d962a49ff60ceba75f28d04b1c6ccdbc13c44172ef645112242e23"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/r011_dom_sim.cjs",
+      "bytes": 4786,
+      "sha256": "409cfb487ad2cc9c6737887ec4ec216bb286e1b7c80e26fe048339e3b5221dbd"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/r015_browser_fastapi.cjs",
+      "bytes": 9787,
+      "sha256": "c09d6e20e2782e6758e2e55121d49de6b2303a1bd5e0f2b1f9055ae2fe1bcbd6"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/r015_fastapi_fixture.py",
+      "bytes": 2607,
+      "sha256": "90cb3b734fc4dcf8922bffc6cfa1b03ac69d20d66ed02d5ef59287f195b548fe"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/r016_browser_commerce.cjs",
+      "bytes": 12912,
+      "sha256": "b5efc3e66888fd76494ae0d41724c5fa7b6fb8cd8fe860f6cc88b0dabbd3c17a"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/r017_browser_drafts.cjs",
+      "bytes": 15870,
+      "sha256": "cb80a79bf48faf3825479cd0f4817bae4654a267fd9cf091587ed4e7a19f40f2"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/r023_ui_navigation.cjs",
+      "bytes": 5427,
+      "sha256": "9add9432f078468e8165e1dea5397a252cdf89e4d26e0a20aa0dc8920f4fb780"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/r026_owner_recovery_contract.py",
+      "bytes": 5033,
+      "sha256": "f4cc7e920e6e7f40a75465081a8751d60afcfd8408ec6884fd18700d9c2c840e"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/r026_owner_recovery_policy.py",
+      "bytes": 1856,
+      "sha256": "c4c1ad6603d75df65e2a69bdc0ae31cf15745af386c8f824968486aee9be7645"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/r027_email_webhook_gates.py",
+      "bytes": 3226,
+      "sha256": "c1a507b9e2afa23dfccad87e34916e7126d70ceeb277959f290141c3700514ca"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/r028_activation_gates.py",
+      "bytes": 2084,
+      "sha256": "e5bfe0a20a307343159031be2b4dbe19f96a7b709d3d6d8eb26e17022be2017e"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/r028_mail_signature_protocol.py",
+      "bytes": 7732,
+      "sha256": "c35945e7015985632a8cc41d98319c6ae1c35a021697b764e860e6c62a945677"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/r030_a_mail_activation_gate.py",
+      "bytes": 3358,
+      "sha256": "5fbc7050ae2ec360bb748123c5d49be517606123c01a0965dc0fecd1edb3a18e"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/recuperacion_ui.test.cjs",
+      "bytes": 4676,
+      "sha256": "68216334db44f3e38a66968086ecd0a12ba84e9cdd5b0c526439b513833e3b50"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/request_timeout_ui.cjs",
+      "bytes": 6247,
+      "sha256": "7e94fd35a8faa9ccb6751ae4f010e79a08b702e96f194338aaa0687380857ee3"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/run_postgresql_local.sh",
+      "bytes": 2465,
+      "sha256": "7446316514b61fe7ae5058af580cf7eeca2932467a125008efb82971b1578d81"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/selection_loading_ui.cjs",
+      "bytes": 6585,
+      "sha256": "2ded2ad0f76004c85adc0c0126a40aa78975a2b8f054726b709162cb93d2754d"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/self_signup_ui.cjs",
+      "bytes": 2909,
+      "sha256": "bcd6a54ea0781d34a3a0f1b968ae999269a8c2a5de1889216848174e6c02af66"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/shared_sale_pattern.cjs",
+      "bytes": 848,
+      "sha256": "2e74fadb708bd219a35eb7a9528e4004b1c27ca58de757a498038c4950c58801"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/shared_sale_ui.cjs",
+      "bytes": 7169,
+      "sha256": "08b617f910c15ee7915e32d1ba1f42b8cf26bc7ab67f4069d0fd138c19222233"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/signup_email_ui.cjs",
+      "bytes": 3306,
+      "sha256": "f6127e4d8f581a21c961efc493f9ac807a701d9e8a4441d3db20e83af0de12b3"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/standard_webhooks_interop.py",
+      "bytes": 1732,
+      "sha256": "1620de18c0b8b8a32a2f573a008c4cdafcec081912acbcc4db249ee7a95a04ce"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/swarm_botones_r012.cjs",
+      "bytes": 16656,
+      "sha256": "c1ebd295b5a74a176323260e45817111ed5de77994649afbf4fdba9cec9222b2"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_admin_session_races.py",
+      "bytes": 4070,
+      "sha256": "e48a62745cb7a1190f09a4b4f6b07ddb3ba10dc8962e669ab2f181bb7b501220"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_beneficiary_claims.py",
+      "bytes": 9102,
+      "sha256": "739137c7dc0c6ff23ba47a3c117353af1b7a7434874bc51d95fe7d92c19774be"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_beneficiary_reconciliation.py",
+      "bytes": 9435,
+      "sha256": "6890346de635de2e5489f62bd71757c716be7dc9eaa2529716c8f71911fe1916"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_browser_runner_guard.py",
+      "bytes": 3555,
+      "sha256": "7a78e0a581fd181a42d9f6d7337ce0f1ce01d16bc3231d9bd0fd363fd3b32b48"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_database_tls.py",
+      "bytes": 3485,
+      "sha256": "efd288be13721c4a65e9e21906da63d7fd99409e3fc56cc5321eed502f3c5b99"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_demo_gateway_safety.py",
+      "bytes": 2352,
+      "sha256": "f48f07eeb1f113af6c2162e1a5a24396f8ebf0b934b633eee4a8e666175103ec"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_deployment_entrypoint.py",
+      "bytes": 6127,
+      "sha256": "a65f55693246e78393855a3b9943f34228747bbfdd69b14aa325634df511d851"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_durable_reconciliation.py",
+      "bytes": 7609,
+      "sha256": "6ebad9bfa5540db68959b78acb27df21639b68ac68cfbf09bc42f1907420a46d"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_email_verification_session.py",
+      "bytes": 5451,
+      "sha256": "21fe0531b25d6a90febf3eedd707d4cd8ee524020a9a41269bb6657024f77e57"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_gateway.py",
+      "bytes": 14878,
+      "sha256": "e4e479c01e3bce0dc52bcba6ee52a2b8e3bb1823992db0d7fda58a3d631be10c"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_hackaton_r010.py",
+      "bytes": 4000,
+      "sha256": "677ec10794d82a53a94b1b3e94b49d9cc453dd3c7a10ec8bfb3f37054cd3d7fd"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_hackaton_r010_shell.py",
+      "bytes": 2200,
+      "sha256": "33c677063a6ae5dc9031b5df69b7f7e1b4a334ea6f0029f3555aa66c36ba94f8"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_hackaton_r011_ui.py",
+      "bytes": 2342,
+      "sha256": "5fbe8e1b4b7fee62a71f4742a2c98d8444aff0bbe049aed5b5f4436d936c1779"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_hackaton_r014_sessions.py",
+      "bytes": 3770,
+      "sha256": "b09374cc09f4e6da38769eb89417a4eb8966988d71117854f09d203701d186da"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_hackaton_r016_commerce.py",
+      "bytes": 4949,
+      "sha256": "f3a33fdc3bc4eb6376597e7193b388e8dad0e3569064dedfe59fa93a4f6e46d6"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_hackaton_r017_migration.py",
+      "bytes": 2578,
+      "sha256": "4538d0fb66ceaa23302b7cf624fd01bb8b37abdf55e409441b57a881dd12dcab"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_http_operational_flow.py",
+      "bytes": 6258,
+      "sha256": "ef5da1d7e6e0aafa3cc0b91aad66753e332c11472d7d9bef62fe5f4eb28e382c"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_limited_launch.py",
+      "bytes": 7574,
+      "sha256": "ff7a6439365028791b3c148e1fa3c6c429434e2f12c4e7b4d588cb204ba6c8e6"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_limited_registration.py",
+      "bytes": 7431,
+      "sha256": "f0b7dfc670524b2855d047a3da5d6707059ba9961976af14059e95dabed0c6f4"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_local_demo_status.py",
+      "bytes": 716,
+      "sha256": "e7566d569d1e924a796328d9772c6fd3f186f9f1e6803f51c4cfeb953f98ff09"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_login_first_workspace.py",
+      "bytes": 5015,
+      "sha256": "fb610a7d33df5c00df356561cd456817bd080ad0c130e4e9fdbd5ae48cc94b36"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_mercado_abierto_navigation.py",
+      "bytes": 5856,
+      "sha256": "fb741bf42725e32fdaa6544b1e5f4deba9484832c33b2de23b797181f0ceab27"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_merchant_invitation.py",
+      "bytes": 3503,
+      "sha256": "e9e9ff35aa09982c523e83225ecfef5950d7b4e68f02f55a63917b5e67136dc3"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_merchant_pey_checkout.py",
+      "bytes": 4566,
+      "sha256": "d55f98aa164602541a2c209534fb70336c7b67d647dcf3c47ac6be4769d833bb"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_merchant_pey_vault.py",
+      "bytes": 5507,
+      "sha256": "4982f852f7677fb1b711ee3a1238bbed3e39daba99599e3cf3016c9b057107f6"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_merchant_webhook_attribution.py",
+      "bytes": 1722,
+      "sha256": "a3e62fb9dc09f1cff4a3d51c52d47700f8440f60b41d5f85493e354c5ef05f45"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_migrations.py",
+      "bytes": 12428,
+      "sha256": "20b4112aecb60e24ced2c62743cf61472748620b1ae7fe5a6fdf1072e0a5bc1d"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_owner_activity.py",
+      "bytes": 5091,
+      "sha256": "8a0126fcfcf791084395145ea899ae2324e3ba1741ff6323dae185373c0108c6"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_pey_default_account.py",
+      "bytes": 1540,
+      "sha256": "af41725905cebb5ecdf827a2af0730ec75c0012832e9e4e373658292f4703b10"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_pey_extended_contract.py",
+      "bytes": 2787,
+      "sha256": "47a3af49f67161827392adb8f93d7e0c6c608e2cf8a7ce59a4f08b659fdd85d6"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_pey_openapi.py",
+      "bytes": 4424,
+      "sha256": "ee88aa325e8b072f2b857e64f6695229bc28f193d1bfc6b12df80c76235c529f"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_pey_operations.py",
+      "bytes": 15416,
+      "sha256": "c3b2892080d2459d1e76bf61b0c15b879bef3bc59ff20ac3aa007543a3d08e45"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_pey_transaction_review.py",
+      "bytes": 10168,
+      "sha256": "8b1d0e54e8fbc06bb1864f77e63594cd93de39acc7ed989857330c65a06a74a8"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_platform.py",
+      "bytes": 24938,
+      "sha256": "c2855e967450b8b639e68260f21287e63e83900c26604c5d9498dd66f8423c2c"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_postgresql_integration.py",
+      "bytes": 40765,
+      "sha256": "c0705e835324a174c5c78cba4aad3e1572ef6939d39efcfbf18fef3062631cc9"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_pr_snapshot_guard.py",
+      "bytes": 3082,
+      "sha256": "f4748d36848b82cdec7a9b1d5b71d7fd0aef71d318335c3f8886aaea2fb59526"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_production_cash_ledger.py",
+      "bytes": 9512,
+      "sha256": "34d1aa19de4ccc6c1fc386e7eb2802aebbb8aa406e78cbdb9aee758e3c259d2e"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_production_full_story.py",
+      "bytes": 10412,
+      "sha256": "49064083796dda2774061957dd30bc17564ebf78bdb6e6608ed47c0cc5fc46ee"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_production_market.py",
+      "bytes": 24120,
+      "sha256": "869ca6c381baa826d068b2c4f18ff94861dcab71dd658c4440164ae2b014d3f1"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_production_market_migration.py",
+      "bytes": 9923,
+      "sha256": "989fbd592145a234534c126afcf8da23e152291b60e8250b9b3cb4177847b124"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_provider_account_observations.py",
+      "bytes": 14082,
+      "sha256": "61cfb842bf7bcbabf453c813f359508237094dd421c49a1f9ab07ac20fd993c0"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_provider_contract.py",
+      "bytes": 3336,
+      "sha256": "63ece8ea0897ddafaa157ab9532b741c1dad85d8118afeb2c3809d8df626ac06"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_provider_response_deadline.py",
+      "bytes": 2560,
+      "sha256": "79f2d471e945a185f2cbcc9cabc2f419a755ae3a1584d49b4e0dd8dcbec4f37e"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_receipt_verification.py",
+      "bytes": 5698,
+      "sha256": "ac39e6c13f70141c85c1f2709885f4361044ed26a1920f2a9cc4e5da0023b738"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_receipts.py",
+      "bytes": 11692,
+      "sha256": "1137414e3535837fe1ca8563fa07263a2acae850e5491de5271a8b848ad4dd46"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_reconciliation.py",
+      "bytes": 835,
+      "sha256": "79b1c9a4cd3a7d1423769f6cbbfbcd9b719a39ef089a7b7f83ce5bd3be1eb6cb"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_reconciliation_adversarial.py",
+      "bytes": 2615,
+      "sha256": "b3abdaed606c8bd422f0a3418ad217d5d75debc220c182fc5da4429ea4f2c5f9"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_reconciliation_edges.py",
+      "bytes": 2445,
+      "sha256": "7429bed9c07762cef16b991186f3054d524e963323f4a4faac5385a9aa6b31d4"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_reconciliation_event_races.py",
+      "bytes": 3365,
+      "sha256": "3e079a6571db0a4876f6c936590dbdd55616c4a37ea6b892b189b6e618037cf4"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_reconciliation_integrity_edges.py",
+      "bytes": 1018,
+      "sha256": "11186c8c93b091c7ca494427874ee0c1adbd7dfa7e55db6f9cf94b445c48c1b1"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_reconciliation_preview.py",
+      "bytes": 7057,
+      "sha256": "76a09d451c059f170fdf3b1abc128d87c9262d7fa41c116ea5f95a1be1b983a1"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_reconciliation_preview_auth_races.py",
+      "bytes": 2967,
+      "sha256": "b919689236b8499ae0c0db534ff228e5ada8f40f1d37cfa47dae53218840f98f"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_registration_recovery.py",
+      "bytes": 6022,
+      "sha256": "3ee337243f25f78def9629018483c984229e7b4452c85f1cf2b7b603265c3b95"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_request_timeout_ui.py",
+      "bytes": 521,
+      "sha256": "51b3604dc120d4f7c63207ef66a0dcd86c4d3afa0a2a8ef82dcb36de1206a8c4"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_self_signup_and_own_pey.py",
+      "bytes": 5575,
+      "sha256": "722689494f416db7cac1a4b905080f554d1c29800e4b142e33c7d6bede7f9aa5"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_shared_sale.py",
+      "bytes": 4883,
+      "sha256": "0e9c3a9a6707d87c566e5de60d8cfd1a9ca4b80d3ba4d784727e9add60e1cba3"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_shell_unificada.py",
+      "bytes": 2684,
+      "sha256": "fa3432f58ac78e913e4797d13e23b36a23661249eb06bc3236c7fe5493b8d275"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_signup_any_email.py",
+      "bytes": 7547,
+      "sha256": "e2beee0e8fc2980f5e90f5243bca56c303eafe10a2753d6715dd00cd13612601"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_simulated_transaction_review.py",
+      "bytes": 12394,
+      "sha256": "2a7c2d4d994870c92285845b47251db79b7a3b24173294b060a9aaf56a265e4b"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_stored_webhook_signatures.py",
+      "bytes": 9473,
+      "sha256": "db4172b4c8d044d5b6ce3c79720dcafbc000593c7245e15866c9e2bb90da705b"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_unificada.py",
+      "bytes": 6279,
+      "sha256": "95075864689d0dc31546cb8df57f64b1f18b883a453f73c01b1c4c7e1bfc4e96"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_unresolved_queue.py",
+      "bytes": 3140,
+      "sha256": "f839f984e09740686fe7e9a4ded6448867931313c8970e789a6847dfeaa98d99"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_verification_tasks.py",
+      "bytes": 6168,
+      "sha256": "643cbcb0fccb64892308259bbd7b1508e30ef00267021b6c50c6393c1e53b434"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/test_webhook_key_rotation.py",
+      "bytes": 11243,
+      "sha256": "f577ebdba5af7c62fababfa8f5f6771bc9fa4e72984de55351b1bca042ae4bb7"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tests/unresolved_queue_ui.cjs",
+      "bytes": 6750,
+      "sha256": "72e28136c7d134b06fa3342fc35d369319c0dc96ce107dd8707b008a623f5353"
+    },
+    {
+      "path": "demos/mercado-abierto/app/tools/generar_manifiesto_offline.py",
+      "bytes": 1085,
+      "sha256": "024ae2ac98ea51b67f1cc95632a58b8dffd11520714a36add4903e64c9acbce8"
+    },
+    {
+      "path": "demos/mercado-abierto/app/vercel.json",
+      "bytes": 149,
+      "sha256": "3feaad0c27bc33d80f41e9573e571833ce573b4f320ce821401def79bc5d4cd5"
+    },
+    {
+      "path": "demos/mercado-abierto/frontdesk/app.html",
+      "bytes": 435,
+      "sha256": "5659fa49f8c0712478b2da6a302fdbb966500171beb84898cc18497e89d68378"
+    },
+    {
+      "path": "demos/mercado-abierto/frontdesk/index.html",
+      "bytes": 435,
+      "sha256": "5659fa49f8c0712478b2da6a302fdbb966500171beb84898cc18497e89d68378"
+    },
+    {
+      "path": "demos/mercado-abierto/frontdesk/vercel.json",
+      "bytes": 1336,
+      "sha256": "7064068c49998bc02b4ab9def916fddb1f0fc9da63ed46e83418b369ba57fa80"
+    },
+    {
+      "path": "demos/mercado-abierto/iniciar_unificada.py",
+      "bytes": 2233,
+      "sha256": "664505628545963f30b8de80a4bd7186c66c850924a58796f176ab28fea38bf4"
+    },
+    {
+      "path": "demos/rio-primer-cobro/PROJECT_STATUS_R013.md",
+      "bytes": 3311,
+      "sha256": "0f92f5b1eb155f808b3ee9d5f0f1405562f9be07a7f0a59af4d3325a7f76c520"
+    },
+    {
+      "path": "demos/rio-primer-cobro/PROJECT_STATUS_R014.md",
+      "bytes": 2398,
+      "sha256": "23aa715aa08349bf386807ba83b812eb9ad20d1ff1217b611ef7807651b98c21"
+    },
+    {
+      "path": "demos/rio-primer-cobro/PROJECT_STATUS_R015.md",
+      "bytes": 1194,
+      "sha256": "f58108513010a471ba1aef1c429e1c0be8fb68e65da0d53f1179cd0fbcc3bb5d"
+    },
+    {
+      "path": "demos/rio-primer-cobro/R014_RELEASE_RECEIPT.json",
+      "bytes": 4588,
+      "sha256": "e2d63502dabea38b6dbb60d2a2301433a1ed89a1ae002df23cd6501371b7be38"
+    },
+    {
+      "path": "demos/rio-primer-cobro/README.md",
+      "bytes": 4184,
+      "sha256": "42c6eae752905421ef1b9381a1a7e020ba250f1708014424a3dcdfbc76e0b4ba"
+    },
+    {
+      "path": "demos/rio-primer-cobro/RIO_PRIMER_COBRO_R013_OFFLINE.html",
+      "bytes": 76446,
+      "sha256": "24128de75119267c569c7066e41fef54e2c842b030ae4f4283298aca64005845"
+    },
+    {
+      "path": "demos/rio-primer-cobro/RIO_PRIMER_COBRO_R014_OFFLINE.html",
+      "bytes": 93407,
+      "sha256": "67cf74dc9d7affe416cdda98f4f403bfc3d40c4ba97c9e4fee38ac6d5c1923e6"
+    },
+    {
+      "path": "demos/rio-primer-cobro/RIO_PRIMER_COBRO_R015_OFFLINE.html",
+      "bytes": 112138,
+      "sha256": "61cc8f8e71e2708141b22c090faadafe3f50ffaf373db8c992a80bb5077943f1"
+    },
+    {
+      "path": "demos/rio-primer-cobro/ROUND_LOG.md",
+      "bytes": 1294,
+      "sha256": "15c81d6d38d24a09eee807503f87b582d2849ccdf2c7c3c7e2a7ed5fc89aee0d"
+    },
+    {
+      "path": "demos/rio-primer-cobro/app/app.js",
+      "bytes": 33726,
+      "sha256": "c631880a06cac237d29c4c65f2f782402af66e5d6f07443d20e8cdb325be31f5"
+    },
+    {
+      "path": "demos/rio-primer-cobro/app/chat.js",
+      "bytes": 3389,
+      "sha256": "a99b33fb78a1fe0984e0fd2f37d12e2df38513a0c08cfa1476c7ce3aacf42c2c"
+    },
+    {
+      "path": "demos/rio-primer-cobro/app/field_r015.js",
+      "bytes": 12924,
+      "sha256": "ac16a2dd7c2a7d28680ec687d7cbeaecfdf496aa261d605e359f74eddb16968d"
+    },
+    {
+      "path": "demos/rio-primer-cobro/app/index.html",
+      "bytes": 17399,
+      "sha256": "631c14c6c0bc54664a203bf1d3766a30df8644724e849165041571ae9817351a"
+    },
+    {
+      "path": "demos/rio-primer-cobro/app/logic.js",
+      "bytes": 18388,
+      "sha256": "e3c3b45796bde7a572518adeda9248b6401bbb5e543d0d8684399343211ddb03"
+    },
+    {
+      "path": "demos/rio-primer-cobro/app/persistence.js",
+      "bytes": 5677,
+      "sha256": "cb48f8ed8dd2dbc581fc206fb3a1755a7cf9cd0739472066f55497d2dd779f23"
+    },
+    {
+      "path": "demos/rio-primer-cobro/app/qrcode.js",
+      "bytes": 4067,
+      "sha256": "f5479dc4fb321fd5a243ea4f13df2f31ef88e881e3e9646b4d537084e8351c02"
+    },
+    {
+      "path": "demos/rio-primer-cobro/app/style.css",
+      "bytes": 16680,
+      "sha256": "4847473fe71844afd23a31e380a2fb33c1502bd19df54972d1724f008c93c834"
+    },
+    {
+      "path": "demos/rio-primer-cobro/contracts/pey_adapter_future.md",
+      "bytes": 2347,
+      "sha256": "46325d753a5967893f93ee643d572b59948d9065d28d43a5fd5d63d9c89a6958"
+    },
+    {
+      "path": "demos/rio-primer-cobro/experiments/sensitivity.py",
+      "bytes": 1894,
+      "sha256": "3f44846493d03544b3ae5823964f398ed769562533b7b7152d0f924c7da1ece9"
+    },
+    {
+      "path": "demos/rio-primer-cobro/frontdesk/A11Y_R003_20261114.md",
+      "bytes": 15481,
+      "sha256": "9e46fcf02fa62d4d8436145a5e335314ffc81c6d784a711143bdb8bae48b7ddc"
+    },
+    {
+      "path": "demos/rio-primer-cobro/frontdesk/ESTADO_20261113.md",
+      "bytes": 5843,
+      "sha256": "7cef3b671a4117f5e5b683c60ffd71c2b52b6beda66d2af11fd1e083be9faea6"
+    },
+    {
+      "path": "demos/rio-primer-cobro/frontdesk/EVIDENCE_20261113.json",
+      "bytes": 1427,
+      "sha256": "9f743ee28f75c058c01525bf88c55ee2c99df331ea805fd921a0e639cd37410e"
+    },
+    {
+      "path": "demos/rio-primer-cobro/frontdesk/README.md",
+      "bytes": 5342,
+      "sha256": "0123237775cfca64105c765d704ae8dfb4a6383fcf4d75b256339d4b1b31e740"
+    },
+    {
+      "path": "demos/rio-primer-cobro/frontdesk/app.html",
+      "bytes": 847,
+      "sha256": "8180e09e937d0442eea282d8ee9ea6706186201f162076cb42990874eef392da"
+    },
+    {
+      "path": "demos/rio-primer-cobro/frontdesk/index.html",
+      "bytes": 847,
+      "sha256": "8180e09e937d0442eea282d8ee9ea6706186201f162076cb42990874eef392da"
+    },
+    {
+      "path": "demos/rio-primer-cobro/frontdesk/practica-r015-app.js",
+      "bytes": 33728,
+      "sha256": "c68be3815583101dc953807846227fc1d27f7cf6df4a57938bca9a22524cf03e"
+    },
+    {
+      "path": "demos/rio-primer-cobro/frontdesk/practica-r015-chat.js",
+      "bytes": 3391,
+      "sha256": "6d8af7f821787b2cc03d5f3296b3ce6e3f97da56a405c3dfb916e125b92446f7"
+    },
+    {
+      "path": "demos/rio-primer-cobro/frontdesk/practica-r015-field.js",
+      "bytes": 12926,
+      "sha256": "bb8c54f33b058208abd3a3bf349c1d34c93330402bcbc683cd7507272690272c"
+    },
+    {
+      "path": "demos/rio-primer-cobro/frontdesk/practica-r015-logic.js",
+      "bytes": 18390,
+      "sha256": "be56ae903f3eb630eaebafa9c8218a2ebb81d476fef1b74f1d81c1e82ace9ec3"
+    },
+    {
+      "path": "demos/rio-primer-cobro/frontdesk/practica-r015-persistence.js",
+      "bytes": 5679,
+      "sha256": "701bb942c7f44a67ffda504ec4ac762a36ecf9489cf65b4bdd3039f7e6c02f56"
+    },
+    {
+      "path": "demos/rio-primer-cobro/frontdesk/practica-r015-qrcode.js",
+      "bytes": 4069,
+      "sha256": "3f8a7e0e31311920158be948d35b83f04d996c9e3ec283e00ac68fc438de5f75"
+    },
+    {
+      "path": "demos/rio-primer-cobro/frontdesk/practica-r015-style.css",
+      "bytes": 16680,
+      "sha256": "4847473fe71844afd23a31e380a2fb33c1502bd19df54972d1724f008c93c834"
+    },
+    {
+      "path": "demos/rio-primer-cobro/frontdesk/practica.html",
+      "bytes": 17679,
+      "sha256": "850888eb917bdfdc952d813434787fa6616b4ddce9be4a4fb9098795ed51b49a"
+    },
+    {
+      "path": "demos/rio-primer-cobro/frontdesk/vercel.json",
+      "bytes": 1034,
+      "sha256": "cb5e7a3a2384bac587f6f7f4f880c4418f2847c73fe0ba1340b946efe8789d93"
+    },
+    {
+      "path": "demos/rio-primer-cobro/reports/R013_E2E.json",
+      "bytes": 3818,
+      "sha256": "dfeed030c2ae017fcf86ae17d9445dd3212a59ab4a05ed86ba6657097d9a23af"
+    },
+    {
+      "path": "demos/rio-primer-cobro/reports/R013_FILE_MANIFEST.json",
+      "bytes": 3304,
+      "sha256": "5d2acb5b41a75d9a8b476381f94255db6259138de78529e857ea481544b6c744"
+    },
+    {
+      "path": "demos/rio-primer-cobro/reports/R013_SERVER_TEST.json",
+      "bytes": 100,
+      "sha256": "2bb64f6e9390db2675dd730832cbc0ad91f309646f942de67d5f374c7742a18d"
+    },
+    {
+      "path": "demos/rio-primer-cobro/reports/R013_user_report_desktop.json",
+      "bytes": 10721,
+      "sha256": "868349f65abcfe1fecba0a35cdd6eb18141124726065ac7424eec43852f2ed8b"
+    },
+    {
+      "path": "demos/rio-primer-cobro/reports/R013_user_report_mobile.json",
+      "bytes": 10721,
+      "sha256": "96bde17e245c8277d4d6d5ff77f6b37bc994d0510898cd373046fecf3925a811"
+    },
+    {
+      "path": "demos/rio-primer-cobro/reports/R014_E2E.json",
+      "bytes": 4863,
+      "sha256": "134d8362caba5ac193e2ed7df386c9712f91eebfa7920cb517efa4a37a6ea69d"
+    },
+    {
+      "path": "demos/rio-primer-cobro/reports/R014_report_desktop.json",
+      "bytes": 11893,
+      "sha256": "e0674942abf57cb9970c702454e2d72b5ff4073ba43f70a25c3ac3845bb80909"
+    },
+    {
+      "path": "demos/rio-primer-cobro/reports/R014_report_mobile.json",
+      "bytes": 11893,
+      "sha256": "a15b8a0f87b0483c90a4e77f333667358b5b4667abf3e995ac4087d56893e944"
+    },
+    {
+      "path": "demos/rio-primer-cobro/reports/R015_E2E.json",
+      "bytes": 3638,
+      "sha256": "6485ae9b58253342be6490352885696a5cd8b1882ce940f01b5c2aad81f4a2ad"
+    },
+    {
+      "path": "demos/rio-primer-cobro/reports/R015_TEST_STATUS.json",
+      "bytes": 915,
+      "sha256": "fdef6be2a474c4af663104d533920e911324047db9cc449bcae05a5f1f2320c7"
+    },
+    {
+      "path": "demos/rio-primer-cobro/reports/R015_report_desktop.json",
+      "bytes": 15088,
+      "sha256": "fcb7a90770c8856d43ac0e349df768503e47dd508958b0f480027195a40eaa96"
+    },
+    {
+      "path": "demos/rio-primer-cobro/reports/R015_report_mobile.json",
+      "bytes": 15087,
+      "sha256": "11a61f44f52e3de103d648c66b2e98d1b18c7fc84891c0bf3075c3e307df130f"
+    },
+    {
+      "path": "demos/rio-primer-cobro/server/dev_server.mjs",
+      "bytes": 4793,
+      "sha256": "854966c6ae40da802635fc2f3e80b5c73c34cc4700f8094002e8345befc20bc5"
+    },
+    {
+      "path": "demos/rio-primer-cobro/tests/build_offline.py",
+      "bytes": 600,
+      "sha256": "61de032c07b29d83582ea7db8ff8764a5511738f92e2f2f3fb0af67bbae0b370"
+    },
+    {
+      "path": "demos/rio-primer-cobro/tests/test_cart_r012.py",
+      "bytes": 6136,
+      "sha256": "16f8e145272d4a18c91126d2cfcf27eda6a45580c0ff41bf9561589f354c9631"
+    },
+    {
+      "path": "demos/rio-primer-cobro/tests/test_cart_storage_mock_r012.py",
+      "bytes": 1293,
+      "sha256": "437453c4cbbabd0fd97bfbde3d46778ee037e97c8b199837cdab246d648caf4f"
+    },
+    {
+      "path": "demos/rio-primer-cobro/tests/test_e2e_r013.py",
+      "bytes": 5221,
+      "sha256": "34eb5a6671e3c7d0f6e7649aefd7c9171d2066c20cae2c1ac24b0c7d9947fa64"
+    },
+    {
+      "path": "demos/rio-primer-cobro/tests/test_e2e_r014.py",
+      "bytes": 7016,
+      "sha256": "dc236d342bd4644b86716dc0ad7f2509bca20506660c20d9dd292f7c689b74e4"
+    },
+    {
+      "path": "demos/rio-primer-cobro/tests/test_e2e_r015.py",
+      "bytes": 5367,
+      "sha256": "51e0c689483ff466a1dbc80a7471d6070c3ba0170e827efdfb325013d314cb19"
+    },
+    {
+      "path": "demos/rio-primer-cobro/tests/test_field_r015.mjs",
+      "bytes": 851,
+      "sha256": "4847f4e33f62a6d99c80ae54aa7f8d94130e787c6a978d769e06ad3dcb89f093"
+    },
+    {
+      "path": "demos/rio-primer-cobro/tests/test_logic.mjs",
+      "bytes": 1155,
+      "sha256": "1629958eef3cf36498e48ab791758b46694611f77f50ea0318cfeef601a7ca82"
+    },
+    {
+      "path": "demos/rio-primer-cobro/tests/test_persistence_r014.mjs",
+      "bytes": 4815,
+      "sha256": "f8cfe7830c10e6dccc8d61e38fa0ce6964f2918186c7ffa38a144f750cf69878"
+    },
+    {
+      "path": "demos/rio-primer-cobro/tests/test_qr_matrix.py",
+      "bytes": 1212,
+      "sha256": "1c5e0f70010b78dd45e9a257648a1950698ddfd4b254639f3b17a45669f9cb0b"
+    },
+    {
+      "path": "demos/rio-primer-cobro/tests/test_server.py",
+      "bytes": 1597,
+      "sha256": "4f3580d0c4ba963a507fa4e69d57939a3785fd93c860ef9783794787e6e1aaab"
+    },
+    {
+      "path": "docs/MERCADO_ABIERTO_PEY_API_20261114.md",
+      "bytes": 2323,
+      "sha256": "ffb57fe2f897c64c28ee9e03ed4b8f9f50d7267cd5065200b77d497873ee4a81"
     },
     {
       "path": "docs/app.js",
@@ -845,6 +2430,11 @@
       "path": "tests/test_freeze_guard.py",
       "bytes": 1996,
       "sha256": "3c74c471460c8416ed263ffcfcd33fedb573a13982c20018eb5e6f13ab7fde23"
+    },
+    {
+      "path": "tests/test_frontdesk_csp.py",
+      "bytes": 2455,
+      "sha256": "bc4907fe7032483dce83337455047b8328c38454c381b1cd7e224eb7dc2cbf2d"
     },
     {
       "path": "tests/test_graph_copy.py",

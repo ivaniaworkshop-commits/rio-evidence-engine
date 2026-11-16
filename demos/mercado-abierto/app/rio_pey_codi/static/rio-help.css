@@ -1,0 +1,19 @@
+/* Centro de ayuda RÍO: estilos aislados; no modifica la identidad visual existente. */
+.rio-help-dialog{width:min(94vw,720px);max-height:88vh;overflow:auto;border:1px solid #888;border-radius:12px;padding:20px;background:Canvas;color:CanvasText}
+.rio-help-dialog::backdrop{background:rgba(0,0,0,.55)}
+.rio-help-header,.rio-help-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.rio-help-dialog label{display:block;margin-block:14px}
+.rio-help-dialog select{display:block;width:100%;font-size:16px;padding:10px}
+.rio-help-dialog button{min-height:44px;min-width:44px}
+.rio-help-dialog .rio-help-actions{justify-content:flex-start;margin-top:16px}
+.rio-help-references{display:grid;gap:12px;margin-block:14px}
+.rio-help-references a{display:inline-block;margin-left:8px;overflow-wrap:anywhere}
+.rio-help-references small{color:GrayText}
+.rio-help-notice{font-weight:600}
+.rio-help-progress{color:GrayText}
+.rio-help-target{outline:3px solid #e2a800!important;outline-offset:4px}
+@media(prefers-reduced-motion:reduce){.rio-help-dialog *, .rio-help-target{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+.rio-help-dialog input[type="search"]{display:block;width:100%;min-height:44px;font-size:16px;padding:10px}
+.rio-help-answer{margin-block:12px;padding:8px 12px;border-inline-start:3px solid #888}
+.rio-help-answer:empty{display:none}

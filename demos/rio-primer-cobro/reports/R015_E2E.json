@@ -1,0 +1,185 @@
+{
+  "schema": "RIO_R015_BROWSER_MEMORY_TESTS",
+  "scope": "CHROMIUM_MEMORY_MOCK_NOT_ANDROID_PHYSICAL",
+  "tests": 44,
+  "passed": 44,
+  "failed": 0,
+  "cases": [
+    {
+      "name": "mobile four tabs present",
+      "pass": true
+    },
+    {
+      "name": "mobile no horizontal overflow",
+      "pass": true
+    },
+    {
+      "name": "mobile field tab opens",
+      "pass": true
+    },
+    {
+      "name": "mobile field no checkpoint initially",
+      "pass": true
+    },
+    {
+      "name": "mobile cannot pretend reload without sale",
+      "pass": true
+    },
+    {
+      "name": "mobile QR nonpayable",
+      "pass": true
+    },
+    {
+      "name": "mobile checkpoint saved",
+      "pass": true
+    },
+    {
+      "name": "mobile no false same-document proof",
+      "pass": true
+    },
+    {
+      "name": "mobile new doc recovers checkpoint",
+      "pass": true
+    },
+    {
+      "name": "mobile active sale recovered",
+      "pass": true
+    },
+    {
+      "name": "mobile pasted QR matches",
+      "pass": true
+    },
+    {
+      "name": "mobile user reported physical closing only",
+      "pass": true
+    },
+    {
+      "name": "mobile report R015",
+      "pass": true
+    },
+    {
+      "name": "mobile field in report",
+      "pass": true
+    },
+    {
+      "name": "mobile TalkBack failure not hidden",
+      "pass": true
+    },
+    {
+      "name": "mobile camera only reported",
+      "pass": true
+    },
+    {
+      "name": "mobile physical unverified",
+      "pass": true
+    },
+    {
+      "name": "mobile internal tests executed",
+      "pass": true
+    },
+    {
+      "name": "mobile no real payment",
+      "pass": true
+    },
+    {
+      "name": "mobile field reset independent",
+      "pass": true
+    },
+    {
+      "name": "mobile reset preserves sale",
+      "pass": true
+    },
+    {
+      "name": "mobile no JavaScript exceptions",
+      "pass": true
+    },
+    {
+      "name": "desktop four tabs present",
+      "pass": true
+    },
+    {
+      "name": "desktop no horizontal overflow",
+      "pass": true
+    },
+    {
+      "name": "desktop field tab opens",
+      "pass": true
+    },
+    {
+      "name": "desktop field no checkpoint initially",
+      "pass": true
+    },
+    {
+      "name": "desktop cannot pretend reload without sale",
+      "pass": true
+    },
+    {
+      "name": "desktop QR nonpayable",
+      "pass": true
+    },
+    {
+      "name": "desktop checkpoint saved",
+      "pass": true
+    },
+    {
+      "name": "desktop no false same-document proof",
+      "pass": true
+    },
+    {
+      "name": "desktop new doc recovers checkpoint",
+      "pass": true
+    },
+    {
+      "name": "desktop active sale recovered",
+      "pass": true
+    },
+    {
+      "name": "desktop pasted QR matches",
+      "pass": true
+    },
+    {
+      "name": "desktop user reported physical closing only",
+      "pass": true
+    },
+    {
+      "name": "desktop report R015",
+      "pass": true
+    },
+    {
+      "name": "desktop field in report",
+      "pass": true
+    },
+    {
+      "name": "desktop TalkBack failure not hidden",
+      "pass": true
+    },
+    {
+      "name": "desktop camera only reported",
+      "pass": true
+    },
+    {
+      "name": "desktop physical unverified",
+      "pass": true
+    },
+    {
+      "name": "desktop internal tests executed",
+      "pass": true
+    },
+    {
+      "name": "desktop no real payment",
+      "pass": true
+    },
+    {
+      "name": "desktop field reset independent",
+      "pass": true
+    },
+    {
+      "name": "desktop reset preserves sale",
+      "pass": true
+    },
+    {
+      "name": "desktop no JavaScript exceptions",
+      "pass": true
+    }
+  ]
+}

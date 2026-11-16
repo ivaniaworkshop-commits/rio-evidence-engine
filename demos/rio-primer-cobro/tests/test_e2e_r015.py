@@ -1,0 +1,62 @@
+"""R015 browser-memory functional tests. NOT evidence of Android physical device or browser closure."""
+from pathlib import Path
+from playwright.sync_api import sync_playwright
+import json
+ROOT=Path(__file__).resolve().parents[1]
+HTML=(ROOT/'RIO_PRIMER_COBRO_R015_OFFLINE.html').read_text(encoding='utf-8')
+RESULTS=[]
+def ck(name, result):
+ RESULTS.append({'name':name,'pass':bool(result)})
+ if not result: raise AssertionError(name)
+MOCK="""() => {window.__store={};Object.defineProperty(window,'localStorage',{configurable:true,get(){return {getItem(k){return Object.prototype.hasOwnProperty.call(window.__store,k)?window.__store[k]:null},setItem(k,v){window.__store[k]=String(v)},removeItem(k){delete window.__store[k]}}}});window.confirm=()=>true;}"""
+with sync_playwright() as pw:
+ browser=pw.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox','--disable-dev-shm-usage'])
+ for width,height,label in [(390,844,'mobile'),(1280,900,'desktop')]:
+  context=browser.new_context(viewport={'width':width,'height':height},accept_downloads=True)
+  page=context.new_page();errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
+  page.evaluate(MOCK);page.set_content(HTML,wait_until='load')
+  ck(label+' four tabs present',page.locator('[role="tab"]').count()==4)
+  ck(label+' no horizontal overflow',page.evaluate('document.documentElement.scrollWidth<=innerWidth+1'))
+  ck(label+' field tab opens',page.locator('#tab-campo').click() is None and page.locator('#panel-campo').is_visible())
+  ck(label+' field no checkpoint initially','No hay punto' in page.locator('#field-summary').inner_text())
+  page.locator('#field-verify').click()
+  ck(label+' cannot pretend reload without sale','NO_CHECKPOINT' in page.locator('#field-summary').inner_text())
+  page.locator('#tab-vender').click();page.locator('#example-product').click();page.locator('#add').click()
+  page.locator('input[name=method][value=qr]').check();page.locator('#start-sale').click();page.locator('#generate-qr').click()
+  saleid=page.evaluate('window.RioApp.readState().sale.saleId')
+  qr_payload=page.evaluate('window.RioApp.readState().qrPayload')
+  ck(label+' QR nonpayable','NO-PAGABLE' in qr_payload)
+  page.locator('#tab-campo').click();page.locator('#field-start').click()
+  ck(label+' checkpoint saved',page.evaluate('!!localStorage.getItem("RIO_PRIMER_COBRO_R015_FIELD_V1")'))
+  page.locator('#field-verify').click()
+  ck(label+' no false same-document proof','NOT_RELOADED' in page.locator('#field-summary').inner_text())
+  # This creates a new document in the SAME browser page, not a real device restart.
+  page.set_content(HTML,wait_until='load');page.locator('#tab-campo').click();page.locator('#field-verify').click()
+  ck(label+' new doc recovers checkpoint','PASS_NEW_DOCUMENT' in page.locator('#field-summary').inner_text())
+  ck(label+' active sale recovered',page.evaluate('window.RioApp.readState().sale.saleId')==saleid)
+  page.locator('#field-qr-text').fill(qr_payload);page.locator('#field-camera-claim').check();page.locator('#field-qr-check').click()
+  ck(label+' pasted QR matches','EXACT_MATCH' in page.locator('#field-summary').inner_text())
+  page.locator('#field-talkback_navigation').select_option('FAIL_REPORTED')
+  page.locator('#field-backup_other_device').select_option('NOT_AVAILABLE')
+  page.locator('#field-physical-claim').check()
+  ck(label+' user reported physical closing only',page.evaluate('window.RioFieldR015.getEvidence().field.userDeclaresPhysicalRestart'))
+  with page.expect_download() as dl:page.locator('#field-report').click()
+  report=json.loads(Path(dl.value.path()).read_text())
+  ck(label+' report R015',report['schema']=='RIO_PRIMER_COBRO_REPORTE_R015')
+  ck(label+' field in report',report['field_evidence']['field']['resume']['status']=='PASS_NEW_DOCUMENT')
+  ck(label+' TalkBack failure not hidden',report['field_evidence']['field']['tasks']['talkback_navigation']=='FAIL_REPORTED')
+  ck(label+' camera only reported',report['field_evidence']['authority']=='USER_REPORTED_ONLY_NOT_INDEPENDENTLY_VERIFIED')
+  ck(label+' physical unverified',report['field_evidence']['physical_device']=='NOT_INDEPENDENTLY_VERIFIED')
+  ck(label+' internal tests executed',report['tests']['executed_on_click'] and report['tests']['failed']==0)
+  ck(label+' no real payment',report['real_payment']=='NO')
+  (ROOT/'reports'/f'R015_report_{label}.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
+  page.screenshot(path=str(ROOT/'reports'/f'R015_{label}.png'),full_page=True)
+  page.locator('#field-reset').click()
+  ck(label+' field reset independent',page.evaluate('localStorage.getItem("RIO_PRIMER_COBRO_R015_FIELD_V1")') is None)
+  ck(label+' reset preserves sale',page.evaluate('window.RioApp.readState().sale.saleId')==saleid)
+  ck(label+' no JavaScript exceptions',not errors)
+  print(label,'checks',len([r for r in RESULTS if r['name'].startswith(label)]),'in-app',report['tests']['passed'],'/',report['tests']['total'])
+  context.close()
+ browser.close()
+(ROOT/'reports'/'R015_E2E.json').write_text(json.dumps({'schema':'RIO_R015_BROWSER_MEMORY_TESTS','scope':'CHROMIUM_MEMORY_MOCK_NOT_ANDROID_PHYSICAL','tests':len(RESULTS),'passed':sum(r['pass'] for r in RESULTS),'failed':sum(not r['pass'] for r in RESULTS),'cases':RESULTS},ensure_ascii=False,indent=2))
+print('R015 BROWSER',len(RESULTS),'PASS')

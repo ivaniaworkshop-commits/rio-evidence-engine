@@ -1,0 +1,5 @@
+import assert from 'node:assert/strict';import {createRequire} from 'node:module';import path from 'node:path';const require=createRequire(import.meta.url);const C=require('../app/logic.js'),H=require('../app/chat.js');
+const result=C.runSelfTests();assert.equal(result.failed,0,JSON.stringify(result.results.filter(x=>!x.pass),null,2));assert.equal(result.passed,result.tests);assert(H.testGuide(),'Local assistant regression failed');
+for(const [input,expected] of [['¿Ya pagué?','estado_pago'],['Sin conexion','conexion'],['Costo en piezas','importe'],['Privacidad de mis datos','privacidad']])assert.equal(H.classify(input),expected);
+const line=C.calculateLine({description:'kg',kind:'weight',qty:'500',price:'32.50'});assert.equal(line.amountCents,1625);const sale=C.createSale([line],'digital','DEMO-ABCD');assert.equal(C.applyEvent(sale,{type:'DEMO_CONFIRM',amountCents:sale.totalCents,provider:'WRONG',saleId:sale.saleId,demoOnly:true}).sale.state,'DIGITAL_DEMO_PENDING');
+console.log(JSON.stringify({node_runner:'PASS',core_tests:result.tests,core_passed:result.passed,extra_checks:6,help_engine:'RULES_ONLY',payment_backend:'NONE'},null,2));

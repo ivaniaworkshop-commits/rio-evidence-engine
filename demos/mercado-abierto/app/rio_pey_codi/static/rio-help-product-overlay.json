@@ -1,0 +1,311 @@
+{
+  "version": "MA-HELP-OVERLAY-20261115-R001",
+  "procedencia": "Ampliación local de la ayuda de Mercado Abierto; referencias internas omitidas en esta exportación pública.",
+  "preguntas": [
+    {
+      "id": "Q181",
+      "texto": "¿Cómo elimino o restauro una cuenta bancaria prerregistrada en Mis negocios?",
+      "actor": "titular",
+      "area": "mis_negocios",
+      "intencion": "como_hacer",
+      "tutorial_id": "T062",
+      "respuesta_directa": [
+        "Entra a Mis negocios y elige el negocio correcto.",
+        "En la lista bancaria, usa «Eliminar de Mis negocios» y confirma; esto solo la oculta de la lista local.",
+        "Para recuperarla, abre «Cuentas retiradas de esta lista» y pulsa «Restaurar cuenta»."
+      ],
+      "limite": "No se borra la cuenta registrada en pey. Para solicitar cambios del lado de pey, consulta su portal o soporte oficial."
+    },
+    {
+      "id": "Q182",
+      "texto": "¿Cómo configuro el botón público para que los clientes contacten a mi negocio por WhatsApp?",
+      "actor": "titular o administrador",
+      "area": "whatsapp",
+      "intencion": "como_hacer",
+      "tutorial_id": "T063",
+      "respuesta_directa": [
+        "En Mercado Abierto, abre «WhatsApp público» y elige el negocio que vas a configurar.",
+        "Escribe el número de contacto con código de país, por ejemplo +52, y completa los datos obligatorios del perfil.",
+        "Marca «Publicar este perfil» y guarda. El número quedará visible públicamente como botón de contacto.",
+        "El botón abre WhatsApp con un mensaje inicial que el cliente puede revisar y enviar. No crea una bandeja de mensajes dentro de Mercado Abierto."
+      ],
+      "limite": "Esto configura un enlace público click-to-chat; no conecta la API de WhatsApp Business, no recibe mensajes en Mercado Abierto y no activa respuestas automáticas. Usa un número comercial que aceptes publicar."
+    },
+    {
+      "id": "Q183",
+      "texto": "¿Puede el asistente recibir o responder automáticamente mensajes de WhatsApp desde una bandeja integrada?",
+      "actor": "titular",
+      "area": "whatsapp",
+      "intencion": "capacidad_y_limite",
+      "tutorial_id": "T064",
+      "respuesta_directa": [
+        "Todavía no. Mercado Abierto tiene un botón público que abre WhatsApp y prepara un mensaje para que la persona lo revise y envíe.",
+        "No hay una bandeja conectada, recepción de mensajes, envío desde el asistente ni respuestas automáticas activas.",
+        "Para iniciar el contacto público, configura el número del negocio en Mercado Abierto → WhatsApp público.",
+        "La integración oficial requiere completar el alta del proveedor, número aprobado, consentimiento, plantillas y webhooks; esa verificación sigue pendiente."
+      ],
+      "limite": "El asistente no puede leer ni contestar conversaciones de WhatsApp. No pegues códigos de verificación, tokens ni mensajes privados aquí."
+    }
+  ],
+  "tutoriales": [
+    {
+      "id": "T062",
+      "titulo": "Retirar o restaurar una cuenta bancaria de Mis negocios",
+      "area": "mis_negocios",
+      "actor": "titular",
+      "nivel_automatizacion": "asistido",
+      "fuente_pregunta": "Q181",
+      "prerrequisitos": [
+        "Sesión iniciada como titular del negocio",
+        "Negocio correcto seleccionado"
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Abre Mis negocios y confirma el negocio activo antes de cambiar su lista.",
+          "selector": "#mis-negocios",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Abre Mis negocios y confirma el negocio activo."
+        },
+        {
+          "n": 2,
+          "texto": "Expande «Registrar y consultar cuentas bancarias en pey». Revisa alias, últimos cuatro dígitos y estado.",
+          "selector": "#pey-bank-registration > summary",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Expande la sección de cuentas bancarias."
+        },
+        {
+          "n": 3,
+          "texto": "Pulsa «Eliminar de Mis negocios» y confirma. La cuenta y su historial se conservan; solo se oculta de esta lista.",
+          "selector": "#pey-bank-list",
+          "accion": "confirmar_antes",
+          "auto": false,
+          "a11y_label": "Retira la cuenta de la lista local del negocio."
+        },
+        {
+          "n": 4,
+          "texto": "Para revertirlo, expande «Cuentas retiradas de esta lista» y pulsa «Restaurar cuenta».",
+          "selector": "#pey-bank-archived-details > summary",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Abre la lista local de cuentas retiradas para restaurarlas."
+        },
+        {
+          "n": 5,
+          "texto": "Si necesitas que pey elimine o desactive la cuenta, abre su portal oficial y solicita allí el cambio; Mercado Abierto no tiene un endpoint de borrado de cuenta bancaria.",
+          "selector": null,
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Consulta a pey para solicitar cambios del lado del proveedor."
+        }
+      ],
+      "verificacion": {
+        "texto": "Confirma que aparece bajo «Cuentas retiradas de esta lista»; eso verifica solo el cambio local, no el estado en pey.",
+        "selector": "#pey-bank-archived-list",
+        "si_falla": "Q181",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E04",
+          "titulo": "Portal oficial de pey",
+          "url": "https://portal.pey.mx/",
+          "procedencia": "Enlace ya presente en el catálogo R002",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C08",
+          "texto": "El botón no cancela cobros ni elimina la cuenta en pey; no ingreses una CLABE completa en el chat."
+        }
+      ],
+      "ataques_resistidos": [
+        "confundir ocultar con borrar en pey",
+        "mostrar datos bancarios completos"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "RESTAURACION_LOCAL_DISPONIBLE",
+      "confirmacion": "MUTACION_LOCAL_REQUIERE_CONFIRMACION"
+    },
+    {
+      "id": "T063",
+      "titulo": "Configurar el botón público de WhatsApp del negocio",
+      "area": "whatsapp",
+      "actor": "titular o administrador",
+      "nivel_automatizacion": "asistido",
+      "fuente_pregunta": "Q182",
+      "prerrequisitos": [
+        "Sesión iniciada como titular o administrador del negocio",
+        "Número de WhatsApp comercial que el negocio autoriza publicar"
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "En Mercado Abierto, pulsa «WhatsApp público». Se abre Mis publicaciones en la sección de contacto.",
+          "selector": "#market-nav [data-action=\"open-whatsapp-settings\"]",
+          "accion": "navegar",
+          "auto": false,
+          "a11y_label": "Abre la configuración pública de WhatsApp del negocio."
+        },
+        {
+          "n": 2,
+          "texto": "Elige el negocio correcto y completa alcaldía, colonia y actividad si faltan; el formulario guarda el número junto al perfil de ese negocio.",
+          "selector": "#profile-form [name=\"merchant_id\"]",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Selecciona el negocio cuyo contacto público vas a configurar."
+        },
+        {
+          "n": 3,
+          "texto": "Escribe el número comercial con código de país, por ejemplo +525512345678. El número será público cuando publiques el perfil; usa uno autorizado para recibir contactos.",
+          "selector": "#market-whatsapp-phone",
+          "accion": "resaltar",
+          "auto": false,
+          "a11y_label": "Indica el teléfono de WhatsApp que autorizas mostrar públicamente."
+        },
+        {
+          "n": 4,
+          "texto": "Marca «Publicar este perfil en el directorio de Ciudad de México» y pulsa «Guardar perfil». Si no quieres mostrar el número, bórralo o despublica el perfil.",
+          "selector": "#profile-form [name=\"published\"]",
+          "accion": "confirmar_antes",
+          "auto": false,
+          "a11y_label": "Publica el perfil y su botón de contacto después de revisar los datos visibles."
+        },
+        {
+          "n": 5,
+          "texto": "Comprueba que al volver a abrir la sección el número y la publicación sigan guardados. El botón abre WhatsApp con un borrador; la persona todavía debe enviarlo desde WhatsApp.",
+          "selector": "#profile-form",
+          "accion": "verificar",
+          "auto": false,
+          "a11y_label": "Verifica el perfil guardado y entiende qué hace el enlace de contacto."
+        }
+      ],
+      "verificacion": {
+        "texto": "Al actualizar, el formulario muestra el número guardado y el perfil queda publicado. Un botón de contacto público abre wa.me para iniciar una conversación; no acredita que el mensaje se haya enviado ni recibido.",
+        "selector": "#market-whatsapp-phone",
+        "si_falla": "Q182",
+        "metodo": "observacion_en_dom_y_prueba_del_enlace"
+      },
+      "enlaces_utiles": [],
+      "consejos": [
+        {
+          "id": "C09",
+          "texto": "El teléfono publicado puede ser visto por cualquier persona que abra el perfil."
+        },
+        {
+          "id": "C10",
+          "texto": "El enlace usa wa.me y no da a Mercado Abierto acceso al contenido ni al estado de entrega del chat."
+        }
+      ],
+      "ataques_resistidos": [
+        "confundir abrir WhatsApp con mensaje enviado",
+        "exponer un número personal por accidente",
+        "atribuir recepción de mensajes a la aplicación"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "BORRAR_NUMERO_O_DESPUBLICAR_PERFIL",
+      "confirmacion": "PUBLICACION_DE_DATOS_PUBLICOS_REQUIERE_ACCION_DEL_USUARIO"
+    },
+    {
+      "id": "T064",
+      "titulo": "Consultar el alcance actual y los pasos para WhatsApp integrado",
+      "area": "whatsapp",
+      "actor": "titular",
+      "nivel_automatizacion": "informativo",
+      "fuente_pregunta": "Q183",
+      "prerrequisitos": [
+        "Distinguir contacto público click-to-chat de una integración de mensajería"
+      ],
+      "pasos": [
+        {
+          "n": 1,
+          "texto": "Actualmente solo se configura un número público por perfil; los botones abren la aplicación o el sitio de WhatsApp con un texto inicial.",
+          "selector": null,
+          "accion": "informar",
+          "auto": false,
+          "a11y_label": "Conoce el alcance del botón público disponible."
+        },
+        {
+          "n": 2,
+          "texto": "Para cambiar ese contacto, abre «WhatsApp público» en Mercado Abierto y guarda el perfil del negocio.",
+          "selector": "#market-nav [data-action=\"open-whatsapp-settings\"]",
+          "accion": "navegar",
+          "auto": false,
+          "a11y_label": "Abre la página donde se configura el contacto público."
+        },
+        {
+          "n": 3,
+          "texto": "Para una bandeja integrada o respuestas automáticas, primero debe completarse la integración autorizada con WhatsApp Business Platform; hasta que se verifique el proveedor, número, consentimiento, plantillas y webhooks, no se debe enviar ni prometer mensajes desde Mercado Abierto.",
+          "selector": null,
+          "accion": "informar",
+          "auto": false,
+          "a11y_label": "Reconoce los requisitos pendientes de la integración oficial."
+        }
+      ],
+      "verificacion": {
+        "texto": "La configuración pública se abre con el botón de Mercado Abierto. No existe una bandeja de mensajes conectada en esta versión.",
+        "selector": "#market-nav [data-action=\"open-whatsapp-settings\"]",
+        "si_falla": "Q183",
+        "metodo": "observacion_en_dom"
+      },
+      "enlaces_utiles": [
+        {
+          "id": "E05",
+          "titulo": "Documentación oficial de WhatsApp Business Platform",
+          "url": "https://developers.facebook.com/docs/whatsapp/",
+          "procedencia": "Documentación oficial de Meta",
+          "verificacion_http": "NOT_OBSERVED"
+        }
+      ],
+      "consejos": [
+        {
+          "id": "C11",
+          "texto": "No compartas códigos de registro, tokens ni conversaciones privadas en el asistente."
+        }
+      ],
+      "ataques_resistidos": [
+        "fingir que existe una bandeja conectada",
+        "prometer envío o recepción no comprobados"
+      ],
+      "reglas_aplicadas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "runtime": "GUIA_DOCUMENTAL_NO_AUTOMATIZACION",
+      "deshacer": "NO_APLICA",
+      "confirmacion": "NO_APLICA"
+    }
+  ]
+}

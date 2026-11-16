@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="es" data-session-required="true">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#17364a">
+<title>Mercado Abierto · Ciudad de México</title>
+<link rel="stylesheet" href="/static/unificada/hackaton/production.css">
+<link rel="stylesheet" href="/static/session-guard.css">
+<link rel="stylesheet" href="/static/chatbot.css">
+<script defer src="/static/session-guard.js"></script>
+<script defer src="/static/receipt-qr-decoder.js"></script>
+<script defer src="/static/unificada/hackaton/production.js"></script>
+<script defer src="/static/chatbot.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#market-app">Ir al contenido</a>
+<header class="topbar"><a class="brand" href="/">Mercado Abierto</a><span class="city-chip">Ciudad de México</span><div class="header-actions"><a class="button secondary" href="/#mis-negocios">Mis negocios · cuenta pey</a><a class="button secondary" href="/#cobro-codi">Caja</a><button type="button" class="button secondary" data-open-chatbot>Asistente</button><button id="market-refresh" type="button" class="button secondary">Actualizar</button><span id="market-identity" class="identity"></span></div></header>
+<div class="workspace"><nav id="market-nav" class="area-nav" aria-label="Áreas de Mercado Abierto"><button type="button" data-view="catalogo">Ofertas</button><button type="button" data-view="carrito">Carrito</button><button type="button" data-view="direcciones">Direcciones</button><button type="button" data-view="publicar">Mis publicaciones</button><button type="button" data-action="open-whatsapp-settings">WhatsApp público</button><button type="button" data-view="directorio">Negocios y fleteros</button><button type="button" data-view="pedidos">Cotizaciones y pedidos</button><button type="button" data-view="fletes">Fletes</button></nav><main id="market-app" tabindex="-1"><p class="loading">Cargando Mercado Abierto…</p></main></div>
+<p id="market-status" class="global-status" role="status" aria-live="polite"></p>
+<dialog id="market-dialog" aria-labelledby="market-dialog-title"><div class="dialog-heading"><h2 id="market-dialog-title"></h2><button id="market-dialog-close" type="button" class="button secondary">Cerrar</button></div><div id="market-dialog-content"></div><p id="market-dialog-status" role="status" aria-live="polite"></p></dialog>
+<dialog id="status-chatbot" class="status-chatbot" aria-labelledby="status-chatbot-title"><div class="chatbot-heading"><div><p class="eyebrow">MERCADO ABIERTO</p><h2 id="status-chatbot-title">Asistente de estado</h2></div><button type="button" id="status-chatbot-close" class="button secondary">Cerrar</button></div><p class="muted">Consulta estados actuales de tu cuenta, conexión de pey, pedidos y fletes. Solo muestra información de tus negocios.</p><div id="status-chatbot-current" class="chatbot-current" role="status" aria-live="polite">Consultando…</div><p id="status-chatbot-updated" class="small muted"></p><div id="status-chatbot-messages" class="chatbot-messages" role="log" aria-live="polite" aria-relevant="additions"></div><div class="chatbot-prompts"><button type="button" class="button secondary" data-chatbot-prompt="Estado de mi cuenta">Mi cuenta</button><button type="button" class="button secondary" data-chatbot-prompt="Estado de mis pedidos">Mis pedidos</button><button type="button" class="button secondary" data-chatbot-prompt="Estado de pey y CoDi">pey y CoDi</button></div><form id="status-chatbot-form" class="chatbot-form"><label for="status-chatbot-input">Pregunta por el estado de un pedido o tu cuenta</label><div><input id="status-chatbot-input" name="message" maxlength="500" autocomplete="off" required placeholder="Ej. ¿en qué estado está mi pedido?"/><button type="submit" id="status-chatbot-send">Enviar</button></div></form><p id="status-chatbot-feedback" class="small" role="status" aria-live="polite"></p></dialog>
+</body>
+</html>

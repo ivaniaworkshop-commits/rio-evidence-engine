@@ -1,0 +1,130 @@
+'use strict';
+// Loopback-only fixture; no production accounts, payments or email.
+const assert=require('node:assert/strict');
+const {chromium}=require('playwright');
+const base='http://127.0.0.1:'+(process.env.RIO_BROWSER_PORT||'8788');
+const ownerExpected=process.env.RIO_BROWSER_EXPECT_OWNER==='1';
+(async()=>{
+ const health=await(await fetch(base+'/public-status')).json();
+ assert.equal(health.environment,'local');assert.equal(health.mode,'DEMO');assert.equal(health.live_payments_enabled,false);
+ const browser=await chromium.launch({executablePath:process.env.CHROMIUM_EXECUTABLE_PATH||'/usr/bin/chromium',args:['--no-sandbox']});
+ try{
+  const context=await browser.newContext({viewport:{width:390,height:844}});
+  const page=await context.newPage();const errors=[];let providerPosts=0;
+  page.on('pageerror',e=>errors.push(e.message));
+  page.on('request',r=>{if(r.method()==='POST'&&new URL(r.url()).pathname==='/v1/checkout/qr')providerPosts++;});
+  // Cash must remain usable even while the CoDi request switch is paused.
+  await page.route('**/public-status',async route=>{
+   const response=await route.fetch();const data=await response.json();
+   await route.fulfill({json:{...data,payment_requests_enabled:false}});
+  });
+  await page.goto(base+'/');assert((await page.title()).includes('Mercado Abierto'));
+  assert.equal(await page.locator('#dashboard').count(),0);
+  await page.locator('#login input[name=email]').fill('browser@example.com');
+  await page.locator('#login input[name=password]').fill('synthetic-password-123');
+  await page.locator('#login-submit:not([disabled])').click();
+  await page.locator('[data-workspace-panel="menu"]').waitFor({state:'visible'});
+  const menu=page.locator('#main-area-menu');
+  assert.equal(await menu.locator('input,select,textarea,form').count(),0);
+  assert.equal(await page.locator('#commerce-context').isVisible(),false);
+  assert.equal(await page.locator('[data-workspace-panel]:visible').count(),1);
+  for(const color of ['yellow','orange','green','brown'])assert(await menu.locator('.area-'+color).isVisible(),color);
+  const market=menu.locator('[data-owner-area="market"]');
+  assert.equal(await market.isVisible(),ownerExpected);
+  assert.equal(await menu.locator('[data-open-activity]').isVisible(),ownerExpected);
+  if(ownerExpected){assert(await menu.locator('.area-white').isVisible());assert(await menu.locator('.area-blue').isVisible());}
+  await page.screenshot({path:'/workspace/work/mercado-abierto-menu-'+(ownerExpected?'owner':'member')+'.png',fullPage:true});
+
+  await menu.locator('[data-workspace-view="negocios"]').click();
+  await page.locator('#private-pey-form').waitFor({state:'visible'});
+  assert(await page.locator('#add-merchant').isVisible());
+  assert.equal(await page.locator('#private-pey-form').count(),1);
+  assert.equal(await page.locator('#merchant').count(),1);
+  const newBusiness='Sucursal QA '+Date.now();
+  await page.locator('#add-merchant input[name=name]').fill(newBusiness);
+  await page.locator('#add-merchant button').click();
+  await page.waitForFunction(name=>[...document.querySelectorAll('#merchant option')].some(option=>option.textContent.startsWith(name)),newBusiness);
+  const newOption=await page.locator('#merchant option').evaluateAll((options,name)=>options.find(option=>option.textContent.startsWith(name)).value,newBusiness);
+  await page.selectOption('#merchant',newOption);
+  await page.locator('#private-pey-form button[type=submit]:not([disabled])').waitFor();
+  const peyAccount='01JBAVWE4NS5TGXHWGMX3KH23Q';
+  await page.locator('#private-pey-key').fill('sk_synthetic_new_business');
+  await page.locator('#private-pey-bank').fill(peyAccount);
+  await page.locator('#private-pey-form button[type=submit]').click();
+  await page.locator('#private-pey-saved-account').filter({hasText:peyAccount}).waitFor();
+  const labels=await page.locator('#merchant option').allTextContents();
+  const principal=labels.find(label=>label.startsWith('Principal'));
+  await page.selectOption('#merchant',{label:principal});
+  await page.waitForFunction(id=>!document.getElementById('private-pey-saved-account').textContent.includes(id),peyAccount);
+  await page.selectOption('#merchant',newOption);
+  await page.locator('#private-pey-saved-account').filter({hasText:peyAccount}).waitFor();
+
+  await page.locator('[data-workspace-view="menu"]:visible').first().click();
+  await menu.locator('[data-workspace-view="caja"]').click();
+  await page.selectOption('#merchant',{label:principal});
+  await page.selectOption('#payment-method','cash');
+  await page.locator('#cash-tools').waitFor({state:'visible'});
+  assert(await page.locator('#amount').isEnabled());
+  assert(await page.locator('#sale-concept').isEnabled());
+  assert(!(await page.locator('#charge-submit').isVisible()) || await page.locator('#charge-submit').isDisabled());
+  await page.locator('#sale-concept').fill('Venta de efectivo QA');
+  await page.locator('#amount').fill('7.00');
+  await page.getByText('Carrito de productos · piezas o peso',{exact:true}).click();
+  await page.locator('#cash-item-name').fill('Arroz QA');
+  await page.locator('#cash-item-price').fill('25.00');
+  await page.locator('#cash-item-qty').fill('2');
+  await page.selectOption('#cash-item-unit','piece');
+  await page.locator('#cash-item-add').click();
+  assert.equal(await page.locator('#amount').inputValue(),'7.00','The basket requires explicit application to shared fields');
+  await page.locator('#cash-cart-apply').click();
+  assert.equal(Number(await page.locator('#amount').inputValue()),50);
+  const cashConcept=await page.locator('#sale-concept').inputValue();
+  await page.locator('#cash-received').fill('100.00');
+  await page.waitForFunction(()=>/50[.,]00/.test(document.getElementById('cash-change').textContent));
+  await page.locator('#cash-record').click();
+  await page.getByText('Historial y respaldo de efectivo',{exact:true}).click();
+  await page.locator('#cash-history li').first().waitFor();
+  assert((await page.locator('#cash-history').textContent()).includes(cashConcept));
+  assert(await page.locator('#cash-ticket').isEnabled());
+  assert.equal(providerPosts,0,'Cash never calls the CoDi provider');
+  const ids=await page.locator('[id]').evaluateAll(nodes=>nodes.map(n=>n.id));
+  assert.equal(ids.length,new Set(ids).size);
+  await page.selectOption('#merchant',newOption);
+  await page.waitForFunction(text=>!document.getElementById('cash-history').textContent.includes(text),cashConcept);
+  await page.selectOption('#merchant',{label:principal});
+  await page.waitForFunction(text=>document.getElementById('cash-history').textContent.includes(text),cashConcept);
+  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+  await page.screenshot({path:'/workspace/work/mercado-abierto-integrated-cash.png',fullPage:true});
+
+  const response=await context.request.get(base+'/static/unificada/mercado/index.html',{maxRedirects:0});
+  assert.equal(response.status(),ownerExpected?200:403);
+  const legacy=await context.request.get(base+'/static/unificada/caja/index.html',{maxRedirects:0});
+  assert.equal(legacy.status(),303);assert.equal(legacy.headers().location,'/#cobro-codi');
+  await page.goto(base+'/mercado-abierto');
+  await page.waitForFunction(()=>document.documentElement.dataset.sessionReady==='true');
+  assert((await page.title()).includes('Mercado Abierto'));
+  assert(await page.getByRole('link',{name:/Menú principal/}).isVisible());
+  await page.getByRole('link',{name:/Menú principal/}).click();
+  await page.locator('[data-workspace-panel="menu"]').waitFor({state:'visible'});
+  await page.setViewportSize({width:320,height:740});
+  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'Menu fits a 320px screen');
+  await page.screenshot({path:'/workspace/work/mercado-abierto-menu-320-'+(ownerExpected?'owner':'member')+'.png',fullPage:true});
+  for(const view of ['caja','negocios']){
+   await menu.locator('[data-workspace-view="'+view+'"]').focus();
+   await page.keyboard.press('Enter');
+   await page.locator('[data-workspace-panel="'+view+'"]').waitFor({state:'visible'});
+   assert(await page.evaluate(selected=>document.activeElement.closest('[data-workspace-panel]')?.dataset.workspacePanel===selected,view),'Keyboard navigation focuses the opened section');
+   await page.keyboard.press('Tab');
+   assert(await page.evaluate(()=>document.activeElement!==document.body&&document.activeElement.getClientRects().length>0&&!document.activeElement.closest('[hidden]')),'Tab reaches a visible control');
+   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),view+' fits a 320px screen');
+   await page.screenshot({path:'/workspace/work/mercado-abierto-'+view+'-320-'+(ownerExpected?'owner':'member')+'.png',fullPage:true});
+   await page.locator('[data-workspace-view="menu"]:visible').focus();
+   await page.keyboard.press('Enter');
+   await menu.waitFor({state:'visible'});
+   assert(await page.evaluate(()=>document.activeElement.closest('#main-area-menu')!==null),'Keyboard return focuses the menu');
+  }
+  assert.deepEqual(errors,[]);
+  console.log('MERCADO_ABIERTO_MENU_BUSINESSES_CASH_AND_ROLE_GUARDS_OK '+(ownerExpected?'OWNER':'MEMBER'));
+  await context.close();
+ }finally{await browser.close();}
+})().catch(e=>{console.error(e);process.exitCode=1});

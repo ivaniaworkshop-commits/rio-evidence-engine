@@ -1,0 +1,14 @@
+#status-chatbot{width:min(680px,calc(100% - 28px));max-height:min(88dvh,860px);margin:auto;padding:22px;border:1px solid var(--line,#d7e0e5);border-radius:18px;box-shadow:0 24px 80px #102b3b35;color:var(--ink,#18313d);background:var(--panel,#fff)}
+#status-chatbot::backdrop{background:#102b3b82;backdrop-filter:blur(2px)}
+.chatbot-heading{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.chatbot-heading h2{margin:0}.chatbot-heading .eyebrow{margin:0 0 5px}
+.chatbot-current{display:grid;gap:4px;margin:14px 0;padding:13px 15px;border:1px solid var(--line,#d7e0e5);border-radius:12px;background:#f5f8f7}
+.chatbot-current p{margin:3px 0;overflow-wrap:anywhere}
+.chatbot-messages{display:grid;gap:10px;max-height:220px;overflow:auto;margin:12px 0;padding:4px}
+.chatbot-message{display:grid;gap:4px;max-width:92%;margin:0;padding:11px 13px;border-radius:13px;line-height:1.45;overflow-wrap:anywhere}
+.chatbot-message.from-assistant{justify-self:start;background:#edf3f5}.chatbot-message.from-user{justify-self:end;background:#dfeee3}
+.chatbot-instructions ol{margin:4px 0;padding-left:24px}.chatbot-instructions li{margin:4px 0}.chatbot-instructions a,.rio-help-page-link{color:#145a2d;font-weight:650;text-decoration:underline;text-underline-offset:2px}
+.chatbot-prompts{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0}.chatbot-prompts button{min-height:38px}
+.chatbot-form{display:grid;gap:7px}.chatbot-form>div{display:flex;gap:8px}.chatbot-form input{min-width:0;flex:1}.chatbot-form button{flex:none}
+.whatsapp-contact{background:#e5f3e8!important;color:#145a2d!important;border-color:#a9cfb1!important}.whatsapp-contact:hover{background:#d5ebda!important}
+@media(max-width:500px){#status-chatbot{padding:17px}.chatbot-form>div{align-items:stretch;flex-direction:column}.chatbot-form button{width:100%}.chatbot-message{max-width:100%}}

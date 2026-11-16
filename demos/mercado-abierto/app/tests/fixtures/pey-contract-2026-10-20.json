@@ -1,0 +1,151 @@
+{
+  "source_sha256": "497f48eb8047d88b1c8672fcb252eb8c7eee46546acaeb01440cfac8cd37335a",
+  "openapi": "3.1.1",
+  "version": "2026-10-20",
+  "operations": {
+    "/codi/qr": {
+      "request": {
+        "type": "object",
+        "required": [
+          "amount"
+        ],
+        "properties": {
+          "amount": {
+            "type": "number",
+            "minimum": 0,
+            "description": "The amount for the QR code in MXN (Mexican Peso). Must be greater than or equal to 0. Use 0 to let the payer enter the amount when scanning the QR."
+          },
+          "concept": {
+            "type": "string",
+            "description": "The concept shown to the payer."
+          },
+          "expiration": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0,
+            "description": "Expiration time in seconds. Use 0 for no expiration. Minimum value when set is 360 (6 minutes)."
+          },
+          "numRef": {
+            "type": "string",
+            "pattern": "^[0-9]{1,7}$",
+            "maxLength": 7,
+            "default": "0",
+            "description": "Numeric reference for the QR code. Must be up to 7 digits (digits only)."
+          },
+          "generateImage": {
+            "type": "boolean",
+            "default": false,
+            "description": "When true, the response includes qrImage: the QR rendered as a base64-encoded PNG. Generating the image can make the endpoint respond more slowly; if your integration needs faster responses, we recommend building the QR client-side from qrString."
+          },
+          "bankAccountId": {
+            "type": "string",
+            "description": "Pey identifier (ULID) of the bank account that will receive the payment, registered through [Register Bank Account](/docs/api/register-bank-account). The account must have `codiStatus: ACTIVE`. When omitted, the payment goes to the CoDi payment account linked to your API key."
+          },
+          "metadata": {
+            "type": "object",
+            "maxProperties": 50,
+            "propertyNames": {
+              "maxLength": 40
+            },
+            "additionalProperties": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ],
+              "maxLength": 500
+            },
+            "description": "Optional set of key/value pairs to attach custom data to the QR. Up to 50 pairs; keys up to 40 characters; values up to 500 characters. Values must be scalar (string, number, boolean, or null) - nested objects and arrays are not allowed. All values are stored and returned as strings (e.g. \"123\", \"false\", \"null\")."
+          }
+        }
+      },
+      "success_status": 201,
+      "response": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier (IDC) for the created CoDi QR, assigned by Banxico"
+          },
+          "qrString": {
+            "type": "string",
+            "description": "The QR payload string to encode into a QR image"
+          },
+          "qrImage": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "byte",
+            "description": "The QR rendered as a base64-encoded PNG (image/png). Only present when generateImage is true; null if the image could not be generated (the QR is still created)."
+          }
+        }
+      }
+    },
+    "/bank-account": {
+      "request": {
+        "type": "object",
+        "required": [
+          "alias",
+          "name",
+          "clabe",
+          "entity"
+        ],
+        "properties": {
+          "alias": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255,
+            "description": "Friendly alias for the bank account."
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255,
+            "description": "Full legal name of the account holder (individual or legal entity)."
+          },
+          "clabe": {
+            "type": "string",
+            "pattern": "^[0-9]{18}$",
+            "description": "18-digit CLABE. The check digit must be valid and the bank must have CoDi enabled."
+          },
+          "entity": {
+            "type": "string",
+            "enum": [
+              "BUSINESS",
+              "PERSON"
+            ],
+            "description": "Type of entity that owns the account."
+          }
+        }
+      },
+      "success_status": 200,
+      "response": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Pey identifier (ULID) of the bank account"
+          },
+          "codiStatus": {
+            "type": "string",
+            "enum": [
+              "PENDING",
+              "PROCESSING",
+              "ACTIVE",
+              "ERROR"
+            ],
+            "x-enumDescriptions": {
+              "PENDING": "Received, not yet sent to Banxico.",
+              "PROCESSING": "Registration with Banxico in progress.",
+              "ACTIVE": "Registered. The account can receive CoDi payments.",
+              "ERROR": "Registration failed. See `errorMessage`."
+            },
+            "description": "CoDi registration status. New accounts start as `PENDING`. See [Bank Account](/docs/types/bank-account)."
+          }
+        }
+      }
+    }
+  }
+}

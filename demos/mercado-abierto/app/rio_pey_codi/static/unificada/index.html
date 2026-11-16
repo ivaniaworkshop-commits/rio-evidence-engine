@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#0b1926">
+<meta name="description" content="Mercado Abierto · Inicia sesión y selecciona tu módulo comercial.">
+<title>Mercado Abierto · Acceso y módulos</title>
+<link rel="stylesheet" href="/static/unificada/shell.css">
+<script defer src="/static/unificada/shell.js"></script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="top"><div class="top-inner">
+<a href="/static/unificada/index.html" class="brand">🌊 <span>Mercado Abierto<small>Panel comercial</small></span></a>
+<span class="demo">CUENTA Y CAJA</span>
+</div></header>
+<main id="contenido" class="wrap">
+<section class="entry" aria-labelledby="access-title">
+<p class="eyebrow">PASO 1 · INICIA SESIÓN</p>
+<h1 id="access-title">Bienvenido a Mercado Abierto</h1>
+<p>Accede con tu cuenta para organizar tu negocio. Después elige qué módulo abrir.</p>
+<div id="entryStatus" role="status" aria-live="polite">Comprobando sesión…</div>
+<div id="entryActions" class="entry-actions">
+<a class="primary" href="/#access">Iniciar sesión</a>
+<a class="secondary" href="/#access">Crear cuenta</a>
+</div>
+</section>
+<section id="moduleSection" class="section" aria-labelledby="modulos" hidden>
+<p class="eyebrow">PASO 2 · SELECCIONA UN MÓDULO</p>
+<h2 id="modulos">¿Qué necesitas hacer?</h2>
+<p id="sessionLabel" class="session-label"></p>
+<nav class="modules" aria-label="Elegir módulo comercial">
+<a class="module module-account" href="/#mis-negocios" data-module="cuenta"><span class="icon" aria-hidden="true">🏪</span><strong>Mis negocios</strong><span>Cuenta y perfil comercial</span><span class="module-action">Abrir módulo</span></a>
+<a class="module module-cash" href="/#cobro-codi" data-module="caja"><span class="icon" aria-hidden="true">🧾</span><strong>Caja</strong><span>Cobros CoDi</span><span class="module-action">Abrir módulo</span></a>
+<a class="module module-market" href="/static/unificada/mercado/index.html" data-module="mercado" hidden><span class="icon" aria-hidden="true">📦</span><strong>Mercado</strong><span>Productos y cotizaciones</span><span class="module-action">Abrir módulo</span></a>
+<a class="module module-ops" href="/mercado-abierto" data-module="operaciones"><span class="icon" aria-hidden="true">🧩</span><strong>Mercado Abierto</strong><span>11 vistas integradas</span><span class="module-action">Abrir módulo</span></a>
+</nav>
+<p class="notice">Para cobrar con CoDi, selecciona un comercio con pey configurado en tu cuenta.</p>
+</section>
+<footer><span>Mercado Abierto · Panel comercial</span><span>Acceso → módulos → operación</span></footer>
+</main>
+</body>
+</html>
