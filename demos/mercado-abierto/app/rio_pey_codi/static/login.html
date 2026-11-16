@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Iniciar sesión · Mercado Abierto</title>
+<link rel="stylesheet" href="/static/style.css">
+<link rel="stylesheet" href="/static/workspace.css">
+<script defer src="/static/auth.js"></script><script defer src="/static/owner-invite.js"></script>
+</head>
+<body class="auth-page"><main class="auth-shell"><a class="auth-brand" href="/login" aria-label="Mercado Abierto · Iniciar sesión">🌊 Mercado Abierto</a><div id="notice" role="status" aria-live="polite"></div>
+<p id="launch-status" class="muted" role="status">Comprobando disponibilidad…</p>
+<section class="panel auth-panel" data-auth-view="login"><p class="eyebrow">BIENVENIDO</p>
+<h1>Iniciar sesión</h1>
+<p class="auth-intro">Accede con la cuenta de tu comercio.</p>
+<form id="login">
+<label>Correo<input name="email" autocomplete="email" type="email" inputmode="email" required></label><label>Contraseña<input name="password" autocomplete="current-password" type="password" required></label><button id="login-submit" disabled>Iniciar sesión</button>
+</form>
+<div class="auth-links">
+<button type="button" class="plain" data-auth-open="forgot">Olvidé mi contraseña</button><button type="button" class="plain" data-auth-open="verify">Reenviar verificación</button><button type="button" class="plain" data-auth-open="signup">Crear una cuenta</button>
+</div></section><section class="panel auth-panel" data-auth-view="signup" hidden><h1>Crear una cuenta</h1>
+<form id="signup">
+<label>Nombre del comercio<input name="business_name" minlength="2" maxlength="120" required></label><label>Correo del titular<input id="signup-email" name="email" autocomplete="email" type="email" inputmode="email" aria-describedby="signup-email-help" required></label><p id="signup-email-help" class="muted">Usa el correo con el que deseas iniciar sesión.</p>
+<label>Contraseña (12 caracteres o más)<input name="password" autocomplete="new-password" minlength="12" type="password" required></label><button id="signup-submit" disabled>Crear cuenta</button>
+</form>
+<button type="button" class="plain" id="resend-verification" disabled>Reenviar correo de verificación</button><p id="signup-state" class="muted" role="status"></p>
+<button type="button" class="plain" data-auth-open="login">Volver a iniciar sesión</button></section><section class="panel auth-panel" data-auth-view="verify" hidden aria-labelledby="verification-title">
+<h1 id="verification-title">Verifica tu correo</h1>
+<p id="verification-status" role="status" aria-live="polite"></p>
+<button type="button" id="verification-retry" hidden>Reintentar verificación</button>
+<p>Revisa Recibidos y Spam o Correo no deseado. Busca el asunto «Verifica tu correo en Mercado Abierto». No necesitas crear otra cuenta.</p>
+<form id="verification-form">
+<label for="verification-email">Correo de la cuenta</label>
+<input id="verification-email" name="email" type="email" autocomplete="email" maxlength="254" required>
+<button type="submit" id="verification-resend" disabled>Reenviar correo de verificación</button>
+</form>
+<div class="auth-links"><button type="button" class="plain" data-auth-open="login">Ya verifiqué mi correo · Iniciar sesión</button><button type="button" class="plain" data-auth-open="forgot">Recuperar contraseña</button></div>
+</section><section class="panel auth-panel" data-auth-view="forgot" hidden><h1 id="forgot-password-title">Recuperar contraseña</h1>
+<form id="forgot-password-form" aria-labelledby="forgot-password-title">
+ <label for="forgot-email">Correo registrado</label>
+ <input id="forgot-email" name="email" type="email" autocomplete="email" maxlength="254" required>
+ <button type="submit" id="reset-request" disabled>Enviar correo de recuperación</button>
+ <p id="forgot-password-status" role="status" aria-live="polite">Comprobando disponibilidad de recuperación por correo…</p>
+ </form>
+<button type="button" class="plain" data-auth-open="login">Volver a iniciar sesión</button></section><section id="rio-password-reset" class="panel auth-panel" hidden aria-labelledby="rio-password-reset-title" data-auth-view="reset">
+ <h2 id="rio-password-reset-title">Restablecer mi acceso</h2>
+ <p>Elige una nueva contraseña. El enlace es privado, de un solo uso y tiene caducidad.</p>
+ <form id="rio-password-reset-form">
+  <label for="rio-reset-password">Nueva contraseña (12 caracteres o más)</label>
+  <input type="password" id="rio-reset-password" name="password" minlength="12" maxlength="256" autocomplete="new-password" required>
+  <label for="rio-reset-confirmation">Repetir contraseña</label>
+  <input type="password" id="rio-reset-confirmation" name="confirmation" minlength="12" maxlength="256" autocomplete="new-password" required>
+  <button type="submit" id="rio-reset-submit">Cambiar contraseña</button>
+ </form>
+ <p id="rio-reset-result" role="status" aria-live="polite"></p>
+<button type="button" class="plain" data-auth-open="login">Volver a iniciar sesión</button></section>
+ <section class="panel auth-panel" id="owner-activation" aria-labelledby="owner-activation-title" hidden data-auth-view="invite">
+ <h2 id="owner-activation-title">Activar tu acceso privado</h2>
+ <p>Elige una contraseña para tu cuenta. Este acceso se activa por invitación privada; tu correo todavía no está verificado.</p>
+ <div class="owner-activation-fields">
+  <label for="owner-password">Contraseña nueva</label>
+  <input id="owner-password" type="password" autocomplete="new-password" minlength="12" maxlength="256">
+  <label for="owner-password-confirm">Repite la contraseña</label>
+  <input id="owner-password-confirm" type="password" autocomplete="new-password" minlength="12" maxlength="256">
+  <button id="owner-activate" type="button">Activar acceso</button>
+ </div>
+ <p id="owner-activation-status" role="status" aria-live="polite"></p>
+ <p class="muted">Una vez activado el acceso, podrás iniciar sesión con tu contraseña.</p>
+<button type="button" class="plain" data-auth-open="login">Volver a iniciar sesión</button></section>
+<noscript><p>Activa JavaScript para iniciar sesión.</p></noscript>
+<p class="auth-footer">Tu cuenta, en un solo lugar.</p></main></body>
+</html>

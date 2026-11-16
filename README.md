@@ -159,6 +159,13 @@ text is repetitive and not a reliable answer; next-byte loss is not task accurac
 Optional PyTorch CPU is required only for neural commands. See the model card
 for exact train/inference commands and evaluation limits.
 
+## Mercado Abierto
+
+The public Mercado Abierto application source, synthetic tests, database migrations,
+and release audit are available in [`demos/mercado-abierto`](demos/mercado-abierto/README.md).
+That package does not include production records, provider credentials, or live
+deployment settings. See its README for the local setup and operational limits.
+
 Observed neural task probe: 0/26 durations extractable in the specified format;
 0 exact numeric matches. See model/TASK_EVALUATION.json. Training-loss reduction
 did not translate into demonstrated scheduling-answer ability.

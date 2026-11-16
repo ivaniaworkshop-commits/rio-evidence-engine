@@ -1,0 +1,3300 @@
+{
+  "openapi": "3.1.1",
+  "info": {
+    "title": "CoDi API",
+    "version": "2026-10-20",
+    "description": "The public API for pey. This API is used to create payment links, generate CoDi QR codes and push notifications, and retrieve the details of payment links and transactions.\n\n### Base URL\n\n| Environment | URL |\n|-------------|-----|\n| Production | `https://api.pey.mx` |\n\n> **Tip:** We recommend testing your integration directly in production with small amounts such as $0.01 MXN, so you test with real banks and see the actual payment flow. A dedicated test environment is coming soon. See [Test in production](https://docs.pey.mx/docs/tutorials/getting-started/create-an-api-key#test-in-production).\n",
+    "contact": {
+      "name": "Ramón Orraca",
+      "email": "ramon@pey.mx"
+    }
+  },
+  "paths": {
+    "/codi/qr": {
+      "post": {
+        "tags": [
+          "CoDi"
+        ],
+        "summary": "Create QR",
+        "description": "Creates a new CoDi QR code via Banxico to receive CoDi payments.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "amount"
+                ],
+                "properties": {
+                  "amount": {
+                    "type": "number",
+                    "minimum": 0,
+                    "description": "The amount for the QR code in MXN (Mexican Peso). Must be greater than or equal to 0. Use 0 to let the payer enter the amount when scanning the QR."
+                  },
+                  "concept": {
+                    "type": "string",
+                    "description": "The concept shown to the payer."
+                  },
+                  "expiration": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "default": 0,
+                    "description": "Expiration time in seconds. Use 0 for no expiration. Minimum value when set is 360 (6 minutes)."
+                  },
+                  "numRef": {
+                    "type": "string",
+                    "pattern": "^[0-9]{1,7}$",
+                    "maxLength": 7,
+                    "default": "0",
+                    "description": "Numeric reference for the QR code. Must be up to 7 digits (digits only)."
+                  },
+                  "generateImage": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "When true, the response includes qrImage: the QR rendered as a base64-encoded PNG. Generating the image can make the endpoint respond more slowly; if your integration needs faster responses, we recommend building the QR client-side from qrString."
+                  },
+                  "bankAccountId": {
+                    "type": "string",
+                    "description": "Pey identifier (ULID) of the bank account that will receive the payment, registered through [Register Bank Account](/docs/api/register-bank-account). The account must have `codiStatus: ACTIVE`. When omitted, the payment goes to the CoDi payment account linked to your API key."
+                  },
+                  "metadata": {
+                    "type": "object",
+                    "maxProperties": 50,
+                    "propertyNames": {
+                      "maxLength": 40
+                    },
+                    "additionalProperties": {
+                      "type": [
+                        "string",
+                        "number",
+                        "boolean",
+                        "null"
+                      ],
+                      "maxLength": 500
+                    },
+                    "description": "Optional set of key/value pairs to attach custom data to the QR. Up to 50 pairs; keys up to 40 characters; values up to 500 characters. Values must be scalar (string, number, boolean, or null) - nested objects and arrays are not allowed. All values are stored and returned as strings (e.g. \"123\", \"false\", \"null\")."
+                  }
+                }
+              },
+              "example": {
+                "amount": 150.00,
+                "concept": "Order #12345",
+                "expiration": 600,
+                "numRef": "1234567"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "CoDi QR created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Unique identifier (IDC) for the created CoDi QR, assigned by Banxico"
+                    },
+                    "qrString": {
+                      "type": "string",
+                      "description": "The QR payload string to encode into a QR image"
+                    },
+                    "qrImage": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "byte",
+                      "description": "The QR rendered as a base64-encoded PNG (image/png). Only present when generateImage is true; null if the image could not be generated (the QR is still created)."
+                    }
+                  }
+                },
+                "example": {
+                  "id": "AB12CD34EF",
+                  "qrString": "{\"TYP\":1,\"v\":\"01\",\"ic\":0,\"IDC\":\"AB12CD34EF\"}",
+                  "qrImage": "iVBORw0KGgoAAAANSUhEUgAAAooAAAKKAQAAAACq/MUfAAAC..."
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid parameters, missing fields, or validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the issue"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "INVALID_REQUEST",
+                            "PEY_CONSISTENCY_ERROR",
+                            "INVALID_STATE",
+                            "INVALID_AMOUNT",
+                            "INVALID_PARAMETER"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "invalidAmount": {
+                    "value": {
+                      "error": {
+                        "message": "Amount must be a number greater than or equal to 0",
+                        "type": "INVALID_AMOUNT",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "invalidExpiration": {
+                    "value": {
+                      "error": {
+                        "message": "Expiration must be 0 (no expiration) or at least 360 seconds (6 minutes)",
+                        "type": "INVALID_PARAMETER",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "codiNotEnabled": {
+                    "value": {
+                      "error": {
+                        "message": "API key does not have CoDi enabled",
+                        "type": "INVALID_STATE",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "missingBankAccount": {
+                    "value": {
+                      "error": {
+                        "message": "Missing bankAccountId in API key",
+                        "type": "PEY_CONSISTENCY_ERROR",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "invalidRequest": {
+                    "value": {
+                      "error": {
+                        "message": "Invalid JSON body",
+                        "type": "INVALID_REQUEST",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable - The endpoint is temporarily under maintenance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the issue"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "SERVICE_UNAVAILABLE",
+                            "FLAGS_UNAVAILABLE"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "maintenance": {
+                    "value": {
+                      "error": {
+                        "message": "This endpoint is under maintenance, please try again later",
+                        "type": "SERVICE_UNAVAILABLE",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the server error"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "INTERNAL_SERVER_ERROR"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "invokeError": {
+                    "value": {
+                      "error": {
+                        "message": "Error creating CoDi QR",
+                        "type": "INTERNAL_SERVER_ERROR",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "requestIdError": {
+                    "value": {
+                      "error": {
+                        "message": "Error getting request ID",
+                        "type": "INTERNAL_SERVER_ERROR",
+                        "requestId": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "dev-PublicApiLambdaAuthorizer": []
+          }
+        ]
+      }
+    },
+    "/codi/pn": {
+      "post": {
+        "tags": [
+          "CoDi"
+        ],
+        "summary": "Create Push Notification",
+        "description": "Sends a CoDi push notification to a phone number via Banxico to request a payment.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "amount",
+                  "phoneNumber"
+                ],
+                "properties": {
+                  "amount": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 1000000,
+                    "description": "The amount to charge in MXN (Mexican Peso). Must be greater than 0 and up to 1,000,000."
+                  },
+                  "phoneNumber": {
+                    "type": "string",
+                    "pattern": "^[0-9]{10}$",
+                    "description": "The 10-digit phone number of the payer to send the push notification to."
+                  },
+                  "concept": {
+                    "type": "string",
+                    "description": "The concept shown to the payer."
+                  },
+                  "expiration": {
+                    "type": "integer",
+                    "minimum": 360,
+                    "default": 360,
+                    "description": "Expiration time for the push notification in seconds. Defaults to 360 (6 minutes) if not provided. Must be greater than or equal to 360."
+                  },
+                  "numRef": {
+                    "type": "string",
+                    "pattern": "^[0-9]{1,7}$",
+                    "default": "0",
+                    "description": "Numeric reference for the payment. Must be up to 7 digits (digits only)."
+                  },
+                  "bankAccountId": {
+                    "type": "string",
+                    "description": "Pey identifier (ULID) of the bank account that will receive the payment, registered through [Register Bank Account](/docs/api/register-bank-account). The account must have `codiStatus: ACTIVE`. When omitted, the payment goes to the CoDi payment account linked to your API key."
+                  },
+                  "metadata": {
+                    "type": "object",
+                    "maxProperties": 50,
+                    "propertyNames": {
+                      "maxLength": 40
+                    },
+                    "additionalProperties": {
+                      "type": [
+                        "string",
+                        "number",
+                        "boolean",
+                        "null"
+                      ],
+                      "maxLength": 500
+                    },
+                    "description": "Optional set of key/value pairs to attach custom data to the push notification. Up to 50 pairs; keys up to 40 characters; values up to 500 characters. Values must be scalar (string, number, boolean, or null) - nested objects and arrays are not allowed. All values are stored and returned as strings (e.g. \"123\", \"false\", \"null\")."
+                  }
+                }
+              },
+              "example": {
+                "amount": 150.00,
+                "phoneNumber": "5512345678",
+                "concept": "Order #12345",
+                "expiration": 360,
+                "numRef": "1234567"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "CoDi push notification sent successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "transactionId": {
+                      "type": "string",
+                      "description": "Internal transaction ID (ULID) to track the payment status"
+                    },
+                    "codiId": {
+                      "type": "string",
+                      "description": "CoDi folio assigned by Banxico (20-digit identifier)"
+                    }
+                  }
+                },
+                "example": {
+                  "transactionId": "01J5KXYZ1234567890ABCD",
+                  "codiId": "12345678901234567890"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid parameters, missing fields, or validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the issue"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "INVALID_REQUEST",
+                            "INCOMPLETE_PARAMETERS",
+                            "INVALID_PARAMETER",
+                            "INVALID_AMOUNT",
+                            "INVALID_STATE",
+                            "PEY_CONSISTENCY_ERROR",
+                            "BAD_REQUEST"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "missingPhone": {
+                    "value": {
+                      "error": {
+                        "message": "Missing phoneNumber",
+                        "type": "INCOMPLETE_PARAMETERS",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "invalidPhone": {
+                    "value": {
+                      "error": {
+                        "message": "phoneNumber must be a 10-digit string",
+                        "type": "INVALID_PARAMETER",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "invalidAmount": {
+                    "value": {
+                      "error": {
+                        "message": "Amount must be a number greater than 0",
+                        "type": "INVALID_AMOUNT",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "codiNotEnabled": {
+                    "value": {
+                      "error": {
+                        "message": "API key does not have CoDi enabled",
+                        "type": "INVALID_STATE",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable - The endpoint is temporarily under maintenance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the issue"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "SERVICE_UNAVAILABLE",
+                            "FLAGS_UNAVAILABLE"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "maintenance": {
+                    "value": {
+                      "error": {
+                        "message": "This endpoint is under maintenance, please try again later",
+                        "type": "SERVICE_UNAVAILABLE",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the server error"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "INTERNAL_SERVER_ERROR"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "invokeError": {
+                    "value": {
+                      "error": {
+                        "message": "Error creating CoDi push notification",
+                        "type": "INTERNAL_SERVER_ERROR",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "dev-PublicApiLambdaAuthorizer": []
+          }
+        ]
+      }
+    },
+    "/bank-account": {
+      "post": {
+        "tags": [
+          "Bank Account"
+        ],
+        "summary": "Register Bank Account",
+        "description": "Registers a bank account (CLABE) under your API key so it can receive CoDi payments. The account is created with `codiStatus: PENDING`; Pey registers it with Banxico and updates the status to `ACTIVE` once it can receive payments, which takes up to 5 business days. Use [Get Bank Account](/docs/api/get-bank-account) to check the status, or listen for the [Bank Account Updated](/docs/webhooks/bank-account/updated) webhook, which is sent when the account becomes `ACTIVE`. Once the account is `ACTIVE`, pass its `id` as `bankAccountId` when creating a CoDi QR or push notification.",
+        "security": [
+          {
+            "dev-PublicApiLambdaAuthorizer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "alias",
+                  "name",
+                  "clabe",
+                  "entity"
+                ],
+                "properties": {
+                  "alias": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255,
+                    "description": "Friendly alias for the bank account."
+                  },
+                  "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255,
+                    "description": "Full legal name of the account holder (individual or legal entity)."
+                  },
+                  "clabe": {
+                    "type": "string",
+                    "pattern": "^[0-9]{18}$",
+                    "description": "18-digit CLABE. The check digit must be valid and the bank must have CoDi enabled."
+                  },
+                  "entity": {
+                    "type": "string",
+                    "enum": [
+                      "BUSINESS",
+                      "PERSON"
+                    ],
+                    "description": "Type of entity that owns the account."
+                  }
+                }
+              },
+              "example": {
+                "alias": "BBVA",
+                "name": "Pagos con Pey S.A. de C.V.",
+                "clabe": "012180001234567899",
+                "entity": "BUSINESS"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Bank account registered successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Pey identifier (ULID) of the bank account"
+                    },
+                    "codiStatus": {
+                      "type": "string",
+                      "enum": [
+                        "PENDING",
+                        "PROCESSING",
+                        "ACTIVE",
+                        "ERROR"
+                      ],
+                      "x-enumDescriptions": {
+                        "PENDING": "Received, not yet sent to Banxico.",
+                        "PROCESSING": "Registration with Banxico in progress.",
+                        "ACTIVE": "Registered. The account can receive CoDi payments.",
+                        "ERROR": "Registration failed. See `errorMessage`."
+                      },
+                      "description": "CoDi registration status. New accounts start as `PENDING`. See [Bank Account](/docs/types/bank-account)."
+                    }
+                  }
+                },
+                "example": {
+                  "id": "01JBAVWE4NS5TGXHWGMX3KH23Q",
+                  "codiStatus": "PENDING"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid parameters, missing fields, or validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the issue"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "INVALID_REQUEST",
+                            "INCOMPLETE_PARAMETERS",
+                            "INVALID_PARAMETER",
+                            "INVALID_CLABE"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "missingFields": {
+                    "value": {
+                      "error": {
+                        "message": "Missing alias, clabe in request",
+                        "type": "INCOMPLETE_PARAMETERS",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "invalidClabe": {
+                    "value": {
+                      "error": {
+                        "message": "clabe is not valid",
+                        "type": "INVALID_CLABE",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "invalidEntity": {
+                    "value": {
+                      "error": {
+                        "message": "entity must be \"BUSINESS\" or \"PERSON\"",
+                        "type": "INVALID_PARAMETER",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable - The endpoint is temporarily under maintenance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the issue"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "SERVICE_UNAVAILABLE",
+                            "FLAGS_UNAVAILABLE"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "maintenance": {
+                    "value": {
+                      "error": {
+                        "message": "This endpoint is under maintenance, please try again later",
+                        "type": "SERVICE_UNAVAILABLE",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the server error"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "INTERNAL_SERVER_ERROR"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": {
+                    "message": "Error creating bank account",
+                    "type": "INTERNAL_SERVER_ERROR",
+                    "requestId": "abc123-def456-ghi789"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bank-account/{id}": {
+      "get": {
+        "tags": [
+          "Bank Account"
+        ],
+        "summary": "Get Bank Account",
+        "description": "Retrieves a bank account registered through [Register Bank Account](/docs/api/register-bank-account) and its CoDi registration status. Use it to check when a `PENDING` account becomes `ACTIVE` and can be used as `bankAccountId` in payment requests. You can only retrieve bank accounts registered with your API key; accounts that do not exist or belong to another API key return a 404.",
+        "security": [
+          {
+            "dev-PublicApiLambdaAuthorizer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Pey identifier (ULID) of the bank account",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Bank account retrieved successfully. See [Bank Account](/docs/types/bank-account)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Pey identifier (ULID) of the bank account"
+                    },
+                    "alias": {
+                      "type": "string",
+                      "description": "Friendly alias for the bank account"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Full legal name of the account holder"
+                    },
+                    "clabe": {
+                      "type": "string",
+                      "description": "18-digit CLABE"
+                    },
+                    "entity": {
+                      "type": "string",
+                      "enum": [
+                        "BUSINESS",
+                        "PERSON"
+                      ],
+                      "description": "Type of entity that owns the account"
+                    },
+                    "taxId": {
+                      "type": "string",
+                      "description": "RFC of the account holder. Only present when it was provided on registration."
+                    },
+                    "codiStatus": {
+                      "type": "string",
+                      "enum": [
+                        "PENDING",
+                        "PROCESSING",
+                        "ACTIVE",
+                        "ERROR"
+                      ],
+                      "x-enumDescriptions": {
+                        "PENDING": "Received, not yet sent to Banxico.",
+                        "PROCESSING": "Registration with Banxico in progress.",
+                        "ACTIVE": "Registered. The account can receive CoDi payments.",
+                        "ERROR": "Registration failed. See `errorMessage`."
+                      },
+                      "description": "CoDi registration status. Only `ACTIVE` accounts can receive payments. See [Bank Account](/docs/types/bank-account)."
+                    },
+                    "errorMessage": {
+                      "type": "string",
+                      "description": "Reason the CoDi registration failed. Only present when `codiStatus` is `ERROR`."
+                    },
+                    "dateCreated": {
+                      "type": "integer",
+                      "description": "Unix timestamp (seconds) of when the bank account was registered"
+                    }
+                  }
+                },
+                "example": {
+                  "id": "01JBAVWE4NS5TGXHWGMX3KH23Q",
+                  "alias": "BBVA",
+                  "name": "Pagos con Pey S.A. de C.V.",
+                  "clabe": "012180001234567899",
+                  "entity": "BUSINESS",
+                  "taxId": "XAXX010101000",
+                  "codiStatus": "ACTIVE",
+                  "dateCreated": 1760000000
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid request or missing bank account ID",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the issue"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "INVALID_REQUEST",
+                            "INCOMPLETE_PARAMETERS"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": {
+                    "message": "Missing bank account ID in path",
+                    "type": "INCOMPLETE_PARAMETERS",
+                    "requestId": "abc123-def456-ghi789"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found - Bank account does not exist or does not belong to your API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the issue"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "BANK_ACCOUNT_NOT_FOUND"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": {
+                    "message": "Bank Account not found",
+                    "type": "BANK_ACCOUNT_NOT_FOUND",
+                    "requestId": "abc123-def456-ghi789"
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable - The endpoint is temporarily under maintenance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the issue"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "SERVICE_UNAVAILABLE",
+                            "FLAGS_UNAVAILABLE"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": {
+                    "message": "This endpoint is under maintenance, please try again later",
+                    "type": "SERVICE_UNAVAILABLE",
+                    "requestId": "abc123-def456-ghi789"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the server error"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "INTERNAL_SERVER_ERROR"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": {
+                    "message": "Error retrieving Bank Account information",
+                    "type": "INTERNAL_SERVER_ERROR",
+                    "requestId": "abc123-def456-ghi789"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payment-link/create": {
+      "post": {
+        "tags": [
+          "Payment Link"
+        ],
+        "summary": "Create Payment Link",
+        "description": "Creates a new payment link for processing payments. The payment link allows customers to complete payments and redirects them to the specified URLs upon completion or cancellation.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "amount",
+                  "successUrl",
+                  "backUrl"
+                ],
+                "properties": {
+                  "amount": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "description": "The amount for the payment link in MXN (Mexican Peso). Must be greater than 0."
+                  },
+                  "successUrl": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "The URL to redirect the customer to after a successful payment. Must use HTTPS."
+                  },
+                  "backUrl": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "The URL to redirect the customer to if they cancel or go back from the payment page. Must use HTTPS."
+                  },
+                  "hasTip": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Whether to enable tipping functionality on the payment page. Defaults to false."
+                  },
+                  "clientReferenceId": {
+                    "type": "string",
+                    "maxLength": 255,
+                    "description": "A custom reference ID provided by the client for tracking purposes. Must be a string with a maximum of 255 characters."
+                  },
+                  "metadata": {
+                    "type": "object",
+                    "maxProperties": 50,
+                    "propertyNames": {
+                      "maxLength": 40
+                    },
+                    "additionalProperties": {
+                      "type": [
+                        "string",
+                        "number",
+                        "boolean",
+                        "null"
+                      ],
+                      "maxLength": 500
+                    },
+                    "description": "Optional set of key/value pairs to attach custom data to the payment link. Up to 50 pairs; keys up to 40 characters; values up to 500 characters. Values must be scalar (string, number, boolean, or null) - nested objects and arrays are not allowed. All values are stored and returned as strings (e.g. \"123\", \"false\", \"null\")."
+                  }
+                }
+              },
+              "example": {
+                "amount": 100,
+                "successUrl": "https://example.com/success",
+                "backUrl": "https://example.com/cancel",
+                "hasTip": false,
+                "clientReferenceId": "order-12345"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Payment link created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Unique identifier (ULID) for the created payment link"
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "uri",
+                      "description": "The full URL where customers can complete the payment"
+                    }
+                  }
+                },
+                "example": {
+                  "id": "01HXYZ1234567890ABCDEFGH",
+                  "url": "https://app.mipey.mx/payment-link/01HXYZ1234567890ABCDEFGH"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid parameters, missing fields, or validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the issue"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "AUTH_ERROR",
+                            "PEY_CONSISTENCY_ERROR",
+                            "REQUEST_PARSING_ERROR",
+                            "INCOMPLETE_PARAMETERS",
+                            "INVALID_URL",
+                            "INVALID_AMOUNT",
+                            "INVALID_HAS_TIP",
+                            "INVALID_CLIENT_REFERENCE_ID"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "missingFields": {
+                    "value": {
+                      "error": {
+                        "message": "Missing amount, successUrl or backUrl in request.",
+                        "type": "INCOMPLETE_PARAMETERS",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "invalidUrl": {
+                    "value": {
+                      "error": {
+                        "message": "Success URL and back URL must use HTTPS",
+                        "type": "INVALID_URL",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "invalidAmount": {
+                    "value": {
+                      "error": {
+                        "message": "Amount must be greater than 0",
+                        "type": "INVALID_AMOUNT",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "authError": {
+                    "value": {
+                      "error": {
+                        "message": "Error getting auth information",
+                        "type": "AUTH_ERROR",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "parseError": {
+                    "value": {
+                      "error": {
+                        "message": "Error parsing request body",
+                        "type": "REQUEST_PARSING_ERROR",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "missingApiKeyId": {
+                    "value": {
+                      "error": {
+                        "message": "Missing apiKeyId in auth information",
+                        "type": "PEY_CONSISTENCY_ERROR",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "missingBankAccount": {
+                    "value": {
+                      "error": {
+                        "message": "Missing bankAccountId or stripeAccountId in auth information",
+                        "type": "PEY_CONSISTENCY_ERROR",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "invalidHasTip": {
+                    "value": {
+                      "error": {
+                        "message": "Tip must be a boolean",
+                        "type": "INVALID_HAS_TIP",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "invalidClientReferenceId": {
+                    "value": {
+                      "error": {
+                        "message": "Client reference ID must be a string and up to 255 characters",
+                        "type": "INVALID_CLIENT_REFERENCE_ID",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the server error"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "INTERNAL_SERVER_ERROR"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "ulidError": {
+                    "value": {
+                      "error": {
+                        "message": "Error generating required resources",
+                        "type": "INTERNAL_SERVER_ERROR",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "dbError": {
+                    "value": {
+                      "error": {
+                        "message": "Error creating payment link",
+                        "type": "INTERNAL_SERVER_ERROR",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "requestIdError": {
+                    "value": {
+                      "error": {
+                        "message": "Error getting request ID",
+                        "type": "INTERNAL_SERVER_ERROR",
+                        "requestId": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "dev-PublicApiLambdaAuthorizer": []
+          }
+        ]
+      }
+    },
+    "/payment-link/update": {
+      "post": {
+        "tags": [
+          "Payment Link"
+        ],
+        "summary": "Update Payment Link",
+        "description": "Updates the amount of an existing payment link. Only the `amount` field can be changed; no other attributes of the payment link may be modified. You can only update payment links that were created with your API key, and only while the payment link's status is `pending`. Once a payment link has moved past `pending` (for example, once a payment has started processing or completed), the amount can no longer be changed.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "paymentLinkId",
+                  "amount"
+                ],
+                "properties": {
+                  "paymentLinkId": {
+                    "type": "string",
+                    "description": "The unique identifier (ULID) of the payment link to update."
+                  },
+                  "amount": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "description": "The new amount for the payment link in MXN (Mexican Peso). Must be greater than 0. This is the only field that can be updated. Values with more than 2 decimal places are rounded to 2 decimal places (round-half-up) before being stored."
+                  }
+                },
+                "additionalProperties": false
+              },
+              "example": {
+                "paymentLinkId": "01HXYZ1234567890ABCDEFGH",
+                "amount": 150.0
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Payment link amount updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Unique identifier (ULID) for the updated payment link"
+                    },
+                    "amount": {
+                      "type": "number",
+                      "description": "The new amount for the payment link in MXN (Mexican Peso)"
+                    }
+                  }
+                },
+                "example": {
+                  "id": "01HXYZ1234567890ABCDEFGH",
+                  "amount": 150.0
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid parameters, missing fields, or validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the issue"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "INVALID_REQUEST",
+                            "REQUEST_PARSING_ERROR",
+                            "INCOMPLETE_PARAMETERS",
+                            "INVALID_PARAMETER",
+                            "INVALID_AMOUNT"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "missingFields": {
+                    "value": {
+                      "error": {
+                        "message": "Missing paymentLinkId or amount in request.",
+                        "type": "INCOMPLETE_PARAMETERS",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "unexpectedField": {
+                    "value": {
+                      "error": {
+                        "message": "Only paymentLinkId and amount may be provided; unexpected field(s): successUrl",
+                        "type": "INVALID_PARAMETER",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "invalidAmount": {
+                    "value": {
+                      "error": {
+                        "message": "Amount must be greater than 0",
+                        "type": "INVALID_AMOUNT",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "invalidRequest": {
+                    "value": {
+                      "error": {
+                        "message": "['apiKeyId not included in request']",
+                        "type": "INVALID_REQUEST",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "notAnObject": {
+                    "value": {
+                      "error": {
+                        "message": "Request body must be a JSON object",
+                        "type": "REQUEST_PARSING_ERROR",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - You do not have permission to update this payment link",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the issue"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "FORBIDDEN"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": {
+                    "message": "You do not have permission to update this payment link",
+                    "type": "FORBIDDEN",
+                    "requestId": "abc123-def456-ghi789"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found - Payment link does not exist",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the issue"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "NOT_FOUND"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": {
+                    "message": "Payment link not found",
+                    "type": "NOT_FOUND",
+                    "requestId": "abc123-def456-ghi789"
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict - The payment link is not pending and can no longer be updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the issue"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "PAYMENT_LINK_NOT_PENDING",
+                            "CONCURRENT_UPDATE"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "notPending": {
+                    "value": {
+                      "error": {
+                        "message": "Payment link is not pending and can no longer be updated",
+                        "type": "PAYMENT_LINK_NOT_PENDING",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "concurrentUpdate": {
+                    "value": {
+                      "error": {
+                        "message": "Payment link is no longer pending, or you do not have permission to update it",
+                        "type": "CONCURRENT_UPDATE",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the server error"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "INTERNAL_SERVER_ERROR"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "retrieveError": {
+                    "value": {
+                      "error": {
+                        "message": "Error retrieving payment link",
+                        "type": "INTERNAL_SERVER_ERROR",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "updateError": {
+                    "value": {
+                      "error": {
+                        "message": "Error updating payment link",
+                        "type": "INTERNAL_SERVER_ERROR",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "dev-PublicApiLambdaAuthorizer": []
+          }
+        ]
+      }
+    },
+    "/payment-link/{id}": {
+      "get": {
+        "tags": [
+          "Payment Link"
+        ],
+        "summary": "Get Payment Link",
+        "description": "Retrieves the details of an existing payment link. You can only retrieve payment links that were created with your API key.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The unique identifier (ULID) of the payment link to retrieve",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Payment link retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Unique identifier (ULID) for the payment link"
+                    },
+                    "amount": {
+                      "type": "number",
+                      "description": "The payment amount in MXN (Mexican Peso)"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "pending",
+                        "processing",
+                        "paid",
+                        "partial"
+                      ],
+                      "description": "Current status of the payment link"
+                    },
+                    "successUrl": {
+                      "type": "string",
+                      "format": "uri",
+                      "description": "The URL to redirect the customer to after a successful payment"
+                    },
+                    "backUrl": {
+                      "type": "string",
+                      "format": "uri",
+                      "description": "The URL to redirect the customer to if they cancel or go back"
+                    },
+                    "hasTip": {
+                      "type": "boolean",
+                      "description": "Whether tipping functionality is enabled"
+                    },
+                    "paymentMethods": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Available payment methods for this link"
+                    },
+                    "dateCreated": {
+                      "type": "integer",
+                      "description": "Unix timestamp when the payment link was created"
+                    },
+                    "clientReferenceId": {
+                      "type": "string",
+                      "description": "Custom reference ID provided by the client (if set)"
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "description": "Key/value pairs attached to the payment link when it was created (only present if set). All values are returned as strings regardless of the type sent, e.g. \"12345\", \"false\", \"null\"."
+                    },
+                    "transactions": {
+                      "type": "array",
+                      "description": "List of paid [Transaction Object](/docs/types/transaction-object) entries associated with this payment link.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "transactionId": {
+                            "type": "string",
+                            "description": "Unique identifier (ULID) of the transaction"
+                          },
+                          "paymentMethod": {
+                            "type": "string",
+                            "description": "Payment method used for the transaction"
+                          },
+                          "datePaid": {
+                            "type": "integer",
+                            "description": "Unix timestamp when the transaction was paid"
+                          },
+                          "amount": {
+                            "type": "number",
+                            "description": "Total amount of the transaction in MXN (Mexican Peso)"
+                          },
+                          "amountBreakdown": {
+                            "type": "object",
+                            "description": "Breakdown of the transaction amount. See [Amount Breakdown](/docs/types/amount-breakdown). Only non-zero components are included.",
+                            "properties": {
+                              "base": {
+                                "type": "number",
+                                "description": "Base amount of the transaction"
+                              },
+                              "tip": {
+                                "type": "number",
+                                "description": "Tip amount (only present when greater than 0)"
+                              },
+                              "fee": {
+                                "type": "number",
+                                "description": "Fee amount (only present when greater than 0)"
+                              }
+                            }
+                          },
+                          "applicationFee": {
+                            "type": [
+                              "number",
+                              "null"
+                            ],
+                            "description": "Application fee charged on the transaction. Can be null."
+                          },
+                          "metadata": {
+                            "type": "object",
+                            "description": "Additional information about the transaction. The fields present depend on the payment method and the flow used. See [Metadata Response](/docs/types/metadata-response)."
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "id": "01KRFJJYPMP24MF3EFX1043RNC",
+                  "amount": 100.0,
+                  "status": "paid",
+                  "successUrl": "https://pey.mx/",
+                  "backUrl": "https://docs.pey.mx/cancel",
+                  "hasTip": true,
+                  "paymentMethods": [
+                    "CODI",
+                    "CARD"
+                  ],
+                  "dateCreated": 1778639272,
+                  "clientReferenceId": "order-12345",
+                  "metadata": {
+                    "orderId": "12345",
+                    "customerEmail": "customer@example.com",
+                    "isGift": "false"
+                  },
+                  "transactions": [
+                    {
+                      "transactionId": "01KRFJKXPJ543PN80P9BJQKGFX",
+                      "paymentMethod": "CARD",
+                      "datePaid": 1778639309,
+                      "amount": 118.5,
+                      "amountBreakdown": {
+                        "base": 100,
+                        "tip": 15,
+                        "fee": 3.5
+                      },
+                      "applicationFee": 9.25,
+                      "metadata": {
+                        "externalMetadata": {
+                          "orderId": "12345",
+                          "customerEmail": "customer@example.com"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid parameters or validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the issue"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "AUTH_ERROR",
+                            "PEY_CONSISTENCY_ERROR",
+                            "INCOMPLETE_PARAMETERS"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "authError": {
+                    "value": {
+                      "error": {
+                        "message": "Error getting auth information",
+                        "type": "AUTH_ERROR",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "missingApiKeyId": {
+                    "value": {
+                      "error": {
+                        "message": "Missing apiKeyId in auth information",
+                        "type": "PEY_CONSISTENCY_ERROR",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "missingId": {
+                    "value": {
+                      "error": {
+                        "message": "Missing payment link ID in path",
+                        "type": "INCOMPLETE_PARAMETERS",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - You do not have permission to access this payment link",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the issue"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "FORBIDDEN"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": {
+                    "message": "You do not have permission to access this payment link",
+                    "type": "FORBIDDEN",
+                    "requestId": "abc123-def456-ghi789"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found - Payment link does not exist",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the issue"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "NOT_FOUND"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": {
+                    "message": "Payment link not found",
+                    "type": "NOT_FOUND",
+                    "requestId": "abc123-def456-ghi789"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the server error"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "INTERNAL_SERVER_ERROR"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "retrieveError": {
+                    "value": {
+                      "error": {
+                        "message": "Error retrieving payment link",
+                        "type": "INTERNAL_SERVER_ERROR",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "requestIdError": {
+                    "value": {
+                      "error": {
+                        "message": "Error getting request ID",
+                        "type": "INTERNAL_SERVER_ERROR",
+                        "requestId": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "dev-PublicApiLambdaAuthorizer": []
+          }
+        ]
+      }
+    },
+    "/transaction/{id}": {
+      "get": {
+        "tags": [
+          "Transaction"
+        ],
+        "summary": "Get Transaction",
+        "description": "Retrieves the details of a transaction. You can only retrieve transactions received through your API key. Transactions that do not exist or that belong to another API key return a 404. A CoDi QR is not a transaction: to retrieve the transactions of a CoDi QR, use [Get CoDi QR Transactions](./get-co-di-qr-transactions).",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The unique identifier (ULID) of the transaction to retrieve",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Transaction retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Unique identifier (ULID) of the transaction"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "PENDING",
+                        "PAID"
+                      ],
+                      "description": "Current status of the transaction"
+                    },
+                    "amount": {
+                      "type": "number",
+                      "description": "Total amount of the transaction in MXN (Mexican Peso)"
+                    },
+                    "amountBreakdown": {
+                      "type": "object",
+                      "description": "Breakdown of the transaction amount. See [Amount Breakdown](/docs/types/amount-breakdown).",
+                      "properties": {
+                        "base": {
+                          "type": "number",
+                          "description": "Base amount of the transaction"
+                        },
+                        "tip": {
+                          "type": "number",
+                          "description": "Tip amount"
+                        },
+                        "fee": {
+                          "type": "number",
+                          "description": "Fee amount charged to the payer"
+                        }
+                      }
+                    },
+                    "currency": {
+                      "type": "string",
+                      "description": "ISO 4217 currency code of the transaction"
+                    },
+                    "paymentMethod": {
+                      "type": "string",
+                      "enum": [
+                        "CARD",
+                        "CODI"
+                      ],
+                      "description": "Payment method used for the transaction"
+                    },
+                    "payableType": {
+                      "type": "string",
+                      "enum": [
+                        "PAYMENT_LINK",
+                        "API_CODI_QR",
+                        "API_CODI_PN"
+                      ],
+                      "description": "Type of resource that was paid with this transaction"
+                    },
+                    "payableId": {
+                      "type": "string",
+                      "description": "Identifier of the resource that was paid, if any"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "Description or concept of the transaction, if any"
+                    },
+                    "applicationFee": {
+                      "type": "number",
+                      "description": "Application fee charged on the transaction, if any"
+                    },
+                    "dateCreated": {
+                      "type": "integer",
+                      "description": "Unix timestamp when the transaction was created"
+                    },
+                    "datePaid": {
+                      "type": "integer",
+                      "description": "Unix timestamp when the transaction was paid (only present once paid)"
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "description": "Additional information about the transaction. The fields present depend on the payment method and the flow used. See [Metadata Response](/docs/types/metadata-response)."
+                    }
+                  }
+                },
+                "example": {
+                  "id": "01HXYZTXN1234567890ABCDE00",
+                  "status": "PAID",
+                  "amount": 102.5,
+                  "amountBreakdown": {
+                    "base": 100,
+                    "tip": 0,
+                    "fee": 2.5
+                  },
+                  "currency": "MXN",
+                  "paymentMethod": "CODI",
+                  "payableType": "API_CODI_PN",
+                  "payableId": "01HXYZ1234567890ABCDEFGH00",
+                  "applicationFee": 7.5,
+                  "dateCreated": 1704067200,
+                  "datePaid": 1704067260,
+                  "metadata": {
+                    "clabe": "000000000000000000",
+                    "bankCode": 40012,
+                    "accountType": 40,
+                    "description": "Pago en Tacos Pey",
+                    "trackingKey": "0192191042",
+                    "externalMetadata": {
+                      "orderId": "12345",
+                      "customerEmail": "customer@example.com"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid parameters or validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the issue"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "INVALID_REQUEST",
+                            "INCOMPLETE_PARAMETERS"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "authError": {
+                    "value": {
+                      "error": {
+                        "message": "['apiKeyId not included in request']",
+                        "type": "INVALID_REQUEST",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "missingId": {
+                    "value": {
+                      "error": {
+                        "message": "Missing transaction ID in path",
+                        "type": "INCOMPLETE_PARAMETERS",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found - Transaction does not exist or does not belong to your API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the issue"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "NOT_FOUND"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": {
+                    "message": "Transaction not found",
+                    "type": "NOT_FOUND",
+                    "requestId": "abc123-def456-ghi789"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the server error"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "INTERNAL_SERVER_ERROR"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": {
+                    "message": "Error retrieving transaction",
+                    "type": "INTERNAL_SERVER_ERROR",
+                    "requestId": "abc123-def456-ghi789"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "dev-PublicApiLambdaAuthorizer": []
+          }
+        ]
+      }
+    },
+    "/transaction/api-key": {
+      "get": {
+        "tags": [
+          "Transaction"
+        ],
+        "summary": "Get API Key Transactions",
+        "description": "Retrieves the details of all transactions received by your API key, 80 per page. The API key is identified from the `Authorization` header, so no identifier is required. If there are more transactions, use the `nextToken` from the response to retrieve the next page.",
+        "parameters": [
+          {
+            "name": "nextToken",
+            "in": "query",
+            "required": false,
+            "description": "Pagination token returned by a previous request. Omit it to retrieve the first page",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "API key transactions retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "description": "Up to 80 transactions of the API key, newest first",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "Unique identifier (ULID) of the transaction"
+                          },
+                          "status": {
+                            "type": "string",
+                            "enum": [
+                              "PENDING",
+                              "PAID"
+                            ],
+                            "description": "Current status of the transaction"
+                          },
+                          "amount": {
+                            "type": "number",
+                            "description": "Total amount of the transaction in MXN (Mexican Peso)"
+                          },
+                          "amountBreakdown": {
+                            "type": "object",
+                            "description": "Breakdown of the transaction amount. See [Amount Breakdown](/docs/types/amount-breakdown).",
+                            "properties": {
+                              "base": {
+                                "type": "number",
+                                "description": "Base amount of the transaction"
+                              },
+                              "tip": {
+                                "type": "number",
+                                "description": "Tip amount"
+                              },
+                              "fee": {
+                                "type": "number",
+                                "description": "Fee amount charged to the payer"
+                              }
+                            }
+                          },
+                          "currency": {
+                            "type": "string",
+                            "description": "ISO 4217 currency code of the transaction"
+                          },
+                          "paymentMethod": {
+                            "type": "string",
+                            "enum": [
+                              "CARD",
+                              "CODI"
+                            ],
+                            "description": "Payment method used for the transaction"
+                          },
+                          "payableType": {
+                            "type": "string",
+                            "enum": [
+                              "PAYMENT_LINK",
+                              "API_CODI_QR",
+                              "API_CODI_PN"
+                            ],
+                            "description": "Type of resource that was paid with this transaction"
+                          },
+                          "payableId": {
+                            "type": "string",
+                            "description": "Identifier of the resource that was paid, if any"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "Description or concept of the transaction, if any"
+                          },
+                          "applicationFee": {
+                            "type": "number",
+                            "description": "Application fee charged on the transaction, if any"
+                          },
+                          "dateCreated": {
+                            "type": "integer",
+                            "description": "Unix timestamp when the transaction was created"
+                          },
+                          "datePaid": {
+                            "type": "integer",
+                            "description": "Unix timestamp when the transaction was paid (only present once paid)"
+                          },
+                          "metadata": {
+                            "type": "object",
+                            "description": "Additional information about the transaction. The fields present depend on the payment method and the flow used. See [Metadata Response](/docs/types/metadata-response)."
+                          }
+                        }
+                      }
+                    },
+                    "nextToken": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "Token to retrieve the next page of transactions. It is null when there are no more transactions"
+                    }
+                  }
+                },
+                "example": {
+                  "items": [
+                    {
+                      "id": "01HXYZTXN1234567890ABCDE00",
+                      "status": "PAID",
+                      "amount": 100,
+                      "amountBreakdown": {
+                        "base": 100
+                      },
+                      "currency": "MXN",
+                      "paymentMethod": "CARD",
+                      "payableType": "PAYMENT_LINK",
+                      "payableId": "01HXYZ1234567890ABCDEFGH00",
+                      "applicationFee": 7.5,
+                      "dateCreated": 1704067200,
+                      "datePaid": 1704067260,
+                      "metadata": {
+                        "externalMetadata": {
+                          "orderId": "12345"
+                        }
+                      }
+                    }
+                  ],
+                  "nextToken": "eyJQSyI6ICJUWE4jMDFIWFlaVFhOMTIzNDU2Nzg5MEFCQ0RFMDAiLCAiU0siOiAiTUVUQURBVEEiLCAiR1NJMVBLIjogIlJFQ0VJVkVSI0FQSV9LRVkjMDFIWFlaS0VZMTIzNDU2Nzg5MEFCQ0QiLCAiR1NJMVNLIjogIlRYTiNQQUlEIzAxSFhZWlRYTjEyMzQ1Njc4OTBBQkNERTAwIn0="
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid parameters or validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the issue"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "INVALID_REQUEST",
+                            "INVALID_PARAMETERS"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "authError": {
+                    "value": {
+                      "error": {
+                        "message": "['apiKeyId not included in request']",
+                        "type": "INVALID_REQUEST",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "invalidNextToken": {
+                    "value": {
+                      "error": {
+                        "message": "Invalid nextToken",
+                        "type": "INVALID_PARAMETERS",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the server error"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "INTERNAL_SERVER_ERROR"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": {
+                    "message": "Error querying transactions",
+                    "type": "INTERNAL_SERVER_ERROR",
+                    "requestId": "abc123-def456-ghi789"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "dev-PublicApiLambdaAuthorizer": []
+          }
+        ]
+      }
+    },
+    "/transaction/bank-account/{id}": {
+      "get": {
+        "tags": [
+          "Transaction"
+        ],
+        "summary": "Get Bank Account Transactions",
+        "description": "Retrieves the paid transactions received by a bank account registered through [Register Bank Account](/docs/api/register-bank-account), 80 per page and newest first. This includes the CoDi QR and CoDi push notification transactions that were created with that `bankAccountId`. If there are more transactions, use the `nextToken` from the response to retrieve the next page. You can only retrieve transactions of bank accounts registered with your API key; accounts that do not exist or belong to another API key return a 404.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Pey identifier (ULID) of the bank account",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "nextToken",
+            "in": "query",
+            "required": false,
+            "description": "Pagination token returned by a previous request. Omit it to retrieve the first page",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Bank account transactions retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "description": "Up to 80 paid transactions of the bank account, newest first",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "Unique identifier (ULID) of the transaction"
+                          },
+                          "status": {
+                            "type": "string",
+                            "enum": [
+                              "PAID"
+                            ],
+                            "description": "Current status of the transaction. Only paid transactions are returned"
+                          },
+                          "amount": {
+                            "type": "number",
+                            "description": "Total amount of the transaction in MXN (Mexican Peso)"
+                          },
+                          "amountBreakdown": {
+                            "type": "object",
+                            "description": "Breakdown of the transaction amount. See [Amount Breakdown](/docs/types/amount-breakdown).",
+                            "properties": {
+                              "base": {
+                                "type": "number",
+                                "description": "Base amount of the transaction"
+                              },
+                              "tip": {
+                                "type": "number",
+                                "description": "Tip amount"
+                              },
+                              "fee": {
+                                "type": "number",
+                                "description": "Fee amount charged to the payer"
+                              }
+                            }
+                          },
+                          "currency": {
+                            "type": "string",
+                            "description": "ISO 4217 currency code of the transaction"
+                          },
+                          "paymentMethod": {
+                            "type": "string",
+                            "enum": [
+                              "CODI"
+                            ],
+                            "description": "Payment method used for the transaction"
+                          },
+                          "payableType": {
+                            "type": "string",
+                            "enum": [
+                              "API_CODI_QR",
+                              "API_CODI_PN"
+                            ],
+                            "description": "Type of resource that was paid with this transaction"
+                          },
+                          "payableId": {
+                            "type": "string",
+                            "description": "Identifier of the resource that was paid, if any"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "Description or concept of the transaction, if any"
+                          },
+                          "applicationFee": {
+                            "type": "number",
+                            "description": "Application fee charged on the transaction, if any"
+                          },
+                          "dateCreated": {
+                            "type": "integer",
+                            "description": "Unix timestamp when the transaction was created"
+                          },
+                          "datePaid": {
+                            "type": "integer",
+                            "description": "Unix timestamp when the transaction was paid (only present once paid)"
+                          },
+                          "metadata": {
+                            "type": "object",
+                            "description": "Additional information about the transaction. The fields present depend on the payment method and the flow used. See [Metadata Response](/docs/types/metadata-response).",
+                            "properties": {
+                              "externalMetadata": {
+                                "type": "object",
+                                "additionalProperties": {
+                                  "type": "string"
+                                },
+                                "description": "Custom key/value pairs provided when the CoDi QR or push notification was created (if set). All values are returned as strings."
+                              }
+                            },
+                            "additionalProperties": true
+                          }
+                        }
+                      }
+                    },
+                    "nextToken": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "Token to retrieve the next page of transactions. It is null when there are no more transactions"
+                    }
+                  }
+                },
+                "example": {
+                  "items": [
+                    {
+                      "id": "01HXYZTXN1234567890ABCDE00",
+                      "status": "PAID",
+                      "amount": 100,
+                      "amountBreakdown": {
+                        "base": 100
+                      },
+                      "currency": "MXN",
+                      "paymentMethod": "CODI",
+                      "payableType": "API_CODI_QR",
+                      "payableId": "AB12CD34EF",
+                      "applicationFee": 7.5,
+                      "dateCreated": 1704067200,
+                      "datePaid": 1704067260,
+                      "metadata": {
+                        "externalMetadata": {
+                          "orderId": "12345"
+                        }
+                      }
+                    }
+                  ],
+                  "nextToken": "eyJQSyI6ICJUWE4jMDFIWFlaVFhOMTIzNDU2Nzg5MEFCQ0RFMDAiLCAiU0siOiAiTUVUQURBVEEiLCAiR1NJNVBLIjogIlRYTiNERVNUSU5BVElPTl9BQ0NPVU5UI0FQSV9CQU5LX0FDQ09VTlQjMDFIWFlaQk5LMTIzNDU2Nzg5MEFCQ0RFRjAiLCAiR1NJNVNLIjogIlRYTiNQQUlEIzAxSFhZWlRYTjEyMzQ1Njc4OTBBQkNERTAwIn0="
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid parameters or validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the issue"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "INVALID_REQUEST",
+                            "INCOMPLETE_PARAMETERS",
+                            "INVALID_PARAMETERS"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "authError": {
+                    "value": {
+                      "error": {
+                        "message": "['apiKeyId not included in request']",
+                        "type": "INVALID_REQUEST",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "missingId": {
+                    "value": {
+                      "error": {
+                        "message": "Missing bank account ID in path",
+                        "type": "INCOMPLETE_PARAMETERS",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "invalidNextToken": {
+                    "value": {
+                      "error": {
+                        "message": "Invalid nextToken",
+                        "type": "INVALID_PARAMETERS",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found - Bank account does not exist or does not belong to your API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the issue"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "BANK_ACCOUNT_NOT_FOUND"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": {
+                    "message": "Bank Account not found",
+                    "type": "BANK_ACCOUNT_NOT_FOUND",
+                    "requestId": "abc123-def456-ghi789"
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable - The endpoint is temporarily under maintenance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the issue"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "SERVICE_UNAVAILABLE",
+                            "FLAGS_UNAVAILABLE"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "maintenance": {
+                    "value": {
+                      "error": {
+                        "message": "This endpoint is under maintenance, please try again later",
+                        "type": "SERVICE_UNAVAILABLE",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the server error"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "INTERNAL_SERVER_ERROR"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": {
+                    "message": "Error querying transactions",
+                    "type": "INTERNAL_SERVER_ERROR",
+                    "requestId": "abc123-def456-ghi789"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "dev-PublicApiLambdaAuthorizer": []
+          }
+        ]
+      }
+    },
+    "/transaction/codi/qr/{id}": {
+      "get": {
+        "tags": [
+          "Transaction"
+        ],
+        "summary": "Get CoDi QR Transactions",
+        "description": "Retrieves the details of the transactions of a CoDi QR code, 20 per page. You can only retrieve transactions of CoDi QR codes created with your API key. If there are more transactions, use the `nextToken` from the response to retrieve the next page. CoDi QR codes that do not exist or that belong to another API key return a 404.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The identifier (IDC) of the CoDi QR whose transactions you want to retrieve",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "nextToken",
+            "in": "query",
+            "required": false,
+            "description": "Pagination token returned by a previous request. Omit it to retrieve the first page",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "CoDi QR transactions retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "description": "Up to 20 transactions of the CoDi QR, newest first",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "Unique identifier (ULID) of the transaction"
+                          },
+                          "status": {
+                            "type": "string",
+                            "enum": [
+                              "PENDING",
+                              "PAID"
+                            ],
+                            "description": "Current status of the transaction"
+                          },
+                          "amount": {
+                            "type": "number",
+                            "description": "Total amount of the transaction in MXN (Mexican Peso)"
+                          },
+                          "amountBreakdown": {
+                            "type": "object",
+                            "description": "Breakdown of the transaction amount",
+                            "properties": {
+                              "base": {
+                                "type": "number",
+                                "description": "Base amount of the transaction"
+                              },
+                              "tip": {
+                                "type": "number",
+                                "description": "Tip amount"
+                              },
+                              "fee": {
+                                "type": "number",
+                                "description": "Fee amount charged to the payer"
+                              }
+                            }
+                          },
+                          "currency": {
+                            "type": "string",
+                            "description": "ISO 4217 currency code of the transaction"
+                          },
+                          "paymentMethod": {
+                            "type": "string",
+                            "enum": [
+                              "CODI"
+                            ],
+                            "description": "Payment method used for the transaction"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "Concept of the CoDi QR that was paid"
+                          },
+                          "applicationFee": {
+                            "type": "number",
+                            "description": "Application fee charged on the transaction, if any"
+                          },
+                          "dateCreated": {
+                            "type": "integer",
+                            "description": "Unix timestamp when the transaction was created"
+                          },
+                          "datePaid": {
+                            "type": "integer",
+                            "description": "Unix timestamp when the transaction was paid (only present once paid)"
+                          },
+                          "metadata": {
+                            "type": "object",
+                            "description": "Additional information about the transaction. The fields present depend on the payment method and the flow used. See [Metadata Response](/docs/types/metadata-response)."
+                          }
+                        }
+                      }
+                    },
+                    "nextToken": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "Token to retrieve the next page of transactions. It is null when there are no more transactions"
+                    }
+                  }
+                },
+                "example": {
+                  "items": [
+                    {
+                      "id": "01HXYZTXN1234567890ABCDE00",
+                      "status": "PAID",
+                      "amount": 100,
+                      "amountBreakdown": {
+                        "base": 100
+                      },
+                      "currency": "MXN",
+                      "paymentMethod": "CODI",
+                      "description": "Pago de servicio",
+                      "dateCreated": 1704067200,
+                      "datePaid": 1704067200,
+                      "metadata": {
+                        "clabe": "000000000000000000",
+                        "bankCode": 40012,
+                        "accountType": 40,
+                        "description": "Pago de servicio",
+                        "trackingKey": "0192191042",
+                        "externalMetadata": {
+                          "orderId": "12345",
+                          "customerEmail": "customer@example.com"
+                        }
+                      }
+                    }
+                  ],
+                  "nextToken": "eyJQSyI6ICJUWE4jMDFIWFlaVFhOMTIzNDU2Nzg5MEFCQ0RFMDAiLCAiU0siOiAiTUVUQURBVEEiLCAiR1NJNFBLIjogIlRYTiNQQVlBQkxFX1RZUEUjQVBJX0NPRElfUVIjMTIzNDU2Nzg5MCIsICJHU0k0U0siOiAiVFhOI1BBSUQjMDFIWFlaVFhOMTIzNDU2Nzg5MEFCQ0RFMDAifQ=="
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid parameters or validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the issue"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "INVALID_REQUEST",
+                            "INCOMPLETE_PARAMETERS",
+                            "INVALID_PARAMETERS"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "authError": {
+                    "value": {
+                      "error": {
+                        "message": "['apiKeyId not included in request']",
+                        "type": "INVALID_REQUEST",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "missingId": {
+                    "value": {
+                      "error": {
+                        "message": "Missing CoDi QR ID in path",
+                        "type": "INCOMPLETE_PARAMETERS",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  },
+                  "invalidNextToken": {
+                    "value": {
+                      "error": {
+                        "message": "Invalid nextToken",
+                        "type": "INVALID_PARAMETERS",
+                        "requestId": "abc123-def456-ghi789"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found - CoDi QR does not exist or does not belong to your API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the issue"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "NOT_FOUND"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": {
+                    "message": "CoDi QR not found",
+                    "type": "NOT_FOUND",
+                    "requestId": "abc123-def456-ghi789"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Error message describing the server error"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Error type identifier",
+                          "enum": [
+                            "INTERNAL_SERVER_ERROR"
+                          ]
+                        },
+                        "requestId": {
+                          "type": "string",
+                          "description": "Request ID for tracking and debugging purposes"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "error": {
+                    "message": "Error querying transactions",
+                    "type": "INTERNAL_SERVER_ERROR",
+                    "requestId": "abc123-def456-ghi789"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "dev-PublicApiLambdaAuthorizer": []
+          }
+        ]
+      }
+    }
+  },
+  "webhooks": {},
+  "components": {
+    "securitySchemes": {
+      "dev-PublicApiLambdaAuthorizer": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "API Key passed as a Bearer token in the Authorization header"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.pey.mx",
+      "description": "Production environment"
+    }
+  ]
+}

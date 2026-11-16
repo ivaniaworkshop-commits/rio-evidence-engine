@@ -1,0 +1,19 @@
+[project]
+name = "rio-pey-codi-platform"
+version = "0.6.3+integrada.20261108"
+requires-python = ">=3.11"
+dependencies = ["fastapi>=0.115,<1.0", "uvicorn>=0.30,<1.0", "pydantic>=2.0,<3.0", "email-validator>=2.0,<3.0", "sqlalchemy>=2.0,<3.0", "argon2-cffi>=23.0,<27.0", "psycopg[binary]>=3.2,<4.0", "alembic>=1.13,<2.0", "certifi>=2024.2.2", "cryptography>=42,<47", "qrcode[png]==8.2"]
+[project.optional-dependencies]
+test = ["pytest>=8,<10", "httpx>=0.27,<1.0", "jsonschema>=4.23,<5.0"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["rio_pey_codi"]
+
+[tool.setuptools.package-data]
+rio_pey_codi = ["static/*.html", "static/*.js", "static/*.css", "static/*.svg", "static/*.json", "static/unificada/*.js", "static/unificada/*.css", "static/unificada/caja/*.html", "static/unificada/caja/*.css", "static/unificada/caja/*.js", "static/unificada/mercado/*.html", "static/unificada/mercado/*.css", "static/unificada/mercado/*.js", "static/unificada/hackaton/*.html", "static/unificada/hackaton/*.css", "static/unificada/hackaton/*.js", "static/unificada/hackaton/*.json"]

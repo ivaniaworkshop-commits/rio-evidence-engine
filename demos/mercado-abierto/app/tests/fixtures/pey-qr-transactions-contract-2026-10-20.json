@@ -1,0 +1,113 @@
+{
+  "source_sha256": "497f48eb8047d88b1c8672fcb252eb8c7eee46546acaeb01440cfac8cd37335a",
+  "openapi": "3.1.1",
+  "version": "2026-10-20",
+  "path": "/transaction/codi/qr/{id}",
+  "method": "GET",
+  "parameters": [
+    {
+      "name": "id",
+      "in": "path",
+      "required": true,
+      "description": "The identifier (IDC) of the CoDi QR whose transactions you want to retrieve",
+      "schema": {
+        "type": "string"
+      }
+    },
+    {
+      "name": "nextToken",
+      "in": "query",
+      "required": false,
+      "description": "Pagination token returned by a previous request. Omit it to retrieve the first page",
+      "schema": {
+        "type": "string"
+      }
+    }
+  ],
+  "response_schema": {
+    "type": "object",
+    "properties": {
+      "items": {
+        "type": "array",
+        "description": "Up to 20 transactions of the CoDi QR, newest first",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Unique identifier (ULID) of the transaction"
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "PENDING",
+                "PAID"
+              ],
+              "description": "Current status of the transaction"
+            },
+            "amount": {
+              "type": "number",
+              "description": "Total amount of the transaction in MXN (Mexican Peso)"
+            },
+            "amountBreakdown": {
+              "type": "object",
+              "description": "Breakdown of the transaction amount",
+              "properties": {
+                "base": {
+                  "type": "number",
+                  "description": "Base amount of the transaction"
+                },
+                "tip": {
+                  "type": "number",
+                  "description": "Tip amount"
+                },
+                "fee": {
+                  "type": "number",
+                  "description": "Fee amount charged to the payer"
+                }
+              }
+            },
+            "currency": {
+              "type": "string",
+              "description": "ISO 4217 currency code of the transaction"
+            },
+            "paymentMethod": {
+              "type": "string",
+              "enum": [
+                "CODI"
+              ],
+              "description": "Payment method used for the transaction"
+            },
+            "description": {
+              "type": "string",
+              "description": "Concept of the CoDi QR that was paid"
+            },
+            "applicationFee": {
+              "type": "number",
+              "description": "Application fee charged on the transaction, if any"
+            },
+            "dateCreated": {
+              "type": "integer",
+              "description": "Unix timestamp when the transaction was created"
+            },
+            "datePaid": {
+              "type": "integer",
+              "description": "Unix timestamp when the transaction was paid (only present once paid)"
+            },
+            "metadata": {
+              "type": "object",
+              "description": "Additional information about the transaction. The fields present depend on the payment method and the flow used. See [Metadata Response](../types/metadata-response.md)."
+            }
+          }
+        }
+      },
+      "nextToken": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "Token to retrieve the next page of transactions. It is null when there are no more transactions"
+      }
+    }
+  }
+}
