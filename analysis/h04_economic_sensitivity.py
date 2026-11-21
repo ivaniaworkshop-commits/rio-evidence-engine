@@ -115,12 +115,13 @@ def main(argv=None):
         return 2
     try:
         path = Path(args[0])
-        data = path.read_bytes()
+        with path.open("rb") as source:
+            data = source.read(65537)
         if len(data) > 65536:
             raise ValueError("input exceeds 65536 bytes")
         payload = json.loads(data.decode("utf-8"), object_pairs_hook=_object_pairs)
         result = analyze(payload)
-    except (OSError, UnicodeError, ValueError, TypeError, ArithmeticError) as exc:
+    except (OSError, UnicodeError, ValueError, TypeError, ArithmeticError, RecursionError) as exc:
         print(json.dumps({"status": "HOLD", "reason": str(exc)}, ensure_ascii=False), file=sys.stderr)
         return 2
     print(json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True))

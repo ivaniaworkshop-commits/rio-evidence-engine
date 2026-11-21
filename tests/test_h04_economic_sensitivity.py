@@ -125,6 +125,28 @@ class H04Tests(unittest.TestCase):
             self.assertEqual(run.returncode, 2)
             self.assertEqual(json.loads(run.stderr)["status"], "HOLD")
 
+    def test_cli_extreme_depth_returns_hold_without_traceback(self):
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / "nested.json"
+            path.write_text("[" * 10000 + "0" + "]" * 10000, encoding="utf-8")
+            run = subprocess.run([sys.executable, str(SCRIPT), str(path)], cwd=ROOT, capture_output=True, text=True)
+            self.assertEqual(run.returncode, 2, run.stderr[:150])
+            self.assertEqual(json.loads(run.stderr)["status"], "HOLD")
+            self.assertNotIn("Traceback", run.stderr)
+
+    def test_cli_never_uses_unbounded_read_bytes(self):
+        from unittest.mock import patch
+        from contextlib import redirect_stderr
+        from io import StringIO
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / "oversized.json"
+            path.write_bytes(b" " * 65537)
+            err = StringIO()
+            with patch.object(Path, "read_bytes", side_effect=AssertionError("unbounded read")), redirect_stderr(err):
+                ret = main([str(path)])
+            self.assertEqual(ret, 2)
+            self.assertEqual(json.loads(err.getvalue())["status"], "HOLD")
+
     def test_cli_oversized_input_fail_closed(self):
         with tempfile.TemporaryDirectory() as temp:
             path = Path(temp) / "large.json"

@@ -48,8 +48,8 @@
     },
     {
       "path": "analysis/h04_economic_sensitivity.py",
-      "bytes": 5370,
-      "sha256": "91446d2f91e598d73e03d118397308126aa47ffa2a748213484dd19f3d160f00"
+      "bytes": 5431,
+      "sha256": "c6a20fb73bde0202b93ee06116fe8778a678b299d4d87bb94a83251cd0f1f452"
     },
     {
       "path": "competition/ACCEPTANCE.md",
@@ -863,8 +863,8 @@
     },
     {
       "path": "tests/test_h04_economic_sensitivity.py",
-      "bytes": 6083,
-      "sha256": "5f504640028403e861f3f34f82990e16228b5ab3e1104b874f012628e7a429d4"
+      "bytes": 7258,
+      "sha256": "141403317fd9345ff67c5c00e9b4a0b21eb662ff1efdb5bab6142a4599a2285e"
     },
     {
       "path": "tests/test_hybrid.py",
